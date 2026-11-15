@@ -1,3 +1,4 @@
+import {bidiElement} from './bidi-react.js';
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
 import catalogue from './courses.json';
@@ -6,7 +7,7 @@ import './style.css';
 import {orbitalFor} from './orbitals.js';
 const courses=catalogue.courses.filter(c=>c.topics?.length).map(c=>({...c,topics:c.topics.map(t=>({...t,...t.content,color:`color-mix(in srgb, ${wavelengthColor(t.spectrum.accentWave)} 65%, white)`,wave:t.spectrum.accentWave}))}));
 const readRoute=()=>decodeURIComponent(location.hash.slice(1));
-function Rich({text}){return <>{text.split(/([\u0590-\u05ff]+)/g).map((s,i)=>{if(!/[A-Za-z0-9]/.test(s))return <React.Fragment key={i}>{s}</React.Fragment>;const m=s.match(/^(\s*)(.*?)(\s*)$/s);let body=m[2],tail='';const punct=body.match(/(\s+[-:]+|[.,!?;:]+)$/);if(punct){tail=punct[0];body=body.slice(0,-tail.length)}return <React.Fragment key={i}>{m[1]}<bdi dir="ltr">{body}</bdi>{tail}{m[3]}</React.Fragment>})}</>}
+function Rich({text}){return <>{text}</>}
 
 function Spectrum({topic,large=false}){return <div className={'spectrum '+(large?'large':'')} aria-label={'קווי פליטה של '+topic.spectrum.name}><span className="spectrum-baseline"/>{topic.spectrum.lines.map((w,i)=><i key={w} title={w+' nm'} style={{left:`${6+(w-400)/300*88}%`,background:wavelengthColor(w),color:wavelengthColor(w),height:large?`${35+(i%3)*23}%`:undefined}}/>)}</div>}
 function Atom({topics,progress,onSelect}){const complete=topics.filter(t=>progress[t.id]?.complete).length;

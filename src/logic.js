@@ -24,3 +24,12 @@ export function loadCourseProgress(storage,courses){
  return all;
 }
 export function parseRoute(hash,courses){const parts=hash.replace(/^#/,'').split('/').filter(Boolean);if(parts[0]==='course'){const course=courses.find(c=>c.id===parts[1]);return {course:course||null,topicId:parts[2]||null,invalid:!course||!!parts[2]&&!course.topics.some(t=>t.id===parts[2])}}const legacy=courses.find(c=>c.id==='84102');if(legacy?.topics.some(t=>t.id===parts[0]))return {course:legacy,topicId:parts[0],invalid:false};return {course:null,topicId:null,invalid:parts.length>0}}
+
+// Reset progress from this app only, including old course versions and legacy
+// migration data. Never clear another app's storage on the same origin.
+export function clearAllProgress(storage){
+ const keys=[];for(let i=0;i<storage.length;i++){const k=storage.key(i);if(k==='spectra-progress-v1'||/^spectra-course-.+-progress-v\d+$/.test(k))keys.push(k)}
+ const snapshot=keys.map(k=>[k,storage.getItem(k)]);
+ try{for(const k of keys)storage.removeItem(k)}catch(error){for(const [k,v] of snapshot)try{if(v!==null)storage.setItem(k,v)}catch{}throw error}
+ return keys.length;
+}

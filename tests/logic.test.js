@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {parseNumber,numericCorrect,configuration,loadProgress,wavelengthColor} from '../src/logic.js';
+const topics=JSON.parse(fs.readFileSync(new URL('../src/content.json',import.meta.url)));
+test('all ten packs, priority, 57 questions and complete content',()=>{assert.deepEqual(topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4']);assert.equal(topics.flatMap(t=>t.quiz).length,57);for(const t of topics){assert.ok(t.theory.length>3);assert.ok(t.worked.length>=3);assert.ok(t.spectrum.lines.length>=3);for(const q of t.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct],t.id+' '+q.id)}}}});
+test('scientific notation, unicode exponents, negatives and invalid input',()=>{for(const s of ['1.9e16','1.9×10^16','1.9×10¹⁶','1.9 * 10^16'])assert.equal(parseNumber(s),1.9e16);assert.equal(parseNumber('−6.04'),-6.04);assert.equal(parseNumber('10^-9'),1e-9);for(const s of ['', '5abc', '1/0','1;alert(1)'])assert.ok(Number.isNaN(parseNumber(s)))});
+test('numeric marking requires unit and accepts rounded answer',()=>{const f=[{value:4,unit:'eV'}];assert.ok(numericCorrect(['4'],['eV'],f));assert.ok(!numericCorrect(['4'],['J'],f));assert.ok(!numericCorrect(['5'],['eV'],f));assert.ok(numericCorrect(['3.96e-12'],['m'],[{value:3.96e-12,unit:'m'}]))});
+test('Aufbau progress fills 1s, 2s, 2p',()=>{assert.deepEqual(configuration(0),[]);assert.deepEqual(configuration(3),[['1s',2],['2s',1]]);assert.deepEqual(configuration(10),[['1s',2],['2s',2],['2p',6]])});
+test('bad storage recovers, existing storage loads',()=>{assert.deepEqual(loadProgress({getItem:()=>'{oops'}),{});assert.deepEqual(loadProgress({getItem:()=>'{"P7":{"complete":true}}'}),{P7:{complete:true}});assert.deepEqual(loadProgress({getItem:()=>{throw Error('blocked')}}),{})});
+test('physical source wavelengths and corrected P10 example',()=>{for(const t of topics){assert.match(t.spectrum.source,/^https:\/\/physics.nist.gov\//);for(const w of t.spectrum.lines){assert.ok(w>=400&&w<=700);assert.match(wavelengthColor(w),/^rgb\(/)}}const ex=topics.find(t=>t.id==='P10').worked[1].content.join(' ');assert.match(ex,/13-18/);assert.match(ex,/הערת תיקון/)});

@@ -20,7 +20,7 @@ npm run dev
 
 ## מה כלול
 
-כל עשר החבילות הועברו לנתונים מובנים ב-`src/content.json`, בסדר הלימוד שנבחר:
+כל עשר החבילות הועברו לנתונים מובנים ב-`src/courses.json`, בסדר הלימוד שנבחר:
 
 P7 → P9 → P10 → P3 → P2 → P5 → P6 → P8 → P1 → P4.
 
@@ -54,7 +54,7 @@ npm run preview   # תצוגה מקומית של build
 npm test          # בדיקות נתונים, חישוב ושמירה
 ```
 
-`src/main.jsx` - רכיבי הממשק; `src/style.css` - עיצוב ו-RTL; `src/logic.js` - לוגיקת בדיקה, צבע ושמירה; `src/content.json` - כל חומר הלימוד. קובץ נעילה מצורף. אין תלות ב-Python בזמן התקנה או הפעלה.
+`src/main.jsx` - רכיבי הממשק; `src/style.css` - עיצוב ו-RTL; `src/logic.js` - לוגיקת בדיקה, צבע ושמירה; `src/courses.json` - כל חומר הלימוד. קובץ נעילה מצורף. אין תלות ב-Python בזמן התקנה או הפעלה.
 
 הקוד נמצא במאגר GitHub שנוצר עבור הפרויקט. האתר מופץ דרך GitHub Pages מתוצרי build שנבנים מקומית ונשלחים לענף gh-pages, ללא GitHub Actions. אין רכיב שרת בפרויקט.
 
@@ -70,3 +70,22 @@ npm test          # בדיקות נתונים, חישוב ושמירה
 - K: https://physics.nist.gov/PhysRefData/Handbook/Tables/potassiumtable2_a.htm
 - Ca: https://physics.nist.gov/PhysRefData/Handbook/Tables/calciumtable2_a.htm
 - Rb: https://physics.nist.gov/PhysRefData/Handbook/Tables/rubidiumtable2_a.htm
+
+## תמונות אורביטלים ורישוי
+
+שלוש הדמיות תלת־ממד של Benjah-bmm27 מתוך Wikimedia Commons, כולן שוחררו על ידי היוצר לנחלת הכלל בכל העולם (PD-user). דפי הקובץ והרישוי נבדקו ב-15 בנובמבר 2026. קובצי המקור נכללים מקומית ללא שינוי פיקסלים; מסגרת וזוהר CSS סביבם מותאמים לפלטת הנושא. אין תלות ברשת להורדת התמונות בעת שימוש באתר. הקרדיט ומקור הקובץ נגישים גם ליד כל תמונה, ומטא־דאטה נמצא ב-public/orbitals/credits.json.
+
+- כדור 2s: [Atomic-orbital-2s-3D-phaseless.png](https://commons.wikimedia.org/wiki/File:Atomic-orbital-2s-3D-phaseless.png)
+- משקולת 2px: [Atomic-orbital-2px-3D-phaseless.png](https://commons.wikimedia.org/wiki/File:Atomic-orbital-2px-3D-phaseless.png)
+- תלתן 3d x²-y²: [Atomic-orbital-3dx2-y2-3D-phaseless.png](https://commons.wikimedia.org/wiki/File:Atomic-orbital-3dx2-y2-3D-phaseless.png)
+
+המשטחים הם הדמיות סכמטיות, לא צילומי אטומים ולא מסלולי אלקטרונים. אין קנה מידה. הקבצים נטולי סימון פאזה, ואינם מציגים את כל הנודות הרדיאליות. ה-2s הוקצה לדיוני s, מיסוך ו-XPS; ה-2px לאכלוס, חריגות יינון, נודות ודואליות; ה-3d למספרים קוונטיים. בכל עמוד יש הסבר קצר לקשר לנושא. התמונות אינן המחשה של גוון פליטה פיזיקלי; מסגרת הספקטרום נפרדת מצורת האורביטל.
+
+
+## מבנה רב־קורסי
+
+הנתונים בנויים `courses -> topics -> content`. הקורס הקיים היחיד הוא כימיה אי־אורגנית, 84102. דף הבית הוא בורר קורסים, ומפת האטום נמצאת תחת `#course/84102`. כתובת נושא לדוגמה: `#course/84102/P7`. קישורי v1 כגון `#P7` עדיין עובדים.
+
+להוספת קורס: מוסיפים רשומה למערך `courses` בקובץ `src/courses.json`, עם מזהה ייחודי, שם, תיאור, גוון accent ומערך topics. בכל נושא יש מטא־דאטה, spectrum (כולל accentWave), נתוני orbital אופציונליים ו-content המכיל theory/worked/quiz. אין צורך לשנות נתב או רכיבי מסך. אפשר למחזר מזהי נושא כמו P1 בקורס אחר: הבחירה, האטום וההתקדמות מופרדים לפי מזהה הקורס. אין כרטיסים לקורסים עתידיים ללא תוכן.
+
+שמירה: `spectra-course-<course-id>-progress-v1` לכל קורס. התקדמות v1 קיימת מועתקת פעם אחת לכימיה אי־אורגנית, רק אם אין כבר נתונים עבור הקורס. המקור הישן אינו נמחק. איפוס מתוך קורס מאפס רק אותו, בלי למחוק קורסים אחרים. שינוי משמעותי במזהי קורס או שאלות מחייב תכנון הגירת נתונים.

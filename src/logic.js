@@ -14,5 +14,13 @@ export function parseNumber(input){
  return Number(s);
 }
 export function numericCorrect(values,units,fields){return fields.every((f,i)=>{const n=parseNumber(values[i]);return Number.isFinite(n)&&Math.abs(n-f.value)<=Math.max(Math.abs(f.value)*.015,1e-30)&&units[i]===f.unit})}
-export function loadProgress(storage){try{const data=JSON.parse(storage.getItem('spectra-progress-v1')||'{}');return data&&typeof data==='object'&&!Array.isArray(data)?data:{}}catch{return {}}}
-export function configuration(n){return [['1s',Math.min(n,2)],['2s',Math.min(Math.max(n-2,0),2)],['2p',Math.max(n-4,0)]].filter(x=>x[1]>0)}
+export function loadProgress(storage,key='spectra-progress-v1'){try{const data=JSON.parse(storage.getItem(key)||'{}');return data&&typeof data==='object'&&!Array.isArray(data)?data:{}}catch{return {}}}
+export function configuration(n){let left=Math.max(0,n);const result=[];for(const [shell,capacity] of [['1s',2],['2s',2],['2p',6],['3s',2],['3p',6],['4s',2],['3d',10],['4p',6],['5s',2],['4d',10],['5p',6],['6s',2],['4f',14],['5d',10],['6p',6],['7s',2],['5f',14],['6d',10],['7p',6]]){if(!left)break;const count=Math.min(left,capacity);result.push([shell,count]);left-=count}return result}
+
+export const courseProgressKey=id=>'spectra-course-'+id+'-progress-v1';
+export function loadCourseProgress(storage,courses){
+ const all={};
+ for(const course of courses){const key=courseProgressKey(course.id);all[course.id]=loadProgress(storage,key);try{if(course.id==='84102'&&!storage.getItem(key)){const old=storage.getItem('spectra-progress-v1');if(old){all[course.id]=loadProgress(storage);storage.setItem(key,JSON.stringify(all[course.id]));}}}catch{}}
+ return all;
+}
+export function parseRoute(hash,courses){const parts=hash.replace(/^#/,'').split('/').filter(Boolean);if(parts[0]==='course'){const course=courses.find(c=>c.id===parts[1]);return {course:course||null,topicId:parts[2]||null,invalid:!course||!!parts[2]&&!course.topics.some(t=>t.id===parts[2])}}const legacy=courses.find(c=>c.id==='84102');if(legacy?.topics.some(t=>t.id===parts[0]))return {course:legacy,topicId:parts[0],invalid:false};return {course:null,topicId:null,invalid:parts.length>0}}

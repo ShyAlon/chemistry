@@ -10,4 +10,5 @@ function renderTree(nodes,inline=false){return nodes.map((n,i)=>{if(typeof n==='
 const normalizeChild=child=>typeof child==='string'?renderTree(isolateTree(normalizeBidiText(child))):Array.isArray(child)?child.map(normalizeChild):child;
 // The default JSX display boundary covers content and UI labels. Machine values,
 // accessible names, identifiers and links stay raw. No DOM rewriting is used.
-export function bidiElement(type,props,...children){return React.createElement(type,props,...children.map(normalizeChild))}
+const inlineChild=child=>typeof child==='string'?normalizeBidiText(child):Array.isArray(child)?child.map(inlineChild):child;
+export function bidiElement(type,props,...children){const render=type==='text'||type==='tspan'?inlineChild:normalizeChild;return React.createElement(type,props,...children.map(render))}

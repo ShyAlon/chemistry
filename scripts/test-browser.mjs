@@ -69,7 +69,7 @@ try{
      assert.ok(await js(`(()=>{const a=document.querySelector('.pt-scroll').getBoundingClientRect(),b=document.querySelector('.pt-cell[aria-label$=", 118"]').getBoundingClientRect();return b.right<=a.right&&b.left>=a.left})()`));
     }
     await js(`document.querySelector('.pt-cell[aria-label$=", 26"]').click()`);
-    await ready('.pt-step:not(:disabled)');
+    await ready('[aria-label="הסר אלקטרון"]:not(:disabled)');
     for(let j=0;j<2;j++){await js(`document.querySelector('[aria-label="הסר אלקטרון"]').click();new Promise(r=>requestAnimationFrame(r))`)}
     assert.ok(await js(`document.querySelector('.pt-ion').textContent.includes('24 אלקטרונים')`));
     await js(`document.querySelector('.pt-neutral').click();new Promise(r=>requestAnimationFrame(r))`);
@@ -105,12 +105,63 @@ try{
   const sub=await js(`[...document.querySelectorAll('sub')].map(e=>e.textContent)`);assert.ok(sub.includes('vap'));assert.ok(sub.includes('A'));
   if([390,667,1280].includes(width))await shot('notation-'+width);
  }
+ // Scroll-linked shared header: visible navigation, compact geometry and return to full size.
+ for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.theory');
+  await js(`window.scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  const full=await js(`document.querySelector('.header').getBoundingClientRect().height`);
+  await js(`window.scrollTo(0,200);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  const compact=await js(`(()=>{const h=document.querySelector('.header').getBoundingClientRect();return {height:h.height,top:h.top,actions:[...document.querySelectorAll('.header-tools>.quiet,.avatar-trigger')].map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:r.height,left:r.left,right:r.right}})}})()`);
+  assert.equal(compact.top,0);if(height>520)assert.ok(compact.height<full);else assert.equal(compact.height,full);
+  for(const r of compact.actions){assert.ok(r.height>=44);assert.ok(r.top>=-1&&r.bottom<=compact.height+1);assert.ok(r.left>=0&&r.right<=width)}
+  await shot('header-compact-'+width);
+  await js(`window.scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);assert.equal(await js(`document.querySelector('.header').getBoundingClientRect().height`),full);
+  await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await js(`window.scrollTo(0,200);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);assert.equal(await js(`getComputedStyle(document.documentElement).getPropertyValue('--scroll-progress')`),'1');
+  await call('Emulation.setEmulatedMedia',{features:[]});
+ }
+ // Desktop-first stationary workspace, real wheel isolation and exact narrow-screen return.
+ for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.pt-cell');
+  await js(`window.scrollTo(0,document.querySelector('.pt-workspace-anchor').getBoundingClientRect().top+scrollY-document.querySelector('.header').getBoundingClientRect().height-12);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  await js(`window.scrollTo(0,document.querySelector('.pt-workspace-anchor').getBoundingClientRect().top+scrollY-document.querySelector('.header').getBoundingClientRect().height-12);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  const saved=await js(`JSON.stringify(localStorage)`);
+  await js(`document.querySelector('.pt-scroll').scrollLeft=250;document.querySelector('.pt-scroll').scrollTop=30;document.querySelector('.pt-cell[aria-label$=", 29"]').click()`);
+  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+  const usable=await js(`({top:document.querySelector('.pt-layout').getBoundingClientRect().top,header:document.querySelector('.header').getBoundingClientRect().bottom})`);assert.ok(usable.top>=usable.header,JSON.stringify({width,usable}));
+  const before=await js(`(()=>{const e=document.querySelector('.pt-scroll');return {x:e.scrollLeft,y:e.scrollTop,rect:e.getBoundingClientRect().toJSON(),page:scrollY}})()`);
+  if(width<1280){assert.ok(await js(`document.activeElement===document.querySelector('.pt-pane-heading button')`));assert.ok(await js(`document.querySelector('.pt-main').inert`))}
+  const point=await js(`(()=>{const r=document.querySelector('.pt-detail').getBoundingClientRect();return {x:r.right-40,y:Math.min(innerHeight-100,r.top+200)}})()`);
+  await call('Input.dispatchMouseEvent',{type:'mouseMoved',...point});await call('Input.dispatchMouseEvent',{type:'mouseWheel',...point,deltaY:700,deltaX:0});
+  await js('new Promise(r=>setTimeout(r,150))');
+  const after=await js(`(()=>{const e=document.querySelector('.pt-scroll');return {x:e.scrollLeft,y:e.scrollTop,rect:e.getBoundingClientRect().toJSON(),page:scrollY,detail:document.querySelector('.pt-detail').scrollTop}})()`);
+  assert.ok(after.detail>0);assert.equal(after.x,before.x);assert.equal(after.y,before.y);assert.deepEqual(after.rect,before.rect);assert.equal(after.page,before.page);
+  await shot('workspace-details-'+width);
+  if(width<1280){
+   await js(`document.querySelector('.pt-pane-heading button').click();new Promise(r=>requestAnimationFrame(r))`);
+   assert.ok(await js(`document.activeElement===document.querySelector('.pt-cell[aria-label$=", 29"]')`));
+   assert.ok(!await js(`document.querySelector('.pt-main').inert`));assert.equal(await js(`document.querySelector('.pt-scroll').scrollLeft`),before.x);assert.equal(await js(`document.querySelector('.pt-scroll').scrollTop`),before.y);
+   await shot('workspace-table-'+width);
+   await js(`document.querySelector('.pt-open-details').click();new Promise(r=>requestAnimationFrame(r))`);
+   await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape'});
+   assert.equal(await js(`document.querySelector('.pt-layout').dataset.detailsOpen`),'false');
+  }else{
+   const table=await js(`document.querySelector('.pt-scroll').getBoundingClientRect().toJSON()`);
+   await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:table.left+100,y:table.top+100,deltaY:600,deltaX:0});await js('new Promise(r=>setTimeout(r,100))');assert.equal(await js('scrollY'),before.page);
+   await shot('workspace-table-'+width);
+  }
+  assert.equal(await js(`JSON.stringify(localStorage)`),saved);
+ }
+ console.log('Shrinking-header/workspace gates passed: 6 viewports, all navigation visible, return/reduced motion, real wheel isolation, exact table offsets/focus return, inert hidden pane and unchanged storage.');
  // Source disclosures: real mouse, keyboard and touch paths, with viewport bounds.
  const key=async key=>{await call('Input.dispatchKeyEvent',{type:'keyDown',key,code:key});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code:key})};
  const bounds=async()=>{const r=await js(`(()=>{const e=document.querySelector('.source-popover'),r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,font:parseFloat(getComputedStyle(e).fontSize),scroll:e.scrollHeight,client:e.clientHeight}})()`);assert.ok(r.left>=11&&r.right<=await js('innerWidth-11'),JSON.stringify(r));assert.ok(r.top>=11&&r.bottom<=await js('innerHeight-11'),JSON.stringify(r));assert.ok(r.font>=18);return r};
  for(const [width,height] of [[320,800],[375,800],[390,800],[667,375],[1280,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
+  if(width<1280){await js(`document.querySelector('.pt-open-details').click()`);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')}
   assert.equal(await js(`document.querySelectorAll('.pt-facts dd .source-trigger').length`),0,'Value rows must not contain icons');
   const anchors=await js(`(()=>{return [...document.querySelectorAll('.pt-facts dt:has(.source-tooltip)')].map(e=>{const r=document.createRange();r.selectNodeContents(e);r.setEndBefore(e.querySelector('.source-tooltip'));const t=r.getBoundingClientRect(),i=e.querySelector('.source-trigger span').getBoundingClientRect();return {sameRow:i.top>=t.top-3&&i.bottom<=t.bottom+3,noOverlap:i.right<=t.left||i.left>=t.right}})})()`);assert.ok(anchors.every(a=>a.sameRow&&a.noOverlap),JSON.stringify(anchors));
 

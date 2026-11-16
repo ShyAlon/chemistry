@@ -1,7 +1,7 @@
 import {bidiElement} from './bidi-react.js';
 import {SourceTooltip} from './SourceTooltip.jsx';
 import {mathNotation as sub} from './math-notation.js';
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import catalogue from './courses.json';
 import {elements} from './reference-data.js';
 import {ionState} from './ions.js';
@@ -86,9 +86,14 @@ function ConfigurationNote({e,q,st}){
 }
 function valence(e){if(e.b==='s'&&e.g<=2)return e.z===2?2:e.g;if(e.b==='p')return e.g-10;return null}
 function Periodic(){
- const [mode,setMode]=useState('cat');const [sel,setSelRaw]=useState(elements[0]);const [q,setQ]=useState(0);const [ions,setIons]=useState(null);
+ const [mode,setMode]=useState('cat');const [sel,setSelRaw]=useState(elements[0]);const [q,setQ]=useState(0);const [ions,setIons]=useState(null);const [detailsOpen,setDetailsOpen]=useState(false);const [narrow,setNarrow]=useState(()=>matchMedia('(max-width:1279px)').matches);const workspaceAnchor=useRef(null),workspace=useRef(null),returnButton=useRef(null),detailsButton=useRef(null),lastCell=useRef(null);
  useEffect(()=>{let on=true;import('./ion-data.js').then(m=>{if(on)setIons(m.ions)});return()=>{on=false}},[]);
- const setSel=e=>{setSelRaw(e);setQ(0)};
+ useEffect(()=>{const mq=matchMedia('(max-width:1279px)');const change=()=>setNarrow(mq.matches);mq.addEventListener('change',change);return()=>mq.removeEventListener('change',change)},[]);
+ const alignWorkspace=()=>{if(narrow)requestAnimationFrame(()=>{const align=()=>{const top=workspaceAnchor.current.getBoundingClientRect().top+scrollY-document.querySelector('.header').getBoundingClientRect().height-12;window.scrollTo({top,behavior:'instant'})};align();requestAnimationFrame(align)})};
+ const openDetails=()=>{setDetailsOpen(true);alignWorkspace()};
+ const closeDetails=()=>{setDetailsOpen(false);alignWorkspace();requestAnimationFrame(()=>{(lastCell.current||detailsButton.current)?.focus({preventScroll:true})})};
+ useEffect(()=>{if(narrow&&detailsOpen){workspace.current?.querySelector('.pt-detail')?.scrollTo(0,0);returnButton.current?.focus({preventScroll:true})}},[detailsOpen,narrow,sel.z]);
+ const setSel=(e,button)=>{lastCell.current=button;setSelRaw(e);setQ(0);openDetails()};
  const cur=ionState(sel,q,ions),up=ionState(sel,q-1,ions),down=ionState(sel,q+1,ions);
  const ok=t=>t.kind==='measured'||t.kind==='predicted'||t.kind==='nist'||t.kind==='derived'||t.kind==='model';
  const canAdd=ok(up),canRemove=ok(down);
@@ -98,15 +103,15 @@ function Periodic(){
  const v=valence(sel);
  return <Shell title={<>הטבלה המחזורית<SourceTooltip label="מקורות והערות לטבלה המחזורית"><p>מספרי הטורים בשורה העליונה.</p><p>מסות אטומיות: הערכים המקוצרים (abridged) של CIAAW, עם אי־הוודאות שלהם. בליתיום, בור, פחמן, חנקן, חמצן, גופרית, כלור ועופרת (ובעוד יסודות) ההרכב האיזוטופי משתנה בטבע, ולכן המסה תלויה בדגימה. ייתכן שבקורס מעגלים אחרת, ולחישובים יש להשתמש בערכי הקורס.</p><p>ביסודות ללא איזוטופ יציב אין משקל אטומי תקני, ומוצג מספר המסה של האיזוטופ ארוך החיים בסוגריים מרובעים.</p><p>קונפיגורציות: מצב היסוד לפי NIST, כולל החריגים (למשל Cr ו־Cu), עד יסוד 103. אלקטרושליליות לפי סולם פאולינג, מ־PubChem, ליסודות עד 92 בלבד.</p><p>שמות עבריים: לפי מאגר המונחים של האקדמיה ללשון העברית (מילון הכימיה האי־אורגנית, תש"ם 1979). ליסודות 104 עד 118 לא נמצא שם באקדמיה, ולכן מוצג השם באנגלית.</p><p>מקורות: <bdi dir="ltr">ciaaw.org</bdi>, <bdi dir="ltr">physics.nist.gov/PhysRefData/ASD</bdi>, <bdi dir="ltr">pubchem.ncbi.nlm.nih.gov</bdi>, <bdi dir="ltr">terms.hebrew-academy.org.il</bdi>.</p></SourceTooltip></>}>
   <div className="ref-tabs" role="tablist" aria-label="צביעה">{[['cat','קטגוריות'],['block','בלוקים'],['en','אלקטרושליליות']].map(([k,l])=><button key={k} role="tab" aria-selected={mode===k} className={mode===k?'on':''} onClick={()=>setMode(k)}>{l}</button>)}</div>
-  <div className="pt-layout">
-  <section className="panel pt-detail" aria-live="polite"><div className="pt-big" style={{background:cellColor(sel,mode)}}><span className="pt-z">{sel.z}</span><span className="pt-sym" dir="ltr">{sel.s}</span></div>
+  <div ref={workspaceAnchor} className="pt-workspace-anchor" aria-hidden="true"/><div ref={workspace} className="pt-layout" data-details-open={detailsOpen} onKeyDown={e=>{if(e.key==='Escape'&&!e.defaultPrevented&&!e.target.closest('.source-tooltip,.source-popover')&&narrow&&detailsOpen){e.preventDefault();closeDetails()}}}>
+  <section className="panel pt-detail" aria-label="פרטי היסוד - גלילה נפרדת" tabIndex={0} inert={narrow&&!detailsOpen?true:undefined} aria-live="polite"><div className="pt-pane-heading"><strong>פרטי היסוד <bdi>{sel.s}</bdi></strong><button ref={returnButton} className="secondary" onClick={closeDetails}>חזרה לטבלה →</button></div><div className="pt-big" style={{background:cellColor(sel,mode)}}><span className="pt-z">{sel.z}</span><span className="pt-sym" dir="ltr">{sel.s}</span></div>
    <dl className="pt-facts"><div><dt>שם</dt><dd>{sel.he?<>{sel.he} <bdi dir="ltr" className="fx">({sel.n})</bdi></>:<bdi dir="ltr" className="fx">{sel.n} ({sel.s})</bdi>}</dd></div><div><dt>{sel.m?'מסה אטומית (g/mol)':'מספר מסה'}<SourceTooltip label={sel.m?'מקור המסה האטומית':'מקור מספר המסה'}>{sel.m?'ערך מקוצר, CIAAW':<>אין משקל אטומי תקני. זה מספר המסה של האיזוטופ ארוך החיים{sel.mn.length>1?' (יותר מאיזוטופ אחד באורך חיים דומה)':''}, לפי CIAAW</>}</SourceTooltip></dt><dd>{sel.m?<><bdi dir="ltr" className="fx">{sel.m} ± {sel.u}</bdi></>:<><bdi dir="ltr" className="fx">{sel.mn.map(n=>`[${n}]`).join(' / ')}</bdi></>}</dd></div><div className="pt-cfg"><dt>קונפיגורציה<ConfigurationNote e={sel} q={q} st={cur}/></dt><dd><Config e={sel} q={q} ions={ions}/>{(cur.kind==='derived'||cur.kind==='model')&&<small className="pt-state-tag">מודל לימודי</small>}{cur.kind==='predicted'&&<small className="pt-state-tag">מחושב</small>}</dd></div><div className="pt-ion"><dt>מטען ואלקטרונים</dt><dd><bdi dir="ltr" className="fx">{chargeLabel(sel.s,q)}</bdi>{cur.cfg&&<small>{sel.z-q} אלקטרונים</small>}<span className="pt-btns"><button className="pt-step" onClick={()=>setQ(q-1)} disabled={!canAdd} aria-label="הוסף אלקטרון">+</button><button className="pt-step" onClick={()=>setQ(q+1)} disabled={!canRemove} aria-label="הסר אלקטרון">−</button>{q!==0&&<button className="pt-step pt-neutral" onClick={()=>setQ(0)}>אטום ניטרלי</button>}</span>{!canAdd&&cur.cfg&&<small>הוספה: {blockedNote(sel,q-1,up)}</small>}{!canRemove&&cur.cfg&&<small>הסרה: {blockedNote(sel,q+1,down)}</small>}</dd></div><div><dt>שורה / טור</dt><dd><bdi dir="ltr" className="fx">{sel.b==='f'?`${sel.p>=9?sel.p-3:sel.p} / f`:`${sel.p} / ${sel.g}`}</bdi></dd></div><div><dt>קטגוריה</dt><dd>{catNames[sel.cat]}, {blockNames[sel.b]}</dd></div>{v&&<div><dt>אלקטרוני ערכיות</dt><dd><bdi dir="ltr" className="fx">{v}</bdi></dd></div>}{sel.en&&<div><dt>אלקטרושליליות (פאולינג)</dt><dd><bdi dir="ltr" className="fx">{sel.en}</bdi></dd></div>}</dl></section>
-  <div className="pt-main">
+  <div className="pt-main" inert={narrow&&detailsOpen?true:undefined}><button ref={detailsButton} className="secondary pt-open-details" aria-expanded={detailsOpen} onClick={openDetails}>פרטי היסוד <bdi>{sel.s}</bdi> ←</button>
   <div className="pt-legend">{legend.map(([c,l])=><span key={l}><i style={{background:c}}/>{l}</span>)}</div>
   <p className="pt-scroll-hint">במסך צר אפשר לגלול את הטבלה הצידה כדי לראות את כל 18 הטורים.</p>
   <div className="pt-scroll" tabIndex={0} aria-label="טבלה מחזורית, אפשר לגלול הצידה"><div className="pt-grid">
    {[...Array(18)].map((_,i)=><div key={'h'+i} className="pt-head" style={{gridRow:1,gridColumn:i+1}}>{i+1}</div>)}
-   {elements.map(e=>{const row=e.p+1;return <button key={e.z} className={'pt-cell'+(sel.z===e.z?' sel':'')} style={{gridRow:row,gridColumn:e.g,background:cellColor(e,mode)}} onClick={()=>setSel(e)} aria-label={`${e.he||e.n}, ${e.z}`}><span className="pt-z">{e.z}</span><span className="pt-sym" dir="ltr">{e.s}</span></button>})}
+   {elements.map(e=>{const row=e.p+1;return <button key={e.z} className={'pt-cell'+(sel.z===e.z?' sel':'')} style={{gridRow:row,gridColumn:e.g,background:cellColor(e,mode)}} onClick={event=>setSel(e,event.currentTarget)} aria-label={`${e.he||e.n}, ${e.z}`}><span className="pt-z">{e.z}</span><span className="pt-sym" dir="ltr">{e.s}</span></button>})}
    {marker(7,3,'57–71')}{marker(8,3,'89–103')}
   </div></div>
   </div>

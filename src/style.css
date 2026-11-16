@@ -144,10 +144,10 @@ h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-to
 .avatar-menu{top:calc(var(--chrome-header) + 4px)}
 html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:calc(var(--chrome-footer) + 12px)}
 .pt-layout{position:sticky;top:calc(var(--chrome-header) + 12px);height:calc(100dvh - var(--chrome-header) - var(--chrome-footer) - 24px);min-height:0;align-items:stretch;grid-template-columns:minmax(0,1fr) 240px;direction:ltr}
-.pt-layout>.pt-detail{order:2;direction:rtl;display:block;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.pt-layout>.pt-detail{order:2;direction:rtl;display:block;min-height:0;overflow:auto;overscroll-behavior-x:contain;overscroll-behavior-y:auto;scrollbar-gutter:stable}
 .pt-layout>.pt-detail .pt-facts{display:grid;grid-template-columns:1fr;min-width:0;width:100%;margin-top:16px}
 .pt-layout>.pt-main{order:1;direction:rtl;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.pt-scroll{overflow:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
+.pt-scroll{overflow:auto;min-height:0;overscroll-behavior-x:contain;overscroll-behavior-y:auto;scrollbar-gutter:stable}
 .pt-legend{flex-shrink:0}
 .pt-scroll-hint{flex-shrink:0}
 @media(max-width:800px){:root{--header-base:72px;--header-shrink:8px}.header .brand{font-size:calc(24px - 3px*var(--scroll-progress))}.header .brand-sub{font-size:8px}}

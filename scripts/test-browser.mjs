@@ -106,7 +106,7 @@ try{
   if([390,667,1280].includes(width))await shot('notation-'+width);
  }
  // Scroll-linked shared header: visible navigation, compact geometry and return to full size.
- for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900]]){
+ for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900],[1366,650]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.theory');
   await js(`window.scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
@@ -122,7 +122,7 @@ try{
   await call('Emulation.setEmulatedMedia',{features:[]});
  }
  // Desktop-first stationary workspace, real wheel isolation and exact narrow-screen return.
- for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900]]){
+ for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900],[1366,650]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.pt-cell');
   await js(`window.scrollTo(0,document.querySelector('.pt-workspace-anchor').getBoundingClientRect().top+scrollY-document.querySelector('.header').getBoundingClientRect().height-12);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
@@ -149,8 +149,17 @@ try{
    assert.equal(await js(`document.querySelector('.pt-layout').dataset.detailsOpen`),'false');
   }else{
    const table=await js(`document.querySelector('.pt-scroll').getBoundingClientRect().toJSON()`);
-   await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:table.left+100,y:table.top+100,deltaY:600,deltaX:0});await js('new Promise(r=>setTimeout(r,100))');assert.equal(await js('scrollY'),before.page);
+   await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:table.left+100,y:table.top+100,deltaY:600,deltaX:0});await js('new Promise(r=>setTimeout(r,100))');
    await shot('workspace-table-'+width);
+   // Regression: wheel over the table or details must never trap the page in either direction.
+   for(const sel of ['.pt-scroll','.pt-detail']){
+    await js(`document.querySelector('.pt-scroll').scrollTop=0;document.querySelector('.pt-detail').scrollTop=0;window.scrollTo(0,document.documentElement.scrollHeight);new Promise(r=>setTimeout(r,150))`);
+    const start=await js('scrollY');assert.ok(start>0,'page must be scrolled to test upward wheel');
+    const wheelOver=async dy=>{const r=await js(`(()=>{const r=document.querySelector('${sel}').getBoundingClientRect();return {x:r.left+r.width/2,y:r.top+Math.min(r.height/2,250)}})()`);await call('Input.dispatchMouseEvent',{type:'mouseMoved',...r});await call('Input.dispatchMouseEvent',{type:'mouseWheel',...r,deltaX:0,deltaY:dy});await js('new Promise(r=>setTimeout(r,300))')};
+    for(let i=0;i<8&&await js('scrollY')>0;i++)await wheelOver(-400);
+    assert.equal(await js('scrollY'),0,'upward wheel over '+sel+' at '+width+'x'+height+' must reach page top');
+    assert.ok(await js(`document.querySelector('.header').getBoundingClientRect().height>=${width>=1280?83:0}`),'header grows back at top');
+   }
   }
   assert.equal(await js(`JSON.stringify(localStorage)`),saved);
  }

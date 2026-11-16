@@ -16,8 +16,8 @@ export function RaoultLines({accent}){return <Fig label="לחצי אדים מח�
  <L x1={75} y1={245} x2={470} y2={45} stroke={accent} w={3}/><L x1={75} y1={165} x2={470} y2={245} stroke={C.warn} w={3}/>
  <L x1={75} y1={165} x2={470} y2={45} stroke="#4ed97a" w={3}/>
  <T x={37} y={35} size={18} ltr>P / kPa</T><T x={50} y={52} size={18} ltr>100</T><T x={50} y={172} size={18} ltr>40</T>
- <T x={75} y={270} size={18} ltr>0</T><T x={470} y={270} size={18} ltr>1</T><T x={270} y={280} size={20} ltr>x_A</T>
- <T x={270} y={80} fill="#4ed97a" size={20} ltr>P_total</T><T x={375} y={147} fill={accent} size={20} ltr>P_A</T><T x={265} y={229} fill={C.warn} size={20} ltr>P_B</T>
+ <T x={75} y={270} size={18} ltr>0</T><T x={470} y={270} size={18} ltr>1</T><T x={270} y={280} size={20} ltr>x(A)</T>
+ <T x={270} y={80} fill="#4ed97a" size={20} ltr>P(total)</T><T x={375} y={147} fill={accent} size={20} ltr>P(A)</T><T x={265} y={229} fill={C.warn} size={20} ltr>P(B)</T>
  <T x={280} y={310} size={18}>לחץ כולל = סכום הלחצים החלקיים</T>
  </Fig>}
 export function OsmosisFlow({accent}){return <Fig label="ממס עובר דרך קרום בררני מהצד המדולל לצד המרוכז">

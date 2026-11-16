@@ -44,7 +44,7 @@ try{
  const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,[resolve,reject]);ws.send(JSON.stringify({id:n,method,params}))});
  const js=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
  const ready=async selector=>{for(let i=0;i<100;i++){if(await js(`document.readyState==='complete' && !!document.querySelector(${JSON.stringify(selector)})`)){await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');return;}await new Promise(r=>setTimeout(r,50))}throw Error('Missing '+selector)};
- const shot=async name=>{if(screenshots){const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await (await import('node:fs/promises')).writeFile(path.join(screenshots,name+'.png'),Buffer.from(r.data,'base64'))}};
+ const shot=async name=>{if(screenshots){await js(`Promise.all((document.querySelector(".source-popover")?.getAnimations()||[]).map(a=>a.finished.catch(()=>{})))`);const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await (await import('node:fs/promises')).writeFile(path.join(screenshots,name+'.png'),Buffer.from(r.data,'base64'))}};
  await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
  await call('Network.enable');await call('Runtime.enable');
  
@@ -111,21 +111,24 @@ try{
  for(const [width,height] of [[320,800],[375,800],[390,800],[667,375],[1280,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
+  assert.equal(await js(`document.querySelectorAll('.pt-facts dd .source-trigger').length`),0,'Value rows must not contain icons');
+  const anchors=await js(`(()=>{return [...document.querySelectorAll('.pt-facts dt:has(.source-tooltip)')].map(e=>{const r=document.createRange();r.selectNodeContents(e);r.setEndBefore(e.querySelector('.source-tooltip'));const t=r.getBoundingClientRect(),i=e.querySelector('.source-trigger span').getBoundingClientRect();return {sameRow:i.top>=t.top-3&&i.bottom<=t.bottom+3,noOverlap:i.right<=t.left||i.left>=t.right}})})()`);assert.ok(anchors.every(a=>a.sameRow&&a.noOverlap),JSON.stringify(anchors));
+
   assert.ok(!await js(`document.body.innerText.includes('CIAAW')`),'Source text should not consume page space');
-  await call('Page.bringToFront');await js(`document.querySelector('.source-trigger').focus()`);await ready('.source-popover');
+  await call('Page.bringToFront');await js(`document.querySelector('.pt-facts .source-trigger').focus()`);assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0,'Focus waits before opening');await ready('.source-popover');
   assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('ערך מקוצר, CIAAW')`));await bounds();
-  await key('Escape');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);assert.ok(await js(`document.activeElement===document.querySelector('.source-trigger')`));
+  await key('Escape');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);assert.ok(await js(`document.activeElement===document.querySelector('.pt-facts .source-trigger')`));
   // Tap pins the disclosure; a second tap, outside tap and explicit close dismiss it.
   await call('Emulation.setTouchEmulationEnabled',{enabled:true});
   const tap=async selector=>{const p=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[p]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
-  await tap('.source-trigger');await ready('.source-popover');await bounds();
+  await tap('.pt-facts .source-trigger');await ready('.source-popover');await bounds();
   if([320,1280].includes(width))await shot('source-open-'+width);
-  await tap('.source-trigger');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
-  await tap('.source-trigger');await ready('.source-popover');await tap('.source-close');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
-  await tap('.source-trigger');await ready('.source-popover');await tap('.pt-big');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.pt-facts .source-trigger');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.pt-facts .source-trigger');await ready('.source-popover');await tap('.source-close');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.pt-facts .source-trigger');await ready('.source-popover');await tap('.pt-big');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
   if([320,1280].includes(width))await shot('source-compact-'+width);
   // Long table provenance fits even in phone landscape and scrolls internally.
-  await tap('.ref-note .source-trigger');await ready('.source-popover');await bounds();
+  await tap('.ref-title .source-trigger');await ready('.source-popover');await bounds();
   assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('terms.hebrew-academy.org.il')`));
   if(width===667)await shot('source-landscape-'+width);
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.topic-hero');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
@@ -164,7 +167,8 @@ try{
  // Hover works without click, and moving into the bubble does not dismiss it.
  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
  const hover=async selector=>{const p=await js(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchMouseEvent',{type:'mouseMoved',...p})};
- await hover('.source-trigger');await ready('.source-popover');await hover('.source-popover');await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),1);
+ await hover('.pt-facts .source-trigger');await js('new Promise(r=>setTimeout(r,200))');await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1});await js('new Promise(r=>setTimeout(r,400))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0,'Brief hover must not open later');
+ await hover('.pt-facts .source-trigger');await js('new Promise(r=>setTimeout(r,250))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0,'Hover must wait about half a second');await ready('.source-popover');assert.equal(await js(`getComputedStyle(document.querySelector('.source-popover')).animationName`),'source-appear');await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});assert.equal(await js(`getComputedStyle(document.querySelector('.source-popover')).animationName`),'none');await call('Emulation.setEmulatedMedia',{features:[]});await hover('.source-popover');await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),1);
  await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1});await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
  console.log('Source tooltip interactions passed at 320/375/390px, landscape and desktop: keyboard, touch, hover, dismiss, source links and bounded long notes.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');

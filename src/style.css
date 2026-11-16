@@ -107,10 +107,10 @@ html{scroll-padding-top:96px;scroll-padding-bottom:84px}
 
 /* Source information stays one action away, not another paragraph in the page. */
 .source-tooltip{display:inline-flex;vertical-align:middle;font-size:18px;line-height:1;letter-spacing:normal;font-weight:400}
-.source-trigger{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;min-width:36px;padding:0;border:1px solid #536c81;border-radius:50%;background:#111f31;color:#b9eaf2;font:22px/1 Arial;cursor:pointer;vertical-align:middle}
-.source-trigger:hover,.source-trigger[aria-expanded="true"]{background:#213b50;border-color:#71e4f4;color:#fff}
+.source-trigger{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;min-width:28px;padding:0;border:0;border-radius:6px;background:transparent;color:#98bcc9;font:14px/1 Arial;cursor:pointer;vertical-align:middle}
+.source-trigger:hover,.source-trigger[aria-expanded="true"]{background:#213b5060;color:#d3f6ff}
 .source-trigger:focus-visible,.source-close:focus-visible,.source-popover a:focus-visible{outline:3px solid #71e4f4;outline-offset:3px}
-.source-popover{position:fixed;z-index:1000;width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;box-sizing:border-box;border:1px solid #577c91;border-radius:14px;background:#101e30;color:#e8edf6;box-shadow:0 10px 40px #0009;padding:8px 16px 18px;text-align:right;font-size:18px;line-height:1.65;font-weight:400;letter-spacing:normal;overflow-wrap:anywhere;overscroll-behavior:contain}
+.source-popover{animation:source-appear 160ms ease-out;position:fixed;z-index:1000;width:min(380px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;box-sizing:border-box;border:1px solid #577c91;border-radius:14px;background:#101e30;color:#e8edf6;box-shadow:0 10px 40px #0009;padding:8px 16px 18px;text-align:right;font-size:18px;line-height:1.65;font-weight:400;letter-spacing:normal;overflow-wrap:anywhere;overscroll-behavior:contain}
 .source-popover-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
 .source-popover-head strong{font-size:18px}
 .source-close{display:flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:0;border-radius:8px;background:transparent;color:#d4edf5;font:28px/1 Arial;cursor:pointer}
@@ -122,3 +122,6 @@ html{scroll-padding-top:96px;scroll-padding-bottom:84px}
 .pt-facts dd>.source-tooltip{margin-inline-start:6px}
 .topic-hero h1 .source-tooltip{margin-inline-start:4px}
 @media(max-width:800px),(pointer:coarse){.source-trigger{width:44px;height:44px;min-width:44px}.source-popover{font-size:18px}}
+
+@keyframes source-appear{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.source-popover{animation:none}}

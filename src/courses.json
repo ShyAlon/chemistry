@@ -40,7 +40,56 @@
        {
         "text": "l - המספר הקוונטי הזוויתי (Angular momentum): צורת האורביטל = תת-קליפה (subshell). l = 0 עד n-1. l=0 הוא s, l=1 הוא p, l=2 הוא d, l=3 הוא f.",
         "style": "List Bullet",
-        "emphasis": false
+        "emphasis": false,
+        "definition": {
+         "intro": [
+          {
+           "math": "l"
+          },
+          " - המספר הקוונטי הזוויתי (",
+          {
+           "math": "Angular momentum"
+          },
+          "): צורת האורביטל = תת-קליפה (",
+          {
+           "math": "subshell"
+          },
+          ")."
+         ],
+         "range": [
+          "תחום הערכים: ",
+          {
+           "keep": [
+            {
+             "math": "l = 0"
+            },
+            " עד ",
+            {
+             "math": "n−1"
+            }
+           ]
+          },
+          "."
+         ],
+         "mappings": [
+          [
+           "l = 0",
+           "s"
+          ],
+          [
+           "l = 1",
+           "p"
+          ],
+          [
+           "l = 2",
+           "d"
+          ],
+          [
+           "l = 3",
+           "f"
+          ]
+         ]
+        }
        },
        {
         "text": "ml - המספר הקוונטי המגנטי (Magnetic): האוריינטציה של האורביטל במרחב. ml = -l עד +l. לכל l יש 2l+1 אורביטלים.",
@@ -896,7 +945,8 @@
        {
         "text": "rₙ = n²·a₀        Eₙ = −R_H / n²        R_H = 13.6 eV",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "a₀ = רדיוס בוהר = 52.9 pm. רמה קרובה לגרעין ← אנרגיה נמוכה (שלילית יותר) ← יציבה יותר.",
@@ -921,7 +971,8 @@
        {
         "text": "ΔE = R_H · (1/n_f² − 1/n_i²)      1/λ = R · (1/n_f² − 1/n_i²)",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "n_i רמה התחלתית, n_f רמה סופית. שניהם מספרים שלמים חיוביים!",
@@ -971,7 +1022,8 @@
        {
         "text": "Eₙ = −Z²·R_H / n²",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "עבור He⁺ (Z=2), Li²⁺ (Z=3) וכו'. ללא מיסוך, ולכן Z_eff = Z.",
@@ -1223,7 +1275,8 @@
        {
         "text": "E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "אור בנוי מחבילות אנרגיה - פוטונים (photons). אנרגיית הפוטון פרופורציונלית לתדירות.",
@@ -1979,7 +2032,8 @@
        {
         "text": "Eₙ = −Z_eff²·R_H / n²        R_H = 13.6 eV = 2.18×10⁻¹⁸ J",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "אם נמדדה אנרגיית היינון של אלקטרון ערכיות, מחלצים את Z_eff. בדיקת שפיות: Z_eff חייב לצאת בין מיסוך מלא (1) לבין אין מיסוך (Z).",
@@ -2442,7 +2496,8 @@
        {
         "text": "λ = h/p = h/(m·v)",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "מסה גדולה או מהירות גדולה ← אורך גל קטן. פוטונים ואלקטרונים קלים ← מתנהגים מובהק כגלים. גופים מסיביים ← אורך הגל זעיר ← נראים רציפים.",
@@ -2487,7 +2542,8 @@
        {
         "text": "Δx·Δp ≥ ℏ/2        Δp = m·Δv        ℏ = h/2π = 1.055×10⁻³⁴ J·s",
         "style": "Normal",
-        "emphasis": false
+        "emphasis": false,
+        "layout": "equation"
        },
        {
         "text": "מסקנה: לא ניתן לדעת היכן בדיוק האלקטרון ברמת האנרגיה - רק הסתברות למצוא אותו. (לכן Ψ² = צפיפות הסתברות.)",

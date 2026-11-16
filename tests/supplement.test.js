@@ -1,3 +1,4 @@
+import {beforePractice} from './practice-baseline.js';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
@@ -22,7 +23,7 @@ test('worked calculations keep signs, atomic masses and explicit solution volume
 });
 test('original topics and questions are unchanged except the explicit V+ correction',()=>{
  // Fixed from reviewed main 0d40e61. Does not require historical Git objects in CI.
- const original=structuredClone([data.courses[0].topics,course.topics.slice(0,12)]);
+ const original=[data.courses[0].topics,course.topics.slice(0,12)].map(ts=>ts.map(beforePractice));
  // Restore only the approved correction; retain the original baseline digest.
  const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');

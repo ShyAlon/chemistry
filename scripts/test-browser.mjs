@@ -40,13 +40,13 @@ try{
  ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
  await new Promise(r=>ws.addEventListener('open',r,{once:true}));
  let id=0;const pending=new Map();
- ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.method==='Fetch.requestPaused'){const p=m.params;ws.send(JSON.stringify({id:++id,method:p.request.url.startsWith(origin+'/')?'Fetch.continueRequest':'Fetch.failRequest',params:p.request.url.startsWith(origin+'/')?{requestId:p.requestId}:{requestId:p.requestId,errorReason:'BlockedByClient'}}));}if(m.id){const [resolve,reject]=pending.get(m.id)||[];pending.delete(m.id);m.error?reject?.(Error(JSON.stringify(m.error))):resolve?.(m.result)}});
+ ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.method==='Fetch.requestPaused'){const p=m.params;ws.send(JSON.stringify({id:++id,method:p.request.url.startsWith(origin+'/')?'Fetch.continueRequest':'Fetch.failRequest',params:p.request.url.startsWith(origin+'/')?{requestId:p.requestId}:{requestId:p.requestId,errorReason:'BlockedByClient'}}));}if(m.method==='Runtime.exceptionThrown')console.error(JSON.stringify(m.params));if(m.id){const [resolve,reject]=pending.get(m.id)||[];pending.delete(m.id);m.error?reject?.(Error(JSON.stringify(m.error))):resolve?.(m.result)}});
  const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,[resolve,reject]);ws.send(JSON.stringify({id:n,method,params}))});
  const js=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
  const ready=async selector=>{for(let i=0;i<100;i++){if(await js(`document.readyState==='complete' && !!document.querySelector(${JSON.stringify(selector)})`)){await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');return;}await new Promise(r=>setTimeout(r,50))}throw Error('Missing '+selector)};
  const shot=async name=>{if(screenshots){const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await (await import('node:fs/promises')).writeFile(path.join(screenshots,name+'.png'),Buffer.from(r.data,'base64'))}};
  await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
- await call('Network.enable');
+ await call('Network.enable');await call('Runtime.enable');
  
  for(const [width,height] of [[320,800],[375,800],[380,800],[381,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
@@ -105,5 +105,46 @@ try{
   const sub=await js(`[...document.querySelectorAll('sub')].map(e=>e.textContent)`);assert.ok(sub.includes('vap'));assert.ok(sub.includes('A'));
   if([390,667,1280].includes(width))await shot('notation-'+width);
  }
+ // Source disclosures: real mouse, keyboard and touch paths, with viewport bounds.
+ const key=async key=>{await call('Input.dispatchKeyEvent',{type:'keyDown',key,code:key});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code:key})};
+ const bounds=async()=>{const r=await js(`(()=>{const e=document.querySelector('.source-popover'),r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,font:parseFloat(getComputedStyle(e).fontSize),scroll:e.scrollHeight,client:e.clientHeight}})()`);assert.ok(r.left>=11&&r.right<=await js('innerWidth-11'),JSON.stringify(r));assert.ok(r.top>=11&&r.bottom<=await js('innerHeight-11'),JSON.stringify(r));assert.ok(r.font>=18);return r};
+ for(const [width,height] of [[320,800],[375,800],[390,800],[667,375],[1280,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
+  assert.ok(!await js(`document.body.innerText.includes('CIAAW')`),'Source text should not consume page space');
+  await call('Page.bringToFront');await js(`document.querySelector('.source-trigger').focus()`);await ready('.source-popover');
+  assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('ערך מקוצר, CIAAW')`));await bounds();
+  await key('Escape');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);assert.ok(await js(`document.activeElement===document.querySelector('.source-trigger')`));
+  // Tap pins the disclosure; a second tap, outside tap and explicit close dismiss it.
+  await call('Emulation.setTouchEmulationEnabled',{enabled:true});
+  const tap=async selector=>{const p=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[p]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
+  await tap('.source-trigger');await ready('.source-popover');await bounds();
+  if([320,1280].includes(width))await shot('source-open-'+width);
+  await tap('.source-trigger');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.source-trigger');await ready('.source-popover');await tap('.source-close');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.source-trigger');await ready('.source-popover');await tap('.pt-big');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  if([320,1280].includes(width))await shot('source-compact-'+width);
+  // Long table provenance fits even in phone landscape and scrolls internally.
+  await tap('.ref-note .source-trigger');await ready('.source-popover');await bounds();
+  assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('terms.hebrew-academy.org.il')`));
+  if(width===667)await shot('source-landscape-'+width);
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.topic-hero');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await tap('.topic-hero .source-trigger');await ready('.source-popover');await bounds();assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('שיעורים 7-8')`));
+  if(width===320)await shot('lesson-source-'+width);
+  await tap('.source-close');
+  // Credits and their original outgoing links remain in the disclosure.
+  await tap('.side-card .source-trigger');await ready('.source-popover');await bounds();
+  assert.ok(await js(`document.querySelector('.source-popover a').href.includes('nist.gov')`));await key('Tab');assert.ok(await js(`document.activeElement.closest('.source-popover')!==null`));await key('Escape');
+  await tap('.orbital-frame .source-trigger');await ready('.source-popover');await bounds();assert.ok(await js(`document.querySelector('.source-popover a').href.includes('wikimedia.org')`));await key('Escape');
+  await call('Emulation.setTouchEmulationEnabled',{enabled:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101'});await ready('.section-heading .source-trigger');
+  await js(`document.querySelector('.section-heading .source-trigger').scrollIntoView({block:'center'});document.querySelector('.section-heading .source-trigger').click()`);await ready('.source-popover');await bounds();assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('קובצי מקור')`));
+ }
+ // Hover works without click, and moving into the bubble does not dismiss it.
+ await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
+ const hover=async selector=>{const p=await js(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchMouseEvent',{type:'mouseMoved',...p})};
+ await hover('.source-trigger');await ready('.source-popover');await hover('.source-popover');await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),1);
+ await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1});await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+ console.log('Source tooltip interactions passed at 320/375/390px, landscape and desktop: keyboard, touch, hover, dismiss, source links and bounded long notes.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

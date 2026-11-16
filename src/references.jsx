@@ -1,3 +1,4 @@
+import {FormulaPrint} from './FormulaPrint.jsx';
 import {PageTitle} from './PageTitle.jsx';
 import {bidiElement} from './bidi-react.js';
 import {SourceTooltip} from './SourceTooltip.jsx';
@@ -41,10 +42,13 @@ function Formulas(){
  const [cid,setCid]=useState(formulaCourses[0].id);const course=formulaCourses.find(c=>c.id===cid);
  const jump=id=>document.getElementById('ref-'+id)?.scrollIntoView({behavior:'smooth',block:'start'});
  return <Shell title="דף נוסחאות">
+  <section className="panel formula-shortcut" aria-labelledby="photon-shortcut-title"><h2 id="photon-shortcut-title">פוטון: הקיצור בין אנרגיה לאורך גל</h2><Expr expr="E_photon(eV) ≈ 1240/λ(nm) ; λ(nm) ≈ 1240/E_photon(eV)"/><p><ScientificText runs={['לכל פוטון, לא רק במימן. האנרגיה באלקטרון־וולט ואורך הגל בננומטר. בסף יינון מציבים E_photon = IE; אין להציב כאן ישירות אנרגיה קינטית של אלקטרון או אנרגיה למול.']}/></p></section>
   <div className="ref-tabs" role="tablist" aria-label="קורס">{formulaCourses.map(c=><button key={c.id} role="tab" aria-selected={c.id===cid} className={c.id===cid?'on':''} onClick={()=>setCid(c.id)}>{c.name}</button>)}</div>
+  <FormulaPrint key={cid} course={course} constants={constants} Expr={Expr}/>
   <nav className="ref-nav" aria-label="קפיצה לנושא">{course.topics.map(t=><button key={t.id} onClick={()=>jump(t.id)}><bdi dir="ltr" className="ref-id">{t.id}</bdi><span>{t.title}</span></button>)}<button onClick={()=>jump('constants')}><bdi dir="ltr" className="ref-id">h, c</bdi><span>קבועים</span></button></nav>
-  {course.topics.map(t=><section key={t.id} id={'ref-'+t.id} className="panel ref-topic"><h2><bdi dir="ltr" className="ref-id">{t.id}</bdi> {t.title}</h2><dl className="ref-items">{t.items.map(([label,expr,note],i)=><div key={i}><dt>{label}</dt><dd><Expr expr={expr}/>{note&&<small><ScientificText runs={[note]}/></small>}</dd></div>)}</dl></section>)}
+  <div className="formula-grid">{course.topics.map(t=><section key={t.id} id={'ref-'+t.id} className="panel ref-topic"><h2><bdi dir="ltr" className="ref-id">{t.id}</bdi> {t.title}</h2><dl className="ref-items">{t.items.map(([label,expr,note],i)=><div key={i}><dt>{label}</dt><dd><Expr expr={expr}/>{note&&<small><ScientificText runs={[note]}/></small>}</dd></div>)}</dl></section>)}
   <section id="ref-constants" className="panel ref-topic"><h2>קבועים וערכי המרה</h2><dl className="ref-items">{constants.map(([l,e],i)=><div key={i}><dt>{l}</dt><dd><Expr expr={e}/></dd></div>)}</dl></section>
+  </div>
   <p className="ref-note">הערכים הם אלה שבקורס. אם דף הנוסחאות של הבוחן נותן ערך אחר, השתמשו בו.</p>
  </Shell>}
 

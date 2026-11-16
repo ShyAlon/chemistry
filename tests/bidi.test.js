@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import React from 'react';import {renderToStaticMarkup} from 'react-dom/server';
 import {normalizeBidiText as n} from '../src/bidi.js';import {bidiElement} from '../src/bidi-react.js';
@@ -31,4 +32,16 @@ test('signed fractions and range limits keep signs inside their LTR boundary',()
 test('all course strings retain characters and idempotence through display normalization',async()=>{
  const {readFileSync}=await import('node:fs');const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
  function visit(x){if(typeof x==='string'){const out=n(x);assert.equal(out.replace(/[\u2066-\u2069]/g,''),x.replace(/[\u2066-\u2069]/g,''));assert.equal(n(out),out)}else if(Array.isArray(x))x.forEach(visit);else if(x&&typeof x==='object')Object.values(x).forEach(visit)}visit(data);
+});
+
+test('chromium/copper screenshot: semicolon cannot fuse separate scientific statements',()=>{
+ const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+ const text=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
+ const html=renderToStaticMarkup(bidiElement('p',null,text));
+ assert.ok(!html.includes('4s²3d⁴; Cu'));
+ assert.match(html,/4s²3d⁴<\/bdi>; <bdi[^>]+>Cu<\/bdi>/);
+ assert.equal(n('תוצאה 4s²3d⁴; Cu הוא יסוד'),`תוצאה ${L}4s²3d⁴${P}; ${L}Cu${P} הוא יסוד`);
+ // Bracketed groups and comma enumerations are mathematical content, not prose boundaries.
+ assert.equal(n('[x; y]'),`${L}[x; y]${P}`);
+ assert.equal(n('n = 1, 2, 3'),`${L}n = 1, 2, 3${P}`);
 });

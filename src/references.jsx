@@ -1,4 +1,5 @@
 import {bidiElement} from './bidi-react.js';
+import {mathNotation as sub} from './math-notation.js';
 import React,{useState,useEffect} from 'react';
 import {elements} from './reference-data.js';
 import {ionState} from './ions.js';
@@ -15,7 +16,6 @@ export const pages=[
  {id:'aufbau',title:'נחש האכלוס (Aufbau)',desc:'סדר מילוי תתי־הקליפות, קיבולת וגזים אצילים.',icon:'↙'},
  {id:'diagrams',title:'גלריית תרשימים',desc:'כל התרשימים מהקורסים במקום אחד, ומגמות בטבלה המחזורית.',icon:'▦'},
 ];
-const sub=t=>t.split(/_([^\s=;,)+−·×/→]+)/).map((x,i)=>i%2?<sub key={i}>{x}</sub>:x);
 const isFormula=t=>/[=≥≤≈→<>]|[+−·×√]/.test(t);
 // Each independently readable relation is its own no-wrap chip; prose stays text.
 function Chips({text}){
@@ -82,7 +82,7 @@ function Periodic(){
  const ok=t=>t.kind==='measured'||t.kind==='predicted'||t.kind==='nist'||t.kind==='derived';
  const canAdd=ok(up),canRemove=ok(down);
  const rowOf=e=>e.p>=9?e.p:e.p; // rows 9,10 are the f-block rows
- const marker=(p,g,text)=><div key={'m'+p} className="pt-cell pt-marker" style={{gridRow:p,gridColumn:g}} aria-hidden="true">{text}</div>;
+ const marker=(p,g,text)=><div key={'m'+p} className="pt-cell pt-marker" style={{gridRow:p,gridColumn:g}} aria-hidden="true"><span>{text.split('–')[0]}–<br/>{text.split('–')[1]}</span></div>;
  const legend=mode==='cat'?Object.entries(catNames).map(([k,v])=>[`var(--c-${k})`,v]):mode==='block'?Object.entries(blockNames).map(([k,v])=>[`var(--b-${k})`,v]):[['hsl(210 45% 22%)',`נמוכה (${enMin})`],['hsl(30 65% 42%)',`גבוהה (${enMax})`]];
  const v=valence(sel);
  return <Shell title="הטבלה המחזורית">
@@ -92,6 +92,7 @@ function Periodic(){
    <dl className="pt-facts"><div><dt>שם</dt><dd>{sel.he?<>{sel.he} <bdi dir="ltr" className="fx">({sel.n})</bdi></>:<bdi dir="ltr" className="fx">{sel.n} ({sel.s})</bdi>}</dd></div><div><dt>{sel.m?'מסה אטומית (g/mol)':'מספר מסה'}</dt><dd>{sel.m?<><bdi dir="ltr" className="fx">{sel.m} ± {sel.u}</bdi><small>ערך מקוצר, CIAAW</small></>:<><bdi dir="ltr" className="fx">{sel.mn.map(n=>`[${n}]`).join(' / ')}</bdi><small>אין משקל אטומי תקני. זה מספר המסה של האיזוטופ ארוך החיים{sel.mn.length>1?' (יותר מאיזוטופ אחד באורך חיים דומה)':''}, לפי CIAAW</small></>}</dd></div><div className="pt-cfg"><dt>קונפיגורציה</dt><dd><Config e={sel} q={q} ions={ions}/>{sel.z===103&&q===0&&<small>לפי NIST. בספרים מופיע גם 6d¹ במקום 7p¹</small>}{cur.kind!=='none'&&<small>{stateNote(sel,q,cur)}</small>}</dd></div><div className="pt-ion"><dt>מטען ואלקטרונים</dt><dd><bdi dir="ltr" className="fx">{chargeLabel(sel.s,q)}</bdi>{cur.cfg&&<small>{sel.z-q} אלקטרונים</small>}<span className="pt-btns"><button className="pt-step" onClick={()=>setQ(q-1)} disabled={!canAdd} aria-label="הוסף אלקטרון">+</button><button className="pt-step" onClick={()=>setQ(q+1)} disabled={!canRemove} aria-label="הסר אלקטרון">−</button>{q!==0&&<button className="pt-step pt-neutral" onClick={()=>setQ(0)}>אטום ניטרלי</button>}</span>{!canAdd&&cur.cfg&&<small>הוספה: {blockedNote(sel,q-1,up)}</small>}{!canRemove&&cur.cfg&&<small>הסרה: {blockedNote(sel,q+1,down)}</small>}</dd></div><div><dt>שורה / טור</dt><dd><bdi dir="ltr" className="fx">{sel.b==='f'?`${sel.p>=9?sel.p-3:sel.p} / f`:`${sel.p} / ${sel.g}`}</bdi></dd></div><div><dt>קטגוריה</dt><dd>{catNames[sel.cat]}, {blockNames[sel.b]}</dd></div>{v&&<div><dt>אלקטרוני ערכיות</dt><dd><bdi dir="ltr" className="fx">{v}</bdi></dd></div>}{sel.en&&<div><dt>אלקטרושליליות (פאולינג)</dt><dd><bdi dir="ltr" className="fx">{sel.en}</bdi></dd></div>}</dl></section>
   <div className="pt-main">
   <div className="pt-legend">{legend.map(([c,l])=><span key={l}><i style={{background:c}}/>{l}</span>)}</div>
+  <p className="pt-scroll-hint">במסך צר אפשר לגלול את הטבלה הצידה כדי לראות את כל 18 הטורים.</p>
   <div className="pt-scroll" tabIndex={0} aria-label="טבלה מחזורית, אפשר לגלול הצידה"><div className="pt-grid">
    {[...Array(18)].map((_,i)=><div key={'h'+i} className="pt-head" style={{gridRow:1,gridColumn:i+1}}>{i+1}</div>)}
    {elements.map(e=>{const row=e.p+1;return <button key={e.z} className={'pt-cell'+(sel.z===e.z?' sel':'')} style={{gridRow:row,gridColumn:e.g,background:cellColor(e,mode)}} onClick={()=>setSel(e)} aria-label={`${e.he||e.n}, ${e.z}`}><span className="pt-z">{e.z}</span><span className="pt-sym" dir="ltr">{e.s}</span></button>})}

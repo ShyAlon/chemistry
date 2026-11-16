@@ -48,10 +48,13 @@ try{
  await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
  await call('Network.enable');
  
- for(const [width,height] of [[320,800],[375,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]]){
+ for(const [width,height] of [[320,800],[375,800],[380,800],[381,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   for(const route of ['','course/84102/P7','references/formulas','references/periodic','references/diagrams','references/aufbau']){
    await call('Page.navigate',{url:origin+'/chemistry/index.html#/'+route});await ready('.header');
+   const navigation=await js(`(()=>{const buttons=[...document.querySelectorAll('.header-tools>.quiet')];return buttons.map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent,display:getComputedStyle(e).display,font:parseFloat(getComputedStyle(e).fontSize),width:r.width,height:r.height,disabled:e.disabled}})})()`);
+   assert.deepEqual(navigation.map(n=>n.text),route.startsWith('course/')?['כל הקורסים','מקראות','על המעבדה']:['מקראות','על המעבדה'],'All route-appropriate navigation buttons must exist');
+   for(const n of navigation){assert.notEqual(n.display,'none',JSON.stringify({viewport:width,route,...n}));assert.ok(n.width>0&&n.height>=44&&!n.disabled,JSON.stringify({viewport:width,route,...n}));if(width<=520)assert.ok(n.font>=18,JSON.stringify({viewport:width,route,...n}))}
    const geometry=await js(`(()=>{const visible=e=>getComputedStyle(e).display!=='none';const nodes=[document.querySelector('.brand'),document.querySelector('.avatar-wrap'),...document.querySelectorAll('.header-tools>.quiet')].filter(visible);return {width:innerWidth,scroll:document.documentElement.scrollWidth,rects:nodes.map(e=>{const r=e.getBoundingClientRect();return {label:e.textContent,left:r.left,right:r.right,top:r.top,bottom:r.bottom,font:parseFloat(getComputedStyle(e).fontSize)}}),header:document.querySelector('.header').getBoundingClientRect().bottom,footer:document.querySelector('.site-footer').getBoundingClientRect().bottom}})()`);
    for(const r of geometry.rects){assert.ok(r.left>=-1&&r.right<=width+1,JSON.stringify({width,route,...r}));assert.ok(r.bottom<=geometry.header+1)}
    assert.ok(geometry.scroll<=width+1,JSON.stringify({width,route,scroll:geometry.scroll}));
@@ -76,6 +79,7 @@ try{
      await shot('periodic-'+width);
     }
    }
+   if(route==='course/84102/P7'&&[320,375,380,381].includes(width))await shot('p7-'+width);
    if(route==='course/84102/P7'&&[390,667,1280].includes(width))await shot('p7-'+width);
    if(route==='course/84102/P7'){
     await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('.worked');
@@ -93,6 +97,7 @@ try{
     }
    }
   }
+  await js(`document.querySelector('.header-tools>.quiet:last-child').click()`);await ready('.about');
   await call('Page.navigate',{url:origin+'/chemistry/__fixture'});await ready('#exact');
   const runs=await js(`[...document.querySelectorAll('#exact>bdi')].map(e=>e.textContent)`);
   assert.ok(runs.includes('4s²3d⁴'));assert.ok(runs.includes('Cu'));assert.ok(!runs.includes('4s²3d⁴; Cu'));
@@ -100,5 +105,5 @@ try{
   const sub=await js(`[...document.querySelectorAll('sub')].map(e=>e.textContent)`);assert.ok(sub.includes('vap'));assert.ok(sub.includes('A'));
   if([390,667,1280].includes(width))await shot('notation-'+width);
  }
- console.log('Browser regression matrix passed: 60 route/viewports plus 10 notation fixtures, full desktop table bounds and electron controls.');
+ console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

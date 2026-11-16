@@ -24,7 +24,7 @@ test('gallery figures all exist',()=>{
  for(const enr of [enrichment84101,enrichment84102])for(const t of Object.values(enr))for(const p of t.theory||[])if(p.style==='Figure')assert.ok(figureIds.has(p.figure),p.figure)
 });
 test('reference pages never touch saved progress',()=>{
- for(const f of ['references.jsx','reference-data.js','reference-formulas.js']){const s=fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8');assert.ok(!/localStorage|sessionStorage/i.test(s),f)}
+ for(const f of ['references.jsx','reference-data.js','reference-formulas.js','ions.js','ion-data.js']){const s=fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8');assert.ok(!/localStorage|sessionStorage/i.test(s),f)}
 });
 
 test('gallery figures render labels at 18px or more',()=>{

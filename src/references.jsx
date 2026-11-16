@@ -1,6 +1,7 @@
 import {bidiElement} from './bidi-react.js';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {elements} from './reference-data.js';
+import {ionState} from './ions.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
 import {Figure,schematicFigures} from './figures.jsx';
 import {ScientificText,Definition} from './scientific-text.js';
@@ -49,24 +50,55 @@ const blockNames={s:'בלוק s',p:'בלוק p',d:'בלוק d',f:'בלוק f'};
 const sup=n=>String(n).split('').map(c=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]).join('');
 const ENs=elements.filter(e=>e.en).map(e=>e.en);const enMin=Math.min(...ENs),enMax=Math.max(...ENs);
 function cellColor(e,mode){if(mode==='cat')return `var(--c-${e.cat})`;if(mode==='block')return `var(--b-${e.b})`;if(!e.en)return '#1b2637';const t=(e.en-enMin)/(enMax-enMin);return `hsl(${210-t*180} ${45+t*20}% ${22+t*20}%)`}
-function Config({e}){if(e.z>103)return <span>לא מוצגת</span>;return <bdi dir="ltr" className="fx">{e.core&&`[${e.core}]`}{e.cfg.map(([s,n])=>s+sup(n)).join('')}</bdi>}
+const fmtCfg=(core,cfg)=>(core?`[${core}]`:'')+cfg.map(([s,n])=>s+sup(n)).join('');
+const chargeLabel=(sym,q)=>sym+(q===0?'':(Math.abs(q)>1?sup(Math.abs(q)):'')+(q>0?'⁺':'⁻'));
+function Config({e,q=0,ions}){
+ const st=ionState(e,q,ions);
+ if(st.kind==='missing')return <span>אין ערך</span>;
+ if(!st.cfg)return <span>אין קונפיגורציה לחלקיק הזה</span>;
+ return <bdi dir="ltr" className="fx">{fmtCfg(st.core,st.cfg)}</bdi>}
+const stateNote=(e,q,st)=>{
+ if(st.kind==='missing')return 'אין לנו מקור לקונפיגורציה של האטום הזה, ולכן אי אפשר להוסיף או להסיר אלקטרונים. זו מגבלת מקור, לא קביעה שהקונפיגורציה לא קיימת.';
+ if(st.kind==='measured')return 'לפי NIST.';
+ if(st.kind==='predicted')return 'ערך מחושב (תיאורטי), לא נמדד. '+(e.z<=108?'לפי NIST.':'לפי סקירה של חישובים רלטיביסטיים (Russian Chemical Reviews). ל־NIST אין ערך ליסוד הזה.');
+ if(st.kind==='nist')return 'ערך של NIST ליון גזי חופשי. יון בתרכובת או בתמיסה יכול להיראות אחרת.';
+ if(st.kind==='derived')return 'נגזר ממילוי תת־הקליפה הפתוחה, לא ערך שנמדד. '+(q<=-2?'אניון בודד במצב גזי עם מטען כזה בדרך כלל לא יציב. הוא מוכר בתרכובות.':'');
+ if(st.kind==='loading')return 'טוען את נתוני היונים...';
+ return '';
+};
+const blockedNote=(e,q,st)=>{
+ if(st.kind==='none')return 'אין אלקטרונים נוספים להסיר.';
+ if(st.reason==='no-ion-data')return e.z>103?'ל־NIST אין נתוני יונים ליסוד הזה.':'ל־NIST אין קונפיגורציה ליון הזה.';
+ if(st.reason==='no-neutral')return 'אין ערך לאטום הניטרלי, ולכן אין נקודת מוצא לשינוי.';
+ if(st.reason==='anion-scope')return 'אניונים מוצגים רק לאל־מתכות, עד השלמת קליפה של גז אצילי (לכל היותר 3 אלקטרונים). מעבר לכך אין מקור מאומת.';
+ return '';
+};
 function valence(e){if(e.b==='s'&&e.g<=2)return e.z===2?2:e.g;if(e.b==='p')return e.g-10;return null}
 function Periodic(){
- const [mode,setMode]=useState('cat');const [sel,setSel]=useState(elements[0]);
+ const [mode,setMode]=useState('cat');const [sel,setSelRaw]=useState(elements[0]);const [q,setQ]=useState(0);const [ions,setIons]=useState(null);
+ useEffect(()=>{let on=true;import('./ion-data.js').then(m=>{if(on)setIons(m.ions)});return()=>{on=false}},[]);
+ const setSel=e=>{setSelRaw(e);setQ(0)};
+ const cur=ionState(sel,q,ions),up=ionState(sel,q-1,ions),down=ionState(sel,q+1,ions);
+ const ok=t=>t.kind==='measured'||t.kind==='predicted'||t.kind==='nist'||t.kind==='derived';
+ const canAdd=ok(up),canRemove=ok(down);
  const rowOf=e=>e.p>=9?e.p:e.p; // rows 9,10 are the f-block rows
  const marker=(p,g,text)=><div key={'m'+p} className="pt-cell pt-marker" style={{gridRow:p,gridColumn:g}} aria-hidden="true">{text}</div>;
  const legend=mode==='cat'?Object.entries(catNames).map(([k,v])=>[`var(--c-${k})`,v]):mode==='block'?Object.entries(blockNames).map(([k,v])=>[`var(--b-${k})`,v]):[['hsl(210 45% 22%)',`נמוכה (${enMin})`],['hsl(30 65% 42%)',`גבוהה (${enMax})`]];
  const v=valence(sel);
  return <Shell title="הטבלה המחזורית">
   <div className="ref-tabs" role="tablist" aria-label="צביעה">{[['cat','קטגוריות'],['block','בלוקים'],['en','אלקטרושליליות']].map(([k,l])=><button key={k} role="tab" aria-selected={mode===k} className={mode===k?'on':''} onClick={()=>setMode(k)}>{l}</button>)}</div>
+  <div className="pt-layout">
   <section className="panel pt-detail" aria-live="polite"><div className="pt-big" style={{background:cellColor(sel,mode)}}><span className="pt-z">{sel.z}</span><span className="pt-sym" dir="ltr">{sel.s}</span></div>
-   <dl className="pt-facts"><div><dt>שם</dt><dd>{sel.he?<>{sel.he} <bdi dir="ltr" className="fx">({sel.n})</bdi></>:<bdi dir="ltr" className="fx">{sel.n} ({sel.s})</bdi>}</dd></div><div><dt>{sel.m?'מסה אטומית (g/mol)':'מספר מסה'}</dt><dd>{sel.m?<><bdi dir="ltr" className="fx">{sel.m} ± {sel.u}</bdi><small>ערך מקוצר, CIAAW</small></>:<><bdi dir="ltr" className="fx">{sel.mn.map(n=>`[${n}]`).join(' / ')}</bdi><small>אין משקל אטומי תקני. זה מספר המסה של האיזוטופ ארוך החיים{sel.mn.length>1?' (יותר מאיזוטופ אחד באורך חיים דומה)':''}, לפי CIAAW</small></>}</dd></div><div><dt>קונפיגורציה</dt><dd><Config e={sel}/>{sel.z===103&&<small>לפי NIST. בספרים מופיע גם 6d¹ במקום 7p¹</small>}</dd></div><div><dt>שורה / טור</dt><dd><bdi dir="ltr" className="fx">{sel.b==='f'?`${sel.p>=9?sel.p-3:sel.p} / f`:`${sel.p} / ${sel.g}`}</bdi></dd></div><div><dt>קטגוריה</dt><dd>{catNames[sel.cat]}, {blockNames[sel.b]}</dd></div>{v&&<div><dt>אלקטרוני ערכיות</dt><dd><bdi dir="ltr" className="fx">{v}</bdi></dd></div>}{sel.en&&<div><dt>אלקטרושליליות (פאולינג)</dt><dd><bdi dir="ltr" className="fx">{sel.en}</bdi></dd></div>}</dl></section>
+   <dl className="pt-facts"><div><dt>שם</dt><dd>{sel.he?<>{sel.he} <bdi dir="ltr" className="fx">({sel.n})</bdi></>:<bdi dir="ltr" className="fx">{sel.n} ({sel.s})</bdi>}</dd></div><div><dt>{sel.m?'מסה אטומית (g/mol)':'מספר מסה'}</dt><dd>{sel.m?<><bdi dir="ltr" className="fx">{sel.m} ± {sel.u}</bdi><small>ערך מקוצר, CIAAW</small></>:<><bdi dir="ltr" className="fx">{sel.mn.map(n=>`[${n}]`).join(' / ')}</bdi><small>אין משקל אטומי תקני. זה מספר המסה של האיזוטופ ארוך החיים{sel.mn.length>1?' (יותר מאיזוטופ אחד באורך חיים דומה)':''}, לפי CIAAW</small></>}</dd></div><div className="pt-cfg"><dt>קונפיגורציה</dt><dd><Config e={sel} q={q} ions={ions}/>{sel.z===103&&q===0&&<small>לפי NIST. בספרים מופיע גם 6d¹ במקום 7p¹</small>}{cur.kind!=='none'&&<small>{stateNote(sel,q,cur)}</small>}</dd></div><div className="pt-ion"><dt>מטען ואלקטרונים</dt><dd><bdi dir="ltr" className="fx">{chargeLabel(sel.s,q)}</bdi>{cur.cfg&&<small>{sel.z-q} אלקטרונים</small>}<span className="pt-btns"><button className="pt-step" onClick={()=>setQ(q-1)} disabled={!canAdd} aria-label="הוסף אלקטרון">+</button><button className="pt-step" onClick={()=>setQ(q+1)} disabled={!canRemove} aria-label="הסר אלקטרון">−</button>{q!==0&&<button className="pt-step pt-neutral" onClick={()=>setQ(0)}>אטום ניטרלי</button>}</span>{!canAdd&&cur.cfg&&<small>הוספה: {blockedNote(sel,q-1,up)}</small>}{!canRemove&&cur.cfg&&<small>הסרה: {blockedNote(sel,q+1,down)}</small>}</dd></div><div><dt>שורה / טור</dt><dd><bdi dir="ltr" className="fx">{sel.b==='f'?`${sel.p>=9?sel.p-3:sel.p} / f`:`${sel.p} / ${sel.g}`}</bdi></dd></div><div><dt>קטגוריה</dt><dd>{catNames[sel.cat]}, {blockNames[sel.b]}</dd></div>{v&&<div><dt>אלקטרוני ערכיות</dt><dd><bdi dir="ltr" className="fx">{v}</bdi></dd></div>}{sel.en&&<div><dt>אלקטרושליליות (פאולינג)</dt><dd><bdi dir="ltr" className="fx">{sel.en}</bdi></dd></div>}</dl></section>
+  <div className="pt-main">
   <div className="pt-legend">{legend.map(([c,l])=><span key={l}><i style={{background:c}}/>{l}</span>)}</div>
   <div className="pt-scroll" tabIndex={0} aria-label="טבלה מחזורית, אפשר לגלול הצידה"><div className="pt-grid">
    {[...Array(18)].map((_,i)=><div key={'h'+i} className="pt-head" style={{gridRow:1,gridColumn:i+1}}>{i+1}</div>)}
    {elements.map(e=>{const row=e.p+1;return <button key={e.z} className={'pt-cell'+(sel.z===e.z?' sel':'')} style={{gridRow:row,gridColumn:e.g,background:cellColor(e,mode)}} onClick={()=>setSel(e)} aria-label={`${e.he||e.n}, ${e.z}`}><span className="pt-z">{e.z}</span><span className="pt-sym" dir="ltr">{e.s}</span></button>})}
    {marker(7,3,'57–71')}{marker(8,3,'89–103')}
   </div></div>
+  </div>
+  </div>
   <div className="ref-note"><p>מספרי הטורים בשורה העליונה.</p><p>מסות אטומיות: הערכים המקוצרים (abridged) של CIAAW, עם אי־הוודאות שלהם. בליתיום, בור, פחמן, חנקן, חמצן, גופרית, כלור ועופרת (ובעוד יסודות) ההרכב האיזוטופי משתנה בטבע, ולכן המסה תלויה בדגימה. ייתכן שבקורס מעגלים אחרת, ולחישובים יש להשתמש בערכי הקורס.</p><p>ביסודות ללא איזוטופ יציב אין משקל אטומי תקני, ומוצג מספר המסה של האיזוטופ ארוך החיים בסוגריים מרובעים.</p><p>קונפיגורציות: מצב היסוד לפי NIST, כולל החריגים (למשל Cr ו־Cu), עד יסוד 103. אלקטרושליליות לפי סולם פאולינג, מ־PubChem, ליסודות עד 92 בלבד.</p><p>שמות עבריים: לפי מאגר המונחים של האקדמיה ללשון העברית (מילון הכימיה האי־אורגנית, תש"ם 1979). ליסודות 104 עד 118 לא נמצא שם באקדמיה, ולכן מוצג השם באנגלית.</p><p>מקורות: <bdi dir="ltr">ciaaw.org</bdi>, <bdi dir="ltr">physics.nist.gov/PhysRefData/ASD</bdi>, <bdi dir="ltr">pubchem.ncbi.nlm.nih.gov</bdi>, <bdi dir="ltr">terms.hebrew-academy.org.il</bdi>.</p></div>
  </Shell>}
 

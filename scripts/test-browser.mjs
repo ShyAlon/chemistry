@@ -298,6 +298,28 @@ try{
  await js(`scrollTo(0,80);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
  assert.equal(await js(`getComputedStyle(document.querySelector('.page-title')).transform`),'none');
  await call('Emulation.setEmulatedMedia',{features:[]});
+
+ // Decoration stays behind content and moves more slowly than the document.
+ for(const width of [1280,390]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:800,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.chemistry-backdrop');
+  await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.ok(await js(`document.querySelector('.chemistry-backdrop').getAttribute('aria-hidden')==='true' && getComputedStyle(document.querySelector('.chemistry-backdrop')).pointerEvents==='none'`));
+  await shot('parallax-'+width+'-00');
+  for(let i=1;i<=50;i++){
+   await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:width-40,y:600,deltaX:0,deltaY:14});
+   await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+   await shot('parallax-'+width+'-'+String(i).padStart(2,'0'));
+  }
+  const motion=await js(`(()=>{const a=document.querySelector('.chemistry-far'),b=document.querySelector('.chemistry-near');return {scroll:scrollY,far:new DOMMatrix(getComputedStyle(a).transform).m42,near:new DOMMatrix(getComputedStyle(b).transform).m42}})()`);
+  assert.ok(Math.abs(motion.far+motion.scroll*.08)<1 && Math.abs(motion.near+motion.scroll*.16)<1,JSON.stringify(motion));
+  await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.equal(await js(`getComputedStyle(document.querySelector('.chemistry-far')).transform`),'none');
+  assert.equal(await js(`getComputedStyle(document.querySelector('.chemistry-near')).transform`),'none');
+  await call('Emulation.setEmulatedMedia',{features:[]});
+ }
+ console.log('Chemistry backdrop gates passed: decorative/input-transparent, slow8%/16% real-wheel layers and reduced motion at390/1280.');
  console.log('Actual page-title checks passed at 320/390/1280: shared titles, no repeated reading-return link, early shrink, stable layout, restore, reduced motion and real-wheel Aufbau capture.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

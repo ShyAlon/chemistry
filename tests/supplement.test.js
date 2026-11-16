@@ -1,5 +1,5 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';import {execFileSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
 import {courses as sheet} from '../src/reference-formulas.js';
 const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
@@ -21,8 +21,9 @@ test('worked calculations keep signs, atomic masses and explicit solution volume
  assert.ok(added[2].content.worked[0].content[1].includes('−0.372'));
 });
 test('all original topics and questions are byte-for-byte semantically unchanged',()=>{
- const base=JSON.parse(execFileSync('git',['show','0d40e61:src/courses.json'],{encoding:'utf8'}));
- assert.deepEqual(data.courses[0].topics,base.courses[0].topics);assert.deepEqual(course.topics.slice(0,12),base.courses[1].topics);
+ // Fixed from reviewed main 0d40e61. Does not require historical Git objects in CI.
+ const original=[data.courses[0].topics,course.topics.slice(0,12)];
+ assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'5f07203833c2d48632c533dd0ab982bdfdf86102e6060d7aed67f5a8487bd7c0');
 });
 test('old progress persists and new routes resolve without any storage migration',()=>{
  const old={'G1':{complete:true},'G12':{complete:true}};

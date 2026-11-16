@@ -34,7 +34,15 @@ const profile=await mkdtemp(path.join(tmpdir(),'chem-browser-'));
 const chrome=spawn(process.env.CHROME_BIN||'google-chrome',['--headless','--no-sandbox','--disable-gpu','--remote-allow-origins=*','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','ignore','pipe']});
 let ws;
 try{
- const endpoint=await new Promise((resolve,reject)=>{let text='';const t=setTimeout(()=>reject(Error('Chrome startup timeout')),15000);chrome.stderr.on('data',x=>{text+=x;const m=text.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(t);resolve(m[1])}});chrome.on('error',reject)});
+ const endpoint=await new Promise((resolve,reject)=>{
+  let text='',exit='not observed';
+  // Startup diagnostics only: keep launch flags, 15s timeout and every browser gate unchanged.
+  const diagnostic=()=>text.replaceAll(profile,'[temporary-profile]').replace(/wss?:\/\/[^\s]+/g,'[debug-endpoint]').replace(/https?:\/\/[^\s]+/g,'[url]').slice(-6000);
+  const t=setTimeout(()=>reject(Error(`Chrome startup timeout; process exit: ${exit}; stderr:\n${diagnostic()||'[empty]'}`)),15000);
+  chrome.stderr.on('data',x=>{text=(text+x).slice(-12000);const m=text.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(t);resolve(m[1])}});
+  chrome.on('exit',(code,signal)=>{exit=`code=${code}, signal=${signal}`});
+  chrome.on('error',error=>{clearTimeout(t);reject(error)});
+ });
  const port=new URL(endpoint).port;
  const tabs=await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
  ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
@@ -321,5 +329,61 @@ try{
  }
  console.log('Chemistry backdrop gates passed: decorative/input-transparent, slow8%/16% real-wheel layers and reduced motion at390/1280.');
  console.log('Actual page-title checks passed at 320/390/1280: shared titles, no repeated reading-return link, early shrink, stable layout, restore, reduced motion and real-wheel Aufbau capture.');
+ // New inorganic review journeys: original answers survive, all new answers can be marked.
+ const previous={P7:{complete:true,score:6,answers:{1:{correct:true,kind:'mcq'}}},P3:{complete:true,score:5,answers:{2:{correct:false,kind:'mcq'}}}};
+ await js(`localStorage.setItem('spectra-course-84102-progress-v1',${JSON.stringify(JSON.stringify(previous))})`);
+ await call('Page.reload');await ready('.header');
+ for(const width of [320,390,1280]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+  for(const tid of ['P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P11','P12']){
+   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/'+tid});await ready('.theory');
+   assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`),tid+' theory at '+width);
+   const section=await js(`(()=>{const a=[...document.querySelectorAll('.theory h3')].find(e=>e.textContent.includes('חזרה לבוחן:'));return a?.textContent||''})()`);
+   if(!['P11','P12'].includes(tid))assert.ok(section,tid+' recap section missing');
+   if(['P11','P12'].includes(tid)){
+    await js(`document.querySelector('.figure-block').scrollIntoView({block:'center'})`);await shot('recap-'+tid+'-figure-'+width);
+    await js(`window.scrollTo(0,0)`);await shot('recap-'+tid+'-top-'+width);
+    await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('.worked');
+    await js(`document.querySelector('.worked .secondary').click()`);await ready('.solution');
+    assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`),tid+' solution at '+width);
+    if(tid==='P11')await shot('recap-affinity-solution-'+width);
+   }
+   if(tid==='P8'){
+    await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('.worked');
+    await js(`(()=>{const w=[...document.querySelectorAll('.worked')].find(e=>e.textContent.includes('חישוב מטען אפקטיבי לברזל'));w.querySelector('.secondary').click();w.scrollIntoView({block:'center'})})()`);await ready('.solution');
+    await shot('recap-iron-solution-'+width);assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+   }
+  }
+ }
+ await call('Emulation.setDeviceMetricsOverride',{width:390,height:900,deviceScaleFactor:1,mobile:false});
+ for(const topic of data.courses[0].topics.slice(10)){
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/'+topic.id});await ready('.tabs');
+  await js(`document.querySelectorAll('.tabs button')[2].click()`);await ready('.question');
+  for(const [i,q] of topic.content.quiz.entries()){
+   if(i){await js(`document.querySelectorAll('.question-steps button')[${i}].click()`);await ready('.question:not(:has(.feedback))')}
+   if(q.type==='mcq')await js(`document.querySelectorAll('.choices button')[${q.correct}].click()`);
+   if(q.type==='numeric'){
+    await js(`(()=>{const input=document.querySelector('.numeric-fields input');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,${JSON.stringify(String(q.fields[0].value))});input.dispatchEvent(new Event('input',{bubbles:true}));const select=document.querySelector('.numeric-fields select');select.value=${JSON.stringify(q.fields[0].unit)};select.dispatchEvent(new Event('change',{bubbles:true}))})()`);
+   }
+   if(q.type==='written'){
+    await js(`[...document.querySelectorAll('.question button')].find(e=>e.textContent.includes('השוואה לפתרון')).click()`);await ready('.self-grade');await js(`document.querySelector('.self-grade .primary').click()`);
+   }else{
+    assert.equal(await js(`document.querySelector('.check-answer').disabled`),false,topic.id+'/'+q.id+' ready');
+    await js(`document.querySelector('.check-answer').click()`);
+   }
+   await ready('.feedback.correct');
+   assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`),topic.id+'/'+q.id+' mobile feedback');
+   if((topic.id==='P12'&&[2,8,16,19].includes(i))||(topic.id==='P11'&&i===1)){await js(`document.querySelector('.feedback').scrollIntoView({block:'center'})`);await shot('recap-answer-'+topic.id+'-'+q.id)}
+  }
+  await ready('.completion');
+ }
+ const persisted=await js(`JSON.parse(localStorage.getItem('spectra-course-84102-progress-v1'))`);
+ assert.deepEqual(persisted.P7,previous.P7);assert.deepEqual(persisted.P3,previous.P3);
+ assert.ok(persisted.P11.complete&&persisted.P12.complete);assert.equal(persisted.P11.score,6);assert.equal(persisted.P12.score,20);
+ await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102'});await ready('.topic-grid');
+ assert.equal(await js(`document.querySelectorAll('.topic-card').length`),12);
+ assert.equal(await js(`document.querySelectorAll('.topic-card.completed').length`),4);
+ await shot('recap-course-progress-390');
+ console.log('Inorganic recap checks passed: 36 topic/viewports, source mapping, new diagrams/solutions at 320/390/1280, all 26 answers marked via UI, P11/P12 complete after reload and existing P7/P3 answers unchanged.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

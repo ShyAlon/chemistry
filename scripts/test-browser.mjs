@@ -143,6 +143,32 @@ try{
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101'});await ready('.section-heading .source-trigger');
   await js(`document.querySelector('.section-heading .source-trigger').scrollIntoView({block:'center'});document.querySelector('.section-heading .source-trigger').click()`);await ready('.source-popover');await bounds();assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('קובצי מקור')`));
  }
+ // Charge notes stay disclosed, and compact controls fit even the 240px sidebar.
+ for(const [width,height] of [[320,800],[375,800],[390,800],[667,375],[1280,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.pt-cell');
+  await js(`document.querySelector('.pt-cell[aria-label$=", 29"]').click()`);await ready('[aria-label="הסר אלקטרון"]:not(:disabled)');
+  for(let i=0;i<2;i++)await js(`document.querySelector('[aria-label="הסר אלקטרון"]').click()`);
+  await ready('.pt-neutral');
+  assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('[Ar]3d⁹')`));
+  assert.ok(!await js(`document.querySelector('.pt-detail').textContent.includes('יון בתרכובת')`));
+  const controls=await js(`(()=>{const row=document.querySelector('.pt-btns'),p=row.closest('dd').getBoundingClientRect();return [...row.children].map(e=>{const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height,parentLeft:p.left,parentRight:p.right}})})()`);
+  assert.equal(controls.length,3);assert.equal(new Set(controls.map(r=>r.top)).size,1,JSON.stringify({width,controls}));
+  for(let i=0;i<controls.length;i++){const r=controls[i];assert.equal(r.height,44);assert.ok(r.width>=44);assert.ok(r.left>=r.parentLeft&&r.right<=r.parentRight,JSON.stringify({width,controls}));for(const other of controls.slice(i+1))assert.ok(r.right<=other.left||other.right<=r.left)}
+  await js(`document.querySelector('.pt-cfg').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(r))`);await shot('charge-copper-'+width);
+  await js(`document.querySelector('.pt-cfg .source-trigger').click()`);await ready('.source-popover');await bounds();
+  assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('ערך של NIST ליון גזי חופשי. יון בתרכובת או בתמיסה יכול להיראות אחרת.')`));
+  await shot('charge-copper-note-'+width);
+  // Programmatic change also clears a pinned note, not only outside pointer clicks.
+  await js(`document.querySelector('[aria-label="הסר אלקטרון"]').click()`);
+  assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
+  await js(`document.querySelector('.pt-neutral').click();document.querySelector('.pt-cell[aria-label$=", 104"]').click()`);
+  assert.ok(await js(`document.querySelector('.pt-state-tag').textContent==='מחושב'`));
+  assert.ok(!await js(`document.querySelector('.pt-detail').textContent.includes('לא נמדד')`));
+  await js(`document.querySelector('.pt-cfg .source-trigger').click()`);await ready('.source-popover');
+  assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('לא נמדד')`));await key('Escape');
+ }
+ console.log('Compact charge checks passed: Cu2+ exact note, predicted note, 44px single-row controls at 320/375/390/667/1280, no overlap, note reset on charge change.');
  // Expanded electron addition never substitutes a model for an existing NIST cation.
  for(const [width,height] of [[320,800],[667,375],[1280,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
@@ -153,13 +179,13 @@ try{
    for(let k=0;k<adds;k++)await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').click()`);
    await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
    const detail=await js(`document.querySelector('.pt-detail').textContent`);
-   assert.ok(detail.includes('מודל אכלוס לימודי'),detail);assert.ok(detail.includes(text),detail);assert.ok(detail.includes(String(z+adds)+' אלקטרונים'),detail);
+   assert.ok(detail.includes('מודל לימודי'),detail);assert.ok(detail.includes(text),detail);assert.ok(detail.includes(String(z+adds)+' אלקטרונים'),detail);
    assert.equal(await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').disabled`),false);
    if(z===6&&adds===4){await js(`document.querySelector('.pt-cfg').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(r))`);await shot('calculated-carbon-'+width);if(width===320){await js(`document.querySelector('.pt-cfg .source-trigger').click()`);await ready('.source-popover');await bounds();await shot('calculated-method-'+width);await key('Escape')}}
-   await js(`document.querySelector('.pt-neutral').click()`);assert.ok(!await js(`document.querySelector('.pt-detail').textContent.includes('מודל אכלוס לימודי')`));
+   await js(`document.querySelector('.pt-neutral').click()`);assert.ok(!await js(`document.querySelector('.pt-detail').textContent.includes('מודל לימודי')`));
   }
   await js(`document.querySelector('.pt-cell[aria-label$=", 23"]').click()`);await js(`new Promise(r=>requestAnimationFrame(r))`);await js(`document.querySelector('[aria-label="הסר אלקטרון"]').click()`);await ready('.pt-neutral');
-  assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('3d⁴')`));assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('NIST')`));
+  assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('3d⁴')`));await js(`document.querySelector('.pt-cfg .source-trigger').click()`);await ready('.source-popover');assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('NIST')`));await key('Escape');
   await js(`document.querySelector('.pt-cell[aria-label$=", 118"]').click()`);assert.equal(await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').disabled`),true);assert.ok(await js(`document.querySelector('.pt-ion').textContent.includes('גבול החישוב באתר')`));
   assert.equal(await js(`JSON.stringify(localStorage)`),saved);assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
  }

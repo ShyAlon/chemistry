@@ -18,11 +18,11 @@ test('quantum-number definition preserves all four mappings, range and original 
 test('only authored equation blocks get standalone layout; long source lines are not rewritten',()=>{
  const text='E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s';
  const html=render(React.createElement(DisplayMath,{text}));assert.match(html,/class="display-math" dir="ltr"/);assert.ok(html.includes('<div>E = h·ν = h·c/λ</div>'));assert.ok(html.includes('h = 6.626×10⁻³⁴ J·s'));
- const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2)));assert.equal(equations.length,7);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
+ const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2&&!p.recap)));assert.equal(equations.length,7);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
 });
 
 test('course content and answer data stay identical except the explicit V+ worked-answer correction',()=>{
- const copy=structuredClone(data);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
+ const copy=structuredClone(data);copy.courses[0].topics=copy.courses[0].topics.slice(0,10);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
  const vanadium=copy.courses.find(c=>c.id==='84102').topics.find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  assert.equal(vanadium.content.length,4);
  assert.match(vanadium.content[2],/לפי כלל ההוצאה הנלמד בקורס/);

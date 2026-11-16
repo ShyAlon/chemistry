@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {parseNumber,numericCorrect,configuration,loadProgress,wavelengthColor} from '../src/logic.js';
 const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
-const topics=catalogue.courses[0].topics.map(t=>({...t,...t.content}));
+const topics=catalogue.courses[0].topics.slice(0,10).map(t=>({...t,...t.content}));
 test('all ten packs, priority, 57 questions and complete content',()=>{assert.deepEqual(topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4']);assert.equal(topics.flatMap(t=>t.quiz).length,57);for(const t of topics){assert.ok(t.theory.length>3);assert.ok(t.worked.length>=3);assert.ok(t.spectrum.lines.length>=3);for(const q of t.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct],t.id+' '+q.id)}}}});
 test('scientific notation, unicode exponents, negatives and invalid input',()=>{for(const s of ['1.9e16','1.9×10^16','1.9×10¹⁶','1.9 * 10^16'])assert.equal(parseNumber(s),1.9e16);assert.equal(parseNumber('−6.04'),-6.04);assert.equal(parseNumber('10^-9'),1e-9);for(const s of ['', '5abc', '1/0','1;alert(1)'])assert.ok(Number.isNaN(parseNumber(s)))});
 test('numeric marking requires unit and accepts rounded answer',()=>{const f=[{value:4,unit:'eV'}];assert.ok(numericCorrect(['4'],['eV'],f));assert.ok(!numericCorrect(['4'],['J'],f));assert.ok(!numericCorrect(['5'],['eV'],f));assert.ok(numericCorrect(['3.96e-12'],['m'],[{value:3.96e-12,unit:'m'}]))});

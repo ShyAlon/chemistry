@@ -1,3 +1,4 @@
+import {ElectronAffinitySigns,ExamMethodMap} from './figures-recap.jsx';
 import {MaxwellSpeedBand,EffusionQuantities,HydrationOrientation} from './figures-practice.jsx';
 import {LiquidVapor,RaoultLines,OsmosisFlow,DecayMap,HalfLifeCurve} from './figures-supplement.jsx';
 import {bidiElement} from './bidi-react.js';
@@ -6,6 +7,8 @@ import {UnitLadder,EmSpectrum,Photoelectric,BohrLevels,DeBroglie,Uncertainty,Qua
 import {MatterTree,DensityCubes,MoleBridge,EmpiricalFlow,StoichMap,Limiting,Dilution,NetIonic,TitrationCurve,GasLaws,MaxwellBoltzmann,ImfLadder,PhaseDiagram,Bragg} from './figures-84101.jsx';
 
 export const figures={
+  'electron-affinity-signs':ElectronAffinitySigns,
+  'exam-method-map':ExamMethodMap,
   'maxwell-speed-band':MaxwellSpeedBand,
   'effusion-quantities':EffusionQuantities,
   'hydration-orientation':HydrationOrientation,

@@ -197,3 +197,53 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .chemistry-near{opacity:.20;transform:translateY(calc(var(--backdrop-scroll,0px)*-.16))}
 @media(max-width:600px){.chemistry-far{opacity:.12}.chemistry-near{opacity:.18;left:-550px;width:calc(100% + 550px)}}
 @media(prefers-reduced-motion:reduce){.chemistry-layer{transform:none;will-change:auto}}
+
+/* Formula sheet: topic cards are read right-to-left, row by row. */
+.formula-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+.formula-grid>.ref-topic{margin:0;min-width:0}
+.formula-grid .ref-items>div{grid-template-columns:minmax(0,1fr);gap:4px}
+.formula-grid .ref-items dt{font-weight:600;color:var(--ink)}
+.formula-grid .chip{white-space:normal;overflow-wrap:anywhere;overflow-x:visible}
+@media(min-width:1000px){.formula-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{.formula-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formula-grid>.ref-topic{break-inside:avoid}}
+
+.formula-shortcut{padding:18px 22px;margin:0 0 20px;border-color:var(--accent)}
+.formula-shortcut h2{font-size:24px;margin:0 0 10px}.formula-shortcut p{font-size:18px;color:var(--muted);margin:12px 0 0}
+.formula-shortcut .chip{white-space:normal;overflow-x:visible;overflow-wrap:anywhere}
+
+/* The selected-course print preview is the printed artifact, not a second copy. */
+.formula-print-tool{margin:18px 0 24px}.formula-print-tool details{padding:16px 20px;background:#101a2a;border:1px solid var(--line);border-radius:14px}
+.formula-print-tool summary{cursor:pointer;min-height:44px;font-size:22px;color:var(--accent)}
+.formula-print-tool button{font:inherit;font-size:18px;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:#162238;color:var(--ink);cursor:pointer}
+.formula-print-tool button.primary{background:#a4e7ed;color:#10202b}.formula-print-tool button:disabled{opacity:.5;cursor:not-allowed}
+.fp-select-actions,.fp-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.formula-print-tool fieldset{border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.formula-print-tool legend{padding:0 8px}
+.fp-topic-picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:8px 20px}
+.fp-topic-picker label,.fp-constants{display:flex;gap:8px;align-items:center;min-height:44px;font-size:18px}.fp-topic-picker input,.fp-constants input{width:22px;height:22px;flex:0 0 auto;accent-color:#72d2d8}
+.fp-constants{margin-top:12px}.fp-selection-summary{font-size:18px;color:var(--muted)}.fp-overflow{padding:14px;border:1px solid #f2b966;border-radius:12px;background:#302314;color:#ffdcad}.fp-status{color:var(--muted);font-size:18px}
+.fp-paper-scroll{overflow:auto;padding:16px 0;background:#26313e}.fp-paper{box-sizing:border-box;width:210mm;height:297mm;padding:10mm;margin:0 auto 20px;background:white;color:#151515;direction:rtl;overflow:hidden;font-family:Arial,sans-serif;font-size:14pt;line-height:1.12;box-shadow:0 2px 10px #0004}
+.fp-paper>header{display:flex;justify-content:space-between;align-items:start;height:18mm;gap:8mm;font-size:14pt;line-height:1.12;border:0;margin:0;padding:0}
+.fp-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8mm;height:259mm;align-items:start}
+.fp-column{box-sizing:border-box;min-width:0;font-family:Arial,sans-serif;font-size:14pt;line-height:1.12;direction:rtl;color:#151515}
+.fp-column h2{font:600 14pt/1.12 Arial,sans-serif;color:#174f50;margin:0;padding:0 0 8px;break-after:avoid}
+.fp-row{box-sizing:border-box;margin:0;padding:0 0 9px;border:0;break-inside:avoid;overflow-wrap:anywhere}
+.fp-label{font-weight:600;margin:0 0 2px}.fp-note{font:400 14pt/1.12 Arial,sans-serif;color:#333;margin:2px 0 0}
+.fp-column .chip,.fp-column .chip-text{font-size:14pt;line-height:1.12;padding:0;border:0;border-radius:0;background:none;color:#151515;white-space:normal;overflow:visible;max-width:100%;overflow-wrap:anywhere}
+.fp-column .chips{gap:3px 8px}.fp-column .ref-prose,.fp-column .scientific-definition{font:400 14pt/1.12 Arial,sans-serif;color:#151515}
+.fp-column .scientific-definition p{margin:0 0 3px}.fp-column .scientific-definition .definition-mappings{gap:2px}
+.fp-measure{position:fixed;left:-10000px;top:0;width:91mm;height:259mm;visibility:hidden;pointer-events:none}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ html:has(.fp-paper-scroll),body:has(.fp-paper-scroll){margin:0!important;padding:0!important;background:white!important}
+ body:has(.fp-paper-scroll) *:not(:has(.fp-paper-scroll)):not(.fp-paper-scroll):not(.fp-paper-scroll *):not(.fp-overflow){display:none!important}
+ body *:has(.fp-paper-scroll){display:block!important;position:static!important;margin:0!important;padding:0!important;min-height:0!important;height:auto!important;max-width:none!important;width:auto!important;transform:none!important;overflow:visible!important}
+ .fp-paper{box-shadow:none!important;margin:0!important;break-after:page;page-break-after:always}
+ .fp-paper:last-child{break-after:auto;page-break-after:auto}
+ .fp-paper-scroll{position:static;width:210mm;margin:0!important;padding:0!important;overflow:visible!important;background:white!important}
+ .fp-paper header{position:static!important;transform:none!important}
+ body:has(.fp-overflow) .fp-paper-scroll{display:none!important}
+ body:has(.fp-overflow) .fp-overflow{display:block!important;color:black;background:white}
+}
+.fp-scope{font-weight:400;font-size:14pt;margin-top:2px}
+.fp-column .math-definitions{margin:0}.fp-column .math-definitions>div{margin:0;padding:0;gap:4px}
+.fp-column .chain{gap:3px}.fp-column .chain-arrow{color:#151515}

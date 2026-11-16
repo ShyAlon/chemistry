@@ -385,5 +385,59 @@ try{
  assert.equal(await js(`document.querySelectorAll('.topic-card.completed').length`),4);
  await shot('recap-course-progress-390');
  console.log('Inorganic recap checks passed: 36 topic/viewports, source mapping, new diagrams/solutions at 320/390/1280, all 26 answers marked via UI, P11/P12 complete after reload and existing P7/P3 answers unchanged.');
+ for(const width of [1280,1000,820,390,320]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/formulas'});await ready('.formula-grid');await js(`document.querySelectorAll('.ref-tabs button')[0].click()`);await ready('#ref-P1');assert.ok(await js(`document.querySelector('.formula-shortcut').textContent.includes('1240')&&document.querySelector('.formula-shortcut').textContent.includes('לא רק במימן')`));
+  const snap=await js(`(()=>{const g=document.querySelector('.formula-grid'),cs=getComputedStyle(g);return {columns:cs.gridTemplateColumns.split(' ').length,width:innerWidth,scroll:document.documentElement.scrollWidth,storage:JSON.stringify({...localStorage}),topics:[...g.querySelectorAll('section')].map(e=>({id:e.id,left:e.getBoundingClientRect().left,right:e.getBoundingClientRect().right})),small:[...g.querySelectorAll('small,dt,.chip')].map(e=>parseFloat(getComputedStyle(e).fontSize))}})()`);
+  assert.equal(snap.columns,width>=1000?2:1);assert.ok(snap.scroll<=width+1,JSON.stringify(snap));assert.ok(Math.min(...snap.small)>=18);console.log('layout',width,snap.columns);
+  for(const id of ['P1','P3','P9','P8','P4','constants']){
+   await js(`document.getElementById('ref-${id}').scrollIntoView({block:'start'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+   await shot('formula-'+id+'-'+width);
+   assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+   const bad=await js(`(()=>[...document.getElementById('ref-${id}').querySelectorAll('.chip')].filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>e.textContent))()`);assert.deepEqual(bad,[],id+' overflowing chips at'+width);
+  }
+  await js(`document.querySelectorAll('.ref-tabs button')[1].click()`);await ready('#ref-G1');
+  assert.equal(await js(`document.querySelectorAll('.formula-grid>.ref-topic').length`),17);
+  await js(`document.getElementById('ref-G10').scrollIntoView({block:'start'})`);await shot('formula-G10-'+width);
+  assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+  assert.equal(await js(`JSON.stringify({...localStorage})`),snap.storage);
+ }
+ console.log('Formula-only preview gates passed:2columns1000/1280,1column320/390/820,both courses,18px minimum, no chip/page overflow, unchanged storage.');
+ // Topic-selected formula printing: lossless, progress-neutral, exactly two A4 pages.
+ await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/formulas'});await ready('.formula-grid');
+ const formulaStorage=await js('JSON.stringify({...localStorage})');
+ for(const ci of [0,1]){
+  await js(`document.querySelectorAll('.ref-tabs button')[${ci}].click()`);await ready('.formula-print-tool');
+  await js(`document.querySelector('.formula-print-tool details').open=true;document.querySelector('.formula-print-tool details .primary').click()`);await ready('.fp-paper');
+  const all=await js(`({rows:document.querySelectorAll('.fp-paper .fp-row').length,source:document.querySelectorAll('.formula-grid .ref-items>div').length,pages:document.querySelectorAll('.fp-paper').length,disabled:document.querySelector('.fp-toolbar .primary').disabled,status:document.querySelector('[role=status]').textContent})`);
+  assert.equal(all.rows,all.source,'No selected formula or note may be silently dropped');assert.ok(all.pages>2);assert.equal(all.disabled,true);assert.ok(all.status.includes('ההדפסה חסומה'));
+  await js(`document.querySelector('.fp-toolbar').scrollIntoView({block:'center'})`);await shot('formula-print-overflow-course-'+ci);
+  const chosen=ci===0?['P2','P9']:['G1','G2'];
+  await js(`document.querySelectorAll('.fp-topic-picker input').forEach(e=>{const keep=${JSON.stringify(chosen)}.includes(e.parentElement.querySelector('bdi').textContent);if(e.checked!==keep)e.click()})`);await ready('.fp-status');
+  const fit=await js(`(()=>{const papers=[...document.querySelectorAll('.fp-paper')],source=${JSON.stringify(chosen)}.map(id=>document.getElementById('ref-'+id).querySelectorAll('.ref-items>div').length).reduce((a,b)=>a+b,0)+document.querySelectorAll('#ref-constants .ref-items>div').length;return {pages:papers.length,rows:document.querySelectorAll('.fp-paper .fp-row').length,source,disabled:document.querySelector('.fp-toolbar .primary').disabled,fonts:[...document.querySelectorAll('.fp-paper .fp-note,.fp-paper .chip,.fp-paper .fp-label')].map(e=>parseFloat(getComputedStyle(e).fontSize)),clipped:[...document.querySelectorAll('.fp-paper .fp-column')].filter(e=>e.scrollWidth>e.clientWidth+1||e.getBoundingClientRect().height>e.parentElement.clientHeight+1).map(e=>e.textContent),headings:[...document.querySelectorAll('.fp-paper h2')].map(e=>e.textContent)}})()`);
+  assert.equal(fit.pages,2);assert.equal(fit.rows,fit.source);assert.equal(fit.disabled,false);assert.ok(Math.min(...fit.fonts)>=18.66);assert.deepEqual(fit.clipped,[]);assert.ok(fit.headings.every(t=>chosen.some(id=>t.includes(id+' '))||t.includes('קבועים')));
+  // Actual Chromium print engine, not only screen CSS. Page objects are uncompressed PDF dictionaries.
+  const pdf=Buffer.from((await call('Page.printToPDF',{printBackground:true,preferCSSPageSize:true,displayHeaderFooter:false})).data,'base64');
+  assert.equal((pdf.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length,2,'PDF must contain exactly two pages');
+  if(screenshots)await (await import('node:fs/promises')).writeFile(path.join(screenshots,'formula-print-course-'+ci+'.pdf'),pdf);
+  // Removing constants removes all their rows and keeps source ordering.
+  await js(`document.querySelector('.fp-constants input').click()`);await ready('.fp-status');
+  assert.equal(await js(`document.querySelectorAll('.fp-paper .fp-row').length`),fit.source-14);
+  assert.equal(await js(`document.querySelector('.fp-paper-scroll').textContent.includes('קבועים וערכי המרה')`),false);
+  await js(`document.querySelector('.fp-constants input').click()`);await ready('.fp-status');
+  for(const width of [1280,390,320]){
+   await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});
+   await js(`document.querySelector('.formula-print-tool').scrollIntoView({block:'start'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+   assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'),'Picker and paper scroll must not widen document');
+   assert.ok(await js(`[...document.querySelectorAll('.fp-topic-picker label,.formula-print-tool button')].filter(e=>e.getBoundingClientRect().height).every(e=>e.getBoundingClientRect().height>=44)`));
+   await shot('formula-print-selected-'+ci+'-'+width);
+  }
+  // Empty selection never enables a blank print, and close exits the print-only view.
+  await js(`document.querySelectorAll('.fp-select-actions button')[1].click();document.querySelector('.fp-constants input').click()`);await ready('.fp-overflow');
+  assert.equal(await js(`document.querySelector('.fp-toolbar .primary').disabled`),true);
+  await js(`document.querySelector('.fp-toolbar button').click()`);assert.equal(await js(`!!document.querySelector('.fp-paper-scroll')`),false);
+ }
+ assert.equal(await js('JSON.stringify({...localStorage})'),formulaStorage);
+ console.log('Formula print gates passed: both courses, lossless selected rows/notes, visible overflow, 14pt text, actual two-page PDF, constants toggle, empty selection, 320/390/1280 picker, unchanged progress.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

@@ -54,12 +54,13 @@ const fmtCfg=(core,cfg)=>(core?`[${core}]`:'')+cfg.map(([s,n])=>s+sup(n)).join('
 const chargeLabel=(sym,q)=>sym+(q===0?'':(Math.abs(q)>1?sup(Math.abs(q)):'')+(q>0?'⁺':'⁻'));
 function Config({e,q=0,ions}){
  const st=ionState(e,q,ions);
- if(st.kind==='missing')return <span>{e.z<=108?'אין ערך':'אין ערך ב-NIST'}</span>;
+ if(st.kind==='missing')return <span>אין ערך</span>;
  if(!st.cfg)return <span>אין קונפיגורציה לחלקיק הזה</span>;
  return <bdi dir="ltr" className="fx">{fmtCfg(st.core,st.cfg)}</bdi>}
 const stateNote=(e,q,st)=>{
- if(st.kind==='missing')return 'המקור שלנו (NIST) נותן קונפיגורציה לאטומים ניטרליים עד יסוד 108, וליסוד הזה אין בו ערך. זו מגבלת מקור, לא קביעה שהקונפיגורציה לא קיימת. לכן אי אפשר להוסיף או להסיר אלקטרונים.';
- if(st.kind==='predicted')return 'ערך מחושב (לא נמדד), לפי NIST.';
+ if(st.kind==='missing')return 'אין לנו מקור לקונפיגורציה של האטום הזה, ולכן אי אפשר להוסיף או להסיר אלקטרונים. זו מגבלת מקור, לא קביעה שהקונפיגורציה לא קיימת.';
+ if(st.kind==='measured')return 'לפי NIST.';
+ if(st.kind==='predicted')return 'ערך מחושב (תיאורטי), לא נמדד. '+(e.z<=108?'לפי NIST.':'לפי סקירה של חישובים רלטיביסטיים (Russian Chemical Reviews). ל־NIST אין ערך ליסוד הזה.');
  if(st.kind==='nist')return 'ערך של NIST ליון גזי חופשי. יון בתרכובת או בתמיסה יכול להיראות אחרת.';
  if(st.kind==='derived')return 'נגזר ממילוי תת־הקליפה הפתוחה, לא ערך שנמדד. '+(q<=-2?'אניון בודד במצב גזי עם מטען כזה בדרך כלל לא יציב. הוא מוכר בתרכובות.':'');
  if(st.kind==='loading')return 'טוען את נתוני היונים...';

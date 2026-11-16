@@ -4,7 +4,7 @@ Sources fetched live (public data), each field has one owner:
   atomic weights (abridged, with uncertainty): CIAAW https://ciaaw.org/abridged-atomic-weights.htm
   mass number of longest-lived isotope (no standard weight): CIAAW https://ciaaw.org/radioactive-elements.htm
   ground-state configurations Z<=103: NIST ASD ionization-energy table https://physics.nist.gov/cgi-bin/ASD/ie.pl
-  Z=104-108: same NIST table. NIST lists them with calculated (not measured) values: pred=1. Z=109-118 have no NIST entry: left empty.
+  Z=104-108: same NIST table (calculated values, pred=1). Z=109-118: no NIST entry; calculated configurations from the cited reviews, see CALC below (pred=1).
   Pauling electronegativity: PubChem periodic table CSV https://pubchem.ncbi.nlm.nih.gov/rest/pug/periodictable/CSV
 Hebrew names, grid layout and categories are authored here. No manual value overrides."""
 import csv,sys,re,json,html,io,urllib.request
@@ -17,6 +17,12 @@ HE_ACADEMY={1:"מימן",2:"הליום",3:"ליתיום",4:"בריליום",5:"�
 # standard atomic weights (conventional, 2 decimals) where the CSV is low precision
 _UNUSED={3:6.94,5:10.81,6:12.011,18:39.95,26:55.85,29:63.55,30:65.38,16:32.06,17:35.45,20:40.08,35:79.90,36:83.80,
  42:95.95,44:101.07,62:150.36,76:190.23,82:207.2,52:127.60,34:78.97,53:126.90,10:20.18,80:200.59,1:1.008}
+# Z=109-118: NIST has no entry. Calculated (never measured) valence configurations on top of [Rn]5f14 7s2, taken from
+# Russian Chemical Reviews 'Electronic structure and chemical properties of superheavy elements' (Table 1: Mt 6d7, Ds 6d8, Rg 6d9, 112 6d10, all 7s2;
+# and 'the 7s2 pair in the 7s2 7p^q ground state of the 7p elements 113-118', q=1..6), https://www.russchemrev.org/RCR4072pdf ;
+# cross-checks: Mt 6d7 7s2 Lackenby, Dzuba, Flambaum, Phys Rev A 100 (2019) arXiv:1902.06819; Rg 6d9 7s2 Eliav et al, PRL 73, 3203 (1994);
+# Og closed shell 7p6 Jerabek et al, PRL 120, 053001 (2018). These are theory, not measurements: flagged pred=1.
+CALC={109:{'6d':7},110:{'6d':8},111:{'6d':9},112:{'6d':10},113:{'6d':10,'7p':1},114:{'6d':10,'7p':2},115:{'6d':10,'7p':3},116:{'6d':10,'7p':4},117:{'6d':10,'7p':5},118:{'6d':10,'7p':6}}
 PERIOD_START=[1,3,11,19,37,55,87]
 def pos(z):
     if 57<=z<=71: return (9,z-57+3)
@@ -95,6 +101,8 @@ for r in rows:
     if p in (4,5): g=z-PERIOD_START[p-1]+1
     if p in(6,7) and z in(55,56,87,88): g=1 if z in(55,87) else 2
     core='';cfg=[]
+    if z in CALC:
+        core='Rn';keep={'7s':2,'5f':14,**CALC[z]};cfg=[[t,keep[t]] for t in sorted(keep,key=order)]
     if z<=108:
         c0,tk=parse_cfg(CFG[r['Symbol']])
         # present as noble-gas core + valence, in Madelung order

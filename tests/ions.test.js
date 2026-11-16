@@ -17,10 +17,10 @@ test('anions only for non-metals reaching a noble-gas shell in at most 3 electro
  assert.match(txt('O',-3),/unsupported/);assert.match(txt('C',-1),/unsupported/);assert.match(txt('Na',-1),/unsupported/);assert.match(txt('Ne',-1),/unsupported/);assert.match(txt('Fe',-1),/unsupported/);
 });
 test('bounds and missing data',()=>{
- assert.equal(ionState(el('H'),1,ions).kind,'none');assert.equal(ionState(el('He'),2,ions).kind,'none');assert.equal(ionState(el('Og'),0,ions).kind,'missing');
- assert.equal(ionState(el('Og'),1,ions).kind,'unsupported');assert.equal(ionState(el('Rf'),0,ions).kind,'predicted');assert.equal(ionState(el('Rf'),1,ions).kind,'unsupported');
- for(const z of [109,118])assert.equal(elements[z-1].cfg.length,0);
- for(const z of [104,105,106,107,108])assert.equal(elements[z-1].pred,1);
+ assert.equal(ionState(el('H'),1,ions).kind,'none');assert.equal(ionState(el('He'),2,ions).kind,'none');assert.equal(ionState(el('Og'),0,ions).kind,'predicted');
+ assert.equal(ionState(el('Og'),1,ions).kind,'unsupported');assert.equal(ionState({...el('Og'),cfg:[]},0,ions).kind,'missing');assert.equal(ionState(el('Rf'),0,ions).kind,'predicted');assert.equal(ionState(el('Rf'),1,ions).kind,'unsupported');
+ assert.equal(txt('Og',0),'predicted:[Rn]7s25f146d107p6');assert.equal(txt('Rg',0),'predicted:[Rn]7s25f146d97p0'.replace('7p0',''));assert.equal(txt('Fl',0),'predicted:[Rn]7s25f146d107p2');
+ for(let z=104;z<=118;z++)assert.equal(elements[z-1].pred,1);
  assert.ok(elements.filter(e=>e.z<=103).every(e=>!e.pred));
 });
 test('ion logic and data never touch storage',()=>{for(const f of ['ions.js','ion-data.js']){assert.ok(!/localStorage|sessionStorage/i.test(fs.readFileSync(new URL('../src/'+f,import.meta.url),'utf8')),f)}});

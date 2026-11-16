@@ -98,21 +98,23 @@ identity and old progress loading.
 
 ## Local verification
 
-48 unit/regression tests pass, and the production build succeeds. Headless Chrome
-inspection covered all four lessons at 1280x900, formula and worked-answer text at
-390x800, and a nuclear quiz at 667x375. All five original diagrams were inspected
-as pixels; no runtime exceptions occurred. New theory is 20px; SVG labels are at
-least 18 units and render larger than 18px. Display equations have deliberate
-line breaks on phones. Header top and footer bottom match viewport boundaries.
+57 unit/regression tests pass on main 97bfe12 (merged rendering PR #14), and the
+production build succeeds including its browser gate (60 route/viewports and 10
+notation fixtures). Headless Chrome inspection covered all four lessons at
+1280x900, formula and worked-answer text at 390x800, and a nuclear quiz at 667x375.
+All five original diagrams were inspected as pixels; no runtime exceptions
+occurred. New theory is 20px; SVG labels are at least 18 units. Display equations
+have deliberate line breaks on phones. Semantic subscripts render in prose,
+worked examples and quizzes. Short temperature quantities retain number and unit
+on one line. Header top and footer bottom match viewport boundaries.
 
 Browser interaction verified a correct new Raoult numeric answer with kPa units,
 persisted it under G14, and preserved a pre-existing completed G1. Both the formula
 sheet and gallery expose G13-G16. No source PDFs appear in the build.
 
-Known unrelated baseline issue: at 390px, main 0d40e61's header-tools row extends
-left to approximately -75px and causes horizontal page scrolling. New content
-fits its container. Shared header/CSS is deliberately unchanged; its fix is owned
-separately. Desktop and 667px landscape have no page-level horizontal overflow.
+The baseline narrow-phone header overflow was fixed separately by PR #14. This
+content PR does not change shared CSS or the scientific renderer. The final
+combined check has no page-level overflow at 390px, 667px or desktop widths.
 
 Vite emits pre-existing JSX greater-than warnings in the older figure files and a
 bundle-size advisory. Neither is introduced by this supplement; build exits zero.

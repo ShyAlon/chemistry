@@ -9,6 +9,7 @@ test('every NIST ion has exactly Z-q electrons',()=>{
 });
 test('cations come from NIST, not from a removal rule',()=>{
  assert.equal(txt('Fe',2),'nist:[Ar]3d6');assert.equal(txt('Fe',3),'nist:[Ar]3d5');
+ assert.equal(txt('V',1),'nist:[Ar]3d4'); // distinct from course-rule result 4s1 3d3
  assert.equal(txt('Ni',1),'nist:[Ar]3d9'); // a 4s-first rule would give 4s1 3d8
  assert.equal(txt('Cr',1),'nist:[Ar]3d5');assert.equal(txt('Na',1),'nist:[He]2s22p6');
 });

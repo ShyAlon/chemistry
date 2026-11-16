@@ -77,6 +77,21 @@ try{
     }
    }
    if(route==='course/84102/P7'&&[390,667,1280].includes(width))await shot('p7-'+width);
+   if(route==='course/84102/P7'){
+    await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('.worked');
+    await js(`document.querySelectorAll('.worked')[3].querySelector('button').click()`);await ready('.worked:nth-of-type(4) .solution');
+    const answer=await js(`document.querySelectorAll('.worked')[3].querySelector('.solution').textContent`);
+    assert.ok(answer.includes('V⁺ = [Ar]4s¹3d³'));assert.ok(answer.includes('NIST'));assert.ok(answer.includes('[Ar]3d⁴'));assert.ok(!answer.includes('תמיד'));
+    assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+    if([390,667,1280].includes(width)){
+     await js(`window.scrollTo(0,document.querySelectorAll('.worked')[3].getBoundingClientRect().top+scrollY-document.querySelector('.header').offsetHeight-12);new Promise(r=>requestAnimationFrame(r))`);
+     await shot('vanadium-'+width);
+     if(width===390){
+      await js(`window.scrollTo(0,document.querySelectorAll('.worked')[3].querySelector('.solution p:nth-child(2)').getBoundingClientRect().top+scrollY-document.querySelector('.header').offsetHeight-12);new Promise(r=>requestAnimationFrame(r))`);
+      await shot('vanadium-answer-'+width);
+     }
+    }
+   }
   }
   await call('Page.navigate',{url:origin+'/chemistry/__fixture'});await ready('#exact');
   const runs=await js(`[...document.querySelectorAll('#exact>bdi')].map(e=>e.textContent)`);

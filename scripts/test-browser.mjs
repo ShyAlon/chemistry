@@ -140,6 +140,27 @@ try{
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101'});await ready('.section-heading .source-trigger');
   await js(`document.querySelector('.section-heading .source-trigger').scrollIntoView({block:'center'});document.querySelector('.section-heading .source-trigger').click()`);await ready('.source-popover');await bounds();assert.ok(await js(`document.querySelector('.source-popover').textContent.includes('קובצי מקור')`));
  }
+ // Expanded electron addition never substitutes a model for an existing NIST cation.
+ for(const [width,height] of [[320,800],[667,375],[1280,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.pt-cell');
+  const saved=await js(`JSON.stringify(localStorage)`);
+  for(const [z,adds,text] of [[6,4,'2p⁶'],[6,5,'3s¹'],[26,1,'3d⁷'],[10,1,'3s¹'],[104,1,'6d³']]){
+   await js(`document.querySelector('.pt-cell[aria-label$=", ${z}"]').click()`);
+   for(let k=0;k<adds;k++)await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').click()`);
+   await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+   const detail=await js(`document.querySelector('.pt-detail').textContent`);
+   assert.ok(detail.includes('מודל אכלוס לימודי'),detail);assert.ok(detail.includes(text),detail);assert.ok(detail.includes(String(z+adds)+' אלקטרונים'),detail);
+   assert.equal(await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').disabled`),false);
+   if(z===6&&adds===4){await js(`document.querySelector('.pt-cfg').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(r))`);await shot('calculated-carbon-'+width);if(width===320){await js(`document.querySelector('.pt-cfg .source-trigger').click()`);await ready('.source-popover');await bounds();await shot('calculated-method-'+width);await key('Escape')}}
+   await js(`document.querySelector('.pt-neutral').click()`);assert.ok(!await js(`document.querySelector('.pt-detail').textContent.includes('מודל אכלוס לימודי')`));
+  }
+  await js(`document.querySelector('.pt-cell[aria-label$=", 23"]').click()`);await js(`new Promise(r=>requestAnimationFrame(r))`);await js(`document.querySelector('[aria-label="הסר אלקטרון"]').click()`);await ready('.pt-neutral');
+  assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('3d⁴')`));assert.ok(await js(`document.querySelector('.pt-cfg').textContent.includes('NIST')`));
+  await js(`document.querySelector('.pt-cell[aria-label$=", 118"]').click()`);assert.equal(await js(`document.querySelector('[aria-label="הוסף אלקטרון"]').disabled`),true);assert.ok(await js(`document.querySelector('.pt-ion').textContent.includes('גבול החישוב באתר')`));
+  assert.equal(await js(`JSON.stringify(localStorage)`),saved);assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+ }
+ console.log('Anion expansion browser checks passed: C4-/C5-, Fe-, Ne-, predicted-neutral seed, reset, 118-electron bound, source-first V+ and unchanged storage.');
  // Hover works without click, and moving into the bubble does not dismiss it.
  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/periodic'});await ready('.source-trigger');
  const hover=async selector=>{const p=await js(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchMouseEvent',{type:'mouseMoved',...p})};

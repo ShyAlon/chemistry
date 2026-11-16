@@ -1,3 +1,4 @@
+import {MaxwellSpeedBand,EffusionQuantities,HydrationOrientation} from './figures-practice.jsx';
 import {LiquidVapor,RaoultLines,OsmosisFlow,DecayMap,HalfLifeCurve} from './figures-supplement.jsx';
 import {bidiElement} from './bidi-react.js';
 import React from 'react';
@@ -5,6 +6,9 @@ import {UnitLadder,EmSpectrum,Photoelectric,BohrLevels,DeBroglie,Uncertainty,Qua
 import {MatterTree,DensityCubes,MoleBridge,EmpiricalFlow,StoichMap,Limiting,Dilution,NetIonic,TitrationCurve,GasLaws,MaxwellBoltzmann,ImfLadder,PhaseDiagram,Bragg} from './figures-84101.jsx';
 
 export const figures={
+  'maxwell-speed-band':MaxwellSpeedBand,
+  'effusion-quantities':EffusionQuantities,
+  'hydration-orientation':HydrationOrientation,
   'liquid-vapor':LiquidVapor,
   'raoult-lines':RaoultLines,
   'osmosis-flow':OsmosisFlow,

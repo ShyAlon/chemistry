@@ -20,9 +20,12 @@ test('worked calculations keep signs, atomic masses and explicit solution volume
  assert.ok(added[3].content.worked[3].content[1].includes((5730*Math.log(1/.3)/Math.log(2)).toFixed(3)));
  assert.ok(added[2].content.worked[0].content[1].includes('−0.372'));
 });
-test('all original topics and questions are byte-for-byte semantically unchanged',()=>{
+test('original topics and questions are unchanged except the explicit V+ correction',()=>{
  // Fixed from reviewed main 0d40e61. Does not require historical Git objects in CI.
- const original=[data.courses[0].topics,course.topics.slice(0,12)];
+ const original=structuredClone([data.courses[0].topics,course.topics.slice(0,12)]);
+ // Restore only the approved correction; retain the original baseline digest.
+ const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
+ vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'5f07203833c2d48632c533dd0ab982bdfdf86102e6060d7aed67f5a8487bd7c0');
 });
 test('old progress persists and new routes resolve without any storage migration',()=>{

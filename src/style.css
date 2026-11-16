@@ -125,3 +125,13 @@ html{scroll-padding-top:96px;scroll-padding-bottom:84px}
 
 @keyframes source-appear{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){.source-popover{animation:none}}
+
+/* Anchor each source to its label instead of letting its button wrap alone. */
+h1:has(>.source-tooltip),h2:has(>.source-tooltip),h3:has(>.source-tooltip),.pt-facts dt:has(>.source-tooltip){position:relative;padding-inline-end:28px}
+h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-tooltip{position:absolute;inset-inline-end:0;top:0;margin:0;width:24px;height:1lh;align-items:center;justify-content:center}
+.pt-facts dt>.source-tooltip .source-trigger{flex-shrink:0}
+/* Fit the anchor to the text, not the full-width field or heading box. */
+h1:has(>.source-tooltip),h2:has(>.source-tooltip),h3:has(>.source-tooltip),.pt-facts dt:has(>.source-tooltip){width:fit-content;max-width:100%;margin-inline-end:0}
+.pt-facts dt:has(>.source-tooltip){display:block}
+h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-tooltip{top:0;height:1lh}
+h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-tooltip{top:50%;transform:translateY(-50%);height:28px}

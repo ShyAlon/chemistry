@@ -135,3 +135,51 @@ h1:has(>.source-tooltip),h2:has(>.source-tooltip),h3:has(>.source-tooltip),.pt-f
 .pt-facts dt:has(>.source-tooltip){display:block}
 h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-tooltip{top:0;height:1lh}
 h1>.source-tooltip,h2>.source-tooltip,h3>.source-tooltip,.pt-facts dt>.source-tooltip{top:50%;transform:translateY(-50%);height:28px}
+
+/* Preview: scroll-linked header compaction and independent periodic-table panes. */
+:root{--scroll-progress:0;--header-base:84px;--header-shrink:20px;--chrome-header:84px;--chrome-footer:48px}
+.header{height:calc(var(--header-base) - var(--header-shrink)*var(--scroll-progress));min-height:calc(var(--header-base) - var(--header-shrink)*var(--scroll-progress));flex-shrink:0}
+.header .brand{font-size:calc(29px - 5px*var(--scroll-progress))}
+.header .brand-sub{font-size:calc(10px - 2px*var(--scroll-progress))}
+.avatar-menu{top:calc(var(--chrome-header) + 4px)}
+html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:calc(var(--chrome-footer) + 12px)}
+.pt-layout{position:sticky;top:calc(var(--chrome-header) + 12px);height:calc(100dvh - var(--chrome-header) - var(--chrome-footer) - 24px);min-height:0;align-items:stretch;grid-template-columns:minmax(0,1fr) 240px;direction:ltr}
+.pt-layout>.pt-detail{order:2;direction:rtl;display:block;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.pt-layout>.pt-detail .pt-facts{display:grid;grid-template-columns:1fr;min-width:0;width:100%;margin-top:16px}
+.pt-layout>.pt-main{order:1;direction:rtl;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.pt-scroll{overflow:auto;min-height:0;overscroll-behavior:contain;scrollbar-gutter:stable}
+.pt-legend{flex-shrink:0}
+.pt-scroll-hint{flex-shrink:0}
+@media(max-width:800px){:root{--header-base:72px;--header-shrink:8px}.header .brand{font-size:calc(24px - 3px*var(--scroll-progress))}.header .brand-sub{font-size:8px}}
+@media(max-width:520px){
+ :root{--header-base:104px;--header-shrink:16px}
+ .header:has(.avatar-wrap){height:calc(var(--header-base) - var(--header-shrink)*var(--scroll-progress));grid-template-rows:calc(52px - 8px*var(--scroll-progress)) 44px}
+ .header .avatar-trigger{width:44px;height:44px;min-width:44px}
+ .header .avatar-menu{top:calc(var(--chrome-header) + 4px)}
+
+ .pt-layout>.pt-detail .pt-facts{margin-top:0}
+ .pt-legend{flex-wrap:nowrap;overflow:auto;gap:16px;margin:0 0 8px;padding-bottom:4px;font-size:14px}.pt-legend>span{white-space:nowrap}
+ .pt-legend i{width:12px;height:12px}.pt-scroll-hint{font-size:14px;line-height:1.5;margin-bottom:8px}
+}
+@media(max-height:520px){:root{--header-base:56px;--header-shrink:0px}.pt-layout{grid-template-columns:minmax(0,1fr) 240px;grid-template-rows:minmax(0,1fr)}.pt-legend{flex-wrap:nowrap;overflow:auto;white-space:nowrap;margin:0 0 8px}.pt-legend>span{flex-shrink:0}.pt-scroll-hint{display:none}}
+
+.pt-scroll,.pt-detail,.pt-legend{color-scheme:dark}
+.pt-layout{scroll-margin-top:calc(var(--chrome-header) + 12px)}
+.pt-scroll,.pt-detail,.pt-legend{scrollbar-width:thin;scrollbar-color:#4a6580 #101827}
+.pt-pane-heading,.pt-open-details{display:none}
+@media(max-width:1279px){
+ .pt-layout{display:block;direction:rtl}
+ .pt-layout>.pt-main{height:100%}
+ .pt-open-details{display:flex;flex-shrink:0;min-height:44px;padding:4px 12px;font-size:16px;gap:8px;margin:0 0 10px;align-self:flex-start}
+ .pt-layout>.pt-detail{display:none;position:absolute;inset:0;z-index:2;padding:18px;margin:0;background:#101827}
+ .pt-layout[data-details-open="true"]>.pt-detail{display:block}
+ .pt-layout[data-details-open="true"]>.pt-main{visibility:hidden}
+ .pt-pane-heading{display:flex;position:sticky;top:-18px;background:#101827;z-index:3;justify-content:space-between;align-items:center;gap:8px;padding:8px 0 12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+ .pt-pane-heading .secondary{padding:4px 8px;min-height:44px;font-size:16px;gap:0}
+ .pt-layout>.pt-detail .pt-facts{margin-top:16px}
+}
+
+.header .avatar-trigger{width:calc(64px - 12px*var(--scroll-progress));height:calc(64px - 12px*var(--scroll-progress))}
+@media(max-width:800px){.header .avatar-trigger{width:44px;height:44px}}
+@media(min-width:1280px){.pt-scroll{scrollbar-gutter:auto}}
+@media(max-width:1279px){.pt-pane-heading{font-size:16px}.pt-pane-heading strong{white-space:nowrap}.pt-pane-heading .secondary{font-size:14px;white-space:nowrap}}

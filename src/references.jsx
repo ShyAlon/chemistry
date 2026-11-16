@@ -1,6 +1,7 @@
 import {bidiElement} from './bidi-react.js';
 import {mathNotation as sub} from './math-notation.js';
 import React,{useState,useEffect} from 'react';
+import catalogue from './courses.json';
 import {elements} from './reference-data.js';
 import {ionState} from './ions.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
@@ -130,7 +131,7 @@ function Trends(){const rows=[['מטען אפקטיבי Z_eff','עולה לאו�
 // label is 18px, so the gallery renders every figure at that width and scrolls sideways on phones.
 function GalleryBlock({id,text,accent}){const note=schematicFigures.has(id)?' התרשים סכמטי ואינו בקנה מידה.':'';
  return <figure className="figure-block ref-fig"><div className="fig-scroll" tabIndex={0}><Figure id={id} accent={accent}/></div><p className="ref-hint">גוללים הצידה כדי לראות את כל התרשים בגודל קריאה.</p><figcaption>{text+note}</figcaption></figure>}
-export const galleryGroups=()=>{const out=[];for(const [cid,enr,cname] of [['84102',enrichment84102,'כימיה אי־אורגנית 84102'],['84101',enrichment84101,'כימיה כללית א׳ 84101']]){const topics=formulaCourses.find(c=>c.id===cid).topics;for(const t of topics){const figs=(enr[t.id]?.theory||[]).filter(p=>p.style==='Figure');if(figs.length)out.push({course:cname,id:t.id,title:t.title,figs})}}return out}
+export const galleryGroups=()=>{const out=[];for(const [cid,enr,cname] of [['84102',enrichment84102,'כימיה אי־אורגנית 84102'],['84101',{...enrichment84101,...Object.fromEntries(catalogue.courses.find(c=>c.id==='84101').topics.filter(t=>!enrichment84101[t.id]).map(t=>[t.id,{theory:t.content.theory}]))},'כימיה כללית א׳ 84101']]){const topics=formulaCourses.find(c=>c.id===cid).topics;for(const t of topics){const figs=(enr[t.id]?.theory||[]).filter(p=>p.style==='Figure');if(figs.length)out.push({course:cname,id:t.id,title:t.title,figs})}}return out}
 function Diagrams(){const [cid,setCid]=useState('84102');const groups=galleryGroups().filter(g=>(cid==='84102')===g.id.startsWith('P'));
  return <Shell title="גלריית תרשימים">
   <section className="panel ref-topic"><h2>מגמות בטבלה המחזורית</h2><Trends/><p className="ref-note">כיוון המגמה הכללי. יש חריגות, למשל Be מול B ו־N מול O באנרגיית היינון.</p></section>

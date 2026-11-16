@@ -1,9 +1,15 @@
+import {LiquidVapor,RaoultLines,OsmosisFlow,DecayMap,HalfLifeCurve} from './figures-supplement.jsx';
 import {bidiElement} from './bidi-react.js';
 import React from 'react';
 import {UnitLadder,EmSpectrum,Photoelectric,BohrLevels,DeBroglie,Uncertainty,QuantumTree,RpdCurves,Aufbau,HundBoxes,Shielding,IeTrend,IeSuccessive,XpsSpectrum} from './figures-84102.jsx';
 import {MatterTree,DensityCubes,MoleBridge,EmpiricalFlow,StoichMap,Limiting,Dilution,NetIonic,TitrationCurve,GasLaws,MaxwellBoltzmann,ImfLadder,PhaseDiagram,Bragg} from './figures-84101.jsx';
 
 export const figures={
+  'liquid-vapor':LiquidVapor,
+  'raoult-lines':RaoultLines,
+  'osmosis-flow':OsmosisFlow,
+  'decay-map':DecayMap,
+  'half-life-curve':HalfLifeCurve,
   'unit-ladder':UnitLadder,
   'em-spectrum':EmSpectrum,
   'photoelectric':Photoelectric,

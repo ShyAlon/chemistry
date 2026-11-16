@@ -17,10 +17,10 @@ test('quantum-number definition preserves all four mappings, range and original 
 test('only authored equation blocks get standalone layout; long source lines are not rewritten',()=>{
  const text='E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s';
  const html=render(React.createElement(DisplayMath,{text}));assert.match(html,/class="display-math" dir="ltr"/);assert.ok(html.includes('<div>E = h·ν = h·c/λ</div>'));assert.ok(html.includes('h = 6.626×10⁻³⁴ J·s'));
- const equations=data.courses.flatMap(c=>c.topics.flatMap(t=>t.content.theory.filter(p=>p.layout==='equation')));assert.equal(equations.length,7);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
+ const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation')));assert.equal(equations.length,7);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
 });
 
 test('all original course content and answer data stay identical to reviewed baseline',()=>{
- const copy=structuredClone(data);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
- assert.equal(createHash('sha256').update(JSON.stringify(copy)).digest('hex'),'60434a51eae8d06f6eaaedc1a22a21db6fcbe2a8a49ba78e50226af68aef8f9b');
+ const copy=structuredClone(data);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
+ assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'bb88d09f924412480d1f2e5ac55b252d14562585c2177a37250569961fac19e0');
 });

@@ -1,3 +1,4 @@
+import {PageTitle} from './PageTitle.jsx';
 import {bidiElement} from './bidi-react.js';
 import {SourceTooltip} from './SourceTooltip.jsx';
 import {mathNotation as sub} from './math-notation.js';
@@ -32,9 +33,9 @@ function Expr({expr}){return expr&&expr.def?<Definition definition={expr.def}/>:
 
 export function parseReferenceRoute(hash){const p=hash.replace(/^#/,'').split('/').filter(Boolean);return p[0]==='references'?{page:p[1]||'',valid:!p[1]||pages.some(x=>x.id===p[1])}:null}
 
-function Shell({title,children,back='references'}){return <main className="topic-page ref-page"><button className="back quiet" onClick={()=>{location.hash=back}}>→ {back==='references'?'למקראות':'חזרה'}</button><h1 className="ref-title">{title}</h1>{children}</main>}
+function Shell({title,children}){return <main className="topic-page ref-page"><PageTitle className="ref-title">{title}</PageTitle>{children}</main>}
 
-function Landing(){return <main className="topic-page ref-page"><button className="back quiet" onClick={()=>{location.hash=''}}>→ לקורסים</button><div className="eyebrow">עזרים ללימוד ולמבחן</div><h1 className="ref-title">מקראות</h1><p className="ref-lead">דפי עזר קבועים ליד הקורסים. הם לא משנים התקדמות, בחנים או תשובות שמורות.</p><section className="ref-cards">{pages.map(p=><button key={p.id} className="panel ref-card" onClick={()=>{location.hash='references/'+p.id}}><span className="ref-icon" aria-hidden="true">{p.icon}</span><h2>{p.title}</h2><p>{p.desc}</p><strong>לפתיחה ←</strong></button>)}</section></main>}
+function Landing(){return <main className="topic-page ref-page"><button className="back quiet" onClick={()=>{location.hash=''}}>→ לקורסים</button><div className="eyebrow">עזרים ללימוד ולמבחן</div><PageTitle className="ref-title">מקראות</PageTitle><p className="ref-lead">דפי עזר קבועים ליד הקורסים. הם לא משנים התקדמות, בחנים או תשובות שמורות.</p><section className="ref-cards">{pages.map(p=><button key={p.id} className="panel ref-card" onClick={()=>{location.hash='references/'+p.id}}><span className="ref-icon" aria-hidden="true">{p.icon}</span><h2>{p.title}</h2><p>{p.desc}</p><strong>לפתיחה ←</strong></button>)}</section></main>}
 
 function Formulas(){
  const [cid,setCid]=useState(formulaCourses[0].id);const course=formulaCourses.find(c=>c.id===cid);

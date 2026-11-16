@@ -188,7 +188,7 @@ try{
   await key('Escape');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);assert.ok(await js(`document.activeElement===document.querySelector('.pt-facts .source-trigger')`));
   // Tap pins the disclosure; a second tap, outside tap and explicit close dismiss it.
   await call('Emulation.setTouchEmulationEnabled',{enabled:true});
-  const tap=async selector=>{const p=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[p]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
+  const tap=async selector=>{const p=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const r=e.getBoundingClientRect();resolve({x:r.x+r.width/2,y:r.y+r.height/2})})))})()`);await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[p]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
   await tap('.pt-facts .source-trigger');await ready('.source-popover');await bounds();
   if([320,1280].includes(width))await shot('source-open-'+width);
   await tap('.pt-facts .source-trigger');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
@@ -265,6 +265,70 @@ try{
  await hover('.pt-facts .source-trigger');await js('new Promise(r=>setTimeout(r,250))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0,'Hover must wait about half a second');await ready('.source-popover');assert.equal(await js(`getComputedStyle(document.querySelector('.source-popover')).animationName`),'source-appear');await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});assert.equal(await js(`getComputedStyle(document.querySelector('.source-popover')).animationName`),'none');await call('Emulation.setEmulatedMedia',{features:[]});await hover('.source-popover');await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),1);
  await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1});await js('new Promise(r=>setTimeout(r,220))');assert.equal(await js(`document.querySelectorAll('.source-popover').length`),0);
  console.log('Source tooltip interactions passed at 320/375/390px, landscape and desktop: keyboard, touch, hover, dismiss, source links and bounded long notes.');
+ // Page titles compact independently of navigation and leave with the page.
+ for(const width of [320,390,1280]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
+  for(const route of ['', 'course/84102','course/84102/P7','references','references/formulas','references/periodic','references/aufbau','references/diagrams']){
+   await call('Page.navigate',{url:origin+'/chemistry/index.html#/'+route});await ready('.page-title');
+   assert.equal(await js(`document.querySelectorAll('h1:not(.page-title)').length`),0);
+   assert.ok(!await js(`document.body.textContent.includes('→ למקראות')`));
+   await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+   const original=await js(`(()=>{const e=document.querySelector('.page-title');return {scale:+getComputedStyle(e).getPropertyValue('--page-title-scale'),height:e.getBoundingClientRect().height,offset:e.offsetHeight}})()`);
+   assert.equal(original.scale,1);
+   if(await js(`document.documentElement.scrollHeight>innerHeight+100`)){
+    await js(`scrollTo(0,24);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+    const early=await js(`(()=>{const e=document.querySelector('.page-title');return {scale:+getComputedStyle(e).getPropertyValue('--page-title-scale'),height:e.getBoundingClientRect().height,offset:e.offsetHeight}})()`);
+    assert.ok(early.scale<1,JSON.stringify({route,width,early}));assert.ok(Math.abs(early.offset-original.offset)<=1,JSON.stringify({route,width,early,original}));
+    await js(`scrollTo(0,80);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+    const compact=await js(`(()=>{const e=document.querySelector('.page-title'),r=e.getBoundingClientRect(),f=e.parentElement;return {top:r.top,bottom:r.bottom,header:document.querySelector('.header').getBoundingClientRect().bottom,next:f.nextElementSibling?.getBoundingClientRect().top??100000}})()`);
+    assert.ok(compact.top>=compact.header-1,JSON.stringify({route,width,compact}));
+    assert.ok(compact.bottom<=compact.next+1,JSON.stringify({route,width,compact}));
+    await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+    assert.equal(await js(`+getComputedStyle(document.querySelector('.page-title')).getPropertyValue('--page-title-scale')`),1);
+   }
+   assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+  }
+ }
+ for(const width of [1280,390]){
+ await call('Emulation.setDeviceMetricsOverride',{width,height:800,deviceScaleFactor:1,mobile:false});
+ await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/aufbau'});await ready('.page-title');
+ await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+ await shot('title-'+width+'-top');
+ for(let i=0;i<40;i++){
+  await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:Math.min(900,width-30),y:600,deltaX:0,deltaY:6});
+  await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);await shot('title-'+width+'-motion-'+String(i).padStart(2,'0'));
+ }
+ await shot('title-'+width+'-scrolled');
+ await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:width-30,y:600,deltaX:0,deltaY:-600});await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+ await shot('title-'+width+'-return');
+ }
+ await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+ await js(`scrollTo(0,80);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+ assert.equal(await js(`getComputedStyle(document.querySelector('.page-title')).transform`),'none');
+ await call('Emulation.setEmulatedMedia',{features:[]});
+
+ // Decoration stays behind content and moves more slowly than the document.
+ for(const width of [1280,390]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:800,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/P7'});await ready('.chemistry-backdrop');
+  await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.ok(await js(`document.querySelector('.chemistry-backdrop').getAttribute('aria-hidden')==='true' && getComputedStyle(document.querySelector('.chemistry-backdrop')).pointerEvents==='none'`));
+  await shot('parallax-'+width+'-00');
+  for(let i=1;i<=50;i++){
+   await call('Input.dispatchMouseEvent',{type:'mouseWheel',x:width-40,y:600,deltaX:0,deltaY:14});
+   await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+   await shot('parallax-'+width+'-'+String(i).padStart(2,'0'));
+  }
+  const motion=await js(`(()=>{const a=document.querySelector('.chemistry-far'),b=document.querySelector('.chemistry-near');return {scroll:scrollY,far:new DOMMatrix(getComputedStyle(a).transform).m42,near:new DOMMatrix(getComputedStyle(b).transform).m42}})()`);
+  assert.ok(Math.abs(motion.far+motion.scroll*.08)<1 && Math.abs(motion.near+motion.scroll*.16)<1,JSON.stringify(motion));
+  await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
+  await js(`new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.equal(await js(`getComputedStyle(document.querySelector('.chemistry-far')).transform`),'none');
+  assert.equal(await js(`getComputedStyle(document.querySelector('.chemistry-near')).transform`),'none');
+  await call('Emulation.setEmulatedMedia',{features:[]});
+ }
+ console.log('Chemistry backdrop gates passed: decorative/input-transparent, slow8%/16% real-wheel layers and reduced motion at390/1280.');
+ console.log('Actual page-title checks passed at 320/390/1280: shared titles, no repeated reading-return link, early shrink, stable layout, restore, reduced motion and real-wheel Aufbau capture.');
  // New inorganic review journeys: original answers survive, all new answers can be marked.
  const previous={P7:{complete:true,score:6,answers:{1:{correct:true,kind:'mcq'}}},P3:{complete:true,score:5,answers:{2:{correct:false,kind:'mcq'}}}};
  await js(`localStorage.setItem('spectra-course-84102-progress-v1',${JSON.stringify(JSON.stringify(previous))})`);

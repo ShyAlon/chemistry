@@ -34,3 +34,38 @@
 .math-definitions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 1.2em}.math-definitions>div{display:flex;align-items:center;justify-content:center;gap:18px;background:#152131;border:1px solid #243044;border-radius:6px;padding:10px 12px}.math-definitions dt,.math-definitions dd{margin:0;font-size:18px}.math-definitions dd{color:#9ce5ee}.math-definitions dt::after{content:':';margin-inline-start:5px}
 .display-math{direction:ltr;unicode-bidi:isolate;max-width:100%;overflow-x:auto;overflow-wrap:normal;white-space:nowrap;background:#152131;border-inline-start:2px solid var(--accent);padding:16px 20px;margin:1.2em 0;font-size:20px;line-height:1.9;text-align:left}.display-math>div{min-width:max-content}
 @media(max-width:600px){.math-definitions{grid-template-columns:repeat(2,minmax(0,1fr))}.display-math{font-size:18px;padding:12px 14px}}
+
+/* References */
+.ref-page{--c-alkali:#8a3d4f;--c-alkaline:#8a5a2f;--c-transition:#2f5f8a;--c-post:#3d6f6a;--c-metalloid:#5f6f35;--c-nonmetal:#2f7a55;--c-halogen:#6a4a8a;--c-noble:#7a3f7a;--c-lanthanide:#355f9a;--c-actinide:#4a4f9a;--b-s:#e0707f;--b-p:#4fc9a0;--b-d:#5aa0e6;--b-f:#b48be0}
+.ref-title{font-size:clamp(34px,5vw,54px);font-weight:500;margin:6px 0 14px;line-height:1.25}
+.ref-lead{max-width:760px;color:var(--muted)}
+.ref-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:28px 0}
+.ref-card{text-align:start;padding:22px;color:inherit;cursor:pointer;font:inherit;display:block}.ref-card h2{font-size:24px;margin:8px 0}.ref-card p{color:var(--muted);margin:0 0 12px}.ref-card strong{color:var(--accent)}.ref-icon{font-size:38px;color:var(--accent)}
+.ref-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.ref-tabs button{font:inherit;font-size:18px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#0b1322;color:var(--muted);cursor:pointer}.ref-tabs button.on{background:#12303a;color:#e8edf6;border-color:var(--accent)}
+.ref-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.ref-chips button{font-size:18px}
+.ref-topic{margin:20px 0;padding:18px 22px;scroll-margin-top:90px}.ref-topic h2{font-size:24px;margin:0 0 10px}.ref-id{color:var(--accent);margin-inline-end:6px}
+.ref-items{margin:0}.ref-items>div{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:6px 18px;padding:10px 0;border-top:1px solid var(--line)}.ref-items dt{color:var(--muted)}.ref-items dd{margin:0;min-width:0}.ref-items small{display:block;color:var(--muted);font-size:18px}
+.fx{unicode-bidi:isolate;font-family:'Cambria Math','STIX Two Math',Georgia,serif;font-size:1.08em;overflow-wrap:anywhere}
+.ref-note{color:var(--muted);max-width:820px}.ref-list{padding-inline-start:24px}.ref-list li{margin:8px 0}
+@media(max-width:600px){.ref-items>div{grid-template-columns:1fr}}
+.pt-detail{display:flex;gap:22px;padding:18px;align-items:flex-start;flex-wrap:wrap}.pt-big{width:120px;height:120px;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;padding:8px 12px;direction:ltr}.pt-big .pt-sym{font-size:54px;text-align:center;line-height:1}
+.pt-facts{margin:0;flex:1;min-width:240px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.pt-facts dt{color:var(--muted);font-size:18px}.pt-facts dd{margin:0}.pt-facts small{display:block;color:var(--muted);font-size:18px}
+.pt-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:14px 0}.pt-legend i{display:inline-block;width:18px;height:18px;border-radius:4px;margin-inline-end:8px;vertical-align:-3px}
+.pt-scroll{overflow-x:auto;direction:ltr;padding-bottom:10px;border:1px solid var(--line);border-radius:12px;background:#0b1322}
+.pt-grid{display:grid;grid-template-columns:repeat(18,54px);grid-template-rows:34px repeat(7,54px) 18px 54px 54px;gap:4px;padding:10px;width:max-content;direction:ltr}
+.pt-head{color:var(--muted);font-size:18px;text-align:center;line-height:34px}
+.pt-cell{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:4px 6px;border:2px solid transparent;border-radius:8px;color:#fff;font:inherit;cursor:pointer;line-height:1}.pt-cell .pt-z{font-size:18px;opacity:.85}.pt-cell .pt-sym{font-size:22px;font-weight:700;align-self:center;line-height:1}.pt-cell.sel{border-color:#fff;box-shadow:0 0 0 2px var(--accent)}.pt-cell:focus-visible{outline:3px solid var(--accent)}
+.pt-marker{align-items:center;justify-content:center;border:1px dashed #3d5068;color:var(--muted);font-size:18px;cursor:default}
+.pt-big .pt-z{font-size:20px}
+.aufbau-scroll{border:1px solid var(--line);border-radius:12px;background:#0b1322;padding:6px}.aufbau-svg,.trend-svg{display:block;max-width:none}
+.ref-table-wrap{overflow-x:auto}.ref-table{border-collapse:collapse;width:100%;min-width:480px}.ref-table th,.ref-table td{padding:8px 12px;border-top:1px solid var(--line);text-align:start}.ref-table th{color:var(--muted);font-weight:500}
+
+.ref-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:0 0 22px}
+.ref-nav button{display:flex;gap:12px;align-items:center;text-align:start;font:inherit;font-size:18px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#0b1322;color:#e8edf6;cursor:pointer;line-height:1.35}.ref-nav button:hover{border-color:var(--accent)}.ref-nav .ref-id{min-width:2.6em;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px 10px}.chip{display:inline-block;max-width:100%;overflow-x:auto;white-space:nowrap;padding:5px 12px;border:1px solid #2c3c55;border-radius:10px;background:#0f1a2c;font-size:20px;line-height:1.5}.chip-text{white-space:normal;font-family:inherit;font-size:18px}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px;direction:ltr}.chain-arrow{color:var(--accent);transform:scaleX(-1)}
+.ref-prose{display:block}.scientific-definition{margin:2px 0}.scientific-definition p{margin:0 0 8px}
+.ref-fig .fig-svg{width:840px;max-width:none}.ref-fig figcaption{font-size:18px}.ref-hint{display:none;color:var(--muted);font-size:18px;margin:6px 0}
+@media(max-width:900px){.ref-hint{display:block}}
+.ref-note p{margin:0 0 10px}
+.chip-group{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 10px}.chip-label{font-size:18px}

@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "SPECTRA | המעבדה לכימיה",
+  "short_name": "SPECTRA",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#080d17",
+  "background_color": "#080d17",
+  "icons": [
+    {
+      "src": "icons/helium-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/helium-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

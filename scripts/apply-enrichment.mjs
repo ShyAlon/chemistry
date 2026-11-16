@@ -13,9 +13,9 @@ for(const course of catalogue.courses){
   if(!layer)continue;
   for(const topic of course.topics){
     const add=layer[topic.id];
+    if(!add)continue;
     topic.content.theory=topic.content.theory.filter(b=>!b.enrich);
     topic.content.worked=topic.content.worked.filter(b=>!b.enrich);
-    if(!add)continue;
     topic.content.theory.push(...add.theory);
     if(add.worked)topic.content.worked.push(...add.worked);
     added.theory+=add.theory.length;

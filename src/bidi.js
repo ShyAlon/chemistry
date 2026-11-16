@@ -6,9 +6,10 @@ const closeFor={'(':')','[':']','{':'}'};
 function closingAt(text,start){const stack=[];for(let i=start;i<text.length;i++){if(closeFor[text[i]])stack.push(closeFor[text[i]]);else if(Object.values(closeFor).includes(text[i])){if(text[i]!==stack.pop())return -1;if(!stack.length)return i}}return -1}
 // Split only unambiguous statement boundaries outside brackets. A comma in
 // n=1,2,3 stays in the formula; the comma in "s, l=1" separates statements.
+// A top-level semicolon also separates prose labels, as in "4s²3d⁴; Cu הוא".
 function scientificParts(part){const out=[];let depth=0,start=0;for(let i=0;i<part.length;i++){
  if('([{'.includes(part[i]))depth++;else if(')]}'.includes(part[i]))depth=Math.max(0,depth-1);
- if(!depth&&((/[,;]/.test(part[i])&&/^\s*[A-Za-z\u0370-\u03ff][A-Za-z0-9_\u0370-\u03ff]*\s*[=≈<>≤≥]/u.test(part.slice(i+1)))||(part[i]==='.'&&/^\s+[A-Za-z0-9\u0370-\u03ff]/u.test(part.slice(i+1))))){out.push(part.slice(start,i),part[i]);start=i+1}
+ if(!depth&&((part[i]===';'&&/^\s*[A-Za-z\u0370-\u03ff]/u.test(part.slice(i+1)))||(/[,;]/.test(part[i])&&/^\s*[A-Za-z\u0370-\u03ff][A-Za-z0-9_\u0370-\u03ff]*\s*[=≈<>≤≥]/u.test(part.slice(i+1)))||(part[i]==='.'&&/^\s+[A-Za-z0-9\u0370-\u03ff]/u.test(part.slice(i+1))))){out.push(part.slice(start,i),part[i]);start=i+1}
  }out.push(part.slice(start));return out}
 function plain(text){
  // The first strong LTR character starts a scientific/Latin run. Brackets with

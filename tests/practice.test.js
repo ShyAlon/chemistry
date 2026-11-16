@@ -54,7 +54,7 @@ test('adding practice does not clear previously complete lessons or stored answe
 
 test('displayed compact Maxwell expression retains pi in its exponent',()=>{
  const text=t('G10').content.theory.find(b=>b.batch2&&b.text?.startsWith('A =')).text;
- assert.ok(text.includes('A = M/(2πRT)'));assert.ok(text.includes('exp(−πAv²)'));assert.ok(readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8').includes('exp(−πAv²)'));
+ assert.ok(text.includes('A = M/(2πRT)'));assert.ok(text.includes('exp(−πAv²)'));const sheet=readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8');assert.ok(sheet.includes('B = 4πA√A ; f(v)=Bv²·exp(−πAv²)'));
  for(const [v,M,T] of [[410,.028,300],[120,.017,313.15]]){const A=M/(2*Math.PI*R*T);assert.ok(Math.abs(4*Math.PI*A*Math.sqrt(A)*v*v*Math.exp(-Math.PI*A*v*v)/density(v,M,T)-1)<1e-12)}
 });
 

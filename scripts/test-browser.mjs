@@ -403,26 +403,36 @@ try{
   assert.equal(await js(`JSON.stringify({...localStorage})`),snap.storage);
  }
  console.log('Formula-only preview gates passed:2columns1000/1280,1column320/390/820,both courses,18px minimum, no chip/page overflow, unchanged storage.');
- // Topic-selected formula printing: lossless, progress-neutral, exactly two A4 pages.
+ // Compact full-course printing: explicit abridgment, progress-neutral, two A4 pages.
  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/formulas'});await ready('.formula-grid');
  const formulaStorage=await js('JSON.stringify({...localStorage})');
  for(const ci of [0,1]){
   await js(`document.querySelectorAll('.ref-tabs button')[${ci}].click()`);await ready('.formula-print-tool');
   await js(`document.querySelector('.formula-print-tool details').open=true;document.querySelector('.formula-print-tool details .primary').click()`);await ready('.fp-paper');
   const all=await js(`({rows:document.querySelectorAll('.fp-paper .fp-row').length,source:document.querySelectorAll('.formula-grid .ref-items>div').length,pages:document.querySelectorAll('.fp-paper').length,disabled:document.querySelector('.fp-toolbar .primary').disabled,status:document.querySelector('[role=status]').textContent})`);
-  assert.equal(all.rows,all.source,'No selected formula or note may be silently dropped');assert.ok(all.pages>2);assert.equal(all.disabled,true);assert.ok(all.status.includes('ההדפסה חסומה'));
-  await js(`document.querySelector('.fp-toolbar').scrollIntoView({block:'center'})`);await shot('formula-print-overflow-course-'+ci);
+  assert.equal(all.rows,all.source-1,'Only the explicit worked example/navigation omission is allowed');assert.equal(all.pages,2,'Full course must fit two pages');assert.equal(all.disabled,false);
+  const fullBounds=await js(`([...document.querySelectorAll('.fp-paper .fp-column,.fp-paper header')].filter(e=>e.scrollWidth>e.clientWidth+1||e.closest('.fp-columns')&&e.getBoundingClientRect().height>e.parentElement.clientHeight+1).map(e=>e.textContent))`);assert.deepEqual(fullBounds,[],'Full-course content stays in its columns/header');
+  const mixedLayout=await js(`({constantCols:getComputedStyle(document.querySelector('.fp-paper .fp-constant-grid')).gridTemplateColumns.split(' ').length,constantRows:document.querySelectorAll('.fp-paper .fp-constant-grid .fp-row').length,formulaFont:parseFloat(getComputedStyle(document.querySelector('.fp-paper .fp-columns .chip')).fontSize),labelFont:parseFloat(getComputedStyle(document.querySelector('.fp-paper .fp-columns .fp-label')).fontSize),rule:parseFloat(getComputedStyle(document.querySelector('.fp-paper h2')).borderTopWidth),pageBottom:[...document.querySelectorAll('.fp-paper')].map(p=>[...p.querySelectorAll('.fp-row')].every(r=>r.getBoundingClientRect().bottom<=p.getBoundingClientRect().bottom-25))})`);
+  assert.equal(mixedLayout.constantCols,3);assert.equal(mixedLayout.constantRows,14);assert.ok(mixedLayout.formulaFont>=16);assert.ok(mixedLayout.labelFont>=15.3);assert.ok(mixedLayout.rule>0);assert.ok(mixedLayout.pageBottom.every(Boolean));
+  assert.equal(await js(`document.querySelectorAll('.fp-paper>header').length`),0,'No repeated course/scope header');
+  assert.ok(await js(`document.querySelectorAll('.fp-paper .fp-side-by-side').length`)>0,'Short items share horizontal rows');
+  const fullPDF=Buffer.from((await call('Page.printToPDF',{printBackground:true,preferCSSPageSize:true,displayHeaderFooter:false})).data,'base64');assert.equal((fullPDF.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length,2,'Full-course actual PDF is two pages');
+  if(screenshots)await (await import('node:fs/promises')).writeFile(path.join(screenshots,'packed-full-'+ci+'.pdf'),fullPDF);
+  // Synthetic future overflow must fail closed, never clip or silently drop formulas.
+  await js(`document.head.insertAdjacentHTML('beforeend','<style id=print-stress>.fp-measure{height:100mm!important}</style>');document.querySelector('.fp-constants input').click()`);await ready('.fp-overflow');assert.equal(await js(`document.querySelector('.fp-toolbar .primary').disabled`),true);
+  await js(`document.getElementById('print-stress').remove();document.querySelector('.fp-constants input').click()`);await ready('.fp-status');
+  await js(`document.querySelector('.fp-toolbar').scrollIntoView({block:'center'})`);await shot('compact-full-picker-'+ci);
   const chosen=ci===0?['P2','P9']:['G1','G2'];
   await js(`document.querySelectorAll('.fp-topic-picker input').forEach(e=>{const keep=${JSON.stringify(chosen)}.includes(e.parentElement.querySelector('bdi').textContent);if(e.checked!==keep)e.click()})`);await ready('.fp-status');
   const fit=await js(`(()=>{const papers=[...document.querySelectorAll('.fp-paper')],source=${JSON.stringify(chosen)}.map(id=>document.getElementById('ref-'+id).querySelectorAll('.ref-items>div').length).reduce((a,b)=>a+b,0)+document.querySelectorAll('#ref-constants .ref-items>div').length;return {pages:papers.length,rows:document.querySelectorAll('.fp-paper .fp-row').length,source,disabled:document.querySelector('.fp-toolbar .primary').disabled,fonts:[...document.querySelectorAll('.fp-paper .fp-note,.fp-paper .chip,.fp-paper .fp-label')].map(e=>parseFloat(getComputedStyle(e).fontSize)),clipped:[...document.querySelectorAll('.fp-paper .fp-column')].filter(e=>e.scrollWidth>e.clientWidth+1||e.getBoundingClientRect().height>e.parentElement.clientHeight+1).map(e=>e.textContent),headings:[...document.querySelectorAll('.fp-paper h2')].map(e=>e.textContent)}})()`);
-  assert.equal(fit.pages,2);assert.equal(fit.rows,fit.source);assert.equal(fit.disabled,false);assert.ok(Math.min(...fit.fonts)>=18.66);assert.deepEqual(fit.clipped,[]);assert.ok(fit.headings.every(t=>chosen.some(id=>t.includes(id+' '))||t.includes('קבועים')));
+  assert.equal(fit.pages,2);assert.equal(fit.rows,fit.source-(ci===0?1:0));assert.equal(fit.disabled,false);assert.ok(Math.min(...fit.fonts)>=14);assert.deepEqual(fit.clipped,[]);assert.ok(fit.headings.every(t=>chosen.some(id=>t.includes(id+' '))||t.includes('קבועים')));
   // Actual Chromium print engine, not only screen CSS. Page objects are uncompressed PDF dictionaries.
   const pdf=Buffer.from((await call('Page.printToPDF',{printBackground:true,preferCSSPageSize:true,displayHeaderFooter:false})).data,'base64');
   assert.equal((pdf.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length,2,'PDF must contain exactly two pages');
   if(screenshots)await (await import('node:fs/promises')).writeFile(path.join(screenshots,'formula-print-course-'+ci+'.pdf'),pdf);
   // Removing constants removes all their rows and keeps source ordering.
   await js(`document.querySelector('.fp-constants input').click()`);await ready('.fp-status');
-  assert.equal(await js(`document.querySelectorAll('.fp-paper .fp-row').length`),fit.source-14);
+  assert.equal(await js(`document.querySelectorAll('.fp-paper .fp-row').length`),fit.source-14-(ci===0?1:0));
   assert.equal(await js(`document.querySelector('.fp-paper-scroll').textContent.includes('קבועים וערכי המרה')`),false);
   await js(`document.querySelector('.fp-constants input').click()`);await ready('.fp-status');
   for(const width of [1280,390,320]){
@@ -438,6 +448,6 @@ try{
   await js(`document.querySelector('.fp-toolbar button').click()`);assert.equal(await js(`!!document.querySelector('.fp-paper-scroll')`),false);
  }
  assert.equal(await js('JSON.stringify({...localStorage})'),formulaStorage);
- console.log('Formula print gates passed: both courses, lossless selected rows/notes, visible overflow, 14pt text, actual two-page PDF, constants toggle, empty selection, 320/390/1280 picker, unchanged progress.');
+ console.log('Formula print gates passed: both full courses fit, explicit compact rows, synthetic overflow, 12pt formulas, three-column constants, section rules, actual two-page PDF, constants toggle, empty selection, 320/390/1280 picker, unchanged progress.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

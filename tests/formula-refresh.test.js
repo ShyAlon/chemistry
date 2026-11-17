@@ -31,8 +31,17 @@ test('two-column presentation preserves section order and phone typography',()=>
  const jsx=fs.readFileSync(new URL('../src/references.jsx',import.meta.url),'utf8');
  const css=fs.readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
  assert.ok(jsx.includes('<div className="formula-grid">'));
- assert.ok(jsx.includes('E_photon(eV) ≈ 1240/λ(nm) ; λ(nm) ≈ 1240/E_photon(eV)'));
- assert.ok(jsx.includes('לכל פוטון, לא רק במימן')); 
+ assert.ok(!jsx.includes('photon-shortcut-title'),'No duplicate photon banner');
+ assert.ok(rows('P2').some(r=>r[1].includes('1240/λ(nm)')));
  assert.ok(css.includes('@media(min-width:1000px){.formula-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}'));
  assert.ok(!/column-count/.test(css));
+});
+
+test('reference recommendations are present in the printable source, not external links',()=>{
+ const order=rows('P7').find(r=>r[0]==='סדר האכלוס המלא');
+ assert.ok(order[1].order[0].startsWith('1s²  2s²  2p⁶'));
+ assert.ok(order[1].order.at(-1).endsWith('5f¹⁴  6d¹⁰  7p⁶'));
+ assert.ok(rows('P7').some(r=>r[0]==='אכלוס יונים'&&r[2].includes('ns לפני')));
+ assert.ok(rows('P6').some(r=>r[0]==='RPD בפחמן'));
+ assert.ok(rows('P9').some(r=>r[0]==='השוואת יינון'&&r[1].includes('IE₂: B > C > Al > Be')));
 });

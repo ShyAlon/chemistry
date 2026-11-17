@@ -207,9 +207,6 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 @media(min-width:1000px){.formula-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media print{.formula-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formula-grid>.ref-topic{break-inside:avoid}}
 
-.formula-shortcut{padding:18px 22px;margin:0 0 20px;border-color:var(--accent)}
-.formula-shortcut h2{font-size:24px;margin:0 0 10px}.formula-shortcut p{font-size:18px;color:var(--muted);margin:12px 0 0}
-.formula-shortcut .chip{white-space:normal;overflow-x:visible;overflow-wrap:anywhere}
 
 /* The selected-course print preview is the printed artifact, not a second copy. */
 .formula-print-tool{margin:18px 0 24px}.formula-print-tool details{padding:16px 20px;background:#101a2a;border:1px solid var(--line);border-radius:14px}
@@ -261,3 +258,5 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .fp-constant-measure{position:fixed;left:-12000px;top:0;width:194mm;visibility:hidden;pointer-events:none}
 
 .fp-row-group{break-inside:avoid}.fp-side-by-side{display:grid;grid-template-columns:repeat(var(--cells),minmax(0,1fr));gap:8px}.fp-side-by-side>.fp-row+.fp-row{border-right:.3pt solid #d4dcda;padding-right:6px}.fp-side-by-side .fp-label{display:block}.fp-side-by-side .fp-label::after{content:none}
+
+.orbital-order{direction:ltr;text-align:left;font-size:20px;line-height:1.5;overflow-wrap:normal}.fp-column .orbital-order{font-size:12pt;line-height:1.15;margin-top:2px}

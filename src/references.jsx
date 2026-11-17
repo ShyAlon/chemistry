@@ -30,7 +30,7 @@ function Chips({text}){
   const hp=c.match(/^([\u0590-\u05ff][\u0590-\u05ff ]*): (.+)$/);
   if(hp&&isFormula(hp[2]))return <span key={i} className="chip-group"><span className="chip-label">{hp[1]}:</span><bdi dir="ltr" className="chip fx">{sub(hp[2])}</bdi></span>;
   return isFormula(c)?<bdi key={i} dir="ltr" className="chip fx">{sub(c)}</bdi>:<span key={i} className="chip chip-text">{c}</span>})}</span>}
-function Expr({expr}){return expr&&expr.def?<Definition definition={expr.def}/>:<Chips text={expr}/>}
+function Expr({expr}){if(expr?.order)return <div className="orbital-order" dir="ltr">{expr.order.map((line,i)=><div key={i} className="fx">{sub(line)}</div>)}</div>;return expr&&expr.def?<Definition definition={expr.def}/>:<Chips text={expr}/>}
 
 export function parseReferenceRoute(hash){const p=hash.replace(/^#/,'').split('/').filter(Boolean);return p[0]==='references'?{page:p[1]||'',valid:!p[1]||pages.some(x=>x.id===p[1])}:null}
 
@@ -42,7 +42,6 @@ function Formulas(){
  const [cid,setCid]=useState(formulaCourses[0].id);const course=formulaCourses.find(c=>c.id===cid);
  const jump=id=>document.getElementById('ref-'+id)?.scrollIntoView({behavior:'smooth',block:'start'});
  return <Shell title="דף נוסחאות">
-  <section className="panel formula-shortcut" aria-labelledby="photon-shortcut-title"><h2 id="photon-shortcut-title">פוטון: הקיצור בין אנרגיה לאורך גל</h2><Expr expr="E_photon(eV) ≈ 1240/λ(nm) ; λ(nm) ≈ 1240/E_photon(eV)"/><p><ScientificText runs={['לכל פוטון, לא רק במימן. האנרגיה באלקטרון־וולט ואורך הגל בננומטר. בסף יינון מציבים E_photon = IE; אין להציב כאן ישירות אנרגיה קינטית של אלקטרון או אנרגיה למול.']}/></p></section>
   <div className="ref-tabs" role="tablist" aria-label="קורס">{formulaCourses.map(c=><button key={c.id} role="tab" aria-selected={c.id===cid} className={c.id===cid?'on':''} onClick={()=>setCid(c.id)}>{c.name}</button>)}</div>
   <FormulaPrint key={cid} course={course} constants={constants} Expr={Expr}/>
   <nav className="ref-nav" aria-label="קפיצה לנושא">{course.topics.map(t=><button key={t.id} onClick={()=>jump(t.id)}><bdi dir="ltr" className="ref-id">{t.id}</bdi><span>{t.title}</span></button>)}<button onClick={()=>jump('constants')}><bdi dir="ltr" className="ref-id">h, c</bdi><span>קבועים</span></button></nav>

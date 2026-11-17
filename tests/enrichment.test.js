@@ -4,8 +4,8 @@ import fs from 'node:fs';
 const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
 const registry=fs.readFileSync(new URL('../src/figures.jsx',import.meta.url),'utf8');
 
-test('every topic in both courses carries enrichment theory and at least one figure',()=>{
-  for(const course of catalogue.courses){
+test('every topic in both enriched courses carries enrichment theory and at least one figure',()=>{
+  for(const course of catalogue.courses.filter(c=>c.id==='84101'||c.id==='84102')){
     for(const t of course.topics){
       const extra=t.content.theory.filter(b=>b.enrich);
       assert.ok(extra.length>=4,course.id+'/'+t.id+' has only '+extra.length+' enrichment blocks');

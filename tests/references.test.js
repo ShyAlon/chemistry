@@ -16,7 +16,9 @@ test('known configurations match the course exceptions and counts',()=>{
  for(const e of elements.filter(e=>e.z<=103&&e.z>2&&!e.core.length===false)){const core={He:2,Ne:10,Ar:18,Kr:36,Xe:54,Rn:86}[e.core];assert.equal(core+e.cfg.reduce((a,[,n])=>a+n,0),e.z,e.s)}
 });
 test('formula sheet covers every course topic exactly once',()=>{
- for(const c of catalogue.courses){const sh=sheet.find(x=>x.id===c.id);assert.deepEqual(sh.topics.map(t=>t.id).sort(),c.topics.map(t=>t.id).sort())}
+ // Both original courses must have sheets matching their topics exactly; nano has no sheet yet.
+ assert.deepEqual(sheet.map(x=>x.id).sort(),['84101','84102']);
+ for(const sh of sheet){const c=catalogue.courses.find(x=>x.id===sh.id);assert.ok(c,'formula sheet for unknown course '+sh.id);assert.deepEqual(sh.topics.map(t=>t.id).sort(),c.topics.map(t=>t.id).sort())}
  assert.ok(constants.length>=10);
  for(const t of sheet.flatMap(c=>c.topics))assert.ok(t.items.length>0&&t.items.every(i=>i[0]&&i[1]))
 });

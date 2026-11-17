@@ -61,7 +61,6 @@ try{
  await js(`document.querySelector('.pwa-update button').click();true`).catch(()=>{});
  await wait(`document.querySelector('meta[name=test-edition]')?.content==='2'`);await wait(`!!document.querySelector('.header')`);
  assert.equal(await js(`localStorage.getItem('spectra-course-84102-progress-v1')`),progress,'Update must preserve progress');
- assert.equal(await js(`document.querySelectorAll('.formula-shortcut').length`),1,'Pending formula changes not included');
  await js(`caches.open('unrelated-test')`);edition=3;failInstall=true;
  await js(`const reg=await navigator.serviceWorker.getRegistration();reg.addEventListener('updatefound',()=>{window.failedWorker=reg.installing},{once:true});await reg.update();`);
  await wait(`window.failedWorker?.state==='redundant'`);

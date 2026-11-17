@@ -1,2 +1,3 @@
 import {defineConfig} from 'vite';
-export default defineConfig({base:'/chemistry/',esbuild:{jsxFactory:'bidiElement',jsxFragment:'React.Fragment'}});
+import {pwaBuild} from './scripts/pwa-build.mjs';
+export default defineConfig({plugins:[pwaBuild()],base:'/chemistry/',esbuild:{jsxFactory:'bidiElement',jsxFragment:'React.Fragment'}});

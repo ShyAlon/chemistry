@@ -211,6 +211,9 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .formula-shortcut h2{font-size:24px;margin:0 0 10px}.formula-shortcut p{font-size:18px;color:var(--muted);margin:12px 0 0}
 .formula-shortcut .chip{white-space:normal;overflow-x:visible;overflow-wrap:anywhere}
 
+/* Install/offline help is in normal flow, never covering a question. */
+.pwa-controls{width:min(1200px,calc(100% - 40px));margin:24px auto 30px;font-size:18px;color:var(--muted)}.pwa-controls summary{min-height:44px;cursor:pointer;color:var(--ink);padding:10px 0}.pwa-controls p{line-height:1.6}.pwa-update{border:1px solid #a4e7ed;border-radius:12px;padding:14px;margin-bottom:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--ink)}.pwa-update button{font:inherit;min-height:44px;padding:8px 14px;background:#a4e7ed;color:#10202b;border:0;border-radius:8px;cursor:pointer}.pwa-status{color:#a4e7ed}@media print{.pwa-controls{display:none!important}}
+
 /* The selected-course print preview is the printed artifact, not a second copy. */
 .formula-print-tool{margin:18px 0 24px}.formula-print-tool details{padding:16px 20px;background:#101a2a;border:1px solid var(--line);border-radius:14px}
 .formula-print-tool summary{cursor:pointer;min-height:44px;font-size:22px;color:var(--accent)}

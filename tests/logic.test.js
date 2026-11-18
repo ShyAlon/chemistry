@@ -8,6 +8,24 @@ const topics=catalogue.courses[0].topics.slice(0,10).map(t=>({...t,...t.content}
 test('all ten packs, priority, 57 questions and complete content',()=>{assert.deepEqual(topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4']);assert.equal(topics.flatMap(t=>t.quiz).length,57);for(const t of topics){assert.ok(t.theory.length>3);assert.ok(t.worked.length>=3);assert.ok(t.spectrum.lines.length>=3);for(const q of t.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct],t.id+' '+q.id)}}}});
 test('scientific notation, unicode exponents, negatives and invalid input',()=>{for(const s of ['1.9e16','1.9×10^16','1.9×10¹⁶','1.9 * 10^16'])assert.equal(parseNumber(s),1.9e16);assert.equal(parseNumber('−6.04'),-6.04);assert.equal(parseNumber('10^-9'),1e-9);for(const s of ['', '5abc', '1/0','1;alert(1)'])assert.ok(Number.isNaN(parseNumber(s)))});
 test('numeric marking requires unit and accepts rounded answer',()=>{const f=[{value:4,unit:'eV'}];assert.ok(numericCorrect(['4'],['eV'],f));assert.ok(!numericCorrect(['4'],['J'],f));assert.ok(!numericCorrect(['5'],['eV'],f));assert.ok(numericCorrect(['3.96e-12'],['m'],[{value:3.96e-12,unit:'m'}]))});
+test('numeric marking converts dimensionally equivalent units without weakening tolerance',()=>{
+ const wave=[{value:434.11834185294214,unit:'nm'}];
+ assert.ok(numericCorrect(['434.12'],['nm'],wave),'same unit as before');
+ assert.ok(numericCorrect(['434*10^-9'],['m'],wave),'the rejected quiz entry: same wavelength in metres');
+ assert.ok(numericCorrect(['4.3412e5'],['pm'],wave),'picometres convert too');
+ assert.ok(!numericCorrect(['4.34e-7'],['nm'],wave),'raw metres value against nm still fails');
+ assert.ok(!numericCorrect(['450e-9'],['m'],wave),'converted value outside 1.5% tolerance fails');
+ assert.ok(!numericCorrect(['434.12'],['eV'],wave),'energy unit against a length answer rejected');
+ assert.ok(!numericCorrect(['434.12'],['cal'],wave),'any wrong dimension rejected');
+ const energy=[{value:2.856,unit:'eV'}];
+ assert.ok(numericCorrect(['4.5757e-19'],['J'],energy),'joules convert to eV');
+ assert.ok(!numericCorrect(['2.856'],['J'],energy),'raw eV value against J fails');
+ assert.ok(numericCorrect(['1'],['MeV'],[{value:1e6,unit:'eV'}]),'MeV converts to eV');
+ const compound=[{value:-1.89,unit:'eV'},{value:656,unit:'nm'}];
+ assert.ok(numericCorrect(['-3.028e-19','6.56e-7'],['J','m'],compound),'compound fields convert independently, signs kept');
+ assert.ok(!numericCorrect(['-3.028e-19','656'],['J','eV'],compound),'one wrong-dimension field fails the compound');
+ assert.ok(numericCorrect(['94'],['J'],[{value:22.5,unit:'cal'}]),'course cal convention: 94 J = 22.5 cal');
+});
 test('Aufbau progress fills 1s, 2s, 2p',()=>{assert.deepEqual(configuration(0),[]);assert.deepEqual(configuration(3),[['1s',2],['2s',1]]);assert.deepEqual(configuration(10),[['1s',2],['2s',2],['2p',6]])});
 test('bad storage recovers, existing storage loads',()=>{assert.deepEqual(loadProgress({getItem:()=>'{oops'}),{});assert.deepEqual(loadProgress({getItem:()=>'{"P7":{"complete":true}}'}),{P7:{complete:true}});assert.deepEqual(loadProgress({getItem:()=>{throw Error('blocked')}}),{})});
 test('physical source wavelengths and corrected P10 example',()=>{for(const t of topics){assert.match(t.spectrum.source,/^https:\/\/physics.nist.gov\//);for(const w of t.spectrum.lines){assert.ok(w>=400&&w<=700);assert.match(wavelengthColor(w),/^rgb\(/)}}const ex=topics.find(t=>t.id==='P10').worked[1].content.join(' ');assert.match(ex,/13-18/);assert.match(ex,/הערת תיקון/)});

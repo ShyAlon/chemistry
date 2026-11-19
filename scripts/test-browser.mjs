@@ -176,7 +176,8 @@ try{
  }
  console.log('Shrinking-header/workspace gates passed: 6 viewports, all navigation visible, return/reduced motion, real wheel isolation, exact table offsets/focus return, inert hidden pane and unchanged storage.');
  // Source disclosures: real mouse, keyboard and touch paths, with viewport bounds.
- const key=async key=>{await call('Input.dispatchKeyEvent',{type:'keyDown',key,code:key});await call('Input.dispatchKeyEvent',{type:'keyUp',key,code:key})};
+ const VK={ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,Tab:9,Escape:27,Enter:13};
+ const key=async key=>{const params={key,code:key,nativeVirtualKeyCode:VK[key]||0,windowsVirtualKeyCode:VK[key]||0};await call('Input.dispatchKeyEvent',{type:'keyDown',...params});await call('Input.dispatchKeyEvent',{type:'keyUp',...params})};
  const bounds=async()=>{const r=await js(`(()=>{const e=document.querySelector('.source-popover'),r=e.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,font:parseFloat(getComputedStyle(e).fontSize),scroll:e.scrollHeight,client:e.clientHeight}})()`);assert.ok(r.left>=11&&r.right<=await js('innerWidth-11'),JSON.stringify(r));assert.ok(r.top>=11&&r.bottom<=await js('innerHeight-11'),JSON.stringify(r));assert.ok(r.font>=18);return r};
  for(const [width,height] of [[320,800],[375,800],[390,800],[667,375],[1280,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
@@ -507,7 +508,41 @@ try{
   await type('xyzq');await ready('.search-hint');
   assert.ok(await js(`document.querySelector('.search-hint').textContent.includes('לא נמצאו תוצאות')`));
   await key('Escape');
+  // Half-typed word: prefix results plus the shadow completion.
+  await js(`document.querySelector('.search-trigger').click()`);await ready('.search-panel');
+  await type('ליגנ');await ready('.search-result');
+  assert.ok(await js(`document.querySelectorAll('.search-result').length>0`),'half-typed word ranks results');
+  assert.ok((await js(`document.querySelector('.search-result .search-title').textContent`)).includes('(Ligand)'),'standalone ligand term leads for ליגנ');
+  assert.equal(await js(`document.querySelector('.search-ghost .ghost-rest')?.textContent`),'ד','shadow completes ליגנ to ליגנד');
+  await shot('search-shadow-'+width);
+  // RTL: ArrowRight at the end stays natural caret motion (never intercepted);
+  // ArrowLeft past the end accepts.
+  await key('ArrowRight');
+  assert.equal(await js(`document.querySelector('.search-panel input').value`),'ליגנ','ArrowRight is not hijacked in RTL');
+  assert.equal(await js(`document.querySelector('.search-panel input').selectionStart`),3,'ArrowRight moved the caret naturally');
+  assert.ok(await js(`!!document.querySelector('.search-ghost')`),'ghost survives natural caret motion');
+  await key('ArrowLeft');
+  await key('ArrowLeft');
+  assert.equal(await js(`document.querySelector('.search-panel input').value`),'ליגנד','ArrowLeft past the end accepts in RTL');
+  assert.ok(await js(`!document.querySelector('.search-ghost')`),'ghost clears once accepted');
+  // Tab accepts too.
+  await type('ליגנ');await ready('.search-ghost');
+  await key('Tab');
+  assert.equal(await js(`document.querySelector('.search-panel input').value`),'ליגנד','Tab accepts the shadow completion');
+  if(width===390){
+   // Touch: tapping the ghost remainder accepts.
+   await type('ליגנ');await ready('.search-ghost');
+   await js(`document.querySelector('.search-ghost .ghost-rest').dispatchEvent(new MouseEvent('mousedown',{bubbles:true}))`);
+   assert.equal(await js(`document.querySelector('.search-panel input').value`),'ליגנד','tapping the ghost accepts');
+  }
+  if(width===1280){
+   // LTR: ArrowRight past the end accepts.
+   await type('osmo');await ready('.search-ghost');
+   await key('ArrowRight');
+   assert.equal(await js(`document.querySelector('.search-panel input').value`),'Osmosis','ArrowRight accepts in LTR');
+  }
+  await key('Escape');
  }
- console.log('Search gates passed: trigger bounds at 320/390/1280, palette in viewport, Hebrew + alias ranking, ArrowDown/Enter/Escape flow, empty state.');
+ console.log('Search gates passed: trigger bounds at 320/390/1280, palette in viewport, Hebrew + alias ranking, ArrowDown/Enter/Escape flow, empty state, half-typed prefix results with the standalone term leading, shadow completion via Tab, RTL ArrowLeft, LTR ArrowRight and ghost tap, natural caret motion never intercepted.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

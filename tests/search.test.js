@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeText,tokenize,buildSearchIndex,searchSite} from '../src/search.js';
+import {normalizeText,tokenize,buildSearchIndex,searchSite,suggestCompletion} from '../src/search.js';
 import {papers} from '../src/paper-discussions.js';
 import {pages as referencePages} from '../src/reference-pages.js';
 import {glossaryDocs} from '../src/glossary-data.js';
@@ -124,6 +124,34 @@ test('exam-level practice page is searchable by its problem content',()=>{
 
 test('unicode subscript and plain ASCII formula queries match the same pages',()=>{
  assert.deepEqual(searchSite('H₂O').map(r=>r.route),searchSite('h2o').map(r=>r.route));
+});
+
+test('half-typed words still rank results: prefix expansion (user report 2026-11-19)',()=>{
+ // Shy typed "ליגנ" and got nothing while "ליגנד" had plenty; partial input
+ // must match indexed tokens it prefixes, without outranking real matches.
+ const partial=searchSite('ליגנ');
+ assert.ok(partial.length>0,'"ליגנ" returns results');
+ assert.ok(partial.some(r=>r.route==='course/nano/N11'),'the topic teaching ligands ranks');
+ assert.ok(partial.some(r=>r.kind==='מונח'),'ligand glossary terms rank');
+ // The suggested completion is ליגנד, so the standalone term leads: exact
+ // completed-title relevance beats a longer compound-term prefix match.
+ assert.equal(partial[0].route,'course/nano/glossary/ligand','standalone ligand term leads for the half-typed word');
+ const full=searchSite('ליגנד');
+ assert.ok(full.findIndex(r=>r.route==='course/nano/glossary/ligand')<full.findIndex(r=>r.route==='course/nano/glossary/ligand-exchange'),'standalone term beats the compound term for the completed word too');
+ // The completed word's results stay ahead-ranked and unchanged in kind mix.
+ assert.ok(searchSite('ליגנד').length>=partial.length-1,'completion does not lose coverage');
+ // Prefix expansion never invents results for gibberish.
+ assert.deepEqual(searchSite('ליגצ'),[]);
+});
+
+test('shadow completion finishes the word being typed from site titles',()=>{
+ assert.equal(suggestCompletion('ליגנ'),'ליגנד');
+ assert.equal(suggestCompletion('ליגנד'),null,'a complete vocabulary word gets no suggestion');
+ assert.equal(suggestCompletion('מהלך חופ'),'מהלך חופשי');
+ assert.equal(suggestCompletion('osmo'),'Osmosis');
+ assert.equal(suggestCompletion('xyzq'),null);
+ assert.equal(suggestCompletion(''),null);
+ assert.equal(suggestCompletion('לי'),null,'too short to suggest responsibly');
 });
 
 test('empty and unknown queries return no results',()=>{

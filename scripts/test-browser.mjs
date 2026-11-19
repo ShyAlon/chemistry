@@ -453,5 +453,39 @@ try{
  }
  assert.equal(await js('JSON.stringify({...localStorage})'),formulaStorage);
  console.log('Formula print gates passed: both full courses fit, explicit compact rows, synthetic overflow, 12pt formulas, three-column constants, section rules, actual two-page PDF, constants toggle, empty selection, 320/390/1280 picker, unchanged progress.');
+ // Top-bar ranked search: trigger geometry, palette bounds, ranked results, keyboard flow and empty state.
+ for(const [width,height] of [[320,800],[390,800],[1280,900]]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102'});await ready('.search-trigger');
+  let trigger={};
+  for(let i=0;i<10&&typeof trigger.left!=='number';i++){trigger=await js(`(()=>{const r=document.querySelector('.search-trigger').getBoundingClientRect();return {left:r.left,right:r.right,bottom:r.bottom,height:r.height,header:document.querySelector('.header').getBoundingClientRect().bottom}})()`);if(typeof trigger.left!=='number')await new Promise(r=>setTimeout(r,50))}
+  assert.ok(trigger.left>=-1&&trigger.right<=width+1&&trigger.bottom<=trigger.header+1,JSON.stringify({width,trigger}));
+  assert.ok(trigger.height>=44,JSON.stringify({width,trigger}));
+  await js(`document.querySelector('.search-trigger').click()`);await ready('.search-panel');
+  assert.ok(await js(`document.activeElement===document.querySelector('.search-panel input')`),'Input receives focus on open');
+  const type=async value=>{await js(`(()=>{const i=document.querySelector('.search-panel input');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,${JSON.stringify(value)});i.dispatchEvent(new Event('input',{bubbles:true}))})()`);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
+  await type('אוסמוזה');await ready('.search-result');
+  const first=await js(`(()=>{const e=document.querySelector('.search-result');return {title:e.querySelector('.search-title').textContent,marks:e.querySelectorAll('mark').length,kind:e.querySelector('.search-kind').textContent}})()`);
+  assert.ok(first.title.includes('אוסמוזה'),JSON.stringify(first));assert.ok(first.marks>0,JSON.stringify(first));assert.equal(first.kind,'נושא');
+  const panel=await js(`(()=>{const r=document.querySelector('.search-panel').getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,scroll:document.documentElement.scrollWidth}})()`);
+  assert.ok(panel.left>=0&&panel.right<=width+1&&panel.top>=0&&panel.bottom<=height+1&&panel.scroll<=width+1,JSON.stringify({width,panel}));
+  if(width!==320)await shot('search-'+width);
+  await key('ArrowDown');assert.ok(await js(`document.querySelectorAll('.search-result')[1].classList.contains('active')`),'Arrow moves active result');
+  await key('ArrowUp');
+  await key('Enter');await ready('.topic-hero');
+  assert.ok(await js(`location.hash.includes('course/84101/G15')`),'Enter opens the first ranked page');
+  assert.equal(await js(`document.querySelectorAll('.search-panel').length`),0);
+  await js(`document.querySelector('.search-trigger').click()`);await ready('.search-panel');
+  await type('clausius');await ready('.search-result');
+  assert.ok(await js(`(document.querySelector('.search-result .search-snippet')?.textContent||'').includes('קלאוזיוס')`),'Latin alias lands on the Hebrew-taught law');
+  await key('Escape');
+  assert.equal(await js(`document.querySelectorAll('.search-panel').length`),0);
+  assert.ok(await js(`document.activeElement===document.querySelector('.search-trigger')`),'Escape returns focus to the trigger');
+  await js(`document.querySelector('.search-trigger').click()`);await ready('.search-panel');
+  await type('xyzq');await ready('.search-hint');
+  assert.ok(await js(`document.querySelector('.search-hint').textContent.includes('לא נמצאו תוצאות')`));
+  await key('Escape');
+ }
+ console.log('Search gates passed: trigger bounds at 320/390/1280, palette in viewport, Hebrew + alias ranking, ArrowDown/Enter/Escape flow, empty state.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

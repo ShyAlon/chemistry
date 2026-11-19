@@ -12,14 +12,10 @@ import {Figure,schematicFigures} from './figures.jsx';
 import {ScientificText,Definition} from './scientific-text.js';
 import {enrichment84101} from './enrichment-84101.js';
 import {enrichment84102} from './enrichment-84102.js';
+import {pages} from './reference-pages.js';
 // References: static study aids. Nothing here reads or writes saved progress.
 
-export const pages=[
- {id:'formulas',title:'דף נוסחאות',desc:'כל הקשרים החשובים לפי נושא, לשני הקורסים, וקבועים במקום אחד.',icon:'∑'},
- {id:'periodic',title:'הטבלה המחזורית',desc:'118 יסודות, צביעה לפי קטגוריה, בלוק או אלקטרושליליות, וקונפיגורציה לכל יסוד.',icon:'⌬'},
- {id:'aufbau',title:'נחש האכלוס (Aufbau)',desc:'סדר מילוי תתי־הקליפות, קיבולת וגזים אצילים.',icon:'↙'},
- {id:'diagrams',title:'גלריית תרשימים',desc:'כל התרשימים מהקורסים במקום אחד, ומגמות בטבלה המחזורית.',icon:'▦'},
-];
+export {pages};
 const isFormula=t=>/[=≥≤≈→<>]|[+−·×√]/.test(t);
 // Each independently readable relation is its own no-wrap chip; prose stays text.
 function Chips({text}){

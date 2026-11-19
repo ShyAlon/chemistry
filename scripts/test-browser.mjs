@@ -292,6 +292,28 @@ try{
    assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
   }
  }
+ // Course glossary: course-map entry, listing, Hebrew/English filter, deep links, mobile.
+ {
+  await call('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101'});await ready('.topic-grid');
+  assert.ok(await js(`[...document.querySelectorAll('button')].some(b=>b.textContent.includes('מילון המונחים'))`),'course map links the glossary');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/glossary'});await ready('.glossary-list');
+  const total=await js(`document.querySelectorAll('.g-term').length`);
+  assert.ok(total>=40,'glossary lists the course terms, got '+total);
+  assert.ok(await js(`[...document.querySelectorAll('.glossary-terms dt')].some(d=>d.textContent.includes('חוק ראול'))`),'Raoult entry rendered');
+  await js(`const f=document.querySelector('.glossary-filter');Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set.call(f,'osmosis');f.dispatchEvent(new Event('input',{bubbles:true}));new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.equal(await js(`document.querySelectorAll('.g-term').length`),1,'english filter narrows to osmosis');
+  assert.ok(await js(`document.querySelector('.g-term').textContent.includes('אוסמוזה')`));
+  await shot('glossary-1280');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/glossary/aufbau'});await ready('#g-aufbau.hl');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102/glossary/no-such-term'});await ready('.glossary-list');
+  assert.ok(await js(`document.body.textContent.includes('לא נמצא במילון')`),'unknown term link warns');
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/nano/glossary'});await ready('.glossary-list');
+  assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`),'no horizontal overflow on mobile');
+  await shot('glossary-390');
+  console.log('Glossary browser checks passed: course-map entry, listing, filter, deep-link highlight, unknown-term warning, mobile overflow.');
+ }
  for(const width of [1280,390]){
  await call('Emulation.setDeviceMetricsOverride',{width,height:800,deviceScaleFactor:1,mobile:false});
  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/aufbau'});await ready('.page-title');

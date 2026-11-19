@@ -66,3 +66,36 @@ test('remaining worked arithmetic independently recomputes at displayed precisio
  const kinetic=worked('G10')[1].content[1];assert.ok(kinetic.includes((1e-25*100**2/(3*1.380649e-23)).toFixed(4)));assert.ok(kinetic.includes((2*50/(3*.001)).toFixed(1)));
  assert.ok(worked('G10')[4].content[1].includes((4*Math.sqrt(7)/(1+4*Math.sqrt(7))).toFixed(5)));
 });
+
+const additions3=key=>general.topics.flatMap(t=>t.content[key].filter(b=>b.batch3));
+test('batch3 exam-gap layer: 9 theory blocks, 5 worked examples and 5 questions across G9, G10 and G14',()=>{
+ assert.equal(additions3('theory').length,9);assert.equal(additions3('worked').length,5);assert.equal(additions3('quiz').length,5);
+ assert.deepEqual(general.topics.filter(t=>t.content.quiz.some(q=>q.batch3)).map(t=>t.id),['G9','G10','G14']);
+});
+test('all batch3 numeric answers independently recompute',()=>{
+ const R=0.08206,TK=298.15;
+ const g9=t('G9').content.quiz.find(q=>q.batch3&&q.type==='numeric');
+ const expected9=0.1*R*TK/5+23.76/760;
+ assert.ok(Math.abs(expected9-g9.fields[0].value)<1e-4,'G9 condensation pressure');
+ assert.ok(g9.answer.includes('23.76'));
+ const g10=t('G10').content.quiz.find(q=>q.batch3&&q.type==='numeric');
+ assert.ok(Math.abs(380/1.18e-7-g10.fields[0].value)/g10.fields[0].value<1e-4,'G10 collision frequency');
+ const g14=t('G14').content.quiz.find(q=>q.batch3&&q.type==='numeric');
+ assert.ok(Math.abs((0.5*100)/(0.5*100+0.5*25)-g14.fields[0].value)<1e-10,'G14 vapor composition');
+ const mcq=t('G10').content.quiz.filter(q=>q.batch3&&q.type==='mcq');
+ assert.equal(mcq.length,2);assert.equal(mcq[0].correct,2);assert.equal(mcq[1].correct,1);
+});
+test('batch3 worked examples carry the verified headline numbers',()=>{
+ const lam=8.314*300.15/(Math.SQRT2*Math.PI*(3.4e-10)**2*6.022e23*60795);
+ assert.ok(Math.abs(lam-1.33e-7)/1.33e-7<0.01);
+ const w10=t('G10').content.worked.filter(w=>w.batch3);
+ assert.ok(w10[0].content[1].includes('1.33×10⁻⁷')&&w10[0].content[1].includes('2.9×10⁹'));
+ const q=0.2*2.5*8.314*100;assert.ok(Math.abs(q-415.7)<0.1);
+ assert.ok(w10[1].content[1].includes('416 J')&&w10[1].content[1].includes('99.4 cal'));
+ assert.ok(w10[2].content[1].includes('52.9 atm')&&w10[2].content[1].includes('0.863'));
+ const w9=t('G9').content.worked.find(w=>w.batch3);
+ const p9=0.2*0.08206*298.15/8+23.76/760;assert.ok(Math.abs(p9-0.643)<0.001);
+ assert.ok(w9.content[1].includes('0.643 atm'));
+ const w14=t('G14').content.worked.find(w=>w.batch3);
+ for(const y of ['0.798','0.930','0.978'])assert.ok(w14.content[1].includes(y),'G14 cycle '+y);
+});

@@ -5,7 +5,7 @@ export const corrections=JSON.parse(readFileSync(new URL('../src/practice-correc
 // four before/after prose corrections are exempted from baseline checks.
 export function beforePractice(topic){
  const t=beforeRecap(topic);
- for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.batch2);
+ for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.batch2&&!b.batch3);
  for(const c of corrections.filter(c=>c.topic===t.id)){
   const b=t.content.theory.find(b=>b.text===c.after);
   assert.ok(b,'reviewed correction missing: '+t.id);b.text=c.before;

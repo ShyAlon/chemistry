@@ -31,7 +31,8 @@ test('enrichment blocks are marked and idempotently mergeable',()=>{
 test('General Chemistry gained one additional worked pair per topic with verified numbers',()=>{
   const c=catalogue.courses.find(c=>c.id==='84101');
   for(const t of c.topics){
-    const added=t.content.worked.filter(w=>w.enrich);
+    // batch3 (exam-gap) worked examples are a later reviewed layer on top of the pair.
+    const added=t.content.worked.filter(w=>w.enrich&&!w.batch3);
     assert.equal(added.length,2,t.id);
     for(const w of added){assert.ok(w.title);assert.equal(w.content.length,2)}
   }

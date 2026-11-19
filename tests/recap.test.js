@@ -30,8 +30,10 @@ test('recap edition integrates all ten topics plus affinity and mixed review, wi
 test('all 57 previous inorganic questions and IDs stay byte-for-byte identical',()=>{
  assert.equal(digest(course.topics.slice(0,10).map(t=>({id:t.id,quiz:t.content.quiz}))), 'ae67e2b5d0ea82a763ad1063ce2105143c4495fe0fba1c5c5d40be2bd84efd8a');
 });
-test('entire General Chemistry course is unchanged',()=>{
- assert.equal(digest(data.courses[1]),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
+test('entire General Chemistry course is unchanged outside the flagged batch3 exam-gap additions',()=>{
+ const c=JSON.parse(JSON.stringify(data.courses[1]));
+ for(const t of c.topics)for(const k of ['theory','worked','quiz'])t.content[k]=t.content[k].filter(b=>!b.batch3);
+ assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });
 test('reviewed earlier inorganic data reconstructs with only documented additions and corrections',()=>{
  assert.equal(digest(course.topics.slice(0,10).map(beforeRecap)),'aece875a727588a716dded08242ca9b3cbd2bab2bf28e5d3848b4bff13c5defa');

@@ -50,6 +50,27 @@ test('representative queries rank the expected page first',()=>{
  assert.equal(top('ביקוע'),'course/nuclear/E7');
 });
 
+test('body text is searchable: terms that appear only inside page text still find the page',()=>{
+ // User requirement (2026-11-19): search covers full educational text, not just titles.
+ // None of these terms appear in any page title.
+ const top=q=>searchSite(q)[0]?.route;
+ assert.equal(top('דלטון'),'course/84101/G9');
+ assert.equal(top('בולצמן'),'course/84101/G10');
+ assert.equal(top('איזופרופנול'),'course/84101/G1');
+ assert.equal(top('קלאוזיוס'),'course/84101/G13');
+ assert.equal(top('גרהם'),'course/84101/G10');
+});
+
+test('title matches outrank body-only matches for the same term',()=>{
+ // User requirement (2026-11-19): a title hit scores higher than a body hit.
+ const results=searchSite('ראול');
+ const titled=results.find(r=>r.route==='course/84101/G14');
+ const bodyOnly=results.find(r=>r.route==='references/formulas');
+ assert.ok(titled&&bodyOnly,'both competitors should appear');
+ assert.ok(titled.score>bodyOnly.score,`${titled.score} should exceed ${bodyOnly.score}`);
+ assert.equal(results[0].route,'course/84101/G14');
+});
+
 test('phrase queries with a missing term still rank the closest topic first',()=>{
  // "מהלך חופשי" (mean free path) is the user's own example. Before dedicated
  // coverage exists, the kinetic-theory topic is the closest useful page.

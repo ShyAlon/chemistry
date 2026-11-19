@@ -10,6 +10,7 @@ import {sessions} from './practice-sessions.js';
 import {pages as referencePages} from './reference-pages.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
 import {exam84101} from './exam-84101.js';
+import {glossaryDocs} from './glossary-data.js';
 
 // Normalize scientific notation and Hebrew spelling variants so that "H₂O",
 // "H2O", "מים" typed with non-final letters and Latin in any case all match.
@@ -64,8 +65,8 @@ function queryForms(term){
 const WEIGHTS={title:6,head:3,body:1};
 const K1=1.2,B=0.75;
 
-function makeDoc({route,kind,context,title,head=[],body=[]}){
- return {route,kind,context,title,head,body};
+function makeDoc({route,kind,context,title,head=[],body=[],titleBoost}){
+ return {route,kind,context,title,head,body,titleBoost};
 }
 function collectDocs(){
  const docs=[];
@@ -88,6 +89,20 @@ function collectDocs(){
     ],
    }));
   }
+ }
+ // One doc per glossary term: the term names are heading-weight fields and the
+ // definition is the body, so a topic whose title matches still outranks a term,
+ // while the term's stable deep link (course/<id>/glossary/<slug>) is the result
+ // users can land on and share. Kind chip: מונח.
+ const courseNames=Object.fromEntries(catalogue.courses.map(c=>[c.id,c.name]));
+ for(const g of glossaryDocs()){
+  docs.push(makeDoc({
+   route:g.route,kind:g.kind,context:courseNames[g.course]||g.course,
+   title:g.title,head:g.headings,body:[g.body],
+   // Term names carry heading weight, not title weight: a topic whose title
+   // matches the query still outranks the glossary term that names it.
+   titleBoost:WEIGHTS.body,
+  }));
  }
  for(const paper of papers){
   docs.push(makeDoc({
@@ -175,7 +190,7 @@ export function searchSite(query,{limit=12}={}){
    const present=forms.filter(f=>df.has(f.form));
    if(!present.length)continue;
    const counts=(tokens,form)=>tokens.reduce((n,c)=>n+(c===form?1:0),0);
-   const tfW=present.reduce((n,f)=>n+f.weight*(WEIGHTS.title*counts(doc.titleTokens,f.form)+WEIGHTS.head*counts(doc.headTokens,f.form)+WEIGHTS.body*counts(doc.bodyTokens,f.form)),0);
+   const tfW=present.reduce((n,f)=>n+f.weight*((doc.titleBoost||WEIGHTS.title)*counts(doc.titleTokens,f.form)+WEIGHTS.head*counts(doc.headTokens,f.form)+WEIGHTS.body*counts(doc.bodyTokens,f.form)),0);
    if(!tfW)continue;
    score+=Math.max(...present.map(f=>idf(f.form)))*(tfW*(K1+1))/(tfW+K1*(1-B+B*doc.length/avg));
   }
@@ -186,7 +201,15 @@ export function searchSite(query,{limit=12}={}){
   }
   scored.push({doc,score});
  }
- scored.sort((a,b)=>b.score-a.score);
+ // Contract: a title match on a real page outranks glossary-term docs, so a
+ // topic that names the concept in its title is never buried under its own
+ // glossary entries. Term pages lead only when no page title matches.
+ const titleHit=doc=>terms.some(t=>queryForms(t).some(f=>f.weight>=0.9&&doc.titleTokens.includes(f.form)));
+ scored.sort((a,b)=>{
+  const ta=a.doc.kind!=='מונח'&&titleHit(a.doc),tb=b.doc.kind!=='מונח'&&titleHit(b.doc);
+  if(ta!==tb)return ta?-1:1;
+  return b.score-a.score;
+ });
  return scored.slice(0,limit).map(({doc,score})=>({
   route:doc.route,kind:doc.kind,context:doc.context,title:doc.title,score,
   snippet:pickSnippet(doc,terms),

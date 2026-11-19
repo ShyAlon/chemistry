@@ -6,6 +6,7 @@ import {papers} from '../src/paper-discussions.js';
 import {pages as referencePages} from '../src/reference-pages.js';
 
 const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const PRACTICE_ROUTES=['course/84102/practice','course/84101/practice'];
 
 test('normalization folds sub/superscripts, case and Hebrew final letters',()=>{
  assert.equal(normalizeText('H₂O'),'h2o');
@@ -25,13 +26,13 @@ test('index covers every course, topic, paper, practice and reference page',()=>
  const {docs}=buildSearchIndex();
  const routes=new Set(docs.map(d=>d.route));
  const topics=catalogue.courses.reduce((n,c)=>n+c.topics.length,0);
- assert.equal(docs.length,topics+catalogue.courses.length+papers.length+1+referencePages.length);
+ assert.equal(docs.length,topics+catalogue.courses.length+papers.length+PRACTICE_ROUTES.length+referencePages.length);
  for(const c of catalogue.courses){
   assert.ok(routes.has('course/'+c.id));
   for(const t of c.topics)assert.ok(routes.has('course/'+c.id+'/'+t.id));
  }
  for(const p of papers)assert.ok(routes.has('course/nano/papers/'+p.id));
- assert.ok(routes.has('course/84102/practice'));
+ for(const r of PRACTICE_ROUTES)assert.ok(routes.has(r));
  for(const p of referencePages)assert.ok(routes.has('references/'+p.id));
 });
 
@@ -72,9 +73,20 @@ test('title matches outrank body-only matches for the same term',()=>{
 });
 
 test('phrase queries with a missing term still rank the closest topic first',()=>{
- // "מהלך חופשי" (mean free path) is the user's own example. Before dedicated
- // coverage exists, the kinetic-theory topic is the closest useful page.
+ // "מהלך חופשי" (mean free path) is the user's own example; G10 teaches it.
  assert.equal(searchSite('מהלך חופשי')[0]?.route,'course/84101/G10');
+});
+
+test('English phrase aliases land on the pages that teach the concept in Hebrew',()=>{
+ assert.equal(searchSite('mean free path')[0]?.route,'course/84101/G10');
+ assert.equal(searchSite('collision frequency')[0]?.route,'course/84101/G10');
+ assert.equal(searchSite('dew point')[0]?.route,'course/84101/practice');
+});
+
+test('exam-level practice page is searchable by its problem content',()=>{
+ const results=searchSite('נקודת טל');
+ assert.equal(results[0]?.route,'course/84101/practice');
+ assert.equal(results[0]?.kind,'בחינה');
 });
 
 test('unicode subscript and plain ASCII formula queries match the same pages',()=>{
@@ -91,7 +103,7 @@ test('every result route resolves to a real page and snippets stay short',()=>{
  const valid=new Set();
  for(const c of catalogue.courses){valid.add('course/'+c.id);for(const t of c.topics)valid.add('course/'+c.id+'/'+t.id)}
  for(const p of papers)valid.add('course/nano/papers/'+p.id);
- valid.add('course/84102/practice');
+ for(const r of PRACTICE_ROUTES)valid.add(r);
  for(const p of referencePages)valid.add('references/'+p.id);
  for(const q of ['אוסמוזה','אנתלפיה','גזים','אלקטרון','קרינה','ננו','energy','תרגול']){
   const results=searchSite(q);

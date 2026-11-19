@@ -9,6 +9,7 @@ import {papers} from './paper-discussions.js';
 import {sessions} from './practice-sessions.js';
 import {pages as referencePages} from './reference-pages.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
+import {exam84101} from './exam-84101.js';
 
 // Normalize scientific notation and Hebrew spelling variants so that "H₂O",
 // "H2O", "מים" typed with non-final letters and Latin in any case all match.
@@ -27,9 +28,17 @@ export function tokenize(text){
 // Hebrew tokens are often written with or without a one-letter prefix
 // (ו/ה/ב/כ/ל/מ/ש). Index both forms so either spelling finds the page.
 const HEBREW_PREFIXES='והבכלמש';
+// Note: tokenize() runs after final-letter normalization, so a plural ים/ן
+// ending reaches us as ימ/נ; suffix variants cover plural/suffix spelling
+// differences (קיבול vs קיבולי, התנגשות vs התנגשויות) at reduced weight.
+const HEBREW_SUFFIXES=['ימ','ות','י'];
 function variants(token){
- if(/^[\u0590-\u05ff]/.test(token)&&token.length>=4&&HEBREW_PREFIXES.includes(token[0]))return [token,token.slice(1)];
- return [token];
+ if(!/^[\u05d0-\u05ea]/.test(token)||token.length<4)return [token];
+ const out=[token];
+ if(HEBREW_PREFIXES.includes(token[0]))out.push(token.slice(1));
+ const cut=HEBREW_SUFFIXES.find(s=>token.endsWith(s));
+ if(cut&&token.length-cut.length>=3)out.push(token.slice(0,-cut.length));
+ return out;
 }
 // Cross-language aliases: the content teaches these scientists' laws in Hebrew
 // transliteration only, so a Latin query would otherwise miss them. Each alias
@@ -100,6 +109,12 @@ function collectDocs(){
   head:sessions.map((s,i)=>'תרגול '+(i+1)),
   body:sessions.flatMap(s=>(s.questions||[]).flatMap(q=>[q.prompt||'',...(q.options||[]),q.explanation||''])),
  }));
+ docs.push(makeDoc({
+  route:'course/84101/practice',kind:'בחינה',context:'כימיה כללית א׳',
+  title:'שאלות ברמת בחינה',
+  head:exam84101.flatMap(p=>[p.id+' '+p.title,p.topics||'']),
+  body:exam84101.flatMap(p=>[p.given||'',...p.parts.flatMap(part=>[part.question||'',...(part.solution||[])])]),
+ }));
  for(const page of referencePages){
   const extra=[];
   if(page.id==='formulas'){
@@ -134,12 +149,23 @@ export function buildSearchIndex(){
  return cache;
 }
 
+// Whole-phrase aliases for English names of concepts taught only in Hebrew.
+// Single-word equivalents live in ALIASES; these key the normalized full query.
+const PHRASE_ALIASES={
+ 'mean free path':'מהלך חופשי',
+ 'collision frequency':'מהלך חופשי ומספר התנגשויות',
+ 'dew point':'נקודת טל',
+};
+
 export function searchSite(query,{limit=12}={}){
  const terms=[...new Set(tokenize(query))].filter(t=>t.length>1||/^[a-z0-9]/i.test(t));
+ const normalizedQuery=normalizeText(query).replace(/\s+/g,' ').trim();
+ const aliasPhrase=PHRASE_ALIASES[normalizedQuery];
+ if(aliasPhrase)for(const t of tokenize(aliasPhrase))if(!terms.includes(t))terms.push(t);
  if(!terms.length)return [];
  const {docs,df,avg}=buildSearchIndex();
  const idf=t=>Math.log(1+(docs.length-(df.get(t)||0)+0.5)/((df.get(t)||0)+0.5));
- const phrase=normalizeText(terms.join(' '));
+ const phrase=aliasPhrase?normalizeText(aliasPhrase):normalizeText(terms.join(' '));
  const idfSum=terms.reduce((n,t)=>n+Math.max(idf(t),idf(t.slice(1))||0),0);
  const scored=[];
  for(const doc of docs){

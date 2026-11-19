@@ -61,6 +61,17 @@ function queryForms(term){
  for(const variant of variants(term))if(variant!==term)forms.push({form:variant,weight:0.5});
  return forms;
 }
+// A half-typed word matches nothing exact ("ליגנ" while typing "ליגנד").
+// When no exact/alias form exists in the index, expand to indexed tokens the
+// term is a prefix of, at weight 0.7 — below a real match, above the 0.5
+// prefix-strip recall. Shortest completions first, capped to bound cost.
+function prefixForms(term,df){
+ if(term.length<3)return [];
+ const hits=[];
+ for(const key of df.keys())if(key.length>term.length&&key.startsWith(term))hits.push(key);
+ hits.sort((a,b)=>a.length-b.length);
+ return hits.slice(0,5).map(form=>({form,weight:0.7}));
+}
 
 const WEIGHTS={title:6,head:3,body:1};
 const K1=1.2,B=0.75;
@@ -155,13 +166,42 @@ export function buildSearchIndex(){
   doc.bodyTokens=doc.body.flatMap(t=>tokenize(t).flatMap(variants));
   doc.length=doc.titleTokens.length+doc.headTokens.length+doc.bodyTokens.length;
   doc.plainTitle=normalizeText(doc.title);
+  // Title without its English parenthetical: the match target for an exact
+  // completed-word hit ("ליגנד" the standalone term, not "החלפת ליגנדים").
+  doc.titleCore=normalizeText(doc.title.replace(/\s*\([^)]*\)/g,' ')).replace(/\s+/g,' ').trim();
   doc.plainBody=normalizeText(doc.body.join(' '));
   const seen=new Set([...doc.titleTokens,...doc.headTokens,...doc.bodyTokens]);
   for(const token of seen)df.set(token,(df.get(token)||0)+1);
  }
+ // Vocabulary for the shadow completion: raw words from titles and headings,
+ // so the suggestion reads exactly like the site (final letters, casing).
+ const vocab=new Map();
+ const addWords=text=>{for(const w of String(text||'').split(/\s+/)){const raw=w.replace(/^[("'\[.,;:]+|[)"'\].,;:!?…—־-]+$/g,'');const n=normalizeText(raw);if(n.length>=3&&!vocab.has(n))vocab.set(n,raw)}};
+ for(const doc of docs){addWords(doc.title);for(const h of doc.head)addWords(h)}
  const total=docs.reduce((n,d)=>n+d.length,0);
- cache={docs,df,avg:total/docs.length||1};
+ cache={docs,df,avg:total/docs.length||1,vocab};
  return cache;
+}
+
+// The "shadow" suggestion: while the last word of the query is a strict prefix
+// of a title/heading word, offer its completion. Returns the full completed
+// query ("ליגנ" → "ליגנדים"), or null. A typed word that already exists in the
+// vocabulary gets no suggestion. Shortest completion wins; ties go to the
+// title seen first.
+export function suggestCompletion(query){
+ const raw=String(query||'');
+ const tail=raw.match(/([\p{L}\p{N}]+)$/u);
+ if(!tail)return null;
+ const typed=normalizeText(tail[1]);
+ if(typed.length<3)return null;
+ const {vocab}=buildSearchIndex();
+ if(vocab.has(typed))return null;
+ let best=null;
+ for(const [norm,word] of vocab){
+  if(norm.length>typed.length&&norm.startsWith(typed)&&(!best||norm.length<best.norm.length))best={norm,word};
+ }
+ if(!best)return null;
+ return raw.slice(0,raw.length-tail[1].length)+best.word;
 }
 
 // Whole-phrase aliases for English names of concepts taught only in Hebrew.
@@ -182,12 +222,23 @@ export function searchSite(query,{limit=12}={}){
  const idf=t=>Math.log(1+(docs.length-(df.get(t)||0)+0.5)/((df.get(t)||0)+0.5));
  const phrase=aliasPhrase?normalizeText(aliasPhrase):normalizeText(terms.join(' '));
  const idfSum=terms.reduce((n,t)=>n+Math.max(idf(t),idf(t.slice(1))||0),0);
+ // Index-backed forms per term, computed once: exact/alias, else prefix
+ // expansion for a half-typed final word.
+ const termForms=terms.map(term=>{
+  const forms=queryForms(term);
+  let present=forms.filter(f=>df.has(f.form));
+  if(!present.length){forms.push(...prefixForms(term,df));present=forms.filter(f=>df.has(f.form))}
+  return present;
+ });
+ // A doc whose whole title (sans English parenthetical) is one of the matched
+ // forms is the exact thing being typed: the standalone term "ליגנד", not a
+ // longer compound that merely contains it ("החלפת ליגנדים").
+ const exactTitles=new Set(termForms.flatMap(present=>present.map(f=>f.form)));
  const scored=[];
  for(const doc of docs){
   let score=0;
-  for(const term of terms){
-   const forms=queryForms(term);
-   const present=forms.filter(f=>df.has(f.form));
+  for(let ti=0;ti<terms.length;ti++){
+   const present=termForms[ti];
    if(!present.length)continue;
    const counts=(tokens,form)=>tokens.reduce((n,c)=>n+(c===form?1:0),0);
    const tfW=present.reduce((n,f)=>n+f.weight*((doc.titleBoost||WEIGHTS.title)*counts(doc.titleTokens,f.form)+WEIGHTS.head*counts(doc.headTokens,f.form)+WEIGHTS.body*counts(doc.bodyTokens,f.form)),0);
@@ -208,6 +259,10 @@ export function searchSite(query,{limit=12}={}){
  scored.sort((a,b)=>{
   const ta=a.doc.kind!=='מונח'&&titleHit(a.doc),tb=b.doc.kind!=='מונח'&&titleHit(b.doc);
   if(ta!==tb)return ta?-1:1;
+  // Exact completed-title relevance beats a longer compound-term match when
+  // otherwise comparable, below the page-title tier above.
+  const ea=exactTitles.has(a.doc.titleCore),eb=exactTitles.has(b.doc.titleCore);
+  if(ea!==eb)return ea?-1:1;
   return b.score-a.score;
  });
  return scored.slice(0,limit).map(({doc,score})=>({

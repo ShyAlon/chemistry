@@ -3,14 +3,16 @@ import React,{useEffect,useRef,useState} from 'react';
 import {getGenerativeModel} from 'firebase/ai';
 import {doc,getDoc,setDoc,addDoc,collection,serverTimestamp} from 'firebase/firestore';
 import {ai,db} from './firebase-init.js';
-import {CHAT_MODELS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,SYSTEM_INSTRUCTION,MISS_QUESTION_MAX} from './chat-logic.js';
+import {CHAT_MODELS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,SYSTEM_INSTRUCTION,MISS_QUESTION_MAX,stripMarkdown,matchSubjects,isMiss} from './chat-logic.js';
 import {searchSite} from './search.js';
 
-// The learning chat: floating button, panel, model call with a VISIBLE
-// fallback, quota errors routed to the site's own search, and write-only
-// missing-topic reports. Opening the chat requires the visitor's own
-// adult declaration (a declaration, not age verification), stored once
-// per account in users/{uid} and re-read from there.
+// The learning chat: a study companion for THIS site. Every learner
+// question is routed to the real catalogue — matching subjects render as
+// navigable cards, and a true zero-match is surfaced as a missing-topic
+// report prompt. The model answers briefly in plain text and can never
+// invent coverage claims (see chat-logic SYSTEM_INSTRUCTION). Opening the
+// chat requires the visitor's own adult declaration (a declaration, not
+// age verification), stored once per account in users/{uid}.
 
 function useAdultDeclaration(user,open){
   const [state,setState]=useState({status:'checking'});
@@ -45,10 +47,11 @@ function AdultStep({onConfirm,onClose,state}){
   </div>;
 }
 
-function MissReport({user,lastAnswer}){
+function MissReport({user,lastAnswer,prefill}){
   const [open,setOpen]=useState(false);
   const [text,setText]=useState('');
   const [state,setState]=useState('idle');
+  useEffect(()=>{if(prefill?.text){setText(prefill.text);setOpen(true);setState('idle')}},[prefill]);
   const submit=async e=>{
     e.preventDefault();
     if(state==='sending')return;
@@ -56,9 +59,12 @@ function MissReport({user,lastAnswer}){
     try{
       const payload=buildMissPayload({question:text,answer:lastAnswer,uid:user.uid});
       await addDoc(collection(db,'misses'),{...payload,createdAt:serverTimestamp()});
-      setState('sent');setText('');
+      setState('sent');setText('');setOpen(false);
     }catch{setState('failed')}
   };
+  // Success feedback lives exactly where the learner was looking — in the
+  // button's spot, never below a fold.
+  if(state==='sent')return <p className="miss-ok miss-standalone" role="status">הדיווח נשמר. תודה! <button className="quiet" onClick={()=>setState('idle')}>עוד דיווח</button></p>;
   if(!open)return <button className="quiet miss-open" onClick={()=>{setOpen(true);setState('idle')}}>נושא חסר באתר?</button>;
   return <form className="miss-form" onSubmit={submit}>
    <h4>דיווח על נושא חסר</h4>
@@ -68,7 +74,6 @@ function MissReport({user,lastAnswer}){
     <button type="button" className="secondary" onClick={()=>setOpen(false)}>ביטול</button>
     <button type="submit" className="auth-submit" disabled={state==='sending'||!text.trim()}>{state==='sending'?'שולחים…':'שליחת הדיווח'}</button>
    </div>
-   {state==='sent'&&<p className="miss-ok" role="status">הדיווח נשמר. תודה!</p>}
    {state==='failed'&&<p className="chat-error" role="alert"><strong>הדיווח לא נשלח.</strong> בודקים את החיבור ומנסים שוב.</p>}
   </form>;
 }
@@ -76,10 +81,11 @@ function MissReport({user,lastAnswer}){
 export function Chat({user}){
   const [open,setOpen]=useState(false);
   const [adult,confirmAdult]=useAdultDeclaration(user,open);
-  const [messages,setMessages]=useState([{role:'model',text:'שלום! אני כאן לשאלות כימיה — על החומר באתר או מעבר לו. מה מעסיק אותך?'}]);
+  const [messages,setMessages]=useState([{role:'model',text:'שלום! שואלים אותי על כימיה ואני גם מפנה לנושאים שקיימים באתר. מה מעסיק אותך?'}]);
   const [input,setInput]=useState('');
   const [typing,setTyping]=useState(false);
   const [notice,setNotice]=useState('');
+  const [missPrefill,setMissPrefill]=useState(null);
   const model=useRef({name:CHAT_MODELS.primary,history:[]});
   const scroller=useRef();
 
@@ -110,7 +116,8 @@ export function Chat({user}){
         setNotice('המודל הראשי עמוס כרגע — עברתי זמנית למודל גיבוי.');
       }
       model.current.history.push({role:'user',parts:[{text}]},{role:'model',parts:[{text:reply}]});
-      setMessages(ms=>[...ms,{role:'model',text:reply}]);
+      const cards=matchSubjects(text);
+      setMessages(ms=>[...ms,{role:'model',text:reply,cards},...(isMiss(cards)?[{role:'miss-prompt',question:text}]:[])]);
     }catch(error){
       const msg=chatErrorMessage(error);
       const suggestions=isQuotaError(error)?searchSite(text,{limit:3}):[];
@@ -119,6 +126,7 @@ export function Chat({user}){
   };
 
   const lastAnswer=[...messages].reverse().find(m=>m.role==='model')?.text;
+  const go=route=>{location.hash=route};
 
   return <>
    <button className="chat-fab" aria-label="פתיחת צ'אט הלמידה" aria-expanded={open} onClick={()=>setOpen(o=>!o)}>
@@ -132,12 +140,23 @@ export function Chat({user}){
     {adult.status==='ok'
      ?<>
       <div className="chat-scroll" ref={scroller} aria-live="polite">
-       {messages.map((m,i)=>m.role==='error'
-        ?<div key={i} className="chat-msg error" role="alert">
-          <p><strong>{m.error}</strong> {m.next}</p>
-          {!!m.suggestions?.length&&<ul className="chat-suggest">{m.suggestions.map(s=><li key={s.route}><button onClick={()=>{location.hash=s.route;setOpen(false)}}>{s.kind}: {s.title}</button></li>)}</ul>}
-         </div>
-        :<div key={i} className={'chat-msg '+m.role} dir="auto"><p>{m.text}</p></div>)}
+       {messages.map((m,i)=>{
+        if(m.role==='error')return <div key={i} className="chat-msg error" role="alert">
+         <p><strong>{m.error}</strong> {m.next}</p>
+         {!!m.suggestions?.length&&<ul className="chat-suggest">{m.suggestions.map(s=><li key={s.route}><button onClick={()=>{go(s.route);setOpen(false)}}>{s.kind}: {s.title}</button></li>)}</ul>}
+        </div>;
+        if(m.role==='miss-prompt')return <div key={i} className="chat-msg miss-prompt">
+         <p>לא מצאתי את הנושא הזה באתר.</p>
+         <button className="miss-prompt-btn" onClick={()=>setMissPrefill({text:m.question,at:Date.now()})}>לדווח עליו כחסר?</button>
+        </div>;
+        return <div key={i} className={'chat-msg '+m.role} dir="auto">
+         <p>{m.role==='model'?stripMarkdown(m.text):m.text}</p>
+         {!!m.cards?.length&&<div className="subject-cards">
+          <span className="subject-cards-label">באתר:</span>
+          {m.cards.map(c=><button key={c.route} className="subject-card" onClick={()=>go(c.route)}><span className="subject-kind">{c.kind}</span>{c.title}</button>)}
+         </div>}
+        </div>;
+       })}
        {typing&&<div className="chat-msg model typing"><p>חושב…</p></div>}
        {notice&&<p className="chat-notice" role="status">{notice}</p>}
       </div>
@@ -145,7 +164,7 @@ export function Chat({user}){
        <input value={input} onChange={e=>setInput(e.target.value)} placeholder="מה לא מובן?" aria-label="שאלה לצ'אט" disabled={typing}/>
        <button type="submit" className="auth-submit" disabled={typing||!input.trim()} aria-label="שליחת השאלה">שליחה</button>
       </form>
-      <MissReport user={user} lastAnswer={lastAnswer}/>
+      <MissReport user={user} lastAnswer={lastAnswer} prefill={missPrefill}/>
      </>
      :adult.status==='checking'
       ?<div className="chat-scroll"><p className="chat-notice">רגע, בודקים את אישור הגיל…</p></div>

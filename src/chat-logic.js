@@ -1,4 +1,5 @@
 // Pure chat helpers: no Firebase imports, hermetically testable.
+import {searchSite} from './search.js';
 
 // Current-gen free-tier models verified live on spectra-chemistry
 // (2026-11-20): 3.8-flash is the primary; on a transient failure the chat
@@ -6,11 +7,16 @@
 // fallback is a defect. 2.5-flash is retired for new projects.
 export const CHAT_MODELS={primary:'gemini-3.8-flash',fallback:'gemini-3.5-flash-lite'};
 
+// The chat is a study companion for THIS site, not an unconstrained
+// tutor: brief plain-text answers, no Markdown, and it never claims what
+// the site does or does not cover — subject routing is computed from the
+// real catalogue and rendered by the app, so coverage statements the
+// model invents can never be grounded.
 export const SYSTEM_INSTRUCTION=[
-  'אתה מורה לכימיה באתר SPECTRA, אתר לימוד עברי לתלמידי תיכון בישראל לקראת הבגרות.',
-  'עונה תמיד בעברית, בקצרה ובבהירות, ברמה של תלמיד תיכון.',
-  'כשאפשר, מקשר את התשובה לחומר הלימוד שקיים באתר.',
-  'אם אין לך תשובה בטוחה — אומר זאת במפורש ומציע לחפש באתר או לשאול מורה.',
+  'אתה עוזר לימוד לכימיה באתר SPECTRA, אתר עברי לתלמידי תיכון בישראל לקראת הבגרות.',
+  'עונה בעברית תמציתית: עד 4 משפטים, בטקסט פשוט בלבד, בלי עיצוב Markdown - בלי כוכביות, בלי כותרות, בלי רשימות מעוצבות.',
+  'לעולם אל תטען שהאתר מכסה או לא מכסה נושא מסוים, ואל תפנה לפרקים או לנושאים באתר - ההפניות לנושאים הקיימים מוצגות בנפרד על ידי המערכת.',
+  'אם אין לך תשובה בטוחה - אמור זאת במפורש ובקצרה.',
 ].join(' ');
 
 // Retryable: transient server/load states worth one retry on the fallback
@@ -31,6 +37,36 @@ export function isQuotaError(error){
 export function modelAfterFailure(current,error){
   if(current===CHAT_MODELS.primary&&isRetryable(error))return CHAT_MODELS.fallback;
   return null;
+}
+
+// Defensive cleanup for model output: the instruction forbids Markdown,
+// and this strips what slips through anyway, so the UI never shows
+// literal asterisks or hashes.
+export function stripMarkdown(text){
+  return String(text||'')
+    .replace(/\*\*(.+?)\*\*/gs,'$1')
+    .replace(/__(.+?)__/gs,'$1')
+    .replace(/`([^`]*)`/g,'$1')
+    .replace(/^#{1,6}\s+/gm,'')
+    .replace(/^\s*[-*+]\s+/gm,'• ')
+    .replace(/[ \t]+$/gm,'')
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+}
+
+export const SUBJECT_CARD_LIMIT=4;
+
+// Intent-to-subject routing over the real site catalogue (BM25 search
+// with Hebrew normalization and aliases). Returns navigable cards.
+export function matchSubjects(query,{limit=SUBJECT_CARD_LIMIT}={}){
+  return searchSite(query,{limit}).map(r=>({route:r.route,kind:r.kind,title:r.title}));
+}
+
+// Missing-topic detection: the learner asked about something the
+// catalogue does not contain. Weak-match heuristics are a quality trap;
+// only a true zero is treated as a miss.
+export function isMiss(cards){
+  return !cards||cards.length===0;
 }
 
 export const MISS_QUESTION_MAX=2000;

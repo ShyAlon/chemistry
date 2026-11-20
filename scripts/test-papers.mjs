@@ -1,4 +1,5 @@
 import {spawn} from 'node:child_process';
+import {launchChrome} from './launch-chrome.mjs';
 import {createServer} from 'node:http';
 import {readFile,mkdtemp,rm,writeFile,mkdir} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -22,10 +23,9 @@ const server=createServer(async(req,res)=>{
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin=`http://127.0.0.1:${server.address().port}`;
 const profile=await mkdtemp(path.join(tmpdir(),'chem-pwa-'));
-const chrome=spawn(process.env.CHROME_BIN||'google-chrome',['--headless','--no-sandbox','--disable-gpu','--remote-allow-origins=*','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','ignore','pipe']});
+const {chrome,endpoint}=await launchChrome(profile);
 let ws,id=0;const pending=new Map();
 try{
- const endpoint=await new Promise((resolve,reject)=>{let t='';const timer=setTimeout(()=>reject(Error('Chrome startup timeout')),15000);chrome.stderr.on('data',x=>{t+=x;const m=t.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(timer);resolve(m[1])}})});
  const tabs=await(await fetch(`http://127.0.0.1:${new URL(endpoint).port}/json/list`)).json();
  ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));
  ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const [resolve,reject]=pending.get(m.id)||[];pending.delete(m.id);m.error?reject?.(Error(JSON.stringify(m.error))):resolve?.(m.result)}});

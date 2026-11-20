@@ -1,5 +1,6 @@
 import {readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
+import {undoNotation} from './notation-baseline.js';
 export const corrections=JSON.parse(readFileSync(new URL('../src/practice-corrections.json',import.meta.url)));
 // Reconstruct the reviewed pre-practice topic. Only explicit additions and the
 // four before/after prose corrections are exempted from baseline checks.
@@ -26,7 +27,7 @@ export function beforeVanadium(topic){
 // Preserve the fixed earlier baselines while allowing only this reviewed edition.
 const recapCorrections=JSON.parse(readFileSync(new URL('../src/recap-corrections.json',import.meta.url)));
 export function beforeRecap(topic){
- const t=structuredClone(topic);
+ const t=undoNotation(topic);
  t.source=t.source.split(' תוספת חזרה:')[0];delete t.recapSources;
  for(const key of ['theory','worked'])t.content[key]=t.content[key].filter(b=>!b.recap);
  for(const c of recapCorrections.filter(c=>c.topic===t.id)){

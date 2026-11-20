@@ -23,20 +23,106 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
-    "style": "Normal",
     "text": "P = nRT/(V − nb) − an²/V²",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "P, V, T",
+     "n",
+     "R:gas",
+     "a",
+     "b"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 43
    },
    {
-    "style": "Normal",
     "text": "Z = V/(V − nb) − an/(VRT)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "Z",
+     "V, T, n",
+     "R:gas",
+     "a",
+     "b"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 44
    },
    {
+    "text": "בצורת הנפח המולרי:",
     "style": "Normal",
-    "text": "בצורת הנפח המולרי Vₘ = V / n: התיקון הראשון הוא Vₘ / (Vₘ − b), והשני a / (RTVₘ). בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים ב-R = 0.08206. אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
+    "finalPrep": true,
+    "notationOf": 45
+   },
+   {
+    "text": "Vₘ = V/n",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "Vₘ",
+     "V, n"
+    ],
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "התיקון הראשון הוא:",
+    "style": "Normal",
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "Vₘ/(Vₘ − b)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "Vₘ",
+     "b#2"
+    ],
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "והתיקון השני הוא:",
+    "style": "Normal",
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "a/(RTVₘ)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "a#2",
+     "R",
+     "T",
+     "Vₘ"
+    ],
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים בערך:",
+    "style": "Normal",
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "R = {R@latm}",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "R:latm"
+    ],
+    "notationOf": 45,
+    "finalPrep": true
+   },
+   {
+    "text": "אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
+    "style": "Normal",
+    "notationOf": 45,
     "finalPrep": true
    },
    {
@@ -56,19 +142,137 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "text": "נסמן:",
     "style": "Normal",
-    "text": "נסמן c = n / V. כאשר bc קטן, הפיתוח 1 / (1 − bc)≈1 + bc נותן Z≈1 + [b − a / (RT)]c. בטמפרטורה T_B = a / (Rb) המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
+    "finalPrep": true,
+    "notationOf": 49
+   },
+   {
+    "text": "c = n/V",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "c@concentration",
+     "n, V"
+    ],
+    "notationOf": 49,
     "finalPrep": true
    },
    {
+    "text": "כאשר bc קטן, מפתחים:",
     "style": "Normal",
-    "text": "T_B = a/(Rb)    Z(T_B) −1 = (bc)²/(1 − bc)",
-    "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 49,
+    "finalPrep": true
    },
    {
+    "text": "1/(1 − bc) ≈ 1 + bc",
     "style": "Normal",
-    "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה c = 1.00 mol / L נותן bc≈0.043: קטן, אך לא אפס.",
+    "layout": "equation",
+    "symbols": [
+     "b",
+     "c@concentration"
+    ],
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "ונקבל:",
+    "style": "Normal",
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "Z ≈ 1 + [b − a/(RT)]·c",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "Z",
+     "a",
+     "b",
+     "c@concentration",
+     "R",
+     "T"
+    ],
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "בטמפרטורה:",
+    "style": "Normal",
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "T_B = a/(Rb)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "T_B",
+     "a",
+     "b",
+     "R"
+    ],
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
+    "style": "Normal",
+    "notationOf": 49,
+    "finalPrep": true
+   },
+   {
+    "text": "T_B = a/(Rb)        Z(T_B) − 1 = (bc)²/(1 − bc)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "T_B",
+     "Z",
+     "a",
+     "b",
+     "c@concentration",
+     "R"
+    ],
+    "finalPrep": true,
+    "notationOf": 50
+   },
+   {
+    "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה:",
+    "style": "Normal",
+    "finalPrep": true,
+    "notationOf": 51
+   },
+   {
+    "text": "c = 1.00 mol/L",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "c@concentration"
+    ],
+    "notationOf": 51,
+    "finalPrep": true
+   },
+   {
+    "text": "נותן:",
+    "style": "Normal",
+    "notationOf": 51,
+    "finalPrep": true
+   },
+   {
+    "text": "bc ≈ 0.043",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "b",
+     "c@concentration"
+    ],
+    "notationOf": 51,
+    "finalPrep": true
+   },
+   {
+    "text": "זה קטן, אך לא אפס.",
+    "style": "Normal",
+    "notationOf": 51,
     "finalPrep": true
    },
    {
@@ -77,21 +281,79 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "text": "אם נתונים Z, n, V, T ו-b, מחלצים:",
     "style": "Normal",
-    "text": "אם נתונים Z, n,V,T ו-b, מחלצים a = VRT / n·[V / (V − nb) − Z]. אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל ΔP = nRΔT / (V − nb). מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
+    "finalPrep": true,
+    "notationOf": 53
+   },
+   {
+    "text": "a = (VRT/n)·[V/(V − nb) − Z]",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "a",
+     "Z",
+     "n, V, T",
+     "b",
+     "R"
+    ],
+    "notationOf": 53,
     "finalPrep": true
    },
    {
+    "text": "אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל:",
     "style": "Normal",
-    "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
-    "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 53,
+    "finalPrep": true
    },
    {
+    "text": "ΔP = nRΔT/(V − nb)",
     "style": "Normal",
-    "text": "b = (V − D)/n    a = [nRT₁/D − P₁]V²/n²",
+    "layout": "equation",
+    "symbols": [
+     "ΔP, ΔT",
+     "n, V",
+     "R",
+     "b"
+    ],
+    "notationOf": 53,
+    "finalPrep": true
+   },
+   {
+    "text": "מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
+    "style": "Normal",
+    "notationOf": 53,
+    "finalPrep": true
+   },
+   {
+    "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "D",
+     "V, n",
+     "b",
+     "R",
+     "T₁, T₂",
+     "P₁, P₂"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 54
+   },
+   {
+    "text": "b = (V − D)/n        a = [nRT₁/D − P₁]V²/n²",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "a",
+     "b",
+     "D",
+     "V, n",
+     "R:gas",
+     "T₁, P₁"
+    ],
+    "finalPrep": true,
+    "notationOf": 55
    },
    {
     "style": "Normal",
@@ -516,19 +778,76 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "text": "בשאלה הפוכה לא מנחשים את תא היחידה מהשם של המתכת. מחשבים לכל מועמד את הצלע מתוך r, אחר כך את צפיפותו. ב-BCC:",
     "style": "Normal",
-    "text": "בשאלה הפוכה לא מנחשים את תא היחידה מהשם של המתכת. מחשבים לכל מועמד את הצלע מתוך r, אחר כך את צפיפותו: ב-BCC יש z = 2 ו-a = 4r / √3; ב-FCC יש z = 4 ו-a = 2√2r. משווים לצפיפות הנתונה. משתמשים באותו r ובאותה מסה מולרית בשני המועמדים.",
+    "finalPrep": true,
+    "notationOf": 17
+   },
+   {
+    "text": "z = 2        a = 4r/√3",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "z#2",
+     "a#3",
+     "r#6"
+    ],
+    "notationOf": 17,
     "finalPrep": true
    },
    {
+    "text": "וב-FCC:",
     "style": "Normal",
-    "text": "ρ = zM/(Nₐa³)    a = [zM/(Nₐρ)]^(1/3)",
-    "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 17,
+    "finalPrep": true
    },
    {
-    "style": "Callout",
-    "text": "1 pm = 10⁻¹⁰ cm. בגלל החזקה השלישית, טעות ביחידת אורך גדלה מאוד בנפח. z הוא מספר האטומים האפקטיבי בתא, לא מספר הקואורדינציה. אחרי פתרון הפוך בודקים מחדש את הצפיפות מה-r שהתקבל.",
+    "text": "z = 4        a = 2√2·r",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "z#2",
+     "a#3",
+     "r#6"
+    ],
+    "notationOf": 17,
+    "finalPrep": true
+   },
+   {
+    "text": "משווים לצפיפות הנתונה. משתמשים באותו r ובאותה מסה מולרית בשני המועמדים.",
+    "style": "Normal",
+    "notationOf": 17,
+    "finalPrep": true
+   },
+   {
+    "text": "ρ = zM/(Nₐa³)        a = [zM/(Nₐρ)]^(1/3)",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "ρ#3",
+     "z#2",
+     "M",
+     "Nₐ",
+     "a#3"
+    ],
+    "finalPrep": true,
+    "notationOf": 18
+   },
+   {
+    "text": "1 pm = 10⁻¹⁰ cm",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "pm",
+     "cm"
+    ],
+    "finalPrep": true,
+    "notationOf": 19
+   },
+   {
+    "text": "בגלל החזקה השלישית, טעות ביחידת אורך גדלה מאוד בנפח. z הוא מספר האטומים האפקטיבי בתא, לא מספר הקואורדינציה. אחרי פתרון הפוך בודקים מחדש את הצפיפות מה-r שהתקבל.",
+    "style": "Normal",
+    "notationOf": 19,
     "finalPrep": true
    }
   ],
@@ -805,16 +1124,34 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "text": "ΔT_f = K_f·Σ(iⱼnⱼ)/m_solvent(kg)        Π = RT·Σ(iⱼnⱼ)/V_solution(L)",
     "style": "Normal",
-    "text": "ΔT_f = K_f·Σ(iⱼnⱼ)/m_solvent(kg)    Π = RT·Σ(iⱼnⱼ)/V_solution(L)",
+    "layout": "equation",
+    "symbols": [
+     "ΔT_f",
+     "K_f",
+     "Σ(iⱼnⱼ)",
+     "m_solvent(kg)",
+     "Π",
+     "R:gas",
+     "T",
+     "V_solution(L)"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 23
    },
    {
-    "style": "Normal",
     "text": "P_solvent/P° = n_solvent/[n_solvent + Σ(iⱼnⱼ)]",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "P_solvent",
+     "P°",
+     "n_solvent",
+     "Σ(iⱼnⱼ)"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 24
    },
    {
     "style": "Normal",
@@ -827,15 +1164,57 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "text": "אם יחידת מומס אחת מתפרקת ל-ν חלקיקים ושבר α מהיחידות התפרק, אז:",
     "style": "Normal",
-    "text": "אם יחידת מומס אחת מתפרקת ל-ν חלקיקים ושבר α מהיחידות התפרק, אז i = 1 + (ν −1)α. במלח NaHA שכבר התפרק ל-Na⁺ ו-HA⁻ לפני פירוק נוסף של HA⁻, נקודת הפתיחה היא שני חלקיקים: אם שבר α של HA⁻ הופך ל-H⁺ ו-A²⁻, מתקבל i = 2 + α. בודקים מאזן אטומים ומטען, לא רק מספר חלקיקים.",
+    "finalPrep": true,
+    "notationOf": 27
+   },
+   {
+    "text": "i = 1 + (ν − 1)α",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "i",
+     "ν",
+     "α#2"
+    ],
+    "notationOf": 27,
     "finalPrep": true
    },
    {
+    "text": "במלח NaHA שכבר התפרק ל-Na⁺ ו-HA⁻ לפני פירוק נוסף של HA⁻, נקודת הפתיחה היא שני חלקיקים: אם שבר α של HA⁻ הופך ל-H⁺ ו-A²⁻, מתקבל:",
     "style": "Normal",
-    "text": "n(Na⁺)=n₀    n(HA⁻)=(1−α)n₀    n(H⁺)=n(A²⁻)=αn₀",
+    "notationOf": 27,
+    "finalPrep": true
+   },
+   {
+    "text": "i = 2 + α",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "i",
+     "α#3"
+    ],
+    "notationOf": 27,
+    "finalPrep": true
+   },
+   {
+    "text": "בודקים מאזן אטומים ומטען, לא רק מספר חלקיקים.",
+    "style": "Normal",
+    "notationOf": 27,
+    "finalPrep": true
+   },
+   {
+    "text": "n(Na⁺)=n₀        n(HA⁻)=(1−α)n₀        n(H⁺)=n(A²⁻)=αn₀",
+    "style": "Normal",
+    "layout": "equation",
+    "symbols": [
+     "n(Na⁺), n(HA⁻), n(H⁺), n(A²⁻)",
+     "n₀",
+     "α"
+    ],
     "finalPrep": true,
-    "layout": "equation"
+    "notationOf": 28
    },
    {
     "style": "Callout",

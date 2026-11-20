@@ -19,7 +19,7 @@ function plain(text){
    let start=part.search(/[A-Za-z0-9\u00b5\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff]/u);
    // Keep opening formula delimiters with the run, e.g. (SI), [Pa=kg/(m·s²)].
    const connectedHyphen=part.startsWith('-')&&hebrew.test(parts[index-1]||'');
-   while(start>0&&'([{+−-±'.includes(part[start-1])&&!(start===1&&connectedHyphen))start--;
+   while(start>0&&'([{+−-±√∑∫'.includes(part[start-1])&&!(start===1&&connectedHyphen))start--;
    let end=part.length;
    while(end>start&&/[\s.,;:!?،]/u.test(part[end-1]))end--;
    // A connecting Hebrew hyphen is punctuation, not a minus sign in the formula.

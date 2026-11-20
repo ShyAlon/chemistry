@@ -6,6 +6,7 @@
 // see PR notes for the vector-search comparison.
 import catalogue from './courses.json' with {type:'json'};
 import {papers} from './paper-discussions.js';
+import {resolveConstants} from './constants.js';
 import {sessions} from './practice-sessions.js';
 import {pages as referencePages} from './reference-pages.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
@@ -94,7 +95,7 @@ function collectDocs(){
     title:topic.name,
     head:[topic.id,topic.title||'',...(content.theory||[]).filter(p=>p.style==='Heading').map(p=>p.text||'')],
     body:[
-     ...(content.theory||[]).filter(p=>p.style!=='Heading').map(p=>p.text||''),
+     ...(content.theory||[]).filter(p=>p.style!=='Heading').map(p=>p.layout==='equation'?resolveConstants(p.text||''):p.text||''),
      ...(content.worked||[]).flatMap(w=>[w.title||'',...(w.content||[])]),
      ...(content.quiz||[]).flatMap(q=>[q.prompt||'',...(q.options||[]),q.answer||'']),
     ],

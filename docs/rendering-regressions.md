@@ -21,3 +21,6 @@ The browser gate uses a local production build, a temporary Chrome profile and b
 The exact reported paragraph has a regression test. It failed against the original boundary rule. The browser gate also failed against the original header CSS. Both pass with these fixes. The existing original-content hash and progress/answer tests remain unchanged and pass.
 
 These checks target known failure classes. They do not guarantee every possible chemistry expression or every browser font is correct. Review new notation and representative desktop, phone and landscape pixels when expanding this renderer contract.
+
+## Radical sign outside its left-to-right run (Nov 2026)
+`src/bidi.js` isolated math runs but left a leading `√`, `∑` or `∫` outside, so `√(3RT/M)` rendered with the sign on the wrong side in Hebrew paragraphs. Those characters are now part of the isolated run, and `tests/notation.test.js` pins the exact sentence from the report. Formulas in GC1 theory are separate equation blocks instead of Hebrew sentences with embedded math; see `docs/formula-symbols-and-constants.md`.

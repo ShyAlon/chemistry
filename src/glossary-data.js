@@ -14,6 +14,8 @@
 //   topic   id of the topic that teaches the term
 //   aliases extra lookup strings (optional; used by filter and search)
 
+import {formatConstant as C} from './constants.js';
+
 export const glossary={
 
 '84102':[
@@ -78,8 +80,8 @@ export const glossary={
 '84101':[
  {slug:'density',he:'צפיפות',en:'Density',topic:'G1',def:'מסה ליחידת נפח, ρ = m/V. קושרת מסה לנפח בחומר טהור ובתמיסות, והיא קו ההפרדה הראשון בבעיות מעבר בין נתונים.'},
  {slug:'kelvin',he:'קלווין',en:'Kelvin',topic:'G1',def:'סקלת הטמפרטורה המוחלטת: K = °C + 273.15. בחוקי הגזים ובנוסחאות קינטיות חובה קלווין; הפרש של 1 K שווה בגודלו ל־1°C.'},
- {slug:'mole',he:'מול',en:'Mole',topic:'G2',def:'יחידת הכמות הכימית: 6.022×10²³ חלקיקים (מספר אבוגדרו). הגשר בין מספר אטומים למשקל במעבדה.'},
- {slug:'avogadro',he:'מספר אבוגדרו',en:'Avogadro\u2019s Number',topic:'G2',aliases:['Nₐ'],def:'Nₐ = 6.022×10²³ ל־mol⁻¹ — מספר החלקיקים במול אחד.'},
+ {slug:'mole',he:'מול',en:'Mole',topic:'G2',def:`יחידת הכמות הכימית: ${C('Nₐ').replace(' mol⁻¹','')} חלקיקים (מספר אבוגדרו). הגשר בין מספר אטומים למשקל במעבדה.`},
+ {slug:'avogadro',he:'מספר אבוגדרו',en:'Avogadro\u2019s Number',topic:'G2',aliases:['Nₐ'],def:`Nₐ = ${C('Nₐ')} — מספר החלקיקים במול אחד.`},
  {slug:'molar-mass',he:'מסה מולרית',en:'Molar Mass',topic:'G2',def:'מסת מול אחד של חומר בגרמים (g/mol). סכום המסות האטומיות בנוסחה; לגז נגזרת גם מ־M = mRT/(PV).'},
  {slug:'atomic-mass',he:'מסה אטומית',en:'Atomic Mass',topic:'G2',def:'מסת האטום ביחידות amu. בטבלה המחזורית מופיע משוקלל האיזוטופים הטבעיים, ולכן היא לרוב שבר.'},
  {slug:'isotopes-gc',he:'איזוטופים',en:'Isotopes',topic:'G2',def:'אטומים של אותו יסוד עם מספר ניטרונים שונה: זהים כימית בקירוב, שונים במסה. הרכב האיזוטופים קובע את המסה האטומית הממוצעת.'},
@@ -102,6 +104,8 @@ export const glossary={
  {slug:'oxidation-number',he:'דרגת חמצון',en:'Oxidation Number',topic:'G8',aliases:['מספר חמצון'],def:'מטען פורמלי של אטום בחומר לפי כללי שיוך האלקטרונים. עוקב אחרי זרם האלקטרונים בתגובות חמצון־חיזור.'},
  {slug:'titration',he:'טיטרציה',en:'Titration',topic:'G8',def:'מדידת ריכוז על־ידי הוספה מדורגת של מגיב בן ריכוז ידוע עד נקודת השקילות, ואז חשבון סטויכיומטרי.'},
  {slug:'equivalence-point',he:'נקודת השקילות',en:'Equivalence Point',topic:'G8',def:'הנקודה בטיטרציה שבה נוספו בדיוק מולי המגיב הדרושים סטויכיומטרית. אינה בהכרח pH 7.'},
+ {slug:'gas-constant',he:'קבוע הגזים',en:'Gas Constant',topic:'G9',aliases:['R'],def:`R, הקבוע שבמשוואת הגז האידיאלי PV = nRT. הערך תלוי ביחידות: ${C('R')} כשהאנרגיה ב־J, ו־${C('R@latm')} כשהלחץ ב־atm והנפח בליטר. אין לערבב יחידות. בהקשר של פעילות רדיואקטיבית (G16) האות R מציינת גודל אחר.`},
+ {slug:'boltzmann-constant',he:'קבוע בולצמן',en:'Boltzmann Constant',topic:'G10',aliases:['k','k_B'],def:`k = R/Nₐ ≈ ${C('k')}. הקבוע של מולקולה אחת, בעוד R הוא הקבוע של מול. האנרגיה הקינטית התרגומית הממוצעת של מולקולה אחת היא 3kT/2, ושל מול 3RT/2.`},
  {slug:'ideal-gas',he:'גז אידיאלי',en:'Ideal Gas',topic:'G9',def:'מודל שבו לחלקיקים אין נפח ואין כוחות ביניהם: PV = nRT. קירוב טוב בלחץ נמוך וטמפרטורה גבוהה.'},
  {slug:'stp',he:'תנאי STP',en:'STP',topic:'G9',def:'מוסכמת הקורס (כמו בבגרות): 0°C ו־1 atm, ואז הנפח המולרי של גז אידיאלי 22.4 L/mol. שימו לב: מאז 1982 IUPAC ממליץ על לחץ תקני 10⁵ Pa (100 kPa), כך שמחוץ לקורס בודקים איזו מוסכמה מוצהרת.'},
  {slug:'dalton',he:'חוק דלטון',en:'Dalton\u2019s Law',topic:'G9',def:'לחץ תערובת גזים הוא סכום הלחצים החלקיים: P_t = ΣPᵢ, וכל רכיב מתנהג כאילו הוא לבד בכלי: Pᵢ = xᵢ·P_total.'},

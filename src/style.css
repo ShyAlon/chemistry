@@ -426,6 +426,10 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
  body:has(article.theory) article.theory{background:#fff!important;border:0!important;box-shadow:none!important;padding:0!important;color:#000!important}
  body:has(article.theory) article.theory *{color:#000!important;text-shadow:none!important;box-shadow:none!important}
  body:has(article.theory) .display-math{background:#fff!important;border:.4pt solid #000!important;border-inline-start:2pt solid #000!important;overflow:visible!important;font-size:13pt;padding:6pt 10pt}
+
+ body:has(article.theory) article.theory figure{background:#fff!important;border:.4pt solid #000!important;break-inside:avoid}
+ body:has(article.theory) article.theory figure svg{filter:invert(1) hue-rotate(180deg)}
+ body:has(article.theory) article.theory figure button{display:none!important}
  body:has(article.theory) .callout{background:#fff!important;border:.4pt solid #000!important}
  body:has(article.theory) .formula-tip{break-inside:avoid;margin:10pt 0}
  body:has(article.theory) .formula-print-key{font-size:10.5pt;margin:4pt 0 12pt}

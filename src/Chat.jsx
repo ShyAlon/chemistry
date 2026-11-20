@@ -3,14 +3,15 @@ import React,{useEffect,useRef,useState} from 'react';
 import {getGenerativeModel} from 'firebase/ai';
 import {doc,getDoc,setDoc,addDoc,collection,serverTimestamp} from 'firebase/firestore';
 import {ai,db} from './firebase-init.js';
-import {CHAT_MODELS,CHAT_TIMEOUT_MS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,SYSTEM_INSTRUCTION,MISS_QUESTION_MAX,stripMarkdown,matchSubjects,isMiss} from './chat-logic.js';
+import {CHAT_MODELS,CHAT_TIMEOUT_MS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,MISS_QUESTION_MAX,stripMarkdown,buildRoutingSystemInstruction,matchIntentTerms,parseRoutingResponse,ROUTING_GENERATION_CONFIG} from './chat-logic.js';
 import {searchSite} from './search.js';
 
 // The learning chat: a study companion for THIS site. Every learner
 // question is routed to the real catalogue — matching subjects render as
 // navigable cards, and a true zero-match is surfaced as a missing-topic
 // report prompt. The model answers briefly in plain text and can never
-// invent coverage claims (see chat-logic SYSTEM_INSTRUCTION). Opening the
+// invent coverage claims (the model only emits intent terms; the app matches
+// them against the local catalogue). Opening the
 // chat requires the visitor's own adult declaration (a declaration, not
 // age verification), stored once per account in users/{uid}.
 
@@ -91,14 +92,21 @@ export function Chat({user}){
 
   useEffect(()=>{scroller.current?.scrollTo({top:scroller.current.scrollHeight})},[messages,typing,notice]);
 
+  const routing=useRef({instruction:buildRoutingSystemInstruction()});
+  // One structured call per learner message (Shy's steering: conservative
+  // requests): the model returns JSON with a brief answer plus intent search
+  // terms; the app matches those terms against the local catalogue, so cards
+  // can only ever be subjects that really exist and invented coverage is
+  // structurally impossible. No model calls while typing.
   const attempt=async(name,text)=>{
-    const m=getGenerativeModel(ai,{model:name,systemInstruction:SYSTEM_INSTRUCTION});
+    const m=getGenerativeModel(ai,{model:name,systemInstruction:routing.current.instruction,generationConfig:ROUTING_GENERATION_CONFIG});
     const chat=m.startChat({history:model.current.history});
     // A stalled stream is a retryable failure after CHAT_TIMEOUT_MS, so the
     // fallback model gets its chance instead of an endless spinner.
     const timeout=new Promise((_,reject)=>setTimeout(()=>reject(Object.assign(new Error('chat request timed out'),{status:408})),CHAT_TIMEOUT_MS));
     const res=await Promise.race([chat.sendMessage(text),timeout]);
-    return res.response.text();
+    const searchOne=(term,opts)=>searchSite(term,opts);
+    return parseRoutingResponse(res.response.text(),searchOne);
   };
 
   const send=async e=>{
@@ -108,19 +116,19 @@ export function Chat({user}){
     setInput('');setTyping(true);setNotice('');
     setMessages(ms=>[...ms,{role:'user',text}]);
     try{
-      let reply;
+      let routed;
       try{
-        reply=await attempt(model.current.name,text);
+        routed=await attempt(model.current.name,text);
       }catch(first){
         const next=modelAfterFailure(model.current.name,first);
         if(!next)throw first;
-        reply=await attempt(next,text);
+        routed=await attempt(next,text);
         model.current.name=next;
         setNotice('המודל הראשי עמוס כרגע — עברתי זמנית למודל גיבוי.');
       }
-      model.current.history.push({role:'user',parts:[{text}]},{role:'model',parts:[{text:reply}]});
-      const cards=matchSubjects(text);
-      setMessages(ms=>[...ms,{role:'model',text:reply,cards},...(isMiss(cards)?[{role:'miss-prompt',question:text}]:[])]);
+      if(!routed.ok)throw Object.assign(new Error('unparseable routing response'),{status:502});
+      model.current.history.push({role:'user',parts:[{text}]},{role:'model',parts:[{text:routed.answer}]});
+      setMessages(ms=>[...ms,{role:'model',text:routed.answer,cards:routed.cards},...(routed.missing?[{role:'miss-prompt',question:text}]:[])])
     }catch(error){
       const msg=chatErrorMessage(error);
       const suggestions=isQuotaError(error)?searchSite(text,{limit:3}):[];

@@ -325,6 +325,74 @@ try{
  assert.equal(await js(`getComputedStyle(document.querySelector('.page-title')).transform`),'none');
  await call('Emulation.setEmulatedMedia',{features:[]});
 
+ // Formula symbol popups: centered rounded trigger, half-second hover delay, second-long fade, touch-only affordances.
+ {
+  await call('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G10'});await ready('article.theory .formula-tip .display-math');
+  await js(`document.querySelector('.formula-tip .display-math').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  const geo=await js(`(()=>{const t=document.querySelector('.formula-tip').getBoundingClientRect(),f=document.querySelector('.formula-tip .display-math').getBoundingClientRect(),cs=getComputedStyle(document.querySelector('.formula-tip .display-math'));return {leftGap:f.left-t.left,rightGap:t.right-f.right,radius:parseFloat(cs.borderTopLeftRadius),width:f.width}})()`);
+  assert.ok(Math.abs(geo.leftGap-geo.rightGap)<=2&&geo.leftGap>10,'formula centered in its row: '+JSON.stringify(geo));
+  assert.ok(geo.radius>=8,'rounded formula region: '+JSON.stringify(geo));
+  assert.ok(await js(`!!document.querySelector('.formula-tip .math-root-body')`),'square root renders with a barred body');
+  assert.ok(!await js(`[...document.querySelectorAll('.formula-tip .display-math')].some(e=>e.textContent.includes('\u221a('))`),'no literal \u221a( remains in display formulas');
+  const hoverTip=async selector=>{const p=await js(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2}})()`);await call('Input.dispatchMouseEvent',{type:'mouseMoved',...p})};
+  // Hovering the row beside the rounded formula does nothing.
+  const beside=await js(`(()=>{const t=document.querySelector('.formula-tip').getBoundingClientRect(),f=document.querySelector('.formula-tip .display-math').getBoundingClientRect();return {x:f.right+(t.right-f.right)/2,y:f.top+f.height/2,gap:t.right-f.right}})()`);
+  if(beside.gap>40){await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:beside.x,y:beside.y});await js('new Promise(r=>setTimeout(r,800))');assert.ok(!await js(`document.querySelector('.formula-tip').classList.contains('open')`),'the row beside the formula must not open the popup');}
+  // The trigger waits for half a second of real hovering, then opens with a one-second fade.
+  await hoverTip('.formula-tip .display-math');
+  await js('new Promise(r=>setTimeout(r,250))');
+  assert.ok(!await js(`document.querySelector('.formula-tip').classList.contains('open')`),'popup must wait about half a second of hovering');
+  await ready('.formula-tip.open .formula-pop');
+  assert.equal(await js(`getComputedStyle(document.querySelector('.formula-pop')).transitionDuration`),'1s');
+  // The ⓘ hint and the ✕ button follow the device's hover capability (headless Chrome reports hover:none, like an iPad).
+  const afford=await js(`(()=>{const hoverable=matchMedia('(hover:hover)').matches;return {hoverable,hint:getComputedStyle(document.querySelector('.formula-hint')).display,close:getComputedStyle(document.querySelector('.formula-pop-close')).display}})()`);
+  assert.equal(afford.hint,afford.hoverable?'none':'block',JSON.stringify(afford));
+  assert.equal(afford.close,afford.hoverable?'none':'block',JSON.stringify(afford));
+  await shot('formula-tip-open-1280');
+  // Leaving the formula closes it after the grace, fading out in half a second.
+  await call('Input.dispatchMouseEvent',{type:'mouseMoved',x:1,y:1});
+  await js('new Promise(r=>setTimeout(r,700))');
+  assert.ok(!await js(`document.querySelector('.formula-tip').classList.contains('open')`),'leaving the formula closes the popup');
+  assert.equal(await js(`getComputedStyle(document.querySelector('.formula-pop')).transitionDuration`),'0.5s, 0s');
+  // Touch toggles the popup and the ✕ button closes it.
+  const tapFace=async selector=>{const p=await js(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});e.scrollIntoView({block:'center'});return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>{const r=e.getBoundingClientRect();resolve({x:r.x+r.width/2,y:r.y+r.height/2})})))})()`);await call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[p]});await call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')};
+  await tapFace('.formula-tip .display-math');await ready('.formula-tip.open .formula-pop');
+  await js(`document.querySelector('.formula-pop-close').click()`);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+  assert.ok(!await js(`document.querySelector('.formula-tip').classList.contains('open')`),'✕ closes the popup');
+  console.log('Formula popup checks passed: centered rounded trigger, inert row, barred radicals, 0.5s hover intent, 1s/0.5s fades, hover-capability affordances, tap toggle, ✕ close.');
+ }
+ // The spectral column shrinks then vanishes on scroll, and the lesson reclaims its width.
+ {
+  await call('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G10'});await ready('.topic-columns>aside .side-card');
+  await js(`scrollTo(0,0);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  const at0=await js(`(()=>{const g=document.querySelector('.topic-columns'),a=g.querySelector(':scope>aside');return {shrink:+g.style.getPropertyValue('--aside-shrink')||0,collapse:+g.style.getPropertyValue('--aside-collapse')||0,opacity:+getComputedStyle(a).opacity,main:document.querySelector('.lesson-main').getBoundingClientRect().width,top:a.getBoundingClientRect().top+scrollY,height:a.offsetHeight}})()`);
+  assert.equal(at0.shrink,0);assert.equal(at0.collapse,0);assert.equal(at0.opacity,1);
+  // Partway out: the card has shrunk but the column still holds its width.
+  await js(`(async()=>{scrollTo(0,${Math.max(0,Math.round(at0.top-100+at0.height*0.2))});for(let i=0;i<40;i++){await new Promise(r=>requestAnimationFrame(r));if(parseFloat(document.querySelector('.topic-columns').style.getPropertyValue('--aside-shrink'))>0)return}throw Error('aside did not start shrinking')})()`);
+  const mid=await js(`(()=>{const g=document.querySelector('.topic-columns'),a=g.querySelector(':scope>aside');return {shrink:g.style.getPropertyValue('--aside-shrink'),collapse:g.style.getPropertyValue('--aside-collapse'),opacity:getComputedStyle(a).opacity}})()`);
+  assert.ok(+mid.shrink>0&&+mid.shrink<1&&+mid.opacity<1&&+mid.opacity>0&&+mid.collapse===0,'shrink first: '+JSON.stringify(mid));
+  await shot('aside-shrinking-1280');
+  // Fully out: the column is gone and the lesson uses its width.
+  await js(`(async()=>{scrollTo(0,document.documentElement.scrollHeight);for(let i=0;i<40;i++){await new Promise(r=>requestAnimationFrame(r));if(document.querySelector('.topic-columns').classList.contains('aside-collapsed'))return}throw Error('aside did not collapse')})()`);
+  const gone=await js(`(()=>{const g=document.querySelector('.topic-columns'),a=g.querySelector(':scope>aside');return {cls:g.classList.contains('aside-collapsed'),width:a.getBoundingClientRect().width,visibility:getComputedStyle(a).visibility,main:document.querySelector('.lesson-main').getBoundingClientRect().width}})()`);
+  assert.ok(gone.cls&&gone.width<2&&gone.visibility==='hidden','then vanish: '+JSON.stringify(gone));
+  assert.ok(gone.main>at0.main+200,'lesson reclaims the width: '+JSON.stringify({at0,gone}));
+  await shot('aside-collapsed-1280');
+  // Scrolling back restores it.
+  await js(`(async()=>{scrollTo(0,0);for(let i=0;i<40;i++){await new Promise(r=>requestAnimationFrame(r));if(!document.querySelector('.topic-columns').classList.contains('aside-collapsed')&&getComputedStyle(document.querySelector('.topic-columns>aside')).opacity==='1')return}throw Error('aside did not restore')})()`);
+  const back=await js(`(()=>{const g=document.querySelector('.topic-columns'),a=g.querySelector(':scope>aside');return {cls:g.classList.contains('aside-collapsed'),opacity:+getComputedStyle(a).opacity,width:a.getBoundingClientRect().width}})()`);
+  assert.ok(!back.cls&&back.opacity===1&&back.width>200,'restored on scroll back: '+JSON.stringify(back));
+  // Narrow screens keep the column in normal flow.
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:2,mobile:true});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G10'});await ready('.topic-columns>aside .side-card');
+  await js(`scrollTo(0,document.documentElement.scrollHeight);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))`);
+  assert.ok(!await js(`document.querySelector('.topic-columns').classList.contains('aside-collapsed')`),'no collapse on narrow screens');
+  assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+  console.log('Spectral column checks passed: shrink-then-vanish with scroll, width reclaimed, restored on return, untouched on mobile.');
+ }
+
  // Decoration stays behind content and moves more slowly than the document.
  for(const width of [1280,390]){
   await call('Emulation.setDeviceMetricsOverride',{width,height:800,deviceScaleFactor:1,mobile:false});

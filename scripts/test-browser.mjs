@@ -1,4 +1,5 @@
 import {spawn} from 'node:child_process';
+import {launchChrome} from './launch-chrome.mjs';
 import {createServer} from 'node:http';
 import {readFile,mkdir,mkdtemp,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -31,18 +32,9 @@ const server=createServer(async(req,res)=>{
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}`;
 const profile=await mkdtemp(path.join(tmpdir(),'chem-browser-'));
-const chrome=spawn(process.env.CHROME_BIN||'google-chrome',['--headless','--no-sandbox','--disable-gpu','--remote-allow-origins=*','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'],{stdio:['ignore','ignore','pipe']});
+const {chrome,endpoint}=await launchChrome(profile);
 let ws;
 try{
- const endpoint=await new Promise((resolve,reject)=>{
-  let text='',exit='not observed';
-  // Startup diagnostics only: keep launch flags, 15s timeout and every browser gate unchanged.
-  const diagnostic=()=>text.replaceAll(profile,'[temporary-profile]').replace(/wss?:\/\/[^\s]+/g,'[debug-endpoint]').replace(/https?:\/\/[^\s]+/g,'[url]').slice(-6000);
-  const t=setTimeout(()=>reject(Error(`Chrome startup timeout; process exit: ${exit}; stderr:\n${diagnostic()||'[empty]'}`)),15000);
-  chrome.stderr.on('data',x=>{text=(text+x).slice(-12000);const m=text.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){clearTimeout(t);resolve(m[1])}});
-  chrome.on('exit',(code,signal)=>{exit=`code=${code}, signal=${signal}`});
-  chrome.on('error',error=>{clearTimeout(t);reject(error)});
- });
  const port=new URL(endpoint).port;
  const tabs=await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
  ws=new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);

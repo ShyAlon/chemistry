@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 let edition=1,offline=false,requests=0,failInstall=false;
-const root=path.resolve('dist'),out=process.env.PAPER_SCREENSHOTS;
+const root=path.resolve(process.env.DIST_DIR||'dist'),out=process.env.PAPER_SCREENSHOTS;
 if(out)await mkdir(out,{recursive:true});
 const server=createServer(async(req,res)=>{
  requests++;

@@ -1,1 +1,29 @@
-{"name":"spectra-chemistry","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"vite build && npm run test:browser && npm run test:pwa && npm run test:practice && npm run test:papers","preview":"vite preview --host 127.0.0.1","test":"node --test tests/*.test.js","test:browser":"node scripts/test-browser.mjs","test:practice":"node scripts/test-practice.mjs","test:pwa":"node scripts/test-pwa.mjs","test:papers":"node scripts/test-papers.mjs"},"dependencies":{"react":"^19.0.0","react-dom":"^19.0.0"},"devDependencies":{"vite":"^6.0.0","@vitejs/plugin-react":"^4.3.4"},"engines":{"node":">=20.19.0"}}
+{
+  "name": "spectra-chemistry",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && npm run build:test && DIST_DIR=dist-test npm run test:browser && DIST_DIR=dist-test npm run test:pwa && DIST_DIR=dist-test npm run test:practice && DIST_DIR=dist-test npm run test:papers",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node scripts/test-browser.mjs",
+    "test:practice": "node scripts/test-practice.mjs",
+    "test:pwa": "node scripts/test-pwa.mjs",
+    "test:papers": "node scripts/test-papers.mjs",
+    "build:test": "BROWSER_TEST_STUB=1 vite build --outDir dist-test"
+  },
+  "dependencies": {
+    "firebase": "^13.4.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

@@ -18,5 +18,11 @@ Meanings are context-specific. Ēₖ per mole (J/mol) and per molecule (J) are s
 ## Regression tests
 `tests/notation.test.js` protects semantics: every original formula run survives in the new blocks, no equation block contains Hebrew, symbol ids resolve and are used, constants format correctly and follow a digit change, the popup markup, the print key and the radical-sign bidi case from the original bug report. The baseline tests rebuild original text with `tests/notation-baseline.js`; they do not re-bless hashes.
 
+## Coverage, stated precisely
+Every formula that is its own equation block in GC1 theory has a key (all 78 converted blocks and the 25 pre-existing ones, 1 symbol-free reaction excepted). 47 dense paragraphs were rewritten so their formulas are separate blocks; short inline expressions inside prose sentences (for example the vaporization enthalpy ΔH_vap = H_gas − H_liquid line in G13, or single symbols named in passing) stay in the sentence and are LTR-isolated by the renderer rather than turned into blocks. Those inline expressions have no tooltip.
+
+## Regeneration
+`scripts/apply-enrichment.mjs` rebuilds enrichment blocks from `src/enrichment-84101.js`, which still holds the original text. After the merge it calls `applyNotation` (src/notation-apply.js) with `src/notation-blocks.json`, so the converted blocks come back in place. Final-prep paragraphs are converted inside `src/final-prep-84101.js`. A test proves that regenerating restores the converted enrichment blocks exactly. Note that running apply-enrichment on its own also reorders blocks added by other layers (batch supplements, recap); that was true before this change.
+
 ## Known limits
 Numbers in prose, worked solutions, quizzes, exam problems, figures and the formula sheet are still literal text and are not driven by constants.js. See the migration scope in the pull request description.

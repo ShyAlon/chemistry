@@ -3870,7 +3870,8 @@
          "m_empty",
          "V"
         ],
-        "notationOf": 14
+        "notationOf": 14,
+        "enrich": true
        },
        {
         "style": "Heading",
@@ -5814,12 +5815,14 @@
          "P, V, T, n",
          "const"
         ],
-        "notationOf": 10
+        "notationOf": 10,
+        "enrich": true
        },
        {
         "text": "מי שמבין את המשוואה לא צריך לזכור ארבעה חוקים.",
         "style": "Normal",
-        "notationOf": 10
+        "notationOf": 10,
+        "enrich": true
        },
        {
         "style": "Figure",
@@ -5840,12 +5843,14 @@
         "symbols": [
          "R:latm"
         ],
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "עם פסקל ומ\"ק:",
         "style": "Normal",
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "R = {R}",
@@ -5854,12 +5859,14 @@
         "symbols": [
          "R"
         ],
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "בחירה לא עקבית היא שגיאת היחידות הנפוצה בקורס. והטמפרטורה — תמיד בקלווין, בלי יוצא מן הכלל:",
         "style": "Normal",
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "K = °C + 273.15",
@@ -5869,7 +5876,8 @@
          "K",
          "°C"
         ],
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "style": "Normal",
@@ -6302,12 +6310,14 @@
          "u_rms",
          "M"
         ],
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "לחנקן ב-298 K יוצא כ-515 m/s — מהיר מקליע. ולמה rms ולא ממוצע פשוט? כי האנרגיה תלויה ב-v², והממוצע של הריבועים שונה מריבוע הממוצע.",
         "style": "Normal",
-        "notationOf": 12
+        "notationOf": 12,
+        "enrich": true
        },
        {
         "text": "חוק גרהם מתאר אפוזיה דרך נקב זעיר בתנאים מתאימים: באותו לחץ וטמפרטורה, קצב מעבר החלקיקים פרופורציוני ל:",
@@ -6323,12 +6333,14 @@
          "r#2",
          "M"
         ],
-        "notationOf": 13
+        "notationOf": 13,
+        "enrich": true
        },
        {
         "text": "דרך אותו נקב קצב ההליום גדול מזה של חנקן פי:",
         "style": "Normal",
-        "notationOf": 13
+        "notationOf": 13,
+        "enrich": true
        },
        {
         "text": "√(28/4) ≈ 2.65",
@@ -6338,12 +6350,14 @@
          "28, 4",
          "2.65"
         ],
-        "notationOf": 13
+        "notationOf": 13,
+        "enrich": true
        },
        {
         "text": "דליפה דרך חומר הבלון כוללת גם המסה וחדירה בפולימר, ואינה ניסוי אפוזיה נקי.",
         "style": "Normal",
-        "notationOf": 13
+        "notationOf": 13,
+        "enrich": true
        },
        {
         "text": "גזים ממשיים סוטים מהאידיאל כאשר נפח החלקיקים והמשיכה ביניהם אינם זניחים. עבור n מולים בנפח הכולל V, משוואת ואן דר ואלס היא:",
@@ -6358,12 +6372,14 @@
         "symbols": [
          "a, b"
         ],
-        "notationOf": 14
+        "notationOf": 14,
+        "enrich": true
        },
        {
         "text": "עבור נפח מולרי Vₘ נכתוב:",
         "style": "Normal",
-        "notationOf": 14
+        "notationOf": 14,
+        "enrich": true
        },
        {
         "text": "(P + a/Vₘ²)(Vₘ − b) = RT",
@@ -6373,12 +6389,14 @@
          "a, b",
          "Vₘ#2"
         ],
-        "notationOf": 14
+        "notationOf": 14,
+        "enrich": true
        },
        {
         "text": "אין לערבב בין שתי צורות המשוואה.",
         "style": "Normal",
-        "notationOf": 14
+        "notationOf": 14,
+        "enrich": true
        },
        {
         "text": "מלכודת יחידות: בחישוב מהירות עם R={R}, מכניסים M בקילוגרם למול. בחוק גרהם מופיע יחס מסות מולריות, ולכן אפשר להשתמש גם בגרם למול, בתנאי ששתי המסות באותה יחידה.",
@@ -6594,12 +6612,14 @@
          "v_avg",
          "λ"
         ],
-        "notationOf": 35
+        "notationOf": 35,
+        "enrich": true
        },
        {
         "text": "זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.",
         "style": "Normal",
-        "notationOf": 35
+        "notationOf": 35,
+        "enrich": true
        },
        {
         "text": "חימום גז בנפח קבוע דורש לדעת לאן הולכת האנרגיה. לגז אידיאלי סביב טמפרטורת החדר, כשאופני הסיבוב פעילים אבל התנודות עוד קפואות: מולקולה חד־אטומית אוגרת הכול בתנועה בלבד:",
@@ -6616,12 +6636,14 @@
          "C_v",
          "R"
         ],
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "מולקולה קווית מוסיפה שני אופני סיבוב:",
         "style": "Normal",
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "C_v = 5R/2",
@@ -6631,12 +6653,14 @@
          "C_v",
          "R"
         ],
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "ומולקולה לא־קווית שלושה:",
         "style": "Normal",
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "C_v = 3R",
@@ -6646,12 +6670,14 @@
          "C_v",
          "R"
         ],
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "אלו ערכי מינימום: בטמפרטורות גבוהות התנודה מתעוררת ו-Cv גדל מעבר להם. לכן אותה כמות חום מחממת גז חד־אטומי יותר מגז מולקולרי — ומדידת q מול ΔT חושפת את הגיאומטריה.",
         "style": "Normal",
-        "notationOf": 36
+        "notationOf": 36,
+        "enrich": true
        },
        {
         "text": "q = n·Cv·ΔT",
@@ -8746,12 +8772,14 @@
          "P_water",
          "P_sat(T)"
         ],
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "במכנה לחץ הרוויה של מים באותה טמפרטורה, לא הלחץ האטמוספרי הכולל. ב-100% האדים רוויים; קירור עד לנקודת הטל מביא לרוויה ובהמשך לעיבוי. בכלי סגור עם מים נוזליים בשיווי משקל, RH = 100%.",
         "style": "Normal",
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "חימום אוויר בלי להוסיף אדי מים ובלי לשנות משמעותית את הלחץ החלקי שלהם מוריד את הלחות היחסית, כי לחץ הרוויה עולה. לכן 50% לחות בשתי טמפרטורות שונות אינם בהכרח אותה כמות אדי מים.",
@@ -9529,12 +9557,14 @@
          "M@molarity",
          "T"
         ],
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "כאן T בקלווין. שימוש ב:",
         "style": "Normal",
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "R = {R@latm5}",
@@ -9543,12 +9573,14 @@
         "symbols": [
          "R:latm5"
         ],
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "וב-M ב-mol/L נותן Π ב-atm. עבור שני צדדים מדוללים משווים ריכוזי חלקיקים: הפרש הלחצים האוסמוטיים הוא הכוח המניע הרלוונטי.",
         "style": "Normal",
-        "notationOf": 16
+        "notationOf": 16,
+        "enrich": true
        },
        {
         "text": "באוסמוזה הפוכה מפעילים על התמיסה לחץ הגדול מההפרש האוסמוטי ומעבירים ממס לכיוון ההפוך, עיקרון המשמש בהתפלה. בתאים, תמיסה היפרטונית גורמת ליציאת מים ותמיסה היפוטונית לכניסת מים, ביחס לתא ולמומסים שאינם חוצים את הקרום; איזוטוניות מתארת היעדר שינוי נפח נטו.",
@@ -9616,12 +9648,14 @@
          "Π",
          "V_solution"
         ],
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "אפשר גם להשתמש בהורדת קיפאון: תחילה:",
         "style": "Normal",
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "m = ΔT_f/(i·K_f)",
@@ -9633,12 +9667,14 @@
          "i",
          "K_f"
         ],
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "אחר כך:",
         "style": "Normal",
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "n = m·kg_solvent",
@@ -9649,12 +9685,14 @@
          "m@molality",
          "kg_solvent"
         ],
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "ולבסוף מסה חלקי מולים. הסימן M משמש לעיתים לשני גדלים שונים; תמיד בודקים יחידות.",
         "style": "Normal",
-        "notationOf": 19
+        "notationOf": 19,
+        "enrich": true
        },
        {
         "text": "תיקון דוגמאות המקור: 0.0361/0.0186 = 1.941, לא 1.98. בדוגמת האוסמוזה בעמ׳ 55 ניתן נפח מים, אך הפתרון מניח צפיפות תמיסה ללא נתון. כאן הדוגמאות נותנות נפח תמיסה מפורש, ולא מניחות שנפחי ערבוב מתחברים בדיוק.",

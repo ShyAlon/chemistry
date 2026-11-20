@@ -154,3 +154,26 @@ test('reference sentences state R through placeholders; supplied exercise values
  const quiz=JSON.stringify(gc.topics.find(t=>t.id==='G10').content.quiz);
  assert.ok(quiz.includes('R=8.3145 J/(mol·K)'));assert.ok(quiz.includes('R = 0.08206'));
 });
+
+test('regenerating the enrichment layer restores the converted blocks exactly, and no placeholder leaks to a surface that cannot resolve it',async()=>{
+ const {applyNotation}=await import('../src/notation-apply.js');
+ const {enrichment84101}=await import('../src/enrichment-84101.js');
+ const entries=JSON.parse(readFileSync(new URL('../src/notation-blocks.json',import.meta.url)));
+ // Same merge as scripts/apply-enrichment.mjs, applied to a copy of the shipped catalogue.
+ const copy=structuredClone(catalogue);
+ const g=copy.courses.find(c=>c.id==='84101');
+ for(const t of g.topics){const add=enrichment84101[t.id];if(!add)continue;
+  t.content.theory=t.content.theory.filter(b=>!b.enrich);t.content.worked=t.content.worked.filter(b=>!b.enrich);
+  t.content.theory.push(...add.theory);if(add.worked)t.content.worked.push(...add.worked)}
+ applyNotation(copy,entries);
+ const conv=(c,id)=>c.courses.find(x=>x.id==='84101').topics.flatMap(t=>t.content.theory.filter(b=>b.notationOf!==undefined&&!b.finalPrep&&(id?b.enrich:!b.enrich)).map(b=>t.id+'|'+JSON.stringify(b)));
+ // Converted paragraphs that come from the enrichment layer must be restored identically (order-insensitive).
+ assert.deepEqual(conv(copy,true).sort(),conv(catalogue,true).sort());
+ assert.ok(conv(catalogue,true).length>=50);
+ // Placeholders only where something resolves them: theory text (render + search).
+ const re=/\{(?:R|k|Nₐ|k_B)(?:@\w+)?\}/;
+ for(const c of catalogue.courses)for(const t of c.topics)for(const k of ['worked','quiz'])assert.ok(!re.test(JSON.stringify(t.content[k])),c.id+' '+t.id+' '+k);
+ assert.ok(!re.test(JSON.stringify(enrichment84101)),'enrichment layer carries no placeholder');
+ for(const f of ['exam-84101.js','final-prep-84101.js']){const src=readFileSync(new URL('../src/'+f,import.meta.url),'utf8');
+  const lines=src.split('\n').filter(l=>re.test(l)&&!/"layout": "equation"|"notationOf"|"text": "[^"]*\{/.test(l));assert.deepEqual(lines,[],f)}
+});

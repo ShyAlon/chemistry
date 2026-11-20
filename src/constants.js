@@ -9,6 +9,8 @@ export const CONSTANTS={
  R:{he:'קבוע הגזים האוניברסלי',value:8.314462618,unit:'J/(mol·K)',digits:4,variants:{
   latm:{value:0.082057366,unit:'L·atm/(mol·K)',digits:4},
   latm5:{value:0.082057366,unit:'L·atm/(mol·K)',digits:5},
+  cal:{value:1.98720425864083,unit:'cal/(mol·K)',digits:4,note:'לחישובי חום בקלוריות'},
+  value:{value:8.314462618,unit:'',digits:4,note:'המספר בלבד, כשהיחידה כבר מצוינת במשפט'},
   sheet:{value:0.082,unit:'L·atm/(mol·K)',digits:2,note:'הערך שבדף הבוחן'}}},
  'Nₐ':{he:'קבוע אבוגדרו',value:6.02214076e23,unit:'mol⁻¹',digits:4,variants:{count:{value:6.02214076e23,unit:'',digits:4,note:'המספר בלבד, כשהמשפט כבר מציין חלקיקים'}}},
  k:{he:'קבוע בולצמן',value:1.380649e-23,unit:'J/K',digits:4,variants:{}},

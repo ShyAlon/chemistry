@@ -143,3 +143,14 @@ test('shared display references (formula sheet, prose placeholders, search) come
  const grah=gc.topics.find(t=>t.id==='G10').content.theory.find(b=>b.text.includes('R={R}'));
  assert.ok(grah&&!/8\.314/.test(grah.text));
 });
+
+test('reference sentences state R through placeholders; supplied exercise values stay literal',()=>{
+ assert.equal(formatConstant('R@cal'),'1.987 cal/(mol·K)');
+ assert.equal(formatConstant('R@value'),'8.314');
+ const text=gc.topics.flatMap(t=>t.content.theory).map(b=>b.text||'').join('\n');
+ assert.ok(text.includes('R = {R@cal}, לא ב-{R@value}'));
+ assert.ok(text.includes('R = {R} ו-ρ במטר'));
+ // supplied values in prompts and worked arithmetic are deliberate and unchanged
+ const quiz=JSON.stringify(gc.topics.find(t=>t.id==='G10').content.quiz);
+ assert.ok(quiz.includes('R=8.3145 J/(mol·K)'));assert.ok(quiz.includes('R = 0.08206'));
+});

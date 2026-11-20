@@ -8,6 +8,7 @@ import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {bidiElement} from '../src/bidi-react.js';
 import {DisplayMath} from '../src/scientific-text.js';
+import {resolveConstants} from '../src/constants.js';
 
 // Real Chromium, local build only: no external network, models, databases or accounts.
 const root=path.resolve(new URL('..',import.meta.url).pathname);
@@ -87,7 +88,7 @@ try{
    await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101/'+id});await ready('.theory');
    assert.ok(await js(`document.querySelector('.theory').textContent.includes('הכנה למבחן')`));
    for(const b of add.theory){
-    if(b.layout==='equation')assert.ok(await js(`Array.from(document.querySelectorAll('.display-math')).some(e=>e.textContent.includes(${JSON.stringify(b.text.split('    ')[0].replaceAll('_',''))}))`),'equation rendered '+id+' '+b.text+'; actual: '+await js(`Array.from(document.querySelectorAll('.display-math')).map(e=>e.textContent).join('|')`));
+    if(b.layout==='equation')assert.ok(await js(`Array.from(document.querySelectorAll('.display-math')).some(e=>e.textContent.normalize('NFC').includes(${JSON.stringify(resolveConstants(b.text).split('    ')[0].replaceAll('_','').normalize('NFC'))}))`),'equation rendered '+id+' '+b.text+'; actual: '+await js(`Array.from(document.querySelectorAll('.display-math')).map(e=>e.textContent).join('|')`));
    }
    await assertWidth(id+' theory '+width);
    if(id==='G10'){

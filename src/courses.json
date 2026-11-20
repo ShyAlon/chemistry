@@ -3795,8 +3795,25 @@
         "style": "Normal"
        },
        {
-        "text": "צפיפות היא ρ = m/V. לכן m = ρV ו-V = m/ρ. יש להתאים יחידות: g/mL עם g ו-mL, או kg/m³ עם kg ו-m³. מעבר מחומר טהור לתערובת אינו מצדיק שימוש אוטומטי באותה צפיפות.",
-        "style": "Normal"
+        "text": "צפיפות היא היחס בין מסה לנפח, וממנו נובעים גם המסה והנפח:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "ρ = m/V        m = ρV        V = m/ρ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ρ",
+         "m",
+         "V#2"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "יש להתאים יחידות: g/mL עם g ו-mL, או kg/m³ עם kg ו-m³. מעבר מחומר טהור לתערובת אינו מצדיק שימוש אוטומטי באותה צפיפות.",
+        "style": "Normal",
+        "notationOf": 5
        },
        {
         "text": "טמפרטורה מוחלטת: T(K) = t(°C) + 273.15. במשוואות גזים וביחסי טמפרטורות משתמשים בקלווין. הפרש של מעלה אחת זהה בגודלו בשתי הסקאלות, אבל אפס הסקאלה שונה.",
@@ -3838,8 +3855,22 @@
         "enrich": true
        },
        {
+        "text": "מלכודת: בחישובי צפיפות מנתוני כלי מדידה — מחסירים קודם את מסת הכלי הריק:",
         "style": "Callout",
-        "text": "מלכודת: בחישובי צפיפות מנתוני כלי מדידה — מחסירים קודם את מסת הכלי הריק. d = (m_מלא − m_ריק) / V.",
+        "enrich": true,
+        "notationOf": 14
+       },
+       {
+        "text": "d = (m_full − m_empty) / V",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "d",
+         "m_full",
+         "m_empty",
+         "V"
+        ],
+        "notationOf": 14,
         "enrich": true
        },
        {
@@ -3853,15 +3884,39 @@
         "batch2": true
        },
        {
-        "style": "Normal",
         "text": "1 Pa·m³ = 1 (N/m²)·m³ = 1 N·m = 1 J",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Pa",
+         "N",
+         "J",
+         "m#2"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 17
        },
        {
+        "text": "לפני חישוב אנרגיה קינטית ממירים מסה לקילוגרם ומהירות למטר לשנייה:",
         "style": "Normal",
-        "text": "לפני Eₖ=mv²/2 ממירים מסה לקילוגרם ומהירות למטר לשנייה. את כל המהירות מעלים בריבוע. המרת טמפרטורה אינה כפל בגורם המרה: בצלזיוס ובקלווין נקודת האפס שונה.",
-        "batch2": true
+        "batch2": true,
+        "notationOf": 18
+       },
+       {
+        "text": "Eₖ = mv²/2",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Eₖ",
+         "m",
+         "v"
+        ],
+        "notationOf": 18
+       },
+       {
+        "text": "את כל המהירות מעלים בריבוע. המרת טמפרטורה אינה כפל בגורם המרה: בצלזיוס ובקלווין נקודת האפס שונה.",
+        "style": "Normal",
+        "notationOf": 18
        },
        {
         "style": "Heading",
@@ -3869,9 +3924,26 @@
         "batch2": true
        },
        {
+        "text": "אם נאמר במפורש שהנפחים חיבוריים:",
         "style": "Normal",
-        "text": "אם נאמר במפורש שהנפחים חיבוריים, m_total=ρ_A V_A+ρ_B V_B וגם V_total=V_A+V_B. הצפיפות הכוללת היא ממוצע משוקלל לפי נפחים, לא ממוצע פשוט אלא כאשר הנפחים שווים. ללא הנחת חיבור נפחים צריך למדוד או לקבל את הנפח הסופי.",
-        "batch2": true
+        "batch2": true,
+        "notationOf": 20
+       },
+       {
+        "text": "m_total = ρ_A V_A + ρ_B V_B        V_total = V_A + V_B",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ρ_A, ρ_B",
+         "V_A, V_B",
+         "m_total, V_total"
+        ],
+        "notationOf": 20
+       },
+       {
+        "text": "הצפיפות הכוללת היא ממוצע משוקלל לפי נפחים, לא ממוצע פשוט אלא כאשר הנפחים שווים. ללא הנחת חיבור נפחים צריך למדוד או לקבל את הנפח הסופי.",
+        "style": "Normal",
+        "notationOf": 20
        },
        {
         "style": "Callout",
@@ -4118,8 +4190,27 @@
         "style": "Heading"
        },
        {
-        "text": "מסה מולרית M נמדדת ב-g/mol. מספר המולים n = m/M ומספר החלקיקים N = nNₐ. כאן, בהתאם לדף הנוסחאות, Nₐ = 6.022×10²³ mol⁻¹. יש לציין אם סופרים אטומים, מולקולות, יונים או יחידות נוסחה.",
-        "style": "Normal"
+        "text": "מספר המולים n ומספר החלקיקים N נקבעים כך:",
+        "style": "Normal",
+        "notationOf": 4
+       },
+       {
+        "text": "n = m/M        N = nNₐ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "M",
+         "m",
+         "n",
+         "N#3",
+         "Nₐ"
+        ],
+        "notationOf": 4
+       },
+       {
+        "text": "יש לציין אם סופרים אטומים, מולקולות, יונים או יחידות נוסחה.",
+        "style": "Normal",
+        "notationOf": 4
        },
        {
         "text": "נוסחת התרכובת קובעת גם את מספר האטומים: בכל מולקולת CO₂ יש שני אטומי O; בכל יחידת Al₂(SO₄)₃ יש 12 אטומי O. מולקולות ומספר האטומים הכולל אינם אותו גודל.",
@@ -4143,9 +4234,10 @@
         "enrich": true
        },
        {
+        "text": "הבעיה שהמול פותר: אטומים קטנים מדי לספירה, אבל תגובות קורות בין חלקיקים בודדים ביחסים שלמים. המול הוא \"תריסר\" בקנה מידה כימי: {Nₐ@count} חלקיקים. הבחירה במספר הזה אינה מקרית — הוא בדיוק מספר האטומים ב-12 גרם של פחמן-12, ולכן המסה המולרית בגרמים שווה מספרית למסה האטומית היחסית.",
         "style": "Normal",
-        "text": "הבעיה שהמול פותר: אטומים קטנים מדי לספירה, אבל תגובות קורות בין חלקיקים בודדים ביחסים שלמים. המול הוא \"תריסר\" בקנה מידה כימי: 6.022×10²³ חלקיקים. הבחירה במספר הזה אינה מקרית — הוא בדיוק מספר האטומים ב-12 גרם של פחמן-12, ולכן המסה המולרית בגרמים שווה מספרית למסה האטומית היחסית.",
-        "enrich": true
+        "enrich": true,
+        "notationOf": 10
        },
        {
         "style": "Figure",
@@ -4499,12 +4591,61 @@
         "style": "Heading"
        },
        {
-        "text": "מסה נתונה → מולים דרך n=m/M → מולי החומר המבוקש דרך יחס המקדמים → מסה דרך m=nM. יחס המקדמים צריך להיכתב כך שיחידות המולים של החומר הנתון מצטמצמות.",
-        "style": "Normal"
+        "text": "מסה נתונה הופכת למולים, אחר כך למולי החומר המבוקש דרך יחס המקדמים, ולבסוף חוזרת למסה:",
+        "style": "Normal",
+        "notationOf": 4
        },
        {
-        "text": "כאשר הנתון הוא תמיסה משתמשים ב-n=CV, כאשר V בליטרים. בגזים אפשר להשתמש ב-PV=nRT. צפיפות ואחוז מסה הם שלבי הכנה לפני שמגיעים למולים.",
-        "style": "Normal"
+        "text": "n = m/M        m = nM",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "n",
+         "m",
+         "M"
+        ],
+        "notationOf": 4
+       },
+       {
+        "text": "יחס המקדמים צריך להיכתב כך שיחידות המולים של החומר הנתון מצטמצמות.",
+        "style": "Normal",
+        "notationOf": 4
+       },
+       {
+        "text": "כאשר הנתון הוא תמיסה, מספר המולים הוא:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "n = CV",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "C",
+         "V#3"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "בגזים אפשר להשתמש ב:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "PV = nRT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P, V, T",
+         "n",
+         "R:gas"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "צפיפות ואחוז מסה הם שלבי הכנה לפני שמגיעים למולים.",
+        "style": "Normal",
+        "notationOf": 5
        },
        {
         "text": "בתגובות עוקבות צריך לעקוב אחרי תוצר ביניים: יחס המולים של כל שלב מוכפל ביחס של השלב הבא. תוצר ביניים שמתבטל בסיכום אינו נוצר נטו. כשנשאלים על גז שנאסף בפועל יש להבחין בין גז שנוצר ובין גז שהוזן מחדש לשלב אחר.",
@@ -4861,8 +5002,21 @@
         "style": "Heading"
        },
        {
-        "text": "מולריות C = מולי מומס / ליטרים של תמיסה סופית. מולליות b = מולי מומס / קילוגרמים של ממס. שבר מולי xᵢ = nᵢ/Σn. אחוז מסה = מסת מומס / מסת תמיסה ×100. אלה גדלים שונים עם מכנים שונים.",
-        "style": "Normal"
+        "text": "אלה גדלים שונים עם מכנים שונים:",
+        "style": "Normal",
+        "notationOf": 1
+       },
+       {
+        "text": "C = n_solute / V_solution        b = n_solute / m_solvent        xᵢ = nᵢ/Σn        mass% = 100·m_solute / m_solution",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "C#2",
+         "b#3",
+         "xᵢ",
+         "mass%"
+        ],
+        "notationOf": 1
        },
        {
         "text": "נפח התמיסה אינו בהכרח סכום נפחי המומס והממס. בהכנה לנפח נתון ממיסים ואז משלימים לנפח הסופי. במולריות יש תלות בנפח ולכן בטמפרטורה; מולליות ושבר מולי אינם משתנים רק בשל התפשטות תרמית של הנפח.",
@@ -5061,8 +5215,24 @@
         "style": "Normal"
        },
        {
-        "text": "בטיטרציה מוסיפים תמיסה בריכוז ידוע עד תגובה סטויכומטרית מלאה. בנקודת השקילות n(A)/ν(A)=n(B)/ν(B). נפחים שווים אינם מעידים בהכרח על ריכוזים שווים או על מספר מולים שווה.",
-        "style": "Normal"
+        "text": "בטיטרציה מוסיפים תמיסה בריכוז ידוע עד תגובה סטויכומטרית מלאה. בנקודת השקילות:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "n(A)/ν(A) = n(B)/ν(B)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "n(A), n(B)",
+         "ν(A), ν(B)"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "נפחים שווים אינם מעידים בהכרח על ריכוזים שווים או על מספר מולים שווה.",
+        "style": "Normal",
+        "notationOf": 5
        },
        {
         "text": "אינדיקטור מסמן נקודת סיום ניסויית קרובה לשקילות. בחישוב משתמשים בנתוני השאלה ובמשוואה המאוזנת, לא מניחים אוטומטית יחס 1:1.",
@@ -5266,8 +5436,20 @@
         "style": "Heading"
        },
        {
-        "text": "בסביבה החומצית של הבוחן: MnO₄⁻+5Fe²⁺+8H⁺→Mn²⁺+5Fe³⁺+4H₂O. כל מול פרמנגנט מתאים לחמישה מולי Fe²⁺. לאחר מכן מחזירים את תוצאת הדגימה לנפח המקורי שהתבקש.",
-        "style": "Normal"
+        "text": "בסביבה החומצית של הבוחן:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O",
+        "style": "Normal",
+        "layout": "equation",
+        "notationOf": 8
+       },
+       {
+        "text": "כל מול פרמנגנט מתאים לחמישה מולי Fe²⁺. לאחר מכן מחזירים את תוצאת הדגימה לנפח המקורי שהתבקש.",
+        "style": "Normal",
+        "notationOf": 8
        },
        {
         "style": "Heading",
@@ -5426,12 +5608,85 @@
         "style": "Heading"
        },
        {
-        "text": "במודל הגז האידיאלי PV=nRT. ב-L ו-atm נשתמש ב-R=0.082 L·atm/(mol·K) כפי שבדף הבוחן; ב-SI נשתמש ב-R≈8.314 J/(mol·K). חובה T בקלווין ולחץ מוחלט, לא לחץ יחסי.",
-        "style": "Normal"
+        "text": "במודל הגז האידיאלי:",
+        "style": "Normal",
+        "notationOf": 1
        },
        {
-        "text": "לכמות קבועה: P₁V₁/T₁=P₂V₂/T₂. בטמפרטורה קבועה מתקבל בויל P₁V₁=P₂V₂, ובלחץ קבוע V/T קבוע. בנפח קבוע P/T קבוע. אם n משתנה עקב תגובה, יש להביא זאת בחשבון.",
-        "style": "Normal"
+        "text": "PV = nRT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P",
+         "V#2",
+         "n",
+         "R:gas",
+         "T"
+        ],
+        "notationOf": 1
+       },
+       {
+        "text": "ערך R תלוי ביחידות. ב-L ו-atm נשתמש בערך שבדף הבוחן:",
+        "style": "Normal",
+        "notationOf": 1
+       },
+       {
+        "text": "R = {R@sheet}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R:sheet"
+        ],
+        "notationOf": 1
+       },
+       {
+        "text": "וב-SI:",
+        "style": "Normal",
+        "notationOf": 1
+       },
+       {
+        "text": "R ≈ {R}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R"
+        ],
+        "notationOf": 1
+       },
+       {
+        "text": "לכמות קבועה של גז:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "P₁V₁/T₁ = P₂V₂/T₂",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P₁, V₁, T₁",
+         "P₂, V₂, T₂"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "בטמפרטורה קבועה מתקבל חוק בויל:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "P₁V₁ = P₂V₂",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P₁, V₁",
+         "P₂, V₂"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "ובלחץ קבוע V/T קבוע. בנפח קבוע P/T קבוע. אם n משתנה עקב תגובה, יש להביא זאת בחשבון.",
+        "style": "Normal",
+        "notationOf": 2
        },
        {
         "text": "בתנאי STP שהוגדרו בקורס: 0°C ו-1 atm, נפח מולרי כ-22.4 L/mol. זה אינו נפח של מול גז בכל טמפרטורה ולחץ. אין להחליף חישוב משוואת הגזים ב-22.4 אלא בתנאים המתאימים.",
@@ -5442,12 +5697,96 @@
         "style": "Heading"
        },
        {
-        "text": "חוק דלטון: Pₜ=ΣPᵢ. השבר המולי xᵢ=nᵢ/nₜ=Pᵢ/Pₜ. אחרי פתיחת ברז בין כלים קשיחים בטמפרטורה קבועה כל גז ממלא את הנפח הכולל: Pᵢ,f=Pᵢ,i Vᵢ/Vₜ, כל עוד אין תגובה.",
-        "style": "Normal"
+        "text": "חוק דלטון:",
+        "style": "Normal",
+        "notationOf": 5
        },
        {
-        "text": "גז שנאסף מעל מים מכיל גם אדי מים. הלחץ של הגז היבש הוא Pגז=Pכולל−Pאדי־מים. מסה מולרית של גז: M=mRT/(PV); צפיפות: ρ=PM/(RT).",
-        "style": "Normal"
+        "text": "Pₜ = ΣPᵢ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Pₜ",
+         "Pᵢ"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "והשבר המולי:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "xᵢ = nᵢ/nₜ = Pᵢ/Pₜ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Pₜ",
+         "Pᵢ",
+         "xᵢ#2",
+         "nᵢ, nₜ"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "אחרי פתיחת ברז בין כלים קשיחים בטמפרטורה קבועה כל גז ממלא את הנפח הכולל, כל עוד אין תגובה:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "Pᵢ,f = Pᵢ,i Vᵢ/Vₜ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Pᵢ,i, Pᵢ,f",
+         "Vᵢ, Vₜ"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "גז שנאסף מעל מים מכיל גם אדי מים. הלחץ של הגז היבש:",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "P_gas = P_total − P_water",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P_gas#2",
+         "P_total#2",
+         "P_water#2"
+        ],
+        "notationOf": 6
+       },
+       {
+        "text": "מסה מולרית של גז:",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "M = mRT/(PV)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "M, m"
+        ],
+        "notationOf": 6
+       },
+       {
+        "text": "וצפיפות:",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "ρ = PM/(RT)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "M, m",
+         "ρ#4"
+        ],
+        "notationOf": 6
        },
        {
         "text": "כימיה לפני מצב סופי",
@@ -5463,8 +5802,26 @@
         "enrich": true
        },
        {
+        "text": "המשוואה PV = nRT אומרת שארבעת המשתנים קשורים בקשר אחד. החוקים ה\"נפרדים\" הם רק מקרים פרטיים כשמשהו קבוע: בויל (n ו-T קבועים), שארל (n ו-P קבועים), גיי-לוסאק (n ו-V קבועים), אבוגדרו (P ו-T קבועים):",
         "style": "Normal",
-        "text": "PV=nRT אומרת שארבעת המשתנים קשורים בקשר אחד. החוקים ה\"נפרדים\" הם רק מקרים פרטיים כשמשהו קבוע: בויל (n,T קבועים: P·V=const), שארל (n,P: V/T=const), גיי-לוסאק (n,V: P/T=const), אבוגדרו (P,T: V/n=const). מי שמבין את המשוואה לא צריך לזכור ארבעה חוקים.",
+        "enrich": true,
+        "notationOf": 10
+       },
+       {
+        "text": "P·V = const        V/T = const        P/T = const        V/n = const",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P, V, T, n",
+         "const"
+        ],
+        "notationOf": 10,
+        "enrich": true
+       },
+       {
+        "text": "מי שמבין את המשוואה לא צריך לזכור ארבעה חוקים.",
+        "style": "Normal",
+        "notationOf": 10,
         "enrich": true
        },
        {
@@ -5474,8 +5831,52 @@
         "enrich": true
        },
        {
+        "text": "היחידות קובעות את הערך של R. עם אטמוספירות וליטר:",
         "style": "Normal",
-        "text": "היחידה הקובעת את R: עם אטמוספירות וליטר R=0.08206; עם פסקל ומ\"ק R=8.314. בחירה לא עקבית היא שגיאת היחידות הנפוצה בקורס. והטמפרטורה — תמיד בקלווין, בלי יוצא מן הכלל: K = °C + 273.15.",
+        "enrich": true,
+        "notationOf": 12
+       },
+       {
+        "text": "R = {R@latm}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R:latm"
+        ],
+        "notationOf": 12,
+        "enrich": true
+       },
+       {
+        "text": "עם פסקל ומ\"ק:",
+        "style": "Normal",
+        "notationOf": 12,
+        "enrich": true
+       },
+       {
+        "text": "R = {R}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R"
+        ],
+        "notationOf": 12,
+        "enrich": true
+       },
+       {
+        "text": "בחירה לא עקבית היא שגיאת היחידות הנפוצה בקורס. והטמפרטורה — תמיד בקלווין, בלי יוצא מן הכלל:",
+        "style": "Normal",
+        "notationOf": 12,
+        "enrich": true
+       },
+       {
+        "text": "K = °C + 273.15",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "K",
+         "°C"
+        ],
+        "notationOf": 12,
         "enrich": true
        },
        {
@@ -5499,10 +5900,14 @@
         "batch2": true
        },
        {
-        "style": "Normal",
         "text": "CO(g) + 2H₂(g) → CH₃OH(g)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "(g)"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 17
        },
        {
         "style": "Normal",
@@ -5743,16 +6148,90 @@
         "style": "Normal"
        },
        {
-        "text": "למול: Ēₖ = 3RT/2. למולקולה: Ēₖ = 3kT/2, כאשר k=R/Nₐ. מהירות RMS היא √(3RT/M), שורש ממוצע ריבועי המהירויות; היא אינה המהירות הממוצעת הפשוטה. עם R ב-J חייבים M ב-kg/mol.",
-        "style": "Normal"
+        "text": "האנרגיה הקינטית התרגומית הממוצעת תלויה רק בטמפרטורה. למול של גז:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "Ēₖ = 3RT/2",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Ēₖ",
+         "R",
+         "T"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "ולמולקולה אחת:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "Ēₖ = 3kT/2        k = R/Nₐ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Ēₖ#2",
+         "R",
+         "k",
+         "Nₐ",
+         "T"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "מהירות RMS היא שורש ממוצע ריבועי המהירויות, ולא המהירות הממוצעת הפשוטה:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "u_rms = √(3RT/M)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R",
+         "T",
+         "M",
+         "u_rms"
+        ],
+        "notationOf": 2
        },
        {
         "text": "אפוזיה",
         "style": "Heading"
        },
        {
-        "text": "אפוזיה היא מעבר דרך נקב קטן מספיק לעומת המהלך החופשי הממוצע. באותם תנאים יחס הקצבים rA/rB=√(MB/MA). גז קל עובר מהר יותר. בתערובת יש להתחשב גם בלחצים החלקיים: rA/rB=(PA/PB)√(MB/MA).",
-        "style": "Normal"
+        "text": "אפוזיה היא מעבר דרך נקב קטן מספיק לעומת המהלך החופשי הממוצע. באותם תנאים יחס הקצבים של גז A לגז B הוא:",
+        "style": "Normal",
+        "notationOf": 4
+       },
+       {
+        "text": "r_A/r_B = √(M_B/M_A)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "r_A, r_B",
+         "M_A, M_B"
+        ],
+        "notationOf": 4
+       },
+       {
+        "text": "גז קל עובר מהר יותר. בתערובת יש להתחשב גם בלחצים החלקיים:",
+        "style": "Normal",
+        "notationOf": 4
+       },
+       {
+        "text": "r_A/r_B = (P_A/P_B)·√(M_B/M_A)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "r_A, r_B",
+         "M_A, M_B",
+         "P_A, P_B"
+        ],
+        "notationOf": 4
        },
        {
         "text": "בהרכב היוצא בתחילת אפוזיה עשויה להיות העשרה בגז הקל. אין להחליף זאת בהרכב ההתחלתי בכלי או בהנחה על אותו הרכב לאורך כל זמן הריקון. יחס מהירויות אינו יחס מסות ישיר אלא שורש הפוך.",
@@ -5763,12 +6242,43 @@
         "style": "Heading"
        },
        {
-        "text": "נפח עצמי וכוחות משיכה נעשים חשובים במיוחד בלחץ גבוה ובטמפרטורה נמוכה. משוואת ואן דר ואלס: (P+an²/V²)(V−nb)=nRT. a מתקן השפעת משיכה ו-b נפח אפקטיבי.",
-        "style": "Normal"
+        "text": "נפח עצמי וכוחות משיכה נעשים חשובים במיוחד בלחץ גבוה ובטמפרטורה נמוכה. משוואת ואן דר ואלס:",
+        "style": "Normal",
+        "notationOf": 7
        },
        {
-        "text": "מקדם הדחיסות Z=PV/(nRT): לאידיאלי Z=1. כאשר המשיכה דומיננטית Z עשוי להיות קטן מ-1; כאשר נפח עצמי ודחייה דומיננטיים Z עשוי להיות גדול מ-1. כדי לחשב Z מספרי ממשוואת ואן דר ואלס צריך את a,b, או מידע נוסף שמספיק לקבוע אותם.",
-        "style": "Normal"
+        "text": "(P + an²/V²)(V − nb) = nRT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P, V, T",
+         "n",
+         "R:gas",
+         "a",
+         "b"
+        ],
+        "notationOf": 7
+       },
+       {
+        "text": "מקדם הדחיסות:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "Z = PV/(nRT)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Z",
+         "P, V, T, n",
+         "R:gas"
+        ],
+        "notationOf": 8
+       },
+       {
+        "text": "לגז אידיאלי Z=1. כאשר המשיכה דומיננטית Z עשוי להיות קטן מ-1; כאשר נפח עצמי ודחייה דומיננטיים Z עשוי להיות גדול מ-1. כדי לחשב Z מספרי ממשוואת ואן דר ואלס צריך את a,b, או מידע נוסף שמספיק לקבוע אותם.",
+        "style": "Normal",
+        "notationOf": 8
        },
        {
         "style": "Heading",
@@ -5787,24 +6297,112 @@
         "enrich": true
        },
        {
+        "text": "מהירות שורש-ממוצע-ריבוע, כש-M בק\"ג למול:",
         "style": "Normal",
-        "text": "מהירות שורש-ממוצע-ריבוע: u_rms = √(3RT/M) כש-M בק\"ג למול. לחנקן ב-298 K יוצא כ-515 m/s — מהיר מקליע. ולמה rms ולא ממוצע פשוט? כי האנרגיה תלויה ב-v², והממוצע של הריבועים שונה מריבוע הממוצע.",
+        "enrich": true,
+        "notationOf": 12
+       },
+       {
+        "text": "u_rms = √(3RT/M)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "u_rms",
+         "M"
+        ],
+        "notationOf": 12,
         "enrich": true
        },
        {
+        "text": "לחנקן ב-298 K יוצא כ-515 m/s — מהיר מקליע. ולמה rms ולא ממוצע פשוט? כי האנרגיה תלויה ב-v², והממוצע של הריבועים שונה מריבוע הממוצע.",
         "style": "Normal",
-        "text": "חוק גרהם מתאר אפוזיה דרך נקב זעיר בתנאים מתאימים: באותו לחץ וטמפרטורה, קצב מעבר החלקיקים פרופורציוני ל-1/√M. דרך אותו נקב הליום עובר בקצב גדול פי √(28/4) ≈ 2.65 מחנקן. דליפה דרך חומר הבלון כוללת גם המסה וחדירה בפולימר, ואינה ניסוי אפוזיה נקי.",
+        "notationOf": 12,
         "enrich": true
        },
        {
+        "text": "חוק גרהם מתאר אפוזיה דרך נקב זעיר בתנאים מתאימים: באותו לחץ וטמפרטורה, קצב מעבר החלקיקים פרופורציוני ל:",
         "style": "Normal",
-        "text": "גזים ממשיים סוטים מהאידיאל כאשר נפח החלקיקים והמשיכה ביניהם אינם זניחים. עבור n מולים בנפח הכולל V, משוואת ואן דר ואלס היא (P+an²/V²)(V−nb)=nRT. עבור נפח מולרי Vₘ נכתוב (P+a/Vₘ²)(Vₘ−b)=RT. אין לערבב בין שתי צורות המשוואה.",
+        "enrich": true,
+        "notationOf": 13
+       },
+       {
+        "text": "r ∝ 1/√M",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "r#2",
+         "M"
+        ],
+        "notationOf": 13,
         "enrich": true
        },
        {
+        "text": "דרך אותו נקב קצב ההליום גדול מזה של חנקן פי:",
+        "style": "Normal",
+        "notationOf": 13,
+        "enrich": true
+       },
+       {
+        "text": "√(28/4) ≈ 2.65",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "28, 4",
+         "2.65"
+        ],
+        "notationOf": 13,
+        "enrich": true
+       },
+       {
+        "text": "דליפה דרך חומר הבלון כוללת גם המסה וחדירה בפולימר, ואינה ניסוי אפוזיה נקי.",
+        "style": "Normal",
+        "notationOf": 13,
+        "enrich": true
+       },
+       {
+        "text": "גזים ממשיים סוטים מהאידיאל כאשר נפח החלקיקים והמשיכה ביניהם אינם זניחים. עבור n מולים בנפח הכולל V, משוואת ואן דר ואלס היא:",
+        "style": "Normal",
+        "enrich": true,
+        "notationOf": 14
+       },
+       {
+        "text": "(P + an²/V²)(V − nb) = nRT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a, b"
+        ],
+        "notationOf": 14,
+        "enrich": true
+       },
+       {
+        "text": "עבור נפח מולרי Vₘ נכתוב:",
+        "style": "Normal",
+        "notationOf": 14,
+        "enrich": true
+       },
+       {
+        "text": "(P + a/Vₘ²)(Vₘ − b) = RT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a, b",
+         "Vₘ#2"
+        ],
+        "notationOf": 14,
+        "enrich": true
+       },
+       {
+        "text": "אין לערבב בין שתי צורות המשוואה.",
+        "style": "Normal",
+        "notationOf": 14,
+        "enrich": true
+       },
+       {
+        "text": "מלכודת יחידות: בחישוב מהירות עם R={R}, מכניסים M בקילוגרם למול. בחוק גרהם מופיע יחס מסות מולריות, ולכן אפשר להשתמש גם בגרם למול, בתנאי ששתי המסות באותה יחידה.",
         "style": "Callout",
-        "text": "מלכודת יחידות: בחישוב מהירות עם R=8.314 J/(mol·K), מכניסים M בקילוגרם למול. בחוק גרהם מופיע יחס מסות מולריות, ולכן אפשר להשתמש גם בגרם למול, בתנאי ששתי המסות באותה יחידה.",
-        "enrich": true
+        "enrich": true,
+        "notationOf": 15
        },
        {
         "style": "Heading",
@@ -5817,15 +6415,41 @@
         "batch2": true
        },
        {
+        "text": "v_mp = √(2RT/M)        v_avg = √(8RT/(πM))        v_rms = √(3RT/M)",
         "style": "Normal",
-        "text": "v_mp = √(2RT/M)    v_avg = √(8RT/(πM))    v_rms = √(3RT/M)",
+        "layout": "equation",
+        "symbols": [
+         "v_mp#2",
+         "v_avg#2",
+         "v_rms#2",
+         "R",
+         "T",
+         "M"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 18
        },
        {
+        "text": "בכל התפלגות מקסוול של גז אידיאלי בשיווי משקל:",
         "style": "Normal",
-        "text": "בכל התפלגות מקסוול של גז אידיאלי בשיווי משקל, v_mp<v_avg<v_rms. כל שלוש המהירויות גדלות כמו √T עבור אותו גז, וקטנות כמו 1/√M באותה טמפרטורה. המהירות הווקטורית הממוצעת בגז במנוחה היא אפס, אף שהמהירות הממוצעת אינה אפס.",
-        "batch2": true
+        "batch2": true,
+        "notationOf": 19
+       },
+       {
+        "text": "v_mp < v_avg < v_rms",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "v_mp",
+         "v_avg",
+         "v_rms"
+        ],
+        "notationOf": 19
+       },
+       {
+        "text": "כל שלוש המהירויות גדלות כמו √T עבור אותו גז, וקטנות כמו 1/√M באותה טמפרטורה. המהירות הווקטורית הממוצעת בגז במנוחה היא אפס, אף שהמהירות הממוצעת אינה אפס.",
+        "style": "Normal",
+        "notationOf": 19
        },
        {
         "style": "Figure",
@@ -5839,10 +6463,20 @@
         "batch2": true
        },
        {
+        "text": "A = M/(2πRT)        f(v) = 4πA√A · v²        × exp(−πAv²)",
         "style": "Normal",
-        "text": "A = M/(2πRT)    f(v) = 4πA√A · v²    × exp(−πAv²)",
+        "layout": "equation",
+        "symbols": [
+         "A",
+         "f(v)",
+         "v#2",
+         "exp",
+         "R",
+         "T",
+         "M"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 22
        },
        {
         "style": "Normal",
@@ -5860,10 +6494,20 @@
         "batch2": true
        },
        {
+        "text": "Ē_particle = 3k_B T/2        Ē_mole = 3RT/2        E_total = 3nRT/2 = 3PV/2",
         "style": "Normal",
-        "text": "Ē_particle = 3k_B T/2    Ē_mole = 3RT/2    E_total = 3nRT/2 = 3PV/2",
+        "layout": "equation",
+        "symbols": [
+         "Ē_particle",
+         "Ē_mole",
+         "E_total",
+         "k_B",
+         "R:gas",
+         "T",
+         "n, P, V"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 26
        },
        {
         "style": "Normal",
@@ -5876,9 +6520,40 @@
         "batch2": true
        },
        {
+        "text": "באותו T ובאותו נקב, קצב מולי פרופורציוני ל:",
         "style": "Normal",
-        "text": "באותו T ובאותו נקב, קצב מולי פרופורציוני ל-P/√M. קצב מסה הוא הקצב המולי כפול M, ולכן באותו לחץ הוא פרופורציוני ל-√M. להשוואת זמנים כותבים t=n/r, ולא הופכים אוטומטית את יחס הקצבים כאשר הכמויות אינן שוות.",
-        "batch2": true
+        "batch2": true,
+        "notationOf": 29
+       },
+       {
+        "text": "r_mol ∝ P/√M",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "r"
+        ],
+        "notationOf": 29
+       },
+       {
+        "text": "קצב מסה הוא הקצב המולי כפול M, ולכן באותו לחץ הוא פרופורציוני ל-√M. להשוואת זמנים כותבים:",
+        "style": "Normal",
+        "notationOf": 29
+       },
+       {
+        "text": "t = n/r",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "r",
+         "n#2",
+         "t"
+        ],
+        "notationOf": 29
+       },
+       {
+        "text": "ולא הופכים אוטומטית את יחס הקצבים כאשר הכמויות אינן שוות.",
+        "style": "Normal",
+        "notationOf": 29
        },
        {
         "style": "Callout",
@@ -5904,36 +6579,126 @@
         "batch3": true
        },
        {
+        "text": "λ = R·T/(√2·π·ρ²·Nₐ·P)        z = v_avg/λ",
         "style": "Normal",
         "layout": "equation",
-        "text": "λ = R·T/(√2·π·ρ²·Nₐ·P)    z = v_avg/λ",
+        "symbols": [
+         "λ",
+         "z",
+         "ρ#2",
+         "v_avg",
+         "R",
+         "T",
+         "Nₐ",
+         "P"
+        ],
         "enrich": true,
-        "batch3": true
+        "batch3": true,
+        "notationOf": 34
        },
        {
+        "text": "מספר ההתנגשויות לשנייה של מולקולה ממוצעת הוא:",
         "style": "Normal",
-        "text": "מספר ההתנגשויות לשנייה של מולקולה ממוצעת הוא z = v_avg/λ: המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = 8.314 ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.",
         "enrich": true,
-        "batch3": true
+        "batch3": true,
+        "notationOf": 35
        },
        {
-        "style": "Normal",
-        "text": "חימום גז בנפח קבוע דורש לדעת לאן הולכת האנרגיה. לגז אידיאלי סביב טמפרטורת החדר, כשאופני הסיבוב פעילים אבל התנודות עוד קפואות: מולקולה חד־אטומית אוגרת הכול בתנועה בלבד (Cv = 3R/2), מולקולה קווית מוסיפה שני אופני סיבוב (Cv = 5R/2) ומולקולה לא־קווית שלושה (Cv = 3R). אלו ערכי מינימום: בטמפרטורות גבוהות התנודה מתעוררת ו-Cv גדל מעבר להם. לכן אותה כמות חום מחממת גז חד־אטומי יותר מגז מולקולרי — ומדידת q מול ΔT חושפת את הגיאומטריה.",
-        "enrich": true,
-        "batch3": true
-       },
-       {
+        "text": "z = v_avg/λ",
         "style": "Normal",
         "layout": "equation",
+        "symbols": [
+         "z",
+         "v_avg",
+         "λ"
+        ],
+        "notationOf": 35,
+        "enrich": true
+       },
+       {
+        "text": "זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.",
+        "style": "Normal",
+        "notationOf": 35,
+        "enrich": true
+       },
+       {
+        "text": "חימום גז בנפח קבוע דורש לדעת לאן הולכת האנרגיה. לגז אידיאלי סביב טמפרטורת החדר, כשאופני הסיבוב פעילים אבל התנודות עוד קפואות: מולקולה חד־אטומית אוגרת הכול בתנועה בלבד:",
+        "style": "Normal",
+        "enrich": true,
+        "batch3": true,
+        "notationOf": 36
+       },
+       {
+        "text": "C_v = 3R/2",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "C_v",
+         "R"
+        ],
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
+        "text": "מולקולה קווית מוסיפה שני אופני סיבוב:",
+        "style": "Normal",
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
+        "text": "C_v = 5R/2",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "C_v",
+         "R"
+        ],
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
+        "text": "ומולקולה לא־קווית שלושה:",
+        "style": "Normal",
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
+        "text": "C_v = 3R",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "C_v",
+         "R"
+        ],
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
+        "text": "אלו ערכי מינימום: בטמפרטורות גבוהות התנודה מתעוררת ו-Cv גדל מעבר להם. לכן אותה כמות חום מחממת גז חד־אטומי יותר מגז מולקולרי — ומדידת q מול ΔT חושפת את הגיאומטריה.",
+        "style": "Normal",
+        "notationOf": 36,
+        "enrich": true
+       },
+       {
         "text": "q = n·Cv·ΔT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "q",
+         "n",
+         "Cv",
+         "ΔT"
+        ],
         "enrich": true,
-        "batch3": true
+        "batch3": true,
+        "notationOf": 37
        },
        {
+        "text": "מלכודת יחידות: בחישובי חום בקלוריות משתמשים ב-R = {R@cal}, לא ב-{R@value}. בכיוון ההפוך — מ-q ו-ΔT מחלצים Cv, וממנו מסיקים אם המולקולה קווית או לא־קווית.",
         "style": "Callout",
-        "text": "מלכודת יחידות: בחישובי חום בקלוריות משתמשים ב-R = 1.987 cal/(mol·K), לא ב-8.314. בכיוון ההפוך — מ-q ו-ΔT מחלצים Cv, וממנו מסיקים אם המולקולה קווית או לא־קווית.",
         "enrich": true,
-        "batch3": true
+        "batch3": true,
+        "notationOf": 38
        },
        {
         "style": "Heading",
@@ -5956,20 +6721,106 @@
         "finalPrep": true
        },
        {
-        "style": "Normal",
         "text": "P = nRT/(V − nb) − an²/V²",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P, V, T",
+         "n",
+         "R:gas",
+         "a",
+         "b"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 43
        },
        {
-        "style": "Normal",
         "text": "Z = V/(V − nb) − an/(VRT)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Z",
+         "V, T, n",
+         "R:gas",
+         "a",
+         "b"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 44
        },
        {
+        "text": "בצורת הנפח המולרי:",
         "style": "Normal",
-        "text": "בצורת הנפח המולרי Vₘ = V / n: התיקון הראשון הוא Vₘ / (Vₘ − b), והשני a / (RTVₘ). בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים ב-R = 0.08206. אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
+        "finalPrep": true,
+        "notationOf": 45
+       },
+       {
+        "text": "Vₘ = V/n",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Vₘ",
+         "V, n"
+        ],
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "התיקון הראשון הוא:",
+        "style": "Normal",
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "Vₘ/(Vₘ − b)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Vₘ",
+         "b#2"
+        ],
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "והתיקון השני הוא:",
+        "style": "Normal",
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "a/(RTVₘ)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a#2",
+         "R",
+         "T",
+         "Vₘ"
+        ],
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים בערך:",
+        "style": "Normal",
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "R = {R@latm}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R:latm"
+        ],
+        "notationOf": 45,
+        "finalPrep": true
+       },
+       {
+        "text": "אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
+        "style": "Normal",
+        "notationOf": 45,
         "finalPrep": true
        },
        {
@@ -5989,19 +6840,137 @@
         "finalPrep": true
        },
        {
+        "text": "נסמן:",
         "style": "Normal",
-        "text": "נסמן c = n / V. כאשר bc קטן, הפיתוח 1 / (1 − bc)≈1 + bc נותן Z≈1 + [b − a / (RT)]c. בטמפרטורה T_B = a / (Rb) המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
+        "finalPrep": true,
+        "notationOf": 49
+       },
+       {
+        "text": "c = n/V",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "c@concentration",
+         "n, V"
+        ],
+        "notationOf": 49,
         "finalPrep": true
        },
        {
+        "text": "כאשר bc קטן, מפתחים:",
         "style": "Normal",
-        "text": "T_B = a/(Rb)    Z(T_B) −1 = (bc)²/(1 − bc)",
-        "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 49,
+        "finalPrep": true
        },
        {
+        "text": "1/(1 − bc) ≈ 1 + bc",
         "style": "Normal",
-        "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה c = 1.00 mol / L נותן bc≈0.043: קטן, אך לא אפס.",
+        "layout": "equation",
+        "symbols": [
+         "b",
+         "c@concentration"
+        ],
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "ונקבל:",
+        "style": "Normal",
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "Z ≈ 1 + [b − a/(RT)]·c",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Z",
+         "a",
+         "b",
+         "c@concentration",
+         "R",
+         "T"
+        ],
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "בטמפרטורה:",
+        "style": "Normal",
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "T_B = a/(Rb)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "T_B",
+         "a",
+         "b",
+         "R"
+        ],
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
+        "style": "Normal",
+        "notationOf": 49,
+        "finalPrep": true
+       },
+       {
+        "text": "T_B = a/(Rb)        Z(T_B) − 1 = (bc)²/(1 − bc)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "T_B",
+         "Z",
+         "a",
+         "b",
+         "c@concentration",
+         "R"
+        ],
+        "finalPrep": true,
+        "notationOf": 50
+       },
+       {
+        "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה:",
+        "style": "Normal",
+        "finalPrep": true,
+        "notationOf": 51
+       },
+       {
+        "text": "c = 1.00 mol/L",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "c@concentration"
+        ],
+        "notationOf": 51,
+        "finalPrep": true
+       },
+       {
+        "text": "נותן:",
+        "style": "Normal",
+        "notationOf": 51,
+        "finalPrep": true
+       },
+       {
+        "text": "bc ≈ 0.043",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "b",
+         "c@concentration"
+        ],
+        "notationOf": 51,
+        "finalPrep": true
+       },
+       {
+        "text": "זה קטן, אך לא אפס.",
+        "style": "Normal",
+        "notationOf": 51,
         "finalPrep": true
        },
        {
@@ -6010,21 +6979,79 @@
         "finalPrep": true
        },
        {
+        "text": "אם נתונים Z, n, V, T ו-b, מחלצים:",
         "style": "Normal",
-        "text": "אם נתונים Z, n,V,T ו-b, מחלצים a = VRT / n·[V / (V − nb) − Z]. אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל ΔP = nRΔT / (V − nb). מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
+        "finalPrep": true,
+        "notationOf": 53
+       },
+       {
+        "text": "a = (VRT/n)·[V/(V − nb) − Z]",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a",
+         "Z",
+         "n, V, T",
+         "b",
+         "R"
+        ],
+        "notationOf": 53,
         "finalPrep": true
        },
        {
+        "text": "אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל:",
         "style": "Normal",
-        "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
-        "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 53,
+        "finalPrep": true
        },
        {
+        "text": "ΔP = nRΔT/(V − nb)",
         "style": "Normal",
-        "text": "b = (V − D)/n    a = [nRT₁/D − P₁]V²/n²",
+        "layout": "equation",
+        "symbols": [
+         "ΔP, ΔT",
+         "n, V",
+         "R",
+         "b"
+        ],
+        "notationOf": 53,
+        "finalPrep": true
+       },
+       {
+        "text": "מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
+        "style": "Normal",
+        "notationOf": 53,
+        "finalPrep": true
+       },
+       {
+        "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "D",
+         "V, n",
+         "b",
+         "R",
+         "T₁, T₂",
+         "P₁, P₂"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 54
+       },
+       {
+        "text": "b = (V − D)/n        a = [nRT₁/D − P₁]V²/n²",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a",
+         "b",
+         "D",
+         "V, n",
+         "R:gas",
+         "T₁, P₁"
+        ],
+        "finalPrep": true,
+        "notationOf": 55
        },
        {
         "style": "Normal",
@@ -6855,10 +7882,18 @@
         "batch2": true
        },
        {
+        "text": "|F| = k_e |q₁q₂|/r²        U = k_e q₁q₂/r",
         "style": "Normal",
-        "text": "|F| = k_e |q₁q₂|/r²    U = k_e q₁q₂/r",
+        "layout": "equation",
+        "symbols": [
+         "F",
+         "U",
+         "k_e",
+         "q₁, q₂",
+         "r#5"
+        ],
         "batch2": true,
-        "layout": "equation"
+        "notationOf": 16
        },
        {
         "style": "Normal",
@@ -6892,9 +7927,40 @@
         "batch2": true
        },
        {
+        "text": "לאנרגיית שני דיפולים קבועים בכיוונים מוגדרים תלות של:",
         "style": "Normal",
-        "text": "לאנרגיית שני דיפולים קבועים בכיוונים מוגדרים תלות של 1/r³, עם סימן ועוצמה התלויים בכיוון. לאחר מיצוע תרמי בתנאי המודל מתקבלת משיכה התלויה ב-1/(T r⁶). אין לחלק זאת לכלל מוחלט של ״נוזל: r⁻³, גז: r⁻⁶״.",
-        "batch2": true
+        "batch2": true,
+        "notationOf": 23
+       },
+       {
+        "text": "E ∝ 1/r³",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "E",
+         "r#3"
+        ],
+        "notationOf": 23
+       },
+       {
+        "text": "עם סימן ועוצמה התלויים בכיוון. לאחר מיצוע תרמי בתנאי המודל מתקבלת משיכה התלויה ב:",
+        "style": "Normal",
+        "notationOf": 23
+       },
+       {
+        "text": "1/(T r⁶)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "T",
+         "r#4"
+        ],
+        "notationOf": 23
+       },
+       {
+        "text": "אין לחלק זאת לכלל מוחלט של ״נוזל: r⁻³, גז: r⁻⁶״.",
+        "style": "Normal",
+        "notationOf": 23
        },
        {
         "style": "Callout",
@@ -7122,12 +8188,65 @@
         "style": "Normal"
        },
        {
-        "text": "יחס אורך צלע לרדיוס: SC: a=2r; BCC: √3a=4r; FCC: √2a=4r. נצילות אריזה בקירוב: SC=0.52, BCC=0.68, FCC=0.74. בשקופית 52 מופיע בטעות השם BCC ליד תא עם 4 אטומים; זהו FCC לפי התרשים והספירה.",
-        "style": "Normal"
+        "text": "יחס אורך צלע לרדיוס:",
+        "style": "Normal",
+        "notationOf": 5
        },
        {
-        "text": "צפיפות גביש קובי: ρ=zM/(Nₐa³), כאשר z הוא מספר האטומים בתא. כדי לקבל g/cm³ יש להציב M ב-g/mol ו-a ב-cm. אין להכניס nm ישירות לביטוי זה.",
-        "style": "Normal"
+        "text": "SC: a = 2r        BCC: √3a = 4r        FCC: √2a = 4r",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "a#3",
+         "r#6",
+         "SC, BCC, FCC"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "נצילות אריזה בקירוב:",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "SC = 0.52        BCC = 0.68        FCC = 0.74",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "SC",
+         "BCC",
+         "FCC",
+         "0.52, 0.68, 0.74"
+        ],
+        "notationOf": 5
+       },
+       {
+        "text": "בשקופית 52 מופיע בטעות השם BCC ליד תא עם 4 אטומים; זהו FCC לפי התרשים והספירה.",
+        "style": "Normal",
+        "notationOf": 5
+       },
+       {
+        "text": "צפיפות גביש קובי:",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "ρ = zM/(Nₐa³)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ρ",
+         "z#3",
+         "M",
+         "Nₐ",
+         "a#4"
+        ],
+        "notationOf": 6
+       },
+       {
+        "text": "כדי לקבל g/cm³ יש להציב M ב-g/mol ו-a ב-cm. אין להכניס nm ישירות לביטוי זה.",
+        "style": "Normal",
+        "notationOf": 6
        },
        {
         "text": "מה לומדים מעקיפה",
@@ -7180,19 +8299,76 @@
         "finalPrep": true
        },
        {
+        "text": "בשאלה הפוכה לא מנחשים את תא היחידה מהשם של המתכת. מחשבים לכל מועמד את הצלע מתוך r, אחר כך את צפיפותו. ב-BCC:",
         "style": "Normal",
-        "text": "בשאלה הפוכה לא מנחשים את תא היחידה מהשם של המתכת. מחשבים לכל מועמד את הצלע מתוך r, אחר כך את צפיפותו: ב-BCC יש z = 2 ו-a = 4r / √3; ב-FCC יש z = 4 ו-a = 2√2r. משווים לצפיפות הנתונה. משתמשים באותו r ובאותה מסה מולרית בשני המועמדים.",
+        "finalPrep": true,
+        "notationOf": 17
+       },
+       {
+        "text": "z = 2        a = 4r/√3",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "z#2",
+         "a#3",
+         "r#6"
+        ],
+        "notationOf": 17,
         "finalPrep": true
        },
        {
+        "text": "וב-FCC:",
         "style": "Normal",
-        "text": "ρ = zM/(Nₐa³)    a = [zM/(Nₐρ)]^(1/3)",
-        "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 17,
+        "finalPrep": true
        },
        {
-        "style": "Callout",
-        "text": "1 pm = 10⁻¹⁰ cm. בגלל החזקה השלישית, טעות ביחידת אורך גדלה מאוד בנפח. z הוא מספר האטומים האפקטיבי בתא, לא מספר הקואורדינציה. אחרי פתרון הפוך בודקים מחדש את הצפיפות מה-r שהתקבל.",
+        "text": "z = 4        a = 2√2·r",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "z#2",
+         "a#3",
+         "r#6"
+        ],
+        "notationOf": 17,
+        "finalPrep": true
+       },
+       {
+        "text": "משווים לצפיפות הנתונה. משתמשים באותו r ובאותה מסה מולרית בשני המועמדים.",
+        "style": "Normal",
+        "notationOf": 17,
+        "finalPrep": true
+       },
+       {
+        "text": "ρ = zM/(Nₐa³)        a = [zM/(Nₐρ)]^(1/3)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ρ#3",
+         "z#2",
+         "M",
+         "Nₐ",
+         "a#3"
+        ],
+        "finalPrep": true,
+        "notationOf": 18
+       },
+       {
+        "text": "1 pm = 10⁻¹⁰ cm",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "pm",
+         "cm"
+        ],
+        "finalPrep": true,
+        "notationOf": 19
+       },
+       {
+        "text": "בגלל החזקה השלישית, טעות ביחידת אורך גדלה מאוד בנפח. z הוא מספר האטומים האפקטיבי בתא, לא מספר הקואורדינציה. אחרי פתרון הפוך בודקים מחדש את הצפיפות מה-r שהתקבל.",
+        "style": "Normal",
+        "notationOf": 19,
         "finalPrep": true
        }
       ],
@@ -7494,17 +8670,71 @@
         "style": "Heading"
        },
        {
+        "text": "ln(P₂/P₁) =        (ΔH_vap/R)·        (1/T₁ − 1/T₂)",
         "style": "Normal",
         "layout": "equation",
-        "text": "ln(P₂/P₁) =    (ΔH_vap/R)·    (1/T₁ − 1/T₂)"
+        "symbols": [
+         "P₁, P₂#2",
+         "ΔH_vap",
+         "R",
+         "T₁, T₂#2"
+        ],
+        "notationOf": 10
        },
        {
-        "text": "בקירוב של אדים אידיאליים ואנתלפיית אידוי קבועה בתחום הנתון: ln(P₂/P₁) = (ΔH_vap/R)·(1/T₁ − 1/T₂). מציבים קלווין ואותן יחידות לחץ בשני הצדדים של היחס. כשמשתמשים ב-R = 8.314 J/(mol·K), ממירים את האנתלפיה מ-kJ/mol ל-J/mol.",
-        "style": "Normal"
+        "text": "בקירוב של אדים אידיאליים ואנתלפיית אידוי קבועה בתחום הנתון:",
+        "style": "Normal",
+        "notationOf": 11
        },
        {
-        "text": "בגרף ln P מול 1/T מתקבל קו בקירוב: השיפוע הוא −ΔH_vap/R, ולכן אנתלפיית האידוי היא מינוס השיפוע כפול R. לחילוץ טמפרטורה: 1/T₂ = 1/T₁ − (R/ΔH_vap)·ln(P₂/P₁).",
-        "style": "Normal"
+        "text": "ln(P₂/P₁) = (ΔH_vap/R)·(1/T₁ − 1/T₂)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P₁, P₂#2",
+         "T₁, T₂#3",
+         "ΔH_vap#2",
+         "R"
+        ],
+        "notationOf": 11
+       },
+       {
+        "text": "מציבים קלווין ואותן יחידות לחץ בשני הצדדים של היחס. כשמשתמשים ב-R = {R}, ממירים את האנתלפיה מ-kJ/mol ל-J/mol.",
+        "style": "Normal",
+        "notationOf": 11
+       },
+       {
+        "text": "בגרף ln P מול 1/T מתקבל קו בקירוב: השיפוע הוא:",
+        "style": "Normal",
+        "notationOf": 12
+       },
+       {
+        "text": "slope = −ΔH_vap/R",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "slope",
+         "ΔH_vap",
+         "R"
+        ],
+        "notationOf": 12
+       },
+       {
+        "text": "ולכן אנתלפיית האידוי היא מינוס השיפוע כפול R. לחילוץ טמפרטורה:",
+        "style": "Normal",
+        "notationOf": 12
+       },
+       {
+        "text": "1/T₂ = 1/T₁ − (R/ΔH_vap)·ln(P₂/P₁)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "T₁, T₂#2",
+         "P₁, P₂#2",
+         "ΔH_vap",
+         "R"
+        ],
+        "notationOf": 12
        },
        {
         "text": "בדיקת סימן: אם T₂ > T₁, נקבל P₂ > P₁. בעמ׳ 13 במקור מופיע מינוס מיותר לפני (1/T₁ − 1/T₂); כאן הנוסחה מתוקנת. שטח פנים משנה את קצב האידוי ואת זמן ההגעה לשיווי משקל, לא את לחץ האדים בשיווי משקל כל עוד נותר נוזל.",
@@ -7517,13 +8747,38 @@
         "enrich": true
        },
        {
+        "text": "RH = 100·P_water/P_sat(T)",
         "style": "Normal",
         "layout": "equation",
-        "text": "RH = 100·P_water/P_sat(T)"
+        "symbols": [
+         "RH",
+         "P_water",
+         "P_sat(T)"
+        ],
+        "notationOf": 15
        },
        {
-        "text": "לחות יחסית: RH = 100·P_water/P_sat(T). במכנה לחץ הרוויה של מים באותה טמפרטורה, לא הלחץ האטמוספרי הכולל. ב-100% האדים רוויים; קירור עד לנקודת הטל מביא לרוויה ובהמשך לעיבוי. בכלי סגור עם מים נוזליים בשיווי משקל, RH = 100%.",
+        "text": "לחות יחסית:",
         "style": "Normal",
+        "enrich": true,
+        "notationOf": 16
+       },
+       {
+        "text": "RH = 100·P_water/P_sat(T)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "RH",
+         "P_water",
+         "P_sat(T)"
+        ],
+        "notationOf": 16,
+        "enrich": true
+       },
+       {
+        "text": "במכנה לחץ הרוויה של מים באותה טמפרטורה, לא הלחץ האטמוספרי הכולל. ב-100% האדים רוויים; קירור עד לנקודת הטל מביא לרוויה ובהמשך לעיבוי. בכלי סגור עם מים נוזליים בשיווי משקל, RH = 100%.",
+        "style": "Normal",
+        "notationOf": 16,
         "enrich": true
        },
        {
@@ -7817,9 +9072,15 @@
         "style": "Heading"
        },
        {
+        "text": "C_gas = k_H·P_gas",
         "style": "Normal",
         "layout": "equation",
-        "text": "C_gas = k_H·P_gas"
+        "symbols": [
+         "C_gas",
+         "k_H",
+         "P_gas"
+        ],
+        "notationOf": 6
        },
        {
         "text": "בכתיב שבו משתמשים כאן: C_gas = k_H·P_gas. הקבוע תלוי בגז, בממס ובטמפרטורה. P_gas הוא הלחץ החלקי של הגז המסוים, לא בהכרח הלחץ הכולל. יחידות k_H נקבעות מיחידות הריכוז והלחץ; יש מקורות המשתמשים בקבוע ההופכי.",
@@ -7835,13 +9096,67 @@
         "style": "Heading"
        },
        {
+        "text": "P_A = x_A·P°_A        P_total = ΣP_i        y_A = P_A/P_total",
         "style": "Normal",
         "layout": "equation",
-        "text": "P_A = x_A·P°_A    P_total = ΣP_i    y_A = P_A/P_total"
+        "symbols": [
+         "P_A",
+         "x_A",
+         "P°_A",
+         "P_total",
+         "ΣP_i",
+         "y_A"
+        ],
+        "notationOf": 10
        },
        {
-        "text": "שבר מולי בנוזל: x_A = n_A/(n_A+n_B). לתמיסה אידיאלית: P_A = x_A·P°_A וגם P_B = x_B·P°_B. הלחץ הכולל הוא P_total = P_A + P_B. לחצים של חומרים טהורים נלקחים באותה טמפרטורה.",
-        "style": "Normal"
+        "text": "שבר מולי בנוזל:",
+        "style": "Normal",
+        "notationOf": 11
+       },
+       {
+        "text": "x_A = n_A/(n_A + n_B)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "x_A, x_B"
+        ],
+        "notationOf": 11
+       },
+       {
+        "text": "לתמיסה אידיאלית:",
+        "style": "Normal",
+        "notationOf": 11
+       },
+       {
+        "text": "P_A = x_A·P°_A        P_B = x_B·P°_B",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "x_A, x_B",
+         "P_A, P_B#2",
+         "P°_A, P°_B"
+        ],
+        "notationOf": 11
+       },
+       {
+        "text": "הלחץ הכולל הוא:",
+        "style": "Normal",
+        "notationOf": 11
+       },
+       {
+        "text": "P_total = P_A + P_B",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P_A, P_B#2"
+        ],
+        "notationOf": 11
+       },
+       {
+        "text": "לחצים של חומרים טהורים נלקחים באותה טמפרטורה.",
+        "style": "Normal",
+        "notationOf": 11
        },
        {
         "text": "מודל בינרי אידיאלי: לחצי הרכיבים מתחברים ללחץ הכולל. השיפועים נקבעים מלחצי האדים של החומרים הטהורים.",
@@ -7850,8 +9165,23 @@
         "enrich": true
        },
        {
-        "text": "השבר המולי באדים מחושב מחוק דלטון: y_A = P_A/P_total. אם P°_A > P°_B, האדים עשירים יותר ב-A לעומת הנוזל, פרט לקצוות הטהורים. אידוי ועיבוי חוזרים יכולים להעשיר רכיב נדיף בזיקוק למקוטעין.",
-        "style": "Normal"
+        "text": "השבר המולי באדים מחושב מחוק דלטון:",
+        "style": "Normal",
+        "notationOf": 13
+       },
+       {
+        "text": "y_A = P_A/P_total",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "y_A"
+        ],
+        "notationOf": 13
+       },
+       {
+        "text": "אם P°_A > P°_B, האדים עשירים יותר ב-A לעומת הנוזל, פרט לקצוות הטהורים. אידוי ועיבוי חוזרים יכולים להעשיר רכיב נדיף בזיקוק למקוטעין.",
+        "style": "Normal",
+        "notationOf": 13
        },
        {
         "text": "זיקוק, סטיות ואזאוטרופים",
@@ -8059,16 +9389,65 @@
         "style": "Normal"
        },
        {
-        "text": "למומס לא־נדיף ולתמיסה אידיאלית: P = x_solvent·P°. לכן ΔP = P°−P = x_solute·P° בתמיסה בינרית לא־אלקטרוליטית. ריכוז המומס מפחית את הפעילות של הממס. אין לפרש זאת כחסימה מכנית בלבד של פני השטח.",
-        "style": "Normal"
+        "text": "למומס לא־נדיף ולתמיסה אידיאלית:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "P = x_solvent·P°",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P°",
+         "P#2",
+         "x_solvent, x_solute"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "לכן בתמיסה בינרית לא־אלקטרוליטית:",
+        "style": "Normal",
+        "notationOf": 2
+       },
+       {
+        "text": "ΔP = P° − P = x_solute·P°",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P°",
+         "P#2",
+         "x_solvent, x_solute"
+        ],
+        "notationOf": 2
+       },
+       {
+        "text": "ריכוז המומס מפחית את הפעילות של הממס. אין לפרש זאת כחסימה מכנית בלבד של פני השטח.",
+        "style": "Normal",
+        "notationOf": 2
        },
        {
         "text": "מולליות, מולריות ופקטור ון הוף",
         "style": "Heading"
        },
        {
-        "text": "מולליות m = מולי מומס / קילוגרמים של ממס. מולריות M = מולי מומס / ליטרים של תמיסה. לרתיחה וקיפאון משתמשים במולליות; בלחץ אוסמוטי משתמשים במולריות. מסת התמיסה אינה מסת הממס, ונפח הממס אינו אוטומטית נפח התמיסה.",
-        "style": "Normal"
+        "text": "מולליות ומולריות מוגדרות כך:",
+        "style": "Normal",
+        "notationOf": 4
+       },
+       {
+        "text": "m = n_solute / kg_solvent        M = n_solute / L_solution",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "m@molality",
+         "M@molarity"
+        ],
+        "notationOf": 4
+       },
+       {
+        "text": "לרתיחה וקיפאון משתמשים במולליות; בלחץ אוסמוטי משתמשים במולריות. מסת התמיסה אינה מסת הממס, ונפח הממס אינו אוטומטית נפח התמיסה.",
+        "style": "Normal",
+        "notationOf": 4
        },
        {
         "text": "פקטור ון הוף i מבטא את מספר החלקיקים האפקטיבי למנת נוסחה מומסת. במודל פירוק מלא: גלוקוז i=1, מלח NaCl נותן i≈2, ו-CaCl₂ נותן i≈3. תמיסות אמיתיות, במיוחד כשהריכוז עולה, סוטות בגלל אינטראקציות יוניות ולעיתים צימוד יונים. לכן ערך i ניסויי עדיף כשהוא נתון.",
@@ -8079,13 +9458,48 @@
         "style": "Heading"
        },
        {
+        "text": "ΔT_b = i·K_b·m        ΔT_f = i·K_f·m",
         "style": "Normal",
         "layout": "equation",
-        "text": "ΔT_b = i·K_b·m    ΔT_f = i·K_f·m"
+        "symbols": [
+         "ΔT_b, ΔT_f#2",
+         "i",
+         "K_b, K_f#2",
+         "m@molality"
+        ],
+        "notationOf": 7
        },
        {
-        "text": "מגדירים כאן גדלי שינוי חיוביים: ΔT_b = T_b(solution)−T_b(pure) = i·K_b·m; וגם ΔT_f = T_f(pure)−T_f(solution) = i·K_f·m. לכן T_b(solution)=T_b(pure)+ΔT_b, ואילו T_f(solution)=T_f(pure)−ΔT_f.",
-        "style": "Normal"
+        "text": "מגדירים כאן גדלי שינוי חיוביים:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "ΔT_b = T_b(solution) − T_b(pure) = i·K_b·m        ΔT_f = T_f(pure) − T_f(solution) = i·K_f·m",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ΔT_b, ΔT_f",
+         "K_b, K_f",
+         "i",
+         "m@molality"
+        ],
+        "notationOf": 8
+       },
+       {
+        "text": "לכן:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "T_b(solution) = T_b(pure) + ΔT_b        T_f(solution) = T_f(pure) − ΔT_f",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "ΔT_b, ΔT_f",
+         "i"
+        ],
+        "notationOf": 8
        },
        {
         "text": "קבועי הממס K_b ו-K_f ניתנים ביחידות K·kg/mol או °C·kg/mol. הפרש של 1 K שווה בגודלו להפרש של 1°C. למים נשתמש, כשנתון, ב-K_b=0.512 וב-K_f=1.86. הנוסחאות הן קירוב מדולל, למומס שאינו נדיף ברתיחה ולמוצק ממס טהור בקיפאון.",
@@ -8105,9 +9519,17 @@
         "style": "Heading"
        },
        {
+        "text": "Π = i·M·R·T",
         "style": "Normal",
         "layout": "equation",
-        "text": "Π = i·M·R·T"
+        "symbols": [
+         "Π",
+         "i",
+         "M@molarity",
+         "R:gas",
+         "T"
+        ],
+        "notationOf": 13
        },
        {
         "text": "כאשר קרום מאפשר מעבר ממס ולא מומס, קיימת זרימה נטו של ממס מהצד המדולל יותר לצד המרוכז יותר, בהיעדר הפרש לחץ המאזן אותה. הלחץ הנוסף הדרוש בצד התמיסה כדי לעצור זרימה נטו הוא הלחץ האוסמוטי.",
@@ -8120,8 +9542,44 @@
         "enrich": true
        },
        {
-        "text": "לתמיסה מדוללת: Π = i·M·R·T. כאן T בקלווין. שימוש ב-R=0.082057 L·atm/(mol·K) וב-M ב-mol/L נותן Π ב-atm. עבור שני צדדים מדוללים משווים ריכוזי חלקיקים: הפרש הלחצים האוסמוטיים הוא הכוח המניע הרלוונטי.",
+        "text": "לתמיסה מדוללת:",
         "style": "Normal",
+        "enrich": true,
+        "notationOf": 16
+       },
+       {
+        "text": "Π = i·M·R·T",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Π",
+         "i",
+         "M@molarity",
+         "T"
+        ],
+        "notationOf": 16,
+        "enrich": true
+       },
+       {
+        "text": "כאן T בקלווין. שימוש ב:",
+        "style": "Normal",
+        "notationOf": 16,
+        "enrich": true
+       },
+       {
+        "text": "R = {R@latm5}",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R:latm5"
+        ],
+        "notationOf": 16,
+        "enrich": true
+       },
+       {
+        "text": "וב-M ב-mol/L נותן Π ב-atm. עבור שני צדדים מדוללים משווים ריכוזי חלקיקים: הפרש הלחצים האוסמוטיים הוא הכוח המניע הרלוונטי.",
+        "style": "Normal",
+        "notationOf": 16,
         "enrich": true
        },
        {
@@ -8130,12 +9588,110 @@
         "enrich": true
        },
        {
+        "text": "קשר נוסף ללחץ האדים: לממס בלתי דחיס בקירוב ולאדים אידיאליים:",
         "style": "Normal",
-        "text": "קשר נוסף ללחץ האדים: לממס בלתי דחיס בקירוב ולאדים אידיאליים, Π = (R·T/V̄_solvent)·ln(P°/P). כאן V̄_solvent הוא הנפח המולרי החלקי של הממס בקירוב, ויחידותיו חייבות להתאים ל-R וללחץ. בתמיסה מדוללת מתקבל הגבול Π≈iMRT. אין לערבב נפח מולרי עם נפח התמיסה הכולל."
+        "notationOf": 18
        },
        {
-        "text": "אפשר לחלץ מסה מולרית מלחץ אוסמוטי: M_molar = mass·i·R·T/(Π·V_solution). אפשר גם להשתמש בהורדת קיפאון: תחילה m = ΔT_f/(i·K_f), אחר כך n = m·kg_solvent ולבסוף מסה חלקי מולים. הסימן M משמש לעיתים לשני גדלים שונים; תמיד בודקים יחידות.",
+        "text": "Π = (R·T/V̄_solvent)·ln(P°/P)",
         "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Π",
+         "R:gas",
+         "T",
+         "V̄_solvent",
+         "P°",
+         "P#2"
+        ],
+        "notationOf": 18
+       },
+       {
+        "text": "כאן V̄_solvent הוא הנפח המולרי החלקי של הממס בקירוב, ויחידותיו חייבות להתאים ל-R וללחץ. בתמיסה מדוללת מתקבל הגבול:",
+        "style": "Normal",
+        "notationOf": 18
+       },
+       {
+        "text": "Π ≈ iMRT",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Π",
+         "i",
+         "M@molarity",
+         "R:gas",
+         "T"
+        ],
+        "notationOf": 18
+       },
+       {
+        "text": "אין לערבב נפח מולרי עם נפח התמיסה הכולל.",
+        "style": "Normal",
+        "notationOf": 18
+       },
+       {
+        "text": "אפשר לחלץ מסה מולרית מלחץ אוסמוטי:",
+        "style": "Normal",
+        "enrich": true,
+        "notationOf": 19
+       },
+       {
+        "text": "M_molar = mass·i·R·T/(Π·V_solution)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "M_molar",
+         "mass",
+         "i",
+         "R:gas",
+         "T",
+         "Π",
+         "V_solution"
+        ],
+        "notationOf": 19,
+        "enrich": true
+       },
+       {
+        "text": "אפשר גם להשתמש בהורדת קיפאון: תחילה:",
+        "style": "Normal",
+        "notationOf": 19,
+        "enrich": true
+       },
+       {
+        "text": "m = ΔT_f/(i·K_f)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "m@molality",
+         "ΔT_f",
+         "i",
+         "K_f"
+        ],
+        "notationOf": 19,
+        "enrich": true
+       },
+       {
+        "text": "אחר כך:",
+        "style": "Normal",
+        "notationOf": 19,
+        "enrich": true
+       },
+       {
+        "text": "n = m·kg_solvent",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "n#3",
+         "m@molality",
+         "kg_solvent"
+        ],
+        "notationOf": 19,
+        "enrich": true
+       },
+       {
+        "text": "ולבסוף מסה חלקי מולים. הסימן M משמש לעיתים לשני גדלים שונים; תמיד בודקים יחידות.",
+        "style": "Normal",
+        "notationOf": 19,
         "enrich": true
        },
        {
@@ -8154,16 +9710,34 @@
         "finalPrep": true
        },
        {
+        "text": "ΔT_f = K_f·Σ(iⱼnⱼ)/m_solvent(kg)        Π = RT·Σ(iⱼnⱼ)/V_solution(L)",
         "style": "Normal",
-        "text": "ΔT_f = K_f·Σ(iⱼnⱼ)/m_solvent(kg)    Π = RT·Σ(iⱼnⱼ)/V_solution(L)",
+        "layout": "equation",
+        "symbols": [
+         "ΔT_f",
+         "K_f",
+         "Σ(iⱼnⱼ)",
+         "m_solvent(kg)",
+         "Π",
+         "R:gas",
+         "T",
+         "V_solution(L)"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 23
        },
        {
-        "style": "Normal",
         "text": "P_solvent/P° = n_solvent/[n_solvent + Σ(iⱼnⱼ)]",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "P_solvent",
+         "P°",
+         "n_solvent",
+         "Σ(iⱼnⱼ)"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 24
        },
        {
         "style": "Normal",
@@ -8176,15 +9750,57 @@
         "finalPrep": true
        },
        {
+        "text": "אם יחידת מומס אחת מתפרקת ל-ν חלקיקים ושבר α מהיחידות התפרק, אז:",
         "style": "Normal",
-        "text": "אם יחידת מומס אחת מתפרקת ל-ν חלקיקים ושבר α מהיחידות התפרק, אז i = 1 + (ν −1)α. במלח NaHA שכבר התפרק ל-Na⁺ ו-HA⁻ לפני פירוק נוסף של HA⁻, נקודת הפתיחה היא שני חלקיקים: אם שבר α של HA⁻ הופך ל-H⁺ ו-A²⁻, מתקבל i = 2 + α. בודקים מאזן אטומים ומטען, לא רק מספר חלקיקים.",
+        "finalPrep": true,
+        "notationOf": 27
+       },
+       {
+        "text": "i = 1 + (ν − 1)α",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "i",
+         "ν",
+         "α#2"
+        ],
+        "notationOf": 27,
         "finalPrep": true
        },
        {
+        "text": "במלח NaHA שכבר התפרק ל-Na⁺ ו-HA⁻ לפני פירוק נוסף של HA⁻, נקודת הפתיחה היא שני חלקיקים: אם שבר α של HA⁻ הופך ל-H⁺ ו-A²⁻, מתקבל:",
         "style": "Normal",
-        "text": "n(Na⁺)=n₀    n(HA⁻)=(1−α)n₀    n(H⁺)=n(A²⁻)=αn₀",
+        "notationOf": 27,
+        "finalPrep": true
+       },
+       {
+        "text": "i = 2 + α",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "i",
+         "α#3"
+        ],
+        "notationOf": 27,
+        "finalPrep": true
+       },
+       {
+        "text": "בודקים מאזן אטומים ומטען, לא רק מספר חלקיקים.",
+        "style": "Normal",
+        "notationOf": 27,
+        "finalPrep": true
+       },
+       {
+        "text": "n(Na⁺)=n₀        n(HA⁻)=(1−α)n₀        n(H⁺)=n(A²⁻)=αn₀",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "n(Na⁺), n(HA⁻), n(H⁺), n(A²⁻)",
+         "n₀",
+         "α"
+        ],
         "finalPrep": true,
-        "layout": "equation"
+        "notationOf": 28
        },
        {
         "style": "Callout",
@@ -8669,21 +10285,108 @@
         "style": "Heading"
        },
        {
+        "text": "E_b = Δm·c²        E_per_nucleon = E_b/A",
         "style": "Normal",
         "layout": "equation",
-        "text": "E_b = Δm·c²    E_per_nucleon = E_b/A"
+        "symbols": [
+         "E_b#3",
+         "Δm",
+         "c",
+         "E_per_nucleon",
+         "A#3"
+        ],
+        "notationOf": 5
        },
        {
-        "text": "מסת גרעין קשור נמוכה מסכום מסות הנוקלאונים החופשיים. מגדירים פגם מסה חיובי Δm = mass(separated)−mass(bound), ואנרגיית קשר E_b=Δm·c². זוהי האנרגיה הדרושה לפירוק הגרעין; יצירתו משחררת אנרגיה באותו גודל.",
-        "style": "Normal"
+        "text": "מסת גרעין קשור נמוכה מסכום מסות הנוקלאונים החופשיים. מגדירים פגם מסה חיובי:",
+        "style": "Normal",
+        "notationOf": 6
        },
        {
-        "text": "בהצבת מסות אטומיות, נוח להשתמש במסת אטום מימן ניטרלי: Δm = Z·m(¹H)+N·m_n−m(atom), כך שמסות האלקטרונים מתקזזות בקירוב הלימודי. אין לערבב מסת אטום שלם עם מסות פרוטונים בלבד בלי לטפל באלקטרונים.",
-        "style": "Normal"
+        "text": "Δm = mass(separated) − mass(bound)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Δm"
+        ],
+        "notationOf": 6
        },
        {
-        "text": "המרות: 1 eV = 1.602176634×10⁻¹⁹ J; ‏1 MeV = 10⁶ eV; ‏1 u·c² ≈ 931.494 MeV. אנרגיית קשר לנוקלאון היא E_b/A. להשוואת גרעינים בגדלים שונים משתמשים באנרגיה לנוקלאון, לא רק באנרגיית הקשר הכוללת.",
-        "style": "Normal"
+        "text": "ואנרגיית קשר:",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "E_b = Δm·c²",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Δm",
+         "E_b#2",
+         "c"
+        ],
+        "notationOf": 6
+       },
+       {
+        "text": "זוהי האנרגיה הדרושה לפירוק הגרעין; יצירתו משחררת אנרגיה באותו גודל.",
+        "style": "Normal",
+        "notationOf": 6
+       },
+       {
+        "text": "בהצבת מסות אטומיות, נוח להשתמש במסת אטום מימן ניטרלי:",
+        "style": "Normal",
+        "notationOf": 7
+       },
+       {
+        "text": "Δm = Z·m(¹H) + N·m_n − m(atom)",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Z, N",
+         "m(¹H)",
+         "m_n"
+        ],
+        "notationOf": 7
+       },
+       {
+        "text": "כך שמסות האלקטרונים מתקזזות בקירוב הלימודי. אין לערבב מסת אטום שלם עם מסות פרוטונים בלבד בלי לטפל באלקטרונים.",
+        "style": "Normal",
+        "notationOf": 7
+       },
+       {
+        "text": "המרות:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "1 eV = 1.602176634×10⁻¹⁹ J        1 MeV = 10⁶ eV        1 u·c² ≈ 931.494 MeV",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "E_b",
+         "A#2"
+        ],
+        "notationOf": 8
+       },
+       {
+        "text": "אנרגיית קשר לנוקלאון היא:",
+        "style": "Normal",
+        "notationOf": 8
+       },
+       {
+        "text": "E_b/A",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "E_b",
+         "A#2"
+        ],
+        "notationOf": 8
+       },
+       {
+        "text": "להשוואת גרעינים בגדלים שונים משתמשים באנרגיה לנוקלאון, לא רק באנרגיית הקשר הכוללת.",
+        "style": "Normal",
+        "notationOf": 8
        },
        {
         "text": "עקומת אנרגיית הקשר לנוקלאון עולה בגרעינים קלים ומגיעה לאזור שיא סמוך לברזל וניקל, ואז יורדת באיטיות. לכן היתוך גרעינים קלים וביקוע גרעינים כבדים עשויים לשחרר אנרגיה כאשר התוצרים קשורים חזק יותר לנוקלאון. לכל תגובה מסוימת בודקים מאזן מסות, ולא מסיקים שחרור אנרגיה מכל איחוד אפשרי.",
@@ -8721,17 +10424,57 @@
         "style": "Heading"
        },
        {
+        "text": "N(t) = N₀·2^(−t/t½)        t½ = ln2/λ",
         "style": "Normal",
         "layout": "equation",
-        "text": "N(t) = N₀·2^(−t/t½)    t½ = ln2/λ"
+        "symbols": [
+         "N(t)",
+         "N₀",
+         "t#2",
+         "t½",
+         "λ#2"
+        ],
+        "notationOf": 17
        },
        {
         "text": "לנוקליד יחיד בלי אספקה חדשה: N(t)=N₀·e^(−λt)=N₀·(1/2)^(t/t½), כאשר t½=ln2/λ. זמן מחצית החיים אינו הזמן להיעלמות כל החומר. λ נמדד בהופכי זמן, והזמן בנוסחה חייב להיות באותה יחידה.",
         "style": "Normal"
        },
        {
-        "text": "הפעילות, המסומנת כאן R, היא קצב ההתפרקויות: R=λN. יחידתה Bq, התפרקות אחת לשנייה; 1 Ci = 3.7×10¹⁰ Bq. לא מסמנים גם מספר מסה וגם פעילות באותה אות בלי הסבר. דעיכת כל גרעין אקראית, אך בדגימה גדולה הדעיכה הכוללת צפויה סטטיסטית.",
-        "style": "Normal"
+        "text": "הפעילות, המסומנת כאן R, היא קצב ההתפרקויות:",
+        "style": "Normal",
+        "notationOf": 19
+       },
+       {
+        "text": "R = λN",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "R@activity",
+         "λ#2",
+         "N#2"
+        ],
+        "notationOf": 19
+       },
+       {
+        "text": "יחידתה Bq, התפרקות אחת לשנייה:",
+        "style": "Normal",
+        "notationOf": 19
+       },
+       {
+        "text": "1 Ci = 3.7×10¹⁰ Bq",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "Ci",
+         "Bq"
+        ],
+        "notationOf": 19
+       },
+       {
+        "text": "לא מסמנים גם מספר מסה וגם פעילות באותה אות בלי הסבר. דעיכת כל גרעין אקראית, אך בדגימה גדולה הדעיכה הכוללת צפויה סטטיסטית.",
+        "style": "Normal",
+        "notationOf": 19
        },
        {
         "text": "עקומה מחושבת של החלק שנותר: אחרי כל זמן מחצית חיים נשארת מחצית מהכמות הקודמת, לא הפחתה של כמות קבועה.",
@@ -8740,8 +10483,25 @@
         "enrich": true
        },
        {
-        "text": "בתיארוך פחמן־14 משתמשים בזמן מחצית חיים של כ-5730 שנים וביחס פעילות הדגימה לפעילות ההתחלתית המשוערת. לאחר מות האורגניזם אין עוד חילוף פחמן ביולוגי רגיל. לתרגיל: t = ln(R₀/R)/λ. תיארוך אמיתי מחייב כיול, בדיקת זיהום והנחות על המערכת; היחס ההתחלתי אינו קבוע אוניברסלי מדויק לכל תקופה.",
-        "style": "Normal"
+        "text": "בתיארוך פחמן־14 משתמשים בזמן מחצית חיים של כ-5730 שנים וביחס פעילות הדגימה לפעילות ההתחלתית המשוערת. לאחר מות האורגניזם אין עוד חילוף פחמן ביולוגי רגיל. לתרגיל:",
+        "style": "Normal",
+        "notationOf": 21
+       },
+       {
+        "text": "t = ln(R₀/R)/λ",
+        "style": "Normal",
+        "layout": "equation",
+        "symbols": [
+         "t#2",
+         "R₀, R",
+         "λ#2"
+        ],
+        "notationOf": 21
+       },
+       {
+        "text": "תיארוך אמיתי מחייב כיול, בדיקת זיהום והנחות על המערכת; היחס ההתחלתי אינו קבוע אוניברסלי מדויק לכל תקופה.",
+        "style": "Normal",
+        "notationOf": 21
        },
        {
         "text": "ביקוע, היתוך ואנרגיה מבוקרת",

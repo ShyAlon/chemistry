@@ -405,3 +405,33 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .miss-prompt-btn{align-self:flex-start;padding:8px 14px;border-radius:10px;border:1px solid #8a6b3a;background:#241b0c;color:#f0d9ae;font:inherit;font-size:15px;cursor:pointer}
 .miss-prompt-btn:hover{border-color:#f2d049}
 .miss-standalone{margin:0 14px 12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+.formula-tip{position:relative;margin:1.2em 0}.formula-tip>.display-math{margin:0;cursor:help;padding-inline-end:46px}.formula-hint{position:absolute;top:10px;right:14px;font-size:18px;color:#9ce5ee;opacity:.75;pointer-events:none;line-height:1}.formula-tip.open>.display-math{outline:2px solid var(--accent);outline-offset:2px}
+.formula-pop{position:absolute;z-index:30;top:calc(100% + 8px);inset-inline:0;background:#0b1626;border:1px solid #4d7080;border-radius:12px;box-shadow:0 18px 50px #000b,0 0 40px #5bdae71f;padding:18px 22px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility 0s .15s}.formula-tip.open>.formula-pop{opacity:1;visibility:visible;transform:none;transition:opacity .15s,transform .15s}
+.formula-pop-eq{font-size:22px;line-height:1.8;direction:ltr;text-align:left;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #243044;overflow-x:auto;white-space:nowrap}.formula-pop-title{font-size:18px;color:#9ce5ee;margin-bottom:8px}.formula-pop{overflow-y:auto;overscroll-behavior:contain}.formula-tip.above>.formula-pop{top:auto;bottom:calc(100% + 8px)}.formula-pop-head{display:flex;justify-content:space-between;align-items:center;position:sticky;top:-18px;margin:-18px -22px 8px;padding:10px 22px;background:#0b1626;border-bottom:1px solid #243044;z-index:1}.formula-pop-head .formula-pop-title{margin:0}.formula-pop-close{font:inherit;font-size:18px;min-width:44px;min-height:44px;border:1px solid #4d7080;border-radius:10px;background:#162238;color:#fff;cursor:pointer}.formula-pop dl,.formula-print-key dl{margin:0;display:grid;gap:8px}.formula-pop dl>div,.formula-print-key dl>div{display:grid;grid-template-columns:minmax(64px,auto) 1fr;gap:14px;align-items:baseline}.formula-pop dt,.formula-print-key dt{font-size:20px;color:#fff;font-weight:600;direction:ltr;text-align:left}.formula-pop dd,.formula-print-key dd{margin:0;font-size:18px;line-height:1.7;color:#d3dfeb}.formula-pop dt sub,.formula-print-key dt sub{font-size:.8em}
+.formula-print-key{display:none}
+@media(max-width:600px){.formula-pop-eq{font-size:20px}}
+@media(max-width:700px){.formula-pop{position:fixed;inset-inline:8px;top:auto!important;bottom:8px;max-height:min(66vh,560px)!important;z-index:90;padding:14px 16px}.formula-pop-head{top:-14px;margin:-14px -16px 8px;padding:8px 16px}}
+@media print{.formula-pop,.formula-hint{display:none!important}.formula-print-key{display:block;margin:.4em 0 1em;color:#000}.formula-print-key dt,.formula-print-key dd,.formula-print-key .formula-pop-title{color:#000}}
+/* Printing a theory page: plain black on white paper, no site chrome, formulas keep their symbol key. */
+@media print{
+ body:not(:has(.fp-paper-scroll)):has(article.theory){background:#fff!important;color:#000!important}
+ body:has(article.theory) .chat-fab,body:has(article.theory) .chat-panel,body:has(article.theory) .chemistry-backdrop,body:has(article.theory) .header,body:has(article.theory) .site-footer,body:has(article.theory) .tabs,body:has(article.theory) .back,body:has(article.theory) .topic-hero .orbital,body:has(article.theory) .topic-columns aside,body:has(article.theory) .lesson-main>button.primary,body:has(article.theory) .pwa-controls{display:none!important}
+ body:has(article.theory) .app,body:has(article.theory) .topic-page,body:has(article.theory) .topic-columns,body:has(article.theory) .lesson-main{display:block!important;background:#fff!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+ body:has(article.theory) .topic-page{padding:0 14mm!important;box-sizing:border-box!important}
+ body:has(article.theory) .topic-page *{color:#000!important}
+ body:has(article.theory) .topic-hero{display:block!important;min-height:0!important;padding:0!important;margin:0 0 8pt!important}
+ body:has(article.theory) .topic-hero h1{font-size:22pt!important;line-height:1.3!important}
+ body:has(article.theory) .lesson-intro h2{font-size:14pt!important}
+ body:has(article.theory) article.theory{background:#fff!important;border:0!important;box-shadow:none!important;padding:0!important;color:#000!important}
+ body:has(article.theory) article.theory *{color:#000!important;text-shadow:none!important;box-shadow:none!important}
+ body:has(article.theory) .display-math{background:#fff!important;border:.4pt solid #000!important;border-inline-start:2pt solid #000!important;overflow:visible!important;font-size:13pt;padding:6pt 10pt}
+
+ body:has(article.theory) article.theory figure{background:#fff!important;border:.4pt solid #000!important;break-inside:avoid}
+ body:has(article.theory) article.theory figure svg{filter:invert(1) hue-rotate(180deg)}
+ body:has(article.theory) article.theory figure button{display:none!important}
+ body:has(article.theory) .callout{background:#fff!important;border:.4pt solid #000!important}
+ body:has(article.theory) .formula-tip{break-inside:avoid;margin:10pt 0}
+ body:has(article.theory) .formula-print-key{font-size:10.5pt;margin:4pt 0 12pt}
+ body:has(article.theory) .formula-print-key dd,body:has(article.theory) .formula-print-key dt{font-size:10.5pt}
+}

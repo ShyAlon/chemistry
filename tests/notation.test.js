@@ -8,7 +8,7 @@ import {normalizeBidiText} from '../src/bidi.js';
 import {CONSTANTS,formatConstant,formatNumber,resolveConstants} from '../src/constants.js';
 import {SYMBOLS} from '../src/symbol-defs.js';
 import {symbolRow,symbolText} from '../src/symbols.js';
-import {FormulaTip,DisplayMath} from '../src/scientific-text.js';
+import {FormulaTip,DisplayMath,FORMULA_TIP_HOVER_MS} from '../src/scientific-text.js';
 const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
 const gc=catalogue.courses.find(c=>c.id==='84101');
 const hebrew=/[\u0590-\u05ff]/;
@@ -101,6 +101,22 @@ test('formula popup: readable repeated formula, isolated LTR math in symbols, ke
  assert.ok(html.includes('<bdi dir="ltr" class="inline-math">8.314 J/(mol·K)</bdi>'));
  const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
  assert.match(css,/@media print\{\.formula-pop,\.formula-hint\{display:none!important\}\.formula-print-key\{display:block/);
+});
+
+test('formula popup styling: centered rounded trigger, half-second hover delay, second-long fade in, touch-only affordances',()=>{
+ const html=renderToStaticMarkup(React.createElement(FormulaTip,{text:'PV = nRT',symbols:['P','V#2','n','R:gas','T']}));
+ assert.match(html,/class="formula-face"/);
+ assert.match(html,/class="formula-hint" aria-hidden="true">ⓘ<\/span><\/div><\/div><div class="formula-pop"/);
+ assert.equal(FORMULA_TIP_HOVER_MS,500);
+ const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
+ assert.match(css,/\.display-math\{[^}]*width:fit-content/);
+ assert.match(css,/\.display-math\{[^}]*border-radius:12px/);
+ assert.match(css,/\.display-math\{[^}]*margin-inline:auto/);
+ assert.match(css,/\.formula-pop\{[^}]*transition:opacity \.5s ease,visibility 0s \.5s\}/);
+ assert.match(css,/\.formula-tip\.open>\.formula-pop\{opacity:1;visibility:visible;transition:opacity 1s ease\}/);
+ assert.match(css,/@media \(hover:none\)\{\.formula-hint\{display:block\}\.formula-tip \.display-math\{padding-inline-end:46px\}\.formula-pop \.formula-pop-close\{display:block\}\}/);
+ assert.match(css,/\.formula-pop-close\{display:none/);
+ assert.match(css,/\.formula-tip\{position:relative;margin:1\.2em 0\}\.formula-face\{display:flex;justify-content:center\}/);
 });
 
 test('every GC1 theory equation has a symbol key, except one reviewed symbol-free reaction',()=>{

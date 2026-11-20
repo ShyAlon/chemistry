@@ -24,3 +24,21 @@ test('short temperature quantities stay atomic inside a breakable long equation'
  for(const x of ['0.1024°C','100.1024°C','−0.372 °F'])assert.ok(html.includes(`<span class="math-unit">${x}</span>`),html);
  assert.ok(!html.includes('class="math-unit">ΔT'));
 });
+
+test('square roots render as a radical with a barred body, never \u221a followed by brackets',()=>{
+ const html=render(React.createElement(DisplayMath,{text:'u_rms = \u221a(3RT/M)'}));
+ assert.ok(html.includes('class="math-root"'),html);
+ assert.ok(html.includes('<span class="math-root-body">3RT/M</span>'),html);
+ assert.ok(!html.includes('\u221a('),html);
+ const nested=render(React.createElement('span',null,...mathNotation('v = \u221a(8RT/(\u03c0M))')));
+ assert.ok(nested.includes('<span class="math-root-body">8RT/(\u03c0M)</span>'),nested);
+ const subs=render(React.createElement('span',null,...mathNotation('r_A/r_B = \u221a(M_B/M_A)')));
+ assert.ok(subs.includes('<span class="math-root-body">M<sub>B</sub>/M<sub>A</sub></span>'),subs);
+ for(const [bare,body] of [['a = 4r/\u221a3','3'],['1/\u221aM','M'],['\u221a265,000 \u2248 515','265,000']]){
+  const h=render(React.createElement('span',null,...mathNotation(bare)));
+  assert.ok(h.includes(`<span class="math-root-body">${body}</span>`),bare+' -> '+h);
+ }
+ const unbalanced=render(React.createElement('span',null,...mathNotation('\u221a(open')));
+ assert.ok(unbalanced.includes('\u221a(open'),unbalanced);
+ assert.equal(render(React.createElement('span',null,...mathNotation('\u221a'))),'<span>\u221a</span>');
+});

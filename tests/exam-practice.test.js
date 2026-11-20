@@ -6,9 +6,9 @@ import {exam84101,examNote} from '../src/exam-84101.js';
 const jsx=readFileSync(new URL('../src/ExamPractice.jsx',import.meta.url),'utf8');
 const main=readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8');
 
-test('exam practice section: eight multi-part problems wired to a route and a course-map entry',()=>{
- assert.equal(exam84101.length,8);
- assert.deepEqual(exam84101.map(p=>p.id),['E1','E2','E3','E4','E5','E6','E7','E8']);
+test('exam practice section: original eight multi-part problems preserved and additions wired to a route and a course-map entry',()=>{
+ assert.ok(exam84101.length>=8);
+ assert.deepEqual(exam84101.slice(0,8).map(p=>p.id),['E1','E2','E3','E4','E5','E6','E7','E8']);
  assert.ok(examNote.length>50);
  for(const p of exam84101){
   assert.ok(p.title&&p.given&&p.topics,p.id);

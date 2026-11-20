@@ -55,6 +55,12 @@ export function stripMarkdown(text){
 }
 
 export const SUBJECT_CARD_LIMIT=4;
+// Relevance floor for catalogue cards. Observed score distribution on the
+// real catalogue is bimodal: true intent destinations score 13-28 while
+// incidental noise from loosely related terms scores 2.7-5.3. Hits below
+// the floor are dropped, so an uncovered topic yields zero cards and the
+// missing-topic prompt appears instead of noisy non-cards.
+export const MIN_CARD_SCORE=8;
 
 // Structured intent routing, conservative by design (Shy's steering
 // 2026-11-20): ONE model call per learner message returns JSON with a
@@ -97,6 +103,7 @@ export function matchIntentTerms(terms,searchFn){
   const seen=new Set();const cards=[];
   for(const term of terms){
     for(const hit of searchFn(term,{limit:3})){
+      if(typeof hit.score==='number'&&hit.score<MIN_CARD_SCORE)continue;
       if(seen.has(hit.route))continue;
       seen.add(hit.route);
       cards.push({route:hit.route,kind:hit.kind,title:hit.title});

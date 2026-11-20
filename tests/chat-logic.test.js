@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {searchSite} from '../src/search.js';
-import {CHAT_MODELS,CHAT_TIMEOUT_MS,stripMarkdown,SUBJECT_CARD_LIMIT,buildRoutingSystemInstruction,ROUTING_GENERATION_CONFIG,matchIntentTerms,parseRoutingResponse,isRetryable,isQuotaError,modelAfterFailure,buildMissPayload,chatErrorMessage,MISS_QUESTION_MAX} from '../src/chat-logic.js';
+import {CHAT_MODELS,CHAT_TIMEOUT_MS,stripMarkdown,SUBJECT_CARD_LIMIT,MIN_CARD_SCORE,buildRoutingSystemInstruction,ROUTING_GENERATION_CONFIG,matchIntentTerms,parseRoutingResponse,isRetryable,isQuotaError,modelAfterFailure,buildMissPayload,chatErrorMessage,MISS_QUESTION_MAX} from '../src/chat-logic.js';
 
 test('transient failures on the primary route once to the fallback',()=>{
  assert.equal(modelAfterFailure(CHAT_MODELS.primary,{status:500}),CHAT_MODELS.fallback);
@@ -52,7 +52,7 @@ test('quota errors route the learner to site search; others to a plain retry',()
 const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
 // Deterministic matcher: the real local search over the real catalogue, the
 // same path the app wires into parseRoutingResponse.
-const matchTerms=(term,opts)=>searchSite(term,opts);
+const matchTerms=(term,opts)=>searchSite(term,opts); // returns {route,kind,title,score} hits
 
 test('routing instruction demands JSON and plain-text answers, no coverage claims',()=>{
  const instruction=buildRoutingSystemInstruction();
@@ -84,7 +84,9 @@ test('intent terms match one at a time, deduped and capped',()=>{
  assert.ok(r.cards.length<=SUBJECT_CARD_LIMIT);
  assert.equal(new Set(r.cards.map(c=>c.route)).size,r.cards.length,'no duplicate routes');
  const joined=parseRoutingResponse(JSON.stringify({answer:'a',terms:['מסה מולרית','מול','מספר אבוגדרו']}),matchTerms);
- assert.ok(joined.cards.some(c=>c.route.includes('glossary/mole')||c.route==='course/84102/P5'),'mole intent survives extra terms');
+ assert.ok(joined.cards.some(c=>c.route==='course/84101/glossary/molar-mass'),'molar-mass destination kept (29.8)');
+ assert.ok(joined.cards.some(c=>c.route==='course/84101/glossary/avogadro'),'avogadro destination kept (26.9)');
+ assert.ok(joined.cards.every(c=>c.route!=='course/84101/glossary/mole'),'bare "מול" (3.6) stays below the floor');
 });
 
 test('unrelated intent terms produce a grounded miss, never invented cards',()=>{
@@ -92,6 +94,21 @@ test('unrelated intent terms produce a grounded miss, never invented cards',()=>
  assert.ok(r.ok);
  assert.deepEqual(r.cards,[]);
  assert.equal(r.missing,true);
+});
+
+test('noise terms for an uncovered topic stay below the relevance floor (live-observed fixture)',()=>{
+ // Actual terms the model returned live for "פוטוסינתזה" - each weak-matched
+ // catalogue noise (van't Hoff, nuclear binding curve) at scores 2.7-5.3.
+ const r=parseRoutingResponse(JSON.stringify({answer:'a',terms:['פוטוסינתזה','ביוכימיה','אנרגיית השמש','גלוקוז','חמצן']}),matchTerms);
+ assert.deepEqual(r.cards,[],'no card may render from sub-floor noise');
+ assert.equal(r.missing,true,'zero above-floor cards is the grounded miss signal');
+});
+
+test('genuine intent destinations clear the relevance floor',()=>{
+ const r=parseRoutingResponse(JSON.stringify({answer:'a',terms:['לחץ אדים']}),matchTerms);
+ assert.ok(r.cards.some(c=>c.route==='course/84101/G13'),'27-point destination kept');
+ const av=parseRoutingResponse(JSON.stringify({answer:'a',terms:['מספר אבוגדרו']}),matchTerms);
+ assert.ok(av.cards.some(c=>c.route==='course/84101/glossary/avogadro'),'glossary destination kept');
 });
 
 test('code-fenced JSON parses; malformed JSON degrades honestly to ok:false',()=>{

@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CHAT_MODELS,SYSTEM_INSTRUCTION,stripMarkdown,matchSubjects,isMiss,SUBJECT_CARD_LIMIT,isRetryable,isQuotaError,modelAfterFailure,buildMissPayload,chatErrorMessage,MISS_QUESTION_MAX} from '../src/chat-logic.js';
+import {CHAT_MODELS,CHAT_TIMEOUT_MS,SYSTEM_INSTRUCTION,stripMarkdown,matchSubjects,isMiss,SUBJECT_CARD_LIMIT,isRetryable,isQuotaError,modelAfterFailure,buildMissPayload,chatErrorMessage,MISS_QUESTION_MAX} from '../src/chat-logic.js';
 
 test('transient failures on the primary route once to the fallback',()=>{
  assert.equal(modelAfterFailure(CHAT_MODELS.primary,{status:500}),CHAT_MODELS.fallback);
+ assert.equal(modelAfterFailure(CHAT_MODELS.primary,{status:408,message:'chat request timed out'}),CHAT_MODELS.fallback,'a stalled request falls back');
+ assert.equal(CHAT_MODELS.primary,'gemini-3.5-flash-lite','20/day quota makes 3.8-flash untenable as primary (verified live 2026-11-20)');
  assert.equal(modelAfterFailure(CHAT_MODELS.primary,{status:429}),CHAT_MODELS.fallback);
  assert.equal(modelAfterFailure(CHAT_MODELS.primary,{message:'The model is overloaded, try again later'}),CHAT_MODELS.fallback);
 });

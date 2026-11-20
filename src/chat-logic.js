@@ -1,11 +1,19 @@
 // Pure chat helpers: no Firebase imports, hermetically testable.
 import {searchSite} from './search.js';
 
-// Current-gen free-tier models verified live on spectra-chemistry
-// (2026-11-20): 3.8-flash is the primary; on a transient failure the chat
-// retries once on 3.5-flash-lite and SAYS SO in the UI — a silent model
-// fallback is a defect. 2.5-flash is retired for new projects.
-export const CHAT_MODELS={primary:'gemini-3.8-flash',fallback:'gemini-3.5-flash-lite'};
+// Free-tier entitlements VERIFIED LIVE on spectra-chemistry (2026-11-20,
+// not Service Usage ceilings): gemini-3.8-flash is limited to 20 requests
+// per DAY (QuotaFailure GenerateRequestsPerDayPerProjectPerModel-FreeTier,
+// quotaValue 20), which makes it untenable as the primary model.
+// gemini-3.5-flash-lite answers within quota, so it is the primary; on a
+// transient failure the chat retries once on 3.8-flash and SAYS SO in the
+// UI — a silent model fallback is a defect. 2.5-flash is retired for new
+// projects.
+export const CHAT_MODELS={primary:'gemini-3.5-flash-lite',fallback:'gemini-3.8-flash'};
+
+// A stalled generation (observed live: 200 headers, body never streams)
+// must become a retryable failure, not a spinner forever.
+export const CHAT_TIMEOUT_MS=45000;
 
 // The chat is a study companion for THIS site, not an unconstrained
 // tutor: brief plain-text answers, no Markdown, and it never claims what
@@ -24,7 +32,7 @@ export const SYSTEM_INSTRUCTION=[
 export function isRetryable(error){
   const status=error?.status??error?.code??'';
   const message=String(error?.message||'');
-  return [429,500,503].includes(Number(status))
+  return [408,429,500,503].includes(Number(status))
     ||/(overloaded|high demand|unavailable|try again later|RESOURCE_EXHAUSTED|INTERNAL|UNAVAILABLE)/i.test(message);
 }
 

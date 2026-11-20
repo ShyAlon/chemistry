@@ -2,6 +2,7 @@ import {initializeApp} from 'firebase/app';
 import {getAuth} from 'firebase/auth';
 import {getFirestore} from 'firebase/firestore';
 import {getAI,GoogleAIBackend} from 'firebase/ai';
+import {initializeAppCheck,ReCaptchaEnterpriseProvider} from 'firebase/app-check';
 
 // Public web client configuration for spectra-chemistry. Firebase client
 // config is not a secret; access is gated by Auth (authenticated-users
@@ -21,3 +22,9 @@ export const db=getFirestore(app);
 // Gemini Developer API backend: the free-tier provider verified live on
 // this project (authenticated-users mode, no billing).
 export const ai=getAI(app,{backend:new GoogleAIBackend()});
+// App Check with reCAPTCHA Enterprise (score-based, invisible). Tokens are
+// minted in the browser and attached to AI Logic calls automatically.
+// reCAPTCHA Enterprise stays inside its free monthly assessment quota and
+// no billing account exists on the project. Enforcement state is managed
+// deliberately on the project, separately from this client wiring.
+export const appCheck=initializeAppCheck(app,{provider:new ReCaptchaEnterpriseProvider('6LeXQykuAAAAAD3Xw5oDYgdQzc3mA4heOHURVAi5'),isTokenAutoRefreshEnabled:true});

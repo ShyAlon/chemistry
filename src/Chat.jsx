@@ -3,7 +3,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {getGenerativeModel} from 'firebase/ai';
 import {doc,getDoc,setDoc,addDoc,collection,serverTimestamp} from 'firebase/firestore';
 import {ai,db} from './firebase-init.js';
-import {CHAT_MODELS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,SYSTEM_INSTRUCTION,MISS_QUESTION_MAX,stripMarkdown,matchSubjects,isMiss} from './chat-logic.js';
+import {CHAT_MODELS,CHAT_TIMEOUT_MS,modelAfterFailure,isQuotaError,buildMissPayload,chatErrorMessage,SYSTEM_INSTRUCTION,MISS_QUESTION_MAX,stripMarkdown,matchSubjects,isMiss} from './chat-logic.js';
 import {searchSite} from './search.js';
 
 // The learning chat: a study companion for THIS site. Every learner
@@ -94,7 +94,10 @@ export function Chat({user}){
   const attempt=async(name,text)=>{
     const m=getGenerativeModel(ai,{model:name,systemInstruction:SYSTEM_INSTRUCTION});
     const chat=m.startChat({history:model.current.history});
-    const res=await chat.sendMessage(text);
+    // A stalled stream is a retryable failure after CHAT_TIMEOUT_MS, so the
+    // fallback model gets its chance instead of an endless spinner.
+    const timeout=new Promise((_,reject)=>setTimeout(()=>reject(Object.assign(new Error('chat request timed out'),{status:408})),CHAT_TIMEOUT_MS));
+    const res=await Promise.race([chat.sendMessage(text),timeout]);
     return res.response.text();
   };
 

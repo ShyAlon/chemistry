@@ -6,4 +6,4 @@ import {pwaBuild} from './scripts/pwa-build.mjs';
 // accounts or live models. Production builds never set it.
 const testStub=process.env.BROWSER_TEST_STUB==='1';
 const stub=name=>path.resolve('src/test-stubs/'+name);
-export default defineConfig({plugins:[pwaBuild()],base:'/chemistry/',esbuild:{jsxFactory:'bidiElement',jsxFragment:'React.Fragment'},resolve:testStub?{alias:{'firebase/app':stub('firebase-app.js'),'firebase/auth':stub('firebase-auth.js'),'firebase/firestore':stub('firebase-firestore.js'),'firebase/ai':stub('firebase-ai.js')}}:{}});
+export default defineConfig({plugins:[pwaBuild()],base:'/chemistry/',esbuild:{jsxFactory:'bidiElement',jsxFragment:'React.Fragment'},resolve:testStub?{alias:{'firebase/app':stub('firebase-app.js'),'firebase/auth':stub('firebase-auth.js'),'firebase/firestore':stub('firebase-firestore.js'),'firebase/ai':stub('firebase-ai.js'),'firebase/app-check':stub('firebase-app-check.js')}}:{}});

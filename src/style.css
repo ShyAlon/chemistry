@@ -413,3 +413,21 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 @media(max-width:600px){.formula-pop-eq{font-size:20px}}
 @media(max-width:700px){.formula-pop{position:fixed;inset-inline:8px;top:auto!important;bottom:8px;max-height:min(66vh,560px)!important;z-index:90;padding:14px 16px}.formula-pop-head{top:-14px;margin:-14px -16px 8px;padding:8px 16px}}
 @media print{.formula-pop,.formula-hint{display:none!important}.formula-print-key{display:block;margin:.4em 0 1em;color:#000}.formula-print-key dt,.formula-print-key dd,.formula-print-key .formula-pop-title{color:#000}}
+/* Printing a theory page: plain black on white paper, no site chrome, formulas keep their symbol key. */
+@media print{
+ body:not(:has(.fp-paper-scroll)):has(article.theory){background:#fff!important;color:#000!important}
+ body:has(article.theory) .chat-fab,body:has(article.theory) .chat-panel,body:has(article.theory) .chemistry-backdrop,body:has(article.theory) .header,body:has(article.theory) .site-footer,body:has(article.theory) .tabs,body:has(article.theory) .back,body:has(article.theory) .topic-hero .orbital,body:has(article.theory) .topic-columns aside,body:has(article.theory) .lesson-main>button.primary,body:has(article.theory) .pwa-controls{display:none!important}
+ body:has(article.theory) .app,body:has(article.theory) .topic-page,body:has(article.theory) .topic-columns,body:has(article.theory) .lesson-main{display:block!important;background:#fff!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+ body:has(article.theory) .topic-page{padding:0 14mm!important;box-sizing:border-box!important}
+ body:has(article.theory) .topic-page *{color:#000!important}
+ body:has(article.theory) .topic-hero{display:block!important;min-height:0!important;padding:0!important;margin:0 0 8pt!important}
+ body:has(article.theory) .topic-hero h1{font-size:22pt!important;line-height:1.3!important}
+ body:has(article.theory) .lesson-intro h2{font-size:14pt!important}
+ body:has(article.theory) article.theory{background:#fff!important;border:0!important;box-shadow:none!important;padding:0!important;color:#000!important}
+ body:has(article.theory) article.theory *{color:#000!important;text-shadow:none!important;box-shadow:none!important}
+ body:has(article.theory) .display-math{background:#fff!important;border:.4pt solid #000!important;border-inline-start:2pt solid #000!important;overflow:visible!important;font-size:13pt;padding:6pt 10pt}
+ body:has(article.theory) .callout{background:#fff!important;border:.4pt solid #000!important}
+ body:has(article.theory) .formula-tip{break-inside:avoid;margin:10pt 0}
+ body:has(article.theory) .formula-print-key{font-size:10.5pt;margin:4pt 0 12pt}
+ body:has(article.theory) .formula-print-key dd,body:has(article.theory) .formula-print-key dt{font-size:10.5pt}
+}

@@ -78,10 +78,13 @@ function Topic({course,topic:t,state,record,reset,onHome,onNext}){const [tab,set
    frame=null;const aside=grid.querySelector(':scope>aside');if(!aside)return;
    if(!wide.matches){grid.style.setProperty('--aside-collapse','0');grid.style.setProperty('--aside-shrink','0');grid.classList.remove('aside-collapsed');return}
    const header=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chrome-header'))||84;
-   const start=aside.getBoundingClientRect().top+scrollY-(header+16);
-   const p=Math.max(0,Math.min(1,(scrollY-start)/Math.max(aside.offsetHeight,160)));
+   // Geometry must not depend on the collapse state: a collapsed (zero-width) aside reports a different height, which would shift progress and flip the state back. Start comes from the grid top; the aside height is measured only while the column is open.
+   const open=!grid.classList.contains('aside-collapsed');if(open||!grid._asideH)grid._asideH=aside.offsetHeight;
+   const start=grid.getBoundingClientRect().top+scrollY-(header+16);
+   const p=Math.max(0,Math.min(1,(scrollY-start)/Math.max(grid._asideH,160)));
    const shrink=reduced.matches?0:Math.min(1,p/.45);
-   const collapse=reduced.matches?(p>=1?1:0):Math.max(0,Math.min(1,(p-.35)/.65));
+   // Layout is never scrubbed: width changes reflow the lesson text, so the column drops out in one step once the card is fully faded, with a hysteresis band so scroll-anchoring nudges cannot flip it back and forth.
+   const was=grid.classList.contains('aside-collapsed');const collapse=reduced.matches?(p>=1?1:0):(was?(p<.45?0:1):(p>=.55?1:0));
    grid.style.setProperty('--aside-shrink',String(shrink));grid.style.setProperty('--aside-collapse',String(collapse));grid.classList.toggle('aside-collapsed',collapse>=1);
   };
   const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)};

@@ -127,3 +127,19 @@ test('glossary values for R, k and Nₐ follow the central constants',async()=>{
  assert.ok(e('avogadro').includes(formatConstant('Nₐ')));
  assert.ok(e('mole').includes('6.022×10²³'));
 });
+
+test('shared display references (formula sheet, prose placeholders, search) come from constants.js',async()=>{
+ const {constants}=await import('../src/reference-formulas.js');
+ const row=l=>constants.find(r=>r[0]===l)[1];
+ assert.equal(row('מספר אבוגדרו'),'Nₐ = '+formatConstant('Nₐ'));
+ assert.equal(row('קבוע הגזים'),'R = '+formatConstant('R@sheet')+' ; R = '+formatConstant('R'));
+ assert.equal(resolveConstants('{Nₐ@count}'),'6.022×10²³');
+ const main=readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8');
+ assert.ok(main.includes('resolveConstants(text)'),'Rich text resolves placeholders');
+ const search=readFileSync(new URL('../src/search.js',import.meta.url),'utf8');
+ assert.ok(search.includes("map(p=>resolveConstants(p.text||''))"),'search indexes resolved text');
+ const mole=gc.topics.find(t=>t.id==='G2').content.theory.find(b=>b.text.includes('{Nₐ@count}'));
+ assert.ok(mole&&!/6\.022/.test(mole.text));
+ const grah=gc.topics.find(t=>t.id==='G10').content.theory.find(b=>b.text.includes('R={R}'));
+ assert.ok(grah&&!/8\.314/.test(grah.text));
+});

@@ -10,7 +10,7 @@ export const CONSTANTS={
   latm:{value:0.082057366,unit:'L·atm/(mol·K)',digits:4},
   latm5:{value:0.082057366,unit:'L·atm/(mol·K)',digits:5},
   sheet:{value:0.082,unit:'L·atm/(mol·K)',digits:2,note:'הערך שבדף הבוחן'}}},
- 'Nₐ':{he:'קבוע אבוגדרו',value:6.02214076e23,unit:'mol⁻¹',digits:4,variants:{}},
+ 'Nₐ':{he:'קבוע אבוגדרו',value:6.02214076e23,unit:'mol⁻¹',digits:4,variants:{count:{value:6.02214076e23,unit:'',digits:4,note:'המספר בלבד, כשהמשפט כבר מציין חלקיקים'}}},
  k:{he:'קבוע בולצמן',value:1.380649e-23,unit:'J/K',digits:4,variants:{}},
 };
 const sup={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
@@ -23,7 +23,7 @@ export function formatNumber(value,digits){
 export function formatConstant(ref){
  const [id,variant]=ref.split('@');const c=CONSTANTS[id];if(!c)throw new Error('unknown constant '+ref);
  const v=variant?c.variants[variant]:c;if(!v)throw new Error('unknown constant variant '+ref);
- return formatNumber(v.value,v.digits)+' '+v.unit;
+ return (formatNumber(v.value,v.digits)+' '+v.unit).trim();
 }
 // Replace {R@latm}-style references in authored equation text.
 export function resolveConstants(text){return String(text).replace(/\{([^{}]+)\}/g,(m,ref)=>{const [id,v]=ref.split('@');const c=CONSTANTS[id];return c&&(!v||c.variants[v])?formatConstant(ref):m})}

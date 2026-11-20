@@ -17,6 +17,7 @@ import {bidiElement} from './bidi-react.js';
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
 import catalogue from './courses.json';
+import {resolveConstants} from './constants.js';
 import {wavelengthColor,numericCorrect,parseNumber,loadProgress,configuration,courseProgressKey,loadCourseProgress,parseRoute,clearAllProgress} from './logic.js';
 import './style.css';
 import {orbitalFor} from './orbitals.js';
@@ -28,7 +29,7 @@ import {SourceTooltip} from './SourceTooltip.jsx';
 import {SearchBox} from './SearchBox.jsx';
 const courses=catalogue.courses.filter(c=>c.topics?.length).map(c=>({...c,topics:c.topics.map(t=>({...t,...t.content,color:`color-mix(in srgb, ${wavelengthColor(t.spectrum.accentWave)} 65%, white)`,wave:t.spectrum.accentWave}))}));
 const readRoute=()=>decodeURIComponent(location.hash.slice(1));
-function Rich({text,runs}){return runs?<ScientificText runs={runs}/>:<>{text}</>}
+function Rich({text,runs}){return runs?<ScientificText runs={runs}/>:<>{resolveConstants(text)}</>}
 
 function Spectrum({topic,large=false}){return <div className={'spectrum '+(large?'large':'')} aria-label={'קווי פליטה של '+topic.spectrum.name}><span className="spectrum-baseline"/>{topic.spectrum.lines.map((w,i)=><i key={w} title={w+' nm'} style={{left:`${6+(w-400)/300*88}%`,background:wavelengthColor(w),color:wavelengthColor(w),height:large?`${35+(i%3)*23}%`:undefined}}/>)}</div>}
 function Atom({topics,progress,onSelect}){const complete=topics.filter(t=>progress[t.id]?.complete).length;

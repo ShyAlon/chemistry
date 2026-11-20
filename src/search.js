@@ -95,7 +95,7 @@ function collectDocs(){
     title:topic.name,
     head:[topic.id,topic.title||'',...(content.theory||[]).filter(p=>p.style==='Heading').map(p=>p.text||'')],
     body:[
-     ...(content.theory||[]).filter(p=>p.style!=='Heading').map(p=>p.layout==='equation'?resolveConstants(p.text||''):p.text||''),
+     ...(content.theory||[]).filter(p=>p.style!=='Heading').map(p=>resolveConstants(p.text||'')),
      ...(content.worked||[]).flatMap(w=>[w.title||'',...(w.content||[])]),
      ...(content.quiz||[]).flatMap(q=>[q.prompt||'',...(q.options||[]),q.answer||'']),
     ],

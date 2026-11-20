@@ -1,6 +1,7 @@
 // Reference formula sheet, organised by course and topic. Derived summaries of
 // the relations used in the lessons; no lesson text or quiz content is copied.
 // Each item: [Hebrew label, formula (read left to right), optional short note].
+import {formatConstant} from './constants.js';
 export const constants=[
  ['קבוע פלאנק','h = 6.626×10⁻³⁴ J·s'],
  ['מהירות האור','c = 2.9979×10⁸ m/s'],
@@ -12,8 +13,8 @@ export const constants=[
  ['רדיוס בוהר','a₀ = 52.9 pm ; a₀ = 0.529 Å'],
  ['אלקטרון־וולט','1 eV = 1.602×10⁻¹⁹ J'],
  ['קלוריה','1 cal = 4.184 J'],
- ['מספר אבוגדרו','Nₐ = 6.022×10²³ mol⁻¹'],
- ['קבוע הגזים','R = 0.082 L·atm/(mol·K) ; R = 8.314 J/(mol·K)'],
+ ['מספר אבוגדרו',`Nₐ = ${formatConstant('Nₐ')}`],
+ ['קבוע הגזים',`R = ${formatConstant('R@sheet')} ; R = ${formatConstant('R')}`],
  ['לחץ','1 atm = 101.33 kPa ; 1 atm = 760 mmHg'],
  ['טמפרטורה','T(K) = t(°C) + 273.15'],
 ];

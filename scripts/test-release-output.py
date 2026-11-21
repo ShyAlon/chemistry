@@ -47,13 +47,22 @@ class ReleaseTests(unittest.TestCase):
  def test_prepare_expired_artifact(self):self.run_prepare('expired')
  def test_prepare_bad_artifact_digest(self):self.run_prepare('digest')
  def test_prepare_manifest_tree_tamper(self):self.run_prepare('tree')
+ def test_prepare_rejects_old_pr_event(self):self.run_prepare('event')
+ def test_prepare_rejects_nonmain_ref(self):self.run_prepare('ref')
+ def test_prepare_rejects_stale_push(self):self.run_prepare('stale')
+ def test_prepare_rejects_direct_push(self):self.run_prepare('direct')
+ def test_prepare_rejects_ambiguous_pr(self):self.run_prepare('ambiguous')
+ def test_prepare_rejects_unmerged_pr(self):self.run_prepare('unmerged')
+ def test_prepare_rejects_wrong_merge_commit(self):self.run_prepare('merge')
+ def test_prepare_rejects_crossrepo_pr(self):self.run_prepare('fork')
  def run_prepare(self,bad=None):
   root='/repos/ShyAlon/chemistry';inner=release(meta={'tree':'evil'} if bad=='tree' else None);outer=zbytes({'release.zip':inner})
   run={'id':9,'status':'completed','conclusion':'failure' if bad=='failed' else 'success','path':'.github/workflows/pages.yml','repository':{'full_name':'other' if bad=='repo' else 'ShyAlon/chemistry'},'event':'pull_request','head_sha':'new' if bad=='head' else 'head'}
   def fake(path,raw=False):
-   if path==root+'/commits/main':return {'sha':'m'*40,'commit':{'tree':{'sha':'changed' if bad=='main' else 'tree'}}}
-   if path==root+'/pulls/46':return {'number':46,'merged':True,'base':{'ref':'main','sha':'base'},'head':{'sha':'head','repo':{'full_name':'ShyAlon/chemistry'}},'merge_commit_sha':'m'*40}
-   if path==root+'/commits/'+'m'*40:return {'commit':{'tree':{'sha':'tree'}}}
+   if path==root+'/commits/main':return {'sha':'e'*40,'commit':{'tree':{'sha':'changed' if bad=='main' else 'tree'}}}
+   if path==root+'/commits/'+'e'*40+'/pulls?per_page=100':return [] if bad=='direct' else [{'number':46,'merged_at':'2026-11-21T12:45:37Z','merge_commit_sha':'e'*40,'base':{'ref':'main'}}]*(2 if bad=='ambiguous' else 1)
+   if path==root+'/pulls/46':return {'number':46,'merged':bad!='unmerged','base':{'ref':'main','sha':'base'},'head':{'sha':'head','repo':{'full_name':'other/repo' if bad=='fork' else 'ShyAlon/chemistry'}},'merge_commit_sha':('f' if bad=='merge' else 'e')*40}
+   if path==root+'/commits/'+'e'*40:return {'commit':{'tree':{'sha':'tree'}}}
    if path==root+'/actions/runs?per_page=50':return {'workflow_runs':[run]}
    if path==root+'/actions/runs/9/artifacts':return {'artifacts':[{'id':8,'name':'tested-release','expired':bad=='expired','size_in_bytes':len(outer),'digest':'sha256:'+('bad' if bad=='digest' else r.sha(outer))}]}
    if path==root+'/actions/artifacts/8/zip':return outer
@@ -61,10 +70,11 @@ class ReleaseTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as t:
    old=os.getcwd();os.chdir(t)
    try:
-    Path('event.json').write_text(json.dumps({'pull_request':{'number':46}}))
-    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':''}),patch.object(r,'api',side_effect=fake):
+    Path('event.json').write_text(json.dumps({'ref':'refs/heads/other' if bad=='ref' else 'refs/heads/main','after':('f' if bad=='stale' else 'e')*40}))
+    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':'','GITHUB_EVENT_NAME':'pull_request' if bad=='event' else 'push'}),patch.object(r,'api',side_effect=fake):
      if bad:
-      with self.assertRaises(r.Stop):r.prepare()
+      reason={'main':'main moved after merge','event':'promotion requires main push','ref':'promotion requires main push','stale':'main moved after push','direct':'push must identify exactly one merged PR','ambiguous':'push must identify exactly one merged PR','unmerged':'PR not merged from same repository','merge':'PR not merged from same repository','fork':'PR not merged from same repository','digest':'artifact API digest mismatch','tree':'candidate metadata mismatch: tree'}.get(bad,'no successful matching retained candidate')
+      with self.assertRaisesRegex(r.Stop,reason):r.prepare()
       self.assertFalse(Path('verified-dist').exists())
      else:
       r.prepare();self.assertEqual((Path('verified-dist')/'assets/a.js').read_bytes(),F['assets/a.js'])

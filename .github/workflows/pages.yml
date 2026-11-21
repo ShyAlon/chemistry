@@ -3,7 +3,9 @@ name: Test, build and deploy chemistry
 on:
   pull_request:
     branches: [main]
-    types: [opened, reopened, ready_for_review, closed]
+    types: [opened, reopened, ready_for_review]
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       operation:
@@ -61,7 +63,7 @@ jobs:
   deploy:
     if: >-
       always() &&
-      ((github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged) ||
+      ((github.event_name == 'push' && github.ref == 'refs/heads/main') ||
        (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && (inputs.operation == 'restore' || inputs.operation == 'restore-snapshot')))
     needs: build
     runs-on: ubuntu-latest
@@ -72,6 +74,7 @@ jobs:
     permissions:
       contents: read
       actions: read
+      pull-requests: read
       pages: write
       id-token: write
     environment:

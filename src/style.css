@@ -437,11 +437,8 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 }
 /* Per-topic formulas tab */
 .topic-formulas{padding:24px 26px;margin-bottom:22px}
-.formula-key-toggle{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;padding:6px 14px;border:1px solid #33465e;border-radius:9px;background:#0c1626;color:#9cc7d6;font-size:17px}
-.formula-key-toggle:hover{border-color:#6f94a8;color:#d6f2f8}
-.formula-key-inline{margin-top:10px;padding:14px 18px;border:1px solid #2b3d55;border-radius:10px;background:#0a1322}
-.formula-key-inline dl{margin:0;display:grid;gap:8px}
-.formula-key-inline dl>div{display:grid;grid-template-columns:minmax(64px,auto) 1fr;gap:14px;align-items:baseline}
-.formula-key-inline dt{font-size:20px;color:#fff;font-weight:600;direction:ltr;text-align:left}
-.formula-key-inline dd{margin:0;font-size:18px;line-height:1.7;color:#d3dfeb}
-.formula-key-inline dt sub{font-size:.8em}
+.topic-formulas .formula-tip{margin:.6em 0}
+.display-math[dir=rtl]{direction:rtl;text-align:right}
+.formula-pop-eq[dir=rtl]{direction:rtl;text-align:right}
+.topic-formulas .formula-tip+.formula-tip{margin-top:-.2em}
+.topic-formulas .display-math{margin-block:.4em}

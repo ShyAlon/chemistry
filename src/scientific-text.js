@@ -9,7 +9,10 @@ export function Definition({definition}){return React.createElement('div',{class
  React.createElement('p',null,React.createElement(ScientificText,{runs:definition.intro})),
  React.createElement('p',null,React.createElement(ScientificText,{runs:definition.range})),
  React.createElement('dl',{className:'math-definitions'},...definition.mappings.map(([term,value])=>React.createElement('div',{key:term},React.createElement('dt',null,React.createElement('bdi',{dir:'ltr'},term)),React.createElement('dd',null,React.createElement('bdi',{dir:'ltr'},value))))));}
-export function DisplayMath({text}){return React.createElement('div',{className:'display-math',dir:'ltr',tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathNotation(line))));}
+// Equations are LTR; items that mix Hebrew prose (sheet alternatives like
+// 'כליאה ∝ 1/R²') need an RTL paragraph direction to read in the right order.
+const mathDir=text=>/[\u0590-\u05ff]/.test(text)?'rtl':'ltr';
+export function DisplayMath({text}){return React.createElement('div',{className:'display-math',dir:mathDir(text),tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathNotation(line))));}
 
 // A formula with a symbol popup. The trigger is the formula itself: hovering it
 // (mouse) for half a second opens the popup, keyboard focus opens it at once and
@@ -45,7 +48,7 @@ export function FormulaTip({text,symbols}){
   onFocus:()=>{cancel();setOpen(true)},onBlur:e=>{if(!e.currentTarget.contains(e.relatedTarget))setOpen(false)},
   onKeyDown:e=>{if(e.key==='Escape'){cancel();setOpen(false);face.current&&face.current.focus()}}},
   React.createElement('div',{className:'formula-face'},
-   React.createElement('div',{ref:face,className:'display-math',dir:'ltr',tabIndex:0,'aria-describedby':id,'aria-label':'נוסחה, עם הסבר לסמלים',
+   React.createElement('div',{ref:face,className:'display-math',dir:mathDir(text),tabIndex:0,'aria-describedby':id,'aria-label':'נוסחה, עם הסבר לסמלים',
     onPointerEnter:e=>{if(e.pointerType==='mouse')scheduleOpen()},onPointerLeave:e=>{if(e.pointerType==='mouse')scheduleClose()},
     onPointerDown:e=>{touch.current=e.pointerType==='mouse'?null:{wasOpen:open}},
     onClick:()=>{if(touch.current){const w=touch.current.wasOpen;touch.current=null;cancel();setOpen(!w)}}},
@@ -54,7 +57,7 @@ export function FormulaTip({text,symbols}){
   React.createElement('div',{ref:pop,className:'formula-pop',id,role:'tooltip',style:place&&!place.above?{maxHeight:place.max}:place?{maxHeight:place.max}:undefined,
    onPointerEnter:e=>{if(e.pointerType==='mouse')cancel()},onPointerLeave:e=>{if(e.pointerType==='mouse')scheduleClose()}},
    React.createElement('div',{className:'formula-pop-head'},React.createElement('div',{className:'formula-pop-title'},'מקרא סמלים'),React.createElement('button',{type:'button',className:'formula-pop-close','aria-label':'סגירת המקרא',onClick:e=>{e.stopPropagation();touch.current=null;cancel();setOpen(false);face.current&&face.current.focus()}},'✕')),
-   React.createElement('div',{className:'formula-pop-eq',dir:'ltr'},...lines()),
+   React.createElement('div',{className:'formula-pop-eq',dir:mathDir(text)},...lines()),
    React.createElement(SymbolList,{rows})),
   React.createElement('div',{className:'formula-print-key'},React.createElement('div',{className:'formula-pop-title'},'מקרא סמלים'),React.createElement(SymbolList,{rows})));
 }

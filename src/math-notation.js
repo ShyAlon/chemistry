@@ -4,6 +4,10 @@ import React from 'react';
 // A short temperature quantity is atomic even inside a longer, breakable relation.
 function quantities(text){return text.split(/([+−-]?\d+(?:\.\d+)?[ \u00a0]?°[CF])/g).map((part,i)=>i%2?React.createElement('span',{key:i,className:'math-unit'},part):part)}
 function subscripts(part){return part.split(/(_(?:\{[A-Za-z0-9]+\}|[A-Za-z0-9]+))/g).map((p,i)=>i%2?React.createElement('sub',{key:i},p.slice(1).replace(/[{}]/g,'')):quantities(p))}
+// Caret exponents mirror subscripts: ^(…), ^{…} or a bare short token render as a
+// superscript. Authored strings keep the caret; only rendering changes, so theory
+// equations and formula-sheet items share the same scientific output.
+function superscripts(part){return part.split(/(\^(?:\([^()]*\)|\{[^{}]*\}|[A-Za-z0-9.,]+))/g).map((p,i)=>i%2?React.createElement('sup',{key:i},...subscripts(p.slice(1).replace(/^\(|\)$|^\{|\}$/g,''))):subscripts(p))}
 // A square root reads as a radical with a bar (vinculum) over its body, not as
 // √ followed by brackets: √(3RT/M) renders 3RT/M under the bar and the authored
 // parentheses disappear. Parentheses are balanced, so nested bodies such as
@@ -15,8 +19,8 @@ function roots(text){
  const out=[];let rest=text,n=0;
  for(;;){
   const j=rest.indexOf('√');
-  if(j<0){out.push(subscripts(rest));break}
-  out.push(subscripts(rest.slice(0,j)));
+  if(j<0){out.push(superscripts(rest));break}
+  out.push(superscripts(rest.slice(0,j)));
   const after=rest.slice(j+1);
   if(after[0]==='('){
    let depth=0,close=-1;

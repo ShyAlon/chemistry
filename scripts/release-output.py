@@ -101,11 +101,15 @@ def prepare():
         candidates=[api(root+'/actions/runs/'+run_id)]
         pr=None
     else:
-        number=event.get('pull_request',{}).get('number')
-        require(isinstance(number,int),'missing PR')
-        pr=api(root+'/pulls/'+str(number))
-        require(pr['merged'] and pr['base']['ref']=='main' and pr['head']['repo']['full_name']==repo,'PR not merged from same repository')
-        commit=pr['merge_commit_sha'];source=api(root+'/commits/'+commit)
+        require(os.environ.get('GITHUB_EVENT_NAME')=='push' and event.get('ref')=='refs/heads/main','promotion requires main push')
+        commit=event.get('after','')
+        require(re.fullmatch(r'[0-9a-f]{40}',commit) and main['sha']==commit,'main moved after push')
+        associated=api(root+'/commits/'+commit+'/pulls?per_page=100')
+        matches=[p for p in associated if p.get('merged_at') and p.get('merge_commit_sha')==commit and p.get('base',{}).get('ref')=='main']
+        require(len(matches)==1,'push must identify exactly one merged PR')
+        pr=api(root+'/pulls/'+str(matches[0]['number']))
+        require(pr['merged'] and pr['merge_commit_sha']==commit and pr['base']['ref']=='main' and pr['head']['repo']['full_name']==repo,'PR not merged from same repository at pushed commit')
+        source=api(root+'/commits/'+commit)
         require(main['commit']['tree']['sha']==source['commit']['tree']['sha'],'main moved after merge')
         # Bounded discovery, fail closed if the exact run is not in this page.
         candidates=api(root+'/actions/runs?per_page=50')['workflow_runs']

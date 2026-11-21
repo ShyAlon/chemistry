@@ -5,9 +5,26 @@ import React from 'react';
 function quantities(text){return text.split(/([+−-]?\d+(?:\.\d+)?[ \u00a0]?°[CF])/g).map((part,i)=>i%2?React.createElement('span',{key:i,className:'math-unit'},part):part)}
 function subscripts(part){return part.split(/(_(?:\{[A-Za-z0-9]+\}|[A-Za-z0-9]+))/g).map((p,i)=>i%2?React.createElement('sub',{key:i},p.slice(1).replace(/[{}]/g,'')):quantities(p))}
 // Caret exponents mirror subscripts: ^(…), ^{…} or a bare short token render as a
-// superscript. Authored strings keep the caret; only rendering changes, so theory
-// equations and formula-sheet items share the same scientific output.
-function superscripts(part){return part.split(/(\^(?:\([^()]*\)|\{[^{}]*\}|[A-Za-z0-9.,]+))/g).map((p,i)=>i%2?React.createElement('sup',{key:i},...subscripts(p.slice(1).replace(/^\(|\)$|^\{|\}$/g,''))):subscripts(p))}
+// superscript. Parenthesized bodies are balanced, so nested bodies stay whole; an
+// unbalanced ^ keeps its literal glyph. Authored strings keep the caret; only
+// rendering changes, so theory equations and formula-sheet items share output.
+function superscripts(part){
+ const out=[];let rest=part,n=0;
+ for(;;){
+  const j=rest.indexOf('^');
+  if(j<0){out.push(subscripts(rest));break}
+  out.push(subscripts(rest.slice(0,j)));
+  const after=rest.slice(j+1);
+  let body=null,consumed=0;
+  if(after[0]==='('){let depth=0,close=-1;for(let i=0;i<after.length;i++){const c=after[i];if(c==='(')depth++;else if(c===')'&&!--depth){close=i;break}}if(close>0){body=after.slice(1,close);consumed=close+1}}
+  else if(after[0]==='{'){const close=after.indexOf('}');if(close>0){body=after.slice(1,close);consumed=close+1}}
+  else{const m=after.match(/^[A-Za-z0-9.,]+/);if(m){body=m[0];consumed=m[0].length}}
+  if(body===null){out.push('^');rest=after;continue}
+  out.push(React.createElement('sup',{key:'s'+(n++)},...subscripts(body)));
+  rest=after.slice(consumed);
+ }
+ return out;
+}
 // A square root reads as a radical with a bar (vinculum) over its body, not as
 // √ followed by brackets: √(3RT/M) renders 3RT/M under the bar and the authored
 // parentheses disappear. Parentheses are balanced, so nested bodies such as

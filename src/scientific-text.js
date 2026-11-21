@@ -2,6 +2,7 @@ import React from 'react';
 import {mathNotation} from './math-notation.js';
 import {bidiElement} from './bidi-react.js';
 import {resolveConstants,symbolRows} from './symbols.js';
+import {normalizeBidiText} from './bidi.js';
 // Optional, explicit authored runs. Source strings stay intact for searching,
 // provenance, answers and storage. No HTML parsing or DOM rewriting.
 export function ScientificText({runs}){return React.createElement(React.Fragment,null,...runs.map((run,i)=>typeof run==='string'?bidiElement(React.Fragment,{key:i},run):run.keep?React.createElement('span',{key:i,className:'math-unit'},React.createElement(ScientificText,{runs:run.keep})):React.createElement('bdi',{key:i,dir:run.dir||'ltr',className:'inline-math'},...mathNotation(run.math))));}
@@ -10,9 +11,11 @@ export function Definition({definition}){return React.createElement('div',{class
  React.createElement('p',null,React.createElement(ScientificText,{runs:definition.range})),
  React.createElement('dl',{className:'math-definitions'},...definition.mappings.map(([term,value])=>React.createElement('div',{key:term},React.createElement('dt',null,React.createElement('bdi',{dir:'ltr'},term)),React.createElement('dd',null,React.createElement('bdi',{dir:'ltr'},value))))));}
 // Equations are LTR; items that mix Hebrew prose (sheet alternatives like
-// 'כליאה ∝ 1/R²') need an RTL paragraph direction to read in the right order.
+// 'כליאה ∝ 1/R²') get an RTL paragraph direction, with each math run LTR-isolated
+// by normalizeBidiText so reciprocals and operators keep their order and meaning.
 const mathDir=text=>/[\u0590-\u05ff]/.test(text)?'rtl':'ltr';
-export function DisplayMath({text}){return React.createElement('div',{className:'display-math',dir:mathDir(text),tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathNotation(line))));}
+const mathLine=line=>/[\u0590-\u05ff]/.test(line)?mathNotation(normalizeBidiText(line)):mathNotation(line);
+export function DisplayMath({text}){return React.createElement('div',{className:'display-math',dir:mathDir(text),tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathLine(line))));}
 
 // A formula with a symbol popup. The trigger is the formula itself: hovering it
 // (mouse) for half a second opens the popup, keyboard focus opens it at once and
@@ -43,7 +46,7 @@ export function FormulaTip({text,symbols}){
   const away=e=>{if(tip.current&&!tip.current.contains(e.target)){cancel();setOpen(false)}};
   document.addEventListener('pointerdown',away);return()=>document.removeEventListener('pointerdown',away);
  },[open]);
- const lines=()=>resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathNotation(line)));
+ const lines=()=>resolveConstants(text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathLine(line)));
  return React.createElement('div',{ref:tip,className:'formula-tip'+(open?' open':'')+(place?.above?' above':''),
   onFocus:()=>{cancel();setOpen(true)},onBlur:e=>{if(!e.currentTarget.contains(e.relatedTarget))setOpen(false)},
   onKeyDown:e=>{if(e.key==='Escape'){cancel();setOpen(false);face.current&&face.current.focus()}}},

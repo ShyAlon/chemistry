@@ -20,7 +20,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
-  for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep);
+  for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep&&!b.batch4);
  }
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'27cb2127dfcef0b4b3a757c9e93313f33fd90c0b70af410b9a3d8622007ce21b');
  assert.equal(course.topics.length,16);

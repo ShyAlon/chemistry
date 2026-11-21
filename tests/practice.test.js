@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {beforePractice,beforeVanadium,corrections} from './practice-baseline.js';
 import {numericCorrect,loadCourseProgress,courseProgressKey} from '../src/logic.js';
+import {symbolRows} from '../src/symbols.js';
 const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
 const general=data.courses.find(c=>c.id==='84101');
 const t=id=>general.topics.find(t=>t.id===id);
@@ -56,6 +57,25 @@ test('displayed compact Maxwell expression retains pi in its exponent',()=>{
  const text=t('G10').content.theory.find(b=>b.batch2&&b.text?.startsWith('A =')).text;
  assert.ok(text.includes('A = M/(2πRT)'));assert.ok(text.includes('exp(−πAv²)'));const sheet=readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8');assert.ok(sheet.includes('B = 4πA√A ; f(v)=Bv²·exp(−πAv²)'));
  for(const [v,M,T] of [[410,.028,300],[120,.017,313.15]]){const A=M/(2*Math.PI*R*T);assert.ok(Math.abs(4*Math.PI*A*Math.sqrt(A)*v*v*Math.exp(-Math.PI*A*v*v)/density(v,M,T)-1)<1e-12)}
+});
+
+test('batch4 slide-10 layer: explicit Maxwell-Boltzmann fraction equation, legend and equivalence',()=>{
+ const blocks=t('G10').content.theory.filter(b=>b.batch4);
+ assert.equal(blocks.length,3);
+ const [intro,eq,legend]=blocks;
+ assert.ok(intro.text.includes('משוואת מקסוול–בולצמן')&&intro.text.includes('שקופית 10'));
+ assert.equal(eq.layout,'equation');
+ assert.ok(eq.text.replace(/ +/g,'').includes('ΔN/N≈4π(Mw/(2πRT))^(3/2)·v²·exp(−Mwv²/(2RT))·Δv'));
+ for(const [v,dv,M,T] of [[410,20,.017,313.15],[571,1,.044,473.15]]){
+  const explicit=4*Math.PI*(M/(2*Math.PI*R*T))**1.5*v*v*Math.exp(-M*v*v/(2*R*T))*dv;
+  assert.ok(Math.abs(explicit/(density(v,M,T)*dv)-1)<1e-12);
+ }
+ for(const fragment of ['ΔN','N —','kg/mol','8.314','m/s','≈','אינטגרל','Mw'])assert.ok(legend.text.includes(fragment),fragment);
+ for(const s of eq.symbols)assert.doesNotThrow(()=>symbolRows([s]),s);
+ const sheet=readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8');
+ assert.ok(sheet.replace(/ +/g,'').includes('ΔN/N≈4π(Mw/(2πRT))^(3/2)·v²·exp(−Mwv²/(2RT))·Δv'));
+ assert.ok(sheet.includes('ΔN/N ≈ 4π(Mw/(2πRT))^(3/2)·v²   ·exp(−Mwv²/(2RT))·Δv'));
+ assert.ok(sheet.includes('B = 4πA√A ; f(v)=Bv²·exp(−πAv²)'));
 });
 
 test('remaining worked arithmetic independently recomputes at displayed precision',()=>{

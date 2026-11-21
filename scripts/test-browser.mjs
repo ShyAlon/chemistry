@@ -325,6 +325,35 @@ try{
  assert.equal(await js(`getComputedStyle(document.querySelector('.page-title')).transform`),'none');
  await call('Emulation.setEmulatedMedia',{features:[]});
 
+ // Explicit fractions: readable lesson and shared symbol popup at phone and desktop sizes.
+ for(const width of [320,390,1440]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<700});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G10'});await ready('article.theory .math-fraction');
+  const geometry=await js(`(()=>{const face=document.querySelector('article.theory .math-fraction').closest('.display-math'),tip=face.closest('.formula-tip');face.scrollIntoView({block:'center'});return {client:face.clientWidth,scroll:face.scrollWidth,faceFractions:face.querySelectorAll('.math-fraction').length,popupFractions:tip.querySelector('.formula-pop-eq').querySelectorAll('.math-fraction').length,definitions:tip.querySelectorAll('.formula-pop dl>div').length,raisedFraction:!!face.querySelector('sup .math-fraction'),raw:face.textContent.includes('frac{')}})()`);
+  assert.ok(geometry.scroll<=geometry.client+1,JSON.stringify({width,...geometry}));
+  assert.equal(geometry.faceFractions,3);assert.equal(geometry.popupFractions,3);assert.equal(geometry.definitions,9);assert.ok(geometry.raisedFraction&&!geometry.raw);
+  await shot('maxwell-fractions-'+width);
+ }
+
+
+ // Explicit contextual metadata is available in compact references and worked steps.
+ for(const width of [390,1280]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<700});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/references/formulas'});await ready('#ref-P1 .formula-tip');
+  await js(`document.querySelector('#ref-P1 .formula-tip .display-math').focus()`);
+  assert.ok(await js(`document.querySelector('#ref-P1 .formula-tip.open .formula-explanation').textContent.includes('נפח')`));
+  assert.equal(await js(`document.querySelector('#ref-P1 .formula-tip .formula-pop-title').textContent`),'הסבר הסימון');
+  await js(`[...document.querySelectorAll('.ref-tabs button')].find(e=>e.textContent.includes('ננו')).click()`);await ready('#ref-N10');
+  const reaction=await js(`(()=>{const e=[...document.querySelectorAll('#ref-N10 .formula-tip')].find(e=>e.textContent.includes('M-OR'));return {symbols:[...e.querySelectorAll('.formula-pop dt')].map(x=>x.textContent),meaning:e.querySelector('.formula-pop').textContent}})()`);
+  assert.deepEqual(reaction.symbols,['M','R']);assert.ok(reaction.meaning.includes('לא קבוע הגזים'));
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G15'});await ready('.tabs');
+  await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('article.worked');
+  await js(`[...document.querySelectorAll('article.worked')].find(e=>e.textContent.includes('פירוק שניוני')).querySelector('button').click()`);await ready('.solution .formula-tip');
+  await js(`document.querySelector('.solution .formula-tip .display-math').focus()`);
+  const legend=await js(`(()=>{const p=document.querySelector('.solution .formula-tip.open .formula-pop');p.scrollTop=p.scrollHeight;return {text:p.textContent,end:Math.abs(p.scrollHeight-p.scrollTop-p.clientHeight)<2,minMeaningWidth:Math.min(...[...p.querySelectorAll('dd')].map(d=>d.clientWidth))}})()`);
+  assert.ok(legend.text.includes('מולי מטען')&&legend.end);assert.ok(legend.minMeaningWidth>150,JSON.stringify(legend));
+  assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'));
+ }
  // Formula symbol popups: centered rounded trigger, half-second hover delay, second-long fade, touch-only affordances.
  {
   await call('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});

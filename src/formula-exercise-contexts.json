@@ -1,0 +1,671 @@
+{
+ "ממשיים 1: שני תיקוני הלחץ": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species"
+  ],
+  "explanation": "לחצים באטמוספירות ונפחים בליטרים. איבר המשיכה מחוסר מאיבר הדחייה.",
+  "expressions": [
+   "V − nb = 0.710 L",
+   "P_id = 35.012 atm",
+   "P_rep = 36.985 atm",
+   "P_attr = 6.400 atm",
+   "P = 36.985 − 6.400",
+   "P = 30.585 atm",
+   "Z = 0.87354",
+   "ΔP_volume = 1.973 atm",
+   "ΔP_attraction = −6.400 atm"
+  ]
+ },
+ "ממשיים 2: מודדים Z ומוצאים a": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species"
+  ],
+  "explanation": "חילוץ קבוע המשיכה ממקדם הדחיסות, באותן יחידות לאורך ההצבה.",
+  "expressions": [
+   "a = (VRT/n)·[V/(V − nb) − Z]",
+   "V − nb = 0.980 L",
+   "V/(V − nb) = 1.020408",
+   "a = 3.46662 L²·atm/mol²",
+   "Z = 1.020408 − a·0.500/(1.00·0.08206·300)",
+   "Z = 0.950000"
+  ]
+ },
+ "ממשיים 3: שתי מדידות, שני פרמטרים": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species",
+   "ΔP, ΔT"
+  ],
+  "explanation": "D הוא V−nb ולא מנה נבלעת.",
+  "expressions": [
+   "ΔP = 21.406957 atm",
+   "D = nRΔT/ΔP",
+   "D = 0.092000 L",
+   "b = (0.100 − 0.092)/0.200",
+   "b = 0.040000 L/mol",
+   "a = [0.200·0.08206·320/0.092 − 47.485217]·0.100²/0.200²",
+   "a = 2.400000 L²·atm/mol²",
+   "V − nb = 0.192 L",
+   "P = 21.53417 atm",
+   "Z = 0.937213"
+  ]
+ },
+ "ממשיים 4: בויל אינו קסם": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "T_B",
+   "c@concentration"
+  ],
+  "explanation": "c הוא ריכוז מולרי n/V ולא מהירות האור.",
+  "expressions": [
+   "T_B = a/(Rb)",
+   "T_B = 1096.758 K",
+   "bc = 0.0400",
+   "Z = 1/0.960 − 0.0400",
+   "Z = 1.001667",
+   "Z − 1 = (bc)²/(1 − bc)",
+   "Z − 1 = 0.0016667"
+  ]
+ },
+ "ממשיים 5: צפיפות, הפרדה ודחיסה": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species",
+   "ρ#4",
+   "M@gas-average",
+   "x_B@gas"
+  ],
+  "explanation": "תת־סימן B מציין את הגז שנשאר לאחר ההפרדה.",
+  "expressions": [
+   "M̄ = ρRT/P",
+   "M̄ = 35.2 g/mol",
+   "x_B = (35.2 − 28.0)/(40.0 − 28.0)",
+   "x_B = 0.600",
+   "n_total = 0.203103 mol",
+   "n_B = 0.121862 mol",
+   "V − n_Bb = 0.295735 L",
+   "P = 10.91114 atm"
+  ]
+ },
+ "ממשיים 6: תגובה לפני הדחיסה": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species",
+   "ξ@reaction"
+  ],
+  "explanation": "מידת התקדמות התגובה קובעת את המולים לפני הדחיסה.",
+  "expressions": [
+   "n_after = PV/(RT)",
+   "n_after = 0.150000 mol",
+   "ξ = 0.180000 − 0.150000",
+   "ξ = 0.030000 mol",
+   "n_CO,reacted = 2ξ",
+   "n_CO,reacted = 0.060000 mol",
+   "100·0.060000/0.100 = 60.0%",
+   "n_CO2 = 2ξ",
+   "n_CO2 = 0.060000 mol",
+   "V − nb = 0.097600 L",
+   "P = 16.36035 atm",
+   "n_CO + n_O2 + n_CO2 = 0.0400 + 0.0500 + 0.0600",
+   "n_CO + n_O2 + n_CO2 = 0.1500 mol"
+  ]
+ },
+ "הכנה 1: BCC או FCC מהצפיפות?": {
+  "kind": "worked-context",
+  "symbols": [
+   "r#6",
+   "a@crystal-context",
+   "ρ@crystal-context",
+   "z#2",
+   "M",
+   "Nₐ",
+   "m",
+   "V#2",
+   "V@sample",
+   "SC",
+   "BCC",
+   "FCC"
+  ],
+  "explanation": "משווים שני מודלים של תא קובי; z מספר האטומים האפקטיבי בתא.",
+  "expressions": [
+   "r = 1.25 × 10⁻⁸ cm",
+   "a = 4r/√3",
+   "a = 288.675 pm",
+   "z = 2",
+   "ρ = 8.28347 g/cm³",
+   "a = 2√2r",
+   "a = 353.553 pm",
+   "z = 4",
+   "ρ = 9.01790 g/cm³"
+  ]
+ },
+ "הכנה 2: צפיפות מחזירה רדיוס": {
+  "kind": "worked-context",
+  "symbols": [
+   "r#6",
+   "a@crystal-context",
+   "ρ@crystal-context",
+   "z#2",
+   "M",
+   "Nₐ",
+   "m",
+   "V#2",
+   "V@sample",
+   "SC",
+   "BCC",
+   "FCC"
+  ],
+  "explanation": "נפח הדגימה נפרד מנפח התא a³.",
+  "expressions": [
+   "a = [2·100/(6.022 × 10²³·12.0)]^(1/3)",
+   "a = 302.4842 pm",
+   "r = √3a/4",
+   "r = 130.9795 pm",
+   "V_sample = m/ρ = 2000/12.0",
+   "V_sample = 166.6667 cm³"
+  ]
+ },
+ "הכנה 1: לחץ אדים ואז החלטת פאזה": {
+  "kind": "worked-context",
+  "symbols": [
+   "P₁, P₂#2",
+   "T₁, T₂#2",
+   "ΔH_vap",
+   "R",
+   "P_sat(T)",
+   "T"
+  ],
+  "explanation": "ההשוואות המספריות הן לחץ נתון מול לחץ הרוויה שחושב. תנאי העל־קריטי מתייחסים לנתוני השאלה.",
+  "expressions": [
+   "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+   "P₂ = 59.69082 kPa",
+   "40.0 < 59.691",
+   "80.0 > 59.691"
+  ]
+ },
+ "הכנה 2: כמה מים באמת נמצאים באדים?": {
+  "kind": "worked-context",
+  "symbols": [
+   "P°",
+   "V_gas",
+   "m_vapor",
+   "M",
+   "R:latm",
+   "T"
+  ],
+  "explanation": "נפח הגז הוא נפח הכלי פחות נפח הנוזל; מסת האדים מחושבת בלחץ רוויה.",
+  "expressions": [
+   "V_gas = 1.515 − 0.010",
+   "V_gas = 1.505 L",
+   "m_vapor = P°VM/(RT)",
+   "m_vapor = 0.038495 g"
+  ]
+ },
+ "הכנה 1: מלח וסוכר באותו כלי": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f"
+  ],
+  "explanation": "N_s מייצג מולי חלקיקי מומס, לא מספר חלקיקים; ΔT_f חיובי ו-T_f טמפרטורת הקיפאון.",
+  "expressions": [
+   "N_s = 3·0.0100 + 0.0200",
+   "N_s = 0.0500 mol",
+   "ΔT_f = 1.86·0.0500/0.100",
+   "ΔT_f = 0.93000°C",
+   "T_f = −0.93000°C",
+   "Π = N_sRT/V",
+   "Π = 11.65057 atm",
+   "n_water = 100/18",
+   "n_water = 5.555556 mol",
+   "P = 23.76·n_water/(n_water + 0.0500)",
+   "P = 23.54807 mmHg"
+  ]
+ },
+ "הכנה 2: פירוק שניוני ומאזן מטען": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f",
+   "i@solute-context",
+   "α#3",
+   "solution-amounts",
+   "ion-concentrations",
+   "Q_+, Q_−"
+  ],
+  "explanation": "Q_+ ו-Q_− הם מולי מטען, לא מטען בקולון; α הוא השבר שעבר פירוק שניוני.",
+  "expressions": [
+   "m_solvent = 0.500 kg",
+   "N_s = 0.8928·0.500/1.86",
+   "N_s = 0.2400 mol",
+   "i = 0.2400/0.100",
+   "i = 2.400",
+   "i = 2 + α",
+   "α = i − 2",
+   "α = 0.400",
+   "n(Na⁺) = 0.1000 mol",
+   "n(HA⁻) = 0.0600 mol",
+   "n(H⁺) = n(A²⁻)",
+   "n(H⁺) = 0.0400 mol",
+   "[Na⁺] = 0.192308 mol/L",
+   "[HA⁻] = 0.115385 mol/L",
+   "[H⁺] = [A²⁻]",
+   "[H⁺] = 0.076923 mol/L",
+   "Q_+ = 0.1000 + 0.0400",
+   "Q_+ = 0.1400 mol",
+   "Q_− = 0.0600 + 2·0.0400",
+   "Q_− = 0.1400 mol",
+   "Π = 0.2400·0.08206·300/0.520",
+   "Π = 11.36215 atm"
+  ]
+ },
+ "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f",
+   "solution-amounts",
+   "M@solute-context",
+   "i@solute-context"
+  ],
+  "explanation": "בכלי הראשון המלח מתפרק לשני יונים; בכלי השני המומס המולקולרי נשאר יחידה אחת.",
+  "expressions": [
+   "n_NaCl = 1.4625/58.5",
+   "n_NaCl = 0.02500 mol",
+   "i_NaCl = 2",
+   "N_s = 0.05000 mol",
+   "n_sugar = 0.05000 mol",
+   "M_sugar = 9.00/0.05000",
+   "M_sugar = 180.00 g/mol"
+  ]
+ },
+ "הכנה 4: שני ממסים מגלים i": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f",
+   "m@solution-context",
+   "M@solute-context",
+   "i@solute-context",
+   "α#2"
+  ],
+  "explanation": "M מסה מולרית; מולליות m נפרדת ממסת מומס וממס עם תת־סימן.",
+  "expressions": [
+   "i_benzene = 1",
+   "M = K_f·m_solute/[ΔT_f·m_solvent(kg)]",
+   "M = 102.40000 g/mol",
+   "n = 4.80/102.40000",
+   "n = 0.046875 mol",
+   "m = 0.468750 mol/kg",
+   "i = 2.0925/(1.86·0.468750)",
+   "i = 2.400000",
+   "α = (i − 1)/2",
+   "α = 0.700000"
+  ]
+ },
+ "גזים ממשיים: אותו משקל, תיקונים שונים": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species"
+  ],
+  "explanation": "משווים CO₂ והליום במולים שונים עבור אותה מסה; יחידות atm ו-L.",
+  "expressions": [
+   "n_CO2 = 0.454545 mol",
+   "n_He = 5.000000 mol",
+   "P_id = nRT/V",
+   "P_id,CO2 = 11.56300 atm",
+   "P_id,He = 127.19300 atm",
+   "P_CO2 = 11.04956 atm",
+   "Z_CO2 = 0.955596",
+   "P_He = 143.43905 atm",
+   "Z_He = 1.127728",
+   "V − nb > 0",
+   "Z_CO2 < 1",
+   "Z_He > 1"
+  ]
+ },
+ "גזים ממשיים: משחזרים a ו-b ממדידות": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species",
+   "ΔP, ΔT"
+  ],
+  "explanation": "D הוא הנפח הפנוי V−nb; שתי המדידות משמשות לחילוץ a ו-b.",
+  "expressions": [
+   "D = nR(T₁ − T₂)/(P₁ − P₂)",
+   "D = 0.113250 L",
+   "b = (0.120 − 0.113250)/0.150",
+   "b = 0.045000 L/mol",
+   "a = [nRT₁/D − P₁]V²/n²",
+   "a = 2.000000 L²·atm/mol²",
+   "P₁ = 32.742285 atm",
+   "P₂ = 21.873411 atm",
+   "V − nb = 0.233250 L",
+   "P = 14.522544 atm",
+   "Z = 0.976412"
+  ]
+ },
+ "גזים ממשיים: תגובה, הפרדה ודחיסה": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "D",
+   "P_id, P_rep, P_attr",
+   "ΔP@corrections",
+   "n@gas-species",
+   "P@gas-species",
+   "Z@gas-species",
+   "ξ@reaction"
+  ],
+  "explanation": "מידת ההתקדמות נמדדת במולים לפי מקדמי התגובה המאוזנת.",
+  "expressions": [
+   "n_after = PV/(RT)",
+   "n_after = 0.180000 mol",
+   "ξ = 0.220000 − 0.180000",
+   "ξ = 0.040000 mol",
+   "n_CO,reacted = 2ξ",
+   "n_CO,reacted = 0.080000 mol",
+   "100·0.080000/0.120000 = 66.6667%",
+   "n_CO2 = 0.080000 mol",
+   "n_CO = 0.040000 mol",
+   "n_O2 = 0.060000 mol",
+   "n_total = 0.180000 mol",
+   "n = 0.080000 mol",
+   "V − nb = 0.116800 L",
+   "P = 17.554307 atm",
+   "Z = 0.943766"
+  ]
+ },
+ "גזים ממשיים: בויל וגבולות המודל": {
+  "kind": "worked-context",
+  "symbols": [
+   "P",
+   "V#2",
+   "n",
+   "R:latm",
+   "T",
+   "a#2",
+   "b#2",
+   "Z",
+   "T_B",
+   "c@concentration"
+  ],
+  "explanation": "c ריכוז מולרי; תנאי בויל מבטל את התיקון מסדר ראשון בלבד.",
+  "expressions": [
+   "T_B = a/(Rb)",
+   "T_B = 609.310261 K",
+   "bc = 0.0400",
+   "Z = 1/(1 − 0.0400) − 0.0400",
+   "Z = 1.001667",
+   "Z − 1 = (bc)²/(1 − bc)",
+   "Z − 1 = 0.0016667"
+  ]
+ },
+ "גבישים: מסה, רדיוס ונפח תא": {
+  "kind": "worked-context",
+  "symbols": [
+   "r#6",
+   "a@crystal-context",
+   "ρ@crystal-context",
+   "z#2",
+   "M",
+   "Nₐ",
+   "m",
+   "V#2",
+   "V@sample",
+   "SC",
+   "BCC",
+   "FCC"
+  ],
+  "explanation": "a צלע תא ו-r רדיוס אטומי; אין כאן קבועי ואן דר ואלס.",
+  "expressions": [
+   "r = 1.25 × 10⁻⁸ cm",
+   "a_BCC = 4r/√3",
+   "a_BCC = 288.675135 pm",
+   "a_FCC = 2√2r",
+   "a_FCC = 353.553391 pm",
+   "ρ_BCC = 8.283471 g/cm³",
+   "ρ_FCC = 9.017901 g/cm³",
+   "V = m/ρ = 180/9.017901",
+   "V = 19.960299 cm³"
+  ]
+ },
+ "פאזות: מחשבים ואז מחליטים": {
+  "kind": "worked-context",
+  "symbols": [
+   "P₁, P₂#2",
+   "T₁, T₂#2",
+   "ΔH_vap",
+   "R",
+   "P_sat(T)",
+   "T"
+  ],
+  "explanation": "החלטת הפאזה נובעת מהשוואת הלחץ הנתון ללחץ הרוויה.",
+  "expressions": [
+   "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+   "P₂ = 59.690815 kPa",
+   "40.0 < 59.691",
+   "80.0 > 59.691",
+   "T = 460 K",
+   "P = 6.00 MPa"
+  ]
+ },
+ "תמיסות: מלח וסוכר יחד": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f"
+  ],
+  "explanation": "מולי חלקיקי המומס קובעים קיפאון ואוסמוזה.",
+  "expressions": [
+   "N_s = 3·0.00800 + 0.0160",
+   "N_s = 0.0400 mol",
+   "ΔT_f = 1.86·0.0400/0.100",
+   "ΔT_f = 0.744000°C",
+   "T_f = −0.744000°C",
+   "Π = N_sRT/V = 0.0400·0.08206·300/0.110",
+   "Π = 8.952000 atm",
+   "n_water = 100/18",
+   "n_water = 5.555556 mol",
+   "P = 26.5·n_water/(n_water + 0.0400)",
+   "P = 26.310564 mmHg"
+  ]
+ },
+ "תמיסות: פירוק נוסף ומטען נשמר": {
+  "kind": "worked-context",
+  "symbols": [
+   "N_s@solute",
+   "ΔT_f",
+   "K_f",
+   "m_solvent(kg)",
+   "Π",
+   "R:latm",
+   "T",
+   "V_solution(L)",
+   "n_water",
+   "P_water",
+   "T_f",
+   "i@solute-context",
+   "α#3",
+   "solution-amounts",
+   "ion-concentrations",
+   "Q_+, Q_−"
+  ],
+  "explanation": "שומרים בנפרד על מספר מולי היונים ועל מולי המטען המשוקללים.",
+  "expressions": [
+   "N_s = 0.8556·0.400/1.86",
+   "N_s = 0.184000 mol",
+   "i = 0.184000/0.0800",
+   "i = 2.300000",
+   "i = 2 + α",
+   "α = 0.300000",
+   "n(Na⁺) = 0.0800 mol",
+   "n(HA⁻) = 0.0560 mol",
+   "n(H⁺) = n(A²⁻)",
+   "n(H⁺) = 0.0240 mol",
+   "[Na⁺] = 0.190476 mol/L",
+   "[HA⁻] = 0.133333 mol/L",
+   "[H⁺] = [A²⁻]",
+   "[H⁺] = 0.057143 mol/L",
+   "Q_+ = 0.0800 + 0.0240",
+   "Q_+ = 0.1040 mol",
+   "Q_− = 0.0560 + 2·0.0240",
+   "Q_− = 0.1040 mol",
+   "Π = 0.184000·0.08206·300/0.420",
+   "Π = 10.785029 atm"
+  ]
+ }
+}

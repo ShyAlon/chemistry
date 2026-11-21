@@ -1,0 +1,24 @@
+[
+ {
+  "course": "84102",
+  "topic": "P3",
+  "before": "ΔE = R_H · (1/n_f² − 1/n_i²)      1/λ = R · (1/n_f² − 1/n_i²)",
+  "after": "ΔE_atom = E_f − E_i = R_H·(1/n_i² − 1/n_f²)   E_photon = |ΔE_atom|   1/λ = R∞·|1/n_f² − 1/n_i²|",
+  "reason": "Atomic change is final minus initial; photon energy is its positive magnitude. Distinguish energy and inverse-length Rydberg constants.",
+  "source": "Inorganic Chemistry lessons 3 and 4, recovered extracted text; OpenStax Bohr Model section."
+ },
+ {
+  "course": "84102",
+  "topic": "P3",
+  "before": "ΔE שלילי ← אנרגיה נפלטת (פליטה). חיובי ← נבלעת (בליעה).",
+  "after": "ΔE_atom שלילי: האטום מאבד אנרגיה בפליטה. ΔE_atom חיובי: האטום קולט אנרגיה בבליעה.",
+  "reason": "Keep dependent explanation consistent with atomic versus photon energy."
+ },
+ {
+  "course": "84102",
+  "topic": "P3",
+  "before": "לאחר חישוב ΔE מוצאים אורך גל דרך משוואת פלאנק: E = hc/λ.",
+  "after": "לאחר חישוב שינוי אנרגיית האטום, מחשבים אורך גל מאנרגיית הפוטון החיובית: E_photon = |ΔE_atom| = hc/λ.",
+  "reason": "Keep dependent explanation consistent with atomic versus photon energy."
+ }
+]

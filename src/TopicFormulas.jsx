@@ -1,14 +1,13 @@
 import React from 'react';
 import {bidiElement} from './bidi-react.js';
 import {courses as formulaCourses} from './reference-formulas.js';
-import {ScientificText,FormulaTip,DisplayMath} from './scientific-text.js';
+import {ScientificText} from './scientific-text.js';
+import {Formula} from './Formula.js';
 
 // The per-topic formulas tab: the same reference-formulas.js items that drive
 // the References sheet and the print tool, shown on the topic page for homework.
-// Each formula is the shared FormulaTip itself: hover, focus or tap opens the
-// same symbol-key popup used in the theory. Items without symbols render as a
-// plain DisplayMath, exactly like symbol-less theory equations. Nothing here
-// duplicates definitions or touches saved progress.
+// Formula owns all display and tooltip decisions, including structured items.
+// This page supplies content only and never touches saved progress.
 export function topicFormulas(courseId,topicId){
  return formulaCourses.find(c=>c.id===courseId)?.topics.find(t=>t.id===topicId)||null;
 }
@@ -23,7 +22,7 @@ export function TopicFormulas({courseId,topic}){
    <dl className="ref-items">{data.items.map(([label,expr,note,symbols],i)=><div key={i}>
     <dt>{label}</dt>
     <dd>
-     {expr.split(' ; ').map((part,j)=>symbols?.length>0?<FormulaTip key={j} text={part} symbols={symbols}/>:<DisplayMath key={j} text={part}/>)}
+     <Formula expr={expr} symbols={symbols}/>
      {note&&<small><ScientificText runs={[note]}/></small>}
     </dd>
    </div>)}</dl>

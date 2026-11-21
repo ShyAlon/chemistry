@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import React from 'react';
 import {renderToStaticMarkup as render} from 'react-dom/server';
 import {bidiElement} from '../src/bidi-react.js';
-import {ScientificText,DisplayMath} from '../src/scientific-text.js';
+import {ScientificText,DisplayMath,FormulaTip} from '../src/scientific-text.js';
 import {mathNotation} from '../src/math-notation.js';
 test('scientific subscript contract is shared by inline prose, authored runs and equation blocks',()=>{
  const text='P_A = x_A·P°_A; ΔH_vap, K_f, T_b, m_{solution}, T₁, R₀/R';
@@ -75,4 +75,25 @@ test('caret exponent boundaries: nested parens, bare tokens, unbalanced stays li
  assert.ok(braced.includes('<sup>n+1</sup>'),braced);
  const open=render(React.createElement(DisplayMath,{text:'a^( + b^'}));
  assert.ok(open.includes('^(')&&open.includes('b^'),open);
+});
+
+test('authored fractions stack recursively in the shared equation and popup renderer',()=>{
+ const text='frac{ΔN}{N} ≈ 4π(frac{Mw}{2πRT})^(3/2)·v²   ·e^(−frac{Mwv²}{2RT})·Δv';
+ const html=render(React.createElement(DisplayMath,{text}));
+ assert.equal((html.match(/class="math-fraction"/g)||[]).length,3);
+ assert.ok(html.includes('class="math-fenced"'));
+ assert.ok(html.includes('<sup>−<span class="math-fraction">'));
+ assert.ok(html.includes('<span class="math-denominator">2RT</span>'));
+ assert.ok(!html.includes('frac{')&&!html.includes('^('));
+ const nested=render(React.createElement('span',null,...mathNotation('frac{a}{frac{b}{c}}')));
+ assert.equal((nested.match(/class="math-fraction"/g)||[]).length,2);
+ for(const literal of ['frac{a}','frac{a}{b','x^{a'])assert.ok(render(React.createElement('span',null,...mathNotation(literal))).includes(literal));
+ const escaped=render(React.createElement('span',null,...mathNotation('frac{<img>}{x}')));
+ assert.ok(escaped.includes('&lt;img&gt;'));
+});
+
+test('equation and symbol popup reuse the same stacked fraction expression',()=>{
+ const html=render(React.createElement(FormulaTip,{text:'frac{a}{b}·e^(−frac{x}{y})',symbols:['exp']}));
+ assert.equal((html.match(/class="math-fraction"/g)||[]).length,4);
+ assert.ok(html.includes('exp(x) = e<sup>x</sup>'));
 });

@@ -4,8 +4,8 @@ import {bidiElement} from './bidi-react.js';
 import {PageTitle} from './PageTitle.jsx';
 import {ScientificText} from './scientific-text.js';
 import {exam84101,examNote} from './exam-84101.js';
-function ExamPart({part,index}){const [show,setShow]=useState(false);
- return <section className="panel exam-part"><div className="exercise-index">סעיף {part.label}</div><h3><ScientificText runs={[part.question]}/></h3><button className="secondary" onClick={()=>setShow(!show)} aria-expanded={show}>{show?'הסתרת הפתרון':'נסיתי. מציגים פתרון'}<span>{show?'−':'+'}</span></button>{show&&<div className="solution">{part.solutionBlocks?<FinalPrepSolution blocks={part.solutionBlocks}/>:part.solution.map((p,i)=><p key={i}><ScientificText runs={[p]}/></p>)}</div>}</section>}
+function ExamPart({part,index,contextId}){const [show,setShow]=useState(false);
+ return <section className="panel exam-part"><div className="exercise-index">סעיף {part.label}</div><h3><ScientificText runs={[part.question]}/></h3><button className="secondary" onClick={()=>setShow(!show)} aria-expanded={show}>{show?'הסתרת הפתרון':'נסיתי. מציגים פתרון'}<span>{show?'−':'+'}</span></button>{show&&<div className="solution">{part.solutionBlocks?<FinalPrepSolution blocks={part.solutionBlocks} contextId={contextId}/>:part.solution.map((p,i)=><p key={i}><ScientificText runs={[p]}/></p>)}</div>}</section>}
 export function ExamPractice(){
  const [active,setActive]=useState(null);
  const problem=exam84101.find(p=>p.id===active);
@@ -17,7 +17,7 @@ export function ExamPractice(){
   {!problem?<section className="practice-session-grid" aria-label="בחירת שאלה">{ordered.map((p,i)=><article className="panel practice-session-card" key={p.id}><div className="exercise-index" dir="ltr">PROBLEM {i+1}/{exam84101.length}</div><h2>{p.title}</h2><p><bdi dir="rtl">{p.topics}</bdi> · {p.parts.length} סעיפים</p><button className="primary" onClick={()=>open(p.id)}>לשאלה ←</button></article>)}</section>:<>
    <div className="practice-session-heading"><h2>{problem.title}</h2><button className="secondary" onClick={()=>setActive(null)}>כל השאלות</button></div>
    <section className="panel exam-given"><span className="eyebrow">נתונים</span><p><ScientificText runs={[problem.given]}/></p></section>
-   {problem.parts.map((part,i)=><ExamPart key={part.label} part={part} index={i}/>)}
+   {problem.parts.map((part,i)=><ExamPart key={part.label} part={part} index={i} contextId={problem.title}/>)}
   </>}
  </main>;
 }

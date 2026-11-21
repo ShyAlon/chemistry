@@ -68,7 +68,7 @@ try{
    assert.equal(await js(`document.querySelectorAll('.exam-part').length`),3);
    assert.equal(await js(`document.querySelectorAll('.exam-part .solution').length`),0,'solutions hidden before attempt');
    for(let i=0;i<3;i++){
-    await js(`document.querySelectorAll('.exam-part button')[${i}].click()`);await ready('.solution');
+    await js(`document.querySelectorAll('.exam-part > button')[${i}].click()`);await ready('.solution');
     const text=await js(`document.querySelectorAll('.exam-part .solution')[${i}].textContent`);assert.ok(text.length>20,p.id+' solution '+i);
    }
    await assertWidth(p.id+' '+width);

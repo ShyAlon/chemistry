@@ -1,3 +1,4 @@
+import {Formula} from './Formula.js';
 import React,{useLayoutEffect,useRef,useState} from 'react';
 import {bidiElement} from "./bidi-react.js";
 import {paginateFormulaGroups} from './formula-print-layout.js';
@@ -6,7 +7,7 @@ import {ScientificText} from './scientific-text.js';
 
 // Measured pagination of the explicitly abridged print edition. The screen preview and print output share nodes.
 // Nothing reads or writes course progress, selections reset with this page.
-export function FormulaPrint({course,constants,Expr}){
+export function FormulaPrint({course,constants}){
  const [picked,setPicked]=useState(()=>Object.fromEntries(course.topics.map(t=>[t.id,true])));
  const [withConstants,setWithConstants]=useState(true),[open,setOpen]=useState(false);
  const [columns,setColumns]=useState(null),[problem,setProblem]=useState('');
@@ -14,7 +15,7 @@ export function FormulaPrint({course,constants,Expr}){
  const [constantHeight,setConstantHeight]=useState(0);
  const topics=compactFormulaTopics(course).filter(t=>picked[t.id]);
  const groups=topics;
- const row=([label,expr,note],key)=><div key={key} className="fp-row"><div className="fp-label">{label}</div><Expr expr={expr}/>{note&&<p className="fp-note"><ScientificText runs={[note]}/></p>}</div>;
+ const row=([label,expr,note,symbols],key)=><div key={key} className="fp-row"><div className="fp-label">{label}</div><Formula expr={expr} symbols={symbols} variant="print"/>{note&&<p className="fp-note"><ScientificText runs={[note]}/></p>}</div>;
  const groupedRow=(cells,key)=><div key={key} className={'fp-row-group'+(cells.length>1?' fp-side-by-side':'')} style={{'--cells':cells.length}}>{cells.map(c=>row(c.item,c.key))}</div>;
  const title=(g,continued=false)=><h2><bdi dir="ltr">{g.id==='constants'?'':g.id}</bdi> {g.title}{continued?' (המשך)':''}</h2>;
  const constantBlock=()=> <section className="fp-constant-band fp-column"><h2>קבועים וערכי המרה</h2><div className="fp-constant-grid">{constants.map((item,i)=>row(item,'constant-'+i))}</div></section>;

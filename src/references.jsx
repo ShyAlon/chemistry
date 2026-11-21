@@ -9,7 +9,7 @@ import {ionState} from './ions.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
 import {Figure,schematicFigures} from './figures.jsx';
 import {ScientificText} from './scientific-text.js';
-import {Expr} from './formula-items.jsx';
+import {Formula} from './Formula.js';
 import {enrichment84101} from './enrichment-84101.js';
 import {enrichment84102} from './enrichment-84102.js';
 import {pages} from './reference-pages.js';
@@ -28,10 +28,10 @@ function Formulas(){
  const jump=id=>document.getElementById('ref-'+id)?.scrollIntoView({behavior:'smooth',block:'start'});
  return <Shell title="דף נוסחאות">
   <div className="ref-tabs" role="tablist" aria-label="קורס">{formulaCourses.map(c=><button key={c.id} role="tab" aria-selected={c.id===cid} className={c.id===cid?'on':''} onClick={()=>setCid(c.id)}>{c.name}</button>)}</div>
-  <FormulaPrint key={cid} course={course} constants={constants} Expr={Expr}/>
+  <FormulaPrint key={cid} course={course} constants={constants}/>
   <nav className="ref-nav" aria-label="קפיצה לנושא">{course.topics.map(t=><button key={t.id} onClick={()=>jump(t.id)}><bdi dir="ltr" className="ref-id">{t.id}</bdi><span>{t.title}</span></button>)}<button onClick={()=>jump('constants')}><bdi dir="ltr" className="ref-id">h, c</bdi><span>קבועים</span></button></nav>
-  <div className="formula-grid">{course.topics.map(t=><section key={t.id} id={'ref-'+t.id} className="panel ref-topic"><h2><bdi dir="ltr" className="ref-id">{t.id}</bdi> {t.title}</h2><dl className="ref-items">{t.items.map(([label,expr,note],i)=><div key={i}><dt>{label}</dt><dd><Expr expr={expr}/>{note&&<small><ScientificText runs={[note]}/></small>}</dd></div>)}</dl></section>)}
-  <section id="ref-constants" className="panel ref-topic"><h2>קבועים וערכי המרה</h2><dl className="ref-items">{constants.map(([l,e],i)=><div key={i}><dt>{l}</dt><dd><Expr expr={e}/></dd></div>)}</dl></section>
+  <div className="formula-grid">{course.topics.map(t=><section key={t.id} id={'ref-'+t.id} className="panel ref-topic"><h2><bdi dir="ltr" className="ref-id">{t.id}</bdi> {t.title}</h2><dl className="ref-items">{t.items.map(([label,expr,note,symbols],i)=><div key={i}><dt>{label}</dt><dd><Formula expr={expr} symbols={symbols} variant="compact"/>{note&&<small><ScientificText runs={[note]}/></small>}</dd></div>)}</dl></section>)}
+  <section id="ref-constants" className="panel ref-topic"><h2>קבועים וערכי המרה</h2><dl className="ref-items">{constants.map(([l,e],i)=><div key={i}><dt>{l}</dt><dd><Formula expr={e} variant="compact"/></dd></div>)}</dl></section>
   </div>
   <p className="ref-note">הערכים הם אלה שבקורס. אם דף הנוסחאות של הבוחן נותן ערך אחר, השתמשו בו.</p>
  </Shell>}

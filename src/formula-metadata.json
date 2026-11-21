@@ -1,0 +1,369 @@
+{
+ "1 mL = 1 cm³ ; 1 L = 1000 mL ; 1 m³ = 1000 L": {
+  "kind": "conversion",
+  "explanation": "המרת יחידות נפח. אין משתנה לא ידוע."
+ },
+ "1 nm = 10⁻⁹ m ; 1 pm = 10⁻¹² m ; 1 Å = 10⁻¹⁰ m ; 1 nm = 10 Å": {
+  "kind": "conversion",
+  "explanation": "המרת יחידות אורך. אין משתנה לא ידוע."
+ },
+ "1 g = 10⁻³ kg ; 1 kJ = 10³ J": {
+  "kind": "conversion",
+  "explanation": "המרת יחידות מסה ואנרגיה."
+ },
+ "1 eV/particle ≈ 96.49 kJ/mol": {
+  "kind": "conversion",
+  "explanation": "המרת אנרגיה לחלקיק לאנרגיה מולרית."
+ },
+ "k = 10³ ; M = 10⁶ ; G = 10⁹ ; m = 10⁻³ ; µ = 10⁻⁶ ; n = 10⁻⁹ ; p = 10⁻¹²": {
+  "kind": "prefix-table",
+  "explanation": "k,M,G,m,µ,n,p הן קידומות יחידות, לא משתנים."
+ },
+ "(100 cm)³ = 10⁶ cm³": {
+  "kind": "conversion",
+  "explanation": "פקטור ההמרה עולה באותה חזקה כמו יחידת האורך."
+ },
+ "λ ≈ 400–700 nm": {
+  "kind": "equation",
+  "symbols": [
+   "λ@wavelength"
+  ]
+ },
+ "Lyman: n_f = 1 ; Balmer: n_f = 2 ; Paschen: n_f = 3": {
+  "kind": "equation",
+  "symbols": [
+   "n_i, n_f"
+  ]
+ },
+ "{\"def\":{\"intro\":[\"לכל ערך של l יש שם:\"],\"range\":[{\"keep\":[{\"math\":\"l = 0\"},\" עד \",{\"math\":\"n − 1\"}]}],\"mappings\":[[\"l = 0\",\"s\"],[\"l = 1\",\"p\"],[\"l = 2\",\"d\"],[\"l = 3\",\"f\"]]}}": {
+  "kind": "definition-table",
+  "explanation": "הטבלה עצמה מגדירה את l ואת שם תת־הקליפה."
+ },
+ "1s: 0 נודות, פסגה 1 ; 2s: נודה 1, 2 פסגות ; 2p: 0 נודות, פסגה 1": {
+  "kind": "configuration-table",
+  "explanation": "שמות אורביטלים ומספרי נודות/פסגות, לא משתני משוואה."
+ },
+ "s: 2 ; p: 6 ; d: 10 ; f: 14": {
+  "kind": "configuration-table",
+  "explanation": "s,p,d,f מציינים תת־קליפות; המספרים הם קיבולות אלקטרונים."
+ },
+ "{\"order\":[\"1s²  2s²  2p⁶  3s²  3p⁶  4s²\",\"3d¹⁰  4p⁶  5s²  4d¹⁰  5p⁶  6s²\",\"4f¹⁴  5d¹⁰  6p⁶  7s²  5f¹⁴  6d¹⁰  7p⁶\"]}": {
+  "kind": "configuration-table",
+  "explanation": "סדר מילוי; החזקות הן קיבולות, לא ערכי משתנים."
+ },
+ "קבוצות 1–2: לפי הקבוצה; קבוצות 13–18: הקבוצה פחות 10": {
+  "kind": "rule",
+  "explanation": "כלל קבוצות טבלה מחזורית; ללא משתנה אלגברי."
+ },
+ "s,p: מחזור; d: מחזור פחות 1; f: מחזור פחות 2": {
+  "kind": "rule",
+  "explanation": "s,p,d,f הם שמות אזורים; מספר המחזור קובע את הרמה."
+ },
+ "עד שניים לאורביטל בספינים מנוגדים; ביחידים לפני זיווג": {
+  "kind": "rule",
+  "explanation": "כלל מילוי אורביטלים, לא נוסחה."
+ },
+ "Cr: [Ar]4s¹3d⁵ ; Cu: [Ar]4s¹3d¹⁰": {
+  "kind": "configuration-table",
+  "explanation": "Cr ו-Cu הם יסודות; [Ar] ליבה והסימון מציג אכלוס אלקטרונים."
+ },
+ "IE = 7.9 eV ; λ_ion,max ≈ 157 nm": {
+  "kind": "equation",
+  "symbols": [
+   "IE",
+   "λ_ion,max"
+  ]
+ },
+ "IE₂: X⁺ → X²⁺ + e⁻": {
+  "kind": "reaction",
+  "explanation": "X יסוד כללי; IE₂ הוא אנרגיית היינון השנייה; המטענים מצב היון."
+ },
+ "מספר אלקטרוני הערכיות = מספר היינונים עד הקפיצה הגדולה": {
+  "kind": "rule",
+  "explanation": "מספר יינונים עד קפיצה, לא סימון משתנה."
+ },
+ "IE₁: C > Be > B > Al ; IE₂: B > C > Al > Be": {
+  "kind": "comparison",
+  "explanation": "IE₁ ו-IE₂ אנרגיות יינון ראשונה ושנייה; C,Be,B,Al יסודות."
+ },
+ "X(g) + e⁻ → X⁻(g)": {
+  "kind": "reaction",
+  "explanation": "X אטום כללי במצב גז; e⁻ אלקטרון; X⁻ אניון."
+ },
+ "קבוצת פיקים לכל תת־קליפה מאוכלסת": {
+  "kind": "rule",
+  "explanation": "כלל ספקטרום סכמטי; אין משתנה לא ידוע."
+ },
+ "% = (ממשית / תאורטית) · 100": {
+  "kind": "ratio-with-prose-labels",
+  "explanation": "המונה והמחנה כבר כתובים בשמותיהם: תפוקה ממשית ותאורטית."
+ },
+ "מחלקים בשבר הניצולת, לא מכפילים": {
+  "kind": "rule",
+  "explanation": "הוראת חישוב משבר ניצולת; ללא סימון משתנה."
+ },
+ "מולקולה: 0 ; יון: מטען היון": {
+  "kind": "rule",
+  "explanation": "סכום דרגות חמצון לפי מטען כולל; ללא משתנה לא ידוע."
+ },
+ "יסוד חופשי 0 ; F = −1 ; O = −2 ; H = +1 ; אלקלי +1 ; אלקליין־עפרורי +2": {
+  "kind": "rule",
+  "explanation": "F,O,H הם יסודות ולא כוח או אנרגיה."
+ },
+ "ראו תרשים סולם הכוחות בגלריה": {
+  "kind": "navigation",
+  "explanation": "קישור הפניה בלבד, לא נוסחה."
+ },
+ "מעבים את האדים ומאדים שוב": {
+  "kind": "rule",
+  "explanation": "תיאור תהליך, לא נוסחה."
+ },
+ "(1/2)ⁿ": {
+  "kind": "equation",
+  "symbols": [
+   "n@half-lives"
+  ]
+ },
+ "²²⁶₈₈Ra → ²²²₈₆Rn + ⁴₂α": {
+  "kind": "nuclear-reaction",
+  "explanation": "המספר העליון A מספר מסה, התחתון Z מספר אטומי; α גרעין הליום."
+ },
+ "⁴⁰₁₉K → ⁴⁰₂₀Ca + β⁻ ; ¹⁸₉F → ¹⁸₈O + β⁺": {
+  "kind": "nuclear-reaction",
+  "explanation": "β⁻ אלקטרון ו-β⁺ פוזיטרון; מספרי איזוטופים A ו-Z."
+ },
+ "סף: 2×511 keV = 1022 keV": {
+  "kind": "numeric-threshold",
+  "explanation": "סף אנרגיה מספרי; keV יחידת אנרגיה, ללא משתנה."
+ },
+ "UO₂ + 4HF → UF₄ + 2H₂O ; UF₄ + F₂ → UF₆": {
+  "kind": "reaction",
+  "explanation": "נוסחאות חומרים ומקדמים סטוכיומטריים, לא אותיות אלגבריות."
+ },
+ "²³⁴U: 230.2 MBq/g": {
+  "kind": "numeric-value",
+  "explanation": "פעילות סגולית של איזוטופ מוגדר; MBq/g יחידת פעילות למסה."
+ },
+ "⁵⁹₂₇Co + n → ⁶⁰₂₇Co + γ ; ²³⁸₉₂U + n → ²³⁹₉₂U": {
+  "kind": "nuclear-reaction",
+  "explanation": "n נויטרון, לא מולים; γ פוטון גמא; A ו-Z סימון איזוטופי."
+ },
+ "≈ 200 MeV לביקוע = 3.204×10⁻¹¹ J": {
+  "kind": "numeric-value",
+  "explanation": "אנרגיה לביקוע והמרת MeV לגאול; ללא משתנה."
+ },
+ "1 GW תרמי: ≈ 2.7×10²⁴ ביקועים ליממה ≈ 1 kg ²³⁵U ליום": {
+  "kind": "numeric-estimate",
+  "explanation": "הערכת כור מספרית; אין משתנה אלגברי."
+ },
+ "עובד קרינה: 20 mSv/שנה ; ציבור: 1 mSv/שנה ; רקע טבעי ≈ 2 mSv/שנה": {
+  "kind": "course-values",
+  "explanation": "ערכי מנה לפי חומר הקורס; לא מדיניות קרינה כללית מאומתת לעכשיו."
+ },
+ "Mⁿ⁺ + ne⁻ → M⁰": {
+  "kind": "reaction",
+  "symbols": [
+   "M@metal",
+   "n@charge-number",
+   "e@electron"
+  ]
+ },
+ "M-OR + H₂O → M-OH + ROH": {
+  "kind": "reaction",
+  "symbols": [
+   "M@metal",
+   "R@organic"
+  ]
+ },
+ "M-OH + HO-M → M-O-M + H₂O": {
+  "kind": "reaction",
+  "symbols": [
+   "M@metal"
+  ]
+ },
+ "Ti(OEt)₄ + 2H₂O → TiO₂ + 4EtOH": {
+  "kind": "reaction",
+  "explanation": "Ti(OEt)₄ ו-EtOH תרכובות; Et קיצור אתיל."
+ },
+ "rₙ = n²·a₀        Eₙ = −R_H / n²        R_H = 13.6 eV": {
+  "kind": "equation",
+  "symbols": [
+   "rₙ",
+   "n@level",
+   "a₀",
+   "Eₙ",
+   "R_H"
+  ]
+ },
+ "ΔE_atom = E_f − E_i = R_H·(1/n_i² − 1/n_f²)   E_photon = |ΔE_atom|   1/λ = R∞·|1/n_f² − 1/n_i²|": {
+  "kind": "equation",
+  "symbols": [
+   "ΔE_atom",
+   "E_i, E_f",
+   "R_H",
+   "n_i, n_f",
+   "E_photon",
+   "λ@wavelength",
+   "R∞"
+  ]
+ },
+ "Eₙ = −Z²·R_H / n²": {
+  "kind": "equation",
+  "symbols": [
+   "Eₙ",
+   "Z@atomic",
+   "R_H",
+   "n@level"
+  ]
+ },
+ "E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s": {
+  "kind": "equation",
+  "symbols": [
+   "E_photon",
+   "h",
+   "ν@frequency",
+   "c",
+   "λ@wavelength"
+  ]
+ },
+ "Eₙ = −Z_eff²·R_H / n²        R_H = 13.6 eV = 2.18×10⁻¹⁸ J": {
+  "kind": "equation",
+  "symbols": [
+   "Eₙ",
+   "Z_eff",
+   "R_H",
+   "n@level"
+  ]
+ },
+ "λ = h/p = h/(m·v)": {
+  "kind": "equation",
+  "symbols": [
+   "λ@wavelength",
+   "h",
+   "p@momentum",
+   "m",
+   "v"
+  ]
+ },
+ "Δx·Δp ≥ ℏ/2        Δp = m·Δv        ℏ = h/2π = 1.055×10⁻³⁴ J·s": {
+  "kind": "equation",
+  "symbols": [
+   "Δx",
+   "Δp",
+   "h",
+   "ℏ@reduced",
+   "m",
+   "Δv"
+  ]
+ },
+ "ΔE_attach = −EA_course": {
+  "kind": "equation",
+  "symbols": [
+   "ΔE_attach",
+   "EA"
+  ]
+ },
+ "MnO₄⁻ + 5Fe²⁺ + 8H⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O": {
+  "kind": "reaction",
+  "explanation": "משוואת חמצון־חיזור מאוזנת: הנוסחאות הן יונים ומולקולות, הספרות שלפניהן מקדמים סטוכיומטריים והספרות העיליות מטענים. אין כאן משתנה אלגברי."
+ },
+ "nλ = 2d·sinθ": {
+  "kind": "equation",
+  "symbols": [
+   "n@order",
+   "λ@wavelength",
+   "d@lattice",
+   "θ"
+  ]
+ },
+ "N(t) = N₀·e^(−λt)": {
+  "kind": "equation",
+  "symbols": [
+   "N(t)",
+   "N₀",
+   "λ#2",
+   "t#2",
+   "exp"
+  ]
+ },
+ "T½ = ln2/λ ≈ 0.693/λ": {
+  "kind": "equation",
+  "symbols": [
+   "T½@half-life",
+   "λ#2",
+   "ln@natural"
+  ]
+ },
+ "⁴⁰₁₉K → ⁴⁰₂₀Ca + β⁻   ;   ¹⁸₉F → ¹⁸₈O + β⁺": {
+  "kind": "nuclear-reaction",
+  "explanation": "β⁻ אלקטרון ו-β⁺ פוזיטרון; מספרי איזוטופים A ו-Z."
+ },
+ "UO₂ + 4HF → UF₄ + 2H₂O   ;   UF₄ + F₂ → UF₆": {
+  "kind": "reaction",
+  "explanation": "נוסחאות חומרים ומקדמים סטוכיומטריים, לא אותיות אלגבריות."
+ },
+ "⁵⁹₂₇Co + n → ⁶⁰₂₇Co + γ   ;   ²³⁸₉₂U + n → ²³⁹₉₂U": {
+  "kind": "nuclear-reaction",
+  "explanation": "n נויטרון, לא מולים; γ פוטון גמא; A ו-Z סימון איזוטופי."
+ },
+ "h = 6.626×10⁻³⁴ J·s": {
+  "kind": "constant-or-conversion",
+  "explanation": "h הוא קבוע פלאנק; J·s הן יחידות גאול כפול שנייה."
+ },
+ "c = 2.9979×10⁸ m/s": {
+  "kind": "constant-or-conversion",
+  "explanation": "c היא מהירות האור בריק, במטרים לשנייה."
+ },
+ "ħ = h/2π ; ħ = 1.055×10⁻³⁴ J·s": {
+  "kind": "constant-or-conversion",
+  "explanation": "ħ הוא קבוע פלאנק המצומצם, h/(2π); h קבוע פלאנק ו-π קבוע המעגל."
+ },
+ "mₑ = 9.11×10⁻³¹ kg": {
+  "kind": "constant-or-conversion",
+  "explanation": "mₑ היא מסת המנוחה של האלקטרון, בקילוגרמים."
+ },
+ "R_H = 13.6 eV ; R_H = 2.18×10⁻¹⁸ J": {
+  "kind": "constant-or-conversion",
+  "explanation": "R_H הוא קבוע ריידברג ביחידות אנרגיה למימן; שני הערכים הם אותה אנרגיה ביחידות שונות."
+ },
+ "R∞ = 1.097×10⁷ m⁻¹": {
+  "kind": "constant-or-conversion",
+  "explanation": "R∞ הוא קבוע ריידברג ביחידות מטר הפוך (מספר גל), לא קבוע הגזים."
+ },
+ "hc ≈ 1240 eV·nm": {
+  "kind": "constant-or-conversion",
+  "explanation": "hc הוא מכפלת קבוע פלאנק במהירות האור. הערך ביחידות eV·nm מאפשר לחשב אנרגיית פוטון מאורך גל בננומטרים."
+ },
+ "a₀ = 52.9 pm ; a₀ = 0.529 Å": {
+  "kind": "constant-or-conversion",
+  "explanation": "a₀ הוא רדיוס בוהר; pm ו-Å הן יחידות אורך."
+ },
+ "1 eV = 1.602×10⁻¹⁹ J": {
+  "kind": "constant-or-conversion",
+  "explanation": "eV (אלקטרון־וולט) היא יחידת אנרגיה. מוצגת ההמרה לגאול (J)."
+ },
+ "1 cal = 4.184 J": {
+  "kind": "constant-or-conversion",
+  "explanation": "cal (קלוריה) היא יחידת אנרגיה. מוצגת ההמרה לגאול (J)."
+ },
+ "Nₐ = 6.022×10²³ mol⁻¹": {
+  "kind": "constant-or-conversion",
+  "explanation": "Nₐ הוא קבוע אבוגדרו: מספר הישויות במול אחד, ביחידות mol⁻¹."
+ },
+ "R = 0.082 L·atm/(mol·K) ; R = 8.314 J/(mol·K)": {
+  "kind": "constant-or-conversion",
+  "explanation": "R הוא קבוע הגזים. יש לבחור את הערך המתאים ליחידות הלחץ, הנפח והאנרגיה בחישוב."
+ },
+ "1 atm = 101.33 kPa ; 1 atm = 760 mmHg": {
+  "kind": "constant-or-conversion",
+  "explanation": "atm, kPa ו-mmHg הן יחידות לחץ; מוצגות המרות ביניהן."
+ },
+ "T(K) = t(°C) + 273.15": {
+  "kind": "constant-or-conversion",
+  "explanation": "T היא הטמפרטורה בקלווין, t היא הטמפרטורה במעלות צלזיוס. ההפרש בין הסולמות הוא 273.15."
+ },
+ "l = 0: s ; l = 1: p ; l = 2: d ; l = 3: f": {
+  "kind": "definition-table",
+  "explanation": "l הוא המספר הקוונטי הזוויתי; s,p,d,f שמות תת־הקליפות עבור הערכים המפורטים."
+ }
+}

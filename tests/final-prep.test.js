@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {finalPrep84101 as layer,finalPrepExam as exam} from '../src/final-prep-84101.js';
 import {numericCorrect,loadCourseProgress,courseProgressKey} from '../src/logic.js';
-import {undoNotation} from './notation-baseline.js';
+import {undoNotation,undoFormulaReview} from './notation-baseline.js';
 const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
 const course=catalogue.courses.find(c=>c.id==='84101');
 const topic=id=>course.topics.find(t=>t.id===id);
@@ -19,6 +19,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  const original=structuredClone(catalogue);
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
+  else undoFormulaReview(t);
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
   for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep&&!b.batch4);
  }

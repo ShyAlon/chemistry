@@ -442,3 +442,43 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .formula-pop-eq[dir=rtl]{direction:rtl;text-align:right}
 .topic-formulas .formula-tip+.formula-tip{margin-top:-.2em}
 .topic-formulas .display-math{margin-block:.4em}
+
+/* Authored stacked fractions, including nested fractions inside an exponent.
+   Local CSS only: no fonts, scripts or network resources are required offline. */
+.math-fraction{display:inline-flex;flex-direction:column;vertical-align:middle;align-items:stretch;text-align:center;line-height:1.15;margin-inline:.14em;white-space:nowrap}
+.math-numerator{display:block;padding:0 .18em .12em;border-bottom:1px solid currentColor}
+.math-denominator{display:block;padding:.12em .18em 0}
+.display-math:has(.math-fraction),.formula-pop-eq:has(.math-fraction){font-family:Cambria,'Times New Roman',serif;line-height:2.5}
+.display-math sup:has(.math-fraction),.formula-pop-eq sup:has(.math-fraction){display:inline-block;vertical-align:super;font-size:.72em;line-height:1}
+@media(max-width:380px){.display-math:has(.math-fraction){padding-inline:10px;font-size:18px}}
+
+.display-math:has(.math-fraction){font-size:28px;padding:18px 22px}
+.formula-pop-eq:has(.math-fraction){font-size:26px}
+@media(min-width:701px){.display-math:has(.math-fraction)>div,.formula-pop-eq:has(.math-fraction)>div{display:inline-block}}
+@media(max-width:700px){.display-math:has(.math-fraction){font-size:22px;padding:16px 18px;line-height:2.8}.formula-pop-eq:has(.math-fraction){font-size:22px}}
+@media(max-width:350px){.display-math:has(.math-fraction){font-size:20px;padding-inline:12px}}
+
+.math-fenced{display:inline-flex;align-items:center;vertical-align:middle;white-space:nowrap}
+.math-fence{font-size:2.3em;line-height:.85;font-weight:normal}
+.math-fenced+sup{vertical-align:top;position:relative;top:-.1em}
+/* Keep the fixed-size print edition's typography and measurable two-line grouping. */
+.fp-column .math-fraction{margin-inline:.08em}
+.fp-column .math-fence{font-size:2.1em}
+
+/* Formula owns compact/reference presentation and reuses the same symbol popup. */
+.formula-compact{margin:0}
+.formula-compact .formula-face{display:block}
+.formula-compact .formula-compact-face{display:block;width:auto;max-width:100%;padding:0;margin:0;border:0;border-radius:0;background:none;font:inherit;line-height:inherit;white-space:normal;overflow:visible;text-align:inherit}
+.formula-compact .formula-hint{position:static;display:inline;font-size:14px;margin-inline:4px}
+.formula-compact .formula-compact-face:has(.math-fraction){font-size:20px;font-family:Cambria,'Times New Roman',serif}
+.formula-compact .chip{position:relative}
+
+.authored-math-line{display:block;white-space:nowrap}
+@media(min-width:701px){.formula-compact .authored-math-line{display:inline-block}}
+.fp-column .authored-math-line{display:inline-block}
+
+/* Contexts may list several aliases. Never let a wide term collapse its meaning. */
+.formula-pop dl>div{grid-template-columns:minmax(64px,32%) minmax(0,1fr)}
+.formula-pop dt{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.formula-pop dd{min-width:0}
+.formula-explanation{font-size:18px;line-height:1.7;margin:.5em 0 1em;color:var(--ink)}

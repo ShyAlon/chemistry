@@ -74,7 +74,7 @@ test('batch4 slide-10 layer: explicit Maxwell-Boltzmann fraction equation, legen
  for(const s of eq.symbols)assert.doesNotThrow(()=>symbolRows([s]),s);
  const sheet=readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8');
  assert.ok(sheet.replace(/ +/g,'').includes('ΔN/N≈4π(Mw/(2πRT))^(3/2)·v²·exp(−Mwv²/(2RT))·Δv'));
- assert.ok(sheet.includes('ΔN/N ≈ 4π(Mw/(2πRT))^(3/2)·v²   ·exp(−Mwv²/(2RT))·Δv'));
+ assert.ok(sheet.includes(eq.text));
  assert.ok(sheet.includes('B = 4πA√A ; f(v)=Bv²·exp(−πAv²)'));
 });
 

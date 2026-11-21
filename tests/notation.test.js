@@ -6,6 +6,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {notationCorrections,undoNotation} from './notation-baseline.js';
 import {normalizeBidiText} from '../src/bidi.js';
 import {CONSTANTS,formatConstant,formatNumber,resolveConstants} from '../src/constants.js';
+import {explicitFormulaMetadata,exerciseFormulaContexts} from '../src/formula-metadata.js';
 import {SYMBOLS} from '../src/symbol-defs.js';
 import {symbolRow,symbolText} from '../src/symbols.js';
 import {FormulaTip,DisplayMath,FORMULA_TIP_HOVER_MS} from '../src/scientific-text.js';
@@ -90,6 +91,7 @@ test('every symbol and constant reference resolves; constants in definitions com
  for(const {t,i,b} of blocks())for(const m of b.text.matchAll(/\{([^{}]+)\}/g))formatConstant(m[1]);
  const referenced=new Set(blocks().flatMap(x=>x.b.symbols||[]));
  for(const c of formulaSheet)for(const t of c.topics)for(const item of t.items)for(const id of item[3]||[])referenced.add(id);
+ for(const record of [...Object.values(explicitFormulaMetadata),...Object.values(exerciseFormulaContexts)])for(const id of record.symbols||[])referenced.add(id);
  for(const id of Object.keys(SYMBOLS))assert.ok(referenced.has(id),'unused definition '+id);
  assert.ok(blocks().filter(x=>x.b.symbols?.length).length>=56);
 });

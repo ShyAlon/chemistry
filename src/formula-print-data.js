@@ -50,10 +50,11 @@ const notes={
  'G16/תיארוך':'מערכת סגורה; מדידה אמיתית דורשת כיול.',
 };
 export function compactFormulaTopics(course){
- return course.topics.map(t=>({...t,items:t.items.filter(([label])=>!omit.has(t.id+'/'+label)).map(([label,expr,note])=>{
+ return course.topics.map(t=>({...t,items:t.items.filter(([label])=>!omit.has(t.id+'/'+label)).map(([label,expr,note,symbols])=>{
   if(t.id==='P5'&&label==='תת־קליפות')expr='l = 0: s ; l = 1: p ; l = 2: d ; l = 3: f';
   const key=t.id+'/'+label;
-  return [label,expr,Object.hasOwn(notes,key)?notes[key]:note];
+  const item=[label,expr,Object.hasOwn(notes,key)?notes[key]:note];
+  return symbols?[...item,symbols]:item;
  })}));
 }
 

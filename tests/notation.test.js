@@ -9,6 +9,7 @@ import {CONSTANTS,formatConstant,formatNumber,resolveConstants} from '../src/con
 import {SYMBOLS} from '../src/symbol-defs.js';
 import {symbolRow,symbolText} from '../src/symbols.js';
 import {FormulaTip,DisplayMath,FORMULA_TIP_HOVER_MS} from '../src/scientific-text.js';
+import {courses as formulaSheet} from '../src/reference-formulas.js';
 const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
 const gc=catalogue.courses.find(c=>c.id==='84101');
 const hebrew=/[\u0590-\u05ff]/;
@@ -88,6 +89,7 @@ test('every symbol and constant reference resolves; constants in definitions com
   assert.ok(!/(?:8\.314|0\.0820|6\.022|1\.38)/.test(flat),'literal constant in definition '+id)}
  for(const {t,i,b} of blocks())for(const m of b.text.matchAll(/\{([^{}]+)\}/g))formatConstant(m[1]);
  const referenced=new Set(blocks().flatMap(x=>x.b.symbols||[]));
+ for(const c of formulaSheet)for(const t of c.topics)for(const item of t.items)for(const id of item[3]||[])referenced.add(id);
  for(const id of Object.keys(SYMBOLS))assert.ok(referenced.has(id),'unused definition '+id);
  assert.ok(blocks().filter(x=>x.b.symbols?.length).length>=56);
 });

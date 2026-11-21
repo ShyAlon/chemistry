@@ -15,10 +15,13 @@ test('known configurations match the course exceptions and counts',()=>{
  assert.equal(f(24),'[Ar]4s13d5');assert.equal(f(29),'[Ar]4s13d10');assert.equal(f(10),'[He]2s22p6');
  for(const e of elements.filter(e=>e.z<=103&&e.z>2&&!e.core.length===false)){const core={He:2,Ne:10,Ar:18,Kr:36,Xe:54,Rn:86}[e.core];assert.equal(core+e.cfg.reduce((a,[,n])=>a+n,0),e.z,e.s)}
 });
-test('formula sheet covers every course topic exactly once',()=>{
- // Both original courses must have sheets matching their topics exactly; nano has no sheet yet.
- assert.deepEqual(sheet.map(x=>x.id).sort(),['84101','84102']);
- for(const sh of sheet){const c=catalogue.courses.find(x=>x.id===sh.id);assert.ok(c,'formula sheet for unknown course '+sh.id);assert.deepEqual(sh.topics.map(t=>t.id).sort(),c.topics.map(t=>t.id).sort())}
+test('formula sheet covers course topics: exactly for the two original courses, curated subsets for nuclear and nano',()=>{
+ // 84101/84102 have sheets matching their topics exactly; nuclear and nano have curated sheets
+ // only for topics with real quantitative content (see tests/formula-topics.test.js).
+ assert.deepEqual(sheet.map(x=>x.id).sort(),['84101','84102','nano','nuclear']);
+ for(const sh of sheet){const c=catalogue.courses.find(x=>x.id===sh.id);assert.ok(c,'formula sheet for unknown course '+sh.id);
+  if(sh.id==='84101'||sh.id==='84102')assert.deepEqual(sh.topics.map(t=>t.id).sort(),c.topics.map(t=>t.id).sort());
+  else for(const t of sh.topics)assert.ok(c.topics.some(x=>x.id===t.id),'sheet topic missing from course '+t.id)}
  assert.ok(constants.length>=10);
  for(const t of sheet.flatMap(c=>c.topics))assert.ok(t.items.length>0&&t.items.every(i=>i[0]&&i[1]))
 });

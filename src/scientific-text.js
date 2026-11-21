@@ -19,7 +19,7 @@ export function DisplayMath({text}){return React.createElement('div',{className:
 // hides the popup and prints the same list under the formula.
 export const FORMULA_TIP_HOVER_MS=500;
 const LEAVE_GRACE_MS=180;
-function SymbolList({rows}){return React.createElement('dl',null,...rows.map(([sym,meaning],i)=>React.createElement('div',{key:i},React.createElement('dt',null,React.createElement('bdi',{dir:'ltr'},...mathNotation(sym))),React.createElement('dd',null,React.createElement(ScientificText,{runs:Array.isArray(meaning)?meaning:[meaning]})))))}
+export function SymbolList({rows}){return React.createElement('dl',null,...rows.map(([sym,meaning],i)=>React.createElement('div',{key:i},React.createElement('dt',null,React.createElement('bdi',{dir:'ltr'},...mathNotation(sym))),React.createElement('dd',null,React.createElement(ScientificText,{runs:Array.isArray(meaning)?meaning:[meaning]})))))}
 export function FormulaTip({text,symbols}){
  const [open,setOpen]=React.useState(false);const [place,setPlace]=React.useState(null);const id=React.useId();const rows=symbolRows(symbols);
  const touch=React.useRef(null);const tip=React.useRef(null);const pop=React.useRef(null);const face=React.useRef(null);const timers=React.useRef({open:0,close:0});

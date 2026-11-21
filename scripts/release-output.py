@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Review draft. Packages static output; verifies candidates before Pages upload.
+"""Packages static output; verifies candidates before Pages upload.
 No secret reaches PR code. prepare/recheck read GitHub, package is local.
 """
 import hashlib, io, json, os, re, stat, subprocess, sys, urllib.request, urllib.error, zipfile
@@ -21,7 +21,8 @@ def safe_name(name):
     require(p.suffix.lower() in SUFFIXES and p.name not in {'package.json','package-lock.json','credentials.json','vite.config.js'},'non-output file')
     return name
 
-def package():
+def production_files():
+    require(Path('dist').is_dir() and not Path('dist').is_symlink(),'missing/symlink production directory')
     files={}
     for p in sorted(Path('dist').rglob('*')):
         require(not p.is_symlink(),'symlink in dist')
@@ -29,6 +30,11 @@ def package():
     require('index.html' in files and 'sw.js' in files,'missing entry/worker')
     require(len(files)<=20000 and sum(map(len,files.values()))<=MAX_BYTES,'output limit')
     require(all(len(v)<=MAX_FILE for v in files.values()),'file limit')
+    return files
+
+def package():
+    files=production_files()
+    check_snapshot(files)
     meta={'tree':git('rev-parse','HEAD^{tree}'),'commit':git('rev-parse','HEAD'),
           'repository':os.environ['GITHUB_REPOSITORY'],'run_id':int(os.environ['GITHUB_RUN_ID']),
           'pr':int(os.environ.get('PR_NUMBER') or 0),'head':os.environ.get('PR_HEAD',''),
@@ -140,6 +146,7 @@ def prepare():
         if chosen:break
     require(chosen is not None,'no successful matching retained candidate; revalidate intentionally')
     run,art,meta,files=chosen
+    if pr:check_snapshot(files)
     target=Path('verified-dist');require(not target.exists(),'verified-dist already exists')
     for name,b in files.items():
         p=target/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
@@ -163,41 +170,73 @@ def snapshot_files(data,record):
     require('index.html' in files and 'sw.js' in files,'missing snapshot entry/worker')
     return files
 
+def source_identity():
+    # Content identity, not a self-referential commit SHA. Includes every tracked
+    # file except the two generated recovery files, including build config/tests.
+    entries=git('ls-files','--stage','-z').split('\0')
+    identity=[]
+    for entry in entries:
+        if not entry:continue
+        header,name=entry.split('\t',1)
+        mode,blob,stage=header.split()
+        require(stage=='0' and mode in {'100644','100755'},'unsupported tracked entry')
+        if name in {'recovery/known-good.json','recovery/known-good.zip'}:continue
+        p=Path(name);require(not p.is_symlink() and p.is_file(),'missing/nonregular tracked source')
+        identity.append([name,mode,sha(p.read_bytes())])
+    require(identity,'empty tracked source')
+    return sha(json.dumps(sorted(identity),ensure_ascii=True,separators=(',',':')).encode())
+
+def current_snapshot():
+    base=Path('recovery')
+    require(not base.is_symlink() and not (base/'known-good.json').is_symlink() and not (base/'known-good.zip').is_symlink(),'symlink recovery source')
+    record=json.loads((base/'known-good.json').read_text())
+    require(record.get('schema')==2 and record.get('origin')=='https://shyalon.github.io/chemistry/','snapshot schema/origin mismatch; refresh from production dist')
+    require(record.get('source_identity')==source_identity(),'snapshot source identity stale; refresh in this PR')
+    data=(base/'known-good.zip').read_bytes()
+    return record,snapshot_files(data,record)
+
+def check_snapshot(files=None):
+    record,saved=current_snapshot()
+    actual=production_files() if files is None else files
+    require(saved==actual,'snapshot differs from tested production output; refresh in this PR')
+    print('Snapshot matches',len(saved),'tested production files and current tracked source')
+
+def refresh_snapshot():
+    # Explicit local preparation. CI never calls this and never silently fixes it.
+    files=production_files();identity=source_identity()
+    worker=files['sw.js'].decode()
+    version=re.search(r'const VERSION="([0-9a-f]+)";',worker)
+    require(version is not None,'missing generated worker version')
+    evidence={'origin':'https://shyalon.github.io/chemistry/','service_worker_version':version[1],
+              'files':{n:{'bytes':len(b),'sha256':sha(b)} for n,b in sorted(files.items())}}
+    archive=io.BytesIO()
+    with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
+        for name,b in sorted({'snapshot-evidence.json':json.dumps(evidence,sort_keys=True).encode(),**{'dist/'+n:b for n,b in files.items()}}.items()):
+            info=zipfile.ZipInfo(name,date_time=(1980,1,1,0,0,0))
+            info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=(stat.S_IFREG|0o644)<<16
+            z.writestr(info,b)
+    data=archive.getvalue()
+    record={'schema':2,'archive_sha256':sha(data),'source_identity':identity,
+            'origin':evidence['origin'],'service_worker_version':version[1],
+            'provenance':'Prepared from production dist; exact bytes and tracked source must pass CI before promotion'}
+    snapshot_files(data,record)
+    base=Path('recovery');base.mkdir(exist_ok=True)
+    require(not base.is_symlink() and not (base/'known-good.json').is_symlink() and not (base/'known-good.zip').is_symlink(),'symlink recovery target')
+    (base/'known-good.zip').write_bytes(data)
+    (base/'known-good.json').write_text(json.dumps(record,indent=2)+'\n')
+    check_snapshot(files)
+    print('Refreshed recovery files locally; review and commit in the same PR')
+
 def prepare_snapshot(main,root):
-    # Both record and fixed archive path are reviewed in the trusted main checkout.
-    # No user URL, arbitrary artifact or uploaded script is accepted at run time.
-    record=json.loads(Path('recovery/known-good.json').read_text())
-    commit=record['source_commit']
-    require(re.fullmatch(r'[0-9a-f]{40}',commit),'invalid snapshot source commit')
-    relation=api(root+'/compare/'+commit+'...'+main['sha'])
-    require(relation['status'] in {'ahead','identical'},'snapshot source not main ancestor')
-    files=snapshot_files(Path('recovery/known-good.zip').read_bytes(),record)
+    # Trusted current-main checkout. No rebuild, runtime URL, or historical
+    # provenance claim. A current-source identity mismatch fails closed.
+    require(git('rev-parse','HEAD')==main['sha'],'snapshot checkout is not current main')
+    record,files=current_snapshot()
     target=Path('verified-dist');require(not target.exists(),'verified-dist already exists')
     for name,b in files.items():
         p=target/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
-    Path('release-guard.json').write_text(json.dumps({'main_sha':main['sha'],'source_commit':commit,'snapshot_sha256':record['archive_sha256']}))
-    print('Verified saved snapshot',record['service_worker_version'],'with',len(files),'files')
-
-
-def import_snapshot(archive_path,source_commit,run_url):
-    # Local preparation only. The owner reviews the claimed deployment provenance
-    # and the resulting diff; importing a ZIP is not proof of a prior CI run.
-    require(re.fullmatch(r'[0-9a-f]{40}',source_commit),'full source commit required')
-    require(re.fullmatch(r'https://github\.com/ShyAlon/chemistry/actions/runs/[1-9][0-9]*',run_url),'exact chemistry deployment run URL required')
-    data=Path(archive_path).read_bytes();require(len(data)<=MAX_BYTES,'snapshot too large')
-    members=archive_members(data)
-    require('snapshot-evidence.json' in members,'snapshot evidence missing')
-    evidence=json.loads(members['snapshot-evidence.json'])
-    require(evidence.get('origin')=='https://shyalon.github.io/chemistry/','unexpected snapshot origin')
-    record={'archive_sha256':sha(data),'source_commit':source_commit,'source_run_url':run_url,
-            'origin':evidence['origin'],'service_worker_version':evidence['service_worker_version'],
-            'captured_at':evidence['captured_at'],'status':'Observed production snapshot; review deployment provenance before committing'}
-    files=snapshot_files(data,record)
-    target=Path('recovery');target.mkdir(exist_ok=True)
-    require(not (target/'known-good.zip').is_symlink() and not (target/'known-good.json').is_symlink(),'symlink recovery target')
-    (target/'known-good.zip').write_bytes(data)
-    (target/'known-good.json').write_text(json.dumps(record,indent=2)+'\n')
-    print('Imported',len(files),'static files locally; review and commit explicitly')
+    Path('release-guard.json').write_text(json.dumps({'main_sha':main['sha'],'source_identity':record['source_identity'],'snapshot_sha256':record['archive_sha256']}))
+    print('Verified current-source snapshot',record['service_worker_version'],'with',len(files),'files')
 
 
 def recheck():
@@ -208,10 +247,7 @@ def recheck():
 
 if __name__=='__main__':
     try:
-        if len(sys.argv)==5 and sys.argv[1]=='import-snapshot':
-            import_snapshot(*sys.argv[2:])
-        else:
-            require(len(sys.argv)==2 and sys.argv[1] in {'package','prepare','recheck'},'invalid operation')
-            globals()[sys.argv[1]]()
+        require(len(sys.argv)==2 and sys.argv[1] in {'package','prepare','recheck','refresh-snapshot','check-snapshot'},'invalid operation')
+        globals()[sys.argv[1].replace('-','_')]()
     except (Stop,ValueError,KeyError,zipfile.BadZipFile) as e:
         print('STOP:',e,file=sys.stderr);sys.exit(1)

@@ -46,6 +46,8 @@ jobs:
       - run: npm test
       - run: python3 scripts/test-release-output.py
       - run: npm run build
+      - name: Reject stale recovery output in the same PR
+        run: python3 scripts/release-output.py check-snapshot
       - name: Package only after every gate passes
         run: python3 scripts/release-output.py package
         env:

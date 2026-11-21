@@ -55,7 +55,7 @@ class ReleaseTests(unittest.TestCase):
  def test_prepare_rejects_unmerged_pr(self):self.run_prepare('unmerged')
  def test_prepare_rejects_wrong_merge_commit(self):self.run_prepare('merge')
  def test_prepare_rejects_crossrepo_pr(self):self.run_prepare('fork')
- def run_prepare(self,bad=None):
+ def run_prepare(self,bad=None,snapshot_failure=False):
   root='/repos/ShyAlon/chemistry';inner=release(meta={'tree':'evil'} if bad=='tree' else None);outer=zbytes({'release.zip':inner})
   run={'id':9,'status':'completed','conclusion':'failure' if bad=='failed' else 'success','path':'.github/workflows/pages.yml','repository':{'full_name':'other' if bad=='repo' else 'ShyAlon/chemistry'},'event':'pull_request','head_sha':'new' if bad=='head' else 'head'}
   def fake(path,raw=False):
@@ -71,13 +71,13 @@ class ReleaseTests(unittest.TestCase):
    old=os.getcwd();os.chdir(t)
    try:
     Path('event.json').write_text(json.dumps({'ref':'refs/heads/other' if bad=='ref' else 'refs/heads/main','after':('f' if bad=='stale' else 'e')*40}))
-    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':'','GITHUB_EVENT_NAME':'pull_request' if bad=='event' else 'push'}),patch.object(r,'api',side_effect=fake):
+    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':'','GITHUB_EVENT_NAME':'pull_request' if bad=='event' else 'push'}),patch.object(r,'api',side_effect=fake),patch.object(r,'check_snapshot',side_effect=r.Stop('snapshot mismatch') if snapshot_failure else None) as snapshot_check:
      if bad:
       reason={'main':'main moved after merge','event':'promotion requires main push','ref':'promotion requires main push','stale':'main moved after push','direct':'push must identify exactly one merged PR','ambiguous':'push must identify exactly one merged PR','unmerged':'PR not merged from same repository','merge':'PR not merged from same repository','fork':'PR not merged from same repository','digest':'artifact API digest mismatch','tree':'candidate metadata mismatch: tree'}.get(bad,'no successful matching retained candidate')
       with self.assertRaisesRegex(r.Stop,reason):r.prepare()
       self.assertFalse(Path('verified-dist').exists())
      else:
-      r.prepare();self.assertEqual((Path('verified-dist')/'assets/a.js').read_bytes(),F['assets/a.js'])
+      r.prepare();snapshot_check.assert_called_once_with(F);self.assertEqual((Path('verified-dist')/'assets/a.js').read_bytes(),F['assets/a.js'])
    finally:os.chdir(old)
 
  def test_restore_main_candidate(self):self.restore_case()
@@ -99,7 +99,7 @@ class ReleaseTests(unittest.TestCase):
    old=os.getcwd();os.chdir(t)
    try:
     Path('event.json').write_text('{}')
-    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':'restore','RESTORE_RUN':'9','RESTORE_COMMIT':commit}),patch.object(r,'api',side_effect=fake):
+    with patch.dict(os.environ,{'GITHUB_REPOSITORY':'ShyAlon/chemistry','GITHUB_EVENT_PATH':str(Path('event.json').absolute()),'OPERATION':'restore','RESTORE_RUN':'9','RESTORE_COMMIT':commit}),patch.object(r,'api',side_effect=fake),patch.object(r,'check_snapshot') as snapshot_check:
      if bad:
       with self.assertRaises(r.Stop):r.prepare()
       self.assertFalse(Path('verified-dist').exists())
@@ -124,21 +124,92 @@ class ReleaseTests(unittest.TestCase):
    try:
     import shutil
     shutil.copytree(base,'recovery')
-    with patch.object(r,'api',return_value={'status':'ahead'}):r.prepare_snapshot({'sha':'current'},'/repos/ShyAlon/chemistry')
+    with patch.object(r,'source_identity',return_value=json.loads((base/'known-good.json').read_text())['source_identity']),patch.object(r,'git',return_value='current'):r.prepare_snapshot({'sha':'current'},'/repos/ShyAlon/chemistry')
     self.assertTrue(Path('verified-dist/index.html').exists());self.assertTrue(Path('release-guard.json').exists())
    finally:os.chdir(old)
 
- def test_local_import_roundtrip(self):
-  base=Path(__file__).resolve().parents[1]/'recovery';data=(base/'known-good.zip').read_bytes()
+ def test_snapshot_roundtrip_deterministic_and_stale(self):
   with tempfile.TemporaryDirectory() as t:
    old=os.getcwd();os.chdir(t)
    try:
-    Path('input.zip').write_bytes(data)
-    r.import_snapshot('input.zip','b'*40,'https://github.com/ShyAlon/chemistry/actions/runs/123')
-    self.assertEqual(Path('recovery/known-good.zip').read_bytes(),data)
-    self.assertEqual(json.loads(Path('recovery/known-good.json').read_text())['source_commit'],'b'*40)
+    Path('source.txt').write_bytes(b'source')
+    Path('dist/assets').mkdir(parents=True)
+    for n,b in F.items():
+     p=Path('dist')/n;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
+    Path('dist/sw.js').write_bytes(b'const VERSION="1234abcd";')
+    tracked='100644 blob 0\tsource.txt\0'
+    with patch.object(r,'git',return_value=tracked):
+     r.refresh_snapshot();first=Path('recovery/known-good.zip').read_bytes();record=Path('recovery/known-good.json').read_bytes()
+     r.refresh_snapshot();self.assertEqual(Path('recovery/known-good.zip').read_bytes(),first);self.assertEqual(Path('recovery/known-good.json').read_bytes(),record)
+     r.check_snapshot()
+     Path('dist/assets/a.js').write_bytes(b'changed')
+     with self.assertRaisesRegex(r.Stop,'differs from tested production'):r.check_snapshot()
+     Path('source.txt').write_bytes(b'new source')
+     with self.assertRaisesRegex(r.Stop,'source identity stale'):r.current_snapshot()
    finally:os.chdir(old)
- def test_import_invalid_provenance(self):
-  with self.assertRaises(r.Stop):r.import_snapshot('not-opened.zip','bad','https://other.invalid')
+ def test_identity_excludes_only_generated_backup(self):
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    Path('source.txt').write_bytes(b'source');Path('recovery').mkdir()
+    Path('recovery/known-good.json').write_bytes(b'old');Path('recovery/known-good.zip').write_bytes(b'old')
+    tracked='100644 blob 0\tsource.txt\0'+'100644 blob 0\trecovery/known-good.json\0'+'100644 blob 0\trecovery/known-good.zip\0'
+    with patch.object(r,'git',return_value=tracked):
+     identity=r.source_identity();Path('recovery/known-good.zip').write_bytes(b'new')
+     self.assertEqual(r.source_identity(),identity)
+     Path('source.txt').write_bytes(b'new');self.assertNotEqual(r.source_identity(),identity)
+   finally:os.chdir(old)
+ def test_identity_rejects_symlink_and_unmerged_index(self):
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    Path('source.txt').symlink_to('missing')
+    with patch.object(r,'git',return_value='100644 blob 0\tsource.txt\0'),self.assertRaisesRegex(r.Stop,'nonregular tracked'):r.source_identity()
+    with patch.object(r,'git',return_value='100644 blob 1\tsource.txt\0'),self.assertRaisesRegex(r.Stop,'unsupported tracked'):r.source_identity()
+   finally:os.chdir(old)
+ def test_snapshot_rejects_old_schema(self):
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    Path('recovery').mkdir();Path('recovery/known-good.json').write_text('{}')
+    with self.assertRaisesRegex(r.Stop,'schema/origin mismatch'):r.current_snapshot()
+   finally:os.chdir(old)
+ def test_snapshot_restore_rejects_old_checkout(self):
+  with patch.object(r,'git',return_value='old'),self.assertRaisesRegex(r.Stop,'not current main'):r.prepare_snapshot({'sha':'new'},'/repos/ShyAlon/chemistry')
+ def test_package_rejects_stale_snapshot(self):
+  with patch.object(r,'production_files',return_value=F),patch.object(r,'check_snapshot',side_effect=r.Stop('stale')),self.assertRaisesRegex(r.Stop,'stale'):r.package()
+ def test_real_git_identity_stable_across_snapshot_commit(self):
+  import subprocess
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    subprocess.run(['git','init','-q'],check=True)
+    subprocess.run(['git','config','user.name','Fixture'],check=True)
+    subprocess.run(['git','config','user.email','fixture@example.invalid'],check=True)
+    Path('source.txt').write_bytes(b'source')
+    subprocess.run(['git','add','source.txt'],check=True)
+    subprocess.run(['git','commit','-qm','source'],check=True)
+    identity=r.source_identity()
+    Path('recovery').mkdir();Path('recovery/known-good.json').write_text('{}');Path('recovery/known-good.zip').write_bytes(b'fixture')
+    subprocess.run(['git','add','recovery'],check=True)
+    subprocess.run(['git','commit','-qm','same source plus backup'],check=True)
+    self.assertEqual(r.source_identity(),identity)
+    subprocess.run(['git','commit','--allow-empty','-qm','new commit same files'],check=True)
+    self.assertEqual(r.source_identity(),identity)
+    Path('new.txt').write_text('new');subprocess.run(['git','add','new.txt'],check=True)
+    self.assertNotEqual(r.source_identity(),identity)
+   finally:os.chdir(old)
+ def test_identity_includes_executable_mode(self):
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    Path('source.txt').write_bytes(b'source')
+    with patch.object(r,'git',return_value='100644 blob 0\tsource.txt\0'):identity=r.source_identity()
+    with patch.object(r,'git',return_value='100755 blob 0\tsource.txt\0'):self.assertNotEqual(identity,r.source_identity())
+   finally:os.chdir(old)
+ def test_promotion_rejects_snapshot_output_mismatch(self):
+  # Existing promotion fixture exercises the call, not just the build job gate.
+  with patch.object(r,'check_snapshot',side_effect=r.Stop('snapshot mismatch')):
+   with self.assertRaisesRegex(r.Stop,'snapshot mismatch'):self.run_prepare(snapshot_failure=True)
 
 if __name__=='__main__':unittest.main(verbosity=2)

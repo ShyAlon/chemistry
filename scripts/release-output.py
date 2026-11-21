@@ -245,9 +245,35 @@ def recheck():
     require(main['sha']==guard['main_sha'],'main changed before publication; stop')
     print('Main unchanged before publication')
 
+def export_guard():
+    recheck()
+    guard=json.loads(Path('release-guard.json').read_text())
+    commit=guard['main_sha']
+    require(re.fullmatch(r'[0-9a-f]{40}',commit) and git('rev-parse','HEAD')==commit,'handoff checkout mismatch')
+    with Path(os.environ['GITHUB_OUTPUT']).open('a') as f:f.write('main_sha='+commit+'\n')
+    print('Handed off verified main',commit)
+
+def publish_guard():
+    commit=os.environ.get('EXPECTED_MAIN','');artifact=os.environ.get('EXPECTED_ARTIFACT','')
+    require(re.fullmatch(r'[0-9a-f]{40}',commit) and re.fullmatch(r'[1-9][0-9]*',artifact),'invalid publication handoff')
+    require(os.environ.get('GITHUB_REF')=='refs/heads/main' and os.environ.get('GITHUB_EVENT_NAME') in {'push','workflow_dispatch'},'publication requires trusted main event')
+    require(git('rev-parse','HEAD')==commit,'publication checkout mismatch')
+    root='/repos/'+os.environ['GITHUB_REPOSITORY'];run_id=os.environ['GITHUB_RUN_ID']
+    require(re.fullmatch(r'[1-9][0-9]*',run_id),'invalid run')
+    meta=api(root+'/actions/artifacts/'+artifact)
+    require(str(meta.get('id'))==artifact and meta.get('name')=='github-pages' and not meta.get('expired'),'publication artifact identity mismatch')
+    run=meta.get('workflow_run',{})
+    require(str(run.get('id'))==run_id and run.get('head_sha')==os.environ['GITHUB_SHA'],'publication artifact is not from this exact run')
+    listed=api(root+'/actions/runs/'+run_id+'/artifacts?per_page=100')['artifacts']
+    matches=[a for a in listed if a.get('name')=='github-pages' and not a.get('expired')]
+    require(len(matches)==1 and str(matches[0]['id'])==artifact,'publication artifact discovery ambiguous or missing')
+    # Check last, after artifact metadata reads, just before deploy-pages.
+    require(api(root+'/commits/main')['sha']==commit,'main changed before publication; stop')
+    print('Verified exact same-run Pages artifact',artifact,'and unchanged main',commit)
+
 if __name__=='__main__':
     try:
-        require(len(sys.argv)==2 and sys.argv[1] in {'package','prepare','recheck','refresh-snapshot','check-snapshot'},'invalid operation')
+        require(len(sys.argv)==2 and sys.argv[1] in {'package','prepare','recheck','refresh-snapshot','check-snapshot','export-guard','publish-guard'},'invalid operation')
         globals()[sys.argv[1].replace('-','_')]()
     except (Stop,ValueError,KeyError,zipfile.BadZipFile) as e:
         print('STOP:',e,file=sys.stderr);sys.exit(1)

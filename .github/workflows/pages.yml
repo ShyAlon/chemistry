@@ -62,7 +62,7 @@ jobs:
           retention-days: 7
           if-no-files-found: error
 
-  deploy:
+  prepare-output:
     if: >-
       always() &&
       ((github.event_name == 'push' && github.ref == 'refs/heads/main') ||
@@ -70,18 +70,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    concurrency:
-      group: chemistry-pages-publish
-      cancel-in-progress: false
     permissions:
       contents: read
       actions: read
       pull-requests: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      main_sha: ${{ steps.guard.outputs.main_sha }}
+      artifact_id: ${{ steps.upload.outputs.artifact_id }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
@@ -95,14 +90,45 @@ jobs:
           RESTORE_RUN: ${{ inputs.run_id }}
           RESTORE_COMMIT: ${{ inputs.source_commit }}
       - name: Upload verified static output
+        id: upload
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: verified-dist
           retention-days: 1
-      - name: Recheck main before publication
-        run: python3 scripts/release-output.py recheck
+      - name: Hand off the exact verified main and artifact
+        id: guard
+        run: python3 scripts/release-output.py export-guard
         env:
           GH_TOKEN: ${{ github.token }}
+
+  deploy:
+    # Never publish a failed or skipped preparation, even with build skipped.
+    if: always() && needs.prepare-output.result == 'success'
+    needs: prepare-output
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: chemistry-pages-publish
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ needs.prepare-output.outputs.main_sha }}
+          persist-credentials: false
+      - name: Verify exact artifact and recheck main immediately before publication
+        run: python3 scripts/release-output.py publish-guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_MAIN: ${{ needs.prepare-output.outputs.main_sha }}
+          EXPECTED_ARTIFACT: ${{ needs.prepare-output.outputs.artifact_id }}
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

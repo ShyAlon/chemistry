@@ -212,4 +212,49 @@ class ReleaseTests(unittest.TestCase):
   with patch.object(r,'check_snapshot',side_effect=r.Stop('snapshot mismatch')):
    with self.assertRaisesRegex(r.Stop,'snapshot mismatch'):self.run_prepare(snapshot_failure=True)
 
+class PublicationGuardTests(unittest.TestCase):
+ def test_passes(self):self.case()
+ def test_bad_handoff(self):self.case('handoff','invalid publication handoff')
+ def test_wrong_ref(self):self.case('ref','trusted main event')
+ def test_pr_event(self):self.case('event','trusted main event')
+ def test_wrong_checkout(self):self.case('checkout','checkout mismatch')
+ def test_wrong_id(self):self.case('id','artifact identity mismatch')
+ def test_wrong_name(self):self.case('name','artifact identity mismatch')
+ def test_expired(self):self.case('expired','artifact identity mismatch')
+ def test_other_run(self):self.case('run','not from this exact run')
+ def test_other_head(self):self.case('head','not from this exact run')
+ def test_missing_listing(self):self.case('missing','ambiguous or missing')
+ def test_duplicate_listing(self):self.case('duplicate','ambiguous or missing')
+ def test_changed_main(self):self.case('main','main changed before publication')
+ def case(self,bad=None,error=None):
+  commit='a'*40;root='/repos/ShyAlon/chemistry';calls=[]
+  meta={'id':11 if bad=='id' else 10,'name':'other' if bad=='name' else 'github-pages','expired':bad=='expired','workflow_run':{'id':8 if bad=='run' else 9,'head_sha':'other' if bad=='head' else commit}}
+  def fake(path):
+   calls.append(path)
+   if path==root+'/actions/artifacts/10':return meta
+   if path==root+'/actions/runs/9/artifacts?per_page=100':return {'artifacts':[] if bad=='missing' else [meta]*(2 if bad=='duplicate' else 1)}
+   if path==root+'/commits/main':return {'sha':'b'*40 if bad=='main' else commit}
+   raise AssertionError(path)
+  env={'EXPECTED_MAIN':'bad' if bad=='handoff' else commit,'EXPECTED_ARTIFACT':'10','GITHUB_REF':'refs/heads/other' if bad=='ref' else 'refs/heads/main','GITHUB_EVENT_NAME':'pull_request' if bad=='event' else 'push','GITHUB_RUN_ID':'9','GITHUB_SHA':commit,'GITHUB_REPOSITORY':'ShyAlon/chemistry'}
+  with patch.dict(os.environ,env),patch.object(r,'git',return_value='b'*40 if bad=='checkout' else commit),patch.object(r,'api',side_effect=fake):
+   if error:
+    with self.assertRaisesRegex(r.Stop,error):r.publish_guard()
+   else:
+    r.publish_guard();self.assertEqual(calls[-1],root+'/commits/main')
+ def test_export_checked_exact_sha(self):self.export_case()
+ def test_export_changed_main(self):self.export_case('main')
+ def test_export_wrong_checkout(self):self.export_case('checkout')
+ def export_case(self,bad=None):
+  with tempfile.TemporaryDirectory() as t:
+   old=os.getcwd();os.chdir(t)
+   try:
+    Path('release-guard.json').write_text(json.dumps({'main_sha':'a'*40}))
+    with patch.dict(os.environ,{'GITHUB_OUTPUT':'output.txt','GITHUB_REPOSITORY':'ShyAlon/chemistry'}),patch.object(r,'api',return_value={'sha':('b' if bad=='main' else 'a')*40}),patch.object(r,'git',return_value=('b' if bad=='checkout' else 'a')*40):
+     if bad:
+      with self.assertRaises(r.Stop):r.export_guard()
+      self.assertFalse(Path('output.txt').exists())
+     else:
+      r.export_guard();self.assertEqual(Path('output.txt').read_text(),'main_sha='+'a'*40+'\n')
+   finally:os.chdir(old)
+
 if __name__=='__main__':unittest.main(verbosity=2)

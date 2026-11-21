@@ -18,3 +18,9 @@ The ZIP is deterministic: fixed member timestamps, sorted paths and fixed file m
 Manual `restore-snapshot` is a separate owner-approved operation. It uses the fixed reviewed backup from current main, verifies its current-source identity and hashes, and publishes without npm or rebuilding. An out-of-date checkout or stale source identity fails closed. The existing explicit retained-artifact restore remains available for an approved historical recovery while that artifact exists.
 
 After a normal release, verify the served files against the tested output before calling it complete. A recovery trial and repository visibility change still require separate approval. This mechanism does not promise that private GitHub Actions will be admitted when compute allowance is exhausted.
+
+## Pages upload and publication jobs
+
+Verified-output preparation uploads the Pages artifact in one job. A separate job publishes it in the same workflow run, following the action's recommended job layout. This mitigates an upstream report of an empty internal listing immediately after a same-job upload; it is not proof of the backend cause and adds no automatic retries.
+
+The preparation job has no Pages-write or identity-token permission. Its handoff carries only the verified main SHA and upload-returned artifact ID. The publication job checks out that exact trusted SHA, requires the main event, verifies the exact same-run/head artifact and unique expected name through the API, then checks that main has not moved immediately before calling the unchanged pinned deployment action. The main-only github-pages environment still protects publication. No code or build runs from a PR ref, no rebuild occurs, and publication is skipped unless preparation succeeds. The small preexisting race between the final main read and deployment cannot be made atomic by this workflow.

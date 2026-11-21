@@ -1,9 +1,9 @@
 {
-  "archive_sha256": "d32f8e957be144f9b635071191402e7902563ec0e44ac8571dc2f21044af6c35",
-  "source_commit": "0eb4bc48c0a448869f494850a6ce1e7c0c6c2507",
-  "source_run_url": "https://github.com/ShyAlon/chemistry/actions/runs/44900715710",
+  "archive_sha256": "b439127ac602ccac14b6d0ed9e34301ea69aed4d9ec08bca75a66628ac2fc9ab",
+  "source_commit": "2049e49f799e81966b11bd5a591c4c0baee3a26f",
+  "source_run_url": "https://github.com/ShyAlon/chemistry/actions/runs/44912912186",
   "origin": "https://shyalon.github.io/chemistry/",
-  "service_worker_version": "99bcda4f3eab0a1c",
-  "captured_at": "2026-11-21T12:18:26.741855+00:00",
-  "status": "Observed post-formulas production snapshot; restore trial pending"
+  "service_worker_version": "a72833d105f119fa",
+  "captured_at": "2026-11-21T14:16:59.002062+00:00",
+  "status": "Observed post-G10 production snapshot; restore trial pending"
 }

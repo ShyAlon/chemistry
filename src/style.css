@@ -435,3 +435,10 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
  body:has(article.theory) .formula-print-key{font-size:10.5pt;margin:4pt 0 12pt}
  body:has(article.theory) .formula-print-key dd,body:has(article.theory) .formula-print-key dt{font-size:10.5pt}
 }
+/* Per-topic formulas tab */
+.topic-formulas{padding:24px 26px;margin-bottom:22px}
+.topic-formulas .formula-tip{margin:.6em 0}
+.display-math[dir=rtl]{direction:rtl;text-align:right}
+.formula-pop-eq[dir=rtl]{direction:rtl;text-align:right}
+.topic-formulas .formula-tip+.formula-tip{margin-top:-.2em}
+.topic-formulas .display-math{margin-block:.4em}

@@ -2,31 +2,20 @@ import {FormulaPrint} from './FormulaPrint.jsx';
 import {PageTitle} from './PageTitle.jsx';
 import {bidiElement} from './bidi-react.js';
 import {SourceTooltip} from './SourceTooltip.jsx';
-import {mathNotation as sub} from './math-notation.js';
 import React,{useState,useEffect,useRef} from 'react';
 import catalogue from './courses.json';
 import {elements} from './reference-data.js';
 import {ionState} from './ions.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';
 import {Figure,schematicFigures} from './figures.jsx';
-import {ScientificText,Definition} from './scientific-text.js';
+import {ScientificText} from './scientific-text.js';
+import {Expr} from './formula-items.jsx';
 import {enrichment84101} from './enrichment-84101.js';
 import {enrichment84102} from './enrichment-84102.js';
 import {pages} from './reference-pages.js';
 // References: static study aids. Nothing here reads or writes saved progress.
 
 export {pages};
-const isFormula=t=>/[=≥≤≈→<>]|[+−·×√]/.test(t);
-// Each independently readable relation is its own no-wrap chip; prose stays text.
-function Chips({text}){
- const parts=text.split(/ ; /).map(x=>x.trim()).filter(Boolean);
- if(parts.length===1&&!isFormula(parts[0]))return <span className="ref-prose">{parts[0]}</span>;
- return <span className="chips">{parts.map((c,i)=>{
-  if(c.includes(' → '))return <span key={i} className="chain">{c.split(' → ').map((x,j)=>[j>0&&<span key={'a'+j} className="chain-arrow" aria-hidden="true">←</span>,<bdi key={j} dir="ltr" className="chip fx">{sub(x)}</bdi>])}</span>;
-  const hp=c.match(/^([\u0590-\u05ff][\u0590-\u05ff ]*): (.+)$/);
-  if(hp&&isFormula(hp[2]))return <span key={i} className="chip-group"><span className="chip-label">{hp[1]}:</span><bdi dir="ltr" className="chip fx">{sub(hp[2])}</bdi></span>;
-  return isFormula(c)?<bdi key={i} dir="ltr" className="chip fx">{sub(c)}</bdi>:<span key={i} className="chip chip-text">{c}</span>})}</span>}
-function Expr({expr}){if(expr?.order)return <div className="orbital-order" dir="ltr">{expr.order.map((line,i)=><div key={i} className="fx">{sub(line)}</div>)}</div>;return expr&&expr.def?<Definition definition={expr.def}/>:<Chips text={expr}/>}
 
 export function parseReferenceRoute(hash){const p=hash.replace(/^#/,'').split('/').filter(Boolean);return p[0]==='references'?{page:p[1]||'',valid:!p[1]||pages.some(x=>x.id===p[1])}:null}
 

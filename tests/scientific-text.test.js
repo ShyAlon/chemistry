@@ -18,7 +18,7 @@ test('quantum-number definition preserves all four mappings, range and original 
 test('only authored equation blocks get standalone layout; long source lines are not rewritten',()=>{
  const text='E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s';
  const html=render(React.createElement(DisplayMath,{text}));assert.match(html,/class="display-math" dir="ltr"/);assert.ok(html.includes('<div>E = h·ν = h·c/λ</div>'));assert.ok(html.includes('h = 6.626×10⁻³⁴ J·s'));
- const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2&&!p.batch3&&!p.recap&&!p.finalPrep&&p.notationOf===undefined)));assert.equal(equations.length,14);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
+ const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2&&!p.batch3&&!p.batch4&&!p.recap&&!p.finalPrep&&p.notationOf===undefined)));assert.equal(equations.length,14);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
 });
 
 test('nuclear course content is pinned to its reviewed snapshot',()=>{

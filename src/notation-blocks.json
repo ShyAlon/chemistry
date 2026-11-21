@@ -1975,7 +1975,7 @@
   "before": "A = M/(2πRT)    f(v) = 4πA√A · v²    × exp(−πAv²)",
   "blocks": [
    {
-    "text": "A = M/(2πRT)        f(v) = 4πA√A · v²        × exp(−πAv²)",
+    "text": "A = M/(2πRT)        f(v) = 4πA√A·v² × exp(−πAv²)",
     "style": "Normal",
     "layout": "equation",
     "symbols": [

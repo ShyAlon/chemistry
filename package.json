@@ -8,7 +8,7 @@
     "build": "vite build && npm run build:test && DIST_DIR=dist-test npm run test:browser && DIST_DIR=dist-test npm run test:pwa && DIST_DIR=dist-test npm run test:practice && DIST_DIR=dist-test npm run test:papers && DIST_DIR=dist-test npm run test:final-prep",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.js",
-    "test:browser": "node scripts/test-browser.mjs && node scripts/test-read-aloud.mjs && node scripts/test-progress.mjs",
+    "test:browser": "node scripts/test-browser.mjs && node scripts/test-read-aloud.mjs && node scripts/test-progress.mjs && node scripts/test-theory-read-aloud.mjs",
     "test:practice": "node scripts/test-practice.mjs",
     "test:pwa": "node scripts/test-pwa.mjs",
     "test:papers": "node scripts/test-papers.mjs",

@@ -428,13 +428,14 @@ try{
   await js(`(async()=>{scrollTo(0,0);for(let i=0;i<40;i++){await new Promise(r=>requestAnimationFrame(r));if(!document.querySelector('.topic-columns').classList.contains('aside-collapsed')&&getComputedStyle(document.querySelector('.topic-columns>aside')).opacity==='1')return}throw Error('aside did not restore')})()`);
   const back=await js(`(()=>{const g=document.querySelector('.topic-columns'),a=g.querySelector(':scope>aside');return {cls:g.classList.contains('aside-collapsed'),opacity:+getComputedStyle(a).opacity,width:a.getBoundingClientRect().width}})()`);
   assert.ok(!back.cls&&back.opacity===1&&back.width>200,'restored on scroll back: '+JSON.stringify(back));
+  // Probe visible in-flow lesson content, not closed settings or intentional sticky transport.
   // Motion regression (reported artifact): sweeping the scroll in small steps, down then up, must reflow the lesson at most once per direction, never scrub its width, and never make the content jump or the column flip back and forth.
   {
-   const sweep=await js(`(async()=>{const raf=()=>new Promise(r=>requestAnimationFrame(r));const g=document.querySelector('.topic-columns'),m=document.querySelector('.lesson-main'),a=g.querySelector(':scope>aside');const probes=[...m.querySelectorAll('p,h3,.panel')];
+   const sweep=await js(`(async()=>{const raf=()=>new Promise(r=>requestAnimationFrame(r));const g=document.querySelector('.topic-columns'),m=document.querySelector('.lesson-main'),a=g.querySelector(':scope>aside');const probes=[...m.querySelectorAll('p,h3,.panel')].filter(p=>!p.closest('details:not([open]),.reader-dock'));
     scrollTo(0,0);await raf();await raf();const startY=Math.max(0,a.getBoundingClientRect().top+scrollY-116);const stops=[];for(let y=Math.max(0,startY-100);y<startY+1500;y+=8)stops.push(y);
     const run=async list=>{const rows=[];for(const y of list){scrollTo(0,y);await raf();await raf();await raf();const mid=innerHeight/2;const el=probes.find(p=>{const r=p.getBoundingClientRect();return r.top<=mid&&r.bottom>=mid})||probes[0];const r=el.getBoundingClientRect();rows.push({el:probes.indexOf(el),top:Math.round(r.top+scrollY),w:Math.round(m.getBoundingClientRect().width),c:g.classList.contains('aside-collapsed')})}return rows};
     const down=await run(stops),up=await run([...stops].reverse());
-    const stats=rows=>({widths:new Set(rows.map(r=>r.w)).size,flips:rows.filter((r,i)=>i&&r.c!==rows[i-1].c).length,jumps:rows.filter((r,i)=>i&&r.el===rows[i-1].el&&Math.abs(r.top-rows[i-1].top)>2).length});
+    const stats=rows=>({widths:new Set(rows.map(r=>r.w)).size,flips:rows.filter((r,i)=>i&&r.c!==rows[i-1].c).length,jumps:rows.filter((r,i)=>i&&r.el===rows[i-1].el&&Math.abs(r.top-rows[i-1].top)>2).length,jumpExamples:rows.filter((r,i)=>i&&r.el===rows[i-1].el&&Math.abs(r.top-rows[i-1].top)>2).map(r=>({tag:probes[r.el].tagName,stickyReader:!!probes[r.el].closest(".reader-dock"),text:probes[r.el].textContent.slice(0,70)}))});
     return {down:stats(down),up:stats(up)}})()`);
    for(const dir of ['down','up']){const s=sweep[dir];assert.ok(s.widths<=2&&s.flips<=1&&s.jumps===0,'no resize artifact scrolling '+dir+': '+JSON.stringify(sweep))}
   }

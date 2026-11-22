@@ -9,7 +9,7 @@
 3. פתחו Terminal בתיקיית `chemistry-lab` והריצו:
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 

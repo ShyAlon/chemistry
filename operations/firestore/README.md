@@ -20,6 +20,8 @@ The one retained privacy safeguard is `users/{uid}/studyAccess/closed`, an admin
 
 ## Tests and deployment boundary
 
+Use `npm ci` with lifecycle scripts before preparing recovery output. Firebase's postinstall generates its defaults modules; skipping scripts can change production bytes even when every package version matches the lock. Local recovery preparation must mirror CI, not bypass the byte-match gate.
+
 `npm test` covers the model/store and existing content checks. `npm run build` runs production and stub builds, then the browser/PWA/practice/papers/final-prep checks. The progress browser test blocks non-loopback requests and uses fake identities/data. Screenshots are synthetic UI previews, not proof of live sync.
 
 `npm run rules:generate` adds catalogue-bounded owner-only validation to the preserved baseline. Adult declarations and write-only reports stay unchanged. No epoch/activity namespace is added. `npm run setup:rules` downloads Google's pinned SHA-256-checked Firestore emulator separately. `npm run test:rules` uses the real adapter/SDK and proposed Rules on a loopback `demo-` project, then stops it. Java 11+ and Node 24.12+ are required; CI uses the Node 24 line to match the SDK/test dependency engines. No Google login or credentials are needed. A narrow gRPC 1.13.6 override addresses inherited advisories without changing the Firebase SDK version.

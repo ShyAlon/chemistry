@@ -6,10 +6,10 @@ in the app, infer physical meanings, or change formula rendering.
 
 ## What is reviewed
 
-`tests/formula-coverage-review.json` contains 75 explicitly reviewed string display
+`tests/formula-coverage-review.json` contains 79 explicitly reviewed string display
 occurrences: the original 46 repaired theory/reference records, shared temperature
 conversion and affected worked steps, plus 29 rows on the separate supplied-handout
-page. Each record declares:
+page and four formula displays in the two-section read-aloud trial. Each record declares:
 
 - the exact reviewed expression and context explanation;
 - every quantity token and the intended context-specific `SYMBOLS` ID;
@@ -93,3 +93,12 @@ scrolling and sidebar reflow. The repair refreshes the existing placement calcul
 on scroll, resize and observed reflow, with cleanup on close. A browser regression checks
 five legend rows, header/viewport bounds, later scrolling and Escape. No CSS or equation
 formatting is changed.
+
+## Limited read-aloud trial
+
+The three density expressions and the temperature conversion each have an explicit
+read-aloud display record, with quantity bindings and typed temperature units.
+Density uses rho, mass and the context-specific volume V#2; the conversion uses
+absolute Kelvin temperature T and Celsius t, not time. The same source text is
+retained for provenance, and the spoken equivalents are authored separately.
+All 513 legacy hashes and all existing definition bodies remain unchanged.

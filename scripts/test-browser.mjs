@@ -52,9 +52,12 @@ try{
  await call('Page.enable');
  await call('Page.addScriptToEvaluateOnNewDocument',{source:`navigator.serviceWorker.register=()=>Promise.reject(new Error('Workers tested by dedicated PWA suite'))`});
  
- for(const [width,height] of [[320,800],[375,800],[380,800],[381,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]]){
+ const allViewports=[[320,800],[375,800],[380,800],[381,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]];
+ const matrixHalf=process.env.BROWSER_MATRIX_HALF;assert.ok([undefined,'first','second'].includes(matrixHalf),'Unknown local matrix partition');
+ const routeViewports=matrixHalf?allViewports.filter((_,i)=>matrixHalf==='first'?i<6:i>=6):allViewports;
+ for(const [width,height] of routeViewports){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
-  for(const route of ['','course/84102/P7','references/formulas','references/periodic','references/diagrams','references/aufbau','references/chemistry1-sheet']){
+  for(const route of ['','course/84102/P7','references/formulas','references/periodic','references/diagrams','references/aufbau','references/chemistry1-sheet','references/read-aloud']){
    await call('Page.navigate',{url:origin+'/chemistry/index.html#/'+route});await ready('.header');
    const navigation=await js(`(()=>{const buttons=[...document.querySelectorAll('.header-tools>.quiet')];return buttons.map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent,display:getComputedStyle(e).display,font:parseFloat(getComputedStyle(e).fontSize),width:r.width,height:r.height,disabled:e.disabled}})})()`);
    assert.deepEqual(navigation.map(n=>n.text),route.startsWith('course/')?['כל הקורסים','מקראות','על המעבדה']:['מקראות','על המעבדה'],'All route-appropriate navigation buttons must exist');
@@ -116,6 +119,9 @@ try{
   const sub=await js(`[...document.querySelectorAll('sub')].map(e=>e.textContent)`);assert.ok(sub.includes('vap'));assert.ok(sub.includes('A'));
   if([390,667,1280].includes(width))await shot('notation-'+width);
  }
+ // Optional local partition keeps the same default CI gate intact.
+ const matrixOnly=process.env.BROWSER_MATRIX_ONLY;assert.ok([undefined,'1'].includes(matrixOnly),'Unknown local matrix mode');
+ if(!matrixOnly){
  // Scroll-linked shared header: visible navigation, compact geometry and return to full size.
  for(const [width,height] of [[320,800],[390,844],[667,375],[1100,800],[1280,900],[1440,900],[1366,650]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
@@ -665,5 +671,6 @@ try{
  await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape'});
  assert.equal(await js(`document.querySelectorAll('article.theory .formula-tip')[4].classList.contains('open')`),false);
  console.log('Long legend placement passed: keyboard-focus scrolling, later page scroll, five rows, viewport/header bounds and Escape.');
- console.log('Browser regression matrix passed: 84 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
+ }
+ console.log(`Browser regression matrix passed: ${routeViewports.length*8} route/viewports plus ${routeViewports.length} notation fixtures, full desktop table bounds and electron controls.`);
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

@@ -1695,6 +1695,73 @@
     "t@celsius"
    ],
    "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "read-aloud/84101-G1-theory6-0": {
+   "expression": "ρ = m/V",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ρ": "ρ",
+    "m": "m",
+    "V": "V#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ρ",
+    "m",
+    "V#2"
+   ]
+  },
+  "read-aloud/84101-G1-theory6-1": {
+   "expression": "m = ρV",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ρ": "ρ",
+    "m": "m",
+    "V": "V#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ρ",
+    "m",
+    "V#2"
+   ]
+  },
+  "read-aloud/84101-G1-theory6-2": {
+   "expression": "V = m/ρ",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ρ": "ρ",
+    "m": "m",
+    "V": "V#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ρ",
+    "m",
+    "V#2"
+   ]
+  },
+  "read-aloud/84101-G1-theory8-0": {
+   "expression": "T(K) = t(°C) + 273.15",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "T": "T",
+    "t": "t@celsius"
+   },
+   "literals": [
+    {
+     "text": "K",
+     "kind": "unit"
+    },
+    {
+     "text": "°C",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "T",
+    "t@celsius"
+   ]
   }
  },
  "legacyUnreviewed": {
@@ -2320,6 +2387,7 @@
   "sheet:osmotic": "41d6a5133b45428192bccda46036b995a3b32cda7a8bd4ca3def9ed955e2d081",
   "sheet:concentration": "73673c889cc2578885774cebf25350524e53798ca3ea416e68006d74d64fbcea",
   "sheet:raoult": "0ffcd84019156fe5265aaa54e3a49a0607b64cfbd5042e6f5f5ad21a19fd5544",
-  "sheet:NA": "0f66d9e5439be1ef935024dc8a1b2f8d7846e76505a25dcd3865fc3161ddb6d2"
+  "sheet:NA": "0f66d9e5439be1ef935024dc8a1b2f8d7846e76505a25dcd3865fc3161ddb6d2",
+  "ρ": "31fa7147f347f24eed2a49aed42d88a3007735d97db64a3c7c3edf8551ff0d4d"
  }
 }

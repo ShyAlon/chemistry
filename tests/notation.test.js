@@ -1,3 +1,4 @@
+import {professorFormulaGroups} from '../src/professor-formulas-84101.js';
 import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -91,6 +92,7 @@ test('every symbol and constant reference resolves; constants in definitions com
   assert.ok(!/(?:8\.314|0\.0820|6\.022|1\.38)/.test(flat),'literal constant in definition '+id)}
  for(const {t,i,b} of blocks())for(const m of b.text.matchAll(/\{([^{}]+)\}/g))formatConstant(m[1]);
  const referenced=new Set(blocks().flatMap(x=>x.b.symbols||[]));
+ for(const g of professorFormulaGroups)for(const item of g.items)for(const id of item[4])referenced.add(id);
  for(const c of formulaSheet)for(const t of c.topics)for(const item of t.items)for(const id of item[3]||[])referenced.add(id);
  for(const record of [...Object.values(explicitFormulaMetadata),...Object.values(exerciseFormulaContexts)])for(const id of record.symbols||[])referenced.add(id);
  for(const id of Object.keys(SYMBOLS))assert.ok(referenced.has(id),'unused definition '+id);

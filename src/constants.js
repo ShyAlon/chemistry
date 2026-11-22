@@ -11,9 +11,11 @@ export const CONSTANTS={
   latm5:{value:0.082057366,unit:'L·atm/(mol·K)',digits:5},
   cal:{value:1.98720425864083,unit:'cal/(mol·K)',digits:4,note:'לחישובי חום בקלוריות'},
   value:{value:8.314462618,unit:'',digits:4,note:'המספר בלבד, כשהיחידה כבר מצוינת במשפט'},
+  sheetCm3:{value:82.1,unit:'cm³·atm/(mol·K)',digits:3,note:'הערך בדף שסופק ב־22.11.2026'},
+  sheetCal:{value:1.99,unit:'cal/(mol·K)',digits:3,note:'הערך בדף שסופק ב־22.11.2026'},
   sheet:{value:0.082,unit:'L·atm/(mol·K)',digits:2,note:'הערך שבדף הבוחן'}}},
- 'Nₐ':{he:'קבוע אבוגדרו',value:6.02214076e23,unit:'mol⁻¹',digits:4,variants:{count:{value:6.02214076e23,unit:'',digits:4,note:'המספר בלבד, כשהמשפט כבר מציין חלקיקים'}}},
- k:{he:'קבוע בולצמן',value:1.380649e-23,unit:'J/K',digits:4,variants:{}},
+ 'Nₐ':{he:'קבוע אבוגדרו',value:6.02214076e23,unit:'mol⁻¹',digits:4,variants:{professor:{value:6.02214076e23,unit:'mol⁻¹',digits:5},count:{value:6.02214076e23,unit:'',digits:4,note:'המספר בלבד, כשהמשפט כבר מציין חלקיקים'}}},
+ k:{he:'קבוע בולצמן',value:1.380649e-23,unit:'J/K',digits:4,variants:{professor:{value:1.380649e-23,unit:'J/K',digits:7}}},
 };
 const sup={'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻'};
 export function formatNumber(value,digits){

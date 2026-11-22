@@ -12,7 +12,7 @@ const rows=collectFormulaRecords(),by=new Map(rows.map(r=>[r.key,r]));
 const effusion=rows.find(r=>r.expression==='r_mol ∝ P/√M');
 
 test('reviewed coverage is distinct from the explicitly unreviewed, change-locked legacy inventory',()=>{
- assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:46,legacy:513,total:559});
+ assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:75,legacy:513,total:588});
  assert.ok(review.scope.includes('do not certify'));
  assert.ok(!Object.keys(review.reviewed).some(k=>Object.hasOwn(review.legacyUnreviewed,k)));
 });
@@ -33,14 +33,14 @@ test('removing each quantity binding leaves unclassified notation, even while th
  }
  assert.ok(checked>100);
 });
-test('removing each required ID fails even if the shortened legend is still nonempty',()=>{
- let checked=0;
+test('removing each required ID fails, including nonempty shortened legends',()=>{
+ let checked=0,nonempty=0;
  for(const [key,contract]of Object.entries(review.reviewed))for(const id of new Set(Object.values(contract.bindings))){
   const row=structuredClone(by.get(key));row.metadata.symbols=row.metadata.symbols.filter(x=>x!==id);
-  assert.ok(row.metadata.symbols.length,key);
+  if(row.metadata.symbols.length)nonempty++;
   assert.throws(()=>validateCoverage(row,contract),/missing required definition/,key+' '+id);checked++;
  }
- assert.ok(checked>100);
+ assert.ok(checked>100);assert.ok(nonempty>=132);
 });
 test('same-letter wrong contexts are rejected instead of inferred from their display labels',()=>{
  const cases=[['q = n·ΔH_vap','q@vaporization','q'],['D = E/m ; 1 Gy = 1 J/kg','E@absorbed','E'],['l = 0 … n−1','n@level','n'],['Π = i·M·R·T','M@molarity','M']];

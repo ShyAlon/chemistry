@@ -1,3 +1,4 @@
+import {reloadDocument} from './browser-page.mjs';
 import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
@@ -46,7 +47,7 @@ try{
  const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,[resolve,reject]);ws.send(JSON.stringify({id:n,method,params}))});
  const js=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
  const ready=async selector=>{for(let i=0;i<100;i++){if(await js(`document.readyState==='complete' && !!document.querySelector(${JSON.stringify(selector)})`)){await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');return;}await new Promise(r=>setTimeout(r,50))}throw Error('Missing '+selector)};
- const reload=async selector=>{const before=await js('performance.timeOrigin');await call('Page.reload');for(let i=0;i<100;i++){if(await js(`performance.timeOrigin!==${before} && document.readyState==='complete'`)){await ready(selector);return;}await new Promise(r=>setTimeout(r,50));}throw Error('Reload did not finish');};
+
  const shot=async name=>{if(screenshots){await js(`Promise.all((document.querySelector(".source-popover")?.getAnimations()||[]).map(a=>a.finished.catch(()=>{})))`);const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await (await import('node:fs/promises')).writeFile(path.join(screenshots,name+'.png'),Buffer.from(r.data,'base64'))}};
  await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
  await call('Network.enable');await call('Runtime.enable');await call('Page.enable');await call('Page.addScriptToEvaluateOnNewDocument',{source:`navigator.serviceWorker.register=()=>Promise.reject(new Error('Workers tested by dedicated PWA suite'))`});
@@ -60,7 +61,7 @@ try{
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.practice-entry');
   await js(`localStorage.setItem('spectra-course-84101-progress-v1',${JSON.stringify(prior)})`);
-  await reload('.practice-entry');
+  await reloadDocument(call,js);await ready('.practice-entry');
   await js(`document.querySelector('.practice-entry button').click()`);await ready('.practice-session-grid');
   assert.equal(await js(`document.querySelectorAll('.practice-session-card').length`),16);
   assert.ok(await js(`document.querySelector('.practice-session-card h2').textContent.includes('אותו משקל')`));
@@ -112,7 +113,7 @@ try{
     const stored=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`)).records;
     assert.equal(await js(`localStorage.getItem('spectra-course-84101-progress-v1')`),prior,'Legacy keys remain untouched');
     assert.equal(stored['84101~'+id].answers[q.id].correct,true);
-    await reload('.theory');await ready('.progress-state[data-state="saved"]');
+    await reloadDocument(call,js);await ready('.theory');await ready('.progress-state[data-state="saved"]');
     const reloaded=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`)).records;assert.deepEqual(Object.keys(reloaded).sort(),Object.keys(stored).sort());for(const key of Object.keys(stored))assert.deepEqual(reloaded[key].answers,stored[key].answers);
 
    }

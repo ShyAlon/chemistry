@@ -1,3 +1,4 @@
+import {reloadDocument} from './browser-page.mjs';
 import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
@@ -471,7 +472,7 @@ try{
  // New inorganic review journeys: original answers survive, all new answers can be marked.
  const previous={P7:{complete:true,score:6,answers:{1:{correct:true,kind:'mcq'}}},P3:{complete:true,score:5,answers:{2:{correct:false,kind:'mcq'}}}};
  await js(`localStorage.setItem('spectra-course-84102-progress-v1',${JSON.stringify(JSON.stringify(previous))})`);
- await call('Page.reload');await ready('.header');
+ await reloadDocument(call,js);await ready('.header');
  for(const width of [320,390,1280]){
   await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
   for(const tid of ['P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P11','P12']){

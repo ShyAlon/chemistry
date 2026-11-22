@@ -6,9 +6,10 @@ in the app, infer physical meanings, or change formula rendering.
 
 ## What is reviewed
 
-`tests/formula-coverage-review.json` contains 46 explicitly reviewed string display
-occurrences: the repaired theory/reference records, the shared temperature conversion,
-and every step in the three affected worked contexts. Each record declares:
+`tests/formula-coverage-review.json` contains 75 explicitly reviewed string display
+occurrences: the original 46 repaired theory/reference records, shared temperature
+conversion and affected worked steps, plus 29 rows on the separate supplied-handout
+page. Each record declares:
 
 - the exact reviewed expression and context explanation;
 - every quantity token and the intended context-specific `SYMBOLS` ID;
@@ -20,8 +21,9 @@ The scanner uses these declarations to classify the entire expression. It never 
 an ID from a letter. Removing a binding leaves an unclassified token; removing a required
 ID fails even when the remaining list is nonempty. Same-letter substitutions such as
 heat-at-fixed-volume for vaporization heat, dipole energy for absorbed energy, or mole
-amount for quantum number fail. The tests exercise all 27 original defective lists,
-144 single-binding removals, and 132 required-ID removals.
+amount for quantum number fail. The original repair tests exercise all 27 defective lists, 144 original single-binding
+removals, and 132 original required-ID removals. Those removal tests now also cover
+the new page, including its single-symbol legends.
 
 ## The legacy boundary is deliberate
 
@@ -59,6 +61,21 @@ scientific mistakes.
 `scripts/attach-symbols.mjs` was a one-shot bootstrap with a stale parallel ID map.
 It is retired and now exits without reading or writing content. Edit the authoritative
 reference records and their coverage review instead.
+
+## The separate supplied-handout page
+
+The 29 new rows are collected from `professor-formulas-84101.js`. Their coverage
+expressions resolve the central constant variants exactly as the formula renderer
+does, so changed printed precision or units cannot hide behind an unchanged placeholder.
+Each row has its own reviewed context, quantity bindings and typed units/functions.
+The scanner also accepts the authored power operator used in these rows.
+
+Mathematical pi and the exponential base have their own page-specific definitions,
+separate from osmotic pressure. Henry's pressure label matches its displayed P, and
+the temperature conversion explicitly includes Celsius t. No pre-existing definition
+body was changed. Tests reject wrong-context substitutions and changes to every new
+sheet-specific definition meaning. The original PDF and its preview assets are not
+part of the application change.
 
 ## This repair's boundaries
 

@@ -4,6 +4,8 @@ import catalogue from './content-store.mjs';
 import {courses,constants} from '../src/reference-formulas.js';
 import {formulaMetadata,exerciseFormulaContexts} from '../src/formula-metadata.js';
 import {SYMBOLS} from '../src/symbol-defs.js';
+import {professorFormulaGroups} from '../src/professor-formulas-84101.js';
+import {resolveConstants} from '../src/constants.js';
 const canonical=x=>Array.isArray(x)?x.map(canonical):x&&typeof x==='object'?Object.fromEntries(Object.keys(x).sort().map(k=>[k,canonical(x[k])])):x;
 export const fingerprint=x=>createHash('sha256').update(JSON.stringify(canonical(x))).digest('hex');
 export function collectFormulaRecords(){
@@ -13,6 +15,7 @@ export function collectFormulaRecords(){
  for(const c of courses)for(const t of c.topics)for(const [label,expr,,symbols]of t.items)add(`${c.id}/${t.id}/${label}`,expr,formulaMetadata(expr,{symbols}));
  for(const [label,expr]of constants)add('constant/'+label,expr,formulaMetadata(expr));
  for(const [title,context]of Object.entries(exerciseFormulaContexts))for(const [i,expr]of context.expressions.entries())add(title+'/'+i,expr,context);
+ for(const group of professorFormulaGroups)for(const [id,,expression,note,symbols]of group.items)add(`professor/84101/${group.id}/${id}`,resolveConstants(expression),{kind:'equation',symbols,explanation:note});
  return rows;
 }
 export function recordFingerprint(row,definitions=SYMBOLS){return fingerprint({...row,definitions:(row.metadata?.symbols||[]).map(id=>[id,definitions[id]])})}
@@ -45,7 +48,7 @@ export function validateCoverage(row,contract,definitions=SYMBOLS){
   if(token){rest=rest.slice(token.length);continue}
   const number=rest.match(/^\d+(?:\.\d+)?/);
   if(number){rest=rest.slice(number[0].length);continue}
-  if(/^[\s=+−\-×·*/()\[\]{}.,:;<>≤≥∝≈√|…⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/u.test(rest)){rest=rest.slice(1);continue}
+  if(/^[\s=+−\-×·*/()\[\]{}.,:;<>≤≥∝≈√^|…⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/u.test(rest)){rest=rest.slice(1);continue}
   fail('unclassified quantity or notation at '+rest.slice(0,45));
  }
  return true;

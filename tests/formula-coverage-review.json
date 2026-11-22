@@ -1,6 +1,6 @@
 {
  "version": 1,
- "scope": "Reviewed repaired records and affected contexts only. Legacy hashes prevent unreviewed changes; they do not certify old legend completeness.",
+ "scope": "Reviewed repaired records, affected contexts and the 29 supplied-handout display rows. Legacy hashes prevent unreviewed changes; they do not certify old legend completeness.",
  "reviewed": {
   "84101/G4/theory/8": {
    "expression": "n = CV",
@@ -1021,6 +1021,680 @@
     "P"
    ],
    "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "professor/84101/gases/maxwell": {
+   "expression": "frac{ΔN}{N} = 4π(frac{M_w}{2πRT})^(3/2)   ·e^(−frac{M_w·v²}{2RT})·v²·Δv",
+   "contextDigest": "6e4326f29850f2cbe04c83a126d1c9b0d9288784e77190eba70f4940d3b42c6b",
+   "bindings": {
+    "ΔN": "sheet:counts",
+    "N": "sheet:counts",
+    "Δv": "sheet:counts",
+    "M_w": "sheet:Mw",
+    "v": "v#2",
+    "R": "sheet:R",
+    "T": "T",
+    "e": "sheet:exponential",
+    "π": "sheet:pi"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:counts",
+    "sheet:Mw",
+    "v#2",
+    "sheet:R",
+    "T",
+    "sheet:exponential",
+    "sheet:pi"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/ideal": {
+   "expression": "PV = nRT",
+   "contextDigest": "dc5601b02305e8bd5513d368eb30ce5036471ee8886d3b52dbc742d1b8f37712",
+   "bindings": {
+    "P": "P",
+    "V": "V#2",
+    "n": "n",
+    "R": "sheet:R",
+    "T": "T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "P",
+    "V#2",
+    "n",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/vdw": {
+   "expression": "(P + frac{a·n²}{V²})(V − nb) = nRT",
+   "contextDigest": "65929e75fa9ee78d85893181e7c6c996614bbd9b922f85182644359708b1b5d6",
+   "bindings": {
+    "P": "P",
+    "a": "a, b",
+    "n": "n",
+    "V": "V#2",
+    "b": "a, b",
+    "R": "sheet:R",
+    "T": "T"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "P",
+    "V#2",
+    "n",
+    "a, b",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/kinetic-particle": {
+   "expression": "E_k = frac{1}{2}m·v²",
+   "contextDigest": "fb2b42429bc0ab3a0204ddf6da773c619f48c3cb1f6d073a6dadca391b92caf1",
+   "bindings": {
+    "E_k": "Eₖ",
+    "m": "m",
+    "v": "v#2"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "Eₖ",
+    "m",
+    "v#2"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/kinetic-mole": {
+   "expression": "ε̄_k = frac{3}{2}RT",
+   "contextDigest": "ad175c512b76c93d9f5e1be6ba8b09473581ed12060c85d7686a13a2a50a26df",
+   "bindings": {
+    "ε̄_k": "sheet:energy",
+    "R": "sheet:R",
+    "T": "T"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:energy",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/mean-speed": {
+   "expression": "v̄ = √(8RT/(πM_w))",
+   "contextDigest": "795121b578e3aebb5d5f9d3070647137ff3aaddfb7c2295e742a3501d2036180",
+   "bindings": {
+    "v̄": "sheet:vmean",
+    "R": "sheet:R",
+    "T": "T",
+    "π": "sheet:pi",
+    "M_w": "sheet:Mw"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "sheet:vmean",
+    "sheet:Mw",
+    "sheet:R",
+    "T",
+    "sheet:pi"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/probable-speed": {
+   "expression": "v_mp = √(2RT/M_w)",
+   "contextDigest": "e74540857993b5916c6612f4fedf8b34dd5156499ef36d26ebbee33c674dc1c3",
+   "bindings": {
+    "v_mp": "v_mp",
+    "R": "sheet:R",
+    "T": "T",
+    "M_w": "sheet:Mw"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "v_mp",
+    "sheet:Mw",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/gases/rms-speed": {
+   "expression": "v_rms = √(3RT/M_w)",
+   "contextDigest": "a50bfdb1822b3d49c9da33f58251bdd12766e82451f127aef8cbb784cf5f4fb6",
+   "bindings": {
+    "v_rms": "v_rms",
+    "R": "sheet:R",
+    "T": "T",
+    "M_w": "sheet:Mw"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "v_rms",
+    "sheet:Mw",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/z-definition": {
+   "expression": "Z = frac{PV}{nRT}",
+   "contextDigest": "ec3d73d75bfd96f357468c69398bf9e0ba59dfec7586093ac1cbd3678c9da0d9",
+   "bindings": {
+    "Z": "Z",
+    "P": "P",
+    "V": "V#2",
+    "n": "n",
+    "R": "sheet:R",
+    "T": "T"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "Z",
+    "P",
+    "V#2",
+    "n",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/z-volume": {
+   "expression": "Z = frac{V̄}{V̄_ideal}",
+   "contextDigest": "da26ec9e0f245364f4176337b740d6f257229db77d408f06de49271fdb8db1b5",
+   "bindings": {
+    "Z": "Z",
+    "V̄": "sheet:molar-volumes",
+    "V̄_ideal": "sheet:molar-volumes"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "Z",
+    "sheet:molar-volumes"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/z-vdw": {
+   "expression": "Z = frac{V}{V − nb} − frac{an}{VRT}",
+   "contextDigest": "1971efd73c5d1cc5e8ba514b1f2a36e2d830526f1b957f1952bea0c1bd4e1f4b",
+   "bindings": {
+    "Z": "Z",
+    "V": "V#2",
+    "n": "n",
+    "b": "a, b",
+    "a": "a, b",
+    "R": "sheet:R",
+    "T": "T"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "Z",
+    "V#2",
+    "n",
+    "a, b",
+    "sheet:R",
+    "T"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/effusion": {
+   "expression": "frac{r_A}{r_B} = frac{P_A}{P_B}√(M_B/M_A)",
+   "contextDigest": "cd7a4763e73ac4754d36213dff783955ff1542d2468024064947a13c94efe59a",
+   "bindings": {
+    "r_A": "r_A, r_B",
+    "r_B": "r_A, r_B",
+    "P_A": "P_A, P_B",
+    "P_B": "P_A, P_B",
+    "M_A": "M_A, M_B",
+    "M_B": "M_A, M_B"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "r_A, r_B",
+    "P_A, P_B",
+    "M_A, M_B"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/mean-free-pressure": {
+   "expression": "λ = frac{T·k_B}{√2·π·d²·P}",
+   "contextDigest": "c5af673a284b7b5d28cf78abcfeb5fd05d0ebd70cb0d2edc7cae99b3c6dc1b2c",
+   "bindings": {
+    "λ": "λ",
+    "T": "T",
+    "k_B": "sheet:k",
+    "π": "sheet:pi",
+    "d": "sheet:diameter",
+    "P": "P"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "λ",
+    "sheet:diameter",
+    "P",
+    "T",
+    "sheet:k",
+    "sheet:pi"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/real-gases/mean-free-density": {
+   "expression": "λ = frac{1}{√2·π·d²·n_v}",
+   "contextDigest": "24bdfabff2157aa19edc1387db0ed35fda6ec42fc30b65e46228044f78d81381",
+   "bindings": {
+    "λ": "λ",
+    "π": "sheet:pi",
+    "d": "sheet:diameter",
+    "n_v": "sheet:density"
+   },
+   "literals": [
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "λ",
+    "sheet:diameter",
+    "sheet:density",
+    "sheet:pi"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/henry": {
+   "expression": "S = k_H·P",
+   "contextDigest": "779e97aa7cb373e0a0d3293cfda3f0449e67e1db9504fdd2cc5846a030393686",
+   "bindings": {
+    "S": "sheet:solubility",
+    "k_H": "k_H",
+    "P": "sheet:gas-pressure"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "sheet:solubility",
+    "k_H",
+    "sheet:gas-pressure"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/clausius": {
+   "expression": "ln(frac{P₂}{P₁}) = frac{ΔH°_vap}{ R }(frac{1}{T₁} − frac{1}{T₂})",
+   "contextDigest": "e7fd8ead8f9270ebaec9ce03f2de884d4e9aafc229fa2e69fd1971d6c078a174",
+   "bindings": {
+    "P₂": "P₁, P₂#2",
+    "P₁": "P₁, P₂#2",
+    "ΔH°_vap": "ΔH_vap",
+    "R": "sheet:R",
+    "T₁": "T₁, T₂#3",
+    "T₂": "T₁, T₂#3"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    },
+    {
+     "text": "frac",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#3",
+    "ΔH_vap",
+    "sheet:R"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/osmotic": {
+   "expression": "π = C·R·T·i",
+   "contextDigest": "7b237f6409e75dd6b833dd54dfd20d1c1d5ad5383fc41516fd074d9bc7574cca",
+   "bindings": {
+    "π": "sheet:osmotic",
+    "C": "sheet:concentration",
+    "R": "sheet:R",
+    "T": "T",
+    "i": "i"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "sheet:osmotic",
+    "sheet:concentration",
+    "sheet:R",
+    "T",
+    "i"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/boiling": {
+   "expression": "ΔT_b = K_b·m·i",
+   "contextDigest": "7c1cf2a80968c5dcc6f88b1ea58248b992cd6e0624964b0b2e0686a5b843ef56",
+   "bindings": {
+    "ΔT_b": "ΔT_b, ΔT_f#2",
+    "K_b": "K_b, K_f#2",
+    "m": "m@molality",
+    "i": "i"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f#2",
+    "K_b, K_f#2",
+    "m@molality",
+    "i"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/freezing": {
+   "expression": "ΔT_f = K_f·m·i",
+   "contextDigest": "2850968a8180dbdf5e96dac821ec55812e44ef10460d8592f3c9ed5880004b7c",
+   "bindings": {
+    "ΔT_f": "ΔT_b, ΔT_f#2",
+    "K_f": "K_b, K_f#2",
+    "m": "m@molality",
+    "i": "i"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f#2",
+    "K_b, K_f#2",
+    "m@molality",
+    "i"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/solutions/raoult": {
+   "expression": "P = X₁·P°₁ + X₂·P°₂",
+   "contextDigest": "35fbbf31ae398a950886867ef954de9bdcec12137c37ec2fb3c11bd17a5e86cf",
+   "bindings": {
+    "P": "sheet:raoult",
+    "X₁": "sheet:raoult",
+    "P°₁": "sheet:raoult",
+    "X₂": "sheet:raoult",
+    "P°₂": "sheet:raoult"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "sheet:raoult"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/r-liter": {
+   "expression": "R = 0.082 L·atm/(mol·K)",
+   "contextDigest": "8d197ad4ac92694eed784bfea410936d9d3a577dcb4bef7f16b6aeafa23c01e5",
+   "bindings": {
+    "R": "sheet:R"
+   },
+   "literals": [
+    {
+     "text": "L",
+     "kind": "unit"
+    },
+    {
+     "text": "atm",
+     "kind": "unit"
+    },
+    {
+     "text": "mol",
+     "kind": "unit"
+    },
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:R"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/r-cm": {
+   "expression": "R = 82.1 cm³·atm/(mol·K)",
+   "contextDigest": "acc020ecc75d96cee82c230f447c6e1487ff981d778f42f8d34d19c22ac2d8d9",
+   "bindings": {
+    "R": "sheet:R"
+   },
+   "literals": [
+    {
+     "text": "cm³",
+     "kind": "unit"
+    },
+    {
+     "text": "atm",
+     "kind": "unit"
+    },
+    {
+     "text": "mol",
+     "kind": "unit"
+    },
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:R"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/r-cal": {
+   "expression": "R = 1.99 cal/(mol·K)",
+   "contextDigest": "f1417d08c0d5e116046fdd3d2e967cff75fd76b1800c005348471837cb3e5903",
+   "bindings": {
+    "R": "sheet:R"
+   },
+   "literals": [
+    {
+     "text": "cal",
+     "kind": "unit"
+    },
+    {
+     "text": "mol",
+     "kind": "unit"
+    },
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:R"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/r-joule": {
+   "expression": "R = 8.314 J/(mol·K)",
+   "contextDigest": "baf86b2e8a41bf12a94ef8a9a878e54d136a78e7834b5c85afd8e12f90fed86c",
+   "bindings": {
+    "R": "sheet:R"
+   },
+   "literals": [
+    {
+     "text": "J",
+     "kind": "unit"
+    },
+    {
+     "text": "mol",
+     "kind": "unit"
+    },
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:R"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/avogadro": {
+   "expression": "N_A = 6.0221×10²³ mol⁻¹",
+   "contextDigest": "2c527a06486bfe6e051ea473e11e85d62c15a44b9ffa7599736e6d8a70ef2236",
+   "bindings": {
+    "N_A": "sheet:NA"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:NA"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/boltzmann": {
+   "expression": "k_B = 1.380649×10⁻²³ J/K",
+   "contextDigest": "2c527a06486bfe6e051ea473e11e85d62c15a44b9ffa7599736e6d8a70ef2236",
+   "bindings": {
+    "k_B": "sheet:k"
+   },
+   "literals": [
+    {
+     "text": "J",
+     "kind": "unit"
+    },
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "sheet:k"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/length": {
+   "expression": "1 m = 10² cm ; 1 m = 10³ mm ; 1 m = 10⁶ μm ; 1 m = 10⁹ nm ; 1 m = 10¹⁰ Å ; 1 m = 10¹² pm",
+   "contextDigest": "a39b6cf5a14ad4da2106da3cff417a33ea0472ed29d24cf8849fc3912a9c8d04",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "cm",
+     "kind": "unit"
+    },
+    {
+     "text": "mm",
+     "kind": "unit"
+    },
+    {
+     "text": "μm",
+     "kind": "unit"
+    },
+    {
+     "text": "nm",
+     "kind": "unit"
+    },
+    {
+     "text": "Å",
+     "kind": "unit"
+    },
+    {
+     "text": "pm",
+     "kind": "unit"
+    },
+    {
+     "text": "m",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/pressure": {
+   "expression": "1 atm = 760 mmHg ; 1 atm = 760 torr ; 1 atm = 101.33 kPa",
+   "contextDigest": "7459600e4d5660068fbbbaf48d4bc9d4777ed99b1539d12735e2b59600d0c310",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "atm",
+     "kind": "unit"
+    },
+    {
+     "text": "mmHg",
+     "kind": "unit"
+    },
+    {
+     "text": "torr",
+     "kind": "unit"
+    },
+    {
+     "text": "kPa",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
+  },
+  "professor/84101/constants/temperature": {
+   "expression": "T(K) = t(°C) + 273.15",
+   "contextDigest": "08d6c4867b517dc3826c353e3b1c4d9170667f24f5a57a0ce5769974cbce8295",
+   "bindings": {
+    "T": "T",
+    "t": "t@celsius"
+   },
+   "literals": [
+    {
+     "text": "K",
+     "kind": "unit"
+    },
+    {
+     "text": "°C",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "T",
+    "t@celsius"
+   ],
+   "note": "Supplied course handout, 22 November 2026. Explicit row review; source-specific aliases and mathematical constants are intentional."
   }
  },
  "legacyUnreviewed": {
@@ -1618,6 +2292,34 @@
   "i@solute-context": "6274ecae334c71a8a15ad0371bdeab9dd0abd9e85b5c711549c5108773e31233",
   "α#2": "01ef2cd455da9e5013539be1d77b10bbe647e535fc5e0dda3c34b609d7592269",
   "P₁, P₂#2": "76d034b6c9797fd73827c604bcc2b71036820a71e6357382e3c38cec78f8178d",
-  "T₁, T₂#2": "f967a68f4554ecbff8e5734411842d82967b11f99af214c691300cdcaf9d5ebd"
+  "T₁, T₂#2": "f967a68f4554ecbff8e5734411842d82967b11f99af214c691300cdcaf9d5ebd",
+  "sheet:counts": "9268bf71681c4b7e1f7d45b94f2b2d3525843f17c00ee3986066f12bd34f588c",
+  "sheet:Mw": "58e4670f799db3811dae1acbf71b84e47ea3e1aa5d1bf786b9420faf2e9dad57",
+  "v#2": "648f5f295b7300048e8b02e2443a3f0b15dbf88bf8c1c975ea8703b9b127343e",
+  "sheet:R": "f947a659e6d573c2a819d848e6d6083484757b42be813166fcba0f0f2d6a541c",
+  "sheet:exponential": "078d73902486cb7c008b12b85d7237ecea0c206ce7752eed9308e9076aedab50",
+  "sheet:pi": "5bc352734fcce00ed4f9cb4a653c3a32fc04e8dbd917ca4419c5ead4ef2ce1b5",
+  "Eₖ": "8e91858e7928708aae2ae5618e2fe2aecaa9cba3ce41ac76570fa74d12649d02",
+  "sheet:energy": "7f5cb9b6d83398aad65997ed47059c3fc8ab40e3038beb78518e4afadf321d0d",
+  "sheet:vmean": "0dbb8f6033877e91593aa25ab392bbd03cfd001b81f48a5e9f08388b929b741e",
+  "v_mp": "e9f6f2083240ba168782bcb3fa1d1377aa07e8463b058d2a13dc5847e05879ac",
+  "v_rms": "a785784b74abf73374285d57be395e0f5f01d62e419665cdc38bec8f365c49f4",
+  "Z": "6e17f2c26e2993b45232f472722f9a3722ee5a47a7a4803f724045c9b74702dc",
+  "sheet:molar-volumes": "94e6afe5acefe3b6162ba93a7f9bbd3ca436047f8647063e25628367434b2bb0",
+  "r_A, r_B": "943d331ae788c8906ebe3272e60c990453cb357c7ccb45cbb652f10c5d4d5ef9",
+  "P_A, P_B": "34176663013f5d3cbb1419b377823cd1913b66bb58345356750aea8e435e5520",
+  "M_A, M_B": "b6e1df588430d130574e73c8ba8e170fbf7a42a30282dd4cddcf713605c86b26",
+  "λ": "9480cb4e7441add5115f33c5e7c331435eba9e62402068cd11bc9a46c6d99d14",
+  "sheet:k": "0524f0dc2fa2acaff9c1895f2f5e400dcb0916168b13ead326ce16058fc1c08a",
+  "sheet:diameter": "a10fa1a81c41b10165515bb6b037a3db84ad2533bee4760bbecbf808439a1abe",
+  "sheet:density": "70757f03cdd9b7d9ea1cc7ee589f0081a8d959e7ed3c8869af93f964009f5ae9",
+  "sheet:solubility": "0dc6b97d0201b641e2858023326631b593cf45dd777904562c11516c4bbd0dbf",
+  "k_H": "c6c35d5dabb70479418468c2cbc1385d19823c42475f449da52237a3c4ce3a50",
+  "sheet:gas-pressure": "03fec6309e70f5c082ee9e6a1f38a8477a2d8c127387f9f7f295744db8ce8a2e",
+  "T₁, T₂#3": "5e43e084baee0c34dabde4fa527939600fb2aaa21bdd00384e331e805c96505c",
+  "sheet:osmotic": "41d6a5133b45428192bccda46036b995a3b32cda7a8bd4ca3def9ed955e2d081",
+  "sheet:concentration": "73673c889cc2578885774cebf25350524e53798ca3ea416e68006d74d64fbcea",
+  "sheet:raoult": "0ffcd84019156fe5265aaa54e3a49a0607b64cfbd5042e6f5f5ad21a19fd5544",
+  "sheet:NA": "0f66d9e5439be1ef935024dc8a1b2f8d7846e76505a25dcd3865fc3161ddb6d2"
  }
 }

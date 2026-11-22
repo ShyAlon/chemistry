@@ -1,3 +1,4 @@
+import {ProfessorFormulaSheet} from './ProfessorFormulaSheet.jsx';
 import {FormulaPrint} from './FormulaPrint.jsx';
 import {PageTitle} from './PageTitle.jsx';
 import {bidiElement} from './bidi-react.js';
@@ -17,17 +18,19 @@ import {pages} from './reference-pages.js';
 
 export {pages};
 
-export function parseReferenceRoute(hash){const p=hash.replace(/^#/,'').split('/').filter(Boolean);return p[0]==='references'?{page:p[1]||'',valid:!p[1]||pages.some(x=>x.id===p[1])}:null}
+export function parseReferenceRoute(hash){const p=hash.replace(/^#/,'').split('/').filter(Boolean);return p[0]==='references'?{page:p[1]||'',valid:!p[1]||pages.some(x=>x.id===p[1]),...(p[2]?{courseId:p[2]}:{})}:null}
 
 function Shell({title,children}){return <main className="topic-page ref-page"><PageTitle className="ref-title">{title}</PageTitle>{children}</main>}
 
 function Landing(){return <main className="topic-page ref-page"><button className="back quiet" onClick={()=>{location.hash=''}}>→ לקורסים</button><div className="eyebrow">עזרים ללימוד ולמבחן</div><PageTitle className="ref-title">מקראות</PageTitle><p className="ref-lead">דפי עזר קבועים ליד הקורסים. הם לא משנים התקדמות, בחנים או תשובות שמורות.</p><section className="ref-cards">{pages.map(p=><button key={p.id} className="panel ref-card" onClick={()=>{location.hash='references/'+p.id}}><span className="ref-icon" aria-hidden="true">{p.icon}</span><h2>{p.title}</h2><p>{p.desc}</p><strong>לפתיחה ←</strong></button>)}</section></main>}
 
-function Formulas(){
- const [cid,setCid]=useState(formulaCourses[0].id);const course=formulaCourses.find(c=>c.id===cid);
+function Formulas({initialCourseId}){
+ const [cid,setCid]=useState(formulaCourses.some(c=>c.id===initialCourseId)?initialCourseId:formulaCourses[0].id);
+ useEffect(()=>{if(formulaCourses.some(c=>c.id===initialCourseId))setCid(initialCourseId)},[initialCourseId]);const course=formulaCourses.find(c=>c.id===cid);
  const jump=id=>document.getElementById('ref-'+id)?.scrollIntoView({behavior:'smooth',block:'start'});
  return <Shell title="דף נוסחאות">
   <div className="ref-tabs" role="tablist" aria-label="קורס">{formulaCourses.map(c=><button key={c.id} role="tab" aria-selected={c.id===cid} className={c.id===cid?'on':''} onClick={()=>setCid(c.id)}>{c.name}</button>)}</div>
+  {cid==='84101'&&<section className="panel professor-sheet-note"><h2>דף נוסחאות נוסף לפי המסמך שסופק</h2><p>גרסה אינטראקטיבית נפרדת לכימיה כללית א׳, לצד הדף הקיים.</p><button className="secondary" onClick={()=>{location.hash='references/chemistry1-sheet'}}>לדף הנוסף ←</button></section>}
   <FormulaPrint key={cid} course={course} constants={constants}/>
   <nav className="ref-nav" aria-label="קפיצה לנושא">{course.topics.map(t=><button key={t.id} onClick={()=>jump(t.id)}><bdi dir="ltr" className="ref-id">{t.id}</bdi><span>{t.title}</span></button>)}<button onClick={()=>jump('constants')}><bdi dir="ltr" className="ref-id">h, c</bdi><span>קבועים</span></button></nav>
   <div className="formula-grid">{course.topics.map(t=><section key={t.id} id={'ref-'+t.id} className="panel ref-topic"><h2><bdi dir="ltr" className="ref-id">{t.id}</bdi> {t.title}</h2><dl className="ref-items">{t.items.map(([label,expr,note,symbols],i)=><div key={i}><dt>{label}</dt><dd><Formula expr={expr} symbols={symbols} variant="compact"/>{note&&<small><ScientificText runs={[note]}/></small>}</dd></div>)}</dl></section>)}
@@ -145,4 +148,4 @@ function Diagrams(){const [cid,setCid]=useState('84102');const groups=galleryGro
 
 export function References({route}){const r=parseReferenceRoute(route)||{page:'',valid:true};
  if(!r.valid)return <Landing/>;
- return r.page==='formulas'?<Formulas/>:r.page==='periodic'?<Periodic/>:r.page==='aufbau'?<Aufbau/>:r.page==='diagrams'?<Diagrams/>:<Landing/>}
+ return r.page==='chemistry1-sheet'?<ProfessorFormulaSheet/>:r.page==='formulas'?<Formulas initialCourseId={r.courseId}/>:r.page==='periodic'?<Periodic/>:r.page==='aufbau'?<Aufbau/>:r.page==='diagrams'?<Diagrams/>:<Landing/>}

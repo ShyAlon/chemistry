@@ -54,7 +54,7 @@ try{
  
  for(const [width,height] of [[320,800],[375,800],[380,800],[381,800],[390,800],[520,800],[667,375],[800,800],[1100,800],[1280,900],[1440,900],[1536,900]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
-  for(const route of ['','course/84102/P7','references/formulas','references/periodic','references/diagrams','references/aufbau']){
+  for(const route of ['','course/84102/P7','references/formulas','references/periodic','references/diagrams','references/aufbau','references/chemistry1-sheet']){
    await call('Page.navigate',{url:origin+'/chemistry/index.html#/'+route});await ready('.header');
    const navigation=await js(`(()=>{const buttons=[...document.querySelectorAll('.header-tools>.quiet')];return buttons.map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent,display:getComputedStyle(e).display,font:parseFloat(getComputedStyle(e).fontSize),width:r.width,height:r.height,disabled:e.disabled}})})()`);
    assert.deepEqual(navigation.map(n=>n.text),route.startsWith('course/')?['כל הקורסים','מקראות','על המעבדה']:['מקראות','על המעבדה'],'All route-appropriate navigation buttons must exist');
@@ -63,6 +63,13 @@ try{
    for(const r of geometry.rects){assert.ok(r.left>=-1&&r.right<=width+1,JSON.stringify({width,route,...r}));assert.ok(r.bottom<=geometry.header+1)}
    assert.ok(geometry.scroll<=width+1,JSON.stringify({width,route,scroll:geometry.scroll}));
    assert.ok(Math.abs(geometry.footer-height)<2,JSON.stringify({width,height,route,footer:geometry.footer}));
+   if(route==='references/chemistry1-sheet'){
+    await ready('[data-sheet-formula]');
+    assert.equal(await js(`document.querySelectorAll('[data-sheet-formula]').length`),29);
+    assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
+    assert.equal(await js(`document.querySelectorAll('a[href$=".pdf"],img[src*="formula-sheet"]').length`),0);
+    assert.ok(await js(`[...document.querySelectorAll('.professor-formulas dt,.professor-formulas small,.professor-formulas .ref-lead,.professor-sheet-note p')].every(e=>parseFloat(getComputedStyle(e).fontSize)>=18)`));
+   }
    if(route==='references/periodic'){
     await ready('.pt-cell');
     const table=await js(`(()=>{const view=document.querySelector('.pt-scroll').getBoundingClientRect();const end=document.querySelector('.pt-cell[aria-label$=", 118"]').getBoundingClientRect();const head=[...document.querySelectorAll('.pt-head')].at(-1).getBoundingClientRect();const side=document.querySelector('.pt-detail').getBoundingClientRect();return {view:{left:view.left,right:view.right},end:{left:end.left,right:end.right},head:{left:head.left,right:head.right},sidebar:side.width,grid:document.querySelector('.pt-grid').scrollWidth,client:document.querySelector('.pt-scroll').clientWidth}})()`);
@@ -658,5 +665,5 @@ try{
  await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape'});
  assert.equal(await js(`document.querySelectorAll('article.theory .formula-tip')[4].classList.contains('open')`),false);
  console.log('Long legend placement passed: keyboard-focus scrolling, later page scroll, five rows, viewport/header bounds and Escape.');
- console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
+ console.log('Browser regression matrix passed: 84 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

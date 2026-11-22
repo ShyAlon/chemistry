@@ -63,9 +63,21 @@ function SymbolFormula({text,symbols=[],explanation,typeset,variant}){
  // on narrow screens CSS turns it into a bottom sheet with its own scrolling.
  React.useLayoutEffect(()=>{
   if(!open||typeof window==='undefined'||!tip.current||!pop.current)return;
-  if(window.innerWidth<=700){setPlace(null);return}
-  const r=tip.current.getBoundingClientRect();const below=window.innerHeight-r.bottom-72,above=r.top-84,need=pop.current.scrollHeight+10;
-  if(need<=below)setPlace({above:false,max:below});else if(above>below)setPlace({above:true,max:Math.max(Math.min(above,need),180)});else setPlace({above:false,max:Math.max(below,180)});
+  const update=()=>{
+   if(window.innerWidth<=700){setPlace(null);return}
+   const r=tip.current.getBoundingClientRect();const below=window.innerHeight-r.bottom-72,above=r.top-84,need=pop.current.scrollHeight+10;
+   const next=need<=below?{above:false,max:below}:above>below?{above:true,max:Math.max(Math.min(above,need),180)}:{above:false,max:Math.max(below,180)};
+   setPlace(previous=>previous?.above===next.above&&previous?.max===next.max?previous:next);
+  };
+  update();
+  // Native keyboard focus can scroll after the opening layout effect. Keep the
+  // same placement rules, but refresh them after that scroll and later resizes.
+  const frame=window.requestAnimationFrame(update);
+  // Collapsing sidebars can reflow earlier paragraphs without another scroll.
+  const observer=new ResizeObserver(update);observer.observe(tip.current);
+  const article=tip.current.closest('article');if(article)observer.observe(article);
+  window.addEventListener('scroll',update,true);window.addEventListener('resize',update);
+  return()=>{window.cancelAnimationFrame(frame);observer.disconnect();window.removeEventListener('scroll',update,true);window.removeEventListener('resize',update)};
  },[open]);
  React.useEffect(()=>{
   if(!open)return;

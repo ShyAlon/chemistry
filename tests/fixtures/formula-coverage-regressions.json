@@ -1,0 +1,395 @@
+[
+ {
+  "number": 1,
+  "category": "Incomplete legend",
+  "key": "84101/G4/theory/8",
+  "expression": "n = CV",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "C",
+    "V#3"
+   ]
+  }
+ },
+ {
+  "number": 2,
+  "category": "Incomplete legend",
+  "key": "84101/G6/theory/2",
+  "expression": "C = n_solute / V_solution        b = n_solute / m_solvent        xᵢ = nᵢ/Σn        mass% = 100·m_solute / m_solution",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "C#2",
+    "b#3",
+    "xᵢ",
+    "mass%"
+   ]
+  }
+ },
+ {
+  "number": 3,
+  "category": "Incomplete legend",
+  "key": "84101/G9/theory/23",
+  "expression": "M = mRT/(PV)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "M, m"
+   ]
+  }
+ },
+ {
+  "number": 4,
+  "category": "Incomplete legend",
+  "key": "84101/G9/theory/25",
+  "expression": "ρ = PM/(RT)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "M, m",
+    "ρ#4"
+   ]
+  }
+ },
+ {
+  "number": 5,
+  "category": "Incomplete legend",
+  "key": "84101/G10/theory/24",
+  "expression": "u_rms = √(3RT/M)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "u_rms",
+    "M"
+   ]
+  }
+ },
+ {
+  "number": 6,
+  "category": "Incomplete legend",
+  "key": "84101/G10/theory/32",
+  "expression": "(P + an²/V²)(V − nb) = nRT",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "a, b"
+   ]
+  }
+ },
+ {
+  "number": 7,
+  "category": "Incomplete legend",
+  "key": "84101/G10/theory/34",
+  "expression": "(P + a/Vₘ²)(Vₘ − b) = RT",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "a, b",
+    "Vₘ#2"
+   ]
+  }
+ },
+ {
+  "number": 8,
+  "category": "Incomplete legend",
+  "key": "84101/G10/theory/56",
+  "expression": "r_mol ∝ P/√M",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "r"
+   ]
+  }
+ },
+ {
+  "number": 9,
+  "category": "Incomplete legend",
+  "key": "84101/G14/theory/12",
+  "expression": "x_A = n_A/(n_A + n_B)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "x_A, x_B"
+   ]
+  }
+ },
+ {
+  "number": 10,
+  "category": "Incomplete legend",
+  "key": "84101/G14/theory/16",
+  "expression": "P_total = P_A + P_B",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "P_A, P_B#2"
+   ]
+  }
+ },
+ {
+  "number": 11,
+  "category": "Incomplete legend",
+  "key": "84101/G14/theory/20",
+  "expression": "y_A = P_A/P_total",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "y_A"
+   ]
+  }
+ },
+ {
+  "number": 12,
+  "category": "Incomplete legend",
+  "key": "84101/G15/theory/9",
+  "expression": "m = n_solute / kg_solvent        M = n_solute / L_solution",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "m@molality",
+    "M@molarity"
+   ]
+  }
+ },
+ {
+  "number": 13,
+  "category": "Incomplete legend",
+  "key": "84101/G15/theory/15",
+  "expression": "ΔT_b = T_b(solution) − T_b(pure) = i·K_b·m        ΔT_f = T_f(pure) − T_f(solution) = i·K_f·m",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "ΔT_b, ΔT_f",
+    "K_b, K_f",
+    "i",
+    "m@molality"
+   ]
+  }
+ },
+ {
+  "number": 14,
+  "category": "Incomplete legend",
+  "key": "84101/G15/theory/17",
+  "expression": "T_b(solution) = T_b(pure) + ΔT_b        T_f(solution) = T_f(pure) − ΔT_f",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "ΔT_b, ΔT_f",
+    "i"
+   ]
+  }
+ },
+ {
+  "number": 15,
+  "category": "Incomplete legend",
+  "key": "84101/G15/theory/26",
+  "expression": "Π = i·M·R·T",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "Π",
+    "i",
+    "M@molarity",
+    "T"
+   ]
+  }
+ },
+ {
+  "number": 16,
+  "category": "Incomplete legend",
+  "key": "84101/G16/theory/12",
+  "expression": "Δm = Z·m(¹H) + N·m_n − m(atom)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "Z, N",
+    "m(¹H)",
+    "m_n"
+   ]
+  }
+ },
+ {
+  "number": 17,
+  "category": "Unrelated legend",
+  "key": "84101/G16/theory/15",
+  "expression": "1 eV = 1.602176634×10⁻¹⁹ J        1 MeV = 10⁶ eV        1 u·c² ≈ 931.494 MeV",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "E_b",
+    "A#2"
+   ]
+  }
+ },
+ {
+  "number": 18,
+  "category": "Incomplete legend",
+  "key": "84102/P5/l",
+  "expression": "l = 0 … n−1",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "l"
+   ]
+  }
+ },
+ {
+  "number": 19,
+  "category": "Label mismatch",
+  "key": "84101/G1/טמפרטורה",
+  "expression": "T(K) = t(°C) + 273.15",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "K",
+    "°C"
+   ]
+  }
+ },
+ {
+  "number": 20,
+  "category": "Incomplete legend",
+  "key": "84101/G13/שיפוע גרף",
+  "expression": "slope(ln P vs 1/T) = −ΔH_vap/R",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "slope",
+    "ΔH_vap",
+    "R"
+   ]
+  }
+ },
+ {
+  "number": 21,
+  "category": "Incomplete legend",
+  "key": "84101/G15/העלאת רתיחה",
+  "expression": "ΔT_b = i·K_b·m ; T_b = T°_b + ΔT_b",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "ΔT_b, ΔT_f#2",
+    "i",
+    "K_b, K_f#2",
+    "m@molality"
+   ]
+  }
+ },
+ {
+  "number": 22,
+  "category": "Incomplete legend",
+  "key": "84101/G15/הורדת קיפאון",
+  "expression": "ΔT_f = i·K_f·m ; T_f = T°_f − ΔT_f",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "ΔT_b, ΔT_f#2",
+    "i",
+    "K_b, K_f#2",
+    "m@molality"
+   ]
+  }
+ },
+ {
+  "number": 23,
+  "category": "Incomplete legend",
+  "key": "nuclear/E9/מנה נבלעת",
+  "expression": "D = E/m ; 1 Gy = 1 J/kg",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "D@dose",
+    "m"
+   ]
+  }
+ },
+ {
+  "number": 24,
+  "category": "Incomplete legend",
+  "key": "nano/N6/יחס מים",
+  "expression": "w = n(H₂O)/n(surfactant)",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "w"
+   ]
+  }
+ },
+ {
+  "number": 25,
+  "category": "Incomplete legend",
+  "key": "הכנה 4: שני ממסים מגלים i/4",
+  "expression": "n = 0.046875 mol",
+  "metadata": {
+   "kind": "worked-context",
+   "symbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2"
+   ],
+   "explanation": "M מסה מולרית; מולליות m נפרדת ממסת מומס וממס עם תת־סימן.",
+   "expressions": [
+    "i_benzene = 1",
+    "M = K_f·m_solute/[ΔT_f·m_solvent(kg)]",
+    "M = 102.40000 g/mol",
+    "n = 4.80/102.40000",
+    "n = 0.046875 mol",
+    "m = 0.468750 mol/kg",
+    "i = 2.0925/(1.86·0.468750)",
+    "i = 2.400000",
+    "α = (i − 1)/2",
+    "α = 0.700000"
+   ]
+  }
+ },
+ {
+  "number": 26,
+  "category": "Wrong context",
+  "key": "84101/G13/אנתלפיית אידוי",
+  "expression": "q = n·ΔH_vap",
+  "metadata": {
+   "kind": "equation",
+   "symbols": [
+    "q",
+    "n",
+    "ΔH_vap"
+   ]
+  }
+ },
+ {
+  "number": 28,
+  "category": "Wrong context",
+  "key": "הכנה 1: לחץ אדים ואז החלטת פאזה/0",
+  "expression": "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+  "metadata": {
+   "kind": "worked-context",
+   "symbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "P_sat(T)",
+    "T"
+   ],
+   "explanation": "ההשוואות המספריות הן לחץ נתון מול לחץ הרוויה שחושב. תנאי העל־קריטי מתייחסים לנתוני השאלה.",
+   "expressions": [
+    "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+    "P₂ = 59.69082 kPa",
+    "40.0 < 59.691",
+    "80.0 > 59.691"
+   ]
+  }
+ }
+]

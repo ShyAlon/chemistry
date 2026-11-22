@@ -87,7 +87,10 @@
     "layout": "equation",
     "symbols": [
      "m@molality",
-     "M@molarity"
+     "M@molarity",
+     "n_solute",
+     "kg_solvent",
+     "V_solution@litre"
     ],
     "notationOf": 4
    },
@@ -129,7 +132,11 @@
      "ΔT_b, ΔT_f",
      "K_b, K_f",
      "i",
-     "m@molality"
+     "m@molality",
+     "T_b@solution",
+     "T_b@pure",
+     "T_f@solution",
+     "T_f@pure"
     ],
     "notationOf": 8
    },
@@ -144,7 +151,10 @@
     "layout": "equation",
     "symbols": [
      "ΔT_b, ΔT_f",
-     "i"
+     "T_b@solution",
+     "T_b@pure",
+     "T_f@solution",
+     "T_f@pure"
     ],
     "notationOf": 8
    },
@@ -202,6 +212,7 @@
      "Π",
      "i",
      "M@molarity",
+     "R",
      "T"
     ],
     "notationOf": 16,

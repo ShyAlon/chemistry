@@ -644,5 +644,19 @@ try{
   await key('Escape');
  }
  console.log('Search gates passed: trigger bounds at 320/390/1280, palette in viewport, Hebrew + alias ranking, ArrowDown/Enter/Escape flow, empty state, half-typed prefix results with the standalone term leading, shadow completion via Tab, RTL ArrowLeft, LTR ArrowRight and ghost tap, natural caret motion never intercepted.');
+ // A longer repaired key exposed a focus-scroll race in one-time positioning.
+ await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});
+ await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G16'});await ready('article.theory .formula-tip');
+ await js(`{const e=document.querySelectorAll('article.theory .formula-tip')[4];e.scrollIntoView({block:'center'});e.querySelector('.display-math').focus()}`);
+ await js('new Promise(r=>setTimeout(r,1250))');
+ const checkLegendBounds=async()=>{
+  const bounds=await js(`(()=>{const e=document.querySelectorAll('article.theory .formula-tip')[4],p=e.querySelector('.formula-pop'),r=p.getBoundingClientRect();return {open:e.classList.contains('open'),top:r.top,bottom:r.bottom,header:document.querySelector('.header').getBoundingClientRect().bottom,height:innerHeight,rows:p.querySelectorAll('dt').length}})()`);
+  assert.ok(bounds.open);assert.equal(bounds.rows,5);assert.ok(bounds.top>=bounds.header,JSON.stringify(bounds));assert.ok(bounds.bottom<=bounds.height,JSON.stringify(bounds));
+ };
+ await checkLegendBounds();await js('window.scrollBy(0,150);new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');await checkLegendBounds();
+ await shot('legend-focus-scroll-1280');
+ await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Escape',code:'Escape'});await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Escape',code:'Escape'});
+ assert.equal(await js(`document.querySelectorAll('article.theory .formula-tip')[4].classList.contains('open')`),false);
+ console.log('Long legend placement passed: keyboard-focus scrolling, later page scroll, five rows, viewport/header bounds and Escape.');
  console.log('Browser regression matrix passed: 72 route/viewports plus 12 notation fixtures, full desktop table bounds and electron controls.');
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

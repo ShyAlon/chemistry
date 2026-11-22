@@ -58,7 +58,7 @@ export const courses=[
  ]},
  {id:'P5',title:'מספרים קוונטיים ואורביטלים',items:[
   ['n','n = 1, 2, 3, …',null,['n@level']],
-  ['l','l = 0 … n−1',null,['l']],['תת־קליפות',{def:{intro:['לכל ערך של l יש שם:'],range:[{keep:[{math:'l = 0'},' עד ',{math:'n − 1'}]}],mappings:[['l = 0','s'],['l = 1','p'],['l = 2','d'],['l = 3','f']]}}],
+  ['l','l = 0 … n−1',null,["l","n@level"]],['תת־קליפות',{def:{intro:['לכל ערך של l יש שם:'],range:[{keep:[{math:'l = 0'},' עד ',{math:'n − 1'}]}],mappings:[['l = 0','s'],['l = 1','p'],['l = 2','d'],['l = 3','f']]}}],
   ['mₗ','mₗ = −l … +l ; 2l+1 אורביטלים',null,['mₗ','l']],
   ['mₛ','mₛ = +½ או −½',null,['mₛ']],
   ['אורביטלים ברמה','1 + 3 + 5 + … = n²',null,['n@level']],
@@ -121,7 +121,7 @@ export const courses=[
   ['תערובת נפחים חיבוריים','ρ_mix = (ρ_A V_A + ρ_B V_B)/(V_A + V_B)','רק בהנחת חיבור נפחים',['ρ_A, ρ_B','V_A, V_B','ρ']],
   ['צפיפות','ρ = m/V ; m = ρ·V ; V = m/ρ',null,['ρ','m','V#2']],
   ['עם כלי מדידה','ρ = (m_מלא − m_ריק) / V',null,['m_full','m_empty','V','ρ']],
-  ['טמפרטורה','T(K) = t(°C) + 273.15',null,['K','°C']],
+  ['טמפרטורה','T(K) = t(°C) + 273.15',null,["T","t@celsius"]],
  ]},
  {id:'G2',title:'אטומים, איזוטופים ומול',items:[
   ['מסה אטומית ממוצעת','M̄ = Σ xᵢ·mᵢ ; Σ xᵢ = 1',null,['M̄','xᵢ','m₁, m₂']],
@@ -199,9 +199,9 @@ export const courses=[
   ['בראג','nλ = 2d·sinθ',null,['n@order','λ@wavelength','d@lattice','θ']],
  ]},
  {id:'G13',title:'נוזלים ולחץ אדים',items:[
-  ['אנתלפיית אידוי','q = n·ΔH_vap',null,['q','n','ΔH_vap']],
+  ['אנתלפיית אידוי','q = n·ΔH_vap',null,["q@vaporization","n","ΔH_vap"]],
   ['קלאוזיוס־קלפירון','ln(P₂/P₁) = (ΔH_vap/R)·(1/T₁ − 1/T₂)','T בקלווין; יחידות הלחצים זהות; ΔH ו-R באותן יחידות אנרגיה',['P₁, P₂#2','T₁, T₂#3','ΔH_vap#2','R']],
-  ['שיפוע גרף','slope(ln P vs 1/T) = −ΔH_vap/R',null,['slope','ΔH_vap','R']],
+  ['שיפוע גרף','slope(ln P vs 1/T) = −ΔH_vap/R',null,["slope","ΔH_vap","R","P","T"]],
   ['לחות יחסית','RH = 100·P_water/P_sat(T)','התוצאה באחוזים',['RH','P_water','P_sat(T)']],
  ]},
  {id:'G14',title:'מסיסות, ראול וזיקוק',items:[
@@ -216,8 +216,8 @@ export const courses=[
   ['מולליות','m = n_solute/kg_solvent',null,['m@molality','n#3','kg_solvent']],
   ['מולריות','M = n_solute/V_solution','נפח בליטרים',['M@molarity','n#3','V_solution(L)']],
   ['לחץ אדים','P = x_solvent·P°','מומס לא־נדיף; תמיסה אידיאלית',['P#2','x_solvent, x_solute','P°']],
-  ['העלאת רתיחה','ΔT_b = i·K_b·m ; T_b = T°_b + ΔT_b',null,['ΔT_b, ΔT_f#2','i','K_b, K_f#2','m@molality']],
-  ['הורדת קיפאון','ΔT_f = i·K_f·m ; T_f = T°_f − ΔT_f','כאן ΔT_f הוא גודל חיובי',['ΔT_b, ΔT_f#2','i','K_b, K_f#2','m@molality']],
+  ['העלאת רתיחה','ΔT_b = i·K_b·m ; T_b = T°_b + ΔT_b',null,["ΔT_b, ΔT_f#2","i","K_b, K_f#2","m@molality","T_b@solution","T_b@pure"]],
+  ['הורדת קיפאון','ΔT_f = i·K_f·m ; T_f = T°_f − ΔT_f','כאן ΔT_f הוא גודל חיובי',["ΔT_b, ΔT_f#2","i","K_b, K_f#2","m@molality","T_f@solution","T_f@pure"]],
   ['לחץ אוסמוטי','Π = i·M·R·T','תמיסה מדוללת; T בקלווין',['Π','i','M@molarity','R','T']],
   ['פקטור ניסויי','i = ΔT_f/(K_f·m)',null,['i','ΔT_b, ΔT_f#2','K_b, K_f#2','m@molality']],
   ['מסה מולרית','M_molar = mass·i·R·T/(Π·V_solution)',null,['M_molar','mass','i','R:gas','T','Π','V_solution']],
@@ -266,7 +266,7 @@ export const courses=[
   ['קצב ביקועים בכור','1 GW תרמי: ≈ 2.7×10²⁴ ביקועים ליממה ≈ 1 kg ²³⁵U ליום','אנרגיה יומית 8.64×10¹³ J חלקי 3.204×10⁻¹¹ J לביקוע'],
  ]},
  {id:'E9',title:'השפעות ביולוגיות של קרינה מייננת',items:[
-  ['מנה נבלעת','D = E/m ; 1 Gy = 1 J/kg','אנרגיה לקילוגרם רקמה',['D@dose','m']],
+  ['מנה נבלעת','D = E/m ; 1 Gy = 1 J/kg','אנרגיה לקילוגרם רקמה',["D@dose","E@absorbed","m"]],
   ['מנה שקולה','H = D·wR','פוטונים ובטא: wR = 1; אלפא: wR = 20',['H@dose','D@dose','wR']],
   ['מנה אפקטיבית','E_eff = Σ H_T·wT','למשל קיבה: wT = 0.12',['E_eff','H@dose','wT']],
   ['יחידות ישנות','1 rad = 0.01 Gy ; 1 rem = 0.01 Sv ; 1 Ci = 3.7×10¹⁰ Bq',null,['rad','rem','Ci','Bq']],
@@ -285,7 +285,7 @@ export const courses=[
   ['רוויית־יתר','S = c/c_eq','S > 1 מניע גרעינות וגדילה; למשל 0.09/0.03 = 3',['S@super','c@mono','c_eq']],
  ]},
  {id:'N6',title:'תבניות רכות ומיקרו־אמולסיות',items:[
-  ['יחס מים','w = n(H₂O)/n(surfactant)','שולט בגודל בריכת המים ובגודל החלקיק',['w']],
+  ['יחס מים','w = n(H₂O)/n(surfactant)','שולט בגודל בריכת המים ובגודל החלקיק',["w","n@water-surfactant"]],
  ]},
  {id:'N7',title:'חלקיקי מתכת בצמצום',items:[
   ['צמצום מלח מתכת','Mⁿ⁺ + ne⁻ → M⁰','זהב: Au(III) + 3e⁻ → Au⁰, שלושה אלקטרונים לאטום'],

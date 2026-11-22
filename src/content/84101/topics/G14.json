@@ -100,7 +100,8 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "x_A, x_B"
+     "x_A, x_B",
+     "n@binary-solution"
     ],
     "notationOf": 11
    },
@@ -130,6 +131,7 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
+     "P_total",
      "P_A, P_B#2"
     ],
     "notationOf": 11
@@ -155,7 +157,9 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "y_A"
+     "y_A",
+     "P_A",
+     "P_total"
     ],
     "notationOf": 13
    },

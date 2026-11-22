@@ -178,7 +178,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "M, m"
+     "M, m",
+     "R:gas",
+     "T",
+     "P",
+     "V#2"
     ],
     "notationOf": 6
    },
@@ -192,8 +196,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "M, m",
-     "ρ#4"
+     "ρ#4",
+     "P",
+     "M",
+     "R:gas",
+     "T"
     ],
     "notationOf": 6
    }
@@ -370,7 +377,12 @@
      "C#2",
      "b#3",
      "xᵢ",
-     "mass%"
+     "mass%",
+     "n_solute",
+     "V_solution@litre",
+     "m_solvent@kg",
+     "n@mixture-parts",
+     "m@mass-fraction"
     ],
     "notationOf": 1
    }
@@ -419,6 +431,7 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
+     "n#3",
      "C",
      "V#3"
     ],
@@ -567,9 +580,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
+     "Δm",
      "Z, N",
      "m(¹H)",
-     "m_n"
+     "m_n",
+     "m_atom"
     ],
     "notationOf": 7
    },
@@ -595,8 +610,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "E_b",
-     "A#2"
+     "eV@unit",
+     "MeV@unit",
+     "J",
+     "u@unit",
+     "c"
     ],
     "notationOf": 8
    },
@@ -773,7 +791,10 @@
     "layout": "equation",
     "symbols": [
      "m@molality",
-     "M@molarity"
+     "M@molarity",
+     "n_solute",
+     "kg_solvent",
+     "V_solution@litre"
     ],
     "notationOf": 4
    },
@@ -821,7 +842,11 @@
      "ΔT_b, ΔT_f",
      "K_b, K_f",
      "i",
-     "m@molality"
+     "m@molality",
+     "T_b@solution",
+     "T_b@pure",
+     "T_f@solution",
+     "T_f@pure"
     ],
     "notationOf": 8
    },
@@ -836,7 +861,10 @@
     "layout": "equation",
     "symbols": [
      "ΔT_b, ΔT_f",
-     "i"
+     "T_b@solution",
+     "T_b@pure",
+     "T_f@solution",
+     "T_f@pure"
     ],
     "notationOf": 8
    }
@@ -881,6 +909,7 @@
      "Π",
      "i",
      "M@molarity",
+     "R",
      "T"
     ],
     "notationOf": 16,
@@ -1196,7 +1225,8 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "x_A, x_B"
+     "x_A, x_B",
+     "n@binary-solution"
     ],
     "notationOf": 11
    },
@@ -1226,6 +1256,7 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
+     "P_total",
      "P_A, P_B#2"
     ],
     "notationOf": 11
@@ -1252,7 +1283,9 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "y_A"
+     "y_A",
+     "P_A",
+     "P_total"
     ],
     "notationOf": 13
    },
@@ -1799,6 +1832,8 @@
     "layout": "equation",
     "symbols": [
      "u_rms",
+     "R",
+     "T",
      "M"
     ],
     "notationOf": 12,
@@ -1875,7 +1910,12 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "a, b"
+     "a, b",
+     "P",
+     "n",
+     "V#2",
+     "R:gas",
+     "T"
     ],
     "notationOf": 14,
     "enrich": true
@@ -1892,7 +1932,10 @@
     "layout": "equation",
     "symbols": [
      "a, b",
-     "Vₘ#2"
+     "Vₘ#2",
+     "P",
+     "R:gas",
+     "T"
     ],
     "notationOf": 14,
     "enrich": true
@@ -2031,7 +2074,9 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "r"
+     "r",
+     "P",
+     "M"
     ],
     "notationOf": 29
    },

@@ -193,7 +193,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "M, m"
+     "M, m",
+     "R:gas",
+     "T",
+     "P",
+     "V#2"
     ],
     "notationOf": 6
    },
@@ -207,8 +211,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "M, m",
-     "ρ#4"
+     "ρ#4",
+     "P",
+     "M",
+     "R:gas",
+     "T"
     ],
     "notationOf": 6
    },

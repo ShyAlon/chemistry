@@ -44,7 +44,12 @@
      "C#2",
      "b#3",
      "xᵢ",
-     "mass%"
+     "mass%",
+     "n_solute",
+     "V_solution@litre",
+     "m_solvent@kg",
+     "n@mixture-parts",
+     "m@mass-fraction"
     ],
     "notationOf": 1
    },

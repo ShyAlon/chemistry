@@ -1,0 +1,1623 @@
+{
+ "version": 1,
+ "scope": "Reviewed repaired records and affected contexts only. Legacy hashes prevent unreviewed changes; they do not certify old legend completeness.",
+ "reviewed": {
+  "84101/G4/theory/8": {
+   "expression": "n = CV",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "n": "n#3",
+    "C": "C",
+    "V": "V#3"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "n#3",
+    "C",
+    "V#3"
+   ],
+   "note": "Audit register #1; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G6/theory/2": {
+   "expression": "C = n_solute / V_solution        b = n_solute / m_solvent        xᵢ = nᵢ/Σn        mass% = 100·m_solute / m_solution",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "C": "C#2",
+    "b": "b#3",
+    "xᵢ": "xᵢ",
+    "mass%": "mass%",
+    "n_solute": "n_solute",
+    "V_solution": "V_solution@litre",
+    "m_solvent": "m_solvent@kg",
+    "nᵢ": "n@mixture-parts",
+    "Σn": "n@mixture-parts",
+    "m_solute": "m@mass-fraction",
+    "m_solution": "m@mass-fraction"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "C#2",
+    "b#3",
+    "xᵢ",
+    "mass%",
+    "n_solute",
+    "V_solution@litre",
+    "m_solvent@kg",
+    "n@mixture-parts",
+    "m@mass-fraction"
+   ],
+   "note": "Audit register #2; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G9/theory/23": {
+   "expression": "M = mRT/(PV)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "M": "M, m",
+    "m": "M, m",
+    "R": "R:gas",
+    "T": "T",
+    "P": "P",
+    "V": "V#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "M, m",
+    "R:gas",
+    "T",
+    "P",
+    "V#2"
+   ],
+   "note": "Audit register #3; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G9/theory/25": {
+   "expression": "ρ = PM/(RT)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ρ": "ρ#4",
+    "P": "P",
+    "M": "M",
+    "R": "R:gas",
+    "T": "T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ρ#4",
+    "P",
+    "M",
+    "R:gas",
+    "T"
+   ],
+   "note": "Audit register #4; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G10/theory/24": {
+   "expression": "u_rms = √(3RT/M)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "u_rms": "u_rms",
+    "R": "R",
+    "T": "T",
+    "M": "M"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "u_rms",
+    "R",
+    "T",
+    "M"
+   ],
+   "note": "Audit register #5; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G10/theory/32": {
+   "expression": "(P + an²/V²)(V − nb) = nRT",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "a": "a, b",
+    "b": "a, b",
+    "P": "P",
+    "n": "n",
+    "V": "V#2",
+    "R": "R:gas",
+    "T": "T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "a, b",
+    "P",
+    "n",
+    "V#2",
+    "R:gas",
+    "T"
+   ],
+   "note": "Audit register #6; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G10/theory/34": {
+   "expression": "(P + a/Vₘ²)(Vₘ − b) = RT",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "a": "a, b",
+    "b": "a, b",
+    "Vₘ": "Vₘ#2",
+    "P": "P",
+    "R": "R:gas",
+    "T": "T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "a, b",
+    "Vₘ#2",
+    "P",
+    "R:gas",
+    "T"
+   ],
+   "note": "Audit register #7; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G10/theory/56": {
+   "expression": "r_mol ∝ P/√M",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "r_mol": "r",
+    "P": "P",
+    "M": "M"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "r",
+    "P",
+    "M"
+   ],
+   "note": "Audit register #8; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G14/theory/12": {
+   "expression": "x_A = n_A/(n_A + n_B)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "x_A": "x_A, x_B",
+    "n_A": "n@binary-solution",
+    "n_B": "n@binary-solution"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A, x_B",
+    "n@binary-solution"
+   ],
+   "note": "Audit register #9; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G14/theory/16": {
+   "expression": "P_total = P_A + P_B",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "P_total": "P_total",
+    "P_A": "P_A, P_B#2",
+    "P_B": "P_A, P_B#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "P_total",
+    "P_A, P_B#2"
+   ],
+   "note": "Audit register #10; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G14/theory/20": {
+   "expression": "y_A = P_A/P_total",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "y_A": "y_A",
+    "P_A": "P_A",
+    "P_total": "P_total"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "y_A",
+    "P_A",
+    "P_total"
+   ],
+   "note": "Audit register #11; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/theory/9": {
+   "expression": "m = n_solute / kg_solvent        M = n_solute / L_solution",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "m": "m@molality",
+    "M": "M@molarity",
+    "n_solute": "n_solute",
+    "kg_solvent": "kg_solvent",
+    "L_solution": "V_solution@litre"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "m@molality",
+    "M@molarity",
+    "n_solute",
+    "kg_solvent",
+    "V_solution@litre"
+   ],
+   "note": "Audit register #12; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/theory/15": {
+   "expression": "ΔT_b = T_b(solution) − T_b(pure) = i·K_b·m        ΔT_f = T_f(pure) − T_f(solution) = i·K_f·m",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔT_b": "ΔT_b, ΔT_f",
+    "ΔT_f": "ΔT_b, ΔT_f",
+    "K_b": "K_b, K_f",
+    "K_f": "K_b, K_f",
+    "i": "i",
+    "m": "m@molality",
+    "T_b(solution)": "T_b@solution",
+    "T_b(pure)": "T_b@pure",
+    "T_f(solution)": "T_f@solution",
+    "T_f(pure)": "T_f@pure"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f",
+    "K_b, K_f",
+    "i",
+    "m@molality",
+    "T_b@solution",
+    "T_b@pure",
+    "T_f@solution",
+    "T_f@pure"
+   ],
+   "note": "Audit register #13; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/theory/17": {
+   "expression": "T_b(solution) = T_b(pure) + ΔT_b        T_f(solution) = T_f(pure) − ΔT_f",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔT_b": "ΔT_b, ΔT_f",
+    "ΔT_f": "ΔT_b, ΔT_f",
+    "T_b(solution)": "T_b@solution",
+    "T_b(pure)": "T_b@pure",
+    "T_f(solution)": "T_f@solution",
+    "T_f(pure)": "T_f@pure"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f",
+    "T_b@solution",
+    "T_b@pure",
+    "T_f@solution",
+    "T_f@pure"
+   ],
+   "note": "Audit register #14; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/theory/26": {
+   "expression": "Π = i·M·R·T",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Π": "Π",
+    "i": "i",
+    "M": "M@molarity",
+    "R": "R",
+    "T": "T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "Π",
+    "i",
+    "M@molarity",
+    "R",
+    "T"
+   ],
+   "note": "Audit register #15; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G16/theory/12": {
+   "expression": "Δm = Z·m(¹H) + N·m_n − m(atom)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Δm": "Δm",
+    "Z": "Z, N",
+    "N": "Z, N",
+    "m(¹H)": "m(¹H)",
+    "m_n": "m_n",
+    "m(atom)": "m_atom"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "Δm",
+    "Z, N",
+    "m(¹H)",
+    "m_n",
+    "m_atom"
+   ],
+   "note": "Audit register #16; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G16/theory/15": {
+   "expression": "1 eV = 1.602176634×10⁻¹⁹ J        1 MeV = 10⁶ eV        1 u·c² ≈ 931.494 MeV",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "eV": "eV@unit",
+    "MeV": "MeV@unit",
+    "J": "J",
+    "u": "u@unit",
+    "c": "c"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "eV@unit",
+    "MeV@unit",
+    "J",
+    "u@unit",
+    "c"
+   ],
+   "note": "Audit register #17; explicit aliases are intentional, not global letter inference."
+  },
+  "84102/P5/l": {
+   "expression": "l = 0 … n−1",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "l": "l",
+    "n": "n@level"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "l",
+    "n@level"
+   ],
+   "note": "Audit register #18; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G1/טמפרטורה": {
+   "expression": "T(K) = t(°C) + 273.15",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "T": "T",
+    "t": "t@celsius"
+   },
+   "literals": [
+    {
+     "text": "K",
+     "kind": "unit"
+    },
+    {
+     "text": "°C",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "T",
+    "t@celsius"
+   ],
+   "note": "Audit register #19; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G13/שיפוע גרף": {
+   "expression": "slope(ln P vs 1/T) = −ΔH_vap/R",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "slope": "slope",
+    "P": "P",
+    "T": "T",
+    "ΔH_vap": "ΔH_vap",
+    "R": "R"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    },
+    {
+     "text": "vs",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [
+    "slope",
+    "ΔH_vap",
+    "R",
+    "P",
+    "T"
+   ],
+   "note": "Audit register #20; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/העלאת רתיחה": {
+   "expression": "ΔT_b = i·K_b·m ; T_b = T°_b + ΔT_b",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔT_b": "ΔT_b, ΔT_f#2",
+    "i": "i",
+    "K_b": "K_b, K_f#2",
+    "m": "m@molality",
+    "T_b": "T_b@solution",
+    "T°_b": "T_b@pure"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f#2",
+    "i",
+    "K_b, K_f#2",
+    "m@molality",
+    "T_b@solution",
+    "T_b@pure"
+   ],
+   "note": "Audit register #21; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G15/הורדת קיפאון": {
+   "expression": "ΔT_f = i·K_f·m ; T_f = T°_f − ΔT_f",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔT_f": "ΔT_b, ΔT_f#2",
+    "i": "i",
+    "K_f": "K_b, K_f#2",
+    "m": "m@molality",
+    "T_f": "T_f@solution",
+    "T°_f": "T_f@pure"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "ΔT_b, ΔT_f#2",
+    "i",
+    "K_b, K_f#2",
+    "m@molality",
+    "T_f@solution",
+    "T_f@pure"
+   ],
+   "note": "Audit register #22; explicit aliases are intentional, not global letter inference."
+  },
+  "nuclear/E9/מנה נבלעת": {
+   "expression": "D = E/m ; 1 Gy = 1 J/kg",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "D": "D@dose",
+    "E": "E@absorbed",
+    "m": "m"
+   },
+   "literals": [
+    {
+     "text": "Gy",
+     "kind": "unit"
+    },
+    {
+     "text": "J",
+     "kind": "unit"
+    },
+    {
+     "text": "kg",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "D@dose",
+    "E@absorbed",
+    "m"
+   ],
+   "note": "Audit register #23; explicit aliases are intentional, not global letter inference."
+  },
+  "nano/N6/יחס מים": {
+   "expression": "w = n(H₂O)/n(surfactant)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "w": "w",
+    "n(H₂O)": "n@water-surfactant",
+    "n(surfactant)": "n@water-surfactant"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "w",
+    "n@water-surfactant"
+   ],
+   "note": "Audit register #24; explicit aliases are intentional, not global letter inference."
+  },
+  "84101/G13/אנתלפיית אידוי": {
+   "expression": "q = n·ΔH_vap",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q": "q@vaporization",
+    "n": "n",
+    "ΔH_vap": "ΔH_vap"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "q@vaporization",
+    "n",
+    "ΔH_vap"
+   ],
+   "note": "Audit register #26; explicit aliases are intentional, not global letter inference."
+  },
+  "constant/טמפרטורה": {
+   "expression": "T(K) = t(°C) + 273.15",
+   "contextDigest": "4b1f233288c82f054a57062564f0c20367c113573fa0c3349c320727efadf74d",
+   "bindings": {
+    "T": "T",
+    "t": "t@celsius"
+   },
+   "literals": [
+    {
+     "text": "K",
+     "kind": "unit"
+    },
+    {
+     "text": "°C",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "T",
+    "t@celsius"
+   ],
+   "note": "Same reviewed temperature conversion as the G1 reference."
+  },
+  "הכנה 4: שני ממסים מגלים i/0": {
+   "expression": "i_benzene = 1",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "i_benzene": "i@solute-context"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/1": {
+   "expression": "M = K_f·m_solute/[ΔT_f·m_solvent(kg)]",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "M": "M@solute-context",
+    "K_f": "K_f",
+    "m_solute": "m@solution-context",
+    "ΔT_f": "ΔT_f",
+    "m_solvent(kg)": "m_solvent(kg)"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/2": {
+   "expression": "M = 102.40000 g/mol",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "M": "M@solute-context"
+   },
+   "literals": [
+    {
+     "text": "g",
+     "kind": "unit"
+    },
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/3": {
+   "expression": "n = 4.80/102.40000",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "n": "n#3"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/4": {
+   "expression": "n = 0.046875 mol",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "n": "n#3"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/5": {
+   "expression": "m = 0.468750 mol/kg",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "m": "m@solution-context"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    },
+    {
+     "text": "kg",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/6": {
+   "expression": "i = 2.0925/(1.86·0.468750)",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "i": "i@solute-context"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/7": {
+   "expression": "i = 2.400000",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "i": "i@solute-context"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/8": {
+   "expression": "α = (i − 1)/2",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "α": "α#2",
+    "i": "i@solute-context"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 4: שני ממסים מגלים i/9": {
+   "expression": "α = 0.700000",
+   "contextDigest": "135ed6c477b6d15bc4c9798a9ceb03b785ebc53ae14674d0d663a7cfe47affa8",
+   "bindings": {
+    "α": "α#2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "N_s@solute",
+    "ΔT_f",
+    "K_f",
+    "m_solvent(kg)",
+    "Π",
+    "R:latm",
+    "T",
+    "V_solution(L)",
+    "n_water",
+    "P_water",
+    "T_f",
+    "m@solution-context",
+    "M@solute-context",
+    "i@solute-context",
+    "α#2",
+    "n#3"
+   ],
+   "note": "Shared exercise context intentionally retains rows used by other steps."
+  },
+  "הכנה 1: לחץ אדים ואז החלטת פאזה/0": {
+   "expression": "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+   "contextDigest": "ac471af83e58c0aacfefddcc1e1405b88164c14bb277c5acf9fe5e29aa6ae207",
+   "bindings": {
+    "P₂": "P₁, P₂#2"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "הכנה 1: לחץ אדים ואז החלטת פאזה/1": {
+   "expression": "P₂ = 59.69082 kPa",
+   "contextDigest": "ac471af83e58c0aacfefddcc1e1405b88164c14bb277c5acf9fe5e29aa6ae207",
+   "bindings": {
+    "P₂": "P₁, P₂#2"
+   },
+   "literals": [
+    {
+     "text": "kPa",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "הכנה 1: לחץ אדים ואז החלטת פאזה/2": {
+   "expression": "40.0 < 59.691",
+   "contextDigest": "ac471af83e58c0aacfefddcc1e1405b88164c14bb277c5acf9fe5e29aa6ae207",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "הכנה 1: לחץ אדים ואז החלטת פאזה/3": {
+   "expression": "80.0 > 59.691",
+   "contextDigest": "ac471af83e58c0aacfefddcc1e1405b88164c14bb277c5acf9fe5e29aa6ae207",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/0": {
+   "expression": "ln(P₂/20.0) = (30000/8.314)·(1/300 − 1/330)",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {
+    "P₂": "P₁, P₂#2"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/1": {
+   "expression": "P₂ = 59.690815 kPa",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {
+    "P₂": "P₁, P₂#2"
+   },
+   "literals": [
+    {
+     "text": "kPa",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/2": {
+   "expression": "40.0 < 59.691",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/3": {
+   "expression": "80.0 > 59.691",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/4": {
+   "expression": "T = 460 K",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {
+    "T": "T"
+   },
+   "literals": [
+    {
+     "text": "K",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  },
+  "פאזות: מחשבים ואז מחליטים/5": {
+   "expression": "P = 6.00 MPa",
+   "contextDigest": "70f1244d75ecc25498d0160149edab1396c160bca4f86c7291325e4e57c6043f",
+   "bindings": {
+    "P": "P"
+   },
+   "literals": [
+    {
+     "text": "MPa",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "P₁, P₂#2",
+    "T₁, T₂#2",
+    "ΔH_vap",
+    "R",
+    "T",
+    "P"
+   ],
+   "note": "Model-substance phase context; not the water-only saturation-pressure definition."
+  }
+ },
+ "legacyUnreviewed": {
+  "84102/P3/theory/11": "9057b46ef4b92598ee4aae22fecf31c1dbc11e60f982a4dfd55272dfd5ddcaca",
+  "84102/P3/theory/16": "aa1e8fd46890e49ed43d8947da83df55b0bc2e3233724cde13fe8bda991f5aa4",
+  "84102/P3/theory/27": "93b7d584de65aee77b1bde5d27f45f950b5423ce8f96c3feb22b7940ac6068e0",
+  "84102/P2/theory/12": "d2961b823f4a1fc78157688eaa6096bc59dc217bc73262c74d050e6bcf229fef",
+  "84102/P8/theory/11": "c744fa1d55bfcf8192d2521cfb7e1d369a27fdb82756d05ea96191e1c619b4fc",
+  "84102/P4/theory/3": "8b963d23cf403cedcae41cbd0a3820cec12a9892a522d41da319f153aa374d97",
+  "84102/P4/theory/12": "4df785911be2922a746d52a9dc453993a96b1ed50616bdb75a9f4a1a989ca17b",
+  "84102/P11/theory/4": "a8e6761094419e72d7f48b5ee6027105372b423eabd126c3b5d4448c9e28e970",
+  "84101/G1/theory/6": "80c226290bad192be62a044817d9f87f78a55facd806e8916c259450c825e224",
+  "84101/G1/theory/17": "f8a78282bcc64d79580e3dd4f4e4ae3d88303bcacfe6be129fa26834508c8d09",
+  "84101/G1/theory/20": "317422c867e65d9fe20907a86f4320f1aa1f02eceb585f48d3740727b5f52e45",
+  "84101/G1/theory/22": "4cdf30f813fa0aae331754bf2f99041992e4dbdd2c8cc404e90173a0f70c3cd2",
+  "84101/G1/theory/26": "bdc2d61f430c66922b2de0ecc54fe14673017a91d67eb12f1dcaef1c0345e601",
+  "84101/G2/theory/5": "ef85558cbad27e3e0f925d3f61012557b7229dc01b0067a537152fbf18a8e8fb",
+  "84101/G4/theory/5": "f1a047c63eac051e2ba49fc1cb6843c29222cde2322f85ba5341c55af2393b11",
+  "84101/G4/theory/10": "a5494d8de3aa08fa224d29bd78482e0893e68540e42a359ded1643795e6350e4",
+  "84101/G7/theory/6": "a2cb3683e12b772e7df8c8b6cef7b8fee2dcfd85310cdfdd14b52d17369865be",
+  "84101/G8/theory/9": "504491387fbe8dc9dc2853dc8dfc4f9796aa1721aa3b3a4e38d7b74a67f106f5",
+  "84101/G9/theory/2": "c08830a52b0bae3728e4c2ecf34222f050933775fdbefb85f32fe267fcae48cf",
+  "84101/G9/theory/4": "40088bcfc600a1447900a121d3f76fc9033d1169d76c82a1af560b6994efc74d",
+  "84101/G9/theory/6": "fe95f7020556378977d940029f342ea14440097d0826aa472cfcf8037fbbdd49",
+  "84101/G9/theory/8": "8a7f43e3104ec7214d2ed22e3b2ecb97d345f1d3aede018c4ada8b68ebb3db83",
+  "84101/G9/theory/10": "403ab963e374d0affb757cf26df62f898b76bf5adfa0c7c61c2c672e3fc27251",
+  "84101/G9/theory/15": "3d5f65c4e1c56b43431ee51416083bff6e3b664dc5e7e118fefe8f2ad2d7670f",
+  "84101/G9/theory/17": "74977627ed1cfb5cdcbed89b6dfce2362fda2da8c69a9dd157ffcbbc86bf3ceb",
+  "84101/G9/theory/19": "a9a34c8517f7f3b9fea44116043b7e3122003ae5d34c4bb45aff817d920b0630",
+  "84101/G9/theory/21": "a4942209ca84865ee9eb68f8e49cd061f69504d2d9a5089e016f39d1ce79de01",
+  "84101/G9/theory/30": "55ac39b3d6713362865b0fadd072c75128996eff83b70db63bc8a3232dde9ae8",
+  "84101/G9/theory/34": "cbde1dffd39fa0cc81789524b83d6512bdf341143f942ca56f2f32ddd3104724",
+  "84101/G9/theory/36": "80e6f7f6ef58bd16d1906ec4f29a3b2a0270e71dd4a15fb0da29b010ccda7b6c",
+  "84101/G9/theory/38": "f2545afd5416414be495504f2c30b2c5a66d9a6f30e38fa6f559f9c4ab6a64c0",
+  "84101/G9/theory/43": "379d370f51903966f67e063c0b5be11988337dbb91df7e260acd8c0187042898",
+  "84101/G10/theory/3": "46d2d9d0658ae329edc1b79545bc92030f08fe568292290a45b1abfc8e2c986b",
+  "84101/G10/theory/5": "748adeca80f46e0ea768746eb1d7b3e8cc1b6766dcdffcd68612f44adeebb285",
+  "84101/G10/theory/7": "bc2895e1db5767743a50c926bfb9eb58469adcdc28faa8cfb412610f05d47e14",
+  "84101/G10/theory/10": "ca13e448dac0b1cc69c569451a2b35c7b87ce59abdef2d7d0ff67ede78d7c097",
+  "84101/G10/theory/12": "9528485b0af19a9f4039541f0ffd9b06779eccdffc5979dade17983e9dd32ea7",
+  "84101/G10/theory/16": "caef85e3181118fda92bd564872c5d4bfa417a824ee4a5543f161bfffbdc5069",
+  "84101/G10/theory/18": "2abbd0eff6bf06a255a454edc63b7ff9fbab3b7f95950814a68674bb3b6ee266",
+  "84101/G10/theory/27": "d0d64d5ac6ea42afdc777bd8a88e0ffc551feea5dc575bb7b7fc2053003194c0",
+  "84101/G10/theory/29": "36a0678dc9273a0420f802e1c8c568613d1fa7aca509a5bd63c2e9b28205103f",
+  "84101/G10/theory/39": "193253b54e0bb68b29a13d3e4b1281889271c258b84ae3feb20716d9c25b0994",
+  "84101/G10/theory/41": "203f2fde48c646c9e32c06e9ae78d732362eddd903ee6b4676303a5b51849261",
+  "84101/G10/theory/45": "2384858da2e60ad1fc3ab4e50e362fc66c5057e7900ced10e298e4eb11709e9f",
+  "84101/G10/theory/47": "4350550f6d09493f0cd67076ae9ed369bf20aa689eec0db42e5a12fb652b5598",
+  "84101/G10/theory/52": "82472ce7a564fffd061eb9ba8620d8d9c43e5439a6daf771b866494dfa8e1442",
+  "84101/G10/theory/58": "4cfd154dc45046c75fd5892d59e5065f7c2f3ff56a0648305b7896db247ccd22",
+  "84101/G10/theory/64": "17e2ae9ddf0716a7b3101015445c76d18f3c872f71acf4e3243e4bbbcf94e9ff",
+  "84101/G10/theory/66": "ca82259c3d03160b30fffe2abf0d37325cca37ec268df1b1ab6242c82de895b5",
+  "84101/G10/theory/69": "fce543c87a0e9d83142ce67df20b6022158fdd61ca16fb0167336aaa0fa12661",
+  "84101/G10/theory/71": "a18ae5995aef1c3aff644da50c7bbd7e6f1466c9387dd7b8185a85f133cedd5d",
+  "84101/G10/theory/73": "a04b82c7ff96c6621765a6f381d78d6b0af3557fb2868e1754658b6575918480",
+  "84101/G10/theory/75": "f7ecfa9369371066e5adc22a60733976e7d3a0e6ffd0a5ec3e86dbb0d6e11372",
+  "84101/G10/theory/81": "4aa69ac1b11d04977ec9a6e9890d5d874035a2fa2f5a50f12cce16480e68108e",
+  "84101/G10/theory/82": "4c62664151393ef8a2e0114f2e25e68e03ea166e3488dc31a2ac5cfd7a0bbffa",
+  "84101/G10/theory/84": "108b35b8b3f9090282a15acbaf51c1ceefcb35a580d96dd04d5a38b3a2467126",
+  "84101/G10/theory/86": "3fe37b994be3c413fcbb10aa2fad9b3f82d8cef1da2bdc5d0d1f2288aff83ca4",
+  "84101/G10/theory/88": "821d93955e776e1e4e908e042b71747aaff608fa857108281f9f211168c3132a",
+  "84101/G10/theory/90": "2f786174a639703d0960d35143bbce6db0d5f7cfc763ccf2869ed810551748e0",
+  "84101/G10/theory/96": "21e57e6cd7e86e6874f122226b2cf419064d463c672868c7c60a85099c68ab1a",
+  "84101/G10/theory/98": "5134074b78480da0c86bec080addfa190c72d1b08fe81824d537f4df75442fb6",
+  "84101/G10/theory/100": "2382e32002bd94e396af4f1264330719ca8e831264acf96699f07bcf25c5d72c",
+  "84101/G10/theory/102": "13fe21e8cf9208a03ba5422acf659ee89cda93c0997ecdda58c2c108b2f4ffac",
+  "84101/G10/theory/104": "c5f07c0cc7bbdaa57c632403575df8392d00d64de18bfa05167ef7b064441372",
+  "84101/G10/theory/106": "144d14350727ab655a74c6202536a5da3a56e1fec0d57b9e08e0f567fb0c282c",
+  "84101/G10/theory/108": "95bc3d2328ce66a86ff747c1ab75f2977df98d16d47c43e6fffff9bd1196817c",
+  "84101/G10/theory/112": "d0d6ceba2564df4e9a584bd4ac948671c59000b3d14ef0d16f591f999a99cf96",
+  "84101/G10/theory/114": "6612fe5a7dac910d3a07ec10c96c2242322ad7bd5441fbf5727c01c06d7d4891",
+  "84101/G10/theory/116": "1907f18ee29bc95a156b83cd82cb73381e9c0e2c8bf1c5e06983d494490f6b0d",
+  "84101/G10/theory/117": "9a83ea2c5fb87bf5efd53af022da547be4e778627c48465ba1a0f5413bf74383",
+  "84101/G11/theory/16": "b0fae95578144d2de90fbfef9a5fa0616e7177558ab4f4b706202914690b325b",
+  "84101/G11/theory/24": "9097291162285137c92fb2415fcacc2cce1784d92c410875beb4c299cf5afdac",
+  "84101/G11/theory/26": "3beb6a83550b1fa902ef3296dc4973b3685c2124a245c0113c07521f5422f977",
+  "84101/G12/theory/6": "8ec8f2061e37fdd3728b611a5b92056920f3fbe5139bee54ca786797283d7bda",
+  "84101/G12/theory/8": "47bf1f7f874a6b600b1ab06de6390f43e2be75c870f16c19a4c90b03fd7d359e",
+  "84101/G12/theory/11": "7620466899feb9ce63aa2841befa89205cc33509e786ff37adfa4a2a0587b743",
+  "84101/G12/theory/24": "cfc52607a5e25efcf6a901a47e3cb35f0119bbdf3aa19febd5a18ba186b11b8d",
+  "84101/G12/theory/26": "42998c1172895a7dc42e5a97a7340b771a7396d197ab1ee389e1a0bce9a185b9",
+  "84101/G12/theory/28": "07e3f6f427f4e6e8de53ec8669e12b1e38ac78bbed28464fab181819e59f7351",
+  "84101/G12/theory/29": "9ce90aa01fd0bf05d3277268ea25b937a6cebd92b5b565d88a2fb74b0ba6ab26",
+  "84101/G13/theory/10": "b4942a58f8ec641d465bc0d611f3b5da47fdbc7e404497d2726dea34576e2eca",
+  "84101/G13/theory/12": "4b1fd82723e0ebe913919b258348b1f47e13eae07af5dfdf917dfb415189574b",
+  "84101/G13/theory/15": "c4264d65ddf13641ad80243150f404fe5e73858d8199127d90cdf2d2b1fa96e9",
+  "84101/G13/theory/17": "a3013482e9720681b2abb0d3bc09e6e1f4294e280bde633f28af992d2d70d835",
+  "84101/G13/theory/20": "b66986ff20be4478765fea191459ce8bac5962d7e3d88cf417ae53177d9a22f6",
+  "84101/G13/theory/22": "d3618a7acd28f27d37ddafb9d17bfca9e032a3a104c6addc5b4f2dfd44ca3089",
+  "84101/G14/theory/6": "17cf0afb330b6cb639b7b906843cfb34bfcf4890159c4321a8bcd66f6e1d2768",
+  "84101/G14/theory/10": "857aec57a77bbc404074889660e8102627230bd5e1b93a5235c0d14f686f661c",
+  "84101/G14/theory/14": "10ba1be5e1d9daac1ec3837b023dcd1ddea15a8ca078cc88a2752fc1f6e82604",
+  "84101/G15/theory/3": "8607c9054049dcb83e2246179b52f8729998e9ba2f33a9eddcbd005601257ef9",
+  "84101/G15/theory/5": "fd8130f29cee7524e81519ee2e784901920c49d24e6d5123cb0bce9fe2340195",
+  "84101/G15/theory/13": "bfb227afe3e2176cc8d991cb4a0310a80e4ded66b5b1171f7466e60a47c4e002",
+  "84101/G15/theory/22": "6dcdc4b7c18bf18aa2c22517fcfcd2e3c3810d7ee4627e60a900f4cfeed0c3fb",
+  "84101/G15/theory/28": "036ee9ef0ccc9673f6d09e882f9561717a8a751f944108d961ea8e75eb43f4a2",
+  "84101/G15/theory/32": "1024bdf5889ead9c5c3fb7121b3493747f0180603ab4973a5c4c75f5eeb844b6",
+  "84101/G15/theory/34": "f889830afb13cf835ebdcbeede1fd08e72f5086b8ecd20fec8cf05b4312eba50",
+  "84101/G15/theory/37": "d899eb68c86e33d9764cbdcb2e6df8ae18231efa0ae361e2635cac7453cd5489",
+  "84101/G15/theory/39": "8a75e1d38811c35e18e673d543c30171f19b81c69bf8cb8ab9a3e44bba325cc7",
+  "84101/G15/theory/41": "80b83cc3285e8eda9126b1b52e4804f1ce7ac897231ee9d2dc9a02da74a51afd",
+  "84101/G15/theory/46": "85a8532aaa8d4de822d91e695353829625190943704a2f7703bea0992f3f34c9",
+  "84101/G15/theory/47": "0df93609b8348bc90a37cef63a60a1ca134db29439618b9cb39bbbcc4efc58a4",
+  "84101/G15/theory/51": "8846eef08e8b3a53d5a997dd4ba04fc5594099e06cb07210f682d7b134013cf9",
+  "84101/G15/theory/53": "c320c593b22247ad32f5cd2be985e35648ac6e3cc41d923efa47dae71ee2a58d",
+  "84101/G15/theory/55": "92a2b94af54bad1a2bd8947c693da2f66f025c6396a4578977500ccffa26a751",
+  "84101/G16/theory/5": "628c4e3d7eb8974177e450f6f58e60e041999f98ad6d6c237071b451b55fdb97",
+  "84101/G16/theory/7": "4291366d4ac996ca3ae711f417ede9c9de6d7a186e4270721bf16b52809659dc",
+  "84101/G16/theory/9": "016a7359274ce18ab935e6368b5e2f727027313f1c4e08d595c7cd13a663464c",
+  "84101/G16/theory/17": "21e2b4220fc2dc188a366960a2fba9bee2858bf931771526a3a974ca977b8bf8",
+  "84101/G16/theory/27": "5803b096ef49873aa37ee458d5b623a08459ee59c58154f23c20506ceb88f8da",
+  "84101/G16/theory/30": "5465aaf281ac1d716a581b22ed72f99bcbee37bee47a0d0ff24d5acb6dd956f0",
+  "84101/G16/theory/32": "d3566da9cee0b935a2e857c4f68a46fd08ea2c62b9687626d993b748b3556398",
+  "84101/G16/theory/36": "68f90e74fef9c481fbdde07e8c43f3e8e12a24e4cc83ada73a18d77172908177",
+  "nuclear/E3/theory/11": "4d11b0eea4d78d3b9b81cf7ca935394bdcb6bf0c01433d9479ee9d588aa7320e",
+  "nuclear/E4/theory/16": "2e8c1c64ef5cd6956acbb2be56146c236bfcaf0c0d06f16eaf8bf6fc725f5cbf",
+  "nuclear/E4/theory/18": "e8f58699a05fa1dc8fda939a28cbe40f375afeea13a1f9a2f364ac0a802d4b45",
+  "nuclear/E5/theory/7": "917fc418b93fa224b4e9eed81079bd07077e485ad7db5255c436abcb2c2a4b00",
+  "nuclear/E5/theory/8": "48650d54857393c1480c370beff81f8a964eda6006486e70c101790ae82d1c96",
+  "nuclear/E6/theory/14": "14623d0b76f4bc99c5f48cad4f00435cafa5afc4e081e37b8c4aff9c7c49e327",
+  "nuclear/E7/theory/3": "2f837a04b5f224ad365922a44ac9ad860dcae93c16f91e23930959475b2d22b7",
+  "84102/P1/נפח": "467e18ecabce505bb71ef6243b6d23685f29d9a38b0713ed8464e29be2488da9",
+  "84102/P1/אורך": "1eeba4fafc5629883ba04cfc3d4e463b87735511f29b1ac4c3fc96bd21d7ddf8",
+  "84102/P1/מסה ואנרגיה": "61173db742835c8bfb357e7c0ddac078ffaeaa66095a54359a8f307a72a604a2",
+  "84102/P1/אנרגיה לחלקיק": "0409259c2ce39e2dd8d46e5a9aefe6de34802491a89ec3e731f7f47f99a55f10",
+  "84102/P1/אלקטרון־וולט למול": "2cefb5f0730e28f7ba4ab0a03d98ce1f3ca01b33ad5c25c8973d040b9b2be38e",
+  "84102/P1/קידומות": "75b7f7f1bb5c3fea3822e15faeb28dc3d9e6836afc8a361968549e25a5f18246",
+  "84102/P1/יחידה בחזקה": "91823e980b8c83c83115dae29515a7a4c1a00b3ce3ae27d163075fe8a87f3859",
+  "84102/P2/גל": "ff56ef9bf096d087b24f7d16a4346bd75db66fe5504d6001f4475bf0a0beadb4",
+  "84102/P2/מחזור": "eced2a8c170cd8e1c514595a1052335534c3beaac04cf43dcd88a6a10829c297",
+  "84102/P2/אנרגיית פוטון": "97d791b72d4a90682d34dec13dc54b5b7ce92c6fedbd8bfaf55701d5f85e2578",
+  "84102/P2/קיצור יחידות": "964a546b30dd324dffa1e8a19588e01b937524c87cdca3c8e141a75182e658bd",
+  "84102/P2/תחום נראה": "c5f182584223a2912f15a600aef8791c0be1509ae1cf665374820fd867a44d1f",
+  "84102/P2/אנרגיה קינטית": "447a2e65eb16b2d1f3f27782cbd2671f790d68ce458fa1fe2ab23ed498730441",
+  "84102/P2/תדירות סף": "2e27ae2b783a8e0652f3af3a1433b2f62c6233bad9aed587f7364f4268c6ba2d",
+  "84102/P2/אורך גל מרבי": "7018776a8d7cdfca93c6574cfd6693d625ad7c1d1640b871eb9149102c7a6e0b",
+  "84102/P3/נויטרונים": "5c74a4bb1b2fae9ddde0bf0853cb65dcd8379646484cb18af4a7ab0e58874090",
+  "84102/P3/רדיוס": "b9698de1feef416df4dd1bb8df6ece61771764ca04ef514f567d66d96877d900",
+  "84102/P3/אנרגיה": "e0bd2395eb56089046a67a348dd0b59b0bae9396ec6d530f1c9adfa803360820",
+  "84102/P3/שינוי אנרגיית האטום": "02123106d1dd71ad2ce4c29f0df41a9a0a5511e6f508682fbd5cdeb748719122",
+  "84102/P3/אנרגיית פוטון": "ceb9ed87e0852b2cda464b0236d4e16300a7ae517adf0e443db4b20d5ffe360f",
+  "84102/P3/רידברג לפוטון": "5f418e2b03eaf5dd74e6ee697cfda0115268733392f8afc4861bbd357c4559c6",
+  "84102/P3/פוטון": "72384505fb8af7cc51627982d2122fc9c9f820d1fe02ebaef8c992c0e63636d0",
+  "84102/P3/סדרות": "fe70eb9d407b4851f2671d4e352837604fb9042d3e5cd5f79e2e333bca346369",
+  "84102/P3/יינון / לכידה": "fffef5fad87f928cbac4c6ae604594c7d104f747514545184dbf182b4c5a1432",
+  "84102/P4/דה־ברויי": "2e39b1b4ef0da4e87f3646cd7fa26115069a75b9ad8539355522167a3bd1678f",
+  "84102/P4/גל עומד": "cc147379f86b48bb617b103d8aacc0a9cc7442a739ce0c1f0c772a6b73cc3090",
+  "84102/P4/אנרגיה קינטית": "823857ddd7e30a286c493bbef045556ebe5c0c59deeed8884e2aef22105ce2fb",
+  "84102/P4/אי־ודאות": "2762770ff18ecfe6d5f98e780915f0f456e079aa83a9c51b36af15c572579723",
+  "84102/P4/חסם תנע מינימלי": "d83ce056cab6b1badfe6878ff3d1ddca14f75538735e5186fc923b1a4a5ab9f2",
+  "84102/P4/חסם מהירות מינימלי": "91234f8c30c7d9f154a938074df454d4a06096319db2c2fb438a2e3cb50a2d3f",
+  "84102/P5/n": "951b488116d83bd874e2827c0a77841d3559333031716da56c5f14263aa130ba",
+  "84102/P5/mₗ": "aa1fc6d324bdcbb9451a2ecfe3d0e43e36656f4a0086083d308720631474a535",
+  "84102/P5/mₛ": "96bb035cf3b8ad664ec5e4550f7cb33abe39ba2dc59bbd2178b93950d7fbf5ad",
+  "84102/P5/אורביטלים ברמה": "62c324ee1f96263aa6cab68c6239b79dae18636ca250cba2072f590b1c559ae9",
+  "84102/P5/בדיקת שלישייה": "f1363f10f510ab1d2c7b8003d713c01cab51e21f3776670a8efcf1d4dad531f2",
+  "84102/P6/סך הנודות": "6b2f921fdb49016c482f0796f58442277c059e0e633cddcaae7a9ee9f26791f6",
+  "84102/P6/נודות זוויתיות": "df76942acdf5ff5d46d7f4ed64ea6d36da67c793dd4ac85d5daac632a878fbfe",
+  "84102/P6/נודות רדיאליות": "ae3f5602fee991fea7d9fd431c1ccb0dae5f4d59a3c9ba144f064e0803900b53",
+  "84102/P6/פסגות רדיאליות": "9389633a66dceef32ad3ff4782c3d8da39a8e89e530ad176aa31057f68ce8744",
+  "84102/P6/1s במימן": "a3e31b1ca88aff15c773927fcae8285356a149361b1e16a0a7fab6602ae3105b",
+  "84102/P6/RPD בפחמן": "b5856482b80bf9dd37f7560903849de368ba505d0261661100c59627a645b158",
+  "84102/P7/קיבולת": "8f079b2329cd70e81158318d97233dffaea9e6e5cecdc59a1af24e85af16f8fc",
+  "84102/P7/כלל האכלוס": "3b61af76b4099d199994fb97dfd02b1619b925144eaf4c67e2e6aefa69fdd337",
+  "84102/P7/אכלוס יונים": "abfe5cd7f7dfad79ff7f5fa5b64534bf2d5f76146b4bbbd4949a1bd631099d12",
+  "84102/P7/ערכיות": "eaf192424c90e8c2e9abb058f46df0849dbeb8d910e0e0ea3af2f918b776737b",
+  "84102/P7/רמת אכלוס": "7755c84481dd2ac99613752b656ebed5a6cc4656130c1cf2686974f15c0795d1",
+  "84102/P7/פאולי והונד": "7048d364be073337a2221a9eba645eb69af4a518c5eede97843793f232063119",
+  "84102/P7/חריגים": "4a4bd0dce7d95aad225654f58b554658b5c7da7fefea07b14d6ca058d99ed0d4",
+  "84102/P8/מטען אפקטיבי": "e5bc134272933c489d898e064dcdb9471ace279e94384775e8c8cd02249721a2",
+  "84102/P8/אנרגיה": "a01b730ee47cc4f9ca5998afb22b2990cc4aa30edf446ddf183071dcadb173eb",
+  "84102/P8/מטען מתוך יינון": "0edb8a008ec0789b8ae5b946974da3b8d1f20423ab74b73632b6301504be09d6",
+  "84102/P8/אטום חד־אלקטרוני": "f479909d98cc157dd41d4b3da6add20fcb51cb5ce63c62ae18fd26e1cd565d35",
+  "84102/P9/אנרגיית יינון": "9d06cfefae9a61a193ba87dc90b719ca3203005c45cc78ca78d04227fe7a405a",
+  "84102/P9/אורך גל סף ליינון": "b3d747a8afb14453f37d17375dd9dd3a6f5da1f7256fd960865b6a3d69130f90",
+  "84102/P9/קיצור ליינון": "2b9cca8efa10d6243540ec50d2fc8ede739771a232f351f4424b74123662ac83",
+  "84102/P9/דמוי־מימן": "af8f3404b2dfde01fad4b91acf4ac555a707e1cdeac4581d17f03a7f466ba9f8",
+  "84102/P9/אורך גל דמוי־מימן": "1a6dbc6c854fbe3a9de56736ddbaff49022b4b29f2bd53c03f5df8fae895f9b3",
+  "84102/P9/קיצור דמוי־מימן": "aa49263c9951345da62c9fc654e9f058285d0c7eeab97de0e481e9a36623e241",
+  "84102/P9/דוגמת סף": "252b3b9ae7742b7971bd71d063c79df5076d935dc781a9814e5e4111c643a517",
+  "84102/P9/יינון עוקב": "b6f5296627ee8d930587aec9632ed9e785f7648fc161cd22bff2cae9b5e3f49c",
+  "84102/P9/קפיצה": "dd2265082db2c93ae52ee0149b4b0b90ff84776b4f5bd19aff94eaa96e5add7e",
+  "84102/P9/השוואת יינון": "4d408bb795f430554578199e20ac34f92a051a65d2b6b80e1254dd190c82a1fd",
+  "84102/P11/תהליך קליטה": "95a4b90f25adebb7cba676286b57f35731f9580c3adea4477dfad1dfd51ec7f3",
+  "84102/P11/מוסכמת הקורס": "38b8c6d5110067c9472fa7f9d74ac599a793a30e731769f1abe69b001d29670a",
+  "84102/P11/קירוב Mulliken": "e01bb9dabe7fd4263294f932fe46cc5f45e740328bf46555d6bc074c43309cf7",
+  "84102/P12/מספר אלקטרונים": "f00716924512ed37962355ad9ac348f60ca8bbf45170923bee8616a9b1395b9e",
+  "84102/P12/מסה מתוך גל": "51a8e130d6f26787d92e3da2ea4fabcc55ebf1157a35cba7dc83ec872f8f296e",
+  "84102/P12/גל מתוך קינטיקה": "1fa539502a07b85d2c96200af3b886e414160ff78b845234102843742a5201c3",
+  "84102/P12/RPD": "fedddefa2fcce64007a662f2417861d319479a031a6895aa55e2a51fb9600596",
+  "84102/P10/אנרגיית קשירה": "42da80cd1808bd46c625de70d61b40a841d76f7662aabb0f9d534114ab9136d8",
+  "84102/P10/יינון": "4d4934e8cad72ecd2e6417d0694bb8ce26a6f0151304a49046405d1bd7336931",
+  "84102/P10/פיקים": "56dd5ebd3485b0d7a0fabf5c408b3d75cdffd2dd776bf14e344b52038cab5980",
+  "84101/G1/אנרגיה ויחידות": "3f68453a6abc97e25211b58b99546d11b6461ed289cc8e6ef991a502ee53869e",
+  "84101/G1/תערובת נפחים חיבוריים": "93655beeffc0ae3cf4886af329164cd211df1e3922cb6b09d46e7889f1589613",
+  "84101/G1/צפיפות": "59bd381346ad4a7cc23d72c53ec417ba68cd19ad7466da1b83d7d1903be4ed17",
+  "84101/G1/עם כלי מדידה": "101b36a75578627f9dc681bf5ac84d6e1ef434712bc7171bc1a40eebce45d353",
+  "84101/G2/מסה אטומית ממוצעת": "2c01a926b60d2f9a8b3f99dd2f1534d1605f0c16b08fb15ff0c03b0d21743cda",
+  "84101/G2/שני איזוטופים": "652f5bed440b8fbea62b2e28832de61370358cd4726fadef1c7df7f064e48346",
+  "84101/G2/מולים": "b58f5aed46a78afe622be4189940467716ea542b65e504791fadaa9f9c63689a",
+  "84101/G2/חלקיקים": "1d9fcc5cbf70f37f1c13c69285d251089420fa10496e9fd0de8055bb1b977202",
+  "84101/G2/נויטרונים": "e1dbbb4cd6597515a7dc57954636b016e34f1aa06694e603028990dae322c63a",
+  "84101/G3/אחוז מסה": "86089ecfe8207236ebfad3b7f92bd84ff335a7e15d4f0ddf7aaa0dad1ca99442",
+  "84101/G3/נוסחה מולקולרית": "181e9dbc898b3af358c9f0d5e34b55879b1fba931b7536e04a69fb257a835092",
+  "84101/G4/מסלול חישוב": "bcb9624b9fb4d114219b9355a3e099bb8eb79eeca757117b27b4de5374d0796a",
+  "84101/G4/תמיסה": "cbe9af3f4aed1e9ab17c00d0f286748a86c9c5c46d8309df6fadb75428988377",
+  "84101/G4/גז": "44d33f2b42756e8e93c134a72d5d21d35ab5e4663371b7c3769a70382c8002b1",
+  "84101/G5/אחוז ניצולת": "d30d64838159d085b33535b38156a01a2c1ea2fc8a73be8c72bdc01122eef486",
+  "84101/G5/תוצר רצוי": "0065c1f2de618e2d3d660e2a54fb9da1dc66be101039c92e218567cb3a804f1e",
+  "84101/G6/מולריות": "9ccab6b96a566d5a3ba778249763a571d629dc56150d25abe2dc35361d8d69cf",
+  "84101/G6/מולליות": "2aafebae85bf589407abb367bd8a47090786214bc44e0df1623aa8d59ba0b181",
+  "84101/G6/שבר מולי": "abd51aaf7c877683dd41e04b54940c538f2a678aa486e9d5c5d47670620686db",
+  "84101/G6/אחוז מסה": "330ddd947185a2bca6927e85980770794fb39ea096c5c87ee78160f68b461d5f",
+  "84101/G6/מיהול": "f29c2b6ba03ca7755902289df0eb4a2684c2e3c8a0fa12ae8698f13877230ca3",
+  "84101/G6/מסת ממס": "0cf43043786f4ab729ffabb591dc4ddaf15517b0751f9a5c1b67575c82baab87",
+  "84101/G7/נקודת שקילות": "be3984100d07de736fa5522a86681b7fc164e9360869ee2e6f72ccd3670b60b0",
+  "84101/G8/סכום דרגות": "456780d550d1bf50cc79ce71f19b0d2d7fd4bdd728b0f493b28457115aede233",
+  "84101/G8/כללי עדיפות": "45637e3d8a3612518a09f542e5cd09bbd439c6f2e7dd5fcc6c71d24f19e24e6c",
+  "84101/G9/גז אידיאלי": "85036d2e8ded7d8e3e96b02dae860e1216af7b47a9bd79e02826be29411c67df",
+  "84101/G9/כמות קבועה": "584db7858cfce5ec6c1267792776bb8cfe03d2f935602b10bde91ed4b47ca003",
+  "84101/G9/דלטון": "647a1fb464d5099a3a4766666c4446c452c5253d22f2678d74b65f05cee04b03",
+  "84101/G9/מעל מים": "debc6cea3fb24ea89c7c3fb76579a2cd81f52906f10694b69b6f324b55fdb170",
+  "84101/G9/עיבוי בתערובת": "1f07a094ef23cfa66c30b3fb540001c4c59ce36aedeb9700d0115e13ed035875",
+  "84101/G9/מסה מולרית": "bb73c08d4dbf99ae3fa1237599052da86477cb75d004ce6e0b7ed17850368381",
+  "84101/G9/צפיפות": "daaad875fc7862567894442c383371362e957d8b5e310b2d677521ee76608077",
+  "84101/G10/המהירות המסתברת": "9e92f323a021ababf6724a372f4d95a1ef7353aabab4dd7e125a4259a719bc5f",
+  "84101/G10/מהירות ממוצעת": "3ddb813cc617e649100963440ec047ac933b1653961fcd7785009ae9ba8b014e",
+  "84101/G10/תחום צר": "668a46ddf69f7c1074e7ccdaa85ee2d7f93ee50f203c95858d18ed91a3178b7d",
+  "84101/G10/מקסוול–בולצמן": "4eeebc3396b4aeadd5460243d8a9c73ecf717b6b3ad53f1f68be5947a6d0b51e",
+  "84101/G10/צפיפות מקסוול": "3e158fdbfcd7e4946a3298905365f4519db6107cdd14437b06bfd13c0ad672b0",
+  "84101/G10/אנרגיה תרגומית כוללת": "85e0a112f1f3c0874fb8aa45f871d34b011e6a752eaf4c633d0208abad774b33",
+  "84101/G10/קצב וזמן": "2d04657bb4821b8026d6a7ed51ad6dc0a4aa1e2308aca9290583c0a0a341f374",
+  "84101/G10/אנרגיה קינטית למול": "85368664cb3557b600dd46cc116fec550cf2824e56e7ad8f5158a6e5877f2027",
+  "84101/G10/למולקולה": "ef19457eb55936d868a7d242daa809fe2ed4a4ac777542352b90d34d212cf923",
+  "84101/G10/מהירות RMS": "22ea1c71504b67b49c2913d932003f675d2b4c5e48d3ec81ddb948754396d65b",
+  "84101/G10/אפוזיה": "9ce1ef59313dad2d8a163aaaeb1f961495ad6f801e09fcf3ebfc99c456ce7a2f",
+  "84101/G10/ואן דר ואלס": "6db0e94d8b8182ae98fe12218081e452b3f828eb02a36fae6e23763858c6410d",
+  "84101/G10/דחיסות": "1146f9aafbeb9ff50628e9d05b1fc95c4dc07478329bfd98923a2f454ab092c6",
+  "84101/G10/דחיסות ואן דר ואלס": "736c86353c397d8e8417691c7a68c9c0edf4a6f1e50b12e0bccac1c5c9f3a499",
+  "84101/G10/טמפרטורת בויל": "421ea2e37fec195a063aa835e8c13d8d3f3c44831172e8e0be92a67987386cca",
+  "84101/G10/מהלך חופשי ממוצע": "c072b48af2959af3da09bf53bd2c03ef9a19052c1c8f7e5a663518fa6d22a32d",
+  "84101/G10/התנגשויות לשנייה": "227d1a29cebc92a6555837a63e0554c9ef51972df92d029a1b278d8be7fd2cb5",
+  "84101/G10/קיבול חום במולרית": "bf16b33f87763bf88eff73ac1387d157647635722a527924ab4921d5336ac15c",
+  "84101/G10/חימום בנפח קבוע": "056882d847c2db428e49f2f3f34e99a190dbe2798651535fa557c8ccd30974de",
+  "84101/G11/כוח קולון": "641def48d284a84f8b87be8bea0afe245767836751f710ce529c2663a84ba3b9",
+  "84101/G11/אנרגיית זוג מטענים": "7e6fca5bcad687c7ecc6d5ca76c04877e950fbe5baf20306698afa9eea6e443a",
+  "84101/G11/מדריך": "cd35295c2b61f2a0ae3350fb0bc20916f45545f9cc4da0d43da459d1e4efd012",
+  "84101/G12/אטומים בתא": "3eb57ddd00b3790d2c727baed93fea078678325c209249774d324c816fdf73d6",
+  "84101/G12/קואורדינציה": "c3f873e7456f87afc53a8ed10af2d75f7da0ec723b598434f35adcb61a83f7f4",
+  "84101/G12/צלע ורדיוס": "832211de0344e376fc8f022075e549309e438ff9f7e069311e0431e95a842dd4",
+  "84101/G12/צפיפות גביש": "3f15700882156589d3b3868ea70f01f0fbc75fb7d3a9191be851923172cbf2c5",
+  "84101/G12/בראג": "05f462c7e8e89c7c6c7c69bd1bf5dee2940d9d555adcb580321bb719f59d0771",
+  "84101/G13/קלאוזיוס־קלפירון": "ab82069bcc2ce6a9e9359d77c73ca46a7db4e433f1900eca5ddda4c211c4ac0c",
+  "84101/G13/לחות יחסית": "2383033619c2f1ff53876395a854099f8bafabe857dd74a9801bf455f28a7314",
+  "84101/G14/הנרי": "21a3ca4848eb3b45d5e8ccffc98bb4dd6e387ebda2f029bb3ea88cdaba2575d7",
+  "84101/G14/שבר מולי": "501aafa9f62e134738df05c0727f1f9f2cf116a15b30f4548bdd298027e08b43",
+  "84101/G14/ראול": "c7d94dd6bc9ba9edb75fa751d52d82c934c8eb48e7560b6355ba3699deb2f059",
+  "84101/G14/הרכב אדים": "79da46dec90f674565a1cff8c0ee80d71bc0f0829b1894d2af18a6f01bcbf852",
+  "84101/G14/אזאוטרופ": "456b6d43b93be4513c0a31eb3433fc89a88fa8cebe83eacb5c97778bbb4de39b",
+  "84101/G14/זיקוק רב־שלבי": "2f370b24fda194780b10f1a9307babece9c13002ded9e6b94af221245a7848b9",
+  "84101/G15/מולליות": "7ade343ebaa2b60e9da0b227a72a0ad8bfdb32a18301c862fa706f9ebee4fefe",
+  "84101/G15/מולריות": "c752a626973f5e02cc948f9549c0ceb8f5bb63e836bdf60b1cb7c20157153975",
+  "84101/G15/לחץ אדים": "bf460b5980156d43aac851ee0cad2b258303f86b0af6a7e73135d86ece9a4411",
+  "84101/G15/לחץ אוסמוטי": "3c629bbeb95521869ce626a8492f7836cc4c047bf87f850c53bab4b9cdd9f3a5",
+  "84101/G15/פקטור ניסויי": "f3ece01780d56b68fefbfeb6406a5a157bac9cd87907af2daead46a251e174ab",
+  "84101/G15/מסה מולרית": "ce5d545e8e8602dc2c708c35b7cd846d79c1d5d246349366f54f25a84283bfe2",
+  "84101/G16/הרכב גרעין": "2f08617e795529239a9b9599957b9e38a839784a9f014a6089f5ac323da29d1c",
+  "84101/G16/פגם מסה אטומי": "945424d2e60f86120022039937db0630da349ff8971d6a36e25e4279082ebf7e",
+  "84101/G16/אנרגיית קשר": "3f23bf4badea1648a87436d918881cf50fd8421a0456a7780d177734499e0512",
+  "84101/G16/דעיכה": "edafbea05ec6c02ad8e5df5c878f4f4170ca3414cdabfaefc0f9c68b78fc88c7",
+  "84101/G16/מחצית חיים": "26c1163eb6788456463c8c0453db6efe43f46ff77a0731d1ef822f40a52c977c",
+  "84101/G16/פעילות": "c9b6edb2731420ab99acea2619474685f8720146187d072547ac8bdcdc1cdd31",
+  "84101/G16/תיארוך": "7091058df1a8d2c281bdf3e523ddaa3b558df5ebffaf3bf9180282456c69dcd4",
+  "84101/G16/מנות": "68f962bd9985aeb0bc4daed8be40c8a0868aa3483704f57baed343af07ca4b84",
+  "nuclear/E1/אנרגיית פוטון": "654a5679be33c098cae7384a776e5119e064ab2ae0a68a67f4851ab1315ba5e4",
+  "nuclear/E2/יחידות פעילות": "d308cdb217c8b973be25831d8f89051226f7d2c921682d0284a730b667527b5d",
+  "nuclear/E3/בראג": "86d82ab4b5704ec4c77fd1ace05a8851c8b16b747a00e5ab0fe92795783e8093",
+  "nuclear/E4/דעיכה": "809f348eef5c92862255e7218809308e9e3e5b18bc82e225f19a3ecedc0c2a6f",
+  "nuclear/E4/מחצית חיים": "cf333f5830beb461c320e8ea7a1e807faa44e4c3079c8deee752df5886b4d6d9",
+  "nuclear/E4/פעילות": "e6bdff99a560dde2cacae0351854d28cc98152ac8681a654e7095772f33bd478",
+  "nuclear/E4/שארית אחרי מחציות": "0dc349c261c119e2b926d62445f1df264a980787f94a3597c31f7d059f0b2304",
+  "nuclear/E5/דעיכת אלפא": "042bf09c487254e787e1f6cc174fac60cc2ffd9f94ac7dfa3bc118dcc6873367",
+  "nuclear/E5/דעיכת בטא": "b66e91f97b6f8ee4e03c8f830d954a53a10befc765b8636c8d1ac7fa60373e09",
+  "nuclear/E5/שימור במשוואה גרעינית": "cd586deba65883e371a04298ee39028b7e7d7328fed8c38f99a5e278831bbc3e",
+  "nuclear/E5/אפקט פוטואלקטרי": "bf489a9befaed14400648b29aff8773fda431b35988f91bfa0b663ae348cebac",
+  "nuclear/E5/יצירת זוגות": "561502bf9a3341647535b58f3c434f11adb8bf3a5f5db5be842cc7458553adf3",
+  "nuclear/E6/המרה ל־UF₆": "c2a6598fc9550d3e2ddea33462c2edd08d0a0bfc83e716ea5350270567677de7",
+  "nuclear/E6/פעילות סגולית": "9e6da803a769a125bf79fc39975a5686e48385c4bb66edddbbe16941d8af646a",
+  "nuclear/E7/לכידת נויטרון": "25f2f33e38e18a24e250d0a93f05c4de4df4a1638c51cd558e4ff092e5dfe90d",
+  "nuclear/E7/אנרגיית ביקוע": "0fac28c94f8a843a7d1a4a97792e726d98dc7b35302e7e5a78fd829e51174911",
+  "nuclear/E7/קצב ביקועים בכור": "691dbdc6456430e1dcc4707b3ab0eb6852f3cbc5f809ec2e459079cd0b7b5ff1",
+  "nuclear/E9/מנה שקולה": "09ae8a42c78b1a464442212b5e4adba149b33a273f21412757e0e70cd12d0b88",
+  "nuclear/E9/מנה אפקטיבית": "17bf6f1f1fe333841e3e82bd486fee2b62fc231d76a65e289c7eff597a0cbe73",
+  "nuclear/E9/יחידות ישנות": "a0026c47cf217bf2ad5895e0b3a1f00f855e605f4bdfc184a79bbc8f8cd03198",
+  "nuclear/E9/גבולות מנה": "b77004b8201b57673910c77c31c8a17a7d741fad3d410280c7ea970ae6419d45",
+  "nano/N1/פיצוח משטח": "4a06ea33612aee1376c69818bf68145b8032dbd31f63b8ef73402b8c08c1977e",
+  "nano/N2/אנרגיית מעבר": "2fc647594de490cb9815c4c41771c7ebcd06ad460de2edeae237aaf25c095551",
+  "nano/N2/מודל Brus": "93f02d5d6adddfd8b3d2d3325c560bf1cce9d5a6cff684d0cef68a8de1cf83e5",
+  "nano/N3/רוויית־יתר": "a29267239c2d0ad3530abc299d33f4c50a5954a257a56aaea20d249e9b53495a",
+  "nano/N7/צמצום מלח מתכת": "bc887ab77e018f4e17e98dedd05172b6b299c97ca15e218f36cddd64934c9e04",
+  "nano/N8/יחס ממדים": "892578390c3e58f8c230d0f060ecadda7a7b02b5d79b26e1494c66c0ab6c83bb",
+  "nano/N9/פער לאורך גל": "9fbe04f051bceae0ff0aeb59ff1c912f4675d04a84b96ca26fee1ef55401cd68",
+  "nano/N10/הידרוליזה": "e5ff00042a94a3a7937baf01b8493d5f1cbd271da07f0e2ee804bed52261dfa2",
+  "nano/N10/עיבוי": "24c468c1d3decd6a1ee89e1ce5fba12a1c0176e6dfeea0066ef519c218d84190",
+  "nano/N10/מאזן מים": "91fca89a470f2ebb6ca87600d7c2448da167c7c277609d19d8d36658abef38ec",
+  "constant/קבוע פלאנק": "4d06143a18bb38eac407343222257c46823d4c1c8133c42e6054a4d32ebd6601",
+  "constant/מהירות האור": "d8ea886edc8407da40112f356e4efff14c350f09d15ad50974aa8342865db3a4",
+  "constant/ħ": "5c4df1c83f509af8290998d996969b5b137c3117d3460719eb2862268f4b7734",
+  "constant/מסת האלקטרון": "193042ef5dc2cd18e6d7af79b3e445c0c3fa267f1b8f4223a1bdbd5d423ddbc3",
+  "constant/קבוע ריידברג (אנרגיה)": "ca89b9927587ebfde4dfff4924bdbc8658a525710e22525cc188759227b02f5e",
+  "constant/קבוע ריידברג (מספר גל)": "32860ec917f387c9d51f0f444fdfadbd53f01c4c7cd425f74b7c41ffcb4326c4",
+  "constant/קיצור פוטון": "5e61508e296715b1bde64c90c71ee9d605653720855063e65c9f5f417a9c4623",
+  "constant/רדיוס בוהר": "72d0ae7b89aeb65cdfc35e914272400cd8a029d7edb30b6201b5732e1ac107f8",
+  "constant/אלקטרון־וולט": "19b1b5acdbba950146ad09626c4b58e2287b863ae5dc30640ac49117b72774ab",
+  "constant/קלוריה": "447715baaa43ada21c0ba0a392e00311852a2f4324130cb6b7a37ba70c3e78bc",
+  "constant/מספר אבוגדרו": "23333bcb90c39ddc3b52186a6f76758c0c276c25bb824a214781bcf8da4391ce",
+  "constant/קבוע הגזים": "3ea88030c5e609e6a2d3e40c88e6c5cc0e3c1c736a50bb2df73764c972e4cf0a",
+  "constant/לחץ": "4e04709cc657580848be302e04ff2d657a123364bc678c14d5d839eb2fbec15a",
+  "ממשיים 1: שני תיקוני הלחץ/0": "c7335b5093be6d79d70018a6d96e8329a262021bb488d22c9e79b996a02099d3",
+  "ממשיים 1: שני תיקוני הלחץ/1": "1e9752553bd2d5b0f006df51ffe15e3f8dfd2edb3b59b8f27d0a72b605b6262b",
+  "ממשיים 1: שני תיקוני הלחץ/2": "983a5e9f868fba47185be2140c02a9a7c21c75cf45f00f9a33c1917638665e7c",
+  "ממשיים 1: שני תיקוני הלחץ/3": "a17d9fb68dad73073026bf864a674f47f13dc2fae988fa6ae5a093efcb1b8fa1",
+  "ממשיים 1: שני תיקוני הלחץ/4": "bbdf2321a7be3d4bf216d942957d4611f8ecef83493a655ee2ebd28b1f1199e4",
+  "ממשיים 1: שני תיקוני הלחץ/5": "0ac9bd13484464dcc66cb1ba54e9cf3f1c16452787cba06dd02bcd76e8e505a9",
+  "ממשיים 1: שני תיקוני הלחץ/6": "f5ddb02dbae94b446ba64cb6f2de6101b2a4dc69f9f3b7fca354d98d8ca976ca",
+  "ממשיים 1: שני תיקוני הלחץ/7": "d47d865a0a95aab48eda7ed1375b8e0aa810892dcb3ba8e9c7f5ae9572c73fe3",
+  "ממשיים 1: שני תיקוני הלחץ/8": "b63604a94bb1d01f7c3cad6f6ab4aa6e76bf7ad030ecfd7aa51e299d3a9dd819",
+  "ממשיים 2: מודדים Z ומוצאים a/0": "0128962aafc9463d8da3fe3a5ff00dd17568250042675194283ffdbf799f3ec2",
+  "ממשיים 2: מודדים Z ומוצאים a/1": "32db66b335fcfce9abca191470bf436644971ff5e1038d79917a3ba71f840e96",
+  "ממשיים 2: מודדים Z ומוצאים a/2": "932ef6e6d1d364c04a9c50dd1676daaae8300b7e1c1761c79fa8a23a7240692a",
+  "ממשיים 2: מודדים Z ומוצאים a/3": "c96512657417a04e854019ce92425c433a4cd2555b4b8e07ae55e60476135788",
+  "ממשיים 2: מודדים Z ומוצאים a/4": "ff881cb8ab983af7e2966fe5ad3649602505e05a3780cf92262e6d9090d5384e",
+  "ממשיים 2: מודדים Z ומוצאים a/5": "8215492319745eb29afb37173955769533306c1009cacce4d4d16dbc70e1821c",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/0": "a4a42342676f1fc8763a97e8972e65d7505de33a4da1a4688d4109f3aa80d84f",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/1": "ab710e1a0fa901410f158b63a5ea3b82093a27bb7ad2eda0dd23488544195687",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/2": "e693dd4c433db21c4798bfa2e5ebd662fd9a0dfd2f1b47ec5bf8dfe1c14a9c41",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/3": "e9f8a5504add15b2907de0c5836e0aa69856b3d865c29020af936f0ab1b707f1",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/4": "d60552b07b0ad13ed24059f516f71a15692cd67813f77f6e8354d19f5bbd66a7",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/5": "235665d65ecea4a173c0be91c4ece5b0241b832ae2e200d08c5ce0521dca1aff",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/6": "1180bb716d760477ee38b1e92ef649f182e09faf9505390a3ce880bb17ce41c0",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/7": "622e30644c7b15f74d62e086578702c6afae3d38b2ca02b4655ec43e5b0a0504",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/8": "dc47199228b5082e70f44c9da0853816bf17315316772fc66a6c091c7d59e7ea",
+  "ממשיים 3: שתי מדידות, שני פרמטרים/9": "29b8107c11df0eedacf4ad6d27f8f4f56b21f084aaf99e185b4e77da2b96184f",
+  "ממשיים 4: בויל אינו קסם/0": "f0944c1395e0e7ad29c8d17e896dd97b6400fbdd764349d7890792e3e9131a22",
+  "ממשיים 4: בויל אינו קסם/1": "de9192cdf67dfcc7718c649f388dd58795b2c21b38f218ff1255726eb790fb79",
+  "ממשיים 4: בויל אינו קסם/2": "6d564f1823921142d4862b294db2bcf77094d02f59a7ac0c9847661a778438ab",
+  "ממשיים 4: בויל אינו קסם/3": "0bca90a3589545743eefd97148065cae99f5178e74fddc9644a45535f1d5b185",
+  "ממשיים 4: בויל אינו קסם/4": "aa73197dbac2a6539f79fa84aee47f31e747cfe3de17edf3c90eaa9e62d54b18",
+  "ממשיים 4: בויל אינו קסם/5": "ed1917d5ec884789feb7fb315f5240e5e337a4d824d91d21b4489e871642925a",
+  "ממשיים 4: בויל אינו קסם/6": "f975358c4541bbbede35e22437ad645df32447645a3d1e3b1145057206679ce9",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/0": "2a42b605cd82249ba32bcd62b3c21d225d7152289df12c63eeb29fc0b66afdb7",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/1": "0f87ae856d16f4aa15c8bc55778389a90282a3e2764b1a2e5ecd7658f4d9bb02",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/2": "f1de6730e42489dc0f36c36e17580541494c10c48f8aa0e85720942c71c9d27d",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/3": "aa9a3e0989789e826291606c649226edd08b3bfa70110c70ffcbcc47cd30de8a",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/4": "571411bb47e53ac6d28f41e494e277ab21df795b8e62a74a90a2422cfd4a19c5",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/5": "5ff7dd0d6fc470e779449050e11d715fc692d1c95b5c9cec8f4c3ab71af49ffa",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/6": "b3c3f8560384bb92f6d9f0520d1f8edc959ebb61a5e9e3765ad7014adb9c6510",
+  "ממשיים 5: צפיפות, הפרדה ודחיסה/7": "e980755011cf48182bc8e02d6bc0173a9865cbad66f73c75a9895b8301c730ef",
+  "ממשיים 6: תגובה לפני הדחיסה/0": "0a5d2868da50ea2feaa7d0dff67e30606b70cc8f9a9f1a356680d59ad71c1e9a",
+  "ממשיים 6: תגובה לפני הדחיסה/1": "11c69216696ec74f2da98242f1cdcbd00f2f55d5fd59f9a840028a366c9b6a65",
+  "ממשיים 6: תגובה לפני הדחיסה/2": "af68addc3f3fa9918a652f6fa9eabe1713d9b2b4cdff942d3d69e2f52d34b20a",
+  "ממשיים 6: תגובה לפני הדחיסה/3": "61b07fc2e55b33d6cb674170716f362f3ea8ec57dc0d41bc80341f38194dc8cb",
+  "ממשיים 6: תגובה לפני הדחיסה/4": "043de27044a26cc7eb01c3b22f1886320ce6bb4654f3d5c74163ce6dbdab1d9f",
+  "ממשיים 6: תגובה לפני הדחיסה/5": "e68af97ed30608ca1adce29b0aae409bc3cc11fc537b982ed725d897efe0ccdb",
+  "ממשיים 6: תגובה לפני הדחיסה/6": "2190fa0f0c88ce981585189c7edea8a32632c662fae676e76d57d54d3f4e3ffc",
+  "ממשיים 6: תגובה לפני הדחיסה/7": "43e9f04dd9ebb46ca07ecad404dcc335e22ff7b1110ad8ba2e1dedd7bcb46bfd",
+  "ממשיים 6: תגובה לפני הדחיסה/8": "e3e85ac15180d6af602e5c8b0db33b213e6421259f2333b4e8a0c8d2e95490e9",
+  "ממשיים 6: תגובה לפני הדחיסה/9": "8544cd6550b9e9643d3ef6b88305c0e03220c622e1b938ee3be4608e949cf175",
+  "ממשיים 6: תגובה לפני הדחיסה/10": "15ccecf98432d7aee03734384f2cc57054c0494e01172b8b0f4a40918135155b",
+  "ממשיים 6: תגובה לפני הדחיסה/11": "547f262bfa6c016a4479e981075a104bc65d4e190539602f455509f214226d94",
+  "ממשיים 6: תגובה לפני הדחיסה/12": "595d6d9e79acf43bf77c8e207bf9d5b88dcfc38b3f4955f659e5606ec9c1aac6",
+  "הכנה 1: BCC או FCC מהצפיפות?/0": "e0cce2666e40725e2e0bb72e6054c99e91cdd0e7a74579045ed61a4d9c384db4",
+  "הכנה 1: BCC או FCC מהצפיפות?/1": "217cdcd41be772aa302d12bb212c00dd8dab74520979a05ddc4fe88e03a5816c",
+  "הכנה 1: BCC או FCC מהצפיפות?/2": "42c7a1f49946cd202b71a63d9faf3ad091113ea285d4c909d32ec6f90960d280",
+  "הכנה 1: BCC או FCC מהצפיפות?/3": "44b637bc103917a3863bc7a7293525bc9521ff305fc9cf21a5e00c23d07a7070",
+  "הכנה 1: BCC או FCC מהצפיפות?/4": "478849e4c08a7ace97ac64ce80237226f3168763dccebf3c7380dd1773cc0493",
+  "הכנה 1: BCC או FCC מהצפיפות?/5": "93230fec3772cb320c1516a47cec1a25c99d08163950d5a0aa31420d8ded9d30",
+  "הכנה 1: BCC או FCC מהצפיפות?/6": "c0a89b907cc6fb27885d5ee29c1c20e025526bf1b4bb9c164608ffe059bd06d6",
+  "הכנה 1: BCC או FCC מהצפיפות?/7": "41b92dce8a02c2472a002c7869efbe5e8471f81f28a95ca306d9030c6045241e",
+  "הכנה 1: BCC או FCC מהצפיפות?/8": "2b511e7a5410fd2d024a2434ddd5343a30bca042d9955cd5d9ea01ceaa9d9890",
+  "הכנה 2: צפיפות מחזירה רדיוס/0": "fa16fb0bcbc8085a21f33c17d73299b0c28190a8afa45eac2fc26b9672ef6f2b",
+  "הכנה 2: צפיפות מחזירה רדיוס/1": "5e2f6d609774dbe2f65db3fc44149ec5b51e56d3c3c5ded795b12ba16e916edf",
+  "הכנה 2: צפיפות מחזירה רדיוס/2": "5cd33d046c9a8800077b210e7ce6e03aa6d8063c0f85a5e788167814e94e0319",
+  "הכנה 2: צפיפות מחזירה רדיוס/3": "2e225f26b4dccfb2205dfe3d121183ed8dee5a92cde9f48213a17ee089badcfb",
+  "הכנה 2: צפיפות מחזירה רדיוס/4": "d7e688d8d131d3ba969368c5ea45c99828ec8f9e69d64b23a3839495e6e116f1",
+  "הכנה 2: צפיפות מחזירה רדיוס/5": "6cd0262e6adc8f14960707e35d80da08fa6bb339bea5a037443f216fd525e728",
+  "הכנה 2: כמה מים באמת נמצאים באדים?/0": "d8fd13889a29fc8251972bd389452541beca3cf9070642912806edc65881cc2b",
+  "הכנה 2: כמה מים באמת נמצאים באדים?/1": "f177f725962b7c673bdb60e9caed46de9cf28488aabdfdf26bb70f569d1d3c22",
+  "הכנה 2: כמה מים באמת נמצאים באדים?/2": "8c6c80fe6f5a8258680359bc2ae1fa09060105994b14f8073d52f668630285be",
+  "הכנה 2: כמה מים באמת נמצאים באדים?/3": "de9c1f3f6ac5e5d72bfa3279702f8e06d25d3325b6c7d72b7a224b5107023c84",
+  "הכנה 1: מלח וסוכר באותו כלי/0": "635bc664fbceff84cd3bd50f16bb65b4a23ee8be17eb071dc6f8ad89749ee7cc",
+  "הכנה 1: מלח וסוכר באותו כלי/1": "dd74ed6229dc8cdd86caa71bf3840cfe93c9e9904423e3cec6a79f6051f45edd",
+  "הכנה 1: מלח וסוכר באותו כלי/2": "fc5b2cc152f1ec25fdcf87562ed78ffaa689642b78c1812d72367bce109cc4a8",
+  "הכנה 1: מלח וסוכר באותו כלי/3": "e3ab84c0f8c6ca875d97736edfc8409267829cf5bd4fcb6c03a1f4c1867bdf66",
+  "הכנה 1: מלח וסוכר באותו כלי/4": "2b99bab9c14fbb635a1905eb3b76bc18ed9fab44425093274c92efab5a4cfe69",
+  "הכנה 1: מלח וסוכר באותו כלי/5": "dfa573d64a610879d84117e6f3716cf45b0ed8e81cda0b1e1e4052104bc240b7",
+  "הכנה 1: מלח וסוכר באותו כלי/6": "10c3610e6bbdbd20e79c5584762080b064a6cdf8a0e1dab0c4c3f60462bcdd1b",
+  "הכנה 1: מלח וסוכר באותו כלי/7": "8ca9af68332b3445d1b24440b6cfd1cbe53b0118ed46f7a5000270b30303e84e",
+  "הכנה 1: מלח וסוכר באותו כלי/8": "c0b5705e0dba9dd1a1fb9d74e61d52bd107cc7594331798b9368fc447fb176ce",
+  "הכנה 1: מלח וסוכר באותו כלי/9": "b4219207cb27769e65e0a0f992eff8713a5ad3a49bfda6043a9d53a8997c07c5",
+  "הכנה 1: מלח וסוכר באותו כלי/10": "168c89b456eb2f48704b60b2c99510a9d806c824213146200c0a5962e2ac3720",
+  "הכנה 2: פירוק שניוני ומאזן מטען/0": "f0094f8d9aeae30394bb4a9626e439a252ff7244f7345609432d8a0f4cf879bd",
+  "הכנה 2: פירוק שניוני ומאזן מטען/1": "e4635073c8f5a5eea7728b8501b0824855c8c5fbacb0fba5d4c917d30bbd373b",
+  "הכנה 2: פירוק שניוני ומאזן מטען/2": "2b507969d3d2a46325576bf59a79039a33d189e2005a258c35bda5d60c732a78",
+  "הכנה 2: פירוק שניוני ומאזן מטען/3": "efb6420ec2e98cd73b9f7c3a046c3796d4c46f7d83242da807d17469b16a39a5",
+  "הכנה 2: פירוק שניוני ומאזן מטען/4": "f10565b8c1dae1517ac08ec9f883a366dce396d550ffb7855f9ba0f52f655435",
+  "הכנה 2: פירוק שניוני ומאזן מטען/5": "8a10213697a866a4b9a439ac989c01773c1230e2cb3b954647e50804cc3d6e31",
+  "הכנה 2: פירוק שניוני ומאזן מטען/6": "fc291a61262d85c980923b3ded4c536898ca2f55761e0998f4e1e816218ea961",
+  "הכנה 2: פירוק שניוני ומאזן מטען/7": "b986f9e86167fef087ff61ac23e724f67f854ee6cc6fd8ced4e258ef435dfb48",
+  "הכנה 2: פירוק שניוני ומאזן מטען/8": "aaa7100eab7e8991767867b129c690f014a3934f782b4ff92fe198c5e5f82e34",
+  "הכנה 2: פירוק שניוני ומאזן מטען/9": "966acb96a5e0b35a50f12c1c71824895815f4478b292f1530e5ef418762ea699",
+  "הכנה 2: פירוק שניוני ומאזן מטען/10": "040b3945568f31cd2141330716521cfc94577a407366df1c5fabde31d3a73aef",
+  "הכנה 2: פירוק שניוני ומאזן מטען/11": "b2c5c899f30e03ce2911d98a81e8f7d14dedcad9661a5a88e21676034cc63cef",
+  "הכנה 2: פירוק שניוני ומאזן מטען/12": "88e52effb961c488c1774ba99adae7ab10ef5493e1567911b2b27ef8e28a4105",
+  "הכנה 2: פירוק שניוני ומאזן מטען/13": "8c86ea3d1a0cdb15aa3fed6a4a89ebbf81f1be95cda4d558ba6a0792a8faa84e",
+  "הכנה 2: פירוק שניוני ומאזן מטען/14": "bfb0387d58b542dde3511727219bf6c8451ab4388fa0314ad707f268bfa77a44",
+  "הכנה 2: פירוק שניוני ומאזן מטען/15": "92afd21a8f6062872c499f711367170a4a4a0d276f14118fde57a069c72fe8ea",
+  "הכנה 2: פירוק שניוני ומאזן מטען/16": "c0b9e7e5c0e16fee6b537bd6f0d5fc00239a75f54f0ede178e834682c8876d2d",
+  "הכנה 2: פירוק שניוני ומאזן מטען/17": "4ae58e204cc65e6ad3a694345ce0e2dc377c6931242b3731b967c8b98814be8e",
+  "הכנה 2: פירוק שניוני ומאזן מטען/18": "6d2b5831707cff07e3b1516a4b17e2d9f89740e10197fed110bac2d0561cfefe",
+  "הכנה 2: פירוק שניוני ומאזן מטען/19": "724f4bec76916318cc1919198760aa10ce77b81ec6029e4453d89cddaceb95c8",
+  "הכנה 2: פירוק שניוני ומאזן מטען/20": "cf7d4109130cd2183d66740d554577df1256700b00071a9516a0c15f7834bd1f",
+  "הכנה 2: פירוק שניוני ומאזן מטען/21": "f638fddc9cb0f6e1cf9643b3beb3132bc64e0da71449d5905041f8ea1799dd84",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/0": "c3957c770f23fe15b983dc374b30e58fcaa5fac49883cefac582cab9a6daf5b6",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/1": "b6007b219062d840daf6e57d0a82ffa2f81ab0df58c25395547b9e00ec5ba1df",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/2": "4018fe35e3bdf4aa2dcbd141c7f67abbe000acc39dee1e337dd20be8ef92bb55",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/3": "36b56ad28e052e3100ce5fcfc2711065c64168357df778c9e49defa76f1e41d0",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/4": "a7add542ccf15384f97a16200002f5dd862879ef145043b357e384710a5f3934",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/5": "7bda5851692466ec86381522b644d63b313a1f794e6c33c35e2c59b51bea8d2b",
+  "הכנה 3: אותו לחץ אדים, מסה מולרית לא ידועה/6": "1b5397feeb9d4fa8eaa4409bfa03d481c1c2a0718410886d500f366bed721a05",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/0": "cc89da99fd4058724ceecfb4adb5c375a2a12958ac945ad105457312b2188133",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/1": "32eb4be806f5892e195df07e065fc213027a813a87b2c9df3107f6e2db522e70",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/2": "e4ca59a3b4383d15a4ec4990731be0b7287c3442c441b06b6602786b77eb54ea",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/3": "40419f8773dcfb9e922a7c603826e897e4fdd420b725896766238390f6dd8a45",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/4": "2546abce048b4f969d0f0cc5f7da3cedf5137c9faa1ba0b50a81f5563232934c",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/5": "45b9f2be3cec54092ddb08db917c2e1a8a70fd78ee209f9d0195e36d50144225",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/6": "d1ad3c0895fd40e98851a91c0a322fe77f76437b513c072bd6f31b0dbce19428",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/7": "e7574a7e187174c9ce8482129d33e7b5713b9ac0be5af91b7a110ba23e4dd200",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/8": "14078047716c1e06956fe75daa8e43ded53e4b77b40c5a1c2839ca0cad340b50",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/9": "913ea4e5d28f8a62ac3742e39aedfef9e609e694d7c0aef0d1a1a1c95b1a444e",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/10": "5ae9ba86427e74ebd652072469d6840cc11122ed00c78967a2f8c103b82bf667",
+  "גזים ממשיים: אותו משקל, תיקונים שונים/11": "329ad0de20667db2bd8193c4282f3ea00f15e4f0c19a904f65b8d4298313f52a",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/0": "0b570bdaa240ce88b50899c083696ec8945e94fd98ababf46cc1c896ac5292af",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/1": "2307bd538bc88bd744450b0fd8095913e3c9300bc04f0a40ed9df5e0f790a778",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/2": "304e1e27041d9cf5e375fc2717ccfe2bd913f273d0a0dd451ec9a35825b824e0",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/3": "ddc196ade440d03c84fb39eb36381e39bdbe318e44d921d40979ae58be0cf4e3",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/4": "bf41304cce24cb3dcd27f62c80f78a57ca408016078a3f86b61ae72e8416c251",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/5": "51b065390260a0c7c873315557033b755e48fc26bb07aee0ca39fc0ed2732995",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/6": "f37e4f280e0724dff3329c4d7f5f2a8def6a536d0825386fcc8ae9e290df6e62",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/7": "e6d324f915de6a2d55f80960ac5805ed9a2f0e09ad610f06517736f8487c2563",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/8": "71c6e5a43d7b533c1fe883d6b3c61ad34e29ec7202200956f53c38b1ff47bd69",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/9": "5f41c277999016e5e0f1f109f60a1bb4a7898289076e52f08848333e8d2286b7",
+  "גזים ממשיים: משחזרים a ו-b ממדידות/10": "5cb2a2cc6d564334c81173d6ccd37c2accbb59c41eb5cbcce5585991d9d7463c",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/0": "27a694f321e7d1ea2aeb23c301a2edad0563046db50b08e479bda99b3ae22596",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/1": "91729901dcb92af49ff7daa05c4a92369e2915bacfe4bb5fb83e530a4b05ed90",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/2": "de7c52c8cc7e11621c895e02eda7e5832cfde5cfe4f2c062da12b3e3df4307c7",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/3": "98855683e0b5d143d18b065628a532628d7d49f21db72304575f7ba0ba0ab717",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/4": "8908929546ac54e95106681fda1a8f7f3073b1e67f59d83b9588a0ad89407f58",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/5": "7b37046106a4c495c0e769109e9be183af312d1a5818ab04326cb98c9a50881b",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/6": "69088a91942ea513b2fb207eda9f8fce6b8b4e6695a7cd534b520fa10592ef2b",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/7": "b815563b3ab35367a7a62276768f7ffc58b913537bf610ce906f94ff4845dfcb",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/8": "4bb2a3b2829aa0e5dca194508d48571f1fb65a362a62efb0e4528fc403adaca5",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/9": "3d8db73fa2f76a31ddeb6aa6ba835ccd08cc9619602d3a76994fa6b6963646f4",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/10": "2ede1fa1f8d5ff9829c5be363e4d4809f449d3d60b80e972bf531d56f7a4ce67",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/11": "64c0532a3f409fdf3fbc078373985a7858299276642e7e2ca553b766a9ac4bdf",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/12": "e52081257440262763b4dfee9c6ba99eff66959ed80a97e9566de7d4a4d75176",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/13": "e84115d35705949ff510f407fc3b7a292d3b486f9d013dbaea016ddd580f8caf",
+  "גזים ממשיים: תגובה, הפרדה ודחיסה/14": "b16bdc663776624095f5bd69a7f9b34d9d9aa73bceb7ee6a686dd61b5860a72c",
+  "גזים ממשיים: בויל וגבולות המודל/0": "73b294c3180c23726012c2b74312511522ee715dd82dbc4f0a98e32507027e63",
+  "גזים ממשיים: בויל וגבולות המודל/1": "1d17f58e6c655ff83c1689e0f8e693cfe2d04e6d7b0bf805cd606a2ff2bd3a2b",
+  "גזים ממשיים: בויל וגבולות המודל/2": "e055b282e7fd27848c5e26c53aad41a6fa2089e157871ad9b92ee3d916c33ee2",
+  "גזים ממשיים: בויל וגבולות המודל/3": "61757c2e0fc5449d0eb84e6a99e3db18ae4c35cf63f80fe35070154706854404",
+  "גזים ממשיים: בויל וגבולות המודל/4": "119419d392d2525f374b60a918f3ab8ec8b1b14422f6dbd118e324cd0c76c672",
+  "גזים ממשיים: בויל וגבולות המודל/5": "285da38e1e926adb0ebab84de72f0b3fcc7621d456cb139022eb00ed4ef9181f",
+  "גזים ממשיים: בויל וגבולות המודל/6": "d3733eb1e184a6ffd086d3365a48dad212569373dd3901e0bdebc3358828affa",
+  "גבישים: מסה, רדיוס ונפח תא/0": "ea42fa5643afba994cc90c73a9fbb3eb273214188fc52ce371a3f04c27f84cad",
+  "גבישים: מסה, רדיוס ונפח תא/1": "fecd6cd8a0c40c562dbf5883ed746584ff7ec2443811fea879ccb526a168eeed",
+  "גבישים: מסה, רדיוס ונפח תא/2": "46e00ba06136b6cab93205647a6b60c948a04ba3f4ff65a202c760a649399808",
+  "גבישים: מסה, רדיוס ונפח תא/3": "2788e7fa18c945bbc018084c0d7d45fefb277056526dbbd592c9083389986881",
+  "גבישים: מסה, רדיוס ונפח תא/4": "68ebcb7ee25fd5f3ab89d3ae8042c6cb00bb90db66c9e00261c5d8dcd988d41c",
+  "גבישים: מסה, רדיוס ונפח תא/5": "bd9e7fa14cf14ece73baa49dbe48491d5990ca680563dc74fd07e7f2bba2e604",
+  "גבישים: מסה, רדיוס ונפח תא/6": "1a3dda5d9ea2b814784bc2d734dcc9ecfab01e35ad56def9ec8f4f6ffd5e4a40",
+  "גבישים: מסה, רדיוס ונפח תא/7": "12bdb339f42106fd308e110c7e4e7c93707b22df673f84805bc0f8a59d230a36",
+  "גבישים: מסה, רדיוס ונפח תא/8": "882c60cebe336013ee1a1a0c9592a8387ef686d8ea7238ed8b1ba31545281601",
+  "תמיסות: מלח וסוכר יחד/0": "c999139256228ff6505a8c571af74f2afe30edf27b17d3016c0afd081b6a05a9",
+  "תמיסות: מלח וסוכר יחד/1": "dab7128fcd2a6eeced71738818b634e42785d0cbb2b464708152e98a26b5df18",
+  "תמיסות: מלח וסוכר יחד/2": "12455582f28e5b969646e17d4d468cec037a325c10e9f08a8b188760c5bf30cc",
+  "תמיסות: מלח וסוכר יחד/3": "6f8f66b00662d61593e375c8bc2e1f040d2d12dfd476ce39f4c2705b3feec057",
+  "תמיסות: מלח וסוכר יחד/4": "ae466fb6ff6004d1bc4e6c7a5a0a63e8e5ffbad9ce41fe29cf3f3d5f19a5ebb6",
+  "תמיסות: מלח וסוכר יחד/5": "38fdccb90b94b0b586b37b06ce5a202078705d3ff63ddf1fb286ed278001f829",
+  "תמיסות: מלח וסוכר יחד/6": "c339034be31eb975c691c188da878dbb238516b8a0e88cbe3ed5f2d05482aa08",
+  "תמיסות: מלח וסוכר יחד/7": "d0f59d9600dcc552d437b991ed4f0a94b8f66278f19e31dada525a13686e4779",
+  "תמיסות: מלח וסוכר יחד/8": "7170d153dc849efc340ef10516e33fd9ca65b59537e7386ead46c20bc914650f",
+  "תמיסות: מלח וסוכר יחד/9": "72925fa580861bc5f7649cff10d606399e685d06760cca5fead6ab7c8811dcd4",
+  "תמיסות: מלח וסוכר יחד/10": "5883ce81826bfafe6e8f93c935ad881fcf630ee6a88abe0e31656b2a7662019a",
+  "תמיסות: פירוק נוסף ומטען נשמר/0": "711d23444a6f50490224b72556b7d2bafe42a5cbeccc90822f98d56331889e6a",
+  "תמיסות: פירוק נוסף ומטען נשמר/1": "0f0d1cb29ce6e4b74161b5738236d0ab009be2e7389bd09af888d4ab20c8239c",
+  "תמיסות: פירוק נוסף ומטען נשמר/2": "5924106e1fe1d6e1cb122ebac276a4dab79e34c443fa2a72e8fee66a31204d5b",
+  "תמיסות: פירוק נוסף ומטען נשמר/3": "3140eb1d7367d30191b7a29938624bd03569395d76e0f05a05eaf9e983df075d",
+  "תמיסות: פירוק נוסף ומטען נשמר/4": "3b0320341bd0e8086c9b4e1b9f608cfe1f357ee51ef9ab846f8a1b58d7fd1572",
+  "תמיסות: פירוק נוסף ומטען נשמר/5": "c50e2ce590cef028cf2c1ac63bcc0005f32e1c10278f25d3132d26126137405c",
+  "תמיסות: פירוק נוסף ומטען נשמר/6": "25ccc126754e420087b3c2ebedd01cdc2f5f89b358a0f3f3bb9320e5d2c77f3b",
+  "תמיסות: פירוק נוסף ומטען נשמר/7": "ffeb7585d8d8508a7a46927c344d3a27ab9cef416fd16332089012633f507e79",
+  "תמיסות: פירוק נוסף ומטען נשמר/8": "bf94b8908f0c534ab276fd340a796c6bf72f7c8efb047a7bb989bc91a1b59822",
+  "תמיסות: פירוק נוסף ומטען נשמר/9": "1c5121d4f7b4217b29c6a597ee9cf55fb77be42a1da24fe732bdf7e84a15733c",
+  "תמיסות: פירוק נוסף ומטען נשמר/10": "7549821c91c1c633caa7daef9fe0ab6b7898667a26869fa6992f04694d1fcb8b",
+  "תמיסות: פירוק נוסף ומטען נשמר/11": "72600b77f6ec9e33521a3193f260bd716cb7a6e97fa356dd776faf42af786cbf",
+  "תמיסות: פירוק נוסף ומטען נשמר/12": "0c9220906dbb509acd0a31f17e94a56f87f4d201626ebd56e336c86f11e2bb2b",
+  "תמיסות: פירוק נוסף ומטען נשמר/13": "d75e9646392698eba42e1f572963c569d7a9e5b58ed1796c400bcace87e6f835",
+  "תמיסות: פירוק נוסף ומטען נשמר/14": "a1d1bf40f0cb0f7bc89a43c717176d648580b6d9b25b44433c81005096f53faa",
+  "תמיסות: פירוק נוסף ומטען נשמר/15": "ef9788ea6162631b4939bb3730873e68d2729d66e9bab74e521fb59c8532719a",
+  "תמיסות: פירוק נוסף ומטען נשמר/16": "541b850f8c9a88fc93484700d2b6d70c64f10a20c1f055272a090050b645d6c5",
+  "תמיסות: פירוק נוסף ומטען נשמר/17": "fe955faef7bb75654de0fb5064fe407aa4be57c72bd71e1a5cd5d31b33591951",
+  "תמיסות: פירוק נוסף ומטען נשמר/18": "05f93e4daa72ea1f5d2499642e9c418c55e0ed664f20b349c3534ca784f13840",
+  "תמיסות: פירוק נוסף ומטען נשמר/19": "b55cd2394eae49d4b18c7ea00c8bba9e845d9a6f921fc50630ac8c0c084ae00e"
+ },
+ "definitionDigests": {
+  "n#3": "febedfdb3392ea50a88a846165da63c162bb16fefaeeb047ae4041db69b7ba03",
+  "C": "3c0b27e955609eddc563012b0c174d696823c85c83940c7f79742849f12aa6c5",
+  "V#3": "6edf795ae6c8cd875b1690e9780b35090c34007d5730456400277bdbfc2f23ec",
+  "C#2": "930b1d49d35eed01aafd7a9b5d4e32728cf8fd045666b4e27db9985f9c6937c5",
+  "b#3": "46135db28302fa28854efb88f1032947d5b41ee40f413801547f7249db4b0d18",
+  "xᵢ": "e7ea596c9784d9491aa487415e699250d7b7804fe2cb4ba319fcadd8acf3c834",
+  "mass%": "f0b73bb105943c6105e5268d2f5b2c4a0583adbe55f253aa14205336f8d84512",
+  "n_solute": "a76f33775e2712d99ea961d399ca18af4aca56b181fb8adfb64c7c39af442d16",
+  "V_solution@litre": "b2bd0fcb21ef323ca7565e30a8a72d334d5c1d2eb420590aeaa3b8dac733be69",
+  "m_solvent@kg": "a163334232b88358c4d99f55e7353987b680be2c9d1c2c29e86c2d9b78edc925",
+  "n@mixture-parts": "05e725117dee751fdc2f7cc7b9e287e6da21e18bce391b3e977e30d4477d8511",
+  "m@mass-fraction": "4f69f0150088bc10e70582faf7dae76c6a6a7c91947ba469528f0d3311d3eef4",
+  "M, m": "2a422e282a0c5a7fdbcf6ebdb06c466eef1936e8077c8df2953f6cf7869469fb",
+  "R:gas": "fdb297de8e85d7996e461415f7bce060fcf68a1ff27cd7db56b08742a14545c2",
+  "T": "8e917032abb981d5c3027b70775ebd4218360714c8e540f4858d0f1e2bca4681",
+  "P": "d3e8c36919ab4f56fb232e0fbce7d3e115392d0d733ef1ef6ea91d5f3c90b36a",
+  "V#2": "a8085a0b7a3992f9a080c7bae313721404b81dba6a734ebe33b07d08c762109d",
+  "ρ#4": "50d05ceb5b232f328177fda6c21a9197a3c0219932c415487fa10817805d50b8",
+  "M": "2d1b46302b4d86ad09dcb79e89c29598de78c63e9bcb99449ae8d367269d009c",
+  "u_rms": "5b37953a8c9aeb1ae244092ee8c16b23f21cf961834cbbfffc4dd5d3dec99a3b",
+  "R": "48aa87820737b257f2dac74e5feecbf29753514d209979e8f941894ba49082e5",
+  "a, b": "d0e410a6201e96b34f9b843ee7e2e91198e3ecae6ac5f0c23ed0fc6dc6d9def7",
+  "n": "20189e799f8ca984afc623b07d23cf6b8c938044beb604ca676c012c1df45278",
+  "Vₘ#2": "e8e7e8a7069d5456221649b1657ad94a60e6ef4fddfbf7d95d3b1872a354e00d",
+  "r": "26baf9ec2d052c63897ef9c0c466477fcb764822488e4caea9cd8b12419717e9",
+  "x_A, x_B": "0a52dd640aad013a4c8c82587a21954357812a7ade2a80a29a79578d48e8dfd5",
+  "n@binary-solution": "fa602f16e7886a30d6b994aa0fb003def2a810e1565d9491bb46e58f9fae87f4",
+  "P_total": "bf77246c3ee3c33f7d39dbd55fcdad569f1597009b098ee8b4ca3201078e1219",
+  "P_A, P_B#2": "508f7f038d3386b9d3c28433ff4082faeaaad4a08729bb1939a65c2add98d255",
+  "y_A": "4b7c50d85d994289671ea00b6a535ed3c17c09c19f3132b05ce0537afb3abdda",
+  "P_A": "5ca6b48b00bc1a5e919a9e67050afbea533cb8d5fb343798bef1cb34977e8f51",
+  "m@molality": "a7fb5cf1c9048c20b95cde0698c1012665885aa73e69febd79f63ee57c6614c8",
+  "M@molarity": "1d94c3dda20da8fac108dc8cc7ece3a245cedc730466e339b4a10a1f9ab883e3",
+  "kg_solvent": "3f566d2992ef2ce3f179c8a51f62770cea7affbaf5880e33f1c929116c93b9b3",
+  "ΔT_b, ΔT_f": "02ddb38b05545da17a78735d84e6cd994c138115cc2f90b9f2cc6cafa3867fab",
+  "K_b, K_f": "9b6bd82b40dd6d8ce9c4b020a03047f8dd61bb30c6a3b154b85b1de915b9e399",
+  "i": "c7b0f1e13989572b64887cc1230ff58033ac75e0781cd88fc3fd1e935f3ce9f9",
+  "T_b@solution": "d9b49dc8859adce1fd83edb9a20d725c07e6b96682ee5462cd7bdbb9ab5d4b4c",
+  "T_b@pure": "538f198731e18aa72ef7be5f06a0b7f1f4eebc93d3bd1d9292bd3d2da1eab2db",
+  "T_f@solution": "0e56366a980af8c3c2a74b8575d6c51d3aa8ad9e538aa0656f79c90c5833a428",
+  "T_f@pure": "fb66424668e2a72de9d2e65eb447a3dbfac6c0883ffb549d8eeb1159cafe3266",
+  "Π": "01cfef5f431d97d4d66798a2d063d9f2cc967abe49aedd5c4db556b99936f22e",
+  "Δm": "455438582e698d1b5f64f4e958ab7a54939c8ae1baaedd3f519fada59b07b8fd",
+  "Z, N": "e95c5adf72fc733a5255ef99d98089805d5574a96142c5c3fee744d5d679ab58",
+  "m(¹H)": "213ee63c0943b18bf0e3ca6cb14f616a96540bc5f7b90c17b4837645ae309b95",
+  "m_n": "8c04094c437098f58cdfeb122962ce7cf5de68e5c96235a8c269a1c77b3bfca2",
+  "m_atom": "57b50507b5114841b2de588baa4bae494b043d2a6c601d26d72dd34269374d8c",
+  "eV@unit": "820188e4c3b2652c1ae6683802088503de05f0f15d388098269e851f91a07972",
+  "MeV@unit": "a505c51bd1ab26d228a6e8ae8e5d5a0e6fe98d628482c2cc4a871b28f50aa8f6",
+  "J": "bcd32a5667413432da395f98c112e3fd99cab12f75882de72082556ca0aba5f7",
+  "u@unit": "00366be64f25812b94991c5c1916cd8f78d598ca135a5db38f4e0811873b24e4",
+  "c": "72bfab17679a41a8edc7c00f44dfdc1f9a359338f4e98a36e5a7dd80913fe081",
+  "l": "9d3c688931062a98db291938d12270345ead6383b8e1a005e10124a14838384b",
+  "n@level": "2dedcb9b98e59969c07a274b706820e0404e62f1f1ab406610e5ad92ccc24f44",
+  "t@celsius": "9b2c3fba578eff0d6b8d931b840c5cbcf984a9b4cd00e6cd954c0e3f880143fd",
+  "slope": "68510875bdf49af1d064a431b96dea2e0997d5ee356d32d55a62b59592770161",
+  "ΔH_vap": "cee0d02b53158cdc99840c5aa7366bae4446718813b1c9b00d7539f8ecf27ec1",
+  "ΔT_b, ΔT_f#2": "510adadb04879032b1b51bcb96ab358ce02c454fd6acebf2b2db17ed315968e4",
+  "K_b, K_f#2": "6e9aca16a2b08f6c31a7e1b8c3685787d98fb65f3817bd7dbd049b7458548b9b",
+  "D@dose": "0fa423edbeb2a63361b82f20a67d6f779f670d0da2789ffaaa86cc9f68c54d02",
+  "E@absorbed": "0a786a7dff39f47fabdccb3d94e70420ddd5689ca22bc44295f58e2cff228352",
+  "m": "5c29e1375020fb8a2bcc6be6f52d1a6060db7729c2a31b5785becbd5e2b86655",
+  "w": "b70511f12ab179ccf2775ee754bc340be661213ba5aa36c11ac927d9372bac1d",
+  "n@water-surfactant": "382de836c90d91a1f30f29a28cf90aa581d77d6523a0a424ad2edfa634cd7d14",
+  "q@vaporization": "51bd5b800d8802c8ab728541bb8bd83281199ec369b7e4a9ff31741d59ecca3e",
+  "N_s@solute": "844d7abd97ef40c6f84e0ed6a4b4c106587aa8dc1e54e860ce427d89358870a1",
+  "ΔT_f": "d6ab9e08883a1b50a024ced2a426b48259d25ec11bcc7ffd20a30904ee620086",
+  "K_f": "ead72a453a743045e99603b2bb35ce4b37b3fddf6eb45354801d5a1829cd32ab",
+  "m_solvent(kg)": "4d1f087ffa11613b197a1be0083aa6ea85338573162f27b786163f0b25a09793",
+  "R:latm": "3ab3d086c4f9e6aa7a041a09f69a2628a0b08b7ad00fdec607c0c8ddd995c626",
+  "V_solution(L)": "fba64f0fb1f212aa0d17e1db4aa5bca24d38254042641167930f04b5b5ee1d0b",
+  "n_water": "2d7c44bd8bcc5ec4b9f0b5971edb9837b574cf36c458defa220211a6f6d829b0",
+  "P_water": "e63ceaf43034c0c54c02c4d36acea9d0805fc9a7a7f6142812ff2106a1f55126",
+  "T_f": "281bb012fe5fb6ffc080a10a4be83869caf9abf2586a89d0f851c735de581685",
+  "m@solution-context": "98b62e65d1438948dd6b6adb37ce5583c80a8f70fcfb38b0adedfdda7cc70a75",
+  "M@solute-context": "6561bd1b7b61eb40e32872b338d9bc6a587736d7a37f010cdef50d64599e4a60",
+  "i@solute-context": "6274ecae334c71a8a15ad0371bdeab9dd0abd9e85b5c711549c5108773e31233",
+  "α#2": "01ef2cd455da9e5013539be1d77b10bbe647e535fc5e0dda3c34b609d7592269",
+  "P₁, P₂#2": "76d034b6c9797fd73827c604bcc2b71036820a71e6357382e3c38cec78f8178d",
+  "T₁, T₂#2": "f967a68f4554ecbff8e5734411842d82967b11f99af214c691300cdcaf9d5ebd"
+ }
+}

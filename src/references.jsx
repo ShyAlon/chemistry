@@ -1,3 +1,4 @@
+import {ReadAloudTrial} from './ReadAloudTrial.jsx';
 import {ProfessorFormulaSheet} from './ProfessorFormulaSheet.jsx';
 import {FormulaPrint} from './FormulaPrint.jsx';
 import {PageTitle} from './PageTitle.jsx';
@@ -148,4 +149,4 @@ function Diagrams(){const [cid,setCid]=useState('84102');const groups=galleryGro
 
 export function References({route}){const r=parseReferenceRoute(route)||{page:'',valid:true};
  if(!r.valid)return <Landing/>;
- return r.page==='chemistry1-sheet'?<ProfessorFormulaSheet/>:r.page==='formulas'?<Formulas initialCourseId={r.courseId}/>:r.page==='periodic'?<Periodic/>:r.page==='aufbau'?<Aufbau/>:r.page==='diagrams'?<Diagrams/>:<Landing/>}
+ return r.page==='read-aloud'?<ReadAloudTrial/>:r.page==='chemistry1-sheet'?<ProfessorFormulaSheet/>:r.page==='formulas'?<Formulas initialCourseId={r.courseId}/>:r.page==='periodic'?<Periodic/>:r.page==='aufbau'?<Aufbau/>:r.page==='diagrams'?<Diagrams/>:<Landing/>}

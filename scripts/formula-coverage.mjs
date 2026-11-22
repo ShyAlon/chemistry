@@ -1,3 +1,4 @@
+import {sections as readAloudSections} from '../src/read-aloud/sections.js';
 // Build/test-only coverage checks. This module never guesses a scientific meaning.
 import {createHash} from 'node:crypto';
 import catalogue from './content-store.mjs';
@@ -16,6 +17,7 @@ export function collectFormulaRecords(){
  for(const [label,expr]of constants)add('constant/'+label,expr,formulaMetadata(expr));
  for(const [title,context]of Object.entries(exerciseFormulaContexts))for(const [i,expr]of context.expressions.entries())add(title+'/'+i,expr,context);
  for(const group of professorFormulaGroups)for(const [id,,expression,note,symbols]of group.items)add(`professor/84101/${group.id}/${id}`,resolveConstants(expression),{kind:'equation',symbols,explanation:note});
+ for(const section of readAloudSections)for(const chunk of section.chunks)if(chunk.equation||chunk.math)add(`read-aloud/${chunk.id}`,chunk.math||chunk.display,formulaMetadata(chunk.math||chunk.display,{symbols:chunk.symbols}));
  return rows;
 }
 export function recordFingerprint(row,definitions=SYMBOLS){return fingerprint({...row,definitions:(row.metadata?.symbols||[]).map(id=>[id,definitions[id]])})}

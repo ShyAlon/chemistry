@@ -1,3 +1,6 @@
+import {reloadDocument} from './browser-page.mjs';
+import {buildManifest,toView} from '../src/progress-model.js';
+import {sessions as progressSessions} from '../src/practice-sessions.js';
 import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
@@ -60,7 +63,7 @@ try{
   if(width!==390)continue;
   const prior='{"P7":{"complete":true,"score":7,"answers":{"keep":{"correct":true}}}}';
   await js(`localStorage.setItem('spectra-course-84102-progress-v1',${JSON.stringify(prior)})`);
-  await call('Page.reload');await ready('.practice-session-grid');
+  await reloadDocument(call,js);await ready('.practice-session-grid');
   for(const [si,s] of sessions.entries()){
    await js(`document.querySelectorAll('.practice-session-card button')[${si}].click()`);await ready('.practice-question');
    assert.equal(await js(`document.querySelectorAll('.practice-question').length`),10);
@@ -77,12 +80,14 @@ try{
    assert.ok(await js(`document.querySelector('.practice-counter').textContent.includes('${si===0?'9':'10'}/10')`));
    assert.equal(await js(`document.querySelectorAll('.practice-question .feedback a').length`),10);
    assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'));
-   const stored=JSON.parse(await js(`localStorage.getItem('spectra-course-84102-progress-v1')`));
-   assert.deepEqual(stored.P7,JSON.parse(prior).P7,'Topic answers preserved');assert.equal(stored._practice[s.id].score,si===0?9:10);
+   await ready('.progress-state[data-state="saved"]');
+   const cache=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`));
+   const stored=toView(cache.records,buildManifest(data.courses.map(c=>({...c,topics:c.topics.map(t=>({...t,...t.content}))})),progressSessions))['84102'];
+   assert.equal(await js(`localStorage.getItem('spectra-course-84102-progress-v1')`),prior,'Unowned legacy answers untouched');assert.equal(stored.P7,undefined,'Legacy data not assigned to account');assert.equal(stored._practice[s.id].score,si===0?9:10);
    if(si===0){await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);await shot('practice-feedback-390');}
    await js(`document.querySelector('.practice-session-heading button').click()`);await ready('.practice-session-grid');
   }
-  await call('Page.reload');await ready('.practice-session-grid');assert.equal(await js(`document.querySelectorAll('.practice-saved').length`),8);
+  await reloadDocument(call,js);await ready('.practice-session-grid');assert.equal(await js(`document.querySelectorAll('.practice-saved').length`),8);
   await shot('practice-saved-sessions-390');
   await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84102'});await ready('.practice-entry');
   await js(`document.querySelector('.practice-entry button').click()`);await ready('.practice-session-grid');

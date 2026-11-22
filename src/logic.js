@@ -29,22 +29,6 @@ function convertUnits(n,from,to){
  return n*a[1]/b[1];
 }
 export function numericCorrect(values,units,fields){return fields.every((f,i)=>{const n=parseNumber(values[i]);if(!Number.isFinite(n))return false;const v=convertUnits(n,units[i],f.unit);return Number.isFinite(v)&&Math.abs(v-f.value)<=Math.max(Math.abs(f.value)*.015,1e-30)})}
-export function loadProgress(storage,key='spectra-progress-v1'){try{const data=JSON.parse(storage.getItem(key)||'{}');return data&&typeof data==='object'&&!Array.isArray(data)?data:{}}catch{return {}}}
 export function configuration(n){let left=Math.max(0,n);const result=[];for(const [shell,capacity] of [['1s',2],['2s',2],['2p',6],['3s',2],['3p',6],['4s',2],['3d',10],['4p',6],['5s',2],['4d',10],['5p',6],['6s',2],['4f',14],['5d',10],['6p',6],['7s',2],['5f',14],['6d',10],['7p',6]]){if(!left)break;const count=Math.min(left,capacity);result.push([shell,count]);left-=count}return result}
 
-export const courseProgressKey=id=>'spectra-course-'+id+'-progress-v1';
-export function loadCourseProgress(storage,courses){
- const all={};
- for(const course of courses){const key=courseProgressKey(course.id);all[course.id]=loadProgress(storage,key);try{if(course.id==='84102'&&!storage.getItem(key)){const old=storage.getItem('spectra-progress-v1');if(old){all[course.id]=loadProgress(storage);storage.setItem(key,JSON.stringify(all[course.id]));}}}catch{}}
- return all;
-}
 export function parseRoute(hash,courses){const parts=hash.replace(/^#/,'').split('/').filter(Boolean);if(parts[0]==='course'){const course=courses.find(c=>c.id===parts[1]);return {course:course||null,topicId:parts[2]||null,invalid:!course||!!parts[2]&&!course.topics.some(t=>t.id===parts[2])}}const legacy=courses.find(c=>c.id==='84102');if(legacy?.topics.some(t=>t.id===parts[0]))return {course:legacy,topicId:parts[0],invalid:false};return {course:null,topicId:null,invalid:parts.length>0}}
-
-// Reset progress from this app only, including old course versions and legacy
-// migration data. Never clear another app's storage on the same origin.
-export function clearAllProgress(storage){
- const keys=[];for(let i=0;i<storage.length;i++){const k=storage.key(i);if(k==='spectra-progress-v1'||/^spectra-course-.+-progress-v\d+$/.test(k))keys.push(k)}
- const snapshot=keys.map(k=>[k,storage.getItem(k)]);
- try{for(const k of keys)storage.removeItem(k)}catch(error){for(const [k,v] of snapshot)try{if(v!==null)storage.setItem(k,v)}catch{}throw error}
- return keys.length;
-}

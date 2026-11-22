@@ -1,3 +1,4 @@
+import {reloadDocument} from './browser-page.mjs';
 import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
@@ -471,7 +472,7 @@ try{
  // New inorganic review journeys: original answers survive, all new answers can be marked.
  const previous={P7:{complete:true,score:6,answers:{1:{correct:true,kind:'mcq'}}},P3:{complete:true,score:5,answers:{2:{correct:false,kind:'mcq'}}}};
  await js(`localStorage.setItem('spectra-course-84102-progress-v1',${JSON.stringify(JSON.stringify(previous))})`);
- await call('Page.reload');await ready('.header');
+ await reloadDocument(call,js);await ready('.header');
  for(const width of [320,390,1280]){
   await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:false});
   for(const tid of ['P1','P2','P3','P4','P5','P6','P7','P8','P9','P10','P11','P12']){
@@ -516,12 +517,16 @@ try{
   }
   await ready('.completion');
  }
- const persisted=await js(`JSON.parse(localStorage.getItem('spectra-course-84102-progress-v1'))`);
- assert.deepEqual(persisted.P7,previous.P7);assert.deepEqual(persisted.P3,previous.P3);
- assert.ok(persisted.P11.complete&&persisted.P12.complete);assert.equal(persisted.P11.score,6);assert.equal(persisted.P12.score,20);
+ await ready('.progress-state[data-state="saved"]');
+ const legacy=await js(`JSON.parse(localStorage.getItem('spectra-course-84102-progress-v1'))`);
+ assert.deepEqual(legacy,previous,'Unowned legacy progress untouched');
+ const persisted=await js(`JSON.parse(localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')).records`);
+ assert.equal(persisted['84102~P7'],undefined);assert.equal(persisted['84102~P3'],undefined);
+ assert.equal(Object.keys(persisted['84102~P11'].answers).length,6);assert.equal(Object.keys(persisted['84102~P12'].answers).length,20);
+ assert.ok(Object.values(persisted['84102~P11'].answers).every(a=>a.correct));assert.ok(Object.values(persisted['84102~P12'].answers).every(a=>a.correct));
  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84102'});await ready('.topic-grid');
  assert.equal(await js(`document.querySelectorAll('.topic-card').length`),12);
- assert.equal(await js(`document.querySelectorAll('.topic-card.completed').length`),4);
+ assert.equal(await js(`document.querySelectorAll('.topic-card.completed').length`),2);
  await shot('recap-course-progress-390');
  console.log('Inorganic recap checks passed: 36 topic/viewports, source mapping, new diagrams/solutions at 320/390/1280, all 26 answers marked via UI, P11/P12 complete after reload and existing P7/P3 answers unchanged.');
  for(const width of [1280,1000,820,390,320]){

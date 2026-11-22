@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {beforePractice,beforeVanadium,corrections} from './practice-baseline.js';
-import {numericCorrect,loadCourseProgress,courseProgressKey} from '../src/logic.js';
+import {numericCorrect} from '../src/logic.js';
 import {symbolRows} from '../src/symbols.js';
 const data=structuredClone(catalogueSource);
 const general=data.courses.find(c=>c.id==='84101');
@@ -48,12 +48,6 @@ test('new figures have registered ids, 18-unit labels and formula blocks use the
  assert.ok([...jsx.matchAll(/size=\{(\d+)\}/g)].every(m=>+m[1]>=18));
  for(const b of additions('theory').filter(b=>b.layout==='equation')){assert.equal(b.style,'Normal');assert.ok(!b.text.includes('\n'))}
 });
-test('adding practice does not clear previously complete lessons or stored answer ids',()=>{
- const old={G1:{complete:true,answers:{1:{correct:true}}},G10:{complete:true,score:5}};
- const storage={getItem:k=>k===courseProgressKey('84101')?JSON.stringify(old):null,setItem:()=>{throw Error('must not migrate')}};
- assert.deepEqual(loadCourseProgress(storage,data.courses)['84101'],old);
-});
-
 test('displayed compact Maxwell expression retains pi in its exponent',()=>{
  const text=t('G10').content.theory.find(b=>b.batch2&&b.text?.startsWith('A =')).text;
  assert.ok(text.includes('A = M/(2πRT)'));assert.ok(text.includes('exp(−πAv²)'));const sheet=readFileSync(new URL('../src/reference-formulas.js',import.meta.url),'utf8');assert.ok(sheet.includes('B = 4πA√A ; f(v)=Bv²·exp(−πAv²)'));

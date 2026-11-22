@@ -46,6 +46,7 @@ try{
  const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,[resolve,reject]);ws.send(JSON.stringify({id:n,method,params}))});
  const js=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
  const ready=async selector=>{for(let i=0;i<100;i++){if(await js(`document.readyState==='complete' && !!document.querySelector(${JSON.stringify(selector)})`)){await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');return;}await new Promise(r=>setTimeout(r,50))}throw Error('Missing '+selector)};
+ const reload=async selector=>{const before=await js('performance.timeOrigin');await call('Page.reload');for(let i=0;i<100;i++){if(await js(`performance.timeOrigin!==${before} && document.readyState==='complete'`)){await ready(selector);return;}await new Promise(r=>setTimeout(r,50));}throw Error('Reload did not finish');};
  const shot=async name=>{if(screenshots){await js(`Promise.all((document.querySelector(".source-popover")?.getAnimations()||[]).map(a=>a.finished.catch(()=>{})))`);const r=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await (await import('node:fs/promises')).writeFile(path.join(screenshots,name+'.png'),Buffer.from(r.data,'base64'))}};
  await call('Fetch.enable',{patterns:[{urlPattern:'*'}]});
  await call('Network.enable');await call('Runtime.enable');await call('Page.enable');await call('Page.addScriptToEvaluateOnNewDocument',{source:`navigator.serviceWorker.register=()=>Promise.reject(new Error('Workers tested by dedicated PWA suite'))`});
@@ -59,7 +60,7 @@ try{
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.practice-entry');
   await js(`localStorage.setItem('spectra-course-84101-progress-v1',${JSON.stringify(prior)})`);
-  await call('Page.reload');await ready('.practice-entry');
+  await reload('.practice-entry');
   await js(`document.querySelector('.practice-entry button').click()`);await ready('.practice-session-grid');
   assert.equal(await js(`document.querySelectorAll('.practice-session-card').length`),16);
   assert.ok(await js(`document.querySelector('.practice-session-card h2').textContent.includes('אותו משקל')`));
@@ -107,14 +108,16 @@ try{
     await js('new Promise(r=>requestAnimationFrame(r))');
     assert.equal(await js(`document.querySelector('.check-answer').disabled`),false);
     await js(`document.querySelector('.check-answer').click()`);await ready('.feedback.correct');
-    const stored=JSON.parse(await js(`localStorage.getItem('spectra-course-84101-progress-v1')`));
-    assert.deepEqual(stored.G1,JSON.parse(prior).G1);if(id!=='G10')assert.deepEqual(stored.G10.answers['2'],JSON.parse(prior).G10.answers['2']);
-    assert.equal(stored[id].answers[q.id].correct,true);
-    await call('Page.reload');await ready('.theory');
-    const reloaded=JSON.parse(await js(`localStorage.getItem('spectra-course-84101-progress-v1')`));assert.deepEqual(reloaded,stored);
+    await ready('.progress-state[data-state="saved"]');
+    const stored=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`)).records;
+    assert.equal(await js(`localStorage.getItem('spectra-course-84101-progress-v1')`),prior,'Legacy keys remain untouched');
+    assert.equal(stored['84101~'+id].answers[q.id].correct,true);
+    await reload('.theory');await ready('.progress-state[data-state="saved"]');
+    const reloaded=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`)).records;assert.deepEqual(Object.keys(reloaded).sort(),Object.keys(stored).sort());for(const key of Object.keys(stored))assert.deepEqual(reloaded[key].answers,stored[key].answers);
+
    }
   }
  }
  assert.deepEqual(exceptions,[],'No runtime exceptions');
- console.log('FINAL PREP PASSED: 320/390/1280 layouts; all 24 new exam-part reveals; all 14 worked-example reveals; all new equations; four real numeric submissions, unit selection and persisted answers after reload; prior answers preserved; calculated Boyle figure; no external requests or live models.');
+ console.log('FINAL PREP PASSED: 320/390/1280 layouts; all 24 new exam-part reveals; all 14 worked-example reveals; all new equations; four real numeric submissions, unit selection and persisted answers after reload; unowned legacy answers preserved without assignment; calculated Boyle figure; no external requests or live models.');
 }finally{ws?.close();chrome.kill('SIGTERM');server.close();await rm(profile,{recursive:true,force:true,maxRetries:4,retryDelay:300})}

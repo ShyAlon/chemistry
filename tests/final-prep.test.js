@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {finalPrep84101 as layer,finalPrepExam as exam} from '../src/final-prep-84101.js';
-import {numericCorrect,loadCourseProgress,courseProgressKey} from '../src/logic.js';
+import {numericCorrect} from '../src/logic.js';
 import {undoNotation,undoFormulaReview} from './notation-baseline.js';
 const catalogue=structuredClone(catalogueSource);
 const course=catalogue.courses.find(c=>c.id==='84101');
@@ -108,7 +108,7 @@ test('all eight new three-part exam scenarios independently recompute',()=>{
  includesValues(e('E16'),[[ns16,6],[ns16*R*300/.42,6]]);
 });
 
-test('Boyle curve values, model warnings and saved progress are explicit',()=>{
+test('Boyle curve values and model warnings are explicit',()=>{
  const a=3.592,b=.04267,TB=a/(R*b);
  for(const c of [0,.1,1,4]){const z=1/(1-b*c)-a*c/(R*TB);close(z-1,(b*c)**2/(1-b*c));}
  assert.ok(layer.G10.theory.some(x=>x.figure==='real-gas-boyle'));
@@ -116,9 +116,6 @@ test('Boyle curve values, model warnings and saved progress are explicit',()=>{
  assert.ok([...figure.matchAll(/size=\{(\d+)\}/g)].every(m=>+m[1]>=18));
  const text=layer.G10.theory.map(x=>x.text).join(' ');assert.ok(text.includes('מסדר שני'));assert.ok(text.includes('−130°C'));
  assert.ok(layer.G13.theory.some(x=>x.text.includes('הקריטית')&&x.text.includes('אומדן')));
- const old={G10:{complete:true,answers:{2:{correct:true}}},G12:{complete:true},G15:{answers:{1:{correct:true}}}};
- const storage={getItem:k=>k===courseProgressKey('84101')?JSON.stringify(old):null,setItem:()=>{throw Error('no migration')}};
- assert.deepEqual(loadCourseProgress(storage,catalogue.courses)['84101'],old);
 });
 
 

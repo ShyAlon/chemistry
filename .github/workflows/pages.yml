@@ -41,9 +41,13 @@ jobs:
           # PR default is the synthetic merge tree, not head-only.
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
-          node-version: '22'
+          node-version: '24'
       - run: npm ci
       - run: npm test
+      - name: Set up pinned local Rules-test dependency
+        run: npm run setup:rules
+      - name: Test proposed Rules on loopback emulator only
+        run: npm run test:rules
       - run: python3 scripts/test-release-output.py
       - run: npm run build
       - name: Reject stale recovery output in the same PR

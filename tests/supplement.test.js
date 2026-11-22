@@ -2,7 +2,7 @@ import catalogueSource from '#catalogue';
 import {beforePractice} from './practice-baseline.js';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
-import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
+import {numericCorrect,parseRoute} from '../src/logic.js';
 import {courses as sheet} from '../src/reference-formulas.js';
 const data=structuredClone(catalogueSource);
 const course=data.courses.find(c=>c.id==='84101');const added=course.topics.slice(12);
@@ -30,10 +30,7 @@ test('original topics and questions are unchanged except the explicit V+ correct
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'5f07203833c2d48632c533dd0ab982bdfdf86102e6060d7aed67f5a8487bd7c0');
 });
-test('old progress persists and new routes resolve without any storage migration',()=>{
- const old={'G1':{complete:true},'G12':{complete:true}};
- const storage={getItem:k=>k===courseProgressKey('84101')?JSON.stringify(old):null,setItem:()=>{throw Error('unexpected write')}};
- assert.deepEqual(loadCourseProgress(storage,data.courses)['84101'],old);
+test('new routes resolve without changing the course layout',()=>{
  for(const t of added)assert.equal(parseRoute('course/84101/'+t.id,data.courses).topicId,t.id);
 });
 test('new figures are registered, labels meet 18px and formula sheet covers additions',()=>{

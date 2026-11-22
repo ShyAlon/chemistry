@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Missing-topic reports: signed-in visitors can create only, never read/change/delete.
+    match /misses/{missId} {
+      allow get, list: if false;
+      allow create: if request.auth != null
+        && request.resource.data.keys().hasOnly(['question','answer','course','uid','createdAt'])
+        && request.resource.data.question is string
+        && request.resource.data.question.size() <= 2000
+        && (!request.resource.data.keys().hasAny(['answer']) || request.resource.data.answer is string)
+        && (!request.resource.data.keys().hasAny(['course']) || request.resource.data.course is string)
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+    // Adult confirmation: each signed-in user reads and writes only their own declaration.
+    match /users/{userId} {
+      allow get: if request.auth != null && request.auth.uid == userId;
+      allow list: if false;
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['adultConfirmed','confirmedAt'])
+        && request.resource.data.adultConfirmed == true;
+      allow delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import {beforePractice} from './practice-baseline.js';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {parseNumber,numericCorrect,configuration,loadProgress,wavelengthColor} from '../src/logic.js';
+import {parseNumber,numericCorrect,configuration,wavelengthColor} from '../src/logic.js';
 const catalogue=structuredClone(catalogueSource);
 const topics=catalogue.courses[0].topics.slice(0,10).map(t=>({...t,...t.content}));
 test('all ten packs, priority, 57 questions and complete content',()=>{assert.deepEqual(topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4']);assert.equal(topics.flatMap(t=>t.quiz).length,57);for(const t of topics){assert.ok(t.theory.length>3);assert.ok(t.worked.length>=3);assert.ok(t.spectrum.lines.length>=3);for(const q of t.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct],t.id+' '+q.id)}}}});
@@ -28,10 +28,8 @@ test('numeric marking converts dimensionally equivalent units without weakening 
  assert.ok(numericCorrect(['94'],['J'],[{value:22.5,unit:'cal'}]),'course cal convention: 94 J = 22.5 cal');
 });
 test('Aufbau progress fills 1s, 2s, 2p',()=>{assert.deepEqual(configuration(0),[]);assert.deepEqual(configuration(3),[['1s',2],['2s',1]]);assert.deepEqual(configuration(10),[['1s',2],['2s',2],['2p',6]])});
-test('bad storage recovers, existing storage loads',()=>{assert.deepEqual(loadProgress({getItem:()=>'{oops'}),{});assert.deepEqual(loadProgress({getItem:()=>'{"P7":{"complete":true}}'}),{P7:{complete:true}});assert.deepEqual(loadProgress({getItem:()=>{throw Error('blocked')}}),{})});
 test('physical source wavelengths and corrected P10 example',()=>{for(const t of topics){assert.match(t.spectrum.source,/^https:\/\/physics.nist.gov\//);for(const w of t.spectrum.lines){assert.ok(w>=400&&w<=700);assert.match(wavelengthColor(w),/^rgb\(/)}}const ex=topics.find(t=>t.id==='P10').worked[1].content.join(' ');assert.match(ex,/13-18/);assert.match(ex,/הערת תיקון/)});
 
-test('course-scoped progress separates identical topic ids and migrates old v1 safely',async()=>{const {courseProgressKey,loadCourseProgress}=await import('../src/logic.js');const values=new Map([['spectra-progress-v1','{"P7":{"complete":true}}']]);const storage={getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v)};const courses=[{id:'84102'},{id:'course-2'}];let all=loadCourseProgress(storage,courses);assert.ok(all['84102'].P7.complete);assert.deepEqual(all['course-2'],{});values.set(courseProgressKey('course-2'),'{"P7":{"complete":false}}');all=loadCourseProgress(storage,courses);assert.ok(all['84102'].P7.complete);assert.equal(all['course-2'].P7.complete,false);assert.notEqual(courseProgressKey('84102'),courseProgressKey('course-2'))});
 test('course routes, old links, and invalid destinations',async()=>{const {parseRoute}=await import('../src/logic.js');const courses=catalogue.courses;assert.equal(parseRoute('',courses).course,null);assert.equal(parseRoute('course/84102',courses).course.id,'84102');assert.equal(parseRoute('course/84102/P7',courses).topicId,'P7');assert.equal(parseRoute('P7',courses).course.id,'84102');assert.ok(parseRoute('course/missing',courses).invalid);assert.ok(parseRoute('course/84102/missing',courses).invalid)});
 test('course data nests content and provides orbital images for all existing topics',()=>{assert.equal(catalogue.courses.length,4);assert.equal(catalogue.courses[0].id,'84102');for(const t of catalogue.courses[0].topics){assert.ok(t.content.theory.length);assert.ok(t.content.quiz.length);assert.ok(t.orbital.file);assert.ok(fs.existsSync(new URL('../public/orbitals/'+t.orbital.file,import.meta.url)));assert.ok(t.spectrum.accentWave)}});
 

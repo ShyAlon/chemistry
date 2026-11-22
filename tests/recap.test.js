@@ -5,7 +5,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {beforeRecap} from './practice-baseline.js';
 import {undoNotation} from './notation-baseline.js';
-import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
+import {numericCorrect,parseRoute} from '../src/logic.js';
 import {courses as formulas} from '../src/reference-formulas.js';
 const data=structuredClone(catalogueSource);
 const course=data.courses[0],added=course.topics.slice(10),find=id=>course.topics.find(t=>t.id===id);
@@ -54,9 +54,6 @@ test('independent numeric checks cover every new numeric answer and sign convent
  // Source concept-check keys: 4x, 2.55 eV; 91.2 nm; three electrons; free Fe3+ d5.
  assert.equal(q('P12',9).options[q('P12',9).correct],'3');assert.equal(q('P12',10).options[q('P12',10).correct],'Fe³⁺');
 });
-test('new routes and completion records coexist without storage migration or answer replacement',()=>{
- const previous={P7:{complete:true,score:6,answers:{1:{correct:true}}},P3:{complete:true,answers:{2:{correct:false}}}};
- const store={getItem:k=>k===courseProgressKey('84102')?JSON.stringify(previous):null,setItem:()=>{throw Error('must not write')}};
- assert.deepEqual(loadCourseProgress(store,data.courses)['84102'],previous);
+test('new topic routes and formula coverage coexist',()=>{
  for(const t of added){assert.equal(parseRoute('course/84102/'+t.id,data.courses).topicId,t.id);assert.ok(formulas[0].topics.some(x=>x.id===t.id))}
 });

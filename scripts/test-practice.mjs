@@ -1,3 +1,5 @@
+import {buildManifest,toView} from '../src/progress-model.js';
+import {sessions as progressSessions} from '../src/practice-sessions.js';
 import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
@@ -77,8 +79,10 @@ try{
    assert.ok(await js(`document.querySelector('.practice-counter').textContent.includes('${si===0?'9':'10'}/10')`));
    assert.equal(await js(`document.querySelectorAll('.practice-question .feedback a').length`),10);
    assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'));
-   const stored=JSON.parse(await js(`localStorage.getItem('spectra-course-84102-progress-v1')`));
-   assert.deepEqual(stored.P7,JSON.parse(prior).P7,'Topic answers preserved');assert.equal(stored._practice[s.id].score,si===0?9:10);
+   await ready('.progress-state[data-state="saved"]');
+   const cache=JSON.parse(await js(`localStorage.getItem('spectra-account-progress-v1:stub-learner:cache')`));
+   const stored=toView(cache.records,buildManifest(data.courses.map(c=>({...c,topics:c.topics.map(t=>({...t,...t.content}))})),progressSessions))['84102'];
+   assert.equal(await js(`localStorage.getItem('spectra-course-84102-progress-v1')`),prior,'Unowned legacy answers untouched');assert.equal(stored.P7,undefined,'Legacy data not assigned to account');assert.equal(stored._practice[s.id].score,si===0?9:10);
    if(si===0){await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);await shot('practice-feedback-390');}
    await js(`document.querySelector('.practice-session-heading button').click()`);await ready('.practice-session-grid');
   }

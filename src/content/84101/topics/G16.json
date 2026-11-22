@@ -110,9 +110,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
+     "Δm",
      "Z, N",
      "m(¹H)",
-     "m_n"
+     "m_n",
+     "m_atom"
     ],
     "notationOf": 7
    },
@@ -131,8 +133,11 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "E_b",
-     "A#2"
+     "eV@unit",
+     "MeV@unit",
+     "J",
+     "u@unit",
+     "c"
     ],
     "notationOf": 8
    },

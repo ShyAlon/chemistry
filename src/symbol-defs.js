@@ -333,5 +333,22 @@ export const SYMBOLS={
  "solution-amounts":{"sym":"n_NaCl, n_sugar, n(Na⁺), n(HA⁻), n(H⁺), n(A²⁻)","meaning":["מספר מולי החומר או היון המצוין."]},
  "M@solute-context":{"sym":"M, M_sugar","meaning":["המסה המולרית של המומס, ב-g/mol; לא מולריות."]},
  "i@solute-context":{"sym":"i, i_NaCl, i_benzene","meaning":["גורם ון הוף של המומס בממס המצוין; מספר חלקיקי המומס לכל יחידה התחלתית."]},
- "m@solution-context":{"sym":"m, m_solute, m_solvent","meaning":["m לבדו הוא מולליות ב-mol/kg; m_solute מסת מומס בגרמים ו-m_solvent מסת הממס בקילוגרמים לפי ההצבה."]}
+ "m@solution-context":{"sym":"m, m_solute, m_solvent","meaning":["m לבדו הוא מולליות ב-mol/kg; m_solute מסת מומס בגרמים ו-m_solvent מסת הממס בקילוגרמים לפי ההצבה."]},
+ "n_solute":{"sym":"n_solute","meaning":["מספר מולי המומס"]},
+ "V_solution@litre":{"sym":"V_solution","meaning":["נפח התמיסה בליטרים; מסומן גם ",{"math":"L_solution"},"."]},
+ "m_solvent@kg":{"sym":"m_solvent","meaning":["מסת הממס בקילוגרמים, לצורך חישוב מולליות."]},
+ "n@mixture-parts":{"sym":"nᵢ, Σn","meaning":["מספר המולים של רכיב i וסך המולים של כל רכיבי התערובת, בהתאמה."]},
+ "m@mass-fraction":{"sym":"m_solute, m_solution","meaning":["מסת המומס ומסת התמיסה כולה, בהתאמה; באותן יחידות מסה."]},
+ "n@binary-solution":{"sym":"n_A, n_B","meaning":["מספר המולים של רכיבי התמיסה A ו-B, בהתאמה."]},
+ "T_b@solution":{"sym":"T_b","meaning":["טמפרטורת הרתיחה של התמיסה; מסומנת גם ",{"math":"T_b(solution)"},"."]},
+ "T_b@pure":{"sym":"T°_b","meaning":["טמפרטורת הרתיחה של הממס הטהור; מסומנת גם ",{"math":"T_b(pure)"},"."]},
+ "T_f@solution":{"sym":"T_f","meaning":["טמפרטורת הקיפאון של התמיסה; מסומנת גם ",{"math":"T_f(solution)"},"."]},
+ "T_f@pure":{"sym":"T°_f","meaning":["טמפרטורת הקיפאון של הממס הטהור; מסומנת גם ",{"math":"T_f(pure)"},"."]},
+ "eV@unit":{"sym":"eV","meaning":["אלקטרון־וולט, יחידת אנרגיה."]},
+ "MeV@unit":{"sym":"MeV","meaning":["מגה־אלקטרון־וולט, מיליון אלקטרון־וולט."]},
+ "u@unit":{"sym":"u","meaning":["יחידת המסה האטומית המאוחדת; c היא מהירות האור בקשר בין מסה לאנרגיה."]},
+ "t@celsius":{"sym":"t","meaning":["טמפרטורה במעלות צלזיוס, לא זמן."]},
+ "E@absorbed":{"sym":"E","meaning":["האנרגיה שנבלעה בחומר, בג׳אול כאשר המנה בגריי והמסה בקילוגרמים."]},
+ "n@water-surfactant":{"sym":"n(H₂O), n(surfactant)","meaning":["מספר מולי המים ומספר מולי החומר הפעיל שטח, בהתאמה."]},
+ "q@vaporization":{"sym":"q","meaning":["החום הדרוש לאידוי n מולים, באותן יחידות אנרגיה של n·ΔH_vap; ללא הגבלה לנפח קבוע."]}
 };

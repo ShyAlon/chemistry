@@ -192,6 +192,8 @@
     "layout": "equation",
     "symbols": [
      "u_rms",
+     "R",
+     "T",
      "M"
     ],
     "notationOf": 12,
@@ -254,7 +256,12 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "a, b"
+     "a, b",
+     "P",
+     "n",
+     "V#2",
+     "R:gas",
+     "T"
     ],
     "notationOf": 14,
     "enrich": true
@@ -271,7 +278,10 @@
     "layout": "equation",
     "symbols": [
      "a, b",
-     "Vₘ#2"
+     "Vₘ#2",
+     "P",
+     "R:gas",
+     "T"
     ],
     "notationOf": 14,
     "enrich": true
@@ -441,7 +451,9 @@
     "style": "Normal",
     "layout": "equation",
     "symbols": [
-     "r"
+     "r",
+     "P",
+     "M"
     ],
     "notationOf": 29
    },

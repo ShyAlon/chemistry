@@ -1,12 +1,12 @@
-// Merge the enrichment layers into src/courses.json. Idempotent: strips blocks
+// Merge the enrichment layers into the split course content files. Idempotent: strips blocks
 // marked enrich:true before appending the current enrichment content.
 import fs from 'node:fs';
+import {loadCatalogue,writeCatalogue} from './content-store.mjs';
 import {enrichment84102} from '../src/enrichment-84102.js';
 import {enrichment84101} from '../src/enrichment-84101.js';
 import {applyNotation} from '../src/notation-apply.js';
 
-const path=new URL('../src/courses.json',import.meta.url);
-const catalogue=JSON.parse(fs.readFileSync(path,'utf8'));
+const catalogue=loadCatalogue();
 const layers={'84102':enrichment84102,'84101':enrichment84101};
 let added={theory:0,worked:0};
 for(const course of catalogue.courses){
@@ -25,5 +25,5 @@ for(const course of catalogue.courses){
 }
 const blocks=JSON.parse(fs.readFileSync(new URL('../src/notation-blocks.json',import.meta.url),'utf8'));
 console.log('notation blocks restored:',applyNotation(catalogue,blocks));
-fs.writeFileSync(path,JSON.stringify(catalogue,null,1)+'\n');
+writeCatalogue(catalogue);
 console.log('enrichment merged:',added);

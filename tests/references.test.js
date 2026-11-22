@@ -1,10 +1,11 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {elements} from '../src/reference-data.js';
 import {courses as sheet,constants} from '../src/reference-formulas.js';
 const figureIds=new Set([...fs.readFileSync(new URL('../src/figures.jsx',import.meta.url),'utf8').matchAll(/^\s*'([a-z-]+)':[A-Za-z]+,/gm)].map(m=>m[1]));
 import {enrichment84101} from '../src/enrichment-84101.js';
 import {enrichment84102} from '../src/enrichment-84102.js';
-const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 test('periodic table has 118 unique elements in unique grid cells',()=>{
  assert.equal(elements.length,118);assert.deepEqual(elements.map(e=>e.z),[...Array(118).keys()].map(i=>i+1));
  assert.equal(new Set(elements.map(e=>e.s)).size,118);assert.equal(new Set(elements.map(e=>e.p+','+e.g)).size,118);

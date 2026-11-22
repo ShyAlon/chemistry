@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
 import {createServer} from 'node:http';
@@ -14,7 +15,7 @@ import {DisplayMath} from '../src/scientific-text.js';
 const root=path.resolve(new URL('..',import.meta.url).pathname);
 const screenshots=process.env.SCREENSHOTS;
 if(screenshots)await mkdir(screenshots,{recursive:true});
-const data=JSON.parse(await readFile(path.join(root,'src/courses.json'),'utf8'));
+const data=structuredClone(catalogueSource);
 const exact=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
 const fixture=renderToStaticMarkup(React.createElement('html',{dir:'rtl',lang:'he'},
  React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8'))),

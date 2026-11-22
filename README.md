@@ -20,7 +20,7 @@ npm run dev
 
 ## מה כלול
 
-כל עשר החבילות הועברו לנתונים מובנים ב-`src/courses.json`, בסדר הלימוד שנבחר:
+כל עשר החבילות הועברו לנתונים מובנים ב-`src/content/courses.json`, בסדר הלימוד שנבחר:
 
 P7 → P9 → P10 → P3 → P2 → P5 → P6 → P8 → P1 → P4.
 
@@ -56,7 +56,7 @@ npm run preview   # תצוגה מקומית של build
 npm test          # בדיקות נתונים, חישוב ושמירה
 ```
 
-`src/main.jsx` - רכיבי הממשק; `src/style.css` - עיצוב ו-RTL; `src/logic.js` - לוגיקת בדיקה, צבע ושמירה; `src/courses.json` - כל חומר הלימוד. קובץ נעילה מצורף. אין תלות ב-Python בזמן התקנה או הפעלה.
+`src/main.jsx` - רכיבי הממשק; `src/style.css` - עיצוב ו-RTL; `src/logic.js` - לוגיקת בדיקה, צבע ושמירה; `src/content/courses.json` - כל חומר הלימוד. קובץ נעילה מצורף. אין תלות ב-Python בזמן התקנה או הפעלה.
 
 הקוד נמצא במאגר GitHub שנוצר עבור הפרויקט. האתר מופץ דרך GitHub Pages מתוצרי build שנבנים מקומית ונשלחים לענף gh-pages, ללא GitHub Actions. אין רכיב שרת בפרויקט.
 
@@ -88,7 +88,7 @@ npm test          # בדיקות נתונים, חישוב ושמירה
 
 הנתונים בנויים `courses -> topics -> content`. הקורס הראשון וברירת המחדל הוא כימיה אי־אורגנית, 84102. נוסף אליו כימיה כללית א׳, 84101, עם תוכן נפרד. דף הבית הוא בורר קורסים, ומפת האטום נמצאת תחת `#course/84102`. כתובת נושא לדוגמה: `#course/84102/P7`. קישורי v1 כגון `#P7` עדיין עובדים.
 
-להוספת קורס: מוסיפים רשומה למערך `courses` בקובץ `src/courses.json`, עם מזהה ייחודי, שם, תיאור, גוון accent ומערך topics. בכל נושא יש מטא־דאטה, spectrum (כולל accentWave), נתוני orbital אופציונליים ו-content המכיל theory/worked/quiz. אין צורך לשנות נתב או רכיבי מסך. אפשר למחזר מזהי נושא כמו P1 בקורס אחר: הבחירה, האטום וההתקדמות מופרדים לפי מזהה הקורס. אין כרטיסים לקורסים עתידיים ללא תוכן.
+Course and topic order is now explicit in the split catalogues. Add course metadata to `src/content/courses.json`, topic references to `src/content/<course-id>/topics.json`, and complete topic objects to `src/content/<course-id>/topics/<topic-id>.json`. The shared loader preserves the existing catalogue shape, routes and progress IDs. See [course content layout](docs/course-content-layout.md) for the contract, editing scripts and checks.
 
 שמירה: `spectra-course-<course-id>-progress-v1` לכל קורס. התקדמות v1 קיימת מועתקת פעם אחת לכימיה אי־אורגנית, רק אם אין כבר נתונים עבור הקורס. המקור הישן אינו נמחק. איפוס מתוך קורס מאפס רק אותו, בלי למחוק קורסים אחרים. שינוי משמעותי במזהי קורס או שאלות מחייב תכנון הגירת נתונים.
 

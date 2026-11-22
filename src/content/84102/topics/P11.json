@@ -1,0 +1,247 @@
+{
+ "id": "P11",
+ "name": "זיקה אלקטרונית ואלקטרושליליות",
+ "title": "זיקה אלקטרונית ואלקטרושליליות",
+ "source": "נגזר מ-Recap lesson 1 (51 שקופיות), שקופיות 48–51. הגדרות וסימנים נבדקו מול OpenStax 6.5 ו-7.2. הפתרונות נגזרו עצמאית ואינם מפתח רשמי.",
+ "spectrum": {
+  "symbol": "He",
+  "name": "הליום",
+  "lines": [
+   400.927,
+   438.7929,
+   471.3146,
+   492.1931,
+   587.5615,
+   667.8152
+  ],
+  "source": "https://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable2_a.htm",
+  "accentWave": 587.5615
+ },
+ "file": null,
+ "content": {
+  "theory": [
+   {
+    "style": "Heading",
+    "text": "חיבור ליינון: שלושה מושגים שונים",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "אנרגיית יינון IE מתייחסת להוצאת אלקטרון מאטום או יון בגז. זיקה אלקטרונית EA מתייחסת להוספת אלקטרון. אלקטרושליליות χ מתארת משיכת צפיפות אלקטרונים בתוך קשר. זו אינה אותה פעולה בשלושה שמות.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Heading",
+    "text": "זיקה אלקטרונית והסימן שלה",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "תהליך הייחוס הוא X(g)+e⁻→X⁻(g). אם הוא פולט אנרגיה, שינוי האנרגיה ΔE של המערכת שלילי. בשקופיות החזרה מוגדר EA=−ΔE ולכן זיקה חיובית מבטאת אנרגיה שמשתחררת.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "ΔE_attach = −EA_course",
+    "enrich": true,
+    "recap": true,
+    "layout": "equation"
+   },
+   {
+    "style": "Normal",
+    "text": "דוגמת הקורס לכלור: ΔE≈−349 kJ/mol ולכן EA_course≈+349 kJ/mol. מקורות אחרים, ובהם OpenStax, מכנים את ΔE עצמו EA. לכן כותבים את התהליך ואת הגדרת הסימן בכל פתרון, במקום להשוות מספרים בעלי סימנים שונים.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Heading",
+    "text": "מגמות וחריגים",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "הוספת אלקטרון נעשית בדרך כלל נוחה יותר לכיוון צד ימין בטבלה, אך אין חץ פשוט ללא חריגים. קליפה מלאה, תת-קליפה חצי-מלאה ודחייה בתוך אורביטל קטן משנים את התוצאה. אין להסיק EA רק מ-IE.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "לכלור קליטת אלקטרון ראשונה פולטת יותר אנרגיה מלפלואור, אף שפלואור אלקטרושלילי יותר. ההסבר האיכותי הוא הדחייה החזקה בתת-קליפת 2p הקטנה של F לעומת 3p של Cl.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Heading",
+    "text": "אלקטרושליליות וקשר כימי",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "אלקטרושליליות היא נטייה למשוך אלקטרונים משותפים בקשר. בסולם Pauling זהו מדד יחסי חסר יחידות. הוא גדל בדרך כלל משמאל לימין ומלמטה למעלה; F הוא הגבוה ביותר בסולם המקובל.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "בשקופיות מופיע קשר בסגנון Mulliken: χ∝(IE+EA)/2. כשמחשבים ממוצע אנרגיות כזה משתמשים ב-EA כחיובית עבור שחרור אנרגיה ובאותן יחידות לשני האיברים. התוצאה האנרגטית אינה מספר Pauling ישירות.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Heading",
+    "text": "דוגמה להבחנה",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Normal",
+    "text": "בקשר H–Cl צפיפות האלקטרונים מוסטת לעבר Cl האלקטרושלילי יותר. אין פירוש הדבר שהתרחש בהכרח תהליך של קליטת אלקטרון שלם באטום Cl חופשי.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Callout",
+    "text": "מלכודת: \"EA גבוהה\" אינו ניסוח חד-משמעי בלי הגדרת סימן. כתבו \"קליטה פולטת יותר אנרגיה\" או ציינו במפורש EA=−ΔE. גם שורת דירוג אלקטרושליליות דורשת סולם מוגדר.",
+    "enrich": true,
+    "recap": true
+   },
+   {
+    "style": "Figure",
+    "text": "אותו תהליך קליטה אקסותרמי בשתי מוסכמות: ΔE שלילי, בעוד EA לפי הגדרת החזרה חיובית. אלקטרושליליות מתייחסת לקשר, לא לחץ האנרגיה הזה.",
+    "enrich": true,
+    "recap": true,
+    "figure": "electron-affinity-signs"
+   }
+  ],
+  "worked": [
+   {
+    "title": "סימן הזיקה של כלור",
+    "content": [
+     "בתהליך Cl(g)+e⁻→Cl⁻(g) נמדד ΔE=−349 kJ/mol. מה EA לפי הגדרת החזרה?",
+     "EA_course=−ΔE=+349 kJ/mol. התהליך אקסותרמי. מקור שמשתמש ב-EA=ΔE ירשום −349 לאותו תהליך; אין סתירה פיזיקלית."
+    ],
+    "recap": true
+   },
+   {
+    "title": "תהליך אנדותרמי",
+    "content": [
+     "תהליך הוספת אלקטרון דורש 24 kJ/mol. רשמו ΔE ו-EA_course.",
+     "ΔE=+24 kJ/mol כי יש להשקיע אנרגיה. EA_course=−24 kJ/mol. זו אינה אנרגיית יינון, מפני שאלקטרון נוסף ולא מוסר."
+    ],
+    "recap": true
+   },
+   {
+    "title": "Mulliken על נתונים היפותטיים",
+    "content": [
+     "לצורך מודל בלבד נתונים IE=10 eV ו-EA_course=2 eV. חשבו (IE+EA)/2.",
+     "הממוצע הוא 6 eV. אם במקום EA_course ניתן ΔE_attach=−2 eV, יש להפוך תחילה את הסימן. אין לרשום 6 כערך Pauling חסר יחידות."
+    ],
+    "recap": true
+   },
+   {
+    "title": "פלואור לעומת כלור",
+    "content": [
+     "האם העובדה ש-F האלקטרושלילי ביותר מחייבת שקליטת אלקטרון אליו תשחרר יותר אנרגיה מאשר ל-Cl?",
+     "לא. מדובר במדדים לתהליכים שונים. לפי המגמות הניסיוניות קליטת אלקטרון ראשון ל-Cl אקסותרמית יותר; F מושך חזק יותר צפיפות אלקטרונים בקשר בסולם Pauling."
+    ],
+    "recap": true
+   }
+  ],
+  "quiz": [
+   {
+    "id": 1,
+    "type": "numeric",
+    "prompt": "לפי הגדרת החזרה EA=−ΔE, מה EA אם ΔE_attach=−349 kJ/mol?",
+    "fields": [
+     {
+      "value": 349,
+      "unit": "kJ/mol"
+     }
+    ],
+    "answer": "EA=+349 kJ/mol. התהליך פולט אנרגיה ולכן ΔE שלילי."
+   },
+   {
+    "id": 2,
+    "type": "numeric",
+    "prompt": "בתהליך הוספת אלקטרון נדרשים 24 kJ/mol. מה EA_course=−ΔE?",
+    "fields": [
+     {
+      "value": -24,
+      "unit": "kJ/mol"
+     }
+    ],
+    "answer": "המערכת קולטת אנרגיה: ΔE=+24 ולכן EA_course=−24 kJ/mol."
+   },
+   {
+    "id": 3,
+    "type": "mcq",
+    "prompt": "מה מתארת אלקטרושליליות?",
+    "options": [
+     "משיכת צפיפות אלקטרונים בקשר",
+     "מספר האלקטרונים בקליפה",
+     "האנרגיה להסרת פרוטון",
+     "האנרגיה הקינטית של פוטון"
+    ],
+    "correct": 0,
+    "answer": "אלקטרושליליות מתייחסת למשיכת אלקטרונים משותפים בקשר, בניגוד ל-EA של אטום חופשי."
+   },
+   {
+    "id": 4,
+    "type": "mcq",
+    "prompt": "איזו קביעה מבדילה נכון בין F ל-Cl?",
+    "options": [
+     "F אלקטרושלילי יותר, אך קליטת אלקטרון ל-Cl פולטת יותר אנרגיה",
+     "F גבוה יותר בשני המדדים בהכרח",
+     "Cl אלקטרושלילי יותר",
+     "אי אפשר להגדיר זיקה לאטום בגז"
+    ],
+    "correct": 0,
+    "answer": "F הגבוה בסולם Pauling, בעוד קליטת אלקטרון ראשונה ל-Cl אקסותרמית יותר בגלל ההבדל בדחייה ובגודל קליפת הערכיות."
+   },
+   {
+    "id": 5,
+    "type": "numeric",
+    "prompt": "במודל Mulliken היפותטי IE=10 eV ו-EA_course=2 eV. חשבו (IE+EA)/2 ביחידות eV.",
+    "fields": [
+     {
+      "value": 6,
+      "unit": "eV"
+     }
+    ],
+    "answer": "(10+2)/2=6 eV. זהו ממוצע אנרגיות, לא ערך Pauling ישיר."
+   },
+   {
+    "id": 6,
+    "type": "written",
+    "prompt": "מקור אחד רושם EA(Cl)=+349 kJ/mol ומקור שני −349 kJ/mol. כיצד בודקים אם יש סתירה?",
+    "answer": "בודקים את התהליך ואת הגדרת הסימן. לאותה קליטה אקסותרמית ΔE=−349, ולכן מקור שמגדיר EA=−ΔE ירשום +349. אם מקור מגדיר EA=ΔE ירשום −349. שינוי הגדרה אינו שינוי בתהליך הפיזיקלי."
+   }
+  ]
+ },
+ "orbital": {
+  "file": "Atomic-orbital-2px-3D-phaseless.png",
+  "label": "2pₓ",
+  "alt": "הדמיית תלת־ממד של אורביטל 2px בעל שתי אונות",
+  "shape": "שתי אונות, כיוון אחד",
+  "source": "https://commons.wikimedia.org/wiki/File:Atomic-orbital-2px-3D-phaseless.png",
+  "note": "אורביטלי p משתתפים בחריגות היינון של N ו-O וביציבות תת־קליפה חצי מלאה."
+ },
+ "provenance": {
+  "answerAuthority": "independently-computed-not-official",
+  "sourceReferences": "Recap lesson 1 (51 שקופיות); שיעור הכנה לבוחן (35 שקופיות). Supplied privately; source PDFs and slide artwork are not redistributed.",
+  "verificationSources": [
+   "https://openstax.org/books/chemistry-2e/pages/6-summary",
+   "https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations",
+   "https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties",
+   "https://openstax.org/books/chemistry-2e/pages/7-2-covalent-bonding",
+   "https://falstad.com/qmatom/directions.html"
+  ],
+  "edition": "inorganic-recap-2026-11-16"
+ }
+}

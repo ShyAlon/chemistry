@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -5,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {finalPrep84101 as layer,finalPrepExam as exam} from '../src/final-prep-84101.js';
 import {numericCorrect,loadCourseProgress,courseProgressKey} from '../src/logic.js';
 import {undoNotation,undoFormulaReview} from './notation-baseline.js';
-const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const course=catalogue.courses.find(c=>c.id==='84101');
 const topic=id=>course.topics.find(t=>t.id===id);
 const R=.08206,NA=6.022e23;

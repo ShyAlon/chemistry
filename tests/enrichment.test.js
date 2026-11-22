@@ -1,7 +1,8 @@
+import catalogueSource from '#catalogue';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const registry=fs.readFileSync(new URL('../src/figures.jsx',import.meta.url),'utf8');
 
 test('every topic in both enriched courses carries enrichment theory and at least one figure',()=>{

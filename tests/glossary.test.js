@@ -1,9 +1,10 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {glossary,glossaryDocs,parseGlossaryRoute,glossaryCourseIds} from '../src/glossary-data.js';
 import {enrichment84101} from '../src/enrichment-84101.js';
 import {enrichment84102} from '../src/enrichment-84102.js';
 import {exam84101} from '../src/exam-84101.js';
-const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const courses=catalogue.courses.filter(c=>c.topics?.length);
 
 // Same normalization the page filter uses: lowercase, unify apostrophes, treat

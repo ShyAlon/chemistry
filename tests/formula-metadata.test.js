@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -7,7 +8,7 @@ import {formulaMetadata,exerciseFormulaContext,explicitFormulaMetadata,exerciseF
 import {compactFormulaTopics} from '../src/formula-print-data.js';
 import {formulaPresentations} from '../src/formula-presentation.js';
 import {SYMBOLS} from '../src/symbol-defs.js';
-const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const types=new Set(['equation','conversion','prefix-table','definition-table','configuration-table','rule','reaction','comparison','ratio-with-prose-labels','navigation','nuclear-reaction','numeric-threshold','numeric-value','numeric-estimate','course-values','constant-or-conversion','worked-context']);
 function validate(record,where){
  assert.ok(record,where+': missing explicit metadata');assert.ok(types.has(record.kind),where+': unknown category');

@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -6,7 +7,7 @@ import {papers} from '../src/paper-discussions.js';
 import {pages as referencePages} from '../src/reference-pages.js';
 import {glossaryDocs} from '../src/glossary-data.js';
 
-const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const PRACTICE_ROUTES=['course/84102/practice','course/84101/practice'];
 
 test('normalization folds sub/superscripts, case and Hebrew final letters',()=>{

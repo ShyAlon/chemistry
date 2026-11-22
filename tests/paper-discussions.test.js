@@ -1,8 +1,9 @@
+import catalogueSource from '#catalogue';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {papers,paperSources,paperFromRoute} from '../src/paper-discussions.js';
-const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 test('only the two selected nano papers have independent discussion routes',()=>{
  assert.deepEqual(papers.map(p=>p.id),['shape-2026','pbse-2017']);
  for(const p of papers){assert.equal(paperFromRoute('course/nano/papers/'+p.id),p);assert.equal(paperFromRoute('/course/nano/papers/'+p.id),p)}

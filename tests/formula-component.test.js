@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -38,7 +39,7 @@ test('all structured catalogue items are handled by Formula, without string-only
 });
 
 test('P3 correction explicitly separates atomic energy and positive photon energy',()=>{
- const data=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+ const data=structuredClone(catalogueSource);
  const topic=data.courses.find(c=>c.id==='84102').topics.find(t=>t.id==='P3');
  const eq=topic.content.theory.find(b=>b.text.startsWith('ΔE_atom = E_f'));
  assert.ok(eq.text.includes('1/n_i² − 1/n_f²'));

@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import {readFileSync} from 'node:fs';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import React from 'react';import {renderToStaticMarkup} from 'react-dom/server';
@@ -30,12 +31,12 @@ test('signed fractions and range limits keep signs inside their LTR boundary',()
 });
 
 test('all course strings retain characters and idempotence through display normalization',async()=>{
- const {readFileSync}=await import('node:fs');const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+ const {readFileSync}=await import('node:fs');const data=structuredClone(catalogueSource);
  function visit(x){if(typeof x==='string'){const out=n(x);assert.equal(out.replace(/[\u2066-\u2069]/g,''),x.replace(/[\u2066-\u2069]/g,''));assert.equal(n(out),out)}else if(Array.isArray(x))x.forEach(visit);else if(x&&typeof x==='object')Object.values(x).forEach(visit)}visit(data);
 });
 
 test('chromium/copper screenshot: semicolon cannot fuse separate scientific statements',()=>{
- const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+ const data=structuredClone(catalogueSource);
  const text=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
  const html=renderToStaticMarkup(bidiElement('p',null,text));
  assert.ok(!html.includes('4s²3d⁴; Cu'));

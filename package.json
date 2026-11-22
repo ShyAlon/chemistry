@@ -26,5 +26,11 @@
   },
   "engines": {
     "node": ">=20.19.0"
+  },
+  "imports": {
+    "#catalogue": {
+      "node": "./scripts/content-store.mjs",
+      "default": "./src/catalogue.js"
+    }
   }
 }

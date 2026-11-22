@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import {spawn} from 'node:child_process';
 import {launchChrome} from './launch-chrome.mjs';
 import {createServer} from 'node:http';
@@ -15,7 +16,7 @@ import {resolveConstants} from '../src/constants.js';
 const root=path.resolve(new URL('..',import.meta.url).pathname);
 const screenshots=process.env.SCREENSHOTS;
 if(screenshots)await mkdir(screenshots,{recursive:true});
-const data=JSON.parse(await readFile(path.join(root,'src/courses.json'),'utf8'));
+const data=structuredClone(catalogueSource);
 const exact=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
 const fixture=renderToStaticMarkup(React.createElement('html',{dir:'rtl',lang:'he'},
  React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8'))),
@@ -99,7 +100,7 @@ try{
    if(width===390){
     await js(`document.querySelectorAll('.tabs button')[2].click()`);await ready('.question');
     const q=add.quiz.find(q=>q.type==='numeric');
-    const all=JSON.parse(await readFile(path.join(root,'src/courses.json'),'utf8')).courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.quiz;
+    const all=structuredClone(catalogueSource).courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.quiz;
     const qi=all.findIndex(x=>x.id===q.id);
     await js(`document.querySelectorAll('.question-steps button')[${qi}].click()`);await ready('.numeric-fields');
     await js(`(()=>{const el=document.querySelector('.numeric-fields input');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(el,${JSON.stringify(String(q.fields[0].value))});el.dispatchEvent(new Event('input',{bubbles:true}));const select=document.querySelector('.numeric-fields select');select.value=${JSON.stringify(q.fields[0].unit)};select.dispatchEvent(new Event('change',{bubbles:true}))})()`);

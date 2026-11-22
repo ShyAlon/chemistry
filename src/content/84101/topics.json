@@ -1,0 +1,68 @@
+{
+ "topics": [
+  {
+   "id": "G1",
+   "file": "topics/G1.json"
+  },
+  {
+   "id": "G2",
+   "file": "topics/G2.json"
+  },
+  {
+   "id": "G3",
+   "file": "topics/G3.json"
+  },
+  {
+   "id": "G4",
+   "file": "topics/G4.json"
+  },
+  {
+   "id": "G5",
+   "file": "topics/G5.json"
+  },
+  {
+   "id": "G6",
+   "file": "topics/G6.json"
+  },
+  {
+   "id": "G7",
+   "file": "topics/G7.json"
+  },
+  {
+   "id": "G8",
+   "file": "topics/G8.json"
+  },
+  {
+   "id": "G9",
+   "file": "topics/G9.json"
+  },
+  {
+   "id": "G10",
+   "file": "topics/G10.json"
+  },
+  {
+   "id": "G11",
+   "file": "topics/G11.json"
+  },
+  {
+   "id": "G12",
+   "file": "topics/G12.json"
+  },
+  {
+   "id": "G13",
+   "file": "topics/G13.json"
+  },
+  {
+   "id": "G14",
+   "file": "topics/G14.json"
+  },
+  {
+   "id": "G15",
+   "file": "topics/G15.json"
+  },
+  {
+   "id": "G16",
+   "file": "topics/G16.json"
+  }
+ ]
+}

@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -49,7 +50,7 @@ test('quota errors route the learner to site search; others to a plain retry',()
  assert.doesNotMatch(g.next,/חיפוש/);
 });
 
-const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 // Deterministic matcher: the real local search over the real catalogue, the
 // same path the app wires into parseRoutingResponse.
 const matchTerms=(term,opts)=>searchSite(term,opts); // returns {route,kind,title,score} hits

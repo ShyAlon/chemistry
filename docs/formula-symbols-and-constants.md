@@ -1,5 +1,8 @@
 # Formula tooltips, symbol keys and central constants
 
+> Maintenance note, 22 November 2026: the legacy layer-reapply commands described below can replace later corrections or metadata. They are not part of normal dev/build/test/preview or CI. Do not use them as a general course-import process. See [current content layout](course-content-layout.md).
+
+
 Scope of this pass: General Chemistry I (course 84101), theory tab only.
 
 ## What the reader sees

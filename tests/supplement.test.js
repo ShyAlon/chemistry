@@ -1,9 +1,10 @@
+import catalogueSource from '#catalogue';
 import {beforePractice} from './practice-baseline.js';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
 import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
 import {courses as sheet} from '../src/reference-formulas.js';
-const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const data=structuredClone(catalogueSource);
 const course=data.courses.find(c=>c.id==='84101');const added=course.topics.slice(12);
 const q=(t,id)=>added.find(t0=>t0.id===t).content.quiz.find(q=>q.id===id);
 test('supplement appends four sourced topics, 16 examples and 26 complete questions',()=>{

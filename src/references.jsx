@@ -3,7 +3,7 @@ import {PageTitle} from './PageTitle.jsx';
 import {bidiElement} from './bidi-react.js';
 import {SourceTooltip} from './SourceTooltip.jsx';
 import React,{useState,useEffect,useRef} from 'react';
-import catalogue from './courses.json';
+import catalogue from '#catalogue';
 import {elements} from './reference-data.js';
 import {ionState} from './ions.js';
 import {constants,courses as formulaCourses} from './reference-formulas.js';

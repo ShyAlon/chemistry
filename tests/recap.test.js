@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -6,7 +7,7 @@ import {beforeRecap} from './practice-baseline.js';
 import {undoNotation} from './notation-baseline.js';
 import {numericCorrect,parseRoute,loadCourseProgress,courseProgressKey} from '../src/logic.js';
 import {courses as formulas} from '../src/reference-formulas.js';
-const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const data=structuredClone(catalogueSource);
 const course=data.courses[0],added=course.topics.slice(10),find=id=>course.topics.find(t=>t.id===id);
 const digest=x=>createHash('sha256').update(JSON.stringify(x)).digest('hex');
 const q=(t,n)=>find(t).content.quiz.find(q=>q.id===n);

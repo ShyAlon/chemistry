@@ -1,5 +1,8 @@
 # General Chemistry I: final preparation, 20 November 2026
 
+> Maintenance note, 22 November 2026: the legacy layer-reapply commands described below can replace later corrections or metadata. They are not part of normal dev/build/test/preview or CI. Do not use them as a general course-import process. See [current content layout](course-content-layout.md).
+
+
 ## Approved scope
 
 Exam date: Thursday, 3 December 2026. Real gases first. Keep all 16 topic IDs, all prior question IDs and saved answers, and the auth/chat behavior. No uploaded course PDFs, lecturer artwork or answer keys are published. The new numerical scenarios, solutions and calculated diagram are original teaching adaptations, not an official key.

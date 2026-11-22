@@ -1,10 +1,11 @@
+import catalogueSource from '#catalogue';
 import {beforePractice} from './practice-baseline.js';
 import {createHash} from 'node:crypto';
 import {test} from 'node:test';import assert from 'node:assert/strict';
 import React from 'react';import {renderToStaticMarkup as render} from 'react-dom/server';
 import {readFileSync} from 'node:fs';
 import {ScientificText,Definition,DisplayMath} from '../src/scientific-text.js';
-const data=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const data=structuredClone(catalogueSource);
 test('explicit math and short meaningful groups stay inline',()=>{
  const html=render(React.createElement(ScientificText,{runs:['תחום: ',{keep:[{math:'l=0'},' עד ',{math:'n−1'}]},'.']}));
  assert.match(html,/class="math-unit"/);assert.match(html,/<bdi dir="ltr" class="inline-math">l=0/);assert.ok(!html.includes('display-math'));

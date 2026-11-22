@@ -1,10 +1,11 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {courses as sheet} from '../src/reference-formulas.js';
 import {symbolRows} from '../src/symbols.js';
 
-const catalogue=JSON.parse(fs.readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const main=fs.readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8');
 
 // Topics intentionally without a formulas tab: their course content has no

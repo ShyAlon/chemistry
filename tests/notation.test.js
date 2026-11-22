@@ -1,3 +1,4 @@
+import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -11,7 +12,7 @@ import {SYMBOLS} from '../src/symbol-defs.js';
 import {symbolRow,symbolText} from '../src/symbols.js';
 import {FormulaTip,DisplayMath,FORMULA_TIP_HOVER_MS} from '../src/scientific-text.js';
 import {courses as formulaSheet} from '../src/reference-formulas.js';
-const catalogue=JSON.parse(readFileSync(new URL('../src/courses.json',import.meta.url)));
+const catalogue=structuredClone(catalogueSource);
 const gc=catalogue.courses.find(c=>c.id==='84101');
 const hebrew=/[\u0590-\u05ff]/;
 const blocks=()=>gc.topics.flatMap(t=>t.content.theory.map((b,i)=>({t:t.id,i,b})).filter(x=>x.b.notationOf!==undefined));

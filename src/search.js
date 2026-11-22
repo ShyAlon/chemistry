@@ -4,7 +4,7 @@
 // nothing: no server, no API, no model download. Lexical BM25-style ranking is
 // the right tool here because site search is term lookup over ~60 known pages;
 // see PR notes for the vector-search comparison.
-import catalogue from './courses.json' with {type:'json'};
+import catalogue from '#catalogue';
 import {papers} from './paper-discussions.js';
 import {resolveConstants} from './constants.js';
 import {sessions} from './practice-sessions.js';

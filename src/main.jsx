@@ -18,7 +18,7 @@ import {AvatarMenu} from './AvatarMenu.jsx';
 import {bidiElement} from './bidi-react.js';
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import catalogue from './courses.json';
+import catalogue from '#catalogue';
 import {resolveConstants} from './constants.js';
 import {wavelengthColor,numericCorrect,parseNumber,loadProgress,configuration,courseProgressKey,loadCourseProgress,parseRoute,clearAllProgress} from './logic.js';
 import './style.css';

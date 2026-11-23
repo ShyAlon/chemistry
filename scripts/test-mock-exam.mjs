@@ -76,6 +76,11 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   await ready('.practice-submit .primary');
   await js(`document.querySelector('.practice-submit .primary').click()`);await ready('.feedback');
   assert.equal(await js(`document.querySelectorAll('.practice-question .feedback').length`),attempt.questions.reduce((n,q)=>n+q.parts.length,0),'feedback on every part');
+  // Scientific readability: solution/model-answer text runs through the bidi
+  // pipeline, so every mathematical expression is an intact LTR isolate.
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).length`))>0,'feedback has math lines');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>p.querySelector('bdi.bidi-run'))`)),'every math line carries LTR isolate runs');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>[...p.querySelectorAll('bdi.bidi-run')].some(b=>/=/.test(b.textContent)&&b.textContent.length>6))`)),'full expressions isolated, not single tokens');
   const expectAuto=numericTotal-1,expectSelf=conceptTotal-1,total=numericTotal+conceptTotal;
   const expectPercent=Math.round(100*(expectAuto+expectSelf)/total);
   const bar=async()=>await js(`document.querySelector('.mock-exam-bar').textContent`);
@@ -118,6 +123,14 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   await ready('.feedback');
   assert.ok((await js(`document.querySelector('.mock-exam-bar').textContent`)).includes(`${expectPercent}%`),'score persists after reload');
   await shot('mock-exam-reviewed-390');
+
+  // Desktop: same reviewed solutions keep expression-level isolation.
+  await call('Emulation.setDeviceMetricsOverride',{width:1280,height:844,deviceScaleFactor:1,mobile:false});
+  await new Promise(r=>setTimeout(r,200));
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>p.querySelector('bdi.bidi-run'))`)),'desktop: every math line carries LTR isolate runs');
+  await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);
+  await new Promise(r=>setTimeout(r,150));
+  await shot('mock-exam-feedback-1280');
  }
  console.log('Mock-exam browser PASSED: list/paper 390+1280 layouts, five questions, stopwatch run/pause/freeze, auto-marked 5% tolerance split, self-marked concept split, percent, persistence after reload.');
 }finally{ws?.close();chrome.kill('SIGTERM');server.close();await rm(profile,{recursive:true,force:true,maxRetries:4,retryDelay:300})}

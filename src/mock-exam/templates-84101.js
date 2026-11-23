@@ -364,34 +364,55 @@ function genCL2(rand){
   ]};
 }
 
-// NC1: nuclear reaction energy from atomic masses.
+// NC1: nuclear chemistry, the full E5 method: complete the reaction by
+// balancing mass number and charge, then mass defect, energy per reaction and
+// energy per mole. Reactions are exothermic; constants from AME2020-style values.
 function genNC1(rand){
  const reactions=[
-  {text:'²H + ³H → ⁴He + n',react:[2.01410,3.01605],prod:[4.00260,1.00866]},
-  {text:'²³⁸U → ²³⁴Th + ⁴He',react:[238.05079],prod:[234.04360,4.00260]},
-  {text:'⁷Li + ¹H → 2·⁴He',react:[7.01600,1.00783],prod:[2*4.00260]},
+  {text:'²H + ³H → ⁴He + n',shown:'²H + ³H → ⁴He + ?',missing:'נייטרון ¹n',
+   balance:'מאזן מספרי מסה: 2 + 3 = 5 = 4 + 1. מאזן מטען: 1 + 1 = 2 = 2 + 0.',
+   why:'החלקיק החסר הוא נייטרון: ²H + ³H → ⁴He + ¹n (היתוך גרעיני).',
+   react:[2.01410,3.01605],prod:[4.00260,1.00866]},
+  {text:'²³⁸U → ²³⁴Th + ⁴He',shown:'²³⁸U → ²³⁴Th + ?',missing:'גרעין הליום ⁴He',
+   balance:'מאזן מסה: 238 = 234 + 4. מאזן מטען: 92 = 90 + 2.',
+   why:'החלקיק הוא ⁴He — התפרקות אלפא: ²³⁸U → ²³⁴Th + ⁴He.',
+   react:[238.05079],prod:[234.04360,4.00260]},
+  {text:'⁷Li + ¹H → 2·⁴He',shown:'⁷Li + ¹H → 2 × ?',missing:'גרעין הליום ⁴He',
+   balance:'מאזן מסה: 7 + 1 = 8 = 2×4. מאזן מטען: 3 + 1 = 4 = 2×2.',
+   why:'החלקיק הוא ⁴He: ⁷Li + ¹H → 2·⁴He.',
+   react:[7.01600,1.00783],prod:[2*4.00260]},
  ];
  const r=pick(rand,reactions);
  const sum=a=>a.reduce((x,y)=>x+y,0);
  const dm=sum(r.react)-sum(r.prod);           // u
- const E=dm*931.5;                            // MeV
+ const E=dm*931.5;                            // MeV per reaction
+ const Emol=E*96.485e6;                       // kJ per mole (1 eV/molecule = 96.485 kJ/mol)
  return {
-  __meta:{react:r.react,prod:r.prod},
-  given:`נתונה התגובה הגרעינית: ${r.text}. מסות אטומיות (u): H-2 = 2.01410; H-3 = 3.01605; He-4 = 4.00260; n = 1.00866; U-238 = 238.05079; Th-234 = 234.04360; Li-7 = 7.01600; H-1 = 1.00783. ההמרה: 1 u = 931.5 MeV.`,
+  __meta:{react:r.react,prod:r.prod,missing:r.missing},
+  given:`נתונה התגובה הגרעינית (בצורתה המלאה): ${r.text}. מסות אטומיות (u): H-1 = 1.00783; H-2 = 2.01410; H-3 = 3.01605; He-4 = 4.00260; Li-7 = 7.01600; n = 1.00866; Th-234 = 234.04360; U-238 = 238.05079. ההמרה: 1 u = 931.5 MeV, ו-1 eV לחלקיק שווה 96.485 kJ/mol.`,
   parts:[
-   {label:'א',kind:'numeric',unit:'u',
+   {label:'א',kind:'concept',
+    question:`השלימו את התגובה: ${r.shown} נמקו במאזן מספר מסה ומטען.`,
+    modelAnswer:`${r.balance} החלקיק החסר הוא ${r.missing}. ${r.why}`},
+   {label:'ב',kind:'numeric',unit:'u',
     question:'מהו שינוי המסה בתגובה (חסר המסה, בסימן חיובי אם נפלטת אנרגיה)?',
     answer:dm,
     solution:[
      `מסת מגיבים: ${r.react.map(x=>x.toFixed(5)).join(' + ')} = ${sum(r.react).toFixed(5)} u.`,
      `מסת תוצרים: ${r.prod.map(x=>x.toFixed(5)).join(' + ')} = ${sum(r.prod).toFixed(5)} u.`,
      `Δm = ${dm.toFixed(5)} u.`]},
-   {label:'ב',kind:'numeric',unit:'MeV',
+   {label:'ג',kind:'numeric',unit:'MeV',
     question:'מהי האנרגיה הנפלטת בתגובה אחת?',
     answer:E,
     solution:[
      `E = Δm·931.5 = ${dm.toFixed(5)}·931.5 = ${fmtHe(E,4)} MeV.`]},
-   {label:'ג',kind:'concept',
+   {label:'ד',kind:'numeric',unit:'kJ/mol',
+    question:'מהי האנרגיה הנפלטת למול מגיבים, ב-kJ/mol?',
+    answer:Emol,
+    solution:[
+     `כל MeV לחלקיק בודד שווה 96.485·10⁶ kJ/mol.`,
+     `E = ${fmtHe(E,4)}·96.485·10⁶ = ${fmtHe(Emol,4)} kJ/mol — סדר גודל של מיליארד, כמיליון פעמים מתגובה כימית טיפוסית.`]},
+   {label:'ה',kind:'concept',
     question:'מדוע משתמשים במסות אטומיות (עם אלקטרונים) ולא במסות גרעינים, ומתי הקירוב תקף?',
     modelAnswer:'מסות אטומיות כוללות את האלקטרונים של כל אטום. כאשר מספר האלקטרונים הכולל שווה בשני צידי התגובה, מסות האלקטרונים מצטמצמות בהפרש והקירוב תקף. בתגובות בהן משתנה מספר האלקטרונים (למשל לכידת אלקטרון או בטא פלוס) יש לתקן.'},
   ]};

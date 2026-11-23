@@ -78,17 +78,17 @@ export function MockExam({user}){
   {active.questions.map((q,qi)=><article key={q.templateId} className="question panel practice-question" aria-labelledby={q.templateId}>
    <div className="exercise-index">שאלה <bdi dir="ltr">{qi+1}/{active.questions.length}</bdi> · <bdi dir="ltr">{q.area}</bdi></div>
    <h3 id={q.templateId}>{q.title}</h3>
-   <p>{q.given}</p>
+   {bidiElement('p',null,q.given)}
    {q.parts.map(p=>{
     const draft=active.drafts?.[q.templateId]?.[p.label]??'';
     const correct=submitted&&p.kind==='numeric'?markNumeric(draft,p.answer):null;
     const self=active.selfMarks?.[q.templateId]?.[p.label];
     return <section key={p.label} className="mock-part">
-     <h4>סעיף {p.label}. {p.question}</h4>
+     {bidiElement('h4',null,`סעיף ${p.label}. ${p.question}`)}
      {p.kind==='numeric'?<label className="mock-answer">תשובה{p.unit?` (${p.unit})`:''}: <input dir="ltr" inputMode="decimal" disabled={submitted} value={draft} onChange={e=>patch(active.id,a=>({...a,drafts:{...a.drafts,[q.templateId]:{...(a.drafts?.[q.templateId]||{}),[p.label]:e.target.value}}}))}/></label>
       :<label className="mock-answer">ההסבר שלכם: <textarea rows={3} disabled={submitted} value={draft} onChange={e=>patch(active.id,a=>({...a,drafts:{...a.drafts,[q.templateId]:{...(a.drafts?.[q.templateId]||{}),[p.label]:e.target.value}}}))}/></label>}
-     {submitted&&p.kind==='numeric'&&<div className={'feedback '+(correct?'correct':'incorrect')}><h4>{correct?'נכון (בתוך 5%)':'לא נכון'}. התשובה: <bdi dir="ltr">{Number(p.answer.toPrecision(4))}</bdi>{p.unit?` ${p.unit}`:''}</h4>{p.solution?.map((s,i)=><p key={i}>{s}</p>)}</div>}
-     {submitted&&p.kind==='concept'&&<div className="feedback"><h4>תשובת מודל — השוו להסבר שלכם וסמנו:</h4><p>{p.modelAnswer}</p>
+     {submitted&&p.kind==='numeric'&&<div className={'feedback '+(correct?'correct':'incorrect')}><h4>{correct?'נכון (בתוך 5%)':'לא נכון'}. התשובה: <bdi dir="ltr">{Number(p.answer.toPrecision(4))}</bdi>{p.unit?` ${p.unit}`:''}</h4>{p.solution?.map((s,i)=>bidiElement('p',{key:i},s))}</div>}
+     {submitted&&p.kind==='concept'&&<div className="feedback"><h4>תשובת מודל — השוו להסבר שלכם וסמנו:</h4>{bidiElement('p',null,p.modelAnswer)}
       <div className="choices" role="group" aria-label={`סימון עצמי לסעיף ${p.label}`}>
        <button className={self===true?'selected':''} aria-pressed={self===true} onClick={()=>patch(active.id,a=>({...a,selfMarks:{...a.selfMarks,[q.templateId]:{...(a.selfMarks?.[q.templateId]||{}),[p.label]:true}}}))}><span>✓</span>צדקתי</button>
        <button className={self===false?'selected':''} aria-pressed={self===false} onClick={()=>patch(active.id,a=>({...a,selfMarks:{...a.selfMarks,[q.templateId]:{...(a.selfMarks?.[q.templateId]||{}),[p.label]:false}}}))}><span>✗</span>טעיתי</button>

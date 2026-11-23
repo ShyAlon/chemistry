@@ -156,13 +156,18 @@ test('CL2: i and alpha recovered from a rounded measurement',()=>{
  }
 });
 
-test('NC1: mass defect and energy',()=>{
+test('NC1: balance completion, mass defect, energy per reaction and per mole',()=>{
  for(const s of SEEDS){
   const v=gen('NC1',s),m=v.__meta,p=parts(v);
   const sum=a=>a.reduce((x,y)=>x+y,0);
   const dm=sum(m.react)-sum(m.prod);
-  close(p['א'].answer,dm,1e-12,'NC1 dm');
-  close(p['ב'].answer,dm*931.5,1e-12,'NC1 E');
+  // Full E5 method: completion (concept) then dm, MeV, kJ/mol.
+  assert.equal(p['א'].kind,'concept');
+  assert.ok(p['א'].modelAnswer.includes(m.missing),'NC1 completion names the particle');
+  assert.ok(p['א'].modelAnswer.includes('מאזן מטען'),'NC1 completion shows charge balance');
+  close(p['ב'].answer,dm,1e-12,'NC1 dm');
+  close(p['ג'].answer,dm*931.5,1e-12,'NC1 E MeV');
+  close(p['ד'].answer,dm*931.5*96.485e6,1e-12,'NC1 E kJ/mol');
   assert.ok(dm>0,'NC1: listed reactions release energy');
  }
 });

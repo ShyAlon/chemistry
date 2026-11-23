@@ -18,7 +18,7 @@ const fmt=(x,sig=3)=>Number(x.toPrecision(sig));
 const fmtHe=(x,sig=3)=>{
  if(x!==0&&(Math.abs(x)<0.001||Math.abs(x)>=10000)){
   const [m,e]=x.toExponential(sig-1).split('e');
-  return `${Number(m)}·10^${Number(e)}`;
+  return `${Number(m)}·10^(${Number(e)})`;
  }
  return String(fmt(x,sig));
 };
@@ -371,15 +371,15 @@ function genNC1(rand){
  const reactions=[
   {text:'²H + ³H → ⁴He + n',shown:'²H + ³H → ⁴He + ?',missing:'נייטרון ¹n',
    balance:'מאזן מספרי מסה: 2 + 3 = 5 = 4 + 1. מאזן מטען: 1 + 1 = 2 = 2 + 0.',
-   why:'החלקיק החסר הוא נייטרון: ²H + ³H → ⁴He + ¹n (היתוך גרעיני).',
+   why:'זו תגובת היתוך: ²H + ³H → ⁴He + ¹n.',
    react:[2.01410,3.01605],prod:[4.00260,1.00866]},
   {text:'²³⁸U → ²³⁴Th + ⁴He',shown:'²³⁸U → ²³⁴Th + ?',missing:'גרעין הליום ⁴He',
    balance:'מאזן מסה: 238 = 234 + 4. מאזן מטען: 92 = 90 + 2.',
-   why:'החלקיק הוא ⁴He — התפרקות אלפא: ²³⁸U → ²³⁴Th + ⁴He.',
+   why:'זו התפרקות אלפא: ²³⁸U → ²³⁴Th + ⁴He.',
    react:[238.05079],prod:[234.04360,4.00260]},
   {text:'⁷Li + ¹H → 2·⁴He',shown:'⁷Li + ¹H → 2 × ?',missing:'גרעין הליום ⁴He',
    balance:'מאזן מסה: 7 + 1 = 8 = 2×4. מאזן מטען: 3 + 1 = 4 = 2×2.',
-   why:'החלקיק הוא ⁴He: ⁷Li + ¹H → 2·⁴He.',
+   why:'התגובה המאוזנת: ⁷Li + ¹H → 2·⁴He.',
    react:[7.01600,1.00783],prod:[2*4.00260]},
  ];
  const r=pick(rand,reactions);
@@ -861,3 +861,4 @@ export const templates84101=[
  {id:'MX2',area:'תכונות קוליגטיביות',title:'פירוק מדורג ומטען נשמר',generate:genMX2},
 ];
 export const _internals={GASES,vdW,fmtHe,R_ATM,R_J,NA,KB};
+export {fmtHe};

@@ -500,6 +500,7 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 /* Mock exam (84101) */
 .mock-exam-bar{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
 .mock-part{border-top:1px solid #1e2c3d;padding-top:1rem;margin-top:1rem}
+.mock-math{direction:ltr;unicode-bidi:isolate;width:fit-content;max-width:100%;overflow-wrap:break-word;white-space:normal;background:#152131;border-inline-start:2px solid var(--accent);border-radius:12px;padding:10px 14px;margin-block:.6em;margin-inline:auto;font-size:19px;line-height:1.7;text-align:left}
 .mock-part h4{font-weight:600;line-height:1.6}
 .mock-answer{display:block;margin-top:.5rem}
 .mock-answer input,.mock-answer textarea{display:block;width:100%;max-width:26rem;margin-top:.35rem;background:#0b1626;border:1px solid #29435a;border-radius:8px;color:#e8f4fa;padding:.5rem .7rem;font-size:1.05rem;font-family:inherit}

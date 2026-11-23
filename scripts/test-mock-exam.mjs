@@ -76,11 +76,12 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   await ready('.practice-submit .primary');
   await js(`document.querySelector('.practice-submit .primary').click()`);await ready('.feedback');
   assert.equal(await js(`document.querySelectorAll('.practice-question .feedback').length`),attempt.questions.reduce((n,q)=>n+q.parts.length,0),'feedback on every part');
-  // Scientific readability: solution/model-answer text runs through the bidi
-  // pipeline, so every mathematical expression is an intact LTR isolate.
-  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).length`))>0,'feedback has math lines');
-  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>p.querySelector('bdi.bidi-run'))`)),'every math line carries LTR isolate runs');
-  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>[...p.querySelectorAll('bdi.bidi-run')].some(b=>/=/.test(b.textContent)&&b.textContent.length>6))`)),'full expressions isolated, not single tokens');
+  // Scientific readability: worked algebra renders as explicit LTR math
+  // blocks containing no Hebrew; Hebrew explanation stays in RTL paragraphs.
+  assert.ok((await js(`document.querySelectorAll('.feedback p.mock-math[dir="ltr"]').length`))>0,'worked algebra has explicit LTR blocks');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p.mock-math')].every(p=>{const c=p.cloneNode(true);c.querySelectorAll('bdi[dir="rtl"]').forEach(b=>b.remove());return !/[\u0590-\u05ff]/.test(c.textContent);})`)),'Hebrew inside math blocks only as bracketed RTL labels');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p.mock-math')].some(p=>/=/.test(p.textContent))`)),'math blocks carry equations');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p:not(.mock-math)')].some(p=>/[\u0590-\u05ff]/.test(p.textContent))`)),'Hebrew explanation in prose paragraphs');
   const expectAuto=numericTotal-1,expectSelf=conceptTotal-1,total=numericTotal+conceptTotal;
   const expectPercent=Math.round(100*(expectAuto+expectSelf)/total);
   const bar=async()=>await js(`document.querySelector('.mock-exam-bar').textContent`);
@@ -127,10 +128,19 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   // Desktop: same reviewed solutions keep expression-level isolation.
   await call('Emulation.setDeviceMetricsOverride',{width:1280,height:844,deviceScaleFactor:1,mobile:false});
   await new Promise(r=>setTimeout(r,200));
-  assert.ok((await js(`[...document.querySelectorAll('.feedback p')].filter(p=>/[=√⁻²³]/.test(p.textContent)).every(p=>p.querySelector('bdi.bidi-run'))`)),'desktop: every math line carries LTR isolate runs');
+  assert.ok((await js(`[...document.querySelectorAll('.feedback p.mock-math')].every(p=>{const c=p.cloneNode(true);c.querySelectorAll('bdi[dir="rtl"]').forEach(b=>b.remove());return !/[\u0590-\u05ff]/.test(c.textContent);})`)),'desktop: Hebrew only as bracketed RTL labels');
+  assert.ok((await js(`document.querySelectorAll('.feedback p.mock-math[dir="ltr"]').length`))>0,'desktop: explicit LTR math blocks');
   await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);
   await new Promise(r=>setTimeout(r,150));
   await shot('mock-exam-feedback-1280');
+
+  // 320px: equations must stay readable without horizontal overflow.
+  await call('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:false});
+  await new Promise(r=>setTimeout(r,200));
+  assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'),'320: no horizontal overflow');
+  await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);
+  await new Promise(r=>setTimeout(r,150));
+  await shot('mock-exam-feedback-320');
  }
  console.log('Mock-exam browser PASSED: list/paper 390+1280 layouts, five questions, stopwatch run/pause/freeze, auto-marked 5% tolerance split, self-marked concept split, percent, persistence after reload.');
 }finally{ws?.close();chrome.kill('SIGTERM');server.close();await rm(profile,{recursive:true,force:true,maxRetries:4,retryDelay:300})}

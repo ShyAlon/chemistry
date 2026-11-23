@@ -1,7 +1,9 @@
 import React,{useEffect,useMemo,useRef,useState} from 'react';
 import {bidiElement} from '../bidi-react.js';
+import {mathNotation} from '../math-notation.js';
+import {normalizeBidiText} from '../bidi.js';
 import {PageTitle} from '../PageTitle.jsx';
-import {templates84101} from './templates-84101.js';
+import {templates84101,fmtHe} from './templates-84101.js';
 import {createAttempt,scoreAttempt,submitAttempt,markNumeric,PAPER_SIZE} from './attempt.js';
 import {createMockExamStore} from './store.js';
 import {firebaseMockExamGateway} from './firebase.js';
@@ -14,6 +16,66 @@ function useMockExam(uid){
  const store=useMemo(()=>{let storage;try{storage=localStorage}catch{storage={getItem(){throw Error('storage')},setItem(){throw Error('storage')}}}return createMockExamStore({uid,storage,online:()=>navigator.onLine,gateway:firebaseMockExamGateway(uid,{db,account:()=>auth.currentUser}),changed:setState});},[uid]);
  useEffect(()=>{void store.start();const refresh=()=>void store.sync();for(const e of ['online','focus'])addEventListener(e,refresh);return()=>{store.close();for(const e of ['online','focus'])removeEventListener(e,refresh);};},[uid,store]);
  return {state,store};
+}
+// Worked algebra renders as explicit LTR math blocks, one equation per block,
+// with Hebrew explanation as ordinary RTL paragraphs outside the blocks. The
+// split is bracket-aware: a Hebrew label inside brackets (n(אתנול), P°(מים))
+// is part of the formula and stays in the block as an RTL isolate. Each
+// top-level semicolon starts a new block, so steps wrap deliberately.
+const hebrewRun=/[\u0590-\u05ff]/u;
+function splitSmart(text){
+ const segs=[];let cur='',depth=0,heMode=null;
+ const push=()=>{if(cur!=='')segs.push({he:heMode,s:cur});cur='';};
+ for(const ch of String(text)){
+  const he=hebrewRun.test(ch)&&depth===0;
+  if(heMode===null||he!==heMode){push();heMode=he;}
+  if('([{'.includes(ch))depth++;else if(')]}'.includes(ch))depth=Math.max(0,depth-1);
+  cur+=ch;
+ }
+ push();
+ return segs;
+}
+function topLevelSemicolons(s){
+ const out=[];let cur='',depth=0;
+ for(const ch of s){
+  if('([{'.includes(ch))depth++;else if(')]}'.includes(ch))depth=Math.max(0,depth-1);
+  if(ch===';'&&depth===0){out.push(cur);cur='';}else cur+=ch;
+ }
+ out.push(cur);return out;
+}
+const bracketedHebrew=/[(\[{][^()\[\]{}]*[\u0590-\u05ff][^()\[\]{}]*[)\]}]/u;
+function mathChildren(s){
+ const out=[];let rest=s,k=0,m;
+ while((m=rest.match(bracketedHebrew))){
+  if(m.index>0)out.push(...mathNotation(rest.slice(0,m.index)));
+  out.push(<bdi key={'bh'+(k++)} dir="rtl">{m[0]}</bdi>);
+  rest=rest.slice(m.index+m[0].length);
+ }
+ if(rest)out.push(...mathNotation(rest));
+ return out;
+}
+function mixedBlocks(text,keyBase){
+ const out=[];let prose='',n=0,carry='';
+ const flush=()=>{const t=prose.trim();prose='';if(t)out.push(<p key={keyBase+'-p'+(n++)} dir="rtl">{normalizeBidiText(t)}</p>);};
+ for(const seg of splitSmart(text)){
+  if(seg.he){prose+=carry+seg.s;carry='';continue;}
+  let math=seg.s,lead='';
+  const lm=math.match(/^[\s:;,.\u2013-]*=?[\s]*/);
+  if(lm){lead=lm[0];math=math.slice(lead.length);}
+  const tm=math.match(/[\s,;]+$/);let tail='';
+  if(tm){tail=tm[0];math=math.slice(0,math.length-tail.length);}
+  const worked=/[=\u221a\u2211\u222b]/.test(math)||math.trim().length>24;
+  if(worked){
+   prose+=carry+lead;carry='';flush();
+   for(const step of topLevelSemicolons(math)){
+    const st=step.trim();
+    if(st)out.push(<p key={keyBase+'-m'+(n++)} dir="ltr" className="mock-math">{mathChildren(st)}</p>);
+   }
+   carry=tail;
+  }else{prose+=carry+seg.s;carry='';}
+ }
+ flush();
+ return out;
 }
 const fmtTime=s=>{const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=Math.floor(s%60);return `${h}:${String(m).padStart(2,'0')}:${String(x).padStart(2,'0')}`;};
 
@@ -87,8 +149,8 @@ export function MockExam({user}){
      {bidiElement('h4',null,`סעיף ${p.label}. ${p.question}`)}
      {p.kind==='numeric'?<label className="mock-answer">תשובה{p.unit?` (${p.unit})`:''}: <input dir="ltr" inputMode="decimal" disabled={submitted} value={draft} onChange={e=>patch(active.id,a=>({...a,drafts:{...a.drafts,[q.templateId]:{...(a.drafts?.[q.templateId]||{}),[p.label]:e.target.value}}}))}/></label>
       :<label className="mock-answer">ההסבר שלכם: <textarea rows={3} disabled={submitted} value={draft} onChange={e=>patch(active.id,a=>({...a,drafts:{...a.drafts,[q.templateId]:{...(a.drafts?.[q.templateId]||{}),[p.label]:e.target.value}}}))}/></label>}
-     {submitted&&p.kind==='numeric'&&<div className={'feedback '+(correct?'correct':'incorrect')}><h4>{correct?'נכון (בתוך 5%)':'לא נכון'}. התשובה: <bdi dir="ltr">{Number(p.answer.toPrecision(4))}</bdi>{p.unit?` ${p.unit}`:''}</h4>{p.solution?.map((s,i)=>bidiElement('p',{key:i},s))}</div>}
-     {submitted&&p.kind==='concept'&&<div className="feedback"><h4>תשובת מודל — השוו להסבר שלכם וסמנו:</h4>{bidiElement('p',null,p.modelAnswer)}
+     {submitted&&p.kind==='numeric'&&<div className={'feedback '+(correct?'correct':'incorrect')}><h4>{correct?'נכון (בתוך 5%)':'לא נכון'}. התשובה: <bdi dir="ltr">{mathNotation(fmtHe(p.answer)+(p.unit?' '+p.unit:''))}</bdi></h4>{p.solution?.flatMap((s,i)=>mixedBlocks(s,'q'+qi+p.label+i))}</div>}
+     {submitted&&p.kind==='concept'&&<div className="feedback"><h4>תשובת מודל — השוו להסבר שלכם וסמנו:</h4>{mixedBlocks(p.modelAnswer,'q'+qi+p.label+'ma')}
       <div className="choices" role="group" aria-label={`סימון עצמי לסעיף ${p.label}`}>
        <button className={self===true?'selected':''} aria-pressed={self===true} onClick={()=>patch(active.id,a=>({...a,selfMarks:{...a.selfMarks,[q.templateId]:{...(a.selfMarks?.[q.templateId]||{}),[p.label]:true}}}))}><span>✓</span>צדקתי</button>
        <button className={self===false?'selected':''} aria-pressed={self===false} onClick={()=>patch(active.id,a=>({...a,selfMarks:{...a.selfMarks,[q.templateId]:{...(a.selfMarks?.[q.templateId]||{}),[p.label]:false}}}))}><span>✗</span>טעיתי</button>

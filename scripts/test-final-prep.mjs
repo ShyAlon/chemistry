@@ -59,10 +59,10 @@ try{
  const assertWidth=async label=>assert.ok(await js('document.documentElement.scrollWidth<=innerWidth+1'),label+' page overflow');
  for(const [width,height] of [[1280,900],[390,844],[320,844]]){
   await call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:false});
-  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.practice-entry');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.action-bar');
   await js(`localStorage.setItem('spectra-course-84101-progress-v1',${JSON.stringify(prior)})`);
-  await reloadDocument(call,js);await ready('.practice-entry');
-  await js(`document.querySelector('.practice-entry button').click()`);await ready('.practice-session-grid');
+  await reloadDocument(call,js);await ready('.action-bar');
+  await js(`document.querySelector('.action-bar a[href="#course/84101/practice"]').click()`);await ready('.practice-session-grid');
   assert.equal(await js(`document.querySelectorAll('.practice-session-card').length`),16);
   assert.ok(await js(`document.querySelector('.practice-session-card h2').textContent.includes('אותו משקל')`));
   await assertWidth('exam list '+width);await shot('final-prep-exam-list-'+width);

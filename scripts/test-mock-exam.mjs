@@ -42,7 +42,7 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
 
  for(const width of [390,1280]){
   await call('Emulation.setDeviceMetricsOverride',{width,height:844,deviceScaleFactor:1,mobile:false});
-  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.practice-entry');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101'});await ready('.action-bar');
   await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84101/mock-exam'});await ready('.practice-session-grid');
   assert.ok((await js(`document.querySelectorAll('.practice-session-card').length`))>=1);
   await shot('mock-exam-list-'+width);

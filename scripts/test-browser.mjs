@@ -304,7 +304,7 @@ try{
  {
   await call('Emulation.setDeviceMetricsOverride',{width:1280,height:900,deviceScaleFactor:1,mobile:false});
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101'});await ready('.topic-grid');
-  assert.ok(await js(`[...document.querySelectorAll('button')].some(b=>b.textContent.includes('מילון המונחים'))`),'course map links the glossary');
+  assert.ok(await js(`[...document.querySelectorAll('button,a')].some(b=>b.textContent.includes('מילון המונחים'))`),'course map links the glossary');
   await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/glossary'});await ready('.glossary-list');
   const total=await js(`document.querySelectorAll('.g-term').length`);
   assert.ok(total>=40,'glossary lists the course terms, got '+total);

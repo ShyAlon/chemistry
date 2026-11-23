@@ -89,8 +89,8 @@ try{
   }
   await reloadDocument(call,js);await ready('.practice-session-grid');assert.equal(await js(`document.querySelectorAll('.practice-saved').length`),8);
   await shot('practice-saved-sessions-390');
-  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84102'});await ready('.practice-entry');
-  await js(`document.querySelector('.practice-entry button').click()`);await ready('.practice-session-grid');
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#course/84102'});await ready('.action-bar');
+  await js(`document.querySelector('.action-bar a[href="#course/84102/practice"]').click()`);await ready('.practice-session-grid');
  }
  console.log('Practice browser PASSED: 320/390/1280 layouts, eight sessions/all80 selections, gated submission, score9/10 and10/10, final explanations and topic links, persisted eight results after reload, existing P7 answers unchanged, course entry.');
 }finally{ws?.close();chrome.kill('SIGTERM');server.close();await rm(profile,{recursive:true,force:true,maxRetries:4,retryDelay:300})}

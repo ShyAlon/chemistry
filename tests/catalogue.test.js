@@ -9,12 +9,12 @@ import {contentRoot,readDocuments,loadCatalogue,writeCatalogue} from '../scripts
 const clone=()=>structuredClone(readDocuments());
 
 test('split manifest preserves ordered course/topic identity and complete content',()=>{
- assert.deepEqual(catalogue.courses.map(c=>[c.id,c.topics.length]),[['84102',12],['84101',16],['nano',12],['nuclear',10]]);
+ assert.deepEqual(catalogue.courses.map(c=>[c.id,c.topics.length]),[['84102',12],['84101',16],['nano',12],['nuclear',10],['solid-state',8]]);
  assert.deepEqual(catalogue.courses[0].topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4','P11','P12']);
- assert.equal(catalogue.courses.flatMap(c=>c.topics).length,50);
- assert.equal(catalogue.courses.flatMap(c=>c.topics.flatMap(t=>t.content.quiz)).length,372);
+ assert.equal(catalogue.courses.flatMap(c=>c.topics).length,58);
+ assert.equal(catalogue.courses.flatMap(c=>c.topics.flatMap(t=>t.content.quiz)).length,431);
  assert.deepEqual(loadCatalogue(),catalogue);
- assert.equal(Object.keys(readDocuments()).length,55);
+ assert.equal(Object.keys(readDocuments()).length,64); // 55 legacy + solid-state topics.json + 8 topic files
 });
 test('missing, orphan and multiply referenced files fail closed',()=>{
  const missing=clone();delete missing['84101/topics/G1.json'];assert.throws(()=>assembleCatalogue(missing),/missing file/);

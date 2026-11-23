@@ -107,7 +107,7 @@ test('glossary routes are stable, unique and parse back',()=>{
  const routes=new Set(docs.map(d=>d.route));
  assert.equal(routes.size,total,'one stable route per term');
  for(const d of docs){
-  assert.match(d.route,/^course\/[a-z0-9]+\/glossary\/[a-z0-9-]+$/);
+  assert.match(d.route,/^course\/[a-z0-9-]+\/glossary\/[a-z0-9-]+$/);
   assert.equal(d.kind,'מונח');
   assert.ok(d.headings.length>=1&&d.body,'search doc carries heading terms and a definition body');
   const parsed=parseGlossaryRoute(d.route);

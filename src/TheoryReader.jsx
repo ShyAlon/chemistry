@@ -24,7 +24,6 @@ export function TheoryReader({topic,renderBlock}){
  },[state?.active,chunks]);
  const index=state?.index||0,select=i=>player.current?.jump(i);
  return <section className="theory-reader" ref={root} aria-label="הקראת התיאוריה בעברית">
-  <div className="reader-intro"><h3>לקרוא בקצב שלך, לשמוע פסקה שלמה</h3><p>בחרו פסקה בטקסט או בתפריט הבחירה, והפעילו הקראה מהסרגל העליון. ההדגשה עוקבת אחרי הפסקה, לא אחרי כל מילה. הקול והמהירות נקבעים בהגדרות ההקראה שבתפריט האישי.</p></div>
   {state&&!state.available&&<div className="reader-notice" role="status"><p>לא נמצא כרגע קול עברי מקומי בדפדפן. אפשר להמשיך לקרוא כרגיל. לא נעבור לאנגלית או לשירות הקראה מרוחק.</p><button className="secondary" type="button" onClick={()=>player.current.refreshVoices()}>בדיקת קולות מחדש</button></div>}
   <details className="reader-jump"><summary>בחירת פסקה ונוסח ההקראה</summary>
    <label className="reader-paragraph-field">פסקה לקריאה<select aria-label="פסקה לקריאה" value={index} onChange={e=>select(Number(e.target.value))}>{chunks.map((c,i)=><option key={c.id} value={i}>{i+1}. {c.display.slice(0,70)}</option>)}</select></label>

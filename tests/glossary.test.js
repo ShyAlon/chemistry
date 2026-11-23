@@ -134,5 +134,7 @@ test('glossary pages never touch saved progress, and the app wires them in',()=>
  const main=fs.readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8');
  assert.ok(main.includes('parseGlossaryRoute'),'route parsing wired');
  assert.ok(main.includes('<Glossary'),'page wired');
- assert.ok(main.includes('מילון המונחים'),'course-map entry panel wired');
+ assert.ok(main.includes('<CourseActions'),'course-map action bar wired');
+ const actions=fs.readFileSync(new URL('../src/CourseActions.jsx',import.meta.url),'utf8');
+ assert.ok(actions.includes('מילון המונחים'),'course-map glossary chip wired');
 });

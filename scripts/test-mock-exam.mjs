@@ -80,7 +80,16 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   const expectPercent=Math.round(100*(expectAuto+expectSelf)/total);
   const bar=async()=>await js(`document.querySelector('.mock-exam-bar').textContent`);
   assert.ok((await bar()).includes(`${expectAuto}/${numericTotal}`),'auto split before self-marking: '+await bar());
+  assert.ok((await bar()).includes(`ממתינים לסימון: ${conceptTotal}`),'pending count before self-marking: '+await bar());
+  assert.ok((await bar()).includes('הציון זמני'),'provisional marker before self-marking');
   await shot('mock-exam-solutions-390');
+  // Decisive captures: a numeric solution block and a model-answer block with its controls.
+  await js(`document.querySelector('.practice-question .feedback').scrollIntoView({block:'center'})`);
+  await new Promise(r=>setTimeout(r,150));
+  await shot('mock-exam-feedback-390');
+  await js(`[...document.querySelectorAll('.feedback')].find(f=>f.textContent.includes('תשובת מודל')).scrollIntoView({block:'center'})`);
+  await new Promise(r=>setTimeout(r,150));
+  await shot('mock-exam-model-answer-390');
   // Self-marking: first concept part marked wrong, the rest right.
   let marked=false;
   for(const [qi,q] of attempt.questions.entries()){
@@ -94,12 +103,17 @@ window.__setField=(el,v)=>{const proto=el.tagName==='TEXTAREA'?HTMLTextAreaEleme
   const barText=await bar();
   assert.ok(barText.includes(`${expectPercent}%`),'percent '+expectPercent+' in '+barText);
   assert.ok(barText.includes(`${expectSelf}/${conceptTotal}`),'self split');
+  assert.ok(!barText.includes('ממתינים לסימון'),'no pending note once all self-marked');
   await shot('mock-exam-selfmarked-390');
 
   // Persistence across reload: listed with percent; reopening shows feedback.
   await reloadDocument(call,js);await ready('.practice-session-grid');
   const cards=await js(`[...document.querySelectorAll('.practice-session-card')].map(c=>c.textContent)`);
   assert.ok(cards.some(c=>c.includes(`${expectPercent}%`)),'submitted attempt listed with percent');
+  assert.ok(cards.some(c=>c.includes('נשמר עד')),'history card shows retention date');
+  await js(`[...document.querySelectorAll('.practice-session-card')].find(c=>c.textContent.includes('הוגש')).scrollIntoView({block:'center'})`);
+  await new Promise(r=>setTimeout(r,150));
+  await shot('mock-exam-history-390');
   await js(`[...document.querySelectorAll('.practice-session-card button')].find(b=>b.textContent.includes('צפייה')||b.textContent.includes('השלמת')).click()`);
   await ready('.feedback');
   assert.ok((await js(`document.querySelector('.mock-exam-bar').textContent`)).includes(`${expectPercent}%`),'score persists after reload');

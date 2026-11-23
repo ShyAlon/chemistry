@@ -1,6 +1,6 @@
 // Mock-exam persistence: localStorage cache plus account sync, retention at load.
 // Pure logic (no DOM/Firebase imports) so unit tests cover it with fakes.
-import {applyRetention} from './attempt.js';
+import {applyRetention,validateAttempt} from './attempt.js';
 
 export const mockPrefix=uid=>'spectra-mock-exam-v1:'+encodeURIComponent(uid)+':';
 export const SCHEMA=1;
@@ -9,7 +9,7 @@ export const SCHEMA=1;
 export function createMockExamStore({uid,storage,gateway,online=()=>true,changed=()=>{}}){
  const key=mockPrefix(uid)+'cache';
  let closed=false,busy=false,again=false,attempts={},state={phase:'loading',storageFailed:false,error:''};
- try{const c=JSON.parse(storage.getItem(key));if(c?.schema===SCHEMA&&c.uid===uid)attempts=c.attempts||{};}catch{state.storageFailed=true;}
+ try{const c=JSON.parse(storage.getItem(key));if(c?.schema===SCHEMA&&c.uid===uid)attempts=Object.fromEntries(Object.entries(c.attempts||{}).map(([k,v])=>[k,validateAttempt(v)]).filter(([,v])=>v));}catch{state.storageFailed=true;}
  function persist(){try{storage.setItem(key,JSON.stringify({schema:SCHEMA,uid,attempts}));state.storageFailed=false;}catch{state.storageFailed=true;}}
  function visible(){const out={};for(const [id,a] of Object.entries(attempts)){const {_synced,...rest}=a;out[id]=rest;}return out;}
  function snapshot(){return {...state,pending:Object.values(attempts).filter(a=>!a._synced).length,attempts:visible()};}

@@ -62,7 +62,7 @@ export function MockExam({user}){
     <article className="panel practice-session-card"><h2>מבחן חדש</h2><p>{PAPER_SIZE} שאלות מתחומים שונים, עם שעון עצר ופתרונות אחרי הגשה.</p><button className="primary" onClick={startNew}>יוצרים מבחן ←</button></article>
     {open&&<article className="panel practice-session-card"><h2>מבחן פתוח</h2><p>נפתח ב-{new Date(open.createdAt).toLocaleDateString('he-IL')} · שעון: <bdi dir="ltr">{fmtTime(open.elapsedSec)}</bdi></p><button className="primary" onClick={()=>{setActiveId(open.id);window.scrollTo(0,0)}}>ממשיכים מהמקום שעצרנו ←</button></article>}
     {attempts.filter(a=>a.status==='submitted').map(a=>{const s=scoreAttempt(a);return <article className="panel practice-session-card" key={a.id}><h2>הוגש ב-{new Date(a.submittedAt).toLocaleDateString('he-IL')}</h2>
-     <p>ציון: <bdi dir="ltr">{s.percent}%</bdi> · מספרי: <bdi dir="ltr">{s.autoCorrect}/{s.autoTotal}</bdi> · סימון עצמי: <bdi dir="ltr">{s.selfCorrect}/{s.selfTotal}</bdi> · שעון: <bdi dir="ltr">{fmtTime(a.elapsedSec)}</bdi></p>
+     <p>ציון: <bdi dir="ltr">{s.percent}%</bdi> · מספרי: <bdi dir="ltr">{s.autoCorrect}/{s.autoTotal}</bdi> · סימון עצמי: <bdi dir="ltr">{s.selfCorrect}/{s.selfTotal}</bdi>{s.pending>0&&<span> · ממתינים לסימון: <bdi dir="ltr">{s.pending}</bdi> (הציון זמני)</span>} · שעון: <bdi dir="ltr">{fmtTime(a.elapsedSec)}</bdi></p>
      <p className="practice-saved">נשמר עד {new Date(a.expireAt).toLocaleDateString('he-IL')}</p>
      <button className="secondary" onClick={()=>{setActiveId(a.id);window.scrollTo(0,0)}}>{s.selfCorrect<s.selfTotal?'השלמת סימון עצמי':'צפייה בפתרונות'}</button></article>})}
    </section>
@@ -73,7 +73,7 @@ export function MockExam({user}){
   <div className="mock-exam-bar panel" role="status">
    <span>שעון: <bdi dir="ltr">{fmtTime(active.elapsedSec)}</bdi></span>
    {!submitted&&<button className="quiet" onClick={()=>patch(active.id,a=>({...a,timerRunning:!a.timerRunning}))}>{active.timerRunning?'השהיית השעון':'הפעלת השעון'}</button>}
-   {submitted&&score&&<span>ציון: <bdi dir="ltr">{score.percent}%</bdi> · מספרי: <bdi dir="ltr">{score.autoCorrect}/{score.autoTotal}</bdi> · סימון עצמי: <bdi dir="ltr">{score.selfCorrect}/{score.selfTotal}</bdi></span>}
+   {submitted&&score&&<span>ציון: <bdi dir="ltr">{score.percent}%</bdi> · מספרי: <bdi dir="ltr">{score.autoCorrect}/{score.autoTotal}</bdi> · סימון עצמי: <bdi dir="ltr">{score.selfCorrect}/{score.selfTotal}</bdi>{score.pending>0&&<span> · ממתינים לסימון: <bdi dir="ltr">{score.pending}</bdi> (הציון זמני)</span>}</span>}
   </div>
   {active.questions.map((q,qi)=><article key={q.templateId} className="question panel practice-question" aria-labelledby={q.templateId}>
    <div className="exercise-index">שאלה <bdi dir="ltr">{qi+1}/{active.questions.length}</bdi> · <bdi dir="ltr">{q.area}</bdi></div>

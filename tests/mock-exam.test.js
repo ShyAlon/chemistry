@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {templates84101} from '../src/mock-exam/templates-84101.js';
 import {rng} from '../src/mock-exam/rng.js';
-import {createAttempt,markNumeric,scoreAttempt,expiryFor,applyRetention,submitAttempt,TOLERANCE,PAPER_SIZE,MAX_COMPLETED} from '../src/mock-exam/attempt.js';
+import {createAttempt,markNumeric,scoreAttempt,expiryFor,applyRetention,submitAttempt,validateAttempt,TOLERANCE,PAPER_SIZE,MAX_COMPLETED} from '../src/mock-exam/attempt.js';
 
 test('every template generates finite numeric answers and required fields across seeds',()=>{
  for(const t of templates84101){
@@ -145,4 +145,66 @@ test('store keeps unsynced local work offline without touching the account',asyn
  assert.deepEqual(gw.saved,[]);
  assert.equal(store.snapshot().pending,1);
  assert.ok(store.snapshot().attempts.m2);
+});
+
+test('paper balancing: exactly PAPER_SIZE questions, distinct areas, every area reachable across seeds',()=>{
+ const allAreas=new Set(templates84101.map(t=>t.area));
+ const seen=new Set();
+ for(let i=0;i<80;i++){
+  const a=createAttempt(templates84101,{seed:'bal:'+i,id:'b'+i});
+  assert.equal(a.questions.length,PAPER_SIZE);
+  const areas=a.questions.map(q=>q.area);
+  assert.equal(new Set(areas).size,PAPER_SIZE,'one question per area');
+  for(const q of a.questions){
+   assert.ok(byAreaCount(q),q.templateId);
+   seen.add(q.area);
+  }
+ }
+ for(const area of allAreas)assert.ok(seen.has(area),`area never drawn: ${area}`);
+ function byAreaCount(q){return templates84101.some(t=>t.id===q.templateId&&t.area===q.area);}
+});
+
+test('score denominator counts all parts; pending self-marks are explicit',()=>{
+ const a=createAttempt(templates84101,{seed:'den:1',id:'d1'});
+ // Fill every numeric draft correctly, leave concept parts unmarked.
+ for(const q of a.questions)for(const p of q.parts)
+  if(p.kind==='numeric'){a.drafts[q.templateId]=a.drafts[q.templateId]||{};a.drafts[q.templateId][p.label]=String(p.answer);}
+ let s=scoreAttempt(a);
+ assert.equal(s.autoCorrect,s.autoTotal);
+ assert.equal(s.pending,s.selfTotal,'all concept parts pending before self-marking');
+ assert.equal(s.selfMarked,0);
+ // Percent is over ALL parts (equal weight), so pending concept parts lower it.
+ assert.equal(s.percent,Math.round(100*s.autoCorrect/s.total));
+ // Mark one concept part: pending drops, score rises, denominator unchanged.
+ const q0=a.questions.find(q=>q.parts.some(p=>p.kind==='concept'));
+ const p0=q0.parts.find(p=>p.kind==='concept');
+ a.selfMarks[q0.templateId]={[p0.label]:true};
+ s=scoreAttempt(a);
+ assert.equal(s.pending,s.selfTotal-1);
+ assert.equal(s.selfCorrect,1);
+ assert.equal(s.total,s.autoTotal+s.selfTotal);
+});
+
+test('validateAttempt accepts a real attempt and rejects corrupt payloads',()=>{
+ const a=submitAttempt(createAttempt(templates84101,{seed:'va:1',id:'v1'}));
+ assert.ok(validateAttempt(JSON.parse(JSON.stringify(a))),'real attempt passes');
+ const bad=[
+  null,42,'x',[],
+  {...a,questions:'not-an-array'},
+  {...a,questions:[]},
+  {...a,status:'weird'},
+  {...a,elapsedSec:-3},
+  {...a,questions:[{...a.questions[0],parts:[{...a.questions[0].parts[0],kind:'hybrid'}]}]},
+  {...a,questions:[{...a.questions[0],given:'x'.repeat(5000)}]},
+  {...a,questions:[{...a.questions[0],parts:a.questions[0].parts.map(p=>p.kind==='numeric'?{...p,answer:'12'}:p)}]},
+  {...a,drafts:{x:{a:'y'.repeat(600)}}},
+  {...a,selfMarks:{x:{a:'yes'}}},
+ ];
+ for(const b of bad)assert.equal(validateAttempt(b),null,JSON.stringify(b)?.slice(0,60));
+ // A stored attempt with hostile markup in strings passes shape-checking but is
+ // inert: React renders strings as text, so markup cannot execute.
+ const hostile=JSON.parse(JSON.stringify(a));
+ hostile.questions[0].given='<img src=x onerror=alert(1)>';
+ hostile.questions[0].parts[0].question='<script>alert(1)</script>';
+ assert.ok(validateAttempt(hostile),'markup is text, shape is valid');
 });

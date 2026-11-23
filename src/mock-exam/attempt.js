@@ -52,7 +52,9 @@ export function scoreAttempt(attempt){
    }
   }
  }
+ const selfMarked=Object.values(attempt.selfMarks||{}).reduce((n,m)=>n+Object.keys(m||{}).length,0);
  return {total,correct:autoCorrect+selfCorrect,autoCorrect,autoTotal,selfCorrect,selfTotal,
+  selfMarked,pending:selfTotal-selfMarked,
   percent:total?Math.round(100*(autoCorrect+selfCorrect)/total):0};
 }
 
@@ -82,6 +84,46 @@ export function applyRetention(attempts,now=new Date()){
  const dropIds=new Set([...expired,...excess].map(a=>a.id));
  return {keep:attempts.filter(a=>!dropIds.has(a.id)),
   drop:attempts.filter(a=>dropIds.has(a.id))};
+}
+
+// Shape-check a stored attempt before use. Stored payloads (Firestore docs and
+// the local cache) are untrusted input: a corrupt or hostile document must not
+// reach rendering. Strings are bounded; React escapes text at render, so no
+// markup in a payload can execute. Returns the attempt when valid, else null.
+export function validateAttempt(a){
+ const s=(v,n)=>typeof v==='string'&&v.length<=n;
+ const dt=v=>v===null||(typeof v==='string'&&!Number.isNaN(Date.parse(v)));
+ const smallMap=(m,valOk)=>m&&typeof m==='object'&&!Array.isArray(m)
+  &&Object.keys(m).length<=8&&Object.entries(m).every(([k,v])=>s(k,32)&&valOk(v));
+ const innerMap=(valOk)=>v=>v&&typeof v==='object'&&!Array.isArray(v)
+  &&Object.keys(v).length<=6&&Object.entries(v).every(([k,x])=>s(k,4)&&valOk(x));
+ try{
+  if(!a||typeof a!=='object'||Array.isArray(a))return null;
+  if(!s(a.id,128)||!s(a.course,32)||!s(a.seed,64))return null;
+  if(a.status!=='open'&&a.status!=='submitted')return null;
+  if(!dt(a.createdAt)||!dt(a.submittedAt)||!dt(a.expireAt))return null;
+  if(typeof a.timerRunning!=='boolean')return null;
+  if(!Number.isFinite(a.elapsedSec)||a.elapsedSec<0||a.elapsedSec>1e7)return null;
+  if(!Array.isArray(a.questions)||a.questions.length<1||a.questions.length>8)return null;
+  for(const q of a.questions){
+   if(!q||typeof q!=='object'||Array.isArray(q))return null;
+   if(!s(q.templateId,32)||!s(q.area,64)||!s(q.title,200)||!s(q.given,4000))return null;
+   if(!Array.isArray(q.parts)||q.parts.length<1||q.parts.length>6)return null;
+   for(const p of q.parts){
+    if(!p||typeof p!=='object'||Array.isArray(p))return null;
+    if(!s(p.label,4)||(p.kind!=='numeric'&&p.kind!=='concept'))return null;
+    if(p.unit!==null&&!s(p.unit,32))return null;
+    if(!s(p.question,2000))return null;
+    if(p.kind==='numeric'&&!Number.isFinite(p.answer))return null;
+    if(p.kind==='concept'&&p.answer!==null)return null;
+    if(p.solution!==null&&!(Array.isArray(p.solution)&&p.solution.length<=12&&p.solution.every(x=>s(x,1000))))return null;
+    if(p.modelAnswer!==null&&!s(p.modelAnswer,4000))return null;
+   }
+  }
+  if(!smallMap(a.drafts,innerMap(x=>s(x,500))))return null;
+  if(!smallMap(a.selfMarks,innerMap(x=>typeof x==='boolean')))return null;
+  return a;
+ }catch{return null;}
 }
 
 export function submitAttempt(attempt,now=new Date()){

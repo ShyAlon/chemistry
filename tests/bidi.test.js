@@ -46,3 +46,9 @@ test('chromium/copper screenshot: semicolon cannot fuse separate scientific stat
  assert.equal(n('[x; y]'),`${L}[x; y]${P}`);
  assert.equal(n('n = 1, 2, 3'),`${L}n = 1, 2, 3${P}`);
 });
+
+test('isotope mass numbers open the LTR run: left superscripts stay attached',()=>{
+ assert.equal(n('האיזוטופ ¹⁰⁷Ag נפוץ'),`האיזוטופ ${L}¹⁰⁷Ag${P} נפוץ`);
+ assert.equal(n('²⁷Al + ⁴He → ³⁰P + n'),`${L}²⁷Al + ⁴He → ³⁰P + n${P}`);
+ assert.equal(n('CO₂ ו-H₂O ב-STP'),`${L}CO₂${P} ו-${L}H₂O${P} ב-${L}STP${P}`);
+});

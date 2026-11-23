@@ -506,3 +506,6 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .mock-answer input,.mock-answer textarea{display:block;width:100%;max-width:26rem;margin-top:.35rem;background:#0b1626;border:1px solid #29435a;border-radius:8px;color:#e8f4fa;padding:.5rem .7rem;font-size:1.05rem;font-family:inherit}
 .mock-answer input:disabled,.mock-answer textarea:disabled{opacity:.75}
 .mock-answer textarea{max-width:44rem}
+.avatar-readaloud{display:flex;gap:15px;align-items:center;justify-content:center;width:100%;background:#1a2737;border:1px solid #536376;color:#cfeeF5;border-radius:7px;padding:12px;font-size:18px;margin-bottom:10px}
+.avatar-readaloud:hover{background:#22344a}
+.avatar-readaloud>span{font-size:22px}

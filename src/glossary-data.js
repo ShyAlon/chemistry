@@ -246,6 +246,23 @@ export const glossary={
  {slug:'alara',he:'עקרון ALARA',en:'ALARA',topic:'E9',def:'As Low As Reasonably Achievable: המנה נמוכה ככל הסביר תוך שקלול כלכלי וחברתי. זרוע האופטימיזציה של עקרונות ה־ICRP.'},
  {slug:'radiation-protection',he:'עקרונות ההגנה מקרינה',en:'Radiation Protection Principles',topic:'E9',aliases:['ICRP','Justification','Dose limitation','ALARA'],def:'עקרונות ה־ICRP: הצדקה (Justification), אופטימיזציה (ALARA) והגבלת מנה (Dose limitation). בפועל: זמן, מרחק ומיגון.'},
 ],
+'solid-state':[
+ {slug:'lattice-energy',he:'אנרגיית סריג',en:'Lattice Energy',topic:'SS2',def:'האנרגיה הנפלטת כשמול תרכובת יונית נוצר מיוניו במצב גזי. שלילית יותר = קישור חזק יותר: מטען גדול ורדיוס קטן מגדילים אותה. לא לבלבל עם ΔHf°.'},
+ {slug:'born-haber',he:'מעגל בורן-האבר',en:'Born-Haber Cycle',topic:'SS2',def:'פירוק היווצרות תרכובת יונית לצעדים מדידים לפי חוק הס: סובלימציה, יינון, אטומיזציה (חצי דיסוציאציה!), זיקה אלקטרונית ויצירת סריג. מחלץ את ΔHLE.'},
+ {slug:'coordination-number',he:'מספר קואורדינציה',en:'Coordination Number',topic:'SS3',aliases:['CN'],def:'מספר היונים הקרובים ביותר בעלי המטען הנגדי המקיפים יון בגביש: 4 טטרהדרלי, 6 אוקטהדרלי, 8 קובייתי.'},
+ {slug:'radius-ratio',he:'כלל יחס הרדיוסים',en:'Radius Ratio Rule',topic:'SS3',def:'קירוב כדורים קשיחים: ρ = rcation/ranion ממופה לטבלת קואורדינציה. נותן חיזוי בלבד - לא קובע את מבנה הגביש בפועל.'},
+ {slug:'london-dispersion',he:'פיזור לונדון',en:'London Dispersion',topic:'SS4',aliases:['כוחות לונדון','VDW'],def:'משיכה בין דיפולים רגעיים מושרים; פועלת בכל המולקולות. מתחזקת עם פולריזביליות, גודל ענן האלקטרונים ושטח מגע.'},
+ {slug:'hydrogen-bond',he:'קשר מימן',en:'Hydrogen Bond',topic:'SS4',def:'H קשור ל-N, O או F מקיים אינטראקציה עם זוג בודד על N, O או F שכן. מסביר את הרתיחה החריגה של מים מול H₂S.'},
+ {slug:'band-gap',he:'פער האנרגיה',en:'Band Gap',topic:'SS5',aliases:['Eg'],def:'Eg = EC - EV: האנרגיה מראש פס הערכיות לתחתית פס ההולכה. אין בו מצבי גוף מותרים; גודלו מסווג מתכת, מוליך למחצה ומבודד.'},
+ {slug:'hole',he:'חור',en:'Hole',topic:'SS5',def:'אלקטרון חסר בפס הערכיות, המתנהג כנושא מטען חיובי. כל עירור מעבר לפער יוצר בדיוק זוג אלקטרון-חור.'},
+ {slug:'fermi-level',he:'רמת פרמי',en:'Fermi Level',topic:'SS5',def:'רמת האנרגיה שבה ההסתברות למצוא אלקטרון היא 50%. המושג שמכניס טמפרטורה לתמונת הפסים.'},
+ {slug:'doping',he:'סימום',en:'Doping',topic:'SS8',aliases:['אילוח','הסממה'],def:'הוספת זיהומים (סממים) בכמויות קטנות להגברת המוליכות: עמודה 15 תורם (n-type), עמודה 13 מקלט (p-type).'},
+ {slug:'donor',he:'תורם',en:'Donor',topic:'SS8',def:'זיהום מעמודה 15 ב-Si/Ge: מספק אלקטרון לפס ההולכה ונשאר יון קבוע חיובי. רמת האנרגיה שלו קרובה לתחתית ה-CB.'},
+ {slug:'acceptor',he:'מקלט',en:'Acceptor',topic:'SS8',def:'זיהום מעמודה 13 ב-Si/Ge: לוקח אלקטרון מפס הערכיות, משאיר חור נייד ונשאר יון קבוע שלילי. רמתו קרובה לראש ה-VB.'},
+ {slug:'crystalline',he:'גבישי',en:'Crystalline',topic:'SS1',def:'סידור תקופתי ארוך־טווח של החלקיקים במוצק — המבנה שמאפיין מוצקים יוניים, מתכתיים וקוולנטיים רשתיים; נקודת היתוך חדה.'},
+ {slug:'polycrystalline',he:'פולי־גבישי',en:'Polycrystalline',topic:'SS1',def:'מוצק הבנוי מגרעינים גבישיים רבים המכוונים אקראית זה לזה — כך בנויות רוב המתכות בטבע.'},
+ {slug:'photoexcitation',he:'עירור אופטי',en:'Photoexcitation',topic:'SS7',def:'הליך שבו פוטון ממריץ אלקטרון מפס הערכיות לפס ההולכה ומשאיר חור; נמדד בתחום הבליעה (Absorption) בעזרת מד־ספקטרום.'},
+],
 };
 
 // Courses that ship a glossary page, in catalogue order (drives the course-map

@@ -1,0 +1,46 @@
+{
+ "course": "solid-state",
+ "version": 1,
+ "sources": [
+  {
+   "file": "Intermolecular forces.pptx",
+   "sha256": "c60fbdef9ac72d4a3cbb9cd276f800f4209c9b4a36aaba1c03b0186c3f34e11a"
+  },
+  {
+   "file": "Intro slides MM.pdf",
+   "sha256": "5202af4234580ce2115ced34f37f7d8814ef7e4871bdb9ab3dee0da111f588a3"
+  },
+  {
+   "file": "MM TA 6 Doping.pdf",
+   "sha256": "6e8f70df5439117e817b11c6429bb9918be0426c33fa0f8b8ec682b151c00b6e"
+  },
+  {
+   "file": "MMM_TA_1.pdf",
+   "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e"
+  },
+  {
+   "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
+   "sha256": "ae1fa9f6828f0db6f23b531ecd00f368cdcfcd0669b1f3ee6dcdb56a2f76a38d"
+  },
+  {
+   "file": "Solid State TA_2 21.10.26.pdf",
+   "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2"
+  },
+  {
+   "file": "Solid State TA_3 28.10.26.pdf",
+   "sha256": "7f46defc1b90bdb375f46a9994e86d5bdd946ff09484fd1516f05377f6a89557"
+  },
+  {
+   "file": "TA 4 Band theory 4.11.26.pdf",
+   "sha256": "01f7ef9876b7619ab91f4382dd7b7fb77ff7fa4248826e64d08e970daf68a91b"
+  },
+  {
+   "file": "TA 5 Band Theory  Semiconductors.pdf",
+   "sha256": "22ce1c7e2e765207dead8574cba55f311e2b8a9a6b31ce8a61501c5ca8f54665"
+  },
+  {
+   "file": "TA1 assignment 2026.pdf",
+   "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25"
+  }
+ ]
+}

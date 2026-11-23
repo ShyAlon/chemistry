@@ -1,0 +1,36 @@
+{
+ "topics": [
+  {
+   "id": "SS1",
+   "file": "topics/SS1.json"
+  },
+  {
+   "id": "SS2",
+   "file": "topics/SS2.json"
+  },
+  {
+   "id": "SS3",
+   "file": "topics/SS3.json"
+  },
+  {
+   "id": "SS4",
+   "file": "topics/SS4.json"
+  },
+  {
+   "id": "SS5",
+   "file": "topics/SS5.json"
+  },
+  {
+   "id": "SS6",
+   "file": "topics/SS6.json"
+  },
+  {
+   "id": "SS7",
+   "file": "topics/SS7.json"
+  },
+  {
+   "id": "SS8",
+   "file": "topics/SS8.json"
+  }
+ ]
+}

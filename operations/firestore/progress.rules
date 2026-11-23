@@ -52,6 +52,25 @@ service cloud.firestore {
       allow get,list,delete: if owned(uid);
       allow create,update: if owned(uid) && validProgress(id,request.resource.data);
     }
+    // Mock-exam attempts: one bounded document per attempt, owner only.
+    // The paper itself is a bounded JSON string: Firestore's expression
+    // budget cannot afford per-part validation of five nested questions.
+    function mockStr(v,n) { return v is string && v.size()<=n; }
+    function validMock(id,d) {
+      return id==d.id && d.schema==1 && mockStr(d.id,64) && d.course=='84101' && mockStr(d.seed,64)
+        && d.keys().hasOnly(['schema','id','course','seed','status','createdAt','submittedAt','expireAt','elapsedSec','timerRunning','drafts','selfMarks','questions','_ts'])
+        && (d.status=='open'||d.status=='submitted')
+        && mockStr(d.createdAt,40) && (d.submittedAt==null || mockStr(d.submittedAt,40))
+        && (d.expireAt==null || mockStr(d.expireAt,40))
+        && d.elapsedSec is int && d.elapsedSec>=0 && d.elapsedSec<=864000 && d.timerRunning is bool
+        && d.drafts is map && d.drafts.keys().size()<=10 && d.selfMarks is map && d.selfMarks.keys().size()<=10
+        && d.questions is string && d.questions.size()<=60000
+        && d._ts==request.time;
+    }
+    match /users/{uid}/mockExam/{id} {
+      allow get,list,delete: if owned(uid);
+      allow create,update: if owned(uid) && validMock(id,request.resource.data);
+    }
     // Privacy/account closure only, never used for ordinary progress reset.
     match /users/{uid}/studyAccess/{id} { allow read,write: if false; }
     match /{document=**} {

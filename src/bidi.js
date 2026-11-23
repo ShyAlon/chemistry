@@ -1,7 +1,7 @@
 // A single, idempotent display boundary. Stored answers, formulas and units stay raw.
 const LRI='\u2066',RLI='\u2067',PDI='\u2069';
 const hebrew=/[\u0590-\u05ff]/;
-const ltr=/[A-Za-z0-9\u00b5\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff]/;
+const ltr=/[A-Za-z0-9\u00b2\u00b3\u00b5\u00b9\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff\u2070-\u209e]/;
 const closeFor={'(':')','[':']','{':'}'};
 function closingAt(text,start){const stack=[];for(let i=start;i<text.length;i++){if(closeFor[text[i]])stack.push(closeFor[text[i]]);else if(Object.values(closeFor).includes(text[i])){if(text[i]!==stack.pop())return -1;if(!stack.length)return i}}return -1}
 // Split only unambiguous statement boundaries outside brackets. A comma in
@@ -16,7 +16,7 @@ function plain(text){
  // Hebrew content are already separate, so delimiters cannot leak across runs.
  const parts=text.split(/([\u0590-\u05ff]+)/u).flatMap(part=>hebrew.test(part)?[part]:scientificParts(part));
  return parts.map((part,index)=>{if(hebrew.test(part)||!ltr.test(part))return part;
-   let start=part.search(/[A-Za-z0-9\u00b5\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff]/u);
+   let start=part.search(/[A-Za-z0-9\u00b2\u00b3\u00b5\u00b9\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff\u2070-\u209e]/u);
    // Keep opening formula delimiters with the run, e.g. (SI), [Pa=kg/(m·s²)].
    const connectedHyphen=part.startsWith('-')&&hebrew.test(parts[index-1]||'');
    while(start>0&&'([{+−-±√∑∫'.includes(part[start-1])&&!(start===1&&connectedHyphen))start--;

@@ -1,4 +1,5 @@
 import {resolveConstants} from '../constants.js';
+import {applyPronunciation} from './pronunciation.js';
 // Literal notation reading for inline prose. Equation blocks have authored readings.
 const letters={A:'איי',B:'בי',C:'סי',D:'די',E:'אי',F:'אף',G:'ג׳י',H:'אֵייץ׳',I:'אַיי',J:'ג׳יי',K:'קיי',L:'אל',M:'אם',N:'אֶן',O:'אוֹ',P:'פי',Q:'קיו',R:'אָר',S:'אס',T:'טי',U:'יו',V:'וי',W:'דאבליו',X:'אקס',Y:'וואי',Z:'זֶד'};
 const terms={'mol':'מול','kg':'קילוגרם','mg':'מיליגרם','g':'גרם','mL':'מיליליטר','cm':'סנטימטר','nm':'ננומטר','pm':'פיקומטר','mm':'מילימטר','atm':'אטמוספרות','Pa':'פסקל','kPa':'קילופסקל','m':'מטר','s':'שנייה','K':'קלווין','L':'ליטר','J':'ג׳אול','kJ':'קילוג׳אול','eV':'אלקטרון וולט','MeV':'מגה אלקטרון וולט','Bq':'בקרל','Ci':'קירי','Gy':'גריי','Sv':'סיוורט','rad':'ראד','rem':'רם','SI':'אס איי','SC':'קובי פשוט','BCC':'קובי ממורכז גוף','FCC':'קובי ממורכז פאות','rms':'שורש ממוצע ריבועי','ln':'לוגריתם טבעי','log':'לוגריתם','exp':'אקספוננט','sin':'סינוס','cos':'קוסינוס','const':'קבוע','solute':'מומס','solvent':'ממס','solution':'תמיסה','pure':'טהור','total':'כולל','water':'מים','gas':'גז','vap':'אידוי','avg':'ממוצע','mp':'שכיח ביותר','molar':'מולרי','mass':'מסה','bound':'קשור','separated':'מופרד','particle':'חלקיק','mole':'מול','slope':'שיפוע','atom':'אטום','full':'מלא','empty':'ריק','molality':'מולליות','molarity':'מולריות','Avogadro':'אבוגדרו','Boyle':'בויל','Henry':'הנרי','Raoult':'ראול','Maxwell':'מקסוול','Boltzmann':'בולצמן','Bragg':'בראג','van':'ון','der':'דר','Waals':'ואלס'};
@@ -8,7 +9,7 @@ const ions={'Ag⁺':'יון כסף, פלוס אחד','Al³⁺':'יון אלומ�
 const sub='₀₁₂₃₄₅₆₇₈₉',sup='⁰¹²³⁴⁵⁶⁷⁸⁹';
 const digits=t=>[...t].map(c=>sub.includes(c)?String(sub.indexOf(c)):sup.includes(c)?String(sup.indexOf(c)):c==='⁻'?'מינוס ':c==='⁺'?'פלוס ':c).join('');
 export function proseSpeech(text){
- return resolveConstants(text)
+ return applyPronunciation(resolveConstants(text))
  .replace(/(?<![A-Za-z₀-₉])(?:[A-Z][a-z]?[₀-₉]*)+[⁰¹²³⁴⁵⁶⁷⁸⁹]*[⁺⁻]/g,t=>ions[t]||t)
  .replace(/\bJ\/\(mol·K\)/g,' ג׳אול למול לקלווין ').replace(/\bcal\/\(mol·K\)/g,' קלוריה למול לקלווין ').replace(/\bL·atm\/\(mol·K\)/g,' ליטר אטמוספרה למול לקלווין ')
  .replace(/(?<![A-Za-z₀-₉])H₂O(?![₀-₉A-Za-z])/g,'מים').replace(/(?<![A-Za-z₀-₉])CO₂(?![₀-₉A-Za-z])/g,'פחמן דו חמצני').replace(/(?<![A-Za-z₀-₉])N₂(?![₀-₉A-Za-z])/g,'חנקן דו אטומי').replace(/(?<![A-Za-z₀-₉])O₂(?![₀-₉A-Za-z])/g,'חמצן דו אטומי')

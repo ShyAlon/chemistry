@@ -9,22 +9,22 @@ export function MatterTree({accent}){
     <T x={280} y={60} fill={C.ink} weight="bold">חומר</T>
     <Arrow x1={255} y1={72} x2={160} y2={106} stroke={C.dim} id="mt1"/>
     <Arrow x1={305} y1={72} x2={400} y2={106} stroke={C.dim} id="mt2"/>
-    <Box x={85} y={110} w={150} h={30} fill={C.faint}/>
+    <Box x={55} y={110} w={210} h={30} fill={C.faint}/>
     <T x={160} y={130}>תערובת (ניתנת להפרדה פיזיקלית)</T>
-    <Box x={325} y={110} w={150} h={30} fill={C.faint}/>
+    <Box x={295} y={110} w={210} h={30} fill={C.faint}/>
     <T x={400} y={130}>חומר טהור</T>
-    <Arrow x1={130} y1={142} x2={90} y2={176} stroke={C.dim} id="mt3"/>
-    <Arrow x1={190} y1={142} x2={230} y2={176} stroke={C.dim} id="mt4"/>
-    <Box x={20} y={180} w={140} h={30} fill="none"/>
-    <T x={90} y={200} size={12}>הומוגנית (תמיסה)</T>
-    <Box x={165} y={180} w={140} h={30} fill="none"/>
-    <T x={235} y={200} size={12}>הטרוגנית</T>
-    <Arrow x1={370} y1={142} x2={340} y2={176} stroke={C.dim} id="mt5"/>
-    <Arrow x1={430} y1={142} x2={470} y2={176} stroke={C.dim} id="mt6"/>
-    <Box x={275} y={180} w={130} h={30} fill="none" stroke={accent}/>
-    <T x={340} y={200} size={12} fill={accent}>יסוד (סוג אטום אחד)</T>
-    <Box x={415} y={180} w={130} h={30} fill="none" stroke={accent}/>
-    <T x={480} y={200} size={12} fill={accent}>תרכובת</T>
+    <Arrow x1={120} y1={142} x2={73} y2={176} stroke={C.dim} id="mt3"/>
+    <Arrow x1={200} y1={142} x2={211} y2={176} stroke={C.dim} id="mt4"/>
+    <Box x={8} y={180} w={130} h={30} fill="none"/>
+    <T x={73} y={200} size={12}>הומוגנית (תמיסה)</T>
+    <Box x={146} y={180} w={130} h={30} fill="none"/>
+    <T x={211} y={200} size={12}>הטרוגנית</T>
+    <Arrow x1={360} y1={142} x2={349} y2={176} stroke={C.dim} id="mt5"/>
+    <Arrow x1={440} y1={142} x2={487} y2={176} stroke={C.dim} id="mt6"/>
+    <Box x={284} y={180} w={130} h={30} fill="none" stroke={accent}/>
+    <T x={349} y={200} size={12} fill={accent}>יסוד (סוג אטום אחד)</T>
+    <Box x={422} y={180} w={130} h={30} fill="none" stroke={accent}/>
+    <T x={487} y={200} size={12} fill={accent}>תרכובת</T>
     <T x={280} y={252} size={12}>תרכובת מתפרקת רק בדרך כימית; תערובת — גם פיזיקלית (ניקוי, זיקוק)</T>
     <T x={280} y={278} size={12} ltr>דוגמה: מי מלח = תערובת הומוגנית · מים = תרכובת · חמצן O₂ = יסוד</T>
   </Fig>;
@@ -233,13 +233,13 @@ export function ImfLadder({accent}){
     {rows.map(([n,w,ex,i])=>{
       const y=90+i*52;
       return <g key={n}>
-        <Box x={70+i*22} y={y-24} w={340-i*22} h={40} fill={i===2?accent:C.faint} opacity={i===2?.35:1} stroke={i===2?accent:C.line}/>
-        <T x={90+i*22} y={y} anchor="start" fill={C.ink} size={13} ltr>{n}</T>
-        <T x={90+i*22} y={y+16} anchor="start" size={12}>{w} · <tspan>{ex}</tspan></T>
+        <Box x={70+i*22} y={y-26} w={340-i*22} h={44} fill={i===2?accent:C.faint} opacity={i===2?.35:1} stroke={i===2?accent:C.line}/>
+        <T x={90+i*22} y={y-4} anchor="start" fill={C.ink} size={13} ltr>{n}</T>
+        <T x={90+i*22} y={y+12} anchor="start" size={12}>{w} · <tspan>{ex}</tspan></T>
       </g>;})}
-    <Arrow x1={520} y1={230} x2={520} y2={66} stroke={accent} id="imf"/>
+    <Arrow x1={520} y1={66} x2={520} y2={230} stroke={accent} id="imf"/>
     <T x={534} y={150} size={12} fill={accent}>חוזק עולה</T>
-    <T x={280} y={290}>כוחות חזקים יותר = נקודת רתיחה גבוהה יותר (צריך יותר אנרגיה להפרדה)</T>
+    <T x={280} y={290}>בהשוואת חומרים דומים: כוחות חזקים יותר = נקודת רתיחה גבוהה יותר (צריך יותר אנרגיה להפרדה)</T>
   </Fig>;
 }
 

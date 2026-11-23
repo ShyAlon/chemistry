@@ -1,0 +1,536 @@
+{
+ "real-gas-boyle": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "electron-affinity-signs": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "exam-method-map": {
+  "labels": [
+   {
+    "text": "פוטון",
+    "box": 0
+   },
+   {
+    "text": "E = hc/λ",
+    "box": 0
+   },
+   {
+    "text": "חלקיק מסיבי",
+    "box": 1
+   },
+   {
+    "text": "λ = h/p",
+    "box": 1
+   },
+   {
+    "text": "רמות אנרגיה",
+    "box": 2
+   },
+   {
+    "text": "E(photon) = |ΔE|",
+    "box": 2
+   },
+   {
+    "text": "קונפיגורציה",
+    "box": 3
+   },
+   {
+    "text": "N(e) = Z − q",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "maxwell-speed-band": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "effusion-quantities": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "hydration-orientation": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "liquid-vapor": {
+  "labels": [
+   {
+    "text": "אידוי",
+    "box": 0
+   },
+   {
+    "text": "עיבוי",
+    "box": 0
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "raoult-lines": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "osmosis-flow": {
+  "labels": [
+   {
+    "text": "ממס טהור",
+    "box": 0
+   },
+   {
+    "text": "תמיסה",
+    "box": 0
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "decay-map": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "half-life-curve": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "unit-ladder": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "em-spectrum": {
+  "labels": [
+   {
+    "text": "רנטגן / γ",
+    "box": 0
+   },
+   {
+    "text": "UV",
+    "box": 1
+   },
+   {
+    "text": "IR",
+    "box": 3
+   },
+   {
+    "text": "מיקרו",
+    "box": 4
+   },
+   {
+    "text": "רדיו",
+    "box": 5
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "photoelectric": {
+  "labels": [
+   {
+    "text": "משטח מתכת",
+    "box": 0
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "bohr-levels": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "de-broglie": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "uncertainty": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "quantum-tree": {
+  "labels": [
+   {
+    "text": "n = 3",
+    "box": 0
+   },
+   {
+    "text": "l = 0 (s)",
+    "box": 1
+   },
+   {
+    "text": "mₗ = 0",
+    "box": 2
+   },
+   {
+    "text": "l = 1 (p)",
+    "box": 3
+   },
+   {
+    "text": "mₗ = −1, 0, +1",
+    "box": 4
+   },
+   {
+    "text": "l = 2 (d)",
+    "box": 5
+   },
+   {
+    "text": "mₗ = −2..+2",
+    "box": 6
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "rpd-curves": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "aufbau": {
+  "labels": [
+   {
+    "text": "1s",
+    "box": 0
+   },
+   {
+    "text": "2s",
+    "box": 1
+   },
+   {
+    "text": "2p",
+    "box": 2
+   },
+   {
+    "text": "3s",
+    "box": 3
+   },
+   {
+    "text": "3p",
+    "box": 4
+   },
+   {
+    "text": "4s",
+    "box": 5
+   },
+   {
+    "text": "3d",
+    "box": 6
+   },
+   {
+    "text": "4p",
+    "box": 7
+   },
+   {
+    "text": "5s",
+    "box": 8
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "hund-boxes": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "shielding": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ie-trend": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ie-successive": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "xps-spectrum": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "matter-tree": {
+  "labels": [
+   {
+    "text": "חומר",
+    "box": 0
+   },
+   {
+    "text": "תערובת (ניתנת להפרדה פיזיקלית)",
+    "box": 1
+   },
+   {
+    "text": "חומר טהור",
+    "box": 2
+   },
+   {
+    "text": "הומוגנית (תמיסה)",
+    "box": 3
+   },
+   {
+    "text": "הטרוגנית",
+    "box": 4
+   },
+   {
+    "text": "יסוד (סוג אטום אחד)",
+    "box": 5
+   },
+   {
+    "text": "תרכובת",
+    "box": 6
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "density-cubes": {
+  "labels": [
+   {
+    "text": "1 cm³",
+    "box": 0
+   },
+   {
+    "text": "2.7 g (Al)",
+    "box": 0
+   },
+   {
+    "text": "1 cm³",
+    "box": 1
+   },
+   {
+    "text": "19.3 g (Au)",
+    "box": 1
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "mole-bridge": {
+  "labels": [
+   {
+    "text": "מסה (גרם)",
+    "box": 0
+   },
+   {
+    "text": "m",
+    "box": 0
+   },
+   {
+    "text": "מול (mol)",
+    "box": 1
+   },
+   {
+    "text": "n",
+    "box": 1
+   },
+   {
+    "text": "חלקיקים",
+    "box": 2
+   },
+   {
+    "text": "N",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "empirical-flow": {
+  "labels": [
+   {
+    "text": "מניחים 100 גרם — האחוזים הופכים לגרמים",
+    "box": 0
+   },
+   {
+    "text": "40% C ← 40 g",
+    "box": 0
+   },
+   {
+    "text": "מחלקים כל יסוד במסה המולרית שלו",
+    "box": 1
+   },
+   {
+    "text": "40/12.01 = 3.33 mol",
+    "box": 1
+   },
+   {
+    "text": "מחלקים הכול בערך הקטן ביותר",
+    "box": 2
+   },
+   {
+    "text": "3.33/3.33 : 6.6/3.33 : 3.33/3.33",
+    "box": 2
+   },
+   {
+    "text": "אם לא שלמים — מכפילים במכנה משותף",
+    "box": 3
+   },
+   {
+    "text": "1 : 2 : 1  ←  CH₂O",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "stoich-map": {
+  "labels": [
+   {
+    "text": "גרם A (נתון)",
+    "box": 0
+   },
+   {
+    "text": "m(A)",
+    "box": 0
+   },
+   {
+    "text": "מול A",
+    "box": 1
+   },
+   {
+    "text": "n(A)",
+    "box": 1
+   },
+   {
+    "text": "מול B",
+    "box": 2
+   },
+   {
+    "text": "n(B)",
+    "box": 2
+   },
+   {
+    "text": "גרם B",
+    "box": 3
+   },
+   {
+    "text": "m(B)",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "limiting": {
+  "labels": [
+   {
+    "text": "נשאר עודף:",
+    "box": 13
+   },
+   {
+    "text": "1 לחם",
+    "box": 13
+   },
+   {
+    "text": "השיטה במספרים",
+    "box": 14
+   },
+   {
+    "text": "מחשבים כמה מול תוצר יכול לצאת מכל מגיב בנפרד",
+    "box": 14
+   },
+   {
+    "text": "מי שנותן פחות — הוא המגביל; לפיו מחשבים הכול",
+    "box": 14
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "dilution": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "net-ionic": {
+  "labels": [
+   {
+    "text": "AgCl(s)",
+    "box": 0
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "titration-curve": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "gas-laws": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "maxwell-boltzmann": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "imf-ladder": {
+  "labels": [
+   {
+    "text": "London (פיזור)",
+    "box": 0
+   },
+   {
+    "text": "כל המולקולות · CH₄: −161 °C",
+    "box": 0
+   },
+   {
+    "text": "Dipole-dipole",
+    "box": 1
+   },
+   {
+    "text": "מולקולות קוטביות · HCl: −85 °C",
+    "box": 1
+   },
+   {
+    "text": "קשר מימן",
+    "box": 2
+   },
+   {
+    "text": "N,O,F עם H · H₂O: 100 °C",
+    "box": 2
+   },
+   {
+    "text": "Ion-dipole",
+    "box": 3
+   },
+   {
+    "text": "יונים בתמיסה · מי מלח",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "phase-diagram": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bragg": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ }
+}

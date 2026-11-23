@@ -56,13 +56,16 @@ through `loadCatalogue` / `writeCatalogue`. Their writer permits content edits,
 validates before writing, and avoids rewriting unchanged files. Structural edits
 require explicit manifest changes; these scripts cannot silently reorder/add IDs.
 
-**Legacy maintenance warning:** these scripts reconstruct authored layers and can
-replace corrections or metadata added after those layers were written. Their
-outputs were checked against the old monolithic versions, not certified as safe
-for arbitrary content regeneration. They are not invoked by normal dev, build,
-test, preview or CI commands. Do not use them as a new course-import step. Edit
-individual topic files until a separately reviewed source-safe ingestion process
-exists.
+**Retired merge codemods:** the old `apply-enrichment` / `apply-final-prep`
+scripts rebuilt authored layers by stripping and re-appending flagged blocks and
+could replace corrections or metadata added afterward. They have been deleted.
+The layer data files (`src/enrichment-84101.js`, `src/enrichment-84102.js`,
+`src/final-prep-84101.js`) remain as live app data (formula gallery, final-prep
+exam), never as merge inputs; the `enrich` / `finalPrep` markers inside content
+are inert provenance labels. Bulk content changes now go through the source-safe
+importer (`scripts/import-course.mjs`, see `ingest/README.md`), which keeps a
+per-course ledger, replays corrections as data, and turns any collision with a
+local edit into a reviewed conflict instead of a silent overwrite.
 
 ## Review checks
 

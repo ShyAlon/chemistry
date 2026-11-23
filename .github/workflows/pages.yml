@@ -43,6 +43,8 @@ jobs:
         with:
           node-version: '24'
       - run: npm ci
+      - name: Record content byte hashes before any build/test step
+        run: node scripts/content-freeze.mjs --record /tmp/content-freeze.json
       - run: npm test
       - name: Set up pinned local Rules-test dependency
         run: npm run setup:rules
@@ -50,6 +52,8 @@ jobs:
         run: npm run test:rules
       - run: python3 scripts/test-release-output.py
       - run: npm run build
+      - name: Fail if any build/test step mutated src/content
+        run: node scripts/content-freeze.mjs --check /tmp/content-freeze.json
       - name: Reject stale recovery output in the same PR
         run: python3 scripts/release-output.py check-snapshot
       - name: Package only after every gate passes

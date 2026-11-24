@@ -1,6 +1,6 @@
 import {bidiElement} from './bidi-react.js';
 import React,{useEffect,useRef,useState} from 'react';
-import {getSession,subscribeSession,getPrefs,subscribePrefs,setVoice,setRate,localHebrewVoices} from './read-aloud/session.js';
+import {getSession,subscribeSession,getPrefs,subscribePrefs,setVoice,setRate,setStripVisible,localHebrewVoices} from './read-aloud/session.js';
 const statusLabels={idle:'מוכן להקראה',starting:'מתחיל להקריא',playing:'מקריא',paused:'מושהה',finished:'הנושא הסתיים',error:'ההקראה נעצרה'};
 const paths={
  play:'M8 5v14l11-7z',
@@ -12,12 +12,14 @@ const paths={
 };
 const Icon=({name})=><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d={paths[name]}/></svg>;
 // Compact playback strip in the top bar, visible only while a theory reader
-// is on screen. The full status sentence stays available to assistive tech
-// and behind the info button; the row itself carries icons and the counter.
+// is on screen and the reader has asked for it in the read-aloud settings
+// (hidden by default). The full status sentence stays available to assistive
+// tech and behind the info button; the row itself carries icons and the counter.
 export function ReaderStrip(){
- const [session,setSession]=useState(getSession()),[note,setNote]=useState(false);
+ const [session,setSession]=useState(getSession()),[note,setNote]=useState(false),[prefs,setPrefs]=useState(getPrefs());
  useEffect(()=>subscribeSession(setSession),[]);
- if(!session)return null;
+ useEffect(()=>subscribePrefs(setPrefs),[]);
+ if(!session||!prefs.strip)return null;
  const {player,state,chunks}=session;
  const index=state?.index||0,running=['starting','playing'].includes(state?.status),paused=state?.status==='paused';
  return <div className="reader-strip" role="region" aria-label="בקרי ההקראה">
@@ -60,7 +62,10 @@ export function ReadAloudDialog({onClose}){
     <select aria-label="מהירות הקראה" value={prefs.rate} onChange={e=>setRate(Number(e.target.value))}>
      {[[.75,'איטי · 0.75'],[1,'רגיל · 1'],[1.25,'מהיר · 1.25'],[1.5,'מהיר יותר · 1.5']].map(([r,label])=><option key={r} value={r}>{label}</option>)}
     </select></label>
-   <p className="ra-note">הבחירה נשמרת במכשיר וחלה מיד גם על הקראה שפועלת עכשיו. בקרי ההפעלה נמצאים בסרגל העליון בזמן קריאת התיאוריה.</p>
+   <label className="ra-toggle">בקרי ההקראה בסרגל העליון
+    <input type="checkbox" checked={prefs.strip} onChange={e=>setStripVisible(e.target.checked)}/>
+    <span className="ra-toggle-hint">כברירת מחדל הבקרים מוסתרים. המתג מציג אותם בזמן קריאת התיאוריה.</span></label>
+   <p className="ra-note">הבחירה נשמרת במכשיר וחלה מיד גם על הקראה שפועלת עכשיו.</p>
    <button ref={closeRef} className="secondary ra-close" onClick={onClose}>סגירה</button>
   </section>
  </div>;

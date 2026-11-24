@@ -92,7 +92,7 @@ export function PwrLoops({accent}){
 export function PhotonInteractions({accent}){
   const X=k=>40+120*(Math.log10(k)-1); // energy in keV, 10 keV..100 MeV
   const bars=[
-    {y:30,a:X(10),b:X(100),t:'אפקט פוטואלקטרי',f:'Z⁵/E³·⁵',c:'#f0c978'},
+    {y:30,a:X(10),b:X(100),t:'אפקט פוטואלקטרי',f:'Z⁴⁻⁵ / E³⁻³·⁵',c:'#f0c978'},
     {y:92,a:X(100),b:X(10000),t:'פיזור קומפטון',f:'Z/E',c:accent},
     {y:154,a:X(1022),b:X(100000),t:'יצירת זוגות',f:'Z²·lnE',c:'#c79af0'}];
   return <Fig label="אינטראקציות פוטונים בחומר לפי אנרגיה: אפקט פוטואלקטרי עד כ-100 keV, פיזור קומפטון מכ-100 keV עד כ-10 MeV, יצירת זוגות מעל 1.022 MeV" viewBox="0 -90 560 346">
@@ -337,18 +337,29 @@ export function TechniqueChooser({accent}){
   </Fig>;
 }
 
-// E9: typical doses in mSv on a log scale. Values are the ones in the lesson.
+// E9: typical doses in mSv on a log scale. Exam values are approximate lesson examples;
+// background is an annual average; limits are ICRP recommendations (national rules vary).
 export function TypicalDoses({accent}){
-  const r=[['צילום חזה',0.02],['טיסה לניו יורק',0.05],['גבול שנתי לציבור',1],['רקע טבעי בשנה',2],['מיפוי עצמות',3],['CT בטן',10],['גבול שנתי לעובד קרינה',20]];
-  const x0=170,k=85; const px=v=>x0+k*(Math.log10(v)+2);
-  return <Fig label="מנות טיפוסיות בסולם לוגריתמי: צילום חזה 0.02, טיסה לניו יורק 0.05, גבול לציבור 1, רקע טבעי 2, מיפוי עצמות 3, CT בטן 10 וגבול לעובד קרינה 20 מילי-זיוורט" viewBox="-90 -90 600 360">
+  const EX='#8aa0b8',BG='#f0c978';
+  const r=[['צילום חזה',0.02,EX],['טיסה לניו יורק',0.05,EX],['גבול שנתי לציבור',1,accent],['רקע טבעי בשנה',2,BG],['מיפוי עצמות',3,EX],['CT בטן',10,EX],['גבול לעובד, ממוצע רב-שנתי',20,accent]];
+  const x0=190,k=80; const px=v=>x0+k*(Math.log10(v)+2);
+  return <Fig label="מנות טיפוסיות בסולם לוגריתמי: דוגמאות לבדיקות בקירוב, רקע טבעי שנתי וגבולות שנתיים של ICRP. צילום חזה 0.02, טיסה לניו יורק 0.05, גבול לציבור 1, רקע טבעי 2, מיפוי עצמות 3, CT בטן 10 וגבול לעובד קרינה 20 מילי-זיוורט" viewBox="-90 -90 640 420">
+    {[0.01,0.1,1,10,100].map(v=><g key={v}>
+      <L x1={px(v)} y1={-6} x2={px(v)} y2={226} stroke={C.soft} dash="3 4"/>
+      <T x={px(v)} y={246} size={12} ltr>{v}</T>
+    </g>)}
     {r.map((e,i)=>{const y=i*32;return <g key={e[0]}>
       <T x={x0-10} y={y+16} anchor="end" size={13} fill={C.ink}>{e[0]}</T>
-      <rect x={x0} y={y+2} width={px(e[1])-x0} height={20} rx={3} fill={i>=5?accent:C.line}/>
+      <rect x={x0} y={y+2} width={px(e[1])-x0} height={20} rx={3} fill={e[2]}/>
       <T x={px(e[1])+8} y={y+17} anchor="start" size={13} ltr fill={C.ink}>{e[1]}</T>
     </g>;})}
-    <L x1={x0} y1={-6} x2={x0} y2={230}/>
-    <T x={x0+150} y={254} size={12}>mSv, סולם לוגריתמי</T>
+    <L x1={x0} y1={-6} x2={x0} y2={226}/>
+    <L x1={x0} y1={226} x2={px(100)} y2={226}/>
+    <T x={x0+160} y={268} size={12} ltr>mSv</T>
+    <T x={x0+160} y={288} size={12}>ציר לוגריתמי: כל שנתון גדול פי עשר מקודמו</T>
+    <rect x={400} y={300} width={12} height={12} fill={EX}/><T x={392} y={311} anchor="end" size={12}>דוגמה בקירוב</T>
+    <rect x={245} y={300} width={12} height={12} fill={BG}/><T x={237} y={311} anchor="end" size={12}>ממוצע שנתי</T>
+    <rect x={110} y={300} width={12} height={12} fill={accent}/><T x={102} y={311} anchor="end" size={12}>גבול שנתי</T><T x={30} y={311} anchor="end" size={12} ltr>ICRP</T>
   </Fig>;
 }
 

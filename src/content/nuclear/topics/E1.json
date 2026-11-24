@@ -22,6 +22,11 @@
     "style": "Callout"
    },
    {
+    "style": "Figure",
+    "figure": "ionizing-scale",
+    "text": "מעל סף של עשרות אלקטרון-וולט הקרינה מייננת."
+   },
+   {
     "text": "אנרגיה - כורים גרעיניים",
     "style": "Heading"
    },

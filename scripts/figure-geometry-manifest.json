@@ -1,4 +1,607 @@
 {
+ "nuclear-half-life": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "nuclear-decay-map": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "radiation-penetration": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "fuel-cycle": {
+  "labels": [
+   {
+    "text": "כרייה",
+    "box": 0
+   },
+   {
+    "text": "עפרת אורניום",
+    "box": 0
+   },
+   {
+    "text": "טחינה",
+    "box": 1
+   },
+   {
+    "text": "U₃O₈",
+    "box": 1
+   },
+   {
+    "text": "המרה",
+    "box": 2
+   },
+   {
+    "text": "UF₆",
+    "box": 2
+   },
+   {
+    "text": "העשרה",
+    "box": 3
+   },
+   {
+    "text": "UF₆ מועשר",
+    "box": 3
+   },
+   {
+    "text": "ייצור דלק",
+    "box": 4
+   },
+   {
+    "text": "UO₂ בכדורים",
+    "box": 4
+   },
+   {
+    "text": "כור",
+    "box": 5
+   },
+   {
+    "text": "הפקת חשמל",
+    "box": 5
+   },
+   {
+    "text": "דלק משומש",
+    "box": 6
+   },
+   {
+    "text": "אחסון או עיבוד",
+    "box": 6
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "pwr-loops": {
+  "labels": [
+   {
+    "text": "כור",
+    "box": 0
+   },
+   {
+    "text": "ליבה עם דלק",
+    "box": 0
+   },
+   {
+    "text": "צינורות",
+    "box": 1
+   },
+   {
+    "text": "ללא ערבוב",
+    "box": 1
+   },
+   {
+    "text": "חום",
+    "box": 1
+   },
+   {
+    "text": "מייצב לחץ",
+    "box": 2
+   },
+   {
+    "text": "טורבינה",
+    "box": 3
+   },
+   {
+    "text": "מעבה",
+    "box": 4
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "photon-interactions": {
+  "labels": [
+   {
+    "text": "אפשרית, לא שולטת",
+    "box": 0
+   },
+   {
+    "text": "אפקט פוטואלקטרי",
+    "box": 1
+   },
+   {
+    "text": "Z⁴⁻⁵ / E³⁻³·⁵",
+    "box": 1
+   },
+   {
+    "text": "פיזור קומפטון",
+    "box": 2
+   },
+   {
+    "text": "Z/E",
+    "box": 2
+   },
+   {
+    "text": "יצירת זוגות",
+    "box": 3
+   },
+   {
+    "text": "Z²·lnE",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "neutron-energy-families": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "binding-energy-curve": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "fission-energy-split": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "chain-reaction": {
+  "labels": [
+   {
+    "text": "על־קריטית",
+    "box": 0
+   },
+   {
+    "text": "k > 1",
+    "box": 0
+   },
+   {
+    "text": "גדלה מעריכית",
+    "box": 0
+   },
+   {
+    "text": "קריטית",
+    "box": 1
+   },
+   {
+    "text": "k = 1",
+    "box": 1
+   },
+   {
+    "text": "קצב ביקועים קבוע",
+    "box": 1
+   },
+   {
+    "text": "תת־קריטית",
+    "box": 2
+   },
+   {
+    "text": "k < 1",
+    "box": 2
+   },
+   {
+    "text": "דועכת",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "uranium-isotopes": {
+  "labels": [
+   {
+    "text": "U-238 99.27%",
+    "box": 0
+   },
+   {
+    "text": "U-238 ~95%",
+    "box": 2
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "enrichment-cascade": {
+  "labels": [
+   {
+    "text": "הזנה",
+    "box": 0
+   },
+   {
+    "text": "UF₆ טבעי",
+    "box": 0
+   },
+   {
+    "text": "שלב",
+    "box": 1
+   },
+   {
+    "text": "צנטריפוגות",
+    "box": 1
+   },
+   {
+    "text": "שלב",
+    "box": 2
+   },
+   {
+    "text": "צנטריפוגות",
+    "box": 2
+   },
+   {
+    "text": "שלב",
+    "box": 3
+   },
+   {
+    "text": "צנטריפוגות",
+    "box": 3
+   },
+   {
+    "text": "מוצר",
+    "box": 4
+   },
+   {
+    "text": "~5% U-235",
+    "box": 4
+   },
+   {
+    "text": "אורניום דל",
+    "box": 5
+   },
+   {
+    "text": "<0.711% U-235",
+    "box": 5
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bwr-loop": {
+  "labels": [
+   {
+    "text": "כור",
+    "box": 0
+   },
+   {
+    "text": "המים רותחים בליבה",
+    "box": 0
+   },
+   {
+    "text": "טורבינה",
+    "box": 1
+   },
+   {
+    "text": "מעבה",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "reactor-types": {
+  "labels": [
+   {
+    "text": "PWR",
+    "box": 0
+   },
+   {
+    "text": "מאט",
+    "box": 0
+   },
+   {
+    "text": "מים רגילים",
+    "box": 0
+   },
+   {
+    "text": "דלק",
+    "box": 0
+   },
+   {
+    "text": "אורניום מועשר",
+    "box": 0
+   },
+   {
+    "text": "BWR",
+    "box": 1
+   },
+   {
+    "text": "מאט",
+    "box": 1
+   },
+   {
+    "text": "מים רגילים",
+    "box": 1
+   },
+   {
+    "text": "דלק",
+    "box": 1
+   },
+   {
+    "text": "אורניום מועשר",
+    "box": 1
+   },
+   {
+    "text": "CANDU",
+    "box": 2
+   },
+   {
+    "text": "מאט",
+    "box": 2
+   },
+   {
+    "text": "מים כבדים",
+    "box": 2
+   },
+   {
+    "text": "D₂O",
+    "box": 2
+   },
+   {
+    "text": "דלק",
+    "box": 2
+   },
+   {
+    "text": "אורניום טבעי",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "reactor-generations": {
+  "labels": [
+   {
+    "text": "דור",
+    "box": 0
+   },
+   {
+    "text": "I",
+    "box": 0
+   },
+   {
+    "text": "1950-60s",
+    "box": 0
+   },
+   {
+    "text": "הסתיים",
+    "box": 0
+   },
+   {
+    "text": "דור",
+    "box": 1
+   },
+   {
+    "text": "II",
+    "box": 1
+   },
+   {
+    "text": "רוב הצי",
+    "box": 1
+   },
+   {
+    "text": "הקיים",
+    "box": 1
+   },
+   {
+    "text": "דור",
+    "box": 2
+   },
+   {
+    "text": "III",
+    "box": 2
+   },
+   {
+    "text": "פועל בכמה",
+    "box": 2
+   },
+   {
+    "text": "מדינות",
+    "box": 2
+   },
+   {
+    "text": "דור",
+    "box": 3
+   },
+   {
+    "text": "IV",
+    "box": 3
+   },
+   {
+    "text": "בפיתוח, כמה",
+    "box": 3
+   },
+   {
+    "text": "יחידות הדגמה",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ionizing-scale": {
+  "labels": [
+   {
+    "text": "רדיו",
+    "box": 0
+   },
+   {
+    "text": "מיקרוגל",
+    "box": 0
+   },
+   {
+    "text": "אור נראה",
+    "box": 0
+   },
+   {
+    "text": "קרני X",
+    "box": 1
+   },
+   {
+    "text": "קרינת גמא",
+    "box": 1
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "discovery-timeline": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "technique-chooser": {
+  "labels": [
+   {
+    "text": "מדידות גרעיניות",
+    "box": 0
+   },
+   {
+    "text": "ספקטרוסקופיה α β γ",
+    "box": 0
+   },
+   {
+    "text": "מונה גייגר",
+    "box": 0
+   },
+   {
+    "text": "NAA",
+    "box": 0
+   },
+   {
+    "text": "הרכב יסודי",
+    "box": 1
+   },
+   {
+    "text": "XRF",
+    "box": 1
+   },
+   {
+    "text": "SEM-EDS",
+    "box": 1
+   },
+   {
+    "text": "ICP-AES",
+    "box": 1
+   },
+   {
+    "text": "ICP-MS",
+    "box": 1
+   },
+   {
+    "text": "יחס איזוטופים",
+    "box": 2
+   },
+   {
+    "text": "MC-ICP-MS",
+    "box": 2
+   },
+   {
+    "text": "TOF-SIMS",
+    "box": 2
+   },
+   {
+    "text": "מבנה האטומים",
+    "box": 3
+   },
+   {
+    "text": "XRD",
+    "box": 3
+   },
+   {
+    "text": "Raman",
+    "box": 3
+   },
+   {
+    "text": "IR",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "typical-doses": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "dose-effects": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "stability-valley": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "poster-wireframe": {
+  "labels": [
+   {
+    "text": "כותרת מדויקת ושם המציג",
+    "box": 0
+   },
+   {
+    "text": "פתיחה קצרה: המסר המרכזי",
+    "box": 1
+   },
+   {
+    "text": "מבוא",
+    "box": 2
+   },
+   {
+    "text": "מקטע עם כותרת-מסר",
+    "box": 3
+   },
+   {
+    "text": "מקורות",
+    "box": 4
+   },
+   {
+    "text": "איור עם כיתוב-מסקנה",
+    "box": 5
+   },
+   {
+    "text": "מקטע עם כותרת-מסר",
+    "box": 6
+   },
+   {
+    "text": "נקודות קצרות עם מספרים",
+    "box": 7
+   },
+   {
+    "text": "השוואה לחלופות",
+    "box": 8
+   },
+   {
+    "text": "איור נוסף",
+    "box": 9
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bragg-nuclear": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
  "real-gas-boyle": {
   "labels": [],
   "allowContainment": false,

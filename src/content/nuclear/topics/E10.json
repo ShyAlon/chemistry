@@ -58,6 +58,11 @@
     "style": "Callout"
    },
    {
+    "style": "Figure",
+    "figure": "poster-wireframe",
+    "text": "מבנה פוסטר בשלוש עמודות לפי הרשימה בשיעור."
+   },
+   {
     "text": "בחירת נושא - ההחלטה הכי משפיעה",
     "style": "Heading"
    },

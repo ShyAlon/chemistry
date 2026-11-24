@@ -59,6 +59,16 @@
     "style": "Normal"
    },
    {
+    "style": "Figure",
+    "figure": "bragg-nuclear",
+    "text": "משוואת בראג: קרני X המוחזרות ממישורי אטומים מתחזקות בזוויות מסוימות."
+   },
+   {
+    "style": "Figure",
+    "figure": "technique-chooser",
+    "text": "ארבע שאלות והשיטות שהשיעור מציע לכל אחת."
+   },
+   {
     "text": "XRF ו-SEM-EDS - הרכב אלמנטרי בלי להרוס",
     "style": "Heading"
    },

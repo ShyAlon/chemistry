@@ -27,6 +27,9 @@
 .ra-dialog label{display:grid;gap:6px;font-size:18px}
 .ra-dialog select{width:100%;min-height:44px;font-size:18px}
 .ra-dialog .ra-close{justify-self:start;min-height:44px;padding:8px 18px}
+.ra-dialog label.ra-toggle{display:flex;align-items:center;gap:10px;flex-wrap:wrap;cursor:pointer}
+.ra-toggle input{width:22px;height:22px;accent-color:#71e4f4;flex:none}
+.ra-toggle-hint{flex-basis:100%;font-size:14px;color:#b6c8da;line-height:1.5}
 .ra-note{font-size:15px;color:#b6c8da;line-height:1.6;margin:0}
 .theory-reading-block{position:relative;border-radius:6px;cursor:text;box-shadow:inset -3px 0 transparent;padding-inline:10px;margin-inline:-10px}
 .theory-reading-block.reading-selected{box-shadow:inset -3px 0 #61828b}

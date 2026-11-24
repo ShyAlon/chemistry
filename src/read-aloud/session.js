@@ -4,8 +4,8 @@ import {isLocalHebrew} from './narrator.js';
 // menu. Preferences persist on this device only.
 const KEY='spectra-read-aloud-prefs-v1';
 export const RATES=[0.75,1,1.25,1.5];
-let prefs={voiceURI:null,rate:1};
-try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);if(typeof p.voiceURI==='string')prefs.voiceURI=p.voiceURI||null;if(RATES.includes(p.rate))prefs.rate=p.rate;}}catch{}
+let prefs={voiceURI:null,rate:1,strip:false};
+try{const raw=localStorage.getItem(KEY);if(raw){const p=JSON.parse(raw);if(typeof p.voiceURI==='string')prefs.voiceURI=p.voiceURI||null;if(RATES.includes(p.rate))prefs.rate=p.rate;if(p.strip===true)prefs.strip=true;}}catch{}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(prefs))}catch{}};
 const prefListeners=new Set(),sessionListeners=new Set();
 let session=null;
@@ -15,6 +15,7 @@ function applyToSession(){if(!session)return;const p=session.player;if(p.rate!==
 function emitPrefs(){applyToSession();prefListeners.forEach(f=>f(getPrefs()))}
 export function setVoice(uri){prefs={...prefs,voiceURI:uri||null};save();emitPrefs()}
 export function setRate(rate){if(!RATES.includes(rate))return;prefs={...prefs,rate};save();emitPrefs()}
+export function setStripVisible(on){prefs={...prefs,strip:!!on};save();emitPrefs()}
 export const getSession=()=>session?{player:session.player,state:session.state,chunks:session.chunks}:null;
 export function subscribeSession(fn){sessionListeners.add(fn);return()=>sessionListeners.delete(fn)}
 function emitSession(){sessionListeners.forEach(f=>f(getSession()))}

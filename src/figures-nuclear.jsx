@@ -64,7 +64,7 @@ export function PwrLoops({accent}){
     <T x={440} y={105} size={12} ltr fill={HOT}>325 °C</T>
     <T x={420} y={254} size={12} ltr fill={COLD}>290 °C</T>
     <Box x={355} y={28} w={80} h={34} fill={C.faint}/>
-    <T x={395} y={50} size={12}>מרסן לחץ</T>
+    <T x={395} y={50} size={12}>מייצב לחץ</T>
     <L x1={395} y1={62} x2={395} y2={120} stroke={C.dim} dash="4 4"/>
     <Box x={20} y={90} w={100} h={50} fill={C.faint}/>
     <T x={70} y={120} size={14} fill={C.ink}>טורבינה</T>
@@ -272,19 +272,142 @@ export function ReactorTypes({accent}){
   </Fig>;
 }
 
-// E8: reactor generations I to V.
+// E8: reactor generations I to IV (WNA usage); "V" is not an official generation.
 export function ReactorGenerations({accent}){
-  const g=[{x:450,r:'I',a:'שנות',b:'50-60',d:'ניסיוני'},{x:345,r:'II',a:'שנות',b:'70-90',d:'מסחרי'},{x:240,r:'III',a:'סוף שנות',b:'90s+',d:'בטיחות פסיבית'},{x:135,r:'IV',a:'בפיתוח',d:'פחות פסולת'},{x:30,r:'V',a:'עתידי',d:'היתוך'}];
-  return <Fig label="דורות הכורים: דור 1 שנות ה-50 וה-60 ניסיוני, דור 2 שנות ה-70 עד ה-90 מסחרי, דור 3 בטיחות פסיבית, דור 4 בפיתוח, דור 5 עתידי על בסיס היתוך" viewBox="0 -90 560 285">
+  const g=[{x:430,r:'I',t:['1950-60s',null,'הסתיים']},{x:322,r:'II',t:[null,'רוב הצי','הקיים']},{x:214,r:'III',t:[null,'פועל בכמה','מדינות'],hi:true},{x:106,r:'IV',t:[null,'בפיתוח, כמה','יחידות הדגמה']}];
+  return <Fig label="דורות הכורים: דור 1 היה בשנות ה-50 וה-60 והסתיים, דור 2 רוב הצי הקיים, דור 3 פועל בכמה מדינות, דור 4 בפיתוח עם יחידות הדגמה, " viewBox="0 -90 560 300">
     {g.map(e=><g key={e.r}>
-      <Box x={e.x} y={0} w={98} h={130} fill={C.faint} stroke={e.r==='III'?accent:C.line}/>
+      <Box x={e.x} y={0} w={98} h={118} fill={C.faint} stroke={e.hi?accent:C.line} dash={e.dash?'5 4':undefined}/>
       <T x={e.x+49} y={20} size={11}>דור</T>
       <T x={e.x+49} y={46} size={22} weight="bold" ltr fill={C.ink}>{e.r}</T>
-      <T x={e.x+49} y={72} size={12}>{e.a}</T>
-      {e.b&&<T x={e.x+49} y={90} size={12} ltr>{e.b}</T>}
-      <T x={e.x+49} y={116} size={12} fill={C.ink}>{e.d}</T>
+      {e.t[0]&&<T x={e.x+49} y={72} size={12} ltr>{e.t[0]}</T>}
+      {e.t[1]&&<T x={e.x+49} y={78} size={12} fill={C.ink}>{e.t[1]}</T>}
+      <T x={e.x+49} y={e.t[1]?98:98} size={12} fill={C.ink}>{e.t[2]}</T>
     </g>)}
-    <Arrow x1={540} y1={152} x2={20} y2={152} stroke={C.dim} id="gentime"/>
-    <T x={280} y={172} size={12}>זמן</T>
+    <Arrow x1={540} y1={140} x2={60} y2={140} stroke={C.dim} id="gentime"/>
+    <T x={280} y={160} size={12}>זמן</T>
+    <T x={280} y={184} size={12}>בין דור שני לשלישי אין הבחנה חדה</T>
+  </Fig>;
+}
+
+// E1: ionizing threshold. Schematic ordering only, not a measured axis.
+export function IonizingScale({accent}){
+  const L1=[{x:420,a:'רדיו',b:'ואנטנת סלולר'},{x:300,a:'מיקרוגל',b:''},{x:180,a:'אור נראה',b:''}];
+  const H=[{x:60,a:'קרני X',b:''},{x:-60,a:'קרינת גמא',b:''}];
+  return <Fig label="סולם אנרגיית הפוטון: רדיו, מיקרוגל ואור נראה אינם מייננים. מעל סף של עשרות אלקטרון-וולט נמצאות קרני X וגמא, וגם חלקיקי אלפא ובטא מייננים" viewBox="-90 -90 680 270">
+    <Box x={160} y={0} w={400} h={70} fill={C.faint} stroke={C.line}/>
+    <Box x={-90} y={0} w={240} h={70} fill={C.faint} stroke={accent}/>
+    {[{x:510,a:'רדיו'},{x:390,a:'מיקרוגל'},{x:270,a:'אור נראה'},{x:100,a:'קרני X'},{x:-30,a:'קרינת גמא'}].map(e=><T key={e.a} x={e.x} y={40} size={13} fill={C.ink}>{e.a}</T>)}
+    <T x={360} y={90} size={12}>לא מייננת</T>
+    <T x={30} y={90} size={12} fill={accent}>מייננת</T>
+    <L x1={155} y1={-8} x2={155} y2={78} stroke={accent} w={2} dash="5 4"/>
+    <T x={155} y={-44} size={11}>סף היינון: עשרות אלקטרון-וולט</T>
+    <Arrow x1={560} y1={120} x2={-80} y2={120} stroke={C.dim} id="ionen"/>
+    <T x={240} y={146} size={12}>אנרגיית פוטון עולה</T>
+    <T x={240} y={170} size={12}>חלקיקי אלפא ובטא מייננים גם הם</T>
+  </Fig>;
+}
+
+// E2: discovery order from the lesson text. Only years given in the lesson are shown.
+export function DiscoveryTimeline({accent}){
+  const ev=[{x:500,y:'1859',a:'קרני קתודה',b:'פליקר והיטורף'},{x:380,y:'1895',a:'קרני X',b:'רנטגן'},{x:260,y:'1896',a:'רדיואקטיביות',b:'בקרל'},{x:140,y:'',a:'פולוניום ורדיום',b:'בני הזוג קירי'},{x:20,y:'',a:'אלפא, בטא וגמא',b:'רתרפורד'}];
+  return <Fig label="ציר זמן של הגילויים: קרני קתודה 1859, קרני X של רנטגן 1895, רדיואקטיביות של בקרל 1896, פולוניום ורדיום של בני הזוג קירי, וסוגי הקרינה של רתרפורד" viewBox="-20 -90 640 230">
+    <L x1={560} y1={40} x2={-10} y2={40} stroke={C.dim} w={2}/>
+    {ev.map((e,i)=><g key={i}>
+      <Dot cx={e.x+50} cy={40} r={6} fill={i===1||i===2?accent:C.line} stroke={C.ink}/>
+      {e.y&&<T x={e.x+50} y={18} size={14} weight="bold" ltr fill={C.ink}>{e.y}</T>}
+      <T x={e.x+50} y={70} size={13} fill={C.ink}>{e.a}</T>
+      <T x={e.x+50} y={92} size={12}>{e.b}</T>
+    </g>)}
+    <T x={280} y={125} size={12}>לשנים אין סולם מדוד. הציור מציג סדר בלבד.</T>
+  </Fig>;
+}
+
+// E3: four families of questions and the methods the lesson lists for each.
+export function TechniqueChooser({accent}){
+  const q=[{x:420,t:'מדידות גרעיניות',m:['ספקטרוסקופיה α β γ','מונה גייגר','NAA']},{x:285,t:'הרכב יסודי',m:['XRF','SEM-EDS','ICP-AES','ICP-MS']},{x:150,t:'יחס איזוטופים',m:['MC-ICP-MS','TOF-SIMS']},{x:15,t:'מבנה האטומים',m:['XRD','Raman','IR']}];
+  return <Fig label="בחירת שיטה לפי השאלה: מדידות גרעיניות, הרכב יסודי, יחס איזוטופים ומבנה, עם השיטות שהשיעור מונה לכל שאלה" viewBox="0 -90 580 290">
+    {q.map(c=><g key={c.t}>
+      <Box x={c.x} y={0} w={130} h={170} fill={C.faint} stroke={C.line}/>
+      <T x={c.x+65} y={30} size={14} weight="bold" fill={C.ink}>{c.t}</T>
+      <L x1={c.x+14} y1={46} x2={c.x+116} y2={46}/>
+      {c.m.map((m,i)=><T key={m} x={c.x+65} y={74+i*24} size={13} ltr fill={C.ink}>{m}</T>)}
+    </g>)}
+    <T x={290} y={196} size={12}>מה רוצים לדעת? זו נקודת המוצא לבחירת השיטה.</T>
+  </Fig>;
+}
+
+// E9: typical doses in mSv on a log scale. Values are the ones in the lesson.
+export function TypicalDoses({accent}){
+  const r=[['צילום חזה',0.02],['טיסה לניו יורק',0.05],['גבול שנתי לציבור',1],['רקע טבעי בשנה',2],['מיפוי עצמות',3],['CT בטן',10],['גבול שנתי לעובד קרינה',20]];
+  const x0=170,k=85; const px=v=>x0+k*(Math.log10(v)+2);
+  return <Fig label="מנות טיפוסיות בסולם לוגריתמי: צילום חזה 0.02, טיסה לניו יורק 0.05, גבול לציבור 1, רקע טבעי 2, מיפוי עצמות 3, CT בטן 10 וגבול לעובד קרינה 20 מילי-זיוורט" viewBox="-90 -90 600 360">
+    {r.map((e,i)=>{const y=i*32;return <g key={e[0]}>
+      <T x={x0-10} y={y+16} anchor="end" size={13} fill={C.ink}>{e[0]}</T>
+      <rect x={x0} y={y+2} width={px(e[1])-x0} height={20} rx={3} fill={i>=5?accent:C.line}/>
+      <T x={px(e[1])+8} y={y+17} anchor="start" size={13} ltr fill={C.ink}>{e[1]}</T>
+    </g>;})}
+    <L x1={x0} y1={-6} x2={x0} y2={230}/>
+    <T x={x0+150} y={254} size={12}>mSv, סולם לוגריתמי</T>
+  </Fig>;
+}
+
+// E9: deterministic effects have a threshold and rising severity; stochastic
+// effects have rising probability, no known threshold (LNT assumption).
+export function DoseEffects({accent}){
+  return <Fig label="אפקט דטרמיניסטי: יש סף וחומרת הנזק עולה עם המנה. אפקט סטוכסטי: ההסתברות עולה עם המנה, ללא סף ידוע, ובחומרה לא משתנה" viewBox="-20 -90 640 300">
+    <g>
+      <L x1={330} y1={0} x2={330} y2={150}/><L x1={330} y1={150} x2={580} y2={150}/>
+      <path d="M335,150 L420,150 C460,150 500,100 520,75 L570,15" stroke={accent} strokeWidth={2.5} fill="none"/>
+      <L x1={420} y1={150} x2={420} y2={160} stroke={C.ink}/>
+      <T x={420} y={178} size={12}>סף</T>
+      <T x={455} y={-10} size={14} weight="bold" fill={C.ink}>דטרמיניסטי</T>
+      <T x={452} y={200} size={12}>חומרת הנזק מול המנה</T>
+    </g>
+    <g>
+      <L x1={20} y1={0} x2={20} y2={150}/><L x1={20} y1={150} x2={270} y2={150}/>
+      <L x1={20} y1={150} x2={265} y2={20} stroke={accent} w={2.5}/>
+      <T x={145} y={-10} size={14} weight="bold" fill={C.ink}>סטוכסטי</T>
+      <T x={150} y={178} size={12}>ההסתברות מול המנה</T>
+      <T x={150} y={200} size={12}>בלי סף ידוע (הנחת LNT)</T>
+    </g>
+  </Fig>;
+}
+
+// E4: valley of stability, schematic. n/p about 1 for light nuclei, about 1.5 for heavy.
+export function StabilityValley({accent}){
+  const d="M40,200 L120,176 C190,140 215,128 240,116 C300,80 340,62 380,46";
+  return <Fig label="עמק היציבות: מספר ניטרונים מול מספר פרוטונים. בגרעינים קלים היחס בערך 1 ובכבדים בערך 1.5. מעל העמק דועכים בבטא מינוס, מתחתיו בבטא פלוס" viewBox="-60 -90 600 330">
+    <L x1={40} y1={200} x2={40} y2={-10}/><L x1={40} y1={200} x2={500} y2={200}/>
+    <Arrow x1={499} y1={200} x2={510} y2={200} stroke={C.line} id="svx"/><Arrow x1={40} y1={-9} x2={40} y2={-20} stroke={C.line} id="svy"/>
+    <T x={270} y={232} size={13} ltr>Z</T><T x={20} y={-16} size={13} ltr>N</T>
+    <L x1={40} y1={200} x2={500} y2={62} stroke={C.dim} dash="5 4"/>
+    <T x={480} y={86} size={12} ltr fill={C.mut}>N = Z</T>
+    <path d={d} stroke={accent} strokeWidth={14} fill="none" opacity={0.35} strokeLinecap="round"/>
+    <path d={d} stroke={accent} strokeWidth={2.5} fill="none"/>
+    <T x={290} y={20} size={13} fill={C.ink}>עמק היציבות</T>
+    <T x={140} y={50} size={12} fill={C.ink}>יותר מדי ניטרונים</T>
+    <T x={140} y={68} size={12} ltr>β−</T>
+    <T x={400} y={150} size={12} fill={C.ink}>יותר מדי פרוטונים</T>
+    <T x={400} y={168} size={12} ltr>β+</T>
+    <T x={110} y={104} size={11}>קלים: ניטרונים לפרוטונים</T>
+    <T x={110} y={120} size={11} ltr>~ 1</T>
+    <T x={440} y={20} size={11}>כבדים</T>
+    <T x={440} y={36} size={11} ltr>~ 1.5</T>
+  </Fig>;
+}
+
+// E10: three-column poster layout wireframe, following the lesson's anatomy list.
+export function PosterWireframe({accent}){
+  const col=(x,items)=><g>{items.map((it,i)=><g key={i}><Box x={x} y={it.y} w={150} h={it.h} fill={it.f?C.soft:C.faint} stroke={it.f?accent:C.line}/><T x={x+75} y={it.y+it.h/2+4} size={12} fill={C.ink}>{it.t}</T></g>)}</g>;
+  return <Fig label="מבנה פוסטר בשלוש עמודות: כותרת ופתיחה למעלה, מבוא ותכונות, יישומים ואיור עם כיתוב, השוואה לחלופות ורשימת מקורות" viewBox="-20 -90 520 400">
+    <Box x={0} y={-10} w={480} h={44} fill={C.soft} stroke={accent}/>
+    <T x={240} y={18} size={15} weight="bold" fill={C.ink}>כותרת מדויקת ושם המציג</T>
+    <Box x={0} y={44} w={480} h={34} fill={C.faint} stroke={C.line}/>
+    <T x={240} y={66} size={12} fill={C.ink}>פתיחה קצרה: המסר המרכזי</T>
+    {col(330,[{y:90,h:50,t:'מבוא'},{y:150,h:70,t:'מקטע עם כותרת-מסר'},{y:230,h:40,t:'מקורות'}])}
+    {col(165,[{y:90,h:80,t:'איור עם כיתוב-מסקנה',f:true},{y:180,h:90,t:'מקטע עם כותרת-מסר'}])}
+    {col(0,[{y:90,h:60,t:'נקודות קצרות עם מספרים'},{y:160,h:50,t:'השוואה לחלופות'},{y:220,h:50,t:'איור נוסף',f:true}])}
+    <T x={240} y={296} size={12}>סכמת מבנה בלבד</T>
   </Fig>;
 }

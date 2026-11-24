@@ -99,7 +99,7 @@
     "box": 1
    },
    {
-    "text": "מרסן לחץ",
+    "text": "מייצב לחץ",
     "box": 2
    },
    {
@@ -372,15 +372,11 @@
     "box": 0
    },
    {
-    "text": "שנות",
+    "text": "1950-60s",
     "box": 0
    },
    {
-    "text": "50-60",
-    "box": 0
-   },
-   {
-    "text": "ניסיוני",
+    "text": "הסתיים",
     "box": 0
    },
    {
@@ -392,15 +388,11 @@
     "box": 1
    },
    {
-    "text": "שנות",
+    "text": "רוב הצי",
     "box": 1
    },
    {
-    "text": "70-90",
-    "box": 1
-   },
-   {
-    "text": "מסחרי",
+    "text": "הקיים",
     "box": 1
    },
    {
@@ -412,15 +404,11 @@
     "box": 2
    },
    {
-    "text": "סוף שנות",
+    "text": "פועל בכמה",
     "box": 2
    },
    {
-    "text": "90s+",
-    "box": 2
-   },
-   {
-    "text": "בטיחות פסיבית",
+    "text": "מדינות",
     "box": 2
    },
    {
@@ -432,30 +420,181 @@
     "box": 3
    },
    {
-    "text": "בפיתוח",
+    "text": "בפיתוח, כמה",
     "box": 3
    },
    {
-    "text": "פחות פסולת",
+    "text": "יחידות הדגמה",
     "box": 3
-   },
-   {
-    "text": "דור",
-    "box": 4
-   },
-   {
-    "text": "V",
-    "box": 4
-   },
-   {
-    "text": "עתידי",
-    "box": 4
-   },
-   {
-    "text": "היתוך",
-    "box": 4
    }
   ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ionizing-scale": {
+  "labels": [
+   {
+    "text": "רדיו",
+    "box": 0
+   },
+   {
+    "text": "מיקרוגל",
+    "box": 0
+   },
+   {
+    "text": "אור נראה",
+    "box": 0
+   },
+   {
+    "text": "קרני X",
+    "box": 1
+   },
+   {
+    "text": "קרינת גמא",
+    "box": 1
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "discovery-timeline": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "technique-chooser": {
+  "labels": [
+   {
+    "text": "מדידות גרעיניות",
+    "box": 0
+   },
+   {
+    "text": "ספקטרוסקופיה α β γ",
+    "box": 0
+   },
+   {
+    "text": "מונה גייגר",
+    "box": 0
+   },
+   {
+    "text": "NAA",
+    "box": 0
+   },
+   {
+    "text": "הרכב יסודי",
+    "box": 1
+   },
+   {
+    "text": "XRF",
+    "box": 1
+   },
+   {
+    "text": "SEM-EDS",
+    "box": 1
+   },
+   {
+    "text": "ICP-AES",
+    "box": 1
+   },
+   {
+    "text": "ICP-MS",
+    "box": 1
+   },
+   {
+    "text": "יחס איזוטופים",
+    "box": 2
+   },
+   {
+    "text": "MC-ICP-MS",
+    "box": 2
+   },
+   {
+    "text": "TOF-SIMS",
+    "box": 2
+   },
+   {
+    "text": "מבנה האטומים",
+    "box": 3
+   },
+   {
+    "text": "XRD",
+    "box": 3
+   },
+   {
+    "text": "Raman",
+    "box": 3
+   },
+   {
+    "text": "IR",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "typical-doses": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "dose-effects": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "stability-valley": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "poster-wireframe": {
+  "labels": [
+   {
+    "text": "כותרת מדויקת ושם המציג",
+    "box": 0
+   },
+   {
+    "text": "פתיחה קצרה: המסר המרכזי",
+    "box": 1
+   },
+   {
+    "text": "מבוא",
+    "box": 2
+   },
+   {
+    "text": "מקטע עם כותרת-מסר",
+    "box": 3
+   },
+   {
+    "text": "מקורות",
+    "box": 4
+   },
+   {
+    "text": "איור עם כיתוב-מסקנה",
+    "box": 5
+   },
+   {
+    "text": "מקטע עם כותרת-מסר",
+    "box": 6
+   },
+   {
+    "text": "נקודות קצרות עם מספרים",
+    "box": 7
+   },
+   {
+    "text": "השוואה לחלופות",
+    "box": 8
+   },
+   {
+    "text": "איור נוסף",
+    "box": 9
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bragg-nuclear": {
+  "labels": [],
   "allowContainment": false,
   "allowOverlaps": []
  },

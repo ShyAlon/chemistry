@@ -97,7 +97,7 @@
    {
     "style": "Figure",
     "figure": "bwr-loop",
-    "text": "כור מים רותחים: מעגל יחיד. הציור סכמטי."
+    "text": "כור מים רותחים: מעגל יחיד."
    },
    {
     "text": "PHWR/CANDU - מים כבדים",
@@ -131,7 +131,7 @@
    {
     "style": "Figure",
     "figure": "reactor-generations",
-    "text": "דורות הכורים. סדר כרונולוגי, לא סולם מדוד."
+    "text": "דורות הכורים לפי השימוש המקובל (World Nuclear Association). ההגדרות הרשמיות הן דור I עד IV; דור V אינו קטגוריה רשמית."
    },
    {
     "text": "SMR (Small Modular Reactors): 10-300 MW, ייצור מודולרי במפעל ותכונות בטיחות משופרות. דוגמאות: NuScale (77 MW, אשכולות עד 12 יחידות), BWRX-300 של GE-Hitachi, Rolls-Royce (470 MW), ו-CAREM הארגנטינאי (25 MW).",

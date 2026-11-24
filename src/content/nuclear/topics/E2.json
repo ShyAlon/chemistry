@@ -50,6 +50,11 @@
     "style": "Callout"
    },
    {
+    "style": "Figure",
+    "figure": "discovery-timeline",
+    "text": "סדר הגילויים כפי שהוא מופיע בשיעור."
+   },
+   {
     "text": "יחידות מידה היסטוריות",
     "style": "Heading"
    },

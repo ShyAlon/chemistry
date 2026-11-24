@@ -65,6 +65,7 @@ export function PwrLoops({accent}){
     <T x={420} y={254} size={12} ltr fill={COLD}>290 °C</T>
     <Box x={355} y={28} w={80} h={34} fill={C.faint}/>
     <T x={395} y={50} size={12}>מייצב לחץ</T>
+    <T x={395} y={21} size={11} ltr fill={C.mut}>pressurizer</T>
     <L x1={395} y1={62} x2={395} y2={120} stroke={C.dim} dash="4 4"/>
     <Box x={20} y={90} w={100} h={50} fill={C.faint}/>
     <T x={70} y={120} size={14} fill={C.ink}>טורבינה</T>
@@ -94,15 +95,17 @@ export function PhotonInteractions({accent}){
   const bars=[
     {y:30,a:X(10),b:X(100),t:'אפקט פוטואלקטרי',f:'Z⁴⁻⁵ / E³⁻³·⁵',c:'#f0c978'},
     {y:92,a:X(100),b:X(10000),t:'פיזור קומפטון',f:'Z/E',c:accent},
-    {y:154,a:X(1022),b:X(100000),t:'יצירת זוגות',f:'Z²·lnE',c:'#c79af0'}];
-  return <Fig label="אינטראקציות פוטונים בחומר לפי אנרגיה: אפקט פוטואלקטרי עד כ-100 keV, פיזור קומפטון מכ-100 keV עד כ-10 MeV, יצירת זוגות מעל 1.022 MeV" viewBox="0 -90 560 346">
+    {y:154,a:X(10000),b:X(100000),t:'יצירת זוגות',f:'Z²·lnE',c:'#c79af0'}];
+  return <Fig label="אינטראקציות פוטונים בחומר לפי אנרגיה, קירוב כללי: אפקט פוטואלקטרי עד כ-100 keV, פיזור קומפטון מכ-100 keV עד כ-10 MeV, יצירת זוגות שולטת מעל כ-10 MeV; יצירת זוגות אפשרית כבר מעל הסף 1.022 MeV" viewBox="0 -90 560 346">
+    <Box x={X(1022)} y={154} w={X(10000)-X(1022)} h={52} fill="none" stroke="#c79af0" dash="4 4" opacity={0.7}/>
+    <T x={(X(1022)+X(10000))/2} y={185} size={12} fill={C.mut}>אפשרית, לא שולטת</T>
     {bars.map(r=><g key={r.t}>
       <Box x={r.a} y={r.y} w={r.b-r.a} h={52} fill={C.faint} stroke={r.c}/>
       <T x={(r.a+r.b)/2} y={r.y+22} size={13} fill={C.ink}>{r.t}</T>
       <T x={(r.a+r.b)/2} y={r.y+41} size={12} ltr fill={r.c}>{r.f}</T>
     </g>)}
     <L x1={X(1022)} y1={14} x2={X(1022)} y2={222} stroke={C.dim} dash="4 4"/>
-    <T x={X(1022)} y={6} size={12} ltr fill={C.ink}>1.022 MeV</T>
+    <T x={X(1022)} y={-6} size={12} fill={C.ink}>סף יצירת זוגות</T><T x={X(1022)} y={8} size={12} ltr fill={C.ink}>1.022 MeV</T>
     <L x1={40} y1={222} x2={520} y2={222}/>
     {[[10,'10 keV'],[100,'100 keV'],[1000,'1 MeV'],[10000,'10 MeV'],[100000,'100 MeV']].map(([k,l])=><g key={l}><L x1={X(k)} y1={222} x2={X(k)} y2={228}/><T x={X(k)} y={244} size={12} ltr>{l}</T></g>)}
   </Fig>;
@@ -341,7 +344,7 @@ export function TechniqueChooser({accent}){
 // background is an annual average; limits are ICRP recommendations (national rules vary).
 export function TypicalDoses({accent}){
   const EX='#8aa0b8',BG='#f0c978';
-  const r=[['צילום חזה',0.02,EX],['טיסה לניו יורק',0.05,EX],['גבול שנתי לציבור',1,accent],['רקע טבעי בשנה',2,BG],['מיפוי עצמות',3,EX],['CT בטן',10,EX],['גבול לעובד, ממוצע רב-שנתי',20,accent]];
+  const r=[['צילום חזה',0.02,EX],['טיסה לניו יורק',0.05,EX],['גבול שנתי לציבור',1,accent],['רקע טבעי בשנה (קירוב)',2,BG],['מיפוי עצמות',3,EX],['CT בטן',10,EX],['גבול לעובד, ממוצע רב-שנתי',20,accent]];
   const x0=190,k=80; const px=v=>x0+k*(Math.log10(v)+2);
   return <Fig label="מנות טיפוסיות בסולם לוגריתמי: דוגמאות לבדיקות בקירוב, רקע טבעי שנתי וגבולות שנתיים של ICRP. צילום חזה 0.02, טיסה לניו יורק 0.05, גבול לציבור 1, רקע טבעי 2, מיפוי עצמות 3, CT בטן 10 וגבול לעובד קרינה 20 מילי-זיוורט" viewBox="-90 -90 640 420">
     {[0.01,0.1,1,10,100].map(v=><g key={v}>

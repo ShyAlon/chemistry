@@ -1,7 +1,7 @@
 {
  "course": "nuclear",
  "kind": "baseline",
- "recordedAt": "2026-11-24T18:21:33.198Z",
+ "recordedAt": "2026-11-24T18:33:00.816Z",
  "note": "Post-reconciliation state of record.",
  "blocks": {
   "E1": {
@@ -623,8 +623,8 @@
      "final": "0964dced690bc9850b98b56044dac758febbc502ba9853be328ad526c0be1ea6"
     },
     {
-     "base": "0562c45c263b6043b59d954bac0a312818e054a6139ee15c224dbb6e6c23142c",
-     "final": "0562c45c263b6043b59d954bac0a312818e054a6139ee15c224dbb6e6c23142c"
+     "base": "26b88e3e9e8364704e507635e95e8692bb78916dc158b6945ca006805ae195a0",
+     "final": "26b88e3e9e8364704e507635e95e8692bb78916dc158b6945ca006805ae195a0"
     },
     {
      "base": "a6daf5deeb026eba435d603c1fb25ac6e76a300e0377e0fc5125466d074e36cb",
@@ -1283,8 +1283,8 @@
      "final": "ec4ff142063d712b2cdf058438ad0994bc8344f301ccf096033678ee00d77ac8"
     },
     {
-     "base": "7340f533a0cfb003b3938bf4f16f7a1b1e54c09ef29bde7652c55dee5248426f",
-     "final": "7340f533a0cfb003b3938bf4f16f7a1b1e54c09ef29bde7652c55dee5248426f"
+     "base": "ed9b06cee726684e242783134005e28c8151b266916526714f8485e9680a57b9",
+     "final": "ed9b06cee726684e242783134005e28c8151b266916526714f8485e9680a57b9"
     },
     {
      "base": "a25923fb731f53a30d7119869f4a483ecca5185c2578199e7e5df33ed3b535cc",

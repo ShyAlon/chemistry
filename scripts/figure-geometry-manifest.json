@@ -117,28 +117,32 @@
  "photon-interactions": {
   "labels": [
    {
-    "text": "אפקט פוטואלקטרי",
+    "text": "אפשרית, לא שולטת",
     "box": 0
+   },
+   {
+    "text": "אפקט פוטואלקטרי",
+    "box": 1
    },
    {
     "text": "Z⁴⁻⁵ / E³⁻³·⁵",
-    "box": 0
+    "box": 1
    },
    {
     "text": "פיזור קומפטון",
-    "box": 1
+    "box": 2
    },
    {
     "text": "Z/E",
-    "box": 1
+    "box": 2
    },
    {
     "text": "יצירת זוגות",
-    "box": 2
+    "box": 3
    },
    {
     "text": "Z²·lnE",
-    "box": 2
+    "box": 3
    }
   ],
   "allowContainment": false,

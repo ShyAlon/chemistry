@@ -48,6 +48,11 @@
     "style": "Normal"
    },
    {
+    "style": "Figure",
+    "figure": "nuclear-decay-map",
+    "text": "מה משתנה בכל דעיכה: מספר האטום Z ומספר המסה A."
+   },
+   {
     "text": "אנרגיית בטא היא רציפה",
     "style": "Heading"
    },
@@ -104,6 +109,11 @@
     "style": "Callout"
    },
    {
+    "style": "Figure",
+    "figure": "photon-interactions",
+    "text": "איזו אינטראקציה שולטת באיזו אנרגיה: הטווחים מהשיעור, והם חופפים ואינם גבולות חדים."
+   },
+   {
     "text": "קרינת X - אופיינית ובלימה",
     "style": "Heading"
    },
@@ -142,6 +152,11 @@
    {
     "text": "ניטרונים: עד עשרות סנטימטרים (מים, בטון רטוב, פוליאתילן).",
     "style": "List Bullet"
+   },
+   {
+    "style": "Figure",
+    "figure": "radiation-penetration",
+    "text": "מה עוצר כל סוג קרינה: אלפא נעצרת בדף נייר, בטא בלוח אלומיניום דק, וגמא רק נחלשת."
    }
   ],
   "worked": [

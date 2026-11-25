@@ -1,0 +1,859 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E2",
+ "source": {
+  "sha256": "fe43bb03fc6c390d90c95e0f6db8110a06bb9af904343faa3b188f5a4f57019d",
+  "kind": "pdf",
+  "pageCount": 51,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "0ddde714bfaf7a7e5b52fc98c38780471a84c923c0aa7172432882f783963e60",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "K changes with temperature only; Le Chatelier principle stated",
+     "targets": [
+      "theory:E2-t01",
+      "theory:E2-t02",
+      "theory:E2-t04"
+     ],
+     "rationale": "Shared page with E1: E1 claims only the Kc-invariance sentence."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "130bb64103b6504ca671acc2d6850685e0c1458b1e4d85af31f07ca436b8d058",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "exothermic and endothermic reactions and their enthalpy sign",
+     "targets": [
+      "theory:E2-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "61e586c36ff518ded6a6ce13bc52b03139e4d76d49bab6895d6775b426948ff3",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "raising T favors the endothermic direction, lowering T the exothermic",
+     "targets": [
+      "theory:E2-t21",
+      "theory:E2-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "678704a4782b0f86989d206a92136ed32ed0612ad555e5c895dc2a5262db9491",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "van Hoff differential and integrated forms, straight ln K versus 1/T",
+     "targets": [
+      "theory:E2-t24",
+      "theory:E2-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "5312550ae9ccd6f7047ddd0f99dad5952a1a16612d76b1e544f5d0662b109f71",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "SO2 + 1/2 O2 at two temperatures: K2 from K1 and delta H; is it reasonable",
+     "targets": [
+      "worked:5",
+      "quiz:12",
+      "theory:E2-t25"
+     ],
+     "rationale": "Slide unit atm^-1 and result 6.03 do not match K for this reaction (units atm^-1/2); lesson recomputes."
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "6a566b4daa6c307e57781110d2324e90450585ef918449d8f9af9f340f7cf8a1",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "a to b with K = 2.5: adding a moves the point back to the K line",
+     "targets": [
+      "theory:E2-t10",
+      "theory:E2-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "26f0cbaa7a79c29fcb91a994f6f4fd729e34403d3b1c45739d3da51a6ff66ab8",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "adding b: the return path to the K line from the other side",
+     "targets": [
+      "theory:E2-t10",
+      "theory:E2-t06",
+      "theory:E2-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "4911fbcaf952f8c96b401cf68dabd733f0688a802af6e834d6e956e1e9e393ec",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "SO3 added to SO2/O2/SO3: Q greater than K, shift back",
+     "targets": [
+      "theory:E2-t11",
+      "theory:E2-t07",
+      "theory:E2-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "a76758bf61d03edcd209de084c281a26cc047d4dc7652ad2a50d361b3503c71e",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "Kc and Kp do not depend on pressure; HI case has no change in gas moles",
+     "targets": [
+      "theory:E2-t13",
+      "theory:E2-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "7618aaaeef00ab3c3643fbc8c5f1c3ba7e57379ab220d5e585914256120509cb",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "NO2 to N2O4 at half volume: numerator and denominator change differently",
+     "targets": [
+      "theory:E2-t16",
+      "theory:E2-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "2dcf3324e947fe06d9619082e8cfc86d9ac54c9b7890d981da4df4923938d1c4",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kc for SO2 oxidation written with moles and V; compression shifts right",
+     "targets": [
+      "theory:E2-t13",
+      "theory:E2-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "541f4fdd963b1406c65d042d67a2cdad5e10bc65b38f4b09e20afc8837556cb0",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "volume change moves the mixture toward fewer or more gas moles",
+     "targets": [
+      "theory:E2-t17",
+      "theory:E2-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "166aac2788471cbf8a538c5a834aa220eaab7efda9d6e32ec18d3fd92d597ca1",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ammonia synthesis: add N2, add NH3, change volume, add inert gas",
+     "targets": [
+      "worked:4",
+      "theory:E2-t06",
+      "theory:E2-t07",
+      "theory:E2-t15"
+     ],
+     "rationale": "Own analysis for the four disturbances."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "390f9441a61c177f646c67e382cc750c8ea7a5a2ef361e8b0df0523b48a3910a",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Kp in moles and V for NH3 synthesis; inert gas at fixed V changes nothing",
+     "targets": [
+      "worked:4",
+      "theory:E2-t14",
+      "theory:E2-t15",
+      "theory:E2-t18",
+      "theory:E2-t19"
+     ],
+     "rationale": "Own wording; same conclusions."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "d4e14b36b8b370ac955350348fa1d435d3f164e502fdcc0c67852f318ae8dc90",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "a catalyst does not change the equilibrium position, only the rate",
+     "targets": [
+      "theory:E2-t27",
+      "theory:E2-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "55d1fbb276d5bb37f87f290d2161cb2f2799f14e363c8db180644c26b3fa839d",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "stress and shift summary for an exothermic heterogeneous reaction",
+     "targets": [
+      "theory:E2-t28",
+      "theory:E2-t29"
+     ],
+     "rationale": "Own summary table; solid amount does not shift equilibrium."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "8e7bf67a4aedcc1dc9013d97c271c1be03ab93d14b7cd58eceb0bc078a2a20e4",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "partitioning between immiscible solvents; D and its temperature dependence",
+     "targets": [
+      "theory:E2-t31",
+      "theory:E2-t34",
+      "theory:E2-t33"
+     ],
+     "rationale": "Added original note on dissociation or association in a phase."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "b57b2fc1f4454301b3de5614723fb9e03e06d0036e55757243a4bb7dabf87f8b",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "extraction: transfer of solute between liquid phases, D fixes the ratio",
+     "targets": [
+      "theory:E2-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "d470f4b1631323b77d4cc8844a475ab0fdbc5fdae439da54aeca9e41305a2967",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "single large portion or several small portions: set up the fraction left",
+     "targets": [
+      "theory:E2-t32",
+      "theory:E2-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "deeb94edd71210bc4eb86494263bbeae5df4e664e2c01ac034f116ccda993911",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "fraction left q = V1/(V1 + D V2) and q to the n for n portions",
+     "targets": [
+      "theory:E2-t35",
+      "theory:E2-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "7e0346110c9433a853e40adab1c9b007d2830158fc28beebad13f509532c941e",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "one portion versus five portions comparison",
+     "targets": [
+      "worked:9",
+      "quiz:13",
+      "quiz:14"
+     ],
+     "rationale": "Own numbers (D 40, 100 mL)."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "9b27dbe4bbe3d9bf66923c68e2401683100a1340114527f3da1d2a205cebee00",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "iodine in CS2: moles transferred and volume needed",
+     "targets": [
+      "worked:10"
+     ],
+     "rationale": "Own D and volumes."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "b94853c28ec7cbe682d2cb6f68e48535c705ce981e10c4e99a18ea721f6a87a1",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "solving for the organic volume from D",
+     "targets": [
+      "worked:10"
+     ],
+     "rationale": "Own numbers."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "b39155bf03a089db9740976d6d19ded7aaef09010f840c14794f6b6f5a79d421",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "section transition with decorative drug-design images",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "aa753dfd384dc7e54183968fa55fd47be77b9fa15509852651f6ed99c445d6aa",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "second section transition image page, molecular picture only",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "437afc1a290cd365a5363b555e2cc1d6fed54f975906ba5706f86d93b16db028",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "logP definition, lipophilic and hydrophilic, how it is measured",
+     "targets": [
+      "theory:E2-t38",
+      "theory:E2-t40"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "fe22abebdcafe08378e01ca89981375984c1f5a0ffee5aac733ac77d397f0363",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "logP versus polar surface area and oral absorption",
+     "targets": [
+      "theory:E2-t39",
+      "theory:E2-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "303290cb2d8a5504b72fa8b16811999b2c65c0fb0532f2d8b1797749534327a0",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "logP versus polar surface area and brain permeation",
+     "targets": [
+      "theory:E2-t39",
+      "theory:E2-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "bce9e63c5e473b506935f95815a49fb2f435196d434064f2a8140b965ed57b7b",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Le Chatelier; temperature effect on k for exo and endothermic reactions",
+     "targets": [
+      "theory:E2-t02",
+      "theory:E2-t21",
+      "theory:E2-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "ebe21738a4827e06ecae447c81aa8a03ce1e8329cd2fb9e0cc124d97df6b504a",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "concentration changes shift the reaction but K stays",
+     "targets": [
+      "theory:E2-t06",
+      "theory:E2-t07",
+      "theory:E2-t08",
+      "theory:E2-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "ff295211d37a40be94956af5dbf28e9feaccc73c1929cd7bbe5c11cb966e094f",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "volume and catalyst: K unchanged; inert gas at constant volume",
+     "targets": [
+      "theory:E2-t13",
+      "theory:E2-t15",
+      "theory:E2-t17",
+      "theory:E2-t18",
+      "theory:E2-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "f267bdffa1b5f7db49a6fe0211a0bdec52c8a5a04a9249aa0eea074a2fc3000f",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ammonia synthesis disturbances (list of six)",
+     "targets": [
+      "worked:4"
+     ],
+     "rationale": "Own analysis."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "478699357c788a5a1ef9f43be22a6c400a258838af11eb58c7297aef2b8de731",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "inert gas at constant volume leaves partial pressures unchanged",
+     "targets": [
+      "theory:E2-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "03ceb81b7715ee82dfd54c0141ea327bda2b4c5a0b4d10913ffff6edfe1b6833",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "inert gas at constant total pressure grows the volume",
+     "targets": [
+      "theory:E2-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "2043dc2f32f24a2f98876da116a0543ddaad5c61d06f7362ecb85827b31793c3",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "H2 + I2 problem: Kp, unreacted moles, total and partial pressures",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "005941524b3855c13cc7c7a0133fa795dec5cecec13c9ccdee51af3665809561",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "empty ICE table",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "537b1ac117b89dc8a88119d2b7c353341c0f4fb3d1383d5c84f0ee246cb7e8b7",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ICE change row",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "d91677733d702962c899795104a1949904a1f4145d11511aaea1767facb356bd",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "equilibrium row and Kc with volume",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "452195762688abf2b69b821b17417cdfbef8d1b8bb7431d582d8d6cb027a8850",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "quadratic and root choice",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "1361a9b8ab6a74a7334e7a8de870423e6a2f5657b5cf3385993d3da1a6af700f",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "total pressure and partial pressures",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "4289cda0e1d8f20a0abc854a9e69cc125a23d1d9b065e3fa394125abac8ea1ac",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "partial pressure from mole fraction and total pressure",
+     "targets": [
+      "theory:E2-t15",
+      "theory:E2-t19"
+     ],
+     "rationale": "Shared formula with E3 chapter tables is not claimed here."
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "1d6958b2dccc16e8b7d90da07fb00857f9b4461242f4b9ef79a53bee775a689f",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "N2O4 problem: find initial pressure from total at equilibrium",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "466fa163b4c12fd2562e209c1e13e1472cc035383af085a4a40bb20d8ff5f246",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "solution plan with partial pressures",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "a750840f2e1ef09a635cedfc442959e447b985392698e5c17802cf48b67aee0d",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "empty ICE in pressures",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "e1154835ab54f436c0dd8ffb90a921badda9dcd8a7ac4e7097cb017d17201145",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ICE change row",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "a5de742bc0ec556f2367c56d33979cdf52584c36f9c55cf2c38cf4e9d668a72c",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "pressures sum to total",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "f70ea9e97fa2b57d77aee98afda2c2c90badaea2deed25550e3b3a2ff5f6491a",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Kp expression and quadratic root choice",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "14400fa962c9b4adea9c2cbcaeb505a8d521af9515e2ff1b29c8eda88e467a9a",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "HgO decomposition problem statement",
+     "targets": [
+      "worked:8",
+      "theory:E2-t29",
+      "theory:E2-t21"
+     ],
+     "rationale": "Own numbers (8.00 L)."
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "a5c8945a2117fa58ed98353f8269dc919c3235a7c021ac92e3c967f72a209462",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Kp equals P(O2) and Kc from Kp",
+     "targets": [
+      "worked:8",
+      "theory:E2-t29",
+      "theory:E2-t21"
+     ],
+     "rationale": "Own numbers (8.00 L)."
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "6c29ea274a21ce0118d3ac17162cd8c35bf024a900012d40b350b78ed558d459",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "volume, pressure, amount of solid and temperature effects",
+     "targets": [
+      "worked:8",
+      "theory:E2-t29",
+      "theory:E2-t21"
+     ],
+     "rationale": "Own numbers (8.00 L)."
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "a1820b62d75adfdf9fc4c48bba1b6fcf446a69a83dafb1390205045e740654f0",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "class exercise: ammonia disturbances, H2 + I2, N2O4, NH4HS, HgO",
+     "targets": [
+      "worked:4",
+      "worked:6",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "NH4HS part is mapped in E1; this unit claims the other problems."
+    }
+   ]
+  }
+ ]
+}

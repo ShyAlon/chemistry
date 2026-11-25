@@ -69,13 +69,12 @@
      "id": "p04.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "chapter overview: acid-base definitions, strength, structure",
+     "label": "history of acids and bases: acidus, al-qali, Arrhenius 1884",
      "targets": [
       "theory:E3-t04",
-      "theory:E3-t05",
-      "theory:E3-t06",
-      "theory:E3-t07"
-     ]
+      "theory:E3-t09"
+     ],
+     "rationale": "Intro and history page; lesson t04 and t09 carry the same history."
     }
    ]
   },
@@ -87,11 +86,10 @@
      "id": "p05.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "acids and the hydrogen ion in water",
+     "label": "acids: strong and weak, HCl and acetic acid, reversible arrow",
      "targets": [
-      "theory:E3-t05",
-      "theory:E3-t09",
-      "theory:E3-t10"
+      "theory:E3-t02",
+      "theory:E3-t09"
      ]
     }
    ]
@@ -104,10 +102,10 @@
      "id": "p06.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "strong and weak acids: complete and partial ionization",
+     "label": "the hydrogen cation: bare proton, H3O+ and larger water clusters",
      "targets": [
-      "theory:E3-t09",
-      "theory:E3-t02"
+      "theory:E3-t05",
+      "theory:E3-t10"
      ]
     }
    ]
@@ -171,16 +169,13 @@
    "units": [
     {
      "id": "p10.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "Arrhenius definition problems: identify acid, base, limits",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "problems with the Arrhenius definition",
      "targets": [
       "theory:E3-t08",
-      "theory:E3-t10",
-      "worked:1",
-      "quiz:1"
-     ],
-     "rationale": "Own wording and own examples for the same identification skill."
+      "theory:E3-t10"
+     ]
     }
    ]
   },
@@ -192,13 +187,12 @@
      "id": "p11.u1",
      "kind": "figure",
      "disposition": "adapted",
-     "label": "Bronsted-Lowry proton transfer picture with conjugate pairs",
+     "label": "Bronsted-Lowry proton transfer picture",
      "targets": [
       "theory:E3-t06",
-      "theory:E3-t11",
-      "theory:E3-t13"
+      "theory:E3-t11"
      ],
-     "rationale": "Text adaptation, no diagram: proton transfer and conjugate pairs are explained in words and worked 1."
+     "rationale": "Text adaptation, no diagram: proton transfer is explained in words."
     }
    ]
   },
@@ -215,7 +209,20 @@
       "theory:E3-t12",
       "theory:E3-t13",
       "theory:E3-t14"
-     ]
+     ],
+     "rationale": "Worked 1 and quiz 2 are lesson additions, not from this page."
+    },
+    {
+     "id": "p12.u2",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "lesson additions: conjugate pairs practice",
+     "targets": [
+      "worked:1",
+      "quiz:1",
+      "quiz:2"
+     ],
+     "rationale": "Own practice items, no slide counterpart."
     }
    ]
   },
@@ -225,14 +232,14 @@
    "units": [
     {
      "id": "p13.u1",
-     "kind": "exercise",
+     "kind": "figure",
      "disposition": "adapted",
-     "label": "identify conjugate pairs in proton-transfer reactions",
+     "label": "graphical representation: NH3 and H2O with conjugate pairs",
      "targets": [
-      "worked:1",
-      "quiz:2"
+      "theory:E3-t11",
+      "theory:E3-t13"
      ],
-     "rationale": "Own reactions."
+     "rationale": "Text adaptation, no diagram: the two conjugate pairs are listed in words."
     }
    ]
   },
@@ -244,13 +251,12 @@
      "id": "p14.u1",
      "kind": "equation",
      "disposition": "covered",
-     "label": "Kb for ammonia and Ka for acetic acid, both about 1.8e-5",
+     "label": "Kb for ammonia, about 1.8e-5",
      "targets": [
       "theory:E3-t15",
-      "theory:E3-t16",
-      "theory:E3-t20"
+      "theory:E3-t16"
      ],
-     "rationale": "Both values are typical 25 C values."
+     "rationale": "Typical 25 C value."
     }
    ]
   },
@@ -262,12 +268,23 @@
      "id": "p15.u1",
      "kind": "equation",
      "disposition": "covered",
-     "label": "Ka times Kb equals Kw for a conjugate pair",
+     "label": "acid ionization constant: acetic acid Ka 1.8e-5, Kc to Ka",
+     "targets": [
+      "theory:E3-t16",
+      "theory:E3-t20"
+     ]
+    },
+    {
+     "id": "p15.u2",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "lesson addition: Ka times Kb equals Kw",
      "targets": [
       "theory:E3-t17",
       "worked:2",
       "quiz:5"
-     ]
+     ],
+     "rationale": "Not shown on this page; own addition to connect Ka and Kb."
     }
    ]
   },
@@ -279,13 +296,12 @@
      "id": "p16.u1",
      "kind": "figure",
      "disposition": "adapted",
-     "label": "ionization of a strong acid versus a weak acid",
+     "label": "acetic acid ionization figure: weak acid, partial ionization",
      "targets": [
       "theory:E3-t16",
-      "theory:E3-t02",
-      "theory:E3-t09"
+      "theory:E3-t02"
      ],
-     "rationale": "Text adaptation, no diagram: complete versus partial ionization is described in words."
+     "rationale": "Text adaptation, no diagram: partial ionization is described in words."
     }
    ]
   },
@@ -297,12 +313,12 @@
      "id": "p17.u1",
      "kind": "figure",
      "disposition": "adapted",
-     "label": "ionization of a weak base in water",
+     "label": "HCl ionization figure: strong acid, complete ionization",
      "targets": [
-      "theory:E3-t16",
-      "theory:E3-t15"
+      "theory:E3-t09",
+      "theory:E3-t02"
      ],
-     "rationale": "Text adaptation, no diagram: weak base ionization is described in words."
+     "rationale": "Text adaptation, no diagram: complete ionization is described in words."
     }
    ]
   },
@@ -453,11 +469,10 @@
      "id": "p26.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "binary acid strength: bond length, bond energy and Ka for HX",
+     "label": "section intro: why HCl strong but HF weak, acetic versus ethanol, gas-phase BDE",
      "targets": [
       "theory:E3-t25",
-      "theory:E3-t26",
-      "theory:E3-t30"
+      "theory:E3-t26"
      ]
     }
    ]
@@ -473,7 +488,8 @@
      "label": "bond lengths, bond energies and Ka for HI, HBr, HCl and HF",
      "targets": [
       "theory:E3-t30",
-      "theory:E3-t46"
+      "theory:E3-t46",
+      "theory:E3-t26"
      ],
      "rationale": "Slide values are labeled source-derived in the lesson."
     }
@@ -485,14 +501,15 @@
    "units": [
     {
      "id": "p28.u1",
-     "kind": "concept",
+     "kind": "table",
      "disposition": "covered",
-     "label": "oxoacids: central atom electronegativity",
+     "label": "HOCl and HOBr electronegativity and Ka",
      "targets": [
-      "theory:E3-t28",
       "theory:E3-t31",
-      "theory:E3-t27"
-     ]
+      "theory:E3-t46",
+      "theory:E3-t28"
+     ],
+     "rationale": "Slide values are labeled source-derived in the lesson."
     }
    ]
   },
@@ -502,14 +519,13 @@
    "units": [
     {
      "id": "p29.u1",
-     "kind": "table",
+     "kind": "concept",
      "disposition": "covered",
-     "label": "HOCl and HOBr electronegativity and Ka, sulfur oxoacids",
+     "label": "sulfur oxoacids: H2SO4 and H2SO3 structures and Ka",
      "targets": [
       "theory:E3-t31",
-      "theory:E3-t46"
-     ],
-     "rationale": "Slide values are labeled source-derived in the lesson."
+      "theory:E3-t28"
+     ]
     }
    ]
   },
@@ -519,13 +535,12 @@
    "units": [
     {
      "id": "p30.u1",
-     "kind": "concept",
+     "kind": "table",
      "disposition": "covered",
-     "label": "organic acids: carboxylic acids versus alcohols, anion stability",
+     "label": "Ka for acetic acid and ethanol",
      "targets": [
-      "theory:E3-t29",
       "theory:E3-t32",
-      "quiz:14"
+      "theory:E3-t29"
      ]
     }
    ]
@@ -536,11 +551,13 @@
    "units": [
     {
      "id": "p31.u1",
-     "kind": "table",
+     "kind": "concept",
      "disposition": "covered",
-     "label": "Ka for acetic acid and ethanol",
+     "label": "focus on the anions: localized ethoxide versus delocalized acetate",
      "targets": [
-      "theory:E3-t32"
+      "theory:E3-t29",
+      "theory:E3-t32",
+      "quiz:14"
      ]
     }
    ]
@@ -621,12 +638,13 @@
      "id": "p36.u1",
      "kind": "table",
      "disposition": "adapted",
-     "label": "cyclohexylamine, aniline and chloroanilines pKb",
+     "label": "cyclohexylamine and aniline pKb",
      "targets": [
       "theory:E3-t36",
-      "theory:E3-t35"
+      "theory:E3-t35",
+      "quiz:7"
      ],
-     "rationale": "Typical reference values; lecturer ethyl and propyl numbers are kept distinct from reference values in the lesson."
+     "rationale": "Typical reference values; lecturer numbers kept distinct from reference values."
     }
    ]
   },
@@ -638,11 +656,10 @@
      "id": "p37.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "aniline and substituted anilines, resonance and inductive effects",
+     "label": "chloroanilines and inductive structures, para and ortho pKb",
      "targets": [
-      "theory:E3-t35",
       "theory:E3-t36",
-      "quiz:7"
+      "theory:E3-t35"
      ]
     }
    ]
@@ -735,13 +752,15 @@
    "units": [
     {
      "id": "p43.u1",
-     "kind": "concept",
-     "disposition": "covered",
-     "label": "Lewis acid-base examples with metal ions",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "showing electron movement: curved arrows for O2- with SO2",
      "targets": [
+      "theory:E3-t38",
       "theory:E3-t39",
-      "theory:E3-t38"
-     ]
+      "theory:E3-t41"
+     ],
+     "rationale": "Text adaptation, no curved-arrow diagram; the acid-oxide reaction is in t41."
     }
    ]
   },

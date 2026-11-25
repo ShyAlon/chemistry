@@ -409,6 +409,136 @@
   "allowContainment": false,
   "allowOverlaps": []
  },
+ "beta-spectrum": {
+  "labels": [
+   {
+    "text": "אנרגיה ממוצעת: תלויה בגרעין",
+    "box": 0
+   },
+   {
+    "text": "²²Na: 0.39·Emax ; ¹³¹I: 0.32·Emax",
+    "box": 0
+   },
+   {
+    "text": "הקו המקווקו: הממוצע בצורה המצוירת, סכמטי",
+    "box": 0
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "em-bands": {
+  "labels": [
+   {
+    "text": "רדיו",
+    "box": 0
+   },
+   {
+    "text": "מיקרוגל",
+    "box": 1
+   },
+   {
+    "text": "אינפרא-אדום",
+    "box": 2
+   },
+   {
+    "text": "UV",
+    "box": 4
+   },
+   {
+    "text": "X",
+    "box": 5
+   },
+   {
+    "text": "γ",
+    "box": 6
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "xray-spectrum": {
+  "labels": [
+   {
+    "text": "Kα",
+    "box": 0
+   },
+   {
+    "text": "Kβ",
+    "box": 1
+   },
+   {
+    "text": "קרינה אופיינית: פסים חדים",
+    "box": 2
+   },
+   {
+    "text": "קרינת בלימה: רציף",
+    "box": 3
+   },
+   {
+    "text": "מקווקו: ללא סינון",
+    "box": 4
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "decay-directions": {
+  "labels": [
+   {
+    "text": "גרעין האם",
+    "box": 0
+   },
+   {
+    "text": "α",
+    "box": 1
+   },
+   {
+    "text": "β−",
+    "box": 2
+   },
+   {
+    "text": "β+ / EC",
+    "box": 3
+   },
+   {
+    "text": "p",
+    "box": 4
+   },
+   {
+    "text": "n",
+    "box": 5
+   },
+   {
+    "text": "גמא: אותו גרעין, פחות אנרגיה",
+    "box": 6
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "photon-spectrum": {
+  "labels": [
+   {
+    "text": "אניהילציה",
+    "box": 0
+   },
+   {
+    "text": "בריחה כפולה",
+    "box": 1
+   },
+   {
+    "text": "בריחה בודדת",
+    "box": 2
+   },
+   {
+    "text": "כל האנרגיה",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
  "fuel-cycle": {
   "labels": [
    {

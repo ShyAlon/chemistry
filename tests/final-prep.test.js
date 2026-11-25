@@ -18,6 +18,9 @@ const e=id=>exam.find(e=>e.id===id).parts.map(blocksText).join(' ');
 
 test('final preparation is append-only on exact reviewed main; every other byte of the parsed catalogue is retained',()=>{
  const original=structuredClone(catalogue);
+ // Nuclear E5 was intentionally repaired (source coverage). Its pre-repair topic is kept verbatim as a fixture so the
+ // original hash still proves every OTHER topic is byte-identical; E5 itself is pinned by the nuclear snapshot test.
+ {const n=original.courses.find(c=>c.id==='nuclear'),i=n.topics.findIndex(t=>t.id==='E5');n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/nuclear-E5-before-repair.json',import.meta.url)))}
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   else undoFormulaReview(t);

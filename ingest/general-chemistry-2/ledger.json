@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T09:09:22.843Z",
+ "recordedAt": "2026-11-25T09:10:16.550Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -1694,8 +1694,8 @@
      "final": "5506ba0006598e75bfdd9552792d353b0e32272224042b10c665a0bb5e20655a"
     },
     {
-     "base": "8098f564cb4002a6432fcfbc078c6cf215d57d6beac0c3a1ba133219a4eb5abf",
-     "final": "8098f564cb4002a6432fcfbc078c6cf215d57d6beac0c3a1ba133219a4eb5abf"
+     "base": "d9b0d9037898fb14dc78f54d5e9bec3153f2868613e2eb11f6cb71c332a03c92",
+     "final": "d9b0d9037898fb14dc78f54d5e9bec3153f2868613e2eb11f6cb71c332a03c92"
     },
     {
      "base": "9628a72baf91a098e9acd973902ee24747f4b6d146315db1f9631bec06b6c7b5",
@@ -1828,8 +1828,8 @@
      "final": "46df29f8f574ebf28a747434d68bacb918fbacebeb4ea29b0348708422805d15"
     },
     {
-     "base": "032ec52cb71d2330b8df1dcb18f5803f2e7cb81a6e9cc1e304150c4233de9fda",
-     "final": "032ec52cb71d2330b8df1dcb18f5803f2e7cb81a6e9cc1e304150c4233de9fda"
+     "base": "f93ada35576ee660d94b3b98d989ebc063bed3f9a666067aff64634d4e6766cb",
+     "final": "f93ada35576ee660d94b3b98d989ebc063bed3f9a666067aff64634d4e6766cb"
     },
     {
      "base": "e79656cda3bc48d619546c08f6e5afa108108cccfd35e010826bf532bcdbaa53",

@@ -1,7 +1,7 @@
 {
  "course": "solid-state",
  "kind": "ingested",
- "recordedAt": "2026-11-25T05:36:39.043Z",
+ "recordedAt": "2026-11-25T05:56:59.375Z",
  "note": "Post-reconciliation state of record.",
  "blocks": {
   "SS1": {
@@ -579,8 +579,8 @@
      "final": "3685f119895becdf08ba5f7f8a4764ed5ad6dbf8798e565bad596f714ff51aa4"
     },
     {
-     "base": "baaa9a4476a64f2f8b0bd0c8ef841db653e7ca731d5bf5f256632281907a5360",
-     "final": "baaa9a4476a64f2f8b0bd0c8ef841db653e7ca731d5bf5f256632281907a5360"
+     "base": "e78d45481af2ee151079a02462e392e6631f4f35d1121b7d97d89f8f90b087fc",
+     "final": "e78d45481af2ee151079a02462e392e6631f4f35d1121b7d97d89f8f90b087fc"
     },
     {
      "base": "9b528233159e4dec65a7395933fc3651650e7e60d2c1d835e2775a78a1972643",
@@ -663,8 +663,8 @@
      "final": "bd3f9d8470f2d626a8f0f40b30bd1763a6e315a567cfb96e9f998770279060b8"
     },
     {
-     "base": "35dfa4a354cb6e6ad94c07c751a228386eef6eb8796b67c41b07d622aca436da",
-     "final": "35dfa4a354cb6e6ad94c07c751a228386eef6eb8796b67c41b07d622aca436da"
+     "base": "f8b5066f11f25c1a4a77a8b9dcfa7fa52fe047125ef7b8d5d910df981447fb7e",
+     "final": "f8b5066f11f25c1a4a77a8b9dcfa7fa52fe047125ef7b8d5d910df981447fb7e"
     },
     {
      "base": "2142e6cbd18dbd5423569bc75b9b4f867d598f91aecb38b395120b8a2709255d",
@@ -787,8 +787,8 @@
      "final": "6b48d4ac0a9e1f19a80ffdb44cce04b303d85b8d99145752a5a67be683cdf91c"
     },
     {
-     "base": "3c7ebbae80657fef0b80eb745e1646509a92454cc8ddba69aff89d01cf2c71b1",
-     "final": "3c7ebbae80657fef0b80eb745e1646509a92454cc8ddba69aff89d01cf2c71b1"
+     "base": "73362eb1b482cda7a06242571d6ded35b730b31c2f3e95c34f1569a4fabdd11f",
+     "final": "73362eb1b482cda7a06242571d6ded35b730b31c2f3e95c34f1569a4fabdd11f"
     },
     {
      "base": "bb6ef6f4e7648d3cdd51ff38a8b50741961cf8415381f2710849fcfb9829edab",
@@ -927,8 +927,8 @@
      "final": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7"
     },
     {
-     "base": "d38167069533109a3578cac109c28fa94a9407ad29489ba23717729144b485e4",
-     "final": "d38167069533109a3578cac109c28fa94a9407ad29489ba23717729144b485e4"
+     "base": "4289ce7f37ac36e77fc2c0a0d104ecf1e5a2c9642fa52c7f129647945ea083c8",
+     "final": "4289ce7f37ac36e77fc2c0a0d104ecf1e5a2c9642fa52c7f129647945ea083c8"
     }
    ],
    "worked": [

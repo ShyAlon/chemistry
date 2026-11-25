@@ -350,7 +350,7 @@ export function ExciteRelaxEmit({accent}){
 export function CarrierCreation({accent}){
   const P=[{x:380,n:'עירור אופטי',t:'hν ≥ Eg',tl:true,c:'#a58bf0'},{x:200,n:'עירור חשמלי',t:'שדה חזק',tl:false,c:'#f0c978'},{x:20,n:'עירור תרמי',t:'חימום',tl:false,c:'#f09797'}];
   const fillc='#2d4a6b';
-  return <Fig label="שלוש דרכים ליצור נושאי מטען במוליך למחצה: בליעת פוטון, שדה חשמלי חזק וחימום; כל עירור יוצר זוג אחד של אלקטרון בפס ההולכה וחור בפס הערכיות" viewBox="0 -10 560 250">
+  return <Fig label="שלוש דרכים ליצור נושאי מטען במוליך למחצה: בליעת פוטון, שדה חשמלי חזק וחימום; בציור כל דרך מראה אירוע עירור בודד שיוצר אלקטרון בפס ההולכה וחור בפס הערכיות" viewBox="0 -10 560 250">
     {P.map((p,i)=><g key={i}>
       <Box x={p.x} y={4} w={160} h={190} fill={C.faint} stroke={p.c}/>
       <rect x={p.x+24} y={22} width={90} height={44} fill="none" stroke={C.mut} strokeWidth={1.6}/>
@@ -422,7 +422,7 @@ export function DopedConductivity({accent}){
   const pts=f=>{const o=[];for(let x=70;x<=500;x+=6)o.push(`${x},${Y(f(x)).toFixed(1)}`);return 'M'+o.join(' L');};
   const N=26;
   const T0=70+70*Math.log((N-2)/150*(Math.exp(430/70)-1)+1);
-  return <Fig label="מוליכות מול טמפרטורה במוליך למחצה מסומם: סביב טמפרטורת החדר נושאי הזיהום שולטים והמוליכות כמעט שטוחה, ומעל T0 הנושאים התרמיים שולטים והעקומה מתכנסת לעקומה האינטרינסית" viewBox="0 -10 560 250">
+  return <Fig label="מוליכות מול טמפרטורה במוליך למחצה מסומם: סביב טמפרטורת החדר נושאי הזיהום שולטים ובקירוב המוליכות כמעט שטוחה, ומעל T0 הנושאים התרמיים שולטים והעקומה מתכנסת לעקומה האינטרינסית" viewBox="0 -10 560 250">
     <L x1={60} y1={210} x2={520} y2={210}/><L x1={60} y1={210} x2={60} y2={10}/>
     <Arrow x1={510} y1={210} x2={526} y2={210} stroke={C.line} id="dcv-x"/><Arrow x1={60} y1={22} x2={60} y2={8} stroke={C.line} id="dcv-y"/>
     <T x={290} y={236} size={12} fill={C.mut}>טמפרטורה T</T><T x={40} y={16} size={13} ltr fill={C.mut}>σ</T>

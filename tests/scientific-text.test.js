@@ -39,5 +39,5 @@ test('course content and answer data stay identical except the explicit V+ worke
  assert.match(vanadium.content[3],/\[Ar\]3d⁴/);
  // Restore only this known correction before checking the unchanged content baseline.
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
- assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'97231ad71b90a7f9945de0ab5d5f30ab847351e2a96c0f83c61c8b538330fc54');
+ assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'4298196acbfeae2d3f897b4bd5bf9f791f835949d96b2a9dcc82c0f1d3899662');
 });

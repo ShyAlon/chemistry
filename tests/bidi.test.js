@@ -79,6 +79,13 @@ test('long equations render as inline-block equation runs; text, words and short
  // a long condition that contains English words keeps the previous inline wrapping
  const words=renderToStaticMarkup(bidiElement('p',null,'לפי ההרצאה: x = 5 and the source-derived value of Ka is larger'));
  assert.ok(!words.includes('bidi-eq'));
+ // arrow-only reactions: long ones become equation blocks, short ones stay atomic, source text unchanged
+ const rxn='בשקף נכתבה N₂O₄ + 2N₂H₄ → N₂ + 4H₂O. בדוק.';
+ const rh=renderToStaticMarkup(bidiElement('p',null,rxn));
+ assert.match(rh,/class="bidi-run bidi-eq"/);
+ assert.equal(strip(rh).replace(/[\u2066-\u2069]/g,''),rxn);
+ const shortArrow=renderToStaticMarkup(bidiElement('p',null,'התגובה: A → B נוצרת'));
+ assert.ok(!shortArrow.includes('bidi-eq'));
  // plain English LTR text and machine values are unchanged
  assert.ok(!renderToStaticMarkup(bidiElement('p',null,'The quick brown fox = jumps over the lazy dog')).includes('bidi-eq'));
  assert.equal(bidiElement('option',{value:'a = b + c = d'},'a = b + c = d').props.value,'a = b + c = d');

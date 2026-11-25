@@ -253,7 +253,7 @@
       "worked:4",
       "theory:E1-t43"
      ],
-     "rationale": "Quadratic root choice stated; own numbers check 0.36."
+     "rationale": "Source-identical numbers (2.00 mol, Kc 4.00, +2.00 mol acid); solution rewritten; quadratic root choice stated."
     }
    ]
   },
@@ -370,7 +370,7 @@
      "targets": [
       "worked:6"
      ],
-     "rationale": "Own masses (6.00 g, 1.50 g, 2.00 L); same method."
+     "rationale": "Source-derived numbers (12.75 g, 2.60 g, 5.0 L), solution rewritten; Kc 4.61e-3 matches quiz 5."
     }
    ]
   },
@@ -387,7 +387,7 @@
       "worked:6",
       "theory:E1-t21"
      ],
-     "rationale": "Own numbers; Kx needs a stated total pressure."
+     "rationale": "Source-derived numbers; Kx needs a stated total pressure."
     }
    ]
   },

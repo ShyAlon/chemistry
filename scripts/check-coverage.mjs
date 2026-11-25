@@ -31,29 +31,49 @@ export const figuresHash=(files=['figures-nuclear.jsx','figures.jsx'].map(f=>pat
 // Per-course figure binding (policy.figureBinding[courseId]={roots:[...]}). The hash covers the import closure
 // of the roots under src/, so an imported renderer file cannot be left out. Fails closed on a missing root or
 // an unresolvable relative import. Courses without a binding keep the legacy two-file hash above.
-export function figureClosure(roots,srcDir=path.join(root,'src')){
+export function figureClosure(roots,srcDir=path.join(root,'src'),extra=[],baseDir=path.dirname(srcDir)){
  const seen=new Map(),errs=[];
+ const unsupported=(f,text)=>{
+  const bad=[];
+  if(/\brequire\s*\(/.test(text))bad.push('require()');
+  if(/import\.meta\.(glob|url)/.test(text))bad.push('import.meta.glob/url');
+  for(const m of text.matchAll(/\bimport\s*\(\s*([^)]*)\)/g))if(!/^(['"])\.[^'"]*\1\s*$/.test(m[1].trim())&&!/^(['"])[^.'"][^'"]*\1\s*$/.test(m[1].trim()))bad.push('non-literal dynamic import');
+  if(/\bimport\s*\{[^}]*\}\s*from\s*[^'"\s]/.test(text))bad.push('non-literal import source');
+  for(const b of new Set(bad))errs.push('unsupported dependency form in '+f+': '+b);
+ };
  const visit=f=>{
   if(seen.has(f))return;
   const full=path.join(srcDir,f);
   if(!fs.existsSync(full)){errs.push('figure dependency missing: '+f);return}
   const text=fs.readFileSync(full,'utf8');seen.set(f,text);
-  for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"](\.[^'"]+)['"]|import\s*['"](\.[^'"]+)['"]|import\(\s*['"](\.[^'"]+)['"]\s*\)/g)){
-   const rel=m[1]||m[2]||m[3];const t=path.normalize(path.join(path.dirname(f),rel));
+  const rels=[];
+  if(/\.css$/.test(f)){
+   for(const m of text.matchAll(/@import\s+(?:url\(\s*)?['"]?([^'")\s;]+)/g))rels.push(m[1]);
+   for(const m of text.matchAll(/url\(\s*['"]?([^'")\s]+)/g))if(!/^(data:|https?:|#|\/)/.test(m[1]))rels.push(m[1]);
+  }else{
+   unsupported(f,text);
+   for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]|import\(\s*['"]([^'"]+)['"]\s*\)/g))rels.push(m[1]||m[2]||m[3]);
+  }
+  for(const rel of rels){
+   if(!rel.startsWith('.'))continue; // bare package: bound through package.json and the lockfile
+   const t=path.normalize(path.join(path.dirname(f),rel));
    if(t.startsWith('..')){errs.push('figure dependency escapes src/: '+rel);continue}
    visit(t);
   }
  };
  for(const r of roots)visit(path.normalize(r));
- return {files:[...seen.keys()].sort(),texts:seen,errors:errs};
+ const extras=new Map();
+ for(const x of extra){const full=path.join(baseDir,x);if(!fs.existsSync(full))errs.push('figure dependency missing: '+x);else extras.set(x,fs.readFileSync(full,'utf8'))}
+ return {files:[...seen.keys()].sort(),texts:seen,extras,errors:errs};
 }
 export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
  const b=(policy.figureBinding||{})[courseId];
  if(!b)return {hash:figuresHash(),files:null,errors:[]};
  if(!Array.isArray(b.roots)||!b.roots.length)return {hash:null,files:[],errors:['figureBinding for '+courseId+' needs roots']};
- const c=figureClosure(b.roots,srcDir);
+ const c=figureClosure(b.roots,srcDir,b.extraFiles||[]);
  if(c.errors.length)return {hash:null,files:c.files,errors:c.errors};
- return {hash:sha(c.files.map(f=>f+'\n'+c.texts.get(f)).join('\n--file--\n')),files:c.files,errors:[]};
+ const parts=c.files.map(f=>'src/'+f+'\n'+c.texts.get(f)).concat([...c.extras.keys()].sort().map(x=>x+'\n'+c.extras.get(x)));
+ return {hash:sha(parts.join('\n--file--\n')),files:[...c.files.map(f=>'src/'+f),...[...c.extras.keys()].sort()],errors:[]};
 }
 export const unitMapHash=cov=>sha(JSON.stringify({source:cov.source,pages:cov.pages}));
 export function blockExists(topic,ref){
@@ -122,6 +142,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   if(listed){rows.push({course:c.id,topic:t.id,status:'fail',errors:['has a coverage map but is still on the legacy-unaudited allowlist; remove it']});continue}
   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
   const r=checkTopic(t,cov),errors=[...r.errors];
+  {const fb=figuresHashFor(c.id,policy);for(const m of fb.errors)errors.push(m)}
   if(cov.course!==c.id||cov.topic!==t.id)errors.push('course/topic mismatch');
   const rv=cov.semanticReview||{};
   const reviewed=rv.status==='done';
@@ -133,7 +154,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(rv.sourceSha256!==cov.source?.sha256)errors.push('review is not bound to this source hash');
    if(rv.contentSha256!==contentHash(t))errors.push('lesson content changed since the review; re-review required');
    if(JSON.stringify([...(rv.adminPagesAttested||[])].sort((a,b)=>a-b))!==JSON.stringify(adminPages(cov)))errors.push('adminPagesAttested must list exactly the all-admin pages the reviewer viewed');
-   const fh=figuresHashFor(c.id,policy);errors.push(...fh.errors);
+   const fh=figuresHashFor(c.id,policy);
    if(!fh.errors.length&&rv.figuresSha256!==fh.hash)errors.push('figure implementation changed since the review; re-review required');
    if(rv.unitMapSha256!==unitMapHash(cov))errors.push('unit map changed since the review; re-review required');
   }else if(rv.status!=='pending')errors.push('semanticReview.status must be pending or done');

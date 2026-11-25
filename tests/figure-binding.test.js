@@ -22,7 +22,7 @@ const h=(d,id='gc2')=>figuresHashFor(id,pol,d);
 
 test('GC2 binding covers the import closure (toy tree), sorted, and ignores unrelated files',()=>{
  const d=tree(base);
- assert.deepEqual(h(d).files,['figures-core.jsx','figures-gc2.jsx','figures.jsx']);
+ assert.deepEqual(h(d).files,['src/figures-core.jsx','src/figures-gc2.jsx','src/figures.jsx']);
  const before=h(d).hash;
  fs.writeFileSync(path.join(d,'unrelated.jsx'),'export const U=2;\n');
  fs.writeFileSync(path.join(d,'figures-nuclear.jsx'),'export const N=2;\n');
@@ -52,12 +52,12 @@ test('a newly imported file joins the binding automatically',()=>{
  const d=tree(base);const before=h(d).hash;
  fs.writeFileSync(path.join(d,'figures-new.jsx'),'export const Q=1;\n');
  fs.appendFileSync(path.join(d,'figures-gc2.jsx'),"import {Q} from './figures-new.jsx';\n");
- assert.ok(h(d).files.includes('figures-new.jsx'));assert.notEqual(h(d).hash,before);
+ assert.ok(h(d).files.includes('src/figures-new.jsx'));assert.notEqual(h(d).hash,before);
 });
 test('the real policy binds general-chemistry-2 to an existing closure and leaves nuclear on the legacy hash',()=>{
  const p=loadPolicy();
  assert.ok(p.figureBinding['general-chemistry-2']);assert.equal(p.figureBinding.nuclear,undefined);
- const r=figuresHashFor('general-chemistry-2',p);assert.deepEqual(r.errors,[]);assert.ok(r.files.includes('figures.jsx')&&r.files.includes('figures-core.jsx'));
+ const r=figuresHashFor('general-chemistry-2',p);assert.deepEqual(r.errors,[]);assert.ok(r.files.includes('src/figures.jsx')&&r.files.includes('src/figures-core.jsx'));
  assert.equal(figuresHashFor('nuclear',p).hash,figuresHash());
 });
 test('author aliases: a reviewer who is an alias of an author fails self-review; an unrelated id passes',async()=>{
@@ -80,12 +80,36 @@ test('author aliases: a reviewer who is an alias of an author fails self-review;
 });
 test('dynamic relative imports are followed',()=>{
  const d=tree({'figures.jsx':"const m=()=>import('./lazy.jsx');\n",'lazy.jsx':'export default 1;\n'});
- assert.deepEqual(h(d).files,['figures.jsx','lazy.jsx']);
+ assert.deepEqual(h(d).files,['src/figures.jsx','src/lazy.jsx']);
  fs.writeFileSync(path.join(d,'figures.jsx'),"const m=()=>import('./gone.jsx');\n");
  assert.match(h(d).errors.join('|'),/missing: gone\.jsx/);
 });
 test('REAL renderer graph: GC2 closure includes the shared nuclear renderer, core, animation, bidi and the stylesheet, so those edits invalidate GC2 reviews',()=>{
  const r=figuresHashFor('general-chemistry-2',loadPolicy());
  assert.deepEqual(r.errors,[]);
- for(const f of ['figures.jsx','figures-nuclear.jsx','figures-core.jsx','anim-core.jsx','anim-figures.jsx','bidi-react.js','style.css'])assert.ok(r.files.includes(f),f);
+ for(const f of ['figures.jsx','figures-nuclear.jsx','figures-core.jsx','anim-core.jsx','anim-figures.jsx','bidi-react.js','style.css'])assert.ok(r.files.includes('src/'+f),f);
+ for(const f of ['package.json','package-lock.json'])assert.ok(r.files.includes(f),f);
+});
+
+test('unsupported dependency forms are rejected, not ignored',()=>{
+ for(const [name,src] of Object.entries({req:"const a=require('./x.js');",glob:"const m=import.meta.glob('./*.jsx');",url:"const u=new URL('./a.svg',import.meta.url);",dyn:"const n='./x.jsx';import(n);"})){
+  const d=tree({'figures.jsx':src+"\n",'x.js':'1','x.jsx':'1'});
+  assert.match(h(d).errors.join('|'),/unsupported dependency form/,name);assert.equal(h(d).hash,null);
+ }
+});
+test('css @import and relative url() are followed; extraFiles are pinned and must exist',()=>{
+ const d=tree({'figures.jsx':"import './s.css';\n",'s.css':"@import './base.css';\n.a{background:url('./i.svg')}\n",'base.css':'.b{}\n','i.svg':'<svg/>'});
+ assert.deepEqual(h(d).files,['src/base.css','src/figures.jsx','src/i.svg','src/s.css']);
+ const p2={figureBinding:{gc2:{roots:['figures.jsx'],extraFiles:['package.json']}}};
+ const dd=tree({'src/figures.jsx':'export const a=1;\n','package.json':'{}\n'});
+ assert.deepEqual(figuresHashFor('gc2',p2,path.join(dd,'src')).errors,[]);
+ fs.rmSync(path.join(dd,'package.json'));
+ assert.match(figuresHashFor('gc2',p2,path.join(dd,'src')).errors.join('|'),/missing: package\.json/);
+});
+test('binding errors surface in checkAll even while a review is only pending',async()=>{
+ const {checkAll}=await import('../scripts/check-coverage.mjs');
+ const {default:catalogue}=await import('#catalogue');
+ const pol={...loadPolicy(),figureBinding:{nuclear:{roots:['does-not-exist.jsx']}}};
+ const row=checkAll({policy:pol}).find(r=>r.course==='nuclear'&&r.topic==='E5');
+ assert.equal(row.status,'fail');assert.match(row.errors.join('|'),/missing: does-not-exist\.jsx/);
 });

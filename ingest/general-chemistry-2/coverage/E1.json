@@ -399,10 +399,11 @@
      "id": "p24.u1",
      "kind": "concept",
      "disposition": "adapted",
-     "label": "pure solids and liquids do not appear in K",
+     "label": "pure solids and liquids do not appear in K; liquid mixtures do",
      "targets": [
       "theory:E1-t12",
-      "theory:E1-t13"
+      "theory:E1-t13",
+      "theory:E1-t48"
      ],
      "rationale": "Added original sentence on constant effective concentration."
     }

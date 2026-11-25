@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T08:37:39.461Z",
+ "recordedAt": "2026-11-25T08:56:18.539Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -422,6 +422,14 @@
      "final": "92b05466936b1528c1440874004724170a6ec0865b4264a1b771e486efff7c40"
     },
     {
+     "base": "b65acb3c3c90bca270a1de0210d244980309082298ac645c9ef689c035e111a3",
+     "final": "b65acb3c3c90bca270a1de0210d244980309082298ac645c9ef689c035e111a3"
+    },
+    {
+     "base": "98f71aa0a5878ca986e7280aca2e2604b5e926f05d435142240a3c9d54863f34",
+     "final": "98f71aa0a5878ca986e7280aca2e2604b5e926f05d435142240a3c9d54863f34"
+    },
+    {
      "base": "35e0ba5922c4118251243b4f60fd32991ce3728be15147b4ca4d77bc482bf9f4",
      "final": "35e0ba5922c4118251243b4f60fd32991ce3728be15147b4ca4d77bc482bf9f4"
     },
@@ -452,6 +460,14 @@
     {
      "base": "98dfa5d68f49859ab0ee7ac80a1b3cc8e246f2c7d4bfcc386d1ff6a40938c392",
      "final": "98dfa5d68f49859ab0ee7ac80a1b3cc8e246f2c7d4bfcc386d1ff6a40938c392"
+    },
+    {
+     "base": "3ef1a841c680c9cbfd4430b799619c131fb2193eb49fdf370ddb175add54d976",
+     "final": "3ef1a841c680c9cbfd4430b799619c131fb2193eb49fdf370ddb175add54d976"
+    },
+    {
+     "base": "b2e73665531a173fa1cf0bcbdc65795b72d8d300f08c3bae7018e9375f35f06b",
+     "final": "b2e73665531a173fa1cf0bcbdc65795b72d8d300f08c3bae7018e9375f35f06b"
     },
     {
      "base": "5e4f837db9ee103422ac24b982beb08f45e95897c8935f0a582578fa5ff9d686",
@@ -616,6 +632,10 @@
     {
      "base": "5a6a5fbaffc9105926a705c655ae536501705d4cc5aad23715441519dde66608",
      "final": "5a6a5fbaffc9105926a705c655ae536501705d4cc5aad23715441519dde66608"
+    },
+    {
+     "base": "cc331384b71161e691d201a8a047ab453dba88184ad42302c6caa9be081f72ad",
+     "final": "cc331384b71161e691d201a8a047ab453dba88184ad42302c6caa9be081f72ad"
     }
    ]
   },
@@ -704,6 +724,14 @@
     {
      "base": "4cc851208c50403c6a52250fb086ebe7ab53f40a0f3f39bcb8d0081898b32740",
      "final": "4cc851208c50403c6a52250fb086ebe7ab53f40a0f3f39bcb8d0081898b32740"
+    },
+    {
+     "base": "61e3ea4c08cad8770448e458005198fc0a743ce4fcfb6f95189b69f027d7c992",
+     "final": "61e3ea4c08cad8770448e458005198fc0a743ce4fcfb6f95189b69f027d7c992"
+    },
+    {
+     "base": "10d995d2dc9a57ef160ab40f56276065ac1a271e245e1d9281476715564f6970",
+     "final": "10d995d2dc9a57ef160ab40f56276065ac1a271e245e1d9281476715564f6970"
     },
     {
      "base": "b52a9e14f15da6c97b60c4eca6d05f62a19f7f4c1a7b35757d22019d5889daef",
@@ -892,6 +920,10 @@
     {
      "base": "d61f6e6eaf87ea989a942b956e656d2cb237b5e76cb125093a15bc18284c3cf4",
      "final": "d61f6e6eaf87ea989a942b956e656d2cb237b5e76cb125093a15bc18284c3cf4"
+    },
+    {
+     "base": "64467bf1eb2c00237cde2ad132c0770572a3b7ffb5205fc45019910264576863",
+     "final": "64467bf1eb2c00237cde2ad132c0770572a3b7ffb5205fc45019910264576863"
     },
     {
      "base": "b64dc7fd8d2884fac6d0a62ebc5daf26de88a2ee24e71ef78ed48d4e88095530",
@@ -1214,6 +1246,10 @@
      "final": "7a84a8411f8d3166b4a9375fb241d553f4ede8329fc67402a41f9cd6cb88c15b"
     },
     {
+     "base": "5a657098d9d27463de64f0488515d491444877c8b1a97b3dfa2809dd66e31d4c",
+     "final": "5a657098d9d27463de64f0488515d491444877c8b1a97b3dfa2809dd66e31d4c"
+    },
+    {
      "base": "cc314a9269c61983f6029ffc277f186b275ad7f914cd0bc8b04c311526e1a558",
      "final": "cc314a9269c61983f6029ffc277f186b275ad7f914cd0bc8b04c311526e1a558"
     },
@@ -1248,6 +1284,10 @@
     {
      "base": "105681445d112faef72ec6f348b82434b3cb378d0cbebf5963fb833fa9aa08f5",
      "final": "105681445d112faef72ec6f348b82434b3cb378d0cbebf5963fb833fa9aa08f5"
+    },
+    {
+     "base": "ca20a5e42a375accfb130a86051fdff31ef645d3ed2517fe8c577b788cf8b494",
+     "final": "ca20a5e42a375accfb130a86051fdff31ef645d3ed2517fe8c577b788cf8b494"
     }
    ],
    "worked": [
@@ -1336,6 +1376,10 @@
     {
      "base": "3dbc7fbac2d0ece94a327b3cfdcdad5192ed7928267c4e8a963b76a7ed0e7abe",
      "final": "3dbc7fbac2d0ece94a327b3cfdcdad5192ed7928267c4e8a963b76a7ed0e7abe"
+    },
+    {
+     "base": "3f7202947337bc9aa6dff32dd1e90572bb224d3487e808d7f5dc814281ec27ef",
+     "final": "3f7202947337bc9aa6dff32dd1e90572bb224d3487e808d7f5dc814281ec27ef"
     }
    ]
   },
@@ -1444,6 +1488,14 @@
     {
      "base": "911913823cfd17a84ee1845e2b4dd05bfbb60cea321492a4b6b835ec3da51f27",
      "final": "911913823cfd17a84ee1845e2b4dd05bfbb60cea321492a4b6b835ec3da51f27"
+    },
+    {
+     "base": "4e1d4b62825906a203d99bba0a1c301b1467609eeff61b84d4382a1d51f6d332",
+     "final": "4e1d4b62825906a203d99bba0a1c301b1467609eeff61b84d4382a1d51f6d332"
+    },
+    {
+     "base": "fb3982b3a66ee458b2242742d8f0447389cf4f432769c375c147ba25179ab25a",
+     "final": "fb3982b3a66ee458b2242742d8f0447389cf4f432769c375c147ba25179ab25a"
     },
     {
      "base": "39b27ecdd34ff58e711ab68fc86dc7b24e02b90c11b89da2818ad3da861538df",
@@ -1592,6 +1644,10 @@
     {
      "base": "408e3067674a8b861c3df17578ab5d472070b4cb43fb07c3d8f395eba10c4c19",
      "final": "408e3067674a8b861c3df17578ab5d472070b4cb43fb07c3d8f395eba10c4c19"
+    },
+    {
+     "base": "0cfd891001e581b873d02350ba6cc5ed716dc902de91fe749a15d86602b13c58",
+     "final": "0cfd891001e581b873d02350ba6cc5ed716dc902de91fe749a15d86602b13c58"
     }
    ]
   },
@@ -1938,6 +1994,10 @@
      "final": "6a5890de5e1fba2ee4907e82602a9102e2f01baf398a6815718ff5249aa3b308"
     },
     {
+     "base": "6da5272e31c44e91f72fec8915f30e12408f73ab265ac1a8afe7e05a1c8bf18d",
+     "final": "6da5272e31c44e91f72fec8915f30e12408f73ab265ac1a8afe7e05a1c8bf18d"
+    },
+    {
      "base": "24aa469972971e30235e0704d407a4345362fd3df9eb8150afe57c94c49d8098",
      "final": "24aa469972971e30235e0704d407a4345362fd3df9eb8150afe57c94c49d8098"
     },
@@ -1982,6 +2042,10 @@
      "final": "0f67b6d9e5b79cf346d4e32fb16829d6ae2f030c9f12ca7068c65f89dd846e91"
     },
     {
+     "base": "49e100dca09ce80672ff7a4c6ab163f03c08adb29390914b6f52d5c5103f15ab",
+     "final": "49e100dca09ce80672ff7a4c6ab163f03c08adb29390914b6f52d5c5103f15ab"
+    },
+    {
      "base": "4ed44b9a2e223318395adc90e93c586811d61816e8213df3ee57432ec75c026f",
      "final": "4ed44b9a2e223318395adc90e93c586811d61816e8213df3ee57432ec75c026f"
     },
@@ -2022,6 +2086,10 @@
      "final": "3896ea5cc30a9d6ff58bdb2dbdf713cdb7e82786c5f5f64f49e6907cb8da9c34"
     },
     {
+     "base": "f1c05e10bb90e110f8b8c69ee197026eb315b033f2c0b5360d9366ead4bdc86f",
+     "final": "f1c05e10bb90e110f8b8c69ee197026eb315b033f2c0b5360d9366ead4bdc86f"
+    },
+    {
      "base": "2fe489495c2a9b96b93386ab861c71e9f813822f4f98c364e9c9794878868477",
      "final": "2fe489495c2a9b96b93386ab861c71e9f813822f4f98c364e9c9794878868477"
     },
@@ -2032,6 +2100,10 @@
     {
      "base": "f62d72a4904f41b386a8a44d07814af57e6ca84cb4eba4004f5ac5ded77368dc",
      "final": "f62d72a4904f41b386a8a44d07814af57e6ca84cb4eba4004f5ac5ded77368dc"
+    },
+    {
+     "base": "8bac79f122fd200f15e5bdc7491af0426206591faf9c0980f644eb5b20d13aa2",
+     "final": "8bac79f122fd200f15e5bdc7491af0426206591faf9c0980f644eb5b20d13aa2"
     },
     {
      "base": "0041638f1a6bba9fb811d56bbcf1248c6b9f089f447a0de139f4dd6c6b33d714",
@@ -2144,6 +2216,10 @@
     {
      "base": "aa29e904bcd3c601a92af1e8f26d0945ab9ad97556c0fd451f261dbafe79fe5c",
      "final": "aa29e904bcd3c601a92af1e8f26d0945ab9ad97556c0fd451f261dbafe79fe5c"
+    },
+    {
+     "base": "cfde0f777a31bd8e4053df92f39ea3e99e1338eab5740c91562a886ed62669ea",
+     "final": "cfde0f777a31bd8e4053df92f39ea3e99e1338eab5740c91562a886ed62669ea"
     }
    ]
   },
@@ -2206,6 +2282,10 @@
      "final": "5e27205a2141c175e1ade066c3d58372292de61e1cd9b02e082b9009365c36f1"
     },
     {
+     "base": "574a7a4c6364098da02d792ffe3628affe9fdf49f3791925e121dfcc06acfcb1",
+     "final": "574a7a4c6364098da02d792ffe3628affe9fdf49f3791925e121dfcc06acfcb1"
+    },
+    {
      "base": "29dbaf9bfaafd905015dcfe28f72c028d8908b55790094db394076f496eb4c25",
      "final": "29dbaf9bfaafd905015dcfe28f72c028d8908b55790094db394076f496eb4c25"
     },
@@ -2252,6 +2332,10 @@
     {
      "base": "71968cc2555b52aab5cdcb8ff44ee2083b1a9f560718e52b11ae0b566a7ba009",
      "final": "71968cc2555b52aab5cdcb8ff44ee2083b1a9f560718e52b11ae0b566a7ba009"
+    },
+    {
+     "base": "300fd6cc7f544e24be25ebf3d47ed27e1d4402d4075e5ed4dc0e0f7f6cbeb0db",
+     "final": "300fd6cc7f544e24be25ebf3d47ed27e1d4402d4075e5ed4dc0e0f7f6cbeb0db"
     },
     {
      "base": "633d1cc29749761271fa81243c77becb3a14ecc202ffedd6c11fccf15d3fbfb7",
@@ -2534,6 +2618,10 @@
      "final": "d8c963616bd83509747c3645477cdc684a35e1b92dad6af26c7284059251f379"
     },
     {
+     "base": "71bc6fd4a0afe1e4ffec02d80b0e5d8101758a36ac4572d6596abc101e9b4fb7",
+     "final": "71bc6fd4a0afe1e4ffec02d80b0e5d8101758a36ac4572d6596abc101e9b4fb7"
+    },
+    {
      "base": "15a66d0b504cb69272dfd7c7c198542fe7494b2ae8a30d8711ba7eb532c0c6da",
      "final": "15a66d0b504cb69272dfd7c7c198542fe7494b2ae8a30d8711ba7eb532c0c6da"
     },
@@ -2656,6 +2744,10 @@
     {
      "base": "e24824675abb0026f948b6e129eccb5baf26ea4f0715657f97830a678e13923a",
      "final": "e24824675abb0026f948b6e129eccb5baf26ea4f0715657f97830a678e13923a"
+    },
+    {
+     "base": "27181b41737b4712ce302bf6ce779ac30273f733a70ca68fd823142f3063c05c",
+     "final": "27181b41737b4712ce302bf6ce779ac30273f733a70ca68fd823142f3063c05c"
     }
    ]
   },
@@ -2784,6 +2876,10 @@
     {
      "base": "0fc49a00a73cd03c63004e5d8ea63dd0e1dda30a1f1dfdade6853519a45b2139",
      "final": "0fc49a00a73cd03c63004e5d8ea63dd0e1dda30a1f1dfdade6853519a45b2139"
+    },
+    {
+     "base": "7cad9e749972caf1cb1cce4570f826d9706a5fa659251d61643c37c5dac34246",
+     "final": "7cad9e749972caf1cb1cce4570f826d9706a5fa659251d61643c37c5dac34246"
     },
     {
      "base": "f78ad6940417f63fd7e68b032004a8135f40cadd35b7eac56f702232e3c88853",
@@ -3206,6 +3302,14 @@
      "final": "f13edd75c113ffc208a1393f5e293e6a67db5150d9dc7749e30dd7ed23e203e9"
     },
     {
+     "base": "29b7a9c0cbf12457d780059c2328e4b1c27726b7e2458b0e20d4b6d7bbe93bd2",
+     "final": "29b7a9c0cbf12457d780059c2328e4b1c27726b7e2458b0e20d4b6d7bbe93bd2"
+    },
+    {
+     "base": "5b1e44fad00aa2471ed4f8e5eb7462daa5967f1b54b0552a0596c006447235c5",
+     "final": "5b1e44fad00aa2471ed4f8e5eb7462daa5967f1b54b0552a0596c006447235c5"
+    },
+    {
      "base": "64942d6d85c77cd7de56d8cf3ff9f59e2130ec17c1eea8926e95cd76f88ccee6",
      "final": "64942d6d85c77cd7de56d8cf3ff9f59e2130ec17c1eea8926e95cd76f88ccee6"
     },
@@ -3424,6 +3528,10 @@
     {
      "base": "5508dff7335babf6517ad2910cb3425f35587a1031792c70587cee9bf4ee1e56",
      "final": "5508dff7335babf6517ad2910cb3425f35587a1031792c70587cee9bf4ee1e56"
+    },
+    {
+     "base": "55889d37cbda2f4e8d4d6b16431e36fd3d6da13b4e6895b4cd6c9001e6da3a3b",
+     "final": "55889d37cbda2f4e8d4d6b16431e36fd3d6da13b4e6895b4cd6c9001e6da3a3b"
     }
    ]
   }

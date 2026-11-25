@@ -82,10 +82,10 @@ test('body text is searchable: terms that appear only inside page text still fin
  assert.ok(near('דלטון','course/84101/G9'));
  assert.equal(top('בולצמן'),'course/84101/glossary/maxwell-boltzmann');
  // GC2 (2026-11-25): E9 legitimately teaches S = k_B ln W and the formulas page lists it,
- // so they now rank between the glossary entries and G10. The glossary stays first and
- // G10 must remain among the first five results.
+ // so they now rank between the glossary entries and G10. The two glossary entries stay
+ // first, and both G10 and GC2 E9 must remain among the first five results.
  assert.ok(searchSite('בולצמן').slice(0,5).some(r=>r.route==='course/84101/G10'));
- assert.ok(near('בולצמן','course/general-chemistry-2/E9'));
+ assert.ok(searchSite('בולצמן').slice(0,5).some(r=>r.route==='course/general-chemistry-2/E9'));
  assert.equal(top('גרהם'),'course/84101/glossary/graham');
  assert.ok(near('גרהם','course/84101/G10'));
 });

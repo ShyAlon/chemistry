@@ -58,3 +58,56 @@ revision with fresh hashes.
 - Block alignment is positional within each topic array; a heavily reordered
   re-import shows up as many added/removed entries for review, not as silent
   merges.
+
+## Advisory source preprocessing (default during preparation)
+
+Whenever `check` or `ingest` verifies a `--sources DIR`, an advisory
+preprocessing step runs automatically (`scripts/preprocess-sources.mjs`,
+opt out with `--no-preprocess`). It extracts each source PDF once into a
+PRIVATE cache outside the repo (default `~/.cache/spectra-preprocess`) and
+prints review leads: text-layer equation lines classed as `balanced`,
+`balanced-ambiguous` (the plain-text charge notation is ambiguous and a
+person must decide which reading the slide meant), `unbalanced`, `unparsed`,
+`notation` or `fragment`, plus arithmetic mismatches in simple `a op b = c`
+lines. Repeat preparations reuse the cache; a changed source (new SHA-256)
+re-extracts, and the cache identity carries the tool version, image DPI and
+extraction mode so a config change never silently reuses stale pages.
+
+Limits: leads only, never science sign-off; the human review and release gate
+above are unchanged. Equations drawn inside slide images are invisible to the
+text-layer check (the cached page images are the review mechanism there).
+Arithmetic coverage is whatever simple equality lines the slides happen to
+contain - usually very few - and is not meaningful verification by itself.
+
+Standalone use: `node scripts/preprocess-sources.mjs --sources DIR [--cache DIR] [--report FILE]`.
+(No npm-script alias is provided on purpose: `package.json` is bound into the
+reviewed coverage hashes, so it must not change outside a review.)
+Cache and report paths inside the repo are refused (symlink-safe: paths that
+reach the repo through a symlinked parent or an existing symlinked cache dir
+are refused too). Sources are only read; neither they nor the cache ever enter
+the repo. If python3/pymupdf is missing or a source cannot be processed, the
+step prints a note and preparation continues unchanged (exit 0).
+
+Privacy: the cache holds extracted private slide text and page images, and a
+`--report` file holds source equation lines. Both live only outside the repo
+(the default cache is `~/.cache/spectra-preprocess`), are retained for reuse
+across runs, can be deleted at any time, and must never be committed, shared
+or attached anywhere. Known honest limit: a split line whose left side mixes a
+lone charge fragment with real species (e.g. `2- + H+ → ...`) is evaluated
+without the broken-off charge, so a rare false flag is possible there; the
+leads list always stays advisory for exactly this reason.
+
+Bounded execution (tested bounds, not absolute guarantees): each PDF run is
+limited to 300 s and killed with SIGKILL (a child that traps SIGTERM is still
+stopped), the step stops starting new sources after a 15-minute total budget,
+and the importer applies a generous outer bound around the whole step. In
+every one of these cases preparation prints a note and continues unchanged.
+Overrides for tests: `PREPROCESS_TIMEOUT_MS`, `PREPROCESS_TOTAL_BUDGET_MS`,
+`IMPORT_PREPROCESS_TIMEOUT_MS`.
+
+Honest residual limit: when the importer's OUTER bound stops the step, the
+wrapper's in-flight python child is orphaned (not process-group killed) and
+can keep writing into the private cache after preparation has moved on. Cache
+directories are written meta-last, so a partial directory has no meta.json and
+the next run re-extracts it; still, do not start another preprocessing run
+against the same cache immediately after such an outer timeout.

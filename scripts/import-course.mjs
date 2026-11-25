@@ -6,9 +6,15 @@
 //   ingest <course> --staged DIR --sources DIR   Import a NEW course: verify sources, apply corrections, write content + ledger.
 //   diff <course> --staged DIR [--report FILE]   Classify a re-import without writing: unchanged / source-changed / conflict / added / removed.
 //   accept <course> --staged DIR --report FILE   Apply the reviewer's decisions from an edited diff report.
-// Flags: --root DIR (repo root, default: this repo), --force (baseline rebuild).
+// Flags: --root DIR (repo root, default: this repo), --force (baseline rebuild), --no-preprocess (skip the advisory source preprocessing step).
+//
+// Whenever a --sources DIR is verified (check and ingest), an advisory preprocessing
+// step runs by default (scripts/preprocess-sources.mjs): it extracts and checks the
+// source PDFs into a PRIVATE cache outside the repo and prints review leads. It never
+// writes into the repo, never blocks the command and is no replacement for review.
 import fs from 'node:fs';
 import path from 'node:path';
+import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {readDocuments,contentRoot as defaultContentRoot} from './content-store.mjs';
 import {assembleCatalogue} from '../src/catalogue-contract.js';
@@ -23,6 +29,22 @@ const contentRootDir=path.join(repoRoot,'src','content');
 const ingestDir=path.join(repoRoot,'ingest',course||'');
 const ledgerPath=path.join(ingestDir,'ledger.json');
 const fail=m=>{console.error('import: '+m);process.exit(1)};
+// Advisory preprocessing of the source PDFs, on by default for check/ingest.
+// Private cache outside the repo; any problem is a printed note, never a failure.
+// The wrapper resolves next to this script (not --root, which may be a scratch root).
+// Bounded: the wrapper bounds each PDF (300s, SIGKILL) and its total budget (900s);
+// this outer bound covers a hung wrapper itself. Generous but finite.
+const PREPROCESS_OUTER_MS=parseInt(process.env.IMPORT_PREPROCESS_TIMEOUT_MS||'1260000',10);
+function advisoryPreprocess(srcDir){
+ if(!srcDir||has('no-preprocess'))return;
+ try{
+  const wrapper=fileURLToPath(new URL('preprocess-sources.mjs',import.meta.url));
+  const r=spawnSync(process.execPath,[wrapper,'--sources',path.resolve(srcDir)],{stdio:'inherit',timeout:PREPROCESS_OUTER_MS,killSignal:'SIGKILL'});
+  if(r.error&&/ETIMEDOUT/.test(String(r.error.message||r.error)))console.log('import: advisory preprocessing timed out and was stopped; continuing');
+  else if(r.error)console.log('import: advisory preprocessing unavailable ('+String(r.error.message||r.error).split('\n')[0]+'); continuing');
+  else if(r.status!==0&&r.status!==null)console.log('import: advisory preprocessing skipped (exit '+r.status+'); continuing');
+ }catch(e){console.log('import: advisory preprocessing unavailable ('+String(e.message||e).split('\n')[0]+'); continuing')}
+}
 if(!command||!course)fail('usage: node scripts/import-course.mjs <baseline|check|ingest|diff|accept> <course> [flags]');
 const writeJson=(abs,value)=>{fs.mkdirSync(path.dirname(abs),{recursive:true});fs.writeFileSync(abs,JSON.stringify(value,null,1)+'\n')};
 const readLedger=()=>fs.existsSync(ledgerPath)?loadJson(ledgerPath):null;
@@ -71,7 +93,7 @@ if(command==='baseline'){
  console.log('staged content valid: '+staged.topics.topics.length+' topics; corrections applied: '+(staged.applied.join(', ')||'none'));
  if(fs.existsSync(path.join(ingestDir,'sources.manifest.json'))){
   const srcDir=flag('sources');
-  if(srcDir){verifySources(loadManifest(),srcDir);console.log('source manifest verified against '+srcDir)}
+  if(srcDir){verifySources(loadManifest(),srcDir);console.log('source manifest verified against '+srcDir);advisoryPreprocess(srcDir)}
   else console.log('source manifest present (pass --sources DIR to verify hashes)');
  }
  const current=currentCourse();
@@ -86,6 +108,7 @@ if(command==='baseline'){
  const sourcesDir=flag('sources');if(!sourcesDir)fail('--sources DIR is required for ingest');
  const manifest=loadManifest();
  verifySources(manifest,sourcesDir);
+ advisoryPreprocess(sourcesDir);
  const changed=writeCourseDocuments(staged,'new');
  writeJson(ledgerPath,ingestLedger(course,manifest,staged.files,staged.correctedFiles,staged.applied,new Date().toISOString()));
  console.log('ingested '+course+': '+staged.topics.topics.length+' topics, '+changed.length+' content files written, corrections applied: '+(staged.applied.join(', ')||'none'));

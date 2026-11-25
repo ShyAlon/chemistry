@@ -1,0 +1,1096 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E10",
+ "source": {
+  "sha256": "094bc31e7c6e351c0710b135dfc8a4b14e76d004e4391dd5603c00ec9029467a",
+  "kind": "pdf",
+  "pageCount": 65,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "094bc31e7c6e351c0710b135dfc8a4b14e76d004e4391dd5603c00ec9029467a",
+  "contentSha256": "c1f10f80d8715331dc1aae9d66f2fc68dbb08382678ac419c9d1e5cb0e671d2a",
+  "unitMapSha256": "19c1ee9506f18091ea85cdcb40a3f5c421364ab644d0ae2f1d62ccef1bd15282",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   1,
+   13,
+   47
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "b2f5819ea81087bae7f1b287c90f1ddf7d891fb3dd2e7eb248e3b5eb8a8486c0",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "title page of the kinetics deck",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "120c839e8cc5ba6159b76e3bd4011b8431fb963ff893732a41de282867baba50",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "what kinetics studies; factors affecting rate; 10 C rule",
+     "targets": [
+      "theory:E10-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "b7674da53df7dc22ee6d1f0a4a45b26e03bdaecbab03cf71b30d63a31759bfc0",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "light, catalysts, inhibitors; homogeneous and heterogeneous reactions",
+     "targets": [
+      "theory:E10-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "e0cf6e65041fbb955bd815f3c9fe9a0a30676ad107aadd713cb8b7e306c1b06f",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "H2 + Cl2 -> 2HCl proceeds by elementary steps",
+     "targets": [
+      "theory:E10-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "20d854ce06c3ecdbb18465588f6c5b422e2b09dfb1387d583a5e0d4f3923bb3e",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "reaction rate as change of concentration with time",
+     "targets": [
+      "theory:E10-t03",
+      "theory:E10-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "afdcccc92bea2d159444dfcf1cd4f5620c30f5c9164040c18a12f424017140c8",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "rate of 2Fe3+ + Sn2+ -> 2Fe2+ + Sn4+ with stoichiometric factors",
+     "targets": [
+      "theory:E10-t03"
+     ],
+     "rationale": "Slide numbers 1.3e-5 and 2.6e-5 M/s are not reproduced; W1 gives an own example."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "ed0a6c44fea2ebc9a980dc2357d05c27c71c73dbdbd1373c8d8f878fcac81bf4",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "general rate v for aA + bB -> cC + dD",
+     "targets": [
+      "theory:E10-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "5870ebb9f1c0a185906191384a66abc7438beb4ed002a7f3607b3333a998728e",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1: rate of 2O3 -> 3O2 in concentration and pressure",
+     "targets": [
+      "worked:10",
+      "theory:E10-t03"
+     ],
+     "rationale": "W10 uses the slide reaction."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "57da619d988065b0344d9a1c8aaaa28ee613204ee0ed3cd62a335f35bda2c8c5",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2: N2O decomposition from total pressure, statement",
+     "targets": [
+      "worked:11",
+      "theory:E10-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "0b7a34996fb01065845406c8c89aa242935a22cc68569dfbfd0acca517198350",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2 solution: partial pressures from P total",
+     "targets": [
+      "worked:11",
+      "theory:E10-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "91a9977742019ceea46f87e6c1f939db9d02330f54834e00076ac7936f4d25be",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2 solution: rate over first 5 minutes 2.63e-4 atm/s",
+     "targets": [
+      "worked:11",
+      "theory:E10-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "bb768a4f3ee56ffda91ce1adba70a60194f0062c3a61fc208c7c3290819e8d74",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2 solution: later interval and rate decreases",
+     "targets": [
+      "worked:11",
+      "theory:E10-t08"
+     ],
+     "rationale": "Slide rates 1.9e-5 and 1.0e-5 use rounded pressures; unrounded 1.84e-5 and 9.2e-6 atm/s (stated in t08 and W11)."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "551d6c0998890233b72b5501cfef25818255f6031e276085067017e4c3178ae5",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "video placeholder page: The Rate of a Chemical Reaction",
+     "rationale": "Embedded video page that shows only a loading screen; no content."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "3cee113b0767b7bc01e0f621f526a466f9793607a7ae687041bb58fb9adce172",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "measuring rate: O2 volume or KMnO4 titration of H2O2",
+     "targets": [
+      "theory:E10-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "ef27d65f1ddaed09b2dcf3d4bab8b9c17c2f5778ae73930765cde517b9142fc2",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "average and instantaneous rate; tangent slope",
+     "targets": [
+      "theory:E10-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "141dc83ffb445632607a675f059752214741eb8e4d4eca7767ed22d26f1c620e",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3: initial rate of H2O2 decomposition, statement",
+     "targets": [
+      "worked:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "59d1fd6eccd16ed1a142b6ebef283ef9d79bf0fa770506ce26e0437317c9b760",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3 solution: secant 1.6e-3 and tangent 1.71e-3 M/s",
+     "targets": [
+      "worked:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "4866cd2a6d094981cde054c59289e0d5d15643e8880bce797922ce1e7e5f6e55",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3 solution: concentration at 100 s is 2.15 M",
+     "targets": [
+      "worked:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "83a044c1d93295da0243b37e802bc19dbeeba83cb7be8ea11e70a76a19a4d706",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "nature of reactants: H2 + F2 fast, H2 + O2 slow although both spontaneous",
+     "targets": [
+      "theory:E10-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "26524ca218795053946b1cec1427f9dddc0d959e807b0cffada1e96bf3e4e2e8",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "rate depends on concentrations; determined only by experiment",
+     "targets": [
+      "theory:E10-t11"
+     ],
+     "rationale": "Slide calls the experimentally found relation the mass action law; used loosely. Lesson t11 limits that law to an elementary step (see p21)."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "370b9211074ab67801d3d3b950bc7b227c0a766033140387204d7ad5a5e195ce",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "mass action law stated with stoichiometric coefficients as exponents",
+     "targets": [
+      "theory:E10-t11"
+     ],
+     "rationale": "Slide states rate = product of concentrations to coefficient powers for any reaction; lesson limits this to an elementary step."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "ccd13fd138f0a6d5089ad52c5b30b7e0bb66817e42b1dfb05307d5c7c07939fc",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "rate law v = k[A]^a[B]^b and rate constant k",
+     "targets": [
+      "theory:E10-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "a1edd0e09b9e3fbaf0356bd3ddc9e27a1178ffa9feac311d46febf2ae6603216",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "real order differs from stoichiometry; molecularity is not order",
+     "targets": [
+      "theory:E10-t10",
+      "theory:E10-t11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "c9809b0752b6c69490c41dece8ba46f3aecf5b3cfbd2b19b785775363131ed18",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4: HgCl2 and oxalate initial-rate data and method",
+     "targets": [
+      "worked:13",
+      "theory:E10-t14"
+     ],
+     "rationale": "Slide title writes C2O2 2- for oxalate; it is C2O4 2- (stated in W13)."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "fbbbeecf481c653cea84b4745bef7565b7d12b203b62e88767e7a31f16761307",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: order in HgCl2 from ratio of rates is 1",
+     "targets": [
+      "worked:13",
+      "theory:E10-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "092a3bd1fb92cfdab866705fd84415c0cc09d08d7ad0a152920be2488a7b1304",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: order in oxalate is 2",
+     "targets": [
+      "worked:13",
+      "theory:E10-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "324fdd96689a3829c196a73b9fc0dcd8a34710c0b397eb0d56e29df0d481bd94",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: v = k[HgCl2][C2O4]^2, k about 7.6e-3",
+     "targets": [
+      "worked:13",
+      "theory:E10-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "273fcd911f879b31edf2e65c2ba11088386b49babc2d7e236aeb009341fb6d01",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "effect of doubling a concentration for orders 0 to 3",
+     "targets": [
+      "theory:E10-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "670af2b3bbd896950fddd739d1ad549fc5a12d2d41d0a66a41f5e355d3ab99e6",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: data for 2A + B -> C + 3D, statement",
+     "targets": [
+      "worked:14",
+      "theory:E10-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "a5f78ff5d80648fc854cd63a0cda34c10d971cd2cd29752fe3c67924442eeadf",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5 solution: order 2 in A, zero in B",
+     "targets": [
+      "worked:14",
+      "theory:E10-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "2baaa81d2126323e3c4425ac8e234cf55f89b0afae27e61918fa22d628493a0d",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5 solution: k from each experiment, mean 99.8",
+     "targets": [
+      "worked:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "a22309d772d1c09dd0247d3e2bad5067792695d79058ebd87c0a3d199853fc01",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: acetaldehyde decomposition data, statement",
+     "targets": [
+      "worked:15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "70cc813b1b4c264bd4922b8271a4f2e22815133b523cf5db924d69eb5761fee5",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6 solution: order 2 and k = 2.0",
+     "targets": [
+      "worked:15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "7fa99530ead527c44b9a4d6abc616596a1fd542aa69d10682d2ded14a27c9d51",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "integrated rate law: concentration as function of time",
+     "targets": [
+      "theory:E10-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "604b235d47ebc6fc34add6f676580c190089c432498146c5e4c34d59992e6a70",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "zero order: rate law, integration, [A]t = [A]0 - kt",
+     "targets": [
+      "theory:E10-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "fa0656ae349e63c6733d1fda40ce3417c7868688a5147fb584e226bdab0a414d",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "zero order: straight-line graph, slope -k, units of k",
+     "targets": [
+      "theory:E10-t10",
+      "theory:E10-t18",
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "942afac9da143ffb371aa6f7022e8523d61dd69a8dc9306ea8e7afa364dc41cf",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "zero-order half-life [A]0/2k",
+     "targets": [
+      "theory:E10-t18"
+     ],
+     "rationale": "Slide numeric t1/2 examples (10 M, k = 1) are not reproduced; formula in t18."
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "9b8ce55d68b49acaa742478bece55571cf3b3edd489a144d3cb9be6c724bcf02",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "first order: integration of d[A]/dt = -k[A]",
+     "targets": [
+      "theory:E10-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "8764b03cbf2205a558c83d7de63350b197220889f419a0115eddd77992fe75cd",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "first order: ln[A] = -kt + ln[A]0 straight line",
+     "targets": [
+      "theory:E10-t19",
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "01bb041c12ff0b0875a91e8cbcb41f54180906ea82c8a56bde0b52b00d2ed936",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: N2O5 decomposition data, statement",
+     "targets": [
+      "worked:16",
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "556d16a3145a1532949dd4d28cdf8a1c07b026f97ca02e70e6154c464700785b",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7 solution: ln[N2O5] is linear, k = 6.93e-3 /s",
+     "targets": [
+      "worked:16",
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "308b9b141bacdb27078bb5aa957eac57e8b548005c1e3b263f73c557964c9683",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: [H2O2] after 1200 s from k = 7.30e-4 /s",
+     "targets": [
+      "worked:7",
+      "theory:E10-t19"
+     ],
+     "rationale": "W7 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "4616a7877227b4ee3445d9cc46dbf30b5f22999d566451d799c86a042c104b15",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "first-order half-life t1/2 = ln2/k, independent of [A]0",
+     "targets": [
+      "theory:E10-t19",
+      "theory:E10-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "da484b921febfcc46c59b5d3a3b8b518b3d8bfe0c001d01bc1aafcfd3ccbe15a",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "DTBP pressure decays with constant half-life; ln(P/P0) = -kt",
+     "targets": [
+      "theory:E10-t19",
+      "theory:E10-t27",
+      "worked:17"
+     ],
+     "rationale": "Figure not reproduced; t27 states the constant half-life property."
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "2ca85c4b9d36f22a9ad32ccfaa7aacd369a1f85c20f162cf35227d6c08294cbe",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9: DTBP first order, k from t1/2 and time to 50 mmHg",
+     "targets": [
+      "worked:17",
+      "theory:E10-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "1df5c32d7d2dc3fc43c2aa7be79552c41437334a2efd532b08b9929ee483a977",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: acetone decomposition, k from t1/2 = 80 s and time for 20 percent",
+     "targets": [
+      "worked:9",
+      "theory:E10-t27"
+     ],
+     "rationale": "W9 uses the slide numbers; slide rounds k to 8.7e-3 giving 25.6 s (25.8 s unrounded)."
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "19f26afdd4d33ffc5b8c85e440a95917bae3e0f5bfe8fb1b29e94e6938e65ab7",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "video placeholder page: first order process",
+     "rationale": "Embedded video page that shows only a title; no content."
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "e2994610fa8422e4a9f1e8d13b8aedfd9c2d3c1c59ac009682082bb17b2e18c4",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of typical first-order processes: half-lives and k values",
+     "targets": [
+      "theory:E10-t28"
+     ],
+     "rationale": "Table not reproduced; t28 gives own approximate half-lives and a 14C k."
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "59bfb2a9a60db2666688c0ff5f7d6330de267a40faccc2d725c6d8a64ff2fabe",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "second order: v = k(a-x)(b-x) for A + B -> P",
+     "targets": [
+      "theory:E10-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "7b3446199501274e6ef2e7da87fe56bf22555983c3a2c2fc944f437d0c22b758",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "second order with two reactants: integrated form",
+     "targets": [
+      "theory:E10-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "106b9a36a2dfb23432722dc39f40e86364b150fc6d7027c4d8b313d97b8c748d",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "second order 2A -> P: 1/[A] - 1/[A]0 = kt",
+     "targets": [
+      "theory:E10-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "5ee9d023940ed04206bb9a075e559e23c98d938f7de3f1e445f5e6850ef2e808",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "second-order half-life depends on [A]0; none for unequal a and b",
+     "targets": [
+      "theory:E10-t20",
+      "theory:E10-t22"
+     ],
+     "rationale": "Slide numeric half-life examples are not reproduced; formula in t20."
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "a3325874a800a0746fb62708e4b9a71444c7d844ba2196705c5dcff90f3f93b0",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11: butadiene dimerisation data, statement",
+     "targets": [
+      "worked:18",
+      "theory:E10-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "b65682e8ff7a693a4a3978bc934b0ee2b0059b4a02d9887f1902d7404bd1d00d",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11 solution: 1/[A] linear so second order",
+     "targets": [
+      "worked:18",
+      "theory:E10-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "b66f8a16f9ec7deb08b1cbb8c1e8411a09be176841ba5f52efb03a34bd93b934",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11 solution: k = 3.67 /M/min and t1/2 = 27.2 min",
+     "targets": [
+      "worked:18",
+      "theory:E10-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "631f61b3ed0f57dd5ade02c894b7bdd67227c88a887bd69c3df6f98a772b7664",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 12: 2NO -> N2 + O2 second order, statement",
+     "targets": [
+      "worked:19",
+      "theory:E10-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "7063b860e9e2a14d4a3a57b249d3d542314d74fe40fb57216f016932245b7d43",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 12 solution: k = 4.26 /M/min and [NO] after 60 min",
+     "targets": [
+      "worked:19",
+      "theory:E10-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "865f017e3966ad7867ea3339d3874caa8514582de04ea611eeda44bf308a40d2",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 13: ester hydrolysis, concentration data, statement",
+     "targets": [
+      "worked:20",
+      "theory:E10-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "4725b95bc79368a500184b3ff9de561325ec48796b5644aaab7d4a9cc16be818",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 13 solution: k constant at 0.101, second order",
+     "targets": [
+      "worked:20",
+      "theory:E10-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "cf5638d0713f48ffa011cdd661b03066c1d69d0b93550c95ca567c33fbb5901c",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "pseudo first-order reactions: excess reagent",
+     "targets": [
+      "theory:E10-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "ff9992f62af4356c6150f0e81bcf32ad943b0a9ce2ee92bb044f57f1ffc71db9",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "third order a = b = c: integrated law and half-life",
+     "targets": [
+      "theory:E10-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "5c7b1fa162213c74b069e7092b482305d12e389a9276a916ebcdebbf80afc16d",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "third order a = b != c and 2A + B: integrated forms",
+     "targets": [
+      "theory:E10-t25"
+     ],
+     "rationale": "Long integrated forms are not reproduced; t25 gives the a = b = c case and the molecularity caution."
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "4a6f96526fc43c58769d68760e31e8b1a637847d50f84e7ccee3055c16a7461c",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary: rate of reaction, rate law, k and overall order",
+     "targets": [
+      "theory:E10-t03",
+      "theory:E10-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "b19d43bfaaa2e62dee7966904dc41aea37a29c2460fcadbe88038c1508f16377",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary: finding the order by tangent, initial rates, graphs, half-life",
+     "targets": [
+      "theory:E10-t14",
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 65,
+   "imageSha256": "b78baeab05886d3442e4e554de33429fc9da76b4bcee18bea2d6f73387db4cac",
+   "units": [
+    {
+     "id": "p65.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary: finding k from slope, integrated law or half-life",
+     "targets": [
+      "theory:E10-t21"
+     ]
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:8"
+   ],
+   "rationale": "Own worked examples, not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17",
+    "quiz:18"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E10-t01",
+    "theory:E10-t06",
+    "theory:E10-t09",
+    "theory:E10-t13",
+    "theory:E10-t16",
+    "theory:E10-t26"
+   ],
+   "rationale": "Section headings; not slide content."
+  }
+ ]
+}

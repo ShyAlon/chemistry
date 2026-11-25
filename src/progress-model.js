@@ -1,5 +1,5 @@
 // Existing outcomes only. No visits, drafts or analytics.
-export const SCHEMA=1,MAX_RECORDS=66,clone=x=>structuredClone(x);
+export const SCHEMA=1,MAX_RECORDS=79,clone=x=>structuredClone(x);
 export const recordId=(course,topic)=>`${course}~${topic}`;
 export function buildManifest(courses,sessions){
  const out={};for(const c of courses)for(const t of c.topics)out[recordId(c.id,t.id)]={course:c.id,topic:t.id,kind:'topic',questions:Object.fromEntries(t.quiz.map(q=>[q.id,q.type]))};

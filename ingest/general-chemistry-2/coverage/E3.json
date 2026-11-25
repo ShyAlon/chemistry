@@ -1,0 +1,844 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E3",
+ "source": {
+  "sha256": "e5102e707d9467facce4aefa25aacc1ddbdf75ee3a5e593c492a44d75b848b73",
+  "kind": "pdf",
+  "pageCount": 47,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "e5102e707d9467facce4aefa25aacc1ddbdf75ee3a5e593c492a44d75b848b73",
+  "contentSha256": "6e3aba631dee81f6aa712cedddb96dddd43171f0aaa9c058c16c5df490c93e01",
+  "unitMapSha256": "ff60c411d74b741e6b8564ce593e4a9337736cedcca520cde284ad43f4623460",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   1
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "00e396c1fd209b0f4538e6ccd4acb343788f50bbc7e083e9cd5c0e88376a248e",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "chapter opening picture page with a song and a lemonade image",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "baf1587d5364f907751d396b72a87d6cdf9efd964d9845d5515cba971ae12fb4",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "electrolytes: strong, weak and non-electrolytes, conductivity",
+     "targets": [
+      "theory:E3-t01",
+      "theory:E3-t02",
+      "theory:E3-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "921dff29a1d8da48024b39f17a0414c7132154892e3ddeceb957e30d9c07dcef",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "examples of strong electrolyte, weak electrolyte and non-electrolyte",
+     "targets": [
+      "theory:E3-t03",
+      "theory:E3-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "cff59058111aa0cd01c75c1c4df08b1c8dda49222a1cfcbddb3c2d8cac8a3b5a",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "history of acids and bases: acidus, al-qali, Arrhenius 1884",
+     "targets": [
+      "theory:E3-t04",
+      "theory:E3-t09"
+     ],
+     "rationale": "Intro and history page; lesson t04 and t09 carry the same history."
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "e89aacfb16cd98f3212b2dbb458968005fa80ed5a2e13bc8cc5030acb614131a",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "acids: strong and weak, HCl and acetic acid, reversible arrow",
+     "targets": [
+      "theory:E3-t02",
+      "theory:E3-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "75244f6f7b4578e2e49a3d13afc8b22d1f47f12f5d7892d040bfd22b4be0cffc",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "the hydrogen cation: bare proton, H3O+ and larger water clusters",
+     "targets": [
+      "theory:E3-t05",
+      "theory:E3-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "55c10d26487f6f979529ae312347d85bd2be9a65463b00877011c1621bfe0514",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "bases: hydroxide donors and other bases",
+     "targets": [
+      "theory:E3-t05",
+      "theory:E3-t09",
+      "theory:E3-t10",
+      "theory:E3-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "adb9b13261bb7f2d4af79793fad4ee10be4fe0f864809f613601ad1b3aac99fa",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "recognizing acids and bases from equations, including Na2CO3 as a base",
+     "targets": [
+      "theory:E3-t44",
+      "theory:E3-t13",
+      "theory:E3-t14"
+     ],
+     "rationale": "Na2CO3 equation added to the lesson as source-derived text."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "922aa735234b9e08b5d7aa4458bcc6707713f0e6a2a548bbb788af2c961b8629",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "neutralization H+ + OH- gives H2O, enthalpy -55.90 kJ/mol",
+     "targets": [
+      "theory:E3-t09",
+      "theory:E3-t45"
+     ],
+     "rationale": "Value -55.90 kJ/mol is source-given and labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "2daae378c1ce9ce9375c72257123736d44b45d92bf95be5c82d743233ddf7d58",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "problems with the Arrhenius definition",
+     "targets": [
+      "theory:E3-t08",
+      "theory:E3-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "878e15bae40640eebf97a5c4dd089d8cb5f048df69e1505ff48d0b1a188ec03d",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "Bronsted-Lowry proton transfer picture",
+     "targets": [
+      "theory:E3-t06",
+      "theory:E3-t11"
+     ],
+     "rationale": "Text adaptation, no diagram: proton transfer is explained in words."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "cb55caeca14c862204aaca53dac60da339a26b2b68201fea995dae20917c676c",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "conjugate acid-base pairs",
+     "targets": [
+      "theory:E3-t12",
+      "theory:E3-t13",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "d27233fd06715190204cf257c7e28525ecf30bd166427d9b3c17d87728b14c01",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "graphical representation: NH3 and H2O with conjugate pairs",
+     "targets": [
+      "theory:E3-t11",
+      "theory:E3-t13"
+     ],
+     "rationale": "Text adaptation, no diagram: the two conjugate pairs are listed in words."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "73223832b8f6557abaa01dfd6e1ffd5a2bda0be4ef87f9b7515d1e72b21f668c",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kb for ammonia, about 1.8e-5",
+     "targets": [
+      "theory:E3-t15",
+      "theory:E3-t16"
+     ],
+     "rationale": "Typical 25 C value."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "58cc5537010d9af2ec667687d66d07960a180fe3efb8a5b6bb2610bd7a12c5c0",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "acid ionization constant: acetic acid Ka 1.8e-5, Kc to Ka",
+     "targets": [
+      "theory:E3-t16",
+      "theory:E3-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "b271c995374245f1e6311778cccc87df6036d4207420eb66b46dd3e8a0ad37c5",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "acetic acid ionization figure: weak acid, partial ionization",
+     "targets": [
+      "theory:E3-t16",
+      "theory:E3-t02"
+     ],
+     "rationale": "Text adaptation, no diagram: partial ionization is described in words."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "2b57966ec99c86d28dc70387d9305429df4bea8159ff2044906d8eae9208b015",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "HCl ionization figure: strong acid, complete ionization",
+     "targets": [
+      "theory:E3-t09",
+      "theory:E3-t02"
+     ],
+     "rationale": "Text adaptation, no diagram: complete ionization is described in words."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "3563de0d4a77a313d1d6af8dd9dce6209e00562070c2707b391d462e4acd83d2",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "relative acid strength and conjugate base strength",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "48cad0c519eda5479d0496205dbc7e07c87297d1a0aa2087148bb75d8bc78415",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "direction of proton transfer favors the weaker acid and weaker base",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "919cea77f3d1f6765bef97a593eab442b41a83152739fce3f0478d9dcc9f5dfa",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "strength ladder of common acids and conjugate bases",
+     "targets": [
+      "theory:E3-t20",
+      "theory:E3-t21",
+      "theory:E3-t18"
+     ],
+     "rationale": "Own wording, own table of typical values; the lecturer table is not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "c4987a2760208ddcdcf71831d94b7020880779aa360f70c600548bea11b56b32",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "strong acids and negligible conjugate bases",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "ef4b31fe4bf13527b3b91de14309f35b1acbc0ced0adec9e294924e527d0791b",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1: CH3COOH with NaCN, balanced reaction and direction",
+     "targets": [
+      "worked:6",
+      "theory:E3-t19"
+     ],
+     "rationale": "Worked 6 follows the slide exercise as given (qualitative, no numbers)."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "d02ad70822649976cfc5a754d842654d078d141f635de34a788fcacd2059b695",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "leveling effect in water",
+     "targets": [
+      "theory:E3-t22",
+      "theory:E3-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "0993ee7b14b9f7b99b463db548952a780e370ccf76cab5c22025b0bcd578cd45",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "leveling and differentiating solvents, methanol example",
+     "targets": [
+      "theory:E3-t23",
+      "theory:E3-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "9b65362a62f7d20cb7a45715c99314bfa9d6612b0d0a9a04ba199b71fe089f70",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2: HCl and HBr mixture, hydronium concentration",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Worked 7 uses the slide numbers as given (0.01 mol HCl, 4.05 g HBr, 150 mL, 0.40 M)."
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "4487d46ac3afa1b258f7fdbdfd18b7d5e04b7d59c22ef40728d9fcfa9ea872b1",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "section intro: why HCl strong but HF weak, acetic versus ethanol, gas-phase BDE",
+     "targets": [
+      "theory:E3-t25",
+      "theory:E3-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "ca57185557fd9af5c3f49e944b65c66b2d44acad9d777ecee60557120dc71eae",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "bond lengths, bond energies and Ka for HI, HBr, HCl and HF",
+     "targets": [
+      "theory:E3-t30",
+      "theory:E3-t46",
+      "theory:E3-t26"
+     ],
+     "rationale": "Slide values are labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "08c2ae90ef5a2f4601e7563f37901e1172d2ea828c179d73bb9a78bc8ddd3858",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "HOCl and HOBr electronegativity and Ka",
+     "targets": [
+      "theory:E3-t31",
+      "theory:E3-t46",
+      "theory:E3-t28"
+     ],
+     "rationale": "Slide values are labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "292d63122256d5a1d7ac45c5267bf79652bc7bfb248c85e5da7eb870b2e5e8d6",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "sulfur oxoacids: H2SO4 and H2SO3 structures and Ka",
+     "targets": [
+      "theory:E3-t31",
+      "theory:E3-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "bfd92a353b865a6b7b7cf22e46743fa521a1371acb4b9d9bc778fb842d863ec7",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "Ka for acetic acid and ethanol",
+     "targets": [
+      "theory:E3-t32",
+      "theory:E3-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "a9417d61129e5565de42360836a30fa483650da4c76826c6a2323437e83bf478",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "focus on the anions: localized ethoxide versus delocalized acetate",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "de585c47aecd5e79e5119bbd0298dfc9f8571f8d03be417fffe5ad76830ceb79",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "long-chain carboxylic acid Ka",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32"
+     ],
+     "rationale": "Typical values; the lesson claims the trend only."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "2d1a14bde45dd050b98215defeea1b24fe19b7e46a50a7111671b15b3c212427",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "electron-withdrawing substituent raises acid strength, chloroacetic acid",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "bd2cf8cd19ffb91d1ad5050de35ea9ab325d828f911494ec0dfc67fc5da31f6f",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "amines as bases: ammonia versus bromamine",
+     "targets": [
+      "theory:E3-t33",
+      "theory:E3-t34",
+      "theory:E3-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "27bbc3c057adc9e7ab790c238de62ef12053a60e2dd95d9939c4779f6aec75ed",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "table",
+     "disposition": "corrected",
+     "label": "amine pKb row: slide gives methylamine 4.74, erroneous value",
+     "targets": [
+      "theory:E3-t35",
+      "theory:E3-t47"
+     ],
+     "rationale": "Slide 4.74 equals ammonia and breaks its own order; tables give about 3.34. Lesson uses 3.3, slide value recorded as error."
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "060994ed7d8c99fddab76e235e7f0d88c5b3c82468b6524347928a067fb1c865",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "cyclohexylamine and aniline pKb",
+     "targets": [
+      "theory:E3-t36",
+      "theory:E3-t35"
+     ],
+     "rationale": "Typical reference values; lecturer numbers kept distinct from reference values."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "68b63672e482e2b70b3ecc8a4635f7697a125f6c6524300dcc9e2a00ad64dca5",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "chloroanilines and inductive structures, para and ortho pKb",
+     "targets": [
+      "theory:E3-t36",
+      "theory:E3-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "ddcdae6fa6ca3cf329afa9168b13f956f1f6d3ed7c31bc8a3e34d80f3d3678fe",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "acidic and basic oxides",
+     "targets": [
+      "theory:E3-t40",
+      "theory:E3-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "64565f7edfcec7de6fa145d9885102e0bc58810d02ecba2bbd9780a8c602f4e1",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "amphoteric oxides and hydroxides",
+     "targets": [
+      "theory:E3-t42",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "3cb934e90a3c355e7ce5cc1023d786aae62f1c33e0e413a5c0fc7e37eec8e8d4",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "water as both an acid and a base",
+     "targets": [
+      "theory:E3-t43",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "288aacac5f273bb0fa20c56fd5fde9c50fc73c24ed0210839a2f9c525bb12a38",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Lewis definition: electron-pair acceptor and donor",
+     "targets": [
+      "theory:E3-t37",
+      "theory:E3-t38",
+      "theory:E3-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "c5847421e5c1e5ac505cd439ba6989b4fcf36c27a1b0b53017eb2815c09a8f72",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Lewis acid-base adducts and coordinate bonds",
+     "targets": [
+      "theory:E3-t38",
+      "theory:E3-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "1688ddb40afd4511102b2f95aeae95943756edf34b4fad83ca54b7aae4e509eb",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "showing electron movement: curved arrows for O2- with SO2",
+     "targets": [
+      "theory:E3-t38",
+      "theory:E3-t39",
+      "theory:E3-t41"
+     ],
+     "rationale": "Text adaptation, no curved-arrow diagram; the acid-oxide reaction is in t41."
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "3cb934e90a3c355e7ce5cc1023d786aae62f1c33e0e413a5c0fc7e37eec8e8d4",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "repeat of the water amphoterism page",
+     "targets": [
+      "theory:E3-t43"
+     ],
+     "rationale": "Duplicate of page 40 content."
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "ff5b39eafe40a6f5992ef13aa931a7109ed9eeeddaa85fa56bfe110e1cb19123",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ion product of water, Kw = [H3O+][OH-] = 1.0e-14",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p46), also owned by E4; supports the Kw in the Ka-Kb relation."
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "4678fc8ea276865a19246d085805bef90b193a9ad249e5d6c8773b87eff78b63",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH + pOH = pKw = 14 from -log Kw",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p47), also owned by E4; supports pKa + pKb = pKw."
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "8d1cb14594aaafb8cfde521bdb1873f6e255b9dd655c277362e5cd2ba41e8ade",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "acetate hydrolysis: Kb = Kw/Ka, 5.7e-10 from Ka 1.75e-5",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p85), also owned by E4; derives Kb = Kw/Ka for acetate by multiplying by [H3O+]."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "theory:E3-t27"
+   ],
+   "rationale": "The period trend CH4 < NH3 < H2O < HF is not on any source page I found (AB I pages 1-44 checked, plus the pages cited here)."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5"
+   ],
+   "rationale": "Own worked examples (conjugate pairs, Ka from Kb, two direction cases, own-number HCl/HBr mix); not taken from slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15"
+   ],
+   "rationale": "Own quiz questions; the course gave no quiz for this topic."
+  }
+ ]
+}

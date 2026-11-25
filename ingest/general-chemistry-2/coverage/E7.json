@@ -1,0 +1,1299 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E7",
+ "source": {
+  "sha256": "dc3bb08a6e7186cd4825676c0d4397e1f3beb40fbc1192fb12b808965d0c48c2",
+  "kind": "pdf",
+  "pageCount": 77,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "dc3bb08a6e7186cd4825676c0d4397e1f3beb40fbc1192fb12b808965d0c48c2",
+  "contentSha256": "fd14a0152ac8dbdb4bba559db41912f54a8cd714ac25ba3dfbfff52bbe6e97aa",
+  "unitMapSha256": "6d8e8f688a52b5bb463c2da52b43389315165851f792a877b547820417f2b3c0",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   1
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "3c18f09ebb26df9625017f70f6d1abeacf6ba302a008fd01be198935302807ac",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "title page of the sparingly soluble substances deck",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "7b20ad44a3b86d52ace08339b65934ef23d79cbbb55512048ddcc08fd1a28ac9",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "AgCl turbidity at 1.9 mg/L against NaCl at 316 g/L",
+     "targets": [
+      "theory:E7-t10"
+     ],
+     "rationale": "Molar conversion is lesson text."
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "fa33dc9033e1add977fed14e87122b754ff8ed5fabc883931d0c8282c2a5df24",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "sparingly soluble: solubility below about 0.01 to 0.1 mol/L",
+     "targets": [
+      "theory:E7-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "c898f160ceaada9187989451a5d18f11817779c54920a4850590c619083968f5",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "particle picture of AgCl dissolving to ions",
+     "targets": [
+      "theory:E7-t02"
+     ],
+     "rationale": "Text adaptation, no picture."
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "23fea1b77fcbf99a0738495aeac00bf8984c9c2bad06a1a27b7ab4040db40477",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "equilibrium expression for AgCl(s) and the Ksp definition",
+     "targets": [
+      "theory:E7-t02",
+      "theory:E7-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "92347cc09accf01219a74b80f57b5c54d7665845658a04b17426d996d99ac1ad",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1: AgI Ksp 8.3e-17, grams dissolved in 2.5 L",
+     "targets": [
+      "worked:12",
+      "theory:E7-t06"
+     ],
+     "rationale": "Worked 12 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "3ab19c4df13d0e86842b7152da211520594d01ee52744103a092301f75c7ce36",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "AxBy salts: relation between S and Ksp",
+     "targets": [
+      "theory:E7-t07",
+      "theory:E7-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "6ecbef12d7bf3159e9c26bb5132c3a173471a44b20b4662428187b6fa22d0611",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "AB2 salt Ca(IO3)2: Ksp = 4S^3",
+     "targets": [
+      "theory:E7-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "3b6c9e76ebf3e1c584a516c9833b6ced7789e0aa91a37d7c4b517f730a901a93",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2: Ag2CrO4, 0.0870 g in 2 L, Ksp 9.0e-12",
+     "targets": [
+      "worked:13",
+      "theory:E7-t07"
+     ],
+     "rationale": "Worked 13 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "c24a6d060b4780b2adffdc8000dd51f7c7c562b1ef902b9063b76875baf500f8",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "precipitation needs a supersaturated solution; common ion systems",
+     "targets": [
+      "theory:E7-t11",
+      "theory:E7-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "f9fb9d0a3b286a7c8fddf9f75771ea6a8a3d753dc7bc19636717da2e73b341c8",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "mixing AgNO3 and NaCl: precipitation picture",
+     "targets": [
+      "theory:E7-t14"
+     ],
+     "rationale": "Text adaptation, no picture."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "0d2513c4e9bf443599392dbbbe8018167cb72663afc5aa8b5d8ba3fc3c09b694",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3: mixing Na2SO4 and BaCl2, statement",
+     "targets": [
+      "worked:14"
+     ],
+     "rationale": "Worked 14 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "6bca9dc4935ac107d42ada656cfe562dcd484205f033308fb32691be73876145",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3: concentrations after mixing and Q = 2.5e-6",
+     "targets": [
+      "worked:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "99f11a1e31318418bb32008b6b5476311a2f35917c70cbf63225b1942cd77e4b",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4: Zn(NO3)2 with KCN, statement",
+     "targets": [
+      "worked:11"
+     ],
+     "rationale": "Worked 11 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "110961c7a72c5521cb907a8e76653258921306b31a4b9c821806da247b6eebdc",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4: moles, Zn(CN)2 precipitate, CN- and Zn2+ left",
+     "targets": [
+      "worked:11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "a654dc5ec6085fe24e8ab8dd6c8dfe5b0ebfd70832ae443844ee6572448d3c5f",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "common ion effect on BaCO3 solubility",
+     "targets": [
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "48ea56ff34521d55234b0a4c3d1065b7029e3479cb036fb750ef60226250ed17",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: CaSO4 in four media, statement",
+     "targets": [
+      "worked:15",
+      "theory:E7-t17"
+     ],
+     "rationale": "Worked 15 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "3e39aa81a7b4a6a44b13b9139caea7b8aac7390d22bd65229f0e5ff04f04fef3",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: solubility in pure water and in 0.01 M CaCl2",
+     "targets": [
+      "worked:15",
+      "theory:E7-t18"
+     ],
+     "rationale": "Slide Ksp 1.2e-6; tables differ, see the note in t18."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "866fdad63425188db9b50690975d21643dca36f61f73ae7a95df9eef23a2ccc6",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: 0.1 M CaCl2 and 0.15 M Na2SO4",
+     "targets": [
+      "worked:15",
+      "theory:E7-t17",
+      "theory:E7-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "a7692eeb0febbbde4606bd07091431bfb9c059f080d5cade5fd5fe4d095d1f28",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "graph of [Ag+] against [Cl-]: saturated, supersaturated and unsaturated regions",
+     "targets": [
+      "theory:E7-t12",
+      "theory:E7-t13",
+      "theory:E7-t14"
+     ],
+     "rationale": "Text adaptation, no graph."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "873501850650a2776c0cee14d7c9d781919431fa5d70c7f90c6688ef3c0adb82",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "ionic strength effect on Hg2(IO3)2, Ksp 1.3e-18",
+     "targets": [
+      "theory:E7-t31"
+     ],
+     "rationale": "The 50 percent figure is stated in t31 as approximate."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "8943426667d630839072b394da31119cd053722893292a5b25e93c8247003af6",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "inert salts raise solubility",
+     "targets": [
+      "theory:E7-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "5e6ca23aa351809a00f60e228b9e772e619048d2a567d8ea410b375db4ba488d",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "effect of inert salts on TlIO3 and salts of AB, A2B, A4B type",
+     "targets": [
+      "theory:E7-t31"
+     ],
+     "rationale": "Table not reproduced; qualitative statement only."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "a52553d6f9061a30ca31cb459717bd6bb8179f2a5c56e72c918c59a3d6cc6a95",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "temperature effect; exceptions with exothermic dissolving",
+     "targets": [
+      "theory:E7-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "7d784950dca7a9a390270154aa82cf24887071f7e6d6bb2af9ab0bb1a93b8129",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "pH effect: three groups of salts",
+     "targets": [
+      "theory:E7-t20",
+      "theory:E7-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "4132e0f40011059a36c9da5e36669d46491e67fa83746836c2edf514283d5447",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salts of strong electrolytes: no pH effect",
+     "targets": [
+      "theory:E7-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "ead49e563f3d909fd564cda4d831ef01e7b164c3a6e09df40374e8515529ad42",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salt with an ion of a weak electrolyte: solubility rises when pH falls",
+     "targets": [
+      "theory:E7-t20",
+      "theory:E7-t21",
+      "theory:E7-t22"
+     ],
+     "rationale": "The CaF2 example numbers are lesson additions."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "73dd1db38ca868c55ec6833f2ac393d6e022741c003ec56f6d65796dd01d288d",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "sparingly soluble acids and bases",
+     "targets": [
+      "theory:E7-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "a5ed4293f817783652b2f11c04af58bfa8096ef6f9ae55a71aa32f671be341c1",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "competing equilibria and partial precipitation, AgCl and AgI",
+     "targets": [
+      "theory:E7-t34",
+      "theory:E7-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "035e99cfbf4686fc43a143976135fc08c90c6f96e50a905000a45fb04af76d07",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: Ba2+ 7.3e-4 M and Ca2+ 0.12 M with sulfate, statement",
+     "targets": [
+      "worked:4",
+      "theory:E7-t35"
+     ],
+     "rationale": "Worked 4 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "1522f6783e739f1639c2380b4f8e4ef7742b8b550583465af0102462f0d667d5",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: sulfate needed, Ba precipitates first, 98.2 percent",
+     "targets": [
+      "worked:4",
+      "theory:E7-t35",
+      "theory:E7-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "6de8a3847f0759f2456ea675560986cb047a5886dd678e4601f6e24db378e630",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "dissolving precipitates: Q below Ksp",
+     "targets": [
+      "theory:E7-t37",
+      "theory:E7-t38"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "e15da8f31cc0f3982fd01f4e388da8a597ec43b8b828bee1d8a889036d6d3286",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "dissolving by turning an ion into a weak electrolyte",
+     "targets": [
+      "theory:E7-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "4f844802da98542624de03b543b1388f54e511ff4b54ab5ab685e35619a255c4",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "NH4+ forms a weak electrolyte with OH-",
+     "targets": [
+      "theory:E7-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "9caedd5597926805e2f567c2c003095ada464ca3e573612b796e09165b7a5dd0",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "sulfides of metals dissolve in strong acid",
+     "targets": [
+      "theory:E7-t40",
+      "theory:E7-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "9b450aed4707861492ba7fd0c151c10b849d2412729054d8d49c5e49beba0f67",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "carbonates dissolve in acid",
+     "targets": [
+      "theory:E7-t40"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "b86dbab9c92fcb61eb306d8d7b126a163880097e13f77e80918a5fdbb5aa59d8",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "dissolving by redox reactions",
+     "targets": [
+      "theory:E7-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "3def01e826999295ba4561656b6a47788f8e2e03103d3860cb1a668334da79a4",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "dissolving by complex formation: AgCl in ammonia",
+     "targets": [
+      "theory:E7-t42"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "5193d6a371d0ef90cd29850d095936673d2a816293f9b29fcaf4c3a9321f3a95",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "HCl forms soluble chloro complexes with some salts",
+     "targets": [
+      "theory:E7-t42"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "bf12dca6ac096667b575fe6fb16994b80946d194723b58b6e9335e04a3d4d199",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: BaCO3 in CO2 solution 0.042 M, statement",
+     "targets": [
+      "worked:6",
+      "theory:E7-t40"
+     ],
+     "rationale": "Worked 6 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "60b3fdf4d0d4bf5240c5ea5733323c302295da4aa806027171598f3141dd640f",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: reaction and K = Ksp K1 / K2",
+     "targets": [
+      "worked:6"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "6381890898f9baaab17b91fb5f27975075da582be98d1bfd2bf9de4a3026d06d",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: trial and error, x = 7.456e-3",
+     "targets": [
+      "worked:6",
+      "theory:E7-t43"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "b68a32e091897b2848e9d04d979ee0ccce4012bf3a7d09b2f38f09ab6bce0fae",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "solubility rules: soluble compounds",
+     "targets": [
+      "theory:E7-t24",
+      "theory:E7-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "33f0972fbc95605da223c9ab4e40dc36bb1eae4e40501427010261bb8769ff9b",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "solubility rules: chlorides, bromides, iodides and sulfates with exceptions",
+     "targets": [
+      "theory:E7-t26",
+      "theory:E7-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "a32022ae08a44645c85abe43ec418f6dbfd1402af131ab41cfa51c1426165627",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "solubility rules: insoluble hydroxides and sulfides",
+     "targets": [
+      "theory:E7-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "e7a62b8cf25621ca627a79683b680365c885c581f39b8c8c7fc4a69e494eab2b",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "solubility as dissolving into ions; soluble salts",
+     "targets": [
+      "theory:E7-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "04d47e58cbbb4c700bc5e8b97b684e33e27ce449f053a4880a21529e9fddf14d",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Ksp for sparingly soluble salts",
+     "targets": [
+      "theory:E7-t02",
+      "theory:E7-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "803bfefdb51506604d76aa86b27a337094b4969909ab14c7f29af8fbd8c64c16",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Q against Ksp: no precipitate, saturated, precipitate",
+     "targets": [
+      "theory:E7-t12",
+      "theory:E7-t13",
+      "theory:E7-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "8143e6355b3e96c3f986502af963358c581f86b58d2712da2e196284d7548aaa",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "inert salts and temperature change solubility",
+     "targets": [
+      "theory:E7-t31",
+      "theory:E7-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "d49256445a369bc0b3e10f27c8c8bfde991c3771e1aea457c2598346bff9ebdc",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 1: CaSO4 solubility 3e-3 M, CaF2 Ksp",
+     "targets": [
+      "worked:8",
+      "theory:E7-t05"
+     ],
+     "rationale": "Worked 8 uses the given numbers."
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "2ecd587dbeeb74c4857b9826789e226dede854d47ae93a0c787201411ae0fbf1",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 1a solution: Ksp of CaSO4 from S",
+     "targets": [
+      "worked:8",
+      "theory:E7-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "cc237669db0a23798f2b63d5bb36ee1fa7aab2183fde4c354f912fcae74122ad",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 1b solution: CaF2 solubility",
+     "targets": [
+      "worked:8",
+      "theory:E7-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "8faf8532eec77332fc115b82bc9c909beec632e6bba4ebe28484b50ccee45c48",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 2: compare [Ag+] and [Mg2+] in saturated solutions",
+     "targets": [
+      "worked:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "d6f41f44f9ccffe96206b1ca73fdd46f53824510b944d14a4a1ad8bab06fb9fd",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 2a solution: AgCl against AgBr",
+     "targets": [
+      "worked:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "b553c10c65a0805ae183d4ad2710d7b0785e4e7de55c1026e92fac738bf0b5a3",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 2b solution: MgCO3 against MgF2",
+     "targets": [
+      "worked:8"
+     ],
+     "rationale": "Slide prints [Mg2+] = 4.87e-4 for MgCO3; sqrt(3.5e-8) = 1.87e-4 (slide slip, lesson 1.9e-4). Conclusion unchanged. Ion ratios differ."
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "f947312eb0eea15a14de487356d4ed164c93ad388d66d671ef989a93c51a3d4f",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "common ion effect by Le Chatelier",
+     "targets": [
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "ac93ee561c474b41a29f4f312e162cd4f280d444ca819c31db4926cd1b37597e",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 3: PbCl2 in 0.1 M NaCl, statement",
+     "targets": [
+      "worked:9",
+      "theory:E7-t17"
+     ],
+     "rationale": "Worked 9 uses the given numbers."
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "78a27d8bee2fe661cda50ceaa5dd348bc3db70a8b92a88102d90796a4216ee99",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 3 solution: PbCl2 Ksp and ICE table in NaCl",
+     "targets": [
+      "worked:9",
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "a227fc8afa7f6bc54de2f8bf06f6a67a325fedf55ed82082adb3ff44afb3a850",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 3 solution: PbCl2 Ksp and ICE table in NaCl",
+     "targets": [
+      "worked:9",
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "51effd502b912ebb2eb78e8016eb25687b5222f65a08efadd71fb2351fb357b0",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 3 solution: PbCl2 Ksp and ICE table in NaCl",
+     "targets": [
+      "worked:9",
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "44b9e77b4d20fe38449d602be8d1044f48c62435e289fb9e5f115949dc027657",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 3 solution: PbCl2 Ksp and ICE table in NaCl",
+     "targets": [
+      "worked:9",
+      "theory:E7-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "314ec496179a17ea999d202b7bbd27ac07fe99bb316d675017c01fe1371d280c",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4: AgBrO3 from 40 mL AgNO3 and 60 mL NaBrO3",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "e7c2723c7da5ccaba4b9c546ffadff4733dd464f695c1143cb13f5f8eaf4d396",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "0dc7816384fab827c95bf7fe50b59ad58274af35b4c05211e6e7e1883cc2b8b0",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 65,
+   "imageSha256": "bd3cd4aa6c8c22292b528a401c79c89c0ec5897bdd3a02a0b1b0b3fafb49ecbe",
+   "units": [
+    {
+     "id": "p65.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 66,
+   "imageSha256": "78946e4eb577ad85f6e2b98e1920425c52102a2fdc715e4a2b4935fc3cde63b2",
+   "units": [
+    {
+     "id": "p66.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 67,
+   "imageSha256": "9ebb78e7946abd0725aa4aed6976aaa2bc16a89c778d22b985a09b5532d50b92",
+   "units": [
+    {
+     "id": "p67.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 68,
+   "imageSha256": "8705a9d428ea4acedaf705bbf63dc82816e01d1794b8bd26bdd25273cbe08875",
+   "units": [
+    {
+     "id": "p68.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 4 solution: concentrations, ICE table, quadratic",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 69,
+   "imageSha256": "7a9cd9aa6f929a546dfc91174862975631e0acce53606c04b9576efb18fc2b9a",
+   "units": [
+    {
+     "id": "p69.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 5: Ca2+ and Ba2+ with slow sulfate addition, statement",
+     "targets": [
+      "worked:10",
+      "theory:E7-t35"
+     ],
+     "rationale": "Worked 10 uses the given numbers."
+    }
+   ]
+  },
+  {
+   "page": 70,
+   "imageSha256": "080bf3b13f60a4a23f439bd1a0062dec0f2bfc890dad9faed7e612559b938bf1",
+   "units": [
+    {
+     "id": "p70.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 5a solution: Ksp values, BaSO4 precipitates first",
+     "targets": [
+      "worked:10",
+      "theory:E7-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 71,
+   "imageSha256": "9c5dba27be35b40f4427808f2e5ecf1de20f5b838e2965b1f5c5b11311a7598f",
+   "units": [
+    {
+     "id": "p71.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Practice Exercise 5b solution: Ba2+ when CaSO4 starts",
+     "targets": [
+      "worked:10",
+      "theory:E7-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 72,
+   "imageSha256": "2c274e18a4a7fb5a3fceee3046a04efdbbf6e9758f6e370f5408667acb077660",
+   "units": [
+    {
+     "id": "p72.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Practice Exercise 6: saturated NaCl test tubes with HCl, NaOH, AgNO3, KI",
+     "targets": [
+      "theory:E7-t17"
+     ],
+     "rationale": "Qualitative lab; only the common ion principle is adapted. No worked solution in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 73,
+   "imageSha256": "714cb776a476b5254180d29b8748161d84e91e5ca2e769c023dd281bec3c9230",
+   "units": [
+    {
+     "id": "p73.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "class exercise sheet: questions 1 to 5 as in the practice set",
+     "targets": [
+      "worked:8",
+      "worked:9",
+      "worked:10"
+     ],
+     "rationale": "Same questions as practice exercises 1 to 5."
+    }
+   ]
+  },
+  {
+   "page": 74,
+   "imageSha256": "6c89b026771e590c08f9a29e8658311bdcd748bc28c804af01b048b596aa484c",
+   "units": [
+    {
+     "id": "p74.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 statement: CaF2, Ksp 3.9e-11, solubility, NaF, inert ions",
+     "targets": [
+      "worked:16",
+      "theory:E7-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 75,
+   "imageSha256": "316c8082705b22283c7a6938d91e5bb7243db29f2421ba575301a1d31f27b35f",
+   "units": [
+    {
+     "id": "p75.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 (a): S = 2.14e-4 M, first try 0.046 crossed out (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t07"
+     ],
+     "rationale": "Handwritten 4S^3 route; value 2.14e-4."
+    }
+   ]
+  },
+  {
+   "page": 76,
+   "imageSha256": "1c80649a5ff7dd8cbd5d56d262468127ceeec7cfa471e33474efa2d51398a5b9",
+   "units": [
+    {
+     "id": "p76.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 solution (b): 0.1 M NaF, S = 3.9e-9 M (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t17",
+      "theory:E7-t18"
+     ],
+     "rationale": "Ksp/(0.1)^2 = 3.9e-9; the F- from NaF dominates."
+    }
+   ]
+  },
+  {
+   "page": 77,
+   "imageSha256": "5f8fa7b87a40c45042eb5185917a0edadcab58f28450f8c40cdde18007474ee5",
+   "units": [
+    {
+     "id": "p77.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 (c): inert ions raise solubility by reducing attraction (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t31"
+     ],
+     "rationale": "Slide says inert ions reduce the attraction between ions; t31 gives the ionic strength explanation."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:5",
+    "worked:7"
+   ],
+   "rationale": "Own worked examples, not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E7-t09",
+    "theory:E7-t15",
+    "theory:E7-t29",
+    "theory:E7-t44",
+    "theory:E7-t45",
+    "theory:E7-t46",
+    "theory:E7-t47"
+   ],
+   "rationale": "Own comparison, common-error and solution-step text; not slide content."
+  }
+ ]
+}

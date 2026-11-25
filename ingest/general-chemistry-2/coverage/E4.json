@@ -1,0 +1,879 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E4",
+ "source": {
+  "sha256": "db242da4c0fe35fc9d0d1e3356a86373402c520d7626d66e3610f7a82f1751e1",
+  "kind": "pdf",
+  "pageCount": 49,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "db242da4c0fe35fc9d0d1e3356a86373402c520d7626d66e3610f7a82f1751e1",
+  "contentSha256": "84443fef2af30aec75b487e21aa14e1fa169a3272c9288e526217f4d7b4e6489",
+  "unitMapSha256": "6bd41a1dbde4f0a5345f94bc215578500c234a7c8a3483f1c25d7ac07e7fe3e4",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   1,
+   16
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "64f5caec4136a5a59e33887ffe15ceac6543d63da2462d3c941e931b403c97b2",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "section title: self-ionization of water and the pH scale",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "ff5b39eafe40a6f5992ef13aa931a7109ed9eeeddaa85fa56bfe110e1cb19123",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ion product of water Kw = 1.0e-14, depends only on temperature",
+     "targets": [
+      "theory:E4-t02",
+      "theory:E4-t05"
+     ],
+     "rationale": "Typical 25 C value."
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "4678fc8ea276865a19246d085805bef90b193a9ad249e5d6c8773b87eff78b63",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH and pOH definitions, pH + pOH = pKw = 14",
+     "targets": [
+      "theory:E4-t03"
+     ],
+     "rationale": "Valid at 25 C."
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "3f6d115f6a796181c6018e44dfc2769bc4e3e77ebfe9047616fce68b659ada7e",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH from 0.0025 M HCl and hydronium from pH 4.50",
+     "targets": [
+      "theory:E4-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "792061da8d4e550237b00c4aff9df8be0310bfa49c0b55b2b6a07307fffdbf46",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "pH and pOH scale bars with common solutions",
+     "targets": [
+      "theory:E4-t06"
+     ],
+     "rationale": "Text adaptation, own typical-values list; the slide scale graphic is not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "06b6498612aefddfe618830639ca5c47845da9c4bd89d01234d5faf0bdc1034e",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3: hydronium from rain pH 4.35, hydroxide from ammonia pH 11.28",
+     "targets": [
+      "theory:E4-t04"
+     ],
+     "rationale": "Numbers as given on the slide (4.5e-5 M and 1.9e-3 M) appear in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "7d64152d0f9d8f8c02a09c2cbbf4dbc197ac131e64bb765e4a05fc6fa65e8837",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4: pH of 0.0022 mol Ba(OH)2 in 100 mL",
+     "targets": [
+      "worked:12",
+      "theory:E4-t09"
+     ],
+     "rationale": "Worked 12 follows the slide with the given numbers."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "543ff8b73d2ecb969f6046e615342b06078ea8c859b88fe67099dca1d1f37cfd",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "common strong acids and strong bases",
+     "targets": [
+      "theory:E4-t08",
+      "theory:E4-t09"
+     ],
+     "rationale": "The probe photo and indicator ranges are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "7a96088becdfd0487fcb583adc1d5c18142384b84649d6e6dcd409df5a57ebe9",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: ions in 0.015 M HCl",
+     "targets": [
+      "worked:13",
+      "theory:E4-t08"
+     ],
+     "rationale": "Worked 13 follows the slide with the given numbers."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "d05241e873c92f8136e19b34b43e2f9c5357c07d2672d6c8355aaf7582756532",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "acetic acid proton transfer to water, electron-pair arrows",
+     "targets": [
+      "theory:E4-t12"
+     ],
+     "rationale": "Text adaptation, no diagram: the proton transfer is written as an equation."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "67fb551c045a9d84daa03cc02593f6e7ecd31f852590627ddd1f94b817c1444f",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "weak acid Ka for acetic acid 1.8e-5, pKa 4.74; lactic acid and glycine shown",
+     "targets": [
+      "theory:E4-t12",
+      "theory:E4-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "e123a4998e426219b67d8da1daff4c564cd24968628a571147527caaf7b7742f",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "weak base methylamine Kb about 4.2e-4",
+     "targets": [
+      "theory:E4-t18",
+      "theory:E4-t35"
+     ],
+     "rationale": "Value is as given on the slide, typical 25 C value."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "8c0d3708483e0aef57e01d25129fdb768d2beded2e631a14a8926f4f8f2f9339",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: butyric acid 0.250 M with pH 2.72, find Ka (statement)",
+     "targets": [
+      "worked:11",
+      "theory:E4-t20",
+      "theory:E4-t21"
+     ],
+     "rationale": "Worked 11 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "897e25baed1c9ae5f5951f04e8117d9af6145ddd4daa97967d27217a4c5768ec",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: ICE table and Ka from pH",
+     "targets": [
+      "worked:11",
+      "theory:E4-t20",
+      "theory:E4-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "ea7949c29ef071ada72562465eeb6678002ad6ca4ee4319e5398d8ac09b4034a",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "ionization constants of some weak acids and bases",
+     "targets": [
+      "theory:E4-t35"
+     ],
+     "rationale": "Selected values are source-derived in the lesson; the full table is not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "799821de22e327055cb5dcfa7e770146469d1fe47edb4bd2a66136f5cf3e41f4",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "section divider with a video warning screen",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "038f4c6d12d0ea48c9b64d52d072c6ca4fdcc055b75897eeed3edfdf1a923533",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "degree of dissociation and percent dissociation",
+     "targets": [
+      "theory:E4-t14",
+      "theory:E4-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "b2c26212382e970cca21a7c7fdc7da4383e3e140f8c913f0520e8d8750988b26",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "alpha from Ka = C alpha^2 / (1 - alpha), Ostwald law",
+     "targets": [
+      "theory:E4-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "5e02764894955bdc361550ec6e0cbf8e2fed6d87ad1ee0022dd0eaa4ee402fd3",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "percent ionization versus concentration for HCl and acetic acid",
+     "targets": [
+      "theory:E4-t14",
+      "theory:E4-t15",
+      "theory:E4-t10"
+     ],
+     "rationale": "Text adaptation, no diagram: the trends are stated in words; the pH values on the plot are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "dbedaf8cf708245901b6a359031846c19149ae92454a207a5d4394668da9a670",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: lactic acid 0.1 M, 3.7 percent dissociated, find Ka (statement)",
+     "targets": [
+      "worked:10"
+     ],
+     "rationale": "Worked 10 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "9957b7026aaddbc2e87507203ad041f4c05a9e38bb185a430db2c401112ed51d",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: Ka from percent dissociation, 1.42e-4",
+     "targets": [
+      "worked:10",
+      "theory:E4-t15"
+     ],
+     "rationale": "Worked 10 gives 1.4e-4 (rounded)."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "c610977a62b2ad29af6c013fd5ce6ebfdeba2ddc59438120dd4ee25fefda05ba",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: HCN 1 M with HNO2 5 M, find pH and anion concentrations (statement)",
+     "targets": [
+      "worked:14",
+      "theory:E4-t16"
+     ],
+     "rationale": "Worked 14 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "29fbdfb9d59c866158ad8f4bd6cd4024615f96a89bf50157728d73552221ce3f",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: pH from the stronger acid only",
+     "targets": [
+      "worked:14",
+      "theory:E4-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "b6c0529f034d0bd2ef81c8a74e00d11b42a6a237985cc15868495fe42ebe9ff1",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: HCN alone versus in the presence of HNO2, common ion effect",
+     "targets": [
+      "worked:14",
+      "theory:E4-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "b76d283067b27add6c9d022fb8bd882084eaaa6d72cb9df539b228e2b719fbff",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8 part 2: cyanide and hydroxide concentrations",
+     "targets": [
+      "worked:14",
+      "theory:E4-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "c05a94fdd0fec48ff99299ea6f09a92c2050ea7909e7d6e20306484433a2a195",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "determining Ka and Kb from pH measurements",
+     "targets": [
+      "theory:E4-t19",
+      "theory:E4-t20"
+     ]
+    },
+    {
+     "id": "p26.u2",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9: barbituric acid 0.250 M pH 2.31, find Ka (statement)",
+     "targets": [
+      "worked:11"
+     ],
+     "rationale": "Worked 11 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "858ba10fc2f42db898db727456e98e0d4bb6318f6b52325cc8584085608b022f",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9: Ka of barbituric acid from pH 2.31, 9.8e-5",
+     "targets": [
+      "worked:11",
+      "theory:E4-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "a7b5fc2b84a61bcc0c00557aa9b785c8f9e2ff099360b98951f827abb1909dca",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "phosphoric acid, a triprotic acid, three Ka values",
+     "targets": [
+      "theory:E4-t23",
+      "theory:E4-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "61b2613b5c97761a2d98a0a5183a9c3fced66af80aa9fcf2b7c3f95869fdc350",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Ka1 much larger than Ka2: hydronium from step one, HPO4(2-) about Ka2",
+     "targets": [
+      "theory:E4-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "f5c51637802c31f104ab3e77062abc605574f2dcaf6ce611e514e16f10ffffba",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "ionization constants of some polyprotic acids",
+     "targets": [
+      "theory:E4-t23",
+      "theory:E4-t25",
+      "theory:E4-t26"
+     ],
+     "rationale": "Lesson carries the phosphoric and sulfuric values; other rows are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "c4ba02925d3650ff3091daaca29df6f75c2d59da1af9dcf7fde445fbf5ac825a",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: ions in 3.0 M H3PO4 (statement and first ICE)",
+     "targets": [
+      "worked:15",
+      "theory:E4-t25"
+     ],
+     "rationale": "Worked 15 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "a2262921fe600ee83c61a3d795c7c397f91a558a921bc7bc53e13d3e44e0ac91",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: first ionization, hydronium 0.14 M, assume x much less than 3.0",
+     "targets": [
+      "worked:15",
+      "theory:E4-t25",
+      "theory:E4-t13"
+     ],
+     "rationale": "The 5 percent rule of thumb in t13 is the lesson, the slide only states the assumption."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "304f3fa499c8466894423e49b7af8ff888356867e3dfa99133f0e2e570758b9d",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: second ionization, HPO4(2-) equals Ka2",
+     "targets": [
+      "worked:15",
+      "theory:E4-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "ff0c7c60c901f2a78eeb589c93cb4a6c4f0d11653e678dc32268509c7d17a691",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: third ionization, PO4(3-) 1.9e-19 M",
+     "targets": [
+      "worked:15",
+      "theory:E4-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "fe0f65f1f9ac7198163bc7db2ace2fe747edf032cc29b98465ca307f5d8abe85",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "sulfuric acid, a diprotic acid with a strong first step",
+     "targets": [
+      "theory:E4-t24",
+      "theory:E4-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "75ad2d79562d4022541ebec7bd7684a702e8cea326a64b9f61ff91edcacb62e2",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11: 0.01 M H2SO4, pH and species concentrations",
+     "targets": [
+      "worked:16",
+      "theory:E4-t26"
+     ],
+     "rationale": "Ka2 on this slide is 1.2e-2; the previous slide gives 1.1e-2."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "0f47498c0c40a92cee05786703b8880828e79a654b654983db8c11d2ae1cca6e",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "acid-base properties of salts, neutralization gives salt and water",
+     "targets": [
+      "theory:E4-t27",
+      "theory:E4-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "c8a15accbc14113b5c8e9bca157ff34410d00ce5a5ad5814de4b4419d3f815a1",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "hydrolysis as the reverse of neutralization; four cases of salts",
+     "targets": [
+      "theory:E4-t27",
+      "theory:E4-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "b259fd56029adbf81f7c392bc56b21d7cd786648f106341f0679ec7317d78aef",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salts of strong acids and strong bases: no change in pH",
+     "targets": [
+      "theory:E4-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "5cbbe350fcbf24778ccaafb414a7b82c061bb52c183718093be3b91bb0a55fcd",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "salt of a weak acid and a strong base: sodium acetate hydrolysis, pH above 7",
+     "targets": [
+      "theory:E4-t29",
+      "theory:E4-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "8d1cb14594aaafb8cfde521bdb1873f6e255b9dd655c277362e5cd2ba41e8ade",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kb = Kw / Ka for the acetate anion, 5.7e-10",
+     "targets": [
+      "theory:E4-t29",
+      "theory:E4-t30",
+      "worked:17"
+     ],
+     "rationale": "Slide uses Ka 1.75e-5."
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "f39a513f8189c233a9c9714b99c5c0d6334ec4320a2323aa46c9a93976091f5b",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 12: pH of 0.1 M sodium acetate, 8.88",
+     "targets": [
+      "worked:17",
+      "theory:E4-t30"
+     ],
+     "rationale": "Worked 17 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "da29ea1ccf96d0a965356312bdde733f3ffeead25cee1c47163e3e19085453c1",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 13: nitrite versus benzoate, Kb values",
+     "targets": [
+      "worked:18"
+     ],
+     "rationale": "Worked 18 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "54e2126683fa1ff3feebca4283d9d723f551d2558780032d4f3c050511c3a441",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "salt of a strong acid and a weak base: ammonium chloride, Ka = Kw/Kb",
+     "targets": [
+      "theory:E4-t29",
+      "theory:E4-t30"
+     ],
+     "rationale": "Slide uses Kb(NH3) 1.76e-5."
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "fbd1de39af705c72eee53ce519e316ba3f8f8080d0b5f52a5d41a90f0443e894",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salts of weak acids and weak bases, three cases by Ka and Kb",
+     "targets": [
+      "theory:E4-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "4366c9cfc92e2bff56cff84d2f121e76b4d5aa5d0c4eca445d412c6213def8aa",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH of salts of polyprotic acids: amphoteric HA-, ICE setup",
+     "targets": [
+      "theory:E4-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "078108b7ee74abf2ec463fa3b1df46cb05cc2a8c60ebe5b6b94816bb63b94f88",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH approximately half of pK1 plus pK2 when salt is concentrated",
+     "targets": [
+      "theory:E4-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "a3dfb45f338607140d745df74bad4b6d48f03d5e04dbcd678bd2b329bb6a9788",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "NaH2PO4 pH 4.66 and Na2HPO4 pH 9.79 from pK values; buffers",
+     "targets": [
+      "theory:E4-t31",
+      "theory:E4-t36"
+     ],
+     "rationale": "Slide pK1 2.12 differs from the table 2.15; both are labeled in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "0df3d4d857877495b9593ae1bc092293f4b217e6c9976f3e56eade7b36b3db35",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "acid rain: CO2, NO2 reactions, no buffer capacity of water",
+     "targets": [
+      "theory:E4-t34"
+     ],
+     "rationale": "Text adaptation: statue photographs not reproduced."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:7",
+    "worked:8",
+    "worked:9"
+   ],
+   "rationale": "Own worked examples (acetic acid 0.100 and 0.00100 M, ammonia, Ka from pH, percent ionization, HF with HCN, H3PO4 1.0 M, H2SO4 0.020 M, hydrolysis set); not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E4-t33"
+   ],
+   "rationale": "Own acid-rain explanation (clean-rain pH about 5.6, sulfur and nitrogen oxides); the slide shows only the CO2/NO2 reactions and no buffer capacity."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17"
+   ],
+   "rationale": "Own quiz questions; the course gave no quiz for this topic."
+  }
+ ]
+}

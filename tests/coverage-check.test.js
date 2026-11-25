@@ -20,10 +20,10 @@ test('E5 map is valid, traced, and has no pending exclusions',()=>{
 });
 test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
  const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,57);
- const pol={legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
+ const pol={...loadPolicy(),legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
  const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
- assert.match(checkAll({policy:{legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
- assert.match(checkAll({policy:{legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
+ assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
+ assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
 });
 test('legacy topics are unaudited, not failed',()=>{
  const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,57);
@@ -108,4 +108,28 @@ test('release wiring: npm run build starts with the review gate and checks the p
  assert.match(pkg.scripts['release:coverage'],/check-coverage\.mjs --release/);
  const wf=fs.readFileSync(new URL('../.github/workflows/pages.yml',import.meta.url),'utf8');
  assert.match(wf,/^\s*- run: npm run build\s*$/m);
+});
+test('lessonAdditions: authored material outside source coverage, hash-bound, strictly validated',()=>{
+ const base=cov();
+ // an unmapped-by-design block: pull one theory target out of the only unit that credits it
+ const count={};for(const p of base.pages)for(const u of p.units)for(const t of u.targets||[])count[t]=(count[t]||0)+1;
+ let pick;for(const p of base.pages)for(const u of p.units)if((u.targets||[]).length>1&&!pick)pick=u.targets.find(t=>t.startsWith('theory:')&&count[t]===1);
+ assert.ok(pick,'fixture has a singly credited theory block in a multi-target unit');
+ const strip=c=>{for(const p of c.pages)for(const u of p.units)if(u.targets)u.targets=u.targets.filter(t=>t!==pick)};
+ const add=(c,extra={})=>{strip(c);c.lessonAdditions=[{id:'a01',targets:[pick],rationale:'Own addition, no source page.',...extra}]};
+ const untouched=unitMapHash(cov());
+ assert.equal(unitMapHash(cov()),untouched,'maps without additions keep their hash');
+ const c0=cov();strip(c0);assert.deepEqual(checkTopic(topic,c0).unmapped,[pick.slice(7)],'without the declaration the block is untraced');
+ const c1=cov();add(c1);const r1=checkTopic(topic,c1);assert.deepEqual(r1.errors,[]);assert.deepEqual(r1.unmapped,[]);assert.equal(r1.additions,1);
+ const c2=cov();add(c2);assert.notEqual(unitMapHash(c2),untouched,'additions change the unit-map hash');
+ // a review bound before the additions changed is voided
+ const c3=cov();reviewed(c3);add(c3);assert.match(run(c3,{requireReview:true}).errors.join('|'),/unit map changed since the review/);
+ assert.match(errs(c=>add(c,{rationale:''})),/rationale required/);
+ assert.match(errs(c=>add(c,{targets:[]})),/needs targets/);
+ assert.match(errs(c=>add(c,{targets:['theory:E5-t999']})),/target not found/);
+ assert.match(errs(c=>add(c,{id:'x1'})),/id must be a unique aNN/);
+ assert.match(errs(c=>add(c,{extra:1})),/unexpected field extra/);
+ assert.match(errs(c=>{add(c);c.lessonAdditions.push({id:'a01',targets:[pick],rationale:'dup'})}),/unique aNN|listed twice/);
+ assert.match(errs(c=>{c.lessonAdditions=[{id:'a01',targets:[pick],rationale:'credited elsewhere'}]}),/already credited as source coverage/);
+ assert.match(errs(c=>{c.lessonAdditions=[]}),/non-empty list/);
 });

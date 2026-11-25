@@ -8,7 +8,8 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import catalogue from '#catalogue';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages']);
+const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages','lessonAdditions']);
+const ADDITION_KEYS=new Set(['id','targets','rationale']);
 const REVIEW_KEYS=new Set(['status','reviewer','sourceSha256','contentSha256','unitMapSha256','figuresSha256','adminPagesAttested']);
 const ADMIN_KINDS=new Set(['title','outline','divider','marker']);
 const PH_WORDS=['pending','tbd','todo','dummy','placeholder','fake','sample','example','none','unknown','test','needed'];
@@ -28,7 +29,56 @@ export const contentHash=topic=>sha(JSON.stringify(topic));
 // Hash of the unit map itself (source + pages), so a review cannot survive edits to the map.
 // Hash of the figure implementation file the lesson's figure blocks render through.
 export const figuresHash=(files=['figures-nuclear.jsx','figures.jsx'].map(f=>path.join(root,'src',f)))=>sha(files.map(f=>fs.readFileSync(f,'utf8')).join('\n--file--\n'));
-export const unitMapHash=cov=>sha(JSON.stringify({source:cov.source,pages:cov.pages}));
+// Per-course figure binding (policy.figureBinding[courseId]={roots:[...]}). The hash covers the import closure
+// of the roots under src/, so an imported renderer file cannot be left out. Fails closed on a missing root or
+// an unresolvable relative import. Courses without a binding keep the legacy two-file hash above.
+export function figureClosure(roots,srcDir=path.join(root,'src'),extra=[],baseDir=path.dirname(srcDir)){
+ const seen=new Map(),errs=[];
+ const unsupported=(f,text)=>{
+  const bad=[];
+  if(/\brequire\s*\(/.test(text))bad.push('require()');
+  if(/import\.meta\.(glob|url)/.test(text))bad.push('import.meta.glob/url');
+  for(const m of text.matchAll(/\bimport\s*\(\s*([^)]*)\)/g))if(!/^(['"])\.[^'"]*\1\s*$/.test(m[1].trim())&&!/^(['"])[^.'"][^'"]*\1\s*$/.test(m[1].trim()))bad.push('non-literal dynamic import');
+  if(/\bimport\s*\(\s*`/.test(text))bad.push('template-literal dynamic import');
+  for(const b of new Set(bad))errs.push('unsupported dependency form in '+f+': '+b);
+ };
+ const visit=f=>{
+  if(seen.has(f))return;
+  const full=path.join(srcDir,f);
+  if(!fs.existsSync(full)){errs.push('figure dependency missing: '+f);return}
+  const text=fs.readFileSync(full,'utf8');seen.set(f,text);
+  const rels=[];
+  if(/\.css$/.test(f)){
+   for(const m of text.matchAll(/@import\s+(?:url\(\s*)?['"]?([^'")\s;]+)/g))rels.push(m[1]);
+   for(const m of text.matchAll(/url\(\s*['"]?([^'")\s]+)/g))if(!/^(data:|https?:|#|\/)/.test(m[1]))rels.push(m[1]);
+  }else{
+   unsupported(f,text);
+   for(const m of text.matchAll(/\b(?:import|export)\b[^;'"`]*?\bfrom\s*['"]([^'"]+)['"]|\bimport\s*['"]([^'"]+)['"]|\bimport\(\s*['"]([^'"]+)['"]\s*\)/g))rels.push(m[1]||m[2]||m[3]);
+  }
+  for(const rel of rels){
+   if(/^(#|\/|~|@\/)/.test(rel)||/\?/.test(rel)){errs.push('unsupported dependency form in '+f+': alias/absolute/query specifier '+rel);continue}
+   if(!rel.startsWith('.'))continue; // bare package: bound through package.json and the lockfile
+   const t=path.normalize(path.join(path.dirname(f),rel));
+   if(t.startsWith('..')){errs.push('figure dependency escapes src/: '+rel);continue}
+   visit(t);
+  }
+ };
+ for(const r of roots)visit(path.normalize(r));
+ const extras=new Map();
+ for(const x of extra){const full=path.join(baseDir,x);if(!fs.existsSync(full))errs.push('figure dependency missing: '+x);else extras.set(x,fs.readFileSync(full,'utf8'))}
+ return {files:[...seen.keys()].sort(),texts:seen,extras,errors:errs};
+}
+export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
+ const b=(policy.figureBinding||{})[courseId];
+ if(!b)return {hash:figuresHash(),files:null,errors:[]};
+ if(!Array.isArray(b.roots)||!b.roots.length)return {hash:null,files:[],errors:['figureBinding for '+courseId+' needs roots']};
+ const c=figureClosure(b.roots,srcDir,b.extraFiles||[]);
+ if(c.errors.length)return {hash:null,files:c.files,errors:c.errors};
+ const parts=c.files.map(f=>'src/'+f+'\n'+c.texts.get(f)).concat([...c.extras.keys()].sort().map(x=>x+'\n'+c.extras.get(x)));
+ return {hash:sha(parts.join('\n--file--\n')),files:[...c.files.map(f=>'src/'+f),...[...c.extras.keys()].sort()],errors:[]};
+}
+// lessonAdditions enter the hash only when present, so every map without them keeps its recorded review binding.
+export const unitMapHash=cov=>sha(JSON.stringify(cov.lessonAdditions===undefined?{source:cov.source,pages:cov.pages}:{source:cov.source,pages:cov.pages,lessonAdditions:cov.lessonAdditions}));
 export function blockExists(topic,ref){
  const m=/^(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
  const arr=topic.content[m[1]];
@@ -79,10 +129,28 @@ export function checkTopic(topic,cov){
   }
  }
  for(let i=1;i<=n;i++)if(!seen.has(i))e('page '+i+' has no units');
+ // Lesson additions: authored material with no source page. Never source coverage; reviewed and hash-bound with the map.
+ const added=new Set();
+ if(cov.lessonAdditions!==undefined){
+  if(!Array.isArray(cov.lessonAdditions)||!cov.lessonAdditions.length)e('lessonAdditions must be a non-empty list when present');
+  const aids=new Set();
+  for(const a of Array.isArray(cov.lessonAdditions)?cov.lessonAdditions:[]){
+   const w='addition '+a?.id+': ';
+   for(const k of Object.keys(a||{}))if(!ADDITION_KEYS.has(k))e(w+'unexpected field '+k);
+   if(!/^a\d+$/.test(a?.id||'')||aids.has(a.id))e(w+'id must be a unique aNN');aids.add(a?.id);
+   if(!(a?.rationale||'').trim()||a.rationale.length>200)e(w+'rationale required, max 200 chars');
+   if(!a?.targets?.length)e(w+'needs targets');
+   for(const t of a?.targets||[]){
+    if(!blockExists(topic,t))e(w+'target not found '+t);
+    else if(used.has(t))e(w+'target is already credited as source coverage '+t);
+    if(added.has(t))e(w+'target listed twice '+t);added.add(t);
+   }
+  }
+ }
  const missingIds=topic.content.theory.filter(b=>b.id===undefined).length;
  if(missingIds)e(missingIds+' theory blocks lack ids');
- const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)).map(b=>b.id);
- return {errors,pending,unmapped};
+ const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
+ return {errors,pending,unmapped,additions:added.size};
 }
 export function loadPolicy(dir=path.join(root,'ingest')){return JSON.parse(fs.readFileSync(path.join(dir,'coverage-policy.json'),'utf8'))}
 export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireReview=false,policy=loadPolicy(dir)}={}){
@@ -95,16 +163,20 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   if(listed){rows.push({course:c.id,topic:t.id,status:'fail',errors:['has a coverage map but is still on the legacy-unaudited allowlist; remove it']});continue}
   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
   const r=checkTopic(t,cov),errors=[...r.errors];
+  {const fb=figuresHashFor(c.id,policy);for(const m of fb.errors)errors.push(m)}
   if(cov.course!==c.id||cov.topic!==t.id)errors.push('course/topic mismatch');
   const rv=cov.semanticReview||{};
   const reviewed=rv.status==='done';
   if(reviewed){
    if(!genuineReviewer(rv.reviewer))errors.push('reviewer is missing or a placeholder');
-   if((cov.authoredBy||[]).map(normId).includes(normId(rv.reviewer)))errors.push('self-review: reviewer is also an author');
+   const authors=new Set((cov.authoredBy||[]).map(normId));
+   for(const g of policy.authorAliases||[]){const ids=g.map(normId);if(ids.some(i=>authors.has(i)))ids.forEach(i=>authors.add(i))}
+   if(authors.has(normId(rv.reviewer)))errors.push('self-review: reviewer is also an author');
    if(rv.sourceSha256!==cov.source?.sha256)errors.push('review is not bound to this source hash');
    if(rv.contentSha256!==contentHash(t))errors.push('lesson content changed since the review; re-review required');
    if(JSON.stringify([...(rv.adminPagesAttested||[])].sort((a,b)=>a-b))!==JSON.stringify(adminPages(cov)))errors.push('adminPagesAttested must list exactly the all-admin pages the reviewer viewed');
-   if(rv.figuresSha256!==figuresHash())errors.push('figure implementation changed since the review; re-review required');
+   const fh=figuresHashFor(c.id,policy);
+   if(!fh.errors.length&&rv.figuresSha256!==fh.hash)errors.push('figure implementation changed since the review; re-review required');
    if(rv.unitMapSha256!==unitMapHash(cov))errors.push('unit map changed since the review; re-review required');
   }else if(rv.status!=='pending')errors.push('semanticReview.status must be pending or done');
   if(requireReview){
@@ -114,6 +186,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   }
   rows.push({course:c.id,topic:t.id,status:errors.length?'fail':reviewed?'audited-reviewed':'audited-review-pending',errors,pending:r.pending,unmapped:r.unmapped});
  }
+ for(const k of Object.keys(policy.figureBinding||{}))if(!cat.courses.some(c=>c.id===k))rows.push({course:k,topic:'*',status:'fail',errors:['figureBinding names a course that does not exist']});
  for(const k of allow)if(!cat.courses.some(c=>c.topics.some(t=>c.id+'/'+t.id===k)))rows.push({course:k.split('/')[0],topic:k.split('/')[1],status:'fail',errors:['allowlist entry names a topic that does not exist']});
  return rows;
 }

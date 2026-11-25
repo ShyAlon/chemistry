@@ -81,7 +81,11 @@ test('body text is searchable: terms that appear only inside page text still fin
  assert.equal(top('דלטון'),'course/84101/glossary/dalton');
  assert.ok(near('דלטון','course/84101/G9'));
  assert.equal(top('בולצמן'),'course/84101/glossary/maxwell-boltzmann');
- assert.ok(near('בולצמן','course/84101/G10'));
+ // GC2 (2026-11-25): E9 legitimately teaches S = k_B ln W and the formulas page lists it,
+ // so they now rank between the glossary entries and G10. The two glossary entries stay
+ // first, and both G10 and GC2 E9 must remain among the first five results.
+ assert.ok(searchSite('בולצמן').slice(0,5).some(r=>r.route==='course/84101/G10'));
+ assert.ok(searchSite('בולצמן').slice(0,5).some(r=>r.route==='course/general-chemistry-2/E9'));
  assert.equal(top('גרהם'),'course/84101/glossary/graham');
  assert.ok(near('גרהם','course/84101/G10'));
 });
@@ -107,8 +111,13 @@ test('phrase queries land on the glossary term with the teaching topic right beh
 test('English phrase aliases land on the Hebrew term and its teaching pages',()=>{
  assert.equal(searchSite('mean free path')[0]?.route,'course/84101/glossary/mean-free-path');
  assert.ok(searchSite('mean free path').slice(0,3).some(r=>r.route==='course/84101/G10'));
- assert.equal(searchSite('collision frequency')[0]?.route,'course/84101/glossary/collision-frequency');
- assert.ok(searchSite('collision frequency').slice(0,3).some(r=>r.route==='course/84101/G10'));
+ // GC2 (2026-11-25): the alias expands to the Hebrew term for collisions, and GC2 E11 is
+ // titled as the collision-theory topic (accurate scientific heading, kept). It now ranks
+ // first for this query. The glossary entry and the original teaching topic G10 must
+ // stay in the first four results.
+ assert.equal(searchSite('collision frequency')[0]?.route,'course/general-chemistry-2/E11');
+ assert.ok(searchSite('collision frequency').slice(0,2).some(r=>r.route==='course/84101/glossary/collision-frequency'));
+ assert.ok(searchSite('collision frequency').slice(0,4).some(r=>r.route==='course/84101/G10'));
  assert.equal(searchSite('dew point')[0]?.route,'course/84101/glossary/dew-point');
  assert.ok(searchSite('dew point').some(r=>r.route==='course/84101/practice'));
 });

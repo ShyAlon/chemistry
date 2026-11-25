@@ -1,5 +1,18 @@
 {
  "note": "Topics not yet audited against their sources. A topic not listed here MUST have ingest/<course>/coverage/<topic>.json. Remove an entry when its map lands.",
+ "figureNote": "Courses listed here hash the import closure of their figure roots (paths under src/) into figuresSha256. Courses not listed keep the legacy two-file hash (figures-nuclear.jsx + figures.jsx). Roots are checked fail-closed: a missing root or unresolved relative import is an error. GC2 roots are the figure dispatcher (whose import closure includes the shared renderer files, including figures-nuclear.jsx) and the global stylesheet style.css (over-binding by design: any style change requires re-review). extraFiles (repo-root relative) pin the dependency manifest and lockfile. Bare package imports are bound through them. Unsupported dependency forms (require, import.meta.glob/url, non-literal dynamic imports) are rejected, not ignored. CSS @import and relative url() are followed.",
+ "figureBinding": {
+  "general-chemistry-2": {
+   "roots": [
+    "figures.jsx",
+    "style.css"
+   ],
+   "extraFiles": [
+    "package.json",
+    "package-lock.json"
+   ]
+  }
+ },
  "legacyUnaudited": [
   "84102/P7",
   "84102/P9",
@@ -58,5 +71,11 @@
   "solid-state/SS6",
   "solid-state/SS7",
   "solid-state/SS8"
+ ],
+ "authorAliases": [
+  [
+   "chat-01M877TRRM1K3AAJ49C7A13K0A",
+   "agent-01M877TRS7Y9XKHRFPH3CES430"
+  ]
  ]
 }

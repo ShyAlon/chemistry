@@ -1,0 +1,534 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E11",
+ "source": {
+  "sha256": "c21bd3182059d0be2a0c2fed01bd1cd96ba33ac14f9dcf8ffc07ed31ae72a591",
+  "kind": "pdf",
+  "pageCount": 29,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "c21bd3182059d0be2a0c2fed01bd1cd96ba33ac14f9dcf8ffc07ed31ae72a591",
+  "contentSha256": "ba7b2c133b1b6b4402abcfdf67ee0ce82261e3803ca19417d31d574648284b6b",
+  "unitMapSha256": "1fbee03262236bf58729e977d0562c1b2b9605de953098f028c90a121490e01b",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   28,
+   29
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "f518d12d6c9c9df50cbf65203d765ba518532e68c2752a2fb665adc92420232e",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "collision frequency about 1e30 per second; fraction of collisions reacts",
+     "targets": [
+      "theory:E11-t02",
+      "theory:E11-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "6cb6c7acd40979d4c2f99eb411ec2509d7960ce0f4055cf6263a5d74224daab6",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "fruitful collisions need energy and orientation; activation energy",
+     "targets": [
+      "theory:E11-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "af36e667bc2a42e61da27550cdeaf10f953c7eb49d7e601febb8729f3e94ccfd",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "orientation: N2O + NO favorable and unfavorable collisions",
+     "targets": [
+      "theory:E11-t02",
+      "theory:E11-t03"
+     ],
+     "rationale": "Figure not reproduced; t3 describes the favorable and unfavorable orientation in words."
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "358f4cb38140e7b685af7fd95b0062298feef7442d3dd837efab6129aa6c7d4c",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "only collisions with high enough kinetic energy react",
+     "targets": [
+      "theory:E11-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "d6c2e51643ebccecdca2a5f50f784ed54893a5d67f68a560988b4234f54b1bf4",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "reaction profile with transition state, Ea 209 and 348 kJ, dH -139 kJ",
+     "targets": [
+      "theory:E11-t05",
+      "worked:10"
+     ],
+     "rationale": "Figure not reproduced; W10 uses its numbers and t5 describes the transition state."
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "bedbc99c3cb99f760b6a597b3acda60c2184b671259260b83675700227ce8baf",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "transition state, forward and reverse profile, dH = Ea fwd - Ea rev",
+     "targets": [
+      "theory:E11-t05",
+      "theory:E11-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "5a3ce4d2fdf108845168aed786f19bc5e92bd1033f04e8ba836e9cf7206c0212",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Arrhenius equation k = A exp(-Ea/RT) and its logarithmic form",
+     "targets": [
+      "theory:E11-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "65ede0c842c1a654c485262886dd77d49676b1e875f160c07411293a6d554d1c",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "Arrhenius plot for N2O5 in CCl4: slope -1.2e4 K and Ea",
+     "targets": [
+      "theory:E11-t09",
+      "worked:11"
+     ],
+     "rationale": "Plot not reproduced. Slide Ea 1.06e2 kJ is not consistent with the plotted slope (about 103 kJ); stated in t9 and W11."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "0e665a9fbf7ad66272466d212de502cb538174c342680fc4d8979d64c5b13e6f",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "two-temperature form ln(k2/k1) = (Ea/R)(1/T1 - 1/T2)",
+     "targets": [
+      "theory:E11-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "6f57bf68dbd64bd9292d6a70a241df3d127895bac28415f9eee1a17255547ccd",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 14: temperature at which t1/2 of N2O5 is 2.00 h, T about 305 K",
+     "targets": [
+      "worked:8",
+      "theory:E11-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "3e88c43ce2a9aa99d2b95ec283ea3b2b4ad6a38c944dbb1d20856cdd9b8ca49d",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "reaction mechanism, elementary steps; a mechanism cannot be proved",
+     "targets": [
+      "theory:E11-t12",
+      "theory:E11-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "ac12ef0da36a5e1c0147d1d4ae51b07d89bd52ae61b01983dc480093a4c0aa5a",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "elementary processes, intermediates and rate determining step",
+     "targets": [
+      "theory:E11-t12",
+      "theory:E11-t13",
+      "theory:E11-t14"
+     ],
+     "rationale": "Slide asks why not termolecular; t12 now says three-body steps are rare (need simultaneous meeting of three particles)."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "6bd3d66cddfa42b54e0b310c7a40abe3929706986e3004eb11348ad8145a6e4f",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "slow step followed by a fast step: H2 + 2ICl",
+     "targets": [
+      "theory:E11-t15",
+      "theory:E11-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "637c65b2c7e6ce824e08d0ec31ae33b5579603255d03a3ce96f001bb2ee85534",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "transition state versus intermediate",
+     "targets": [
+      "theory:E11-t05",
+      "theory:E11-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "d4bd5b6ce6ba2ce0d3e758ea8930ddf12e0af7a6bde84f183203994d941d2300",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "fast reversible step followed by a slow step for 2NO + O2",
+     "targets": [
+      "theory:E11-t16",
+      "theory:E11-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "55ca728df477a95c02221a3d37f198af53bf318d03c9758bd917d18b84f3599b",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15: alternative mechanism through NO3 gives the same rate law",
+     "targets": [
+      "worked:9",
+      "theory:E11-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "c6fc7844c32cf77dada44663278c15689418f56dba140cd1ea744ad2f63a8008",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "steady state approximation: d[N2O2]/dt = 0",
+     "targets": [
+      "theory:E11-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "6576ed6e8ae255b1077aa05e3c8b843d9a930f6cd88bf8879b1bfbc884453df5",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "steady state rate law k1k3[NO]2[O2]/(k2 + k3[O2])",
+     "targets": [
+      "theory:E11-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "a042c0124289308b044e361816adc0a0151879b1413be6c4b136e77900109e9a",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "limits k2 << k3 and k2 >> k3 of the steady state rate law",
+     "targets": [
+      "theory:E11-t20"
+     ],
+     "rationale": "Slide crosses out k2 << k3; the experimental v = k[NO]2[O2] selects k2 >> k3 (stated in t20)."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "974547e500ecd031bad16242c0a38e6b131921f6bde01b8980e0e277c774a199",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "catalysis: lower activation energy; homogeneous and heterogeneous",
+     "targets": [
+      "theory:E11-t22",
+      "theory:E11-t23",
+      "theory:E11-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "237f23fecf57656380b3999c859a58e5a7d94c9dc64db8c13007084fe9c54122",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "homogeneous catalysis profile and acid-catalyzed decomposition of formic acid",
+     "targets": [
+      "theory:E11-t22",
+      "theory:E11-t27"
+     ],
+     "rationale": "Figure not reproduced; t27 gives the steps in words."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "8d7d18ffd8523b873f46fa437bd0d7d1803542ce1667242190fa3df1aaac4f28",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ozone destruction catalyzed by Cl atoms from freons",
+     "targets": [
+      "theory:E11-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "73af133846144c85624ca99bce3ff40b37933b249b97e7cfac143ba0b0c60c16",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "heterogeneous catalysts: Haber, methanol, Ostwald",
+     "targets": [
+      "theory:E11-t24"
+     ],
+     "rationale": "Slide calls CO + 2H2 -> CH3OH the Fischer-Tropsch process; it is methanol synthesis (F-T gives hydrocarbons). Lesson t24 now teaches the distinction; Haber and Ostwald are in t24."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "1641e242b71f37f1b8a221de5f3c456387626ecb3e8009eb399dfc5fbab8e0dd",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "CO + NO on a Rh surface: adsorption, reaction, desorption, profile",
+     "targets": [
+      "theory:E11-t24"
+     ],
+     "rationale": "Figure not reproduced; t24 states adsorption on active sites and the Rh converter example."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "04fc3633594d6be4d79a583456b1e3ed8c392cb32fdeb5ae8db5acd17a197c76",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "enzyme catalysis: E + S <-> ES -> E + P",
+     "targets": [
+      "theory:E11-t25",
+      "theory:E11-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "64fd4ad9b3f74c0d751d6f1469d6defe950b1f1eefe6ac188fc794b25194e80c",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "saturation kinetics: steady state for ES",
+     "targets": [
+      "theory:E11-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "eaca9c5f94e6b575007253ce5b212ec4accb87e24afab12b48f6db52d95b2b4b",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Michaelis-Menten rate law v = Vmax[S]/(KM + [S])",
+     "targets": [
+      "theory:E11-t29",
+      "theory:E11-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "c31e50b809ffe3c8f085e8056f4412138cbf00781e313017a2a9093d43c7fc14",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "enzymes animation still, no text",
+     "rationale": "Image-only animation page with only a title; no teachable content. Reviewer attests."
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "1a6ee015d1195013d3b030d8449e9fb0308b0c961d1bb674c20e772aeae331ea",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "enzymes animation still, no text",
+     "rationale": "Image-only animation page with only a title; no teachable content. Reviewer attests."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:7"
+   ],
+   "rationale": "Own worked examples, not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E11-t01",
+    "theory:E11-t04",
+    "theory:E11-t07",
+    "theory:E11-t10",
+    "theory:E11-t11",
+    "theory:E11-t21",
+    "theory:E11-t28"
+   ],
+   "rationale": "Section headings and the own rule-of-thumb caveat t10; not slide content."
+  }
+ ]
+}

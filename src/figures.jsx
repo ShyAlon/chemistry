@@ -7,6 +7,7 @@ import {AnimatedFigure} from './anim-core.jsx';
 import {animations} from './anim-figures.jsx';
 import {BornHaberNaCl,RadiusRatioLadder,NetDipole,SolidForms,BondingFamilies,IonicTransfer,IonicMelting,CoordinationSketches,ForceRanges,BondTypeScale,MoBonding,BandClasses,PhotonEnergyRuler,ExciteRelaxEmit,CarrierCreation,ConductivityVsT,DopantLevels,DopedConductivity} from './figures-solid-state.jsx';
 import {bidiElement} from './bidi-react.js';
+import {EqConcTime,EqFlaskPressure,EqKApproach,EqQStrip} from './figures-gc2.jsx';
 import React from 'react';
 import {UnitLadder,EmSpectrum,Photoelectric,BohrLevels,DeBroglie,Uncertainty,QuantumTree,RpdCurves,Aufbau,HundBoxes,Shielding,IeTrend,IeSuccessive,XpsSpectrum} from './figures-84102.jsx';
 import {MatterTree,DensityCubes,MoleBridge,EmpiricalFlow,StoichMap,Limiting,Dilution,NetIonic,TitrationCurve,GasLaws,MaxwellBoltzmann,ImfLadder,PhaseDiagram,Bragg} from './figures-84101.jsx';
@@ -97,10 +98,14 @@ export const figures={
   'imf-ladder':ImfLadder,
   'phase-diagram':PhaseDiagram,
   'bragg':Bragg,
+  'eq-conc-time':EqConcTime,
+  'eq-flask-pressure':EqFlaskPressure,
+  'eq-k-approach':EqKApproach,
+  'eq-q-strip':EqQStrip,
 };
 
 // Plots whose shapes are didactic sketches rather than measured/to-scale data.
-export const schematicFigures=new Set(['mo-bonding','band-classes','excite-relax-emit','carrier-creation','conductivity-vs-t','dopant-levels','doped-conductivity','net-dipole','solid-forms','bonding-families','ionic-transfer','coordination-sketches','radiation-penetration','beta-spectrum','em-bands','xray-spectrum','decay-directions','photon-spectrum','fuel-cycle','pwr-loops','photon-interactions','neutron-energy-families','binding-energy-curve','fission-energy-split','chain-reaction','uranium-isotopes','enrichment-cascade','bwr-loop','reactor-types','reactor-generations','ionizing-scale','discovery-timeline','technique-chooser','typical-doses','dose-effects','stability-valley','poster-wireframe','rpd-curves','ie-trend','ie-successive','xps-spectrum','titration-curve','gas-laws','maxwell-boltzmann','phase-diagram','bohr-levels','photoelectric','em-spectrum','shielding','uncertainty']);
+export const schematicFigures=new Set(['eq-conc-time','eq-flask-pressure','eq-k-approach','eq-q-strip','mo-bonding','band-classes','excite-relax-emit','carrier-creation','conductivity-vs-t','dopant-levels','doped-conductivity','net-dipole','solid-forms','bonding-families','ionic-transfer','coordination-sketches','radiation-penetration','beta-spectrum','em-bands','xray-spectrum','decay-directions','photon-spectrum','fuel-cycle','pwr-loops','photon-interactions','neutron-energy-families','binding-energy-curve','fission-energy-split','chain-reaction','uranium-isotopes','enrichment-cascade','bwr-loop','reactor-types','reactor-generations','ionizing-scale','discovery-timeline','technique-chooser','typical-doses','dose-effects','stability-valley','poster-wireframe','rpd-curves','ie-trend','ie-successive','xps-spectrum','titration-curve','gas-laws','maxwell-boltzmann','phase-diagram','bohr-levels','photoelectric','em-spectrum','shielding','uncertainty']);
 
 export function Figure({id,accent}){
   const F=figures[id];

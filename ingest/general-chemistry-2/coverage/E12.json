@@ -1,0 +1,790 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E12",
+ "source": {
+  "sha256": "1178ceb7ed93a23065414c739b3f38f4f64543d9523f6750690a46cc30894ea6",
+  "kind": "pdf",
+  "pageCount": 43,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "1178ceb7ed93a23065414c739b3f38f4f64543d9523f6750690a46cc30894ea6",
+  "contentSha256": "4635ad69c7425252b01bc01b7c17212c049ed9e499c948df206e92b1b898b9d4",
+  "unitMapSha256": "0f8a8856f7df20adb8da8fad0b3860c9f487920031113a27df372930c2b5ba67",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": [
+   1,
+   13,
+   16
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "1104a2f00c2e4a269ef4cb15aae398c9a2b547fdd9692692f573edfebd94f825",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "title page: Redox and Electrochemistry",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "2b3100ab6b9bd5f3536644023eb6de4635adcf864d3184cfc45ae2b6310d2873",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "history: Fe2O3 + 3CO in the blast furnace, redox as oxygen transfer",
+     "targets": [
+      "theory:E12-t02",
+      "theory:E12-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "9272b5671cdf1e34fc8356356688fd7b0d1f28298625cdf2b57517b72225db89",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "metals lose and nonmetals gain electrons; oxidation state as bookkeeping",
+     "targets": [
+      "theory:E12-t02",
+      "theory:E12-t04",
+      "theory:E12-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "0ea9d157d859c0e08e50887ee2abd6d80ae250d128f778b03bf4f74517ef6ccd",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "rules 1-4 for oxidation states: free element, neutral, ion, groups 1-2, fluorine",
+     "targets": [
+      "theory:E12-t07",
+      "theory:E12-t08",
+      "theory:E12-t09",
+      "theory:E12-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "9e88ffe8cbbb999e783db8dcabc474db1a8a0fd3fdc1f83f3f4b1c7fb346f890",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "rules 5-7: hydrogen, oxygen, binary compounds with metals",
+     "targets": [
+      "theory:E12-t11",
+      "theory:E12-t12",
+      "theory:E12-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "545b59fdce59129e70b879cdea97826f199ba83519c5bf339270a48a0d84394f",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "table of oxidation states: H, O, groups 1-2, free elements, peroxide, superoxide",
+     "targets": [
+      "theory:E12-t10",
+      "theory:E12-t11",
+      "theory:E12-t12",
+      "theory:E12-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "21790651d59f4cb40a116fa134784fb0394bb4ec6708d6b573ce1b263045931e",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "meaning of oxidation numbers; slide writes KClO5 for chlorine +7",
+     "targets": [
+      "theory:E12-t04",
+      "theory:E12-t14",
+      "worked:13"
+     ],
+     "rationale": "Slide prints KClO5; perchlorate is KClO4 (Cl +7), as in its own Ex4; W13 uses KClO4. t04 teaches that Cl +5 or +7 is a formal number."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "c30da96d6d0085fac5b9c606c1e7b201c9aa3416656a8e697f8e2b91a13f0448",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1 statement: chromium in K2Cr2O7 and Cr2O7 2-",
+     "targets": [
+      "worked:9",
+      "theory:E12-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "508da12bbbf894d351f976cb57e0d1c4e84356c6ab03135b3b4cc29eb04831fe",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1 solution (a): K2Cr2O7, Cr = +6",
+     "targets": [
+      "worked:9",
+      "theory:E12-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "9ecb795758e2bb86c53f0e729ddf45747ecc2dd2ccf58d7c65025e0a25060de4",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1 solution (b): Cr2O7 2-, Cr = +6; dissolving does not change it",
+     "targets": [
+      "worked:9",
+      "theory:E12-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "a3b990e953c60ef1e5adf42eb8bea959f903629768147c3c8a6e8b7f1f7c95d8",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2 statement: Fe in Fe3O4, C in acetic acid, C4",
+     "targets": [
+      "worked:10",
+      "theory:E12-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "e4fe362a4b994ac8e15a033278cdffa4454c9a3f1ebf1d3116b01e07045cebbe",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Exercise 2 solution: Fe3O4, acetic acid, carbon",
+     "targets": [
+      "worked:10",
+      "theory:E12-t16"
+     ],
+     "rationale": "Slide calls Fe3O4 a mixture of FeO and Fe2O3. It is a mixed-valence compound; +8/3 is an average. Lesson says so."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "06f58a5528eb9788e0e807003bb4bbdbe4fe086650336a9a90b5c71646884840",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "video placeholder image with the section title: oxidation numbers",
+     "rationale": "Video-thumbnail image captioned Common Oxidation States, with the section title; no teachable content. Reviewer attests."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "1483eb982f924c07c15ed6694a9800051d65ed7c2d59e8cbcf70907c0b7b8032",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "oxidation and reduction: electron transfer, agents, half-reaction examples",
+     "targets": [
+      "theory:E12-t02",
+      "theory:E12-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "f49836d764681c7e2d3b17fa1b2833c8b0aa7f37f94ca266e7a68a9e4c0de162",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "English summary: oxidation, reduction, agents, electrons on each side",
+     "targets": [
+      "theory:E12-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "aa39389a095731de1f33dbcc643fd1c02431f913d8aa8f1d6c4e0f68b7ea509f",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "decorative cartoon pig, no text",
+     "rationale": "Decorative cartoon (a pig) with no text, formula or teachable content. Reviewer attests."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "c7e33ab8ab6cb9901d49d8a82b038626d33114a776a3562c5bf8ec19f6d04c03",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "oxidizing and reducing agents are relative; H2O2 acts as both",
+     "targets": [
+      "theory:E12-t05",
+      "worked:11"
+     ],
+     "rationale": "t05 now includes the slide HNO3 + H2S and N2H4 + H2O2 examples."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "071f57bf249458885a9908182f07b219e289ca75de70d58e3c4160a1cfe766d9",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "chromium oxidation states in acid and base (diagram)",
+     "targets": [
+      "theory:E12-t38"
+     ],
+     "rationale": "Diagram not reproduced; t38 states the Cr states and the effect of acidity in words."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "71c062239f12950ecddcea42ba7ff7f5d3b0de8453932549a9fc27d494703fba",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of typical reducing agents and their products",
+     "targets": [
+      "theory:E12-t39"
+     ],
+     "rationale": "Table not reproduced; t39 lists a few of its pairs."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "74084a661cbf4fc68a4cff97892a86b4c4f7e611b37c884af2ecb5ba494ff125",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of typical oxidizing agents and their products",
+     "targets": [
+      "theory:E12-t39"
+     ],
+     "rationale": "Table not reproduced; t39 lists a few of its pairs, including MnO4- to MnO2 in base."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "97f18e54299457a31952fbfa5251c5e5f8bd9745b974f56416f27ecbdbac71f5",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "nitrogen compounds: highest states oxidize, lowest states reduce",
+     "targets": [
+      "theory:E12-t05",
+      "theory:E12-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "ce8b2b705fa006af74018c28c32ada3daa54d733034fefb74a35104f2e7ef7ca",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "N2O4 + 2N2H4 reaction as an N-compound redox example",
+     "targets": [
+      "theory:E12-t15",
+      "worked:12"
+     ],
+     "rationale": "Slide shows N2 with 4H2O, which leaves N unbalanced (6 N left, 2 right). W12 balances it with 3N2."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "95834a2a0394afc310de2ef3beff9e589b926de8486a5a9193668d763340f078",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3 statement: H2O2 as oxidizing or reducing agent",
+     "targets": [
+      "worked:11",
+      "theory:E12-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "7d806486f31d1664493c9399bf3dd3f4a8ad9362d1911da13f1a2fcd325bd35d",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3 solution: oxidant with Fe2+, reductant with MnO4-",
+     "targets": [
+      "worked:11",
+      "theory:E12-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "14b5a4b05813a60759dd83c66270f6dffa30d19d4d3c991bf3b666e126da39a3",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "steps for balancing redox equations",
+     "targets": [
+      "theory:E12-t18",
+      "theory:E12-t19",
+      "theory:E12-t20",
+      "theory:E12-t21",
+      "theory:E12-t22",
+      "theory:E12-t23",
+      "theory:E12-t24"
+     ],
+     "rationale": "Step 5, balancing spectator species, is now in t24."
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "d8a0125929adfaa346698293a51e8f760258be8663f9b13f8da014acda3a1d76",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 statement and first steps: KClO3 pyrolysis half-reactions",
+     "targets": [
+      "worked:13",
+      "theory:E12-t25",
+      "theory:E12-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "7781f4287131bff25a2af55d504aab079d9ff7b94f8dad2835f6d821ad0b25e2",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: 4KClO3 -> KCl + 3KClO4",
+     "targets": [
+      "worked:13",
+      "theory:E12-t25",
+      "theory:E12-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "98e47e65933be5954664812641753a046831df853e0aaee98529ad759f1d3ce5",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5 statement: VO2+ + Sn2+ with H3O+",
+     "targets": [
+      "worked:14",
+      "theory:E12-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "aaabd5e1db197179eca751fe6f9f0e4e148fe365424ed4211bd3b9553f18b6dc",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5 solution: 2VO2+ + Sn2+ + 4H3O+ -> 2V3+ + Sn4+ + 6H2O",
+     "targets": [
+      "worked:14",
+      "theory:E12-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "9595ce384e1533f2901817980a68e6fd61965f125d3341c44c7cd3a586689e96",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6 statement: MnO4- + Fe2+ in acid",
+     "targets": [
+      "worked:15",
+      "theory:E12-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "3cb4b8ec4e7137212c8eb1ff935f5cd7e6ea510718c80dedf3285abeec3f756d",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6 solution with 8H3O+ and 12H2O",
+     "targets": [
+      "worked:15",
+      "theory:E12-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "80faf8774d876fc01f160956d6bf1fb3a7ce9be4ce96f40f764fb252f4be2d11",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: iodine, iodate and chloride in acid, 2I2 + IO3- + 6H3O+ + 10Cl-",
+     "targets": [
+      "worked:16",
+      "theory:E12-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "e658421c45942a2d612f4364841c145f843a8e10e0726629348c35de083b76f8",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "English summary: balancing in acidic solution",
+     "targets": [
+      "theory:E12-t18",
+      "theory:E12-t19",
+      "theory:E12-t20",
+      "theory:E12-t21",
+      "theory:E12-t22",
+      "theory:E12-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "5a49374bcd37d10f17eb6a7d3bc6f85cdfb068fce89bca2ab02d2438492834e5",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8 statement: sulfite and permanganate in wastewater",
+     "targets": [
+      "worked:17",
+      "theory:E12-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "facc6c5471c6f2c08d385f764f1a7c5add8f5d49bf32289f64c7a3eae8fcd1b4",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: oxidation states and half-reactions",
+     "targets": [
+      "worked:17",
+      "theory:E12-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "90c246adc7b6ef2c047e56d1860c7fe663905afc52cf83574f1ff7e63786e695",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: balancing O with H2O and H with H+",
+     "targets": [
+      "worked:17",
+      "theory:E12-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "b4231fea31c0fde1bf990c447a28f0d65ed290507704744a8d3fe8009f2c80bb",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: equalizing electrons and adding the half-reactions",
+     "targets": [
+      "worked:17",
+      "theory:E12-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "c9324397dd92dbdf6e84a928d4b53e5645d5d61f2657edf3dc73fdd081b6e184",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "balancing in basic solution: treat as acid, add OH-, remove water",
+     "targets": [
+      "theory:E12-t27",
+      "theory:E12-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "aa3a325dee23e8c8844c8f025029bd71d0590deb19a92bd54dabcaf13ba71b93",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Exercise 8 in basic solution as printed, with Mn2+ and OH-",
+     "targets": [
+      "theory:E12-t28",
+      "worked:17"
+     ],
+     "rationale": "Printed result balances in atoms and charge. t28 teaches MnO2 as the usual basic product and W17 notes the caveat; the slide is not declared wrong."
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "b28e8d8ce3290ea87a743dce1bac679bc1f27ac8e83da28b7bae1c46f836d752",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "titration setup: 5Fe2+ + MnO4- + 8H+, pink endpoint",
+     "targets": [
+      "theory:E12-t32",
+      "theory:E12-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "f2412e058a57d7a2316b4039c6f8ec3a0fea8cebdde5250fe27c5aca311f633e",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9 statement: standardizing KMnO4 with iron wire",
+     "targets": [
+      "worked:18",
+      "theory:E12-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "fb4c708d187574918bdcef17a47806d7da3890fb978f2aa4d5b3adb7ae68fcdf",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Exercise 9 solution: n(KMnO4) and concentration",
+     "targets": [
+      "worked:18",
+      "theory:E12-t33"
+     ],
+     "rationale": "Slide divides by 0.02624 L, but the given volume is 26.42 mL: 0.02125 M, not 0.02140 M. W18 and t33 use 0.02125 M."
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "e1bdcfd1b2651e9acc92396335a9794f5d20f767dac611cc04ebcd372abc3358",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "redox in biology: cytochromes oxidize and reduce through heme",
+     "targets": [
+      "theory:E12-t36",
+      "theory:E12-t37"
+     ],
+     "rationale": "t37 states the slide cytochrome and heme point with the P450 Fe3+/Fe2+ example; respiration and NAD+ are own context."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:7",
+    "worked:8"
+   ],
+   "rationale": "Own worked examples (types 1-8), not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E12-t01",
+    "theory:E12-t06",
+    "theory:E12-t17",
+    "theory:E12-t26",
+    "theory:E12-t29",
+    "theory:E12-t31",
+    "theory:E12-t34"
+   ],
+   "rationale": "Section headings; not slide content."
+  },
+  {
+   "id": "a04",
+   "targets": [
+    "theory:E12-t35"
+   ],
+   "rationale": "Faraday charge example from the next deck section (pages 44+), kept here as own context."
+  }
+ ]
+}

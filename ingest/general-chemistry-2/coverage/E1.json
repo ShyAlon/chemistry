@@ -1,0 +1,1242 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E1",
+ "source": {
+  "sha256": "e4acd959fc561ee6bb0dc70acf409ebfb5c45aa70828c6190fedc4ba6539503d",
+  "kind": "pdf",
+  "pageCount": 64,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "e4acd959fc561ee6bb0dc70acf409ebfb5c45aa70828c6190fedc4ba6539503d",
+  "contentSha256": "24641b369bed3ce74eae5998f65c36b47c648a0512ede542dd5367d1e0dfdfad",
+  "unitMapSha256": "5fce85de2bdca55bf34d6fbc9d82f1d55cb3e8eac2f07dea62d0d46847d9c013",
+  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
+  "adminPagesAttested": []
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "e6b911a80bd9af311bd3c947c54603c00fc1e77aa78bdfba18ef45985dbb1ec0",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "examples of dynamic equilibrium: vapor pressure, solubility, distribution",
+     "targets": [
+      "theory:E1-t05",
+      "theory:E1-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "24d54ee49c22563bf8615eb6edae44392781a9fa20b3ab840ecf89ac25fa21e0",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "H2 + I2 forward approach to equilibrium, concentration-time curves",
+     "targets": [
+      "theory:E1-t47",
+      "theory:E1-t02",
+      "theory:E1-t57"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "44b484fa577cbe91b7a15f48d68cf9dd222e1c7b8af0f957b469ae49ed6df180",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "2HI reverse approach to the same kind of equilibrium",
+     "targets": [
+      "theory:E1-t04",
+      "theory:E1-t47",
+      "theory:E1-t57"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "7d95177591b8a77409ef04acaf7ca9a931d5ba9148f090d600c59402cc5c4879",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "reversible reactions: all species present, ratios depend on start",
+     "targets": [
+      "theory:E1-t02",
+      "theory:E1-t03",
+      "theory:E1-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "80063ac60e193b99651ce224ac4f3c3fce671f82050e873d705993e6e7d6c6c7",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "three experiments for CO + 2H2 giving CH3OH at fixed T",
+     "targets": [
+      "theory:E1-t09"
+     ],
+     "rationale": "Table concentrations reproduced as source-derived data in t09; K recomputed (about 14.5 in all three)."
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "c7b5d39125ff8f9251a4f83cc94cedc5935ed1b3a3f73bf3d569c2b8e1b02f52",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "equilibrium amounts differ by start but one ratio stays fixed",
+     "targets": [
+      "theory:E1-t09",
+      "theory:E1-t04",
+      "theory:E1-t57"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "bc4b852f3cf84d0ca83207ce864eaeaf2a8e3c7662434fe4d66623bc0c1baaec",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kc from correct and incorrect exponent forms across the three runs",
+     "targets": [
+      "theory:E1-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "c8e19a92aa45997a0a113b82065fb3cf60bcf60843fbe779472e420951494664",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kc as the ratio of forward and reverse rate constants",
+     "targets": [
+      "theory:E1-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "b7a0d22a7a9b8fb31d01f6adc193cad2bed2b06abb0ae70dc20004dd6c918f44",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "general Kc; reaction specific, depends only on temperature, not speed",
+     "targets": [
+      "theory:E1-t07",
+      "theory:E1-t10",
+      "theory:E1-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "ba1ec8e8ef6323e04b5ce5585b924ccba23752b3e01275a7d7b4f7d5525384f1",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Kc of HI decomposition from masses in a flask",
+     "targets": [
+      "worked:5"
+     ],
+     "rationale": "Own numbers (38.4 g, 2.00 L); same method."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "7c807c673e8a59c21dc9ad08bbb9892fc925ff343b28a227551ac5f056062241",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ICE table and Kc for the HI exercise",
+     "targets": [
+      "worked:5",
+      "theory:E1-t42"
+     ],
+     "rationale": "Own numbers; method and table form kept."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "2557fc6938e3557464089a734905859e3401138e1bde017c974fc59ae33cd96f",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "esterification at Kc 4.00, starting from equal moles",
+     "targets": [
+      "worked:4"
+     ],
+     "rationale": "Rewritten with own solution text."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "10e15ba8a30ec906da2a64a4f7d420fb1fa08712dbe3799e5ebd5721b34a339c",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "moles can replace concentrations when coefficient sums are equal",
+     "targets": [
+      "worked:4",
+      "theory:E1-t45"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "80140f1be1aedbbedebc2714c6be00497d17a624daba7de0e659ef7e144f8da1",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "ICE table for part a of the ester exercise",
+     "targets": [
+      "worked:4",
+      "theory:E1-t42"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "9d4754e3274732126d17704cc4f6819f234f321abb3ba81c4bb9a26dcdaa9aa5",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b: start from an equilibrium mixture plus more acid, solve quadratic",
+     "targets": [
+      "worked:4",
+      "theory:E1-t43"
+     ],
+     "rationale": "Source-identical numbers (2.00 mol, Kc 4.00, +2.00 mol acid); solution rewritten; quadratic root choice stated."
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "f0692c4bb4164371f49e7efb7174d802f87654e69fd141d46e9678e0c4ef4cfd",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "concentration written as partial pressure over RT",
+     "targets": [
+      "theory:E1-t19",
+      "theory:E1-t49"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "1f0524ffacc339fde452aec3793db8e7dc594397e0521d433f75efc41060a84e",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "Kc and Kp for the SO2/O2/SO3 reaction",
+     "targets": [
+      "theory:E1-t20",
+      "theory:E1-t49",
+      "worked:1"
+     ],
+     "rationale": "The lesson derives Kp = Kc(RT)^dn in general (E1-t49, t20) and applies it to N2O4 (worked 1, 6) instead of SO3."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "cca7aa1061001d7d807daf715d39215e750ef6abed97c7ffcd340757ef35e0dd",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "general Kp = Kc(RT)^dn and counting gas moles only",
+     "targets": [
+      "theory:E1-t20",
+      "theory:E1-t23",
+      "worked:1"
+     ],
+     "rationale": "Worked 1 applies the same rule to N2O4."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "d50c465f9c22a808ab3d3b0853384e52148291f372c3544545941df485dbbedc",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Kp of NOCl formation from partial pressures, then Kc",
+     "targets": [
+      "quiz:12",
+      "quiz:13",
+      "theory:E1-t20"
+     ],
+     "rationale": "Own numbers; recomputed with R = 0.08206."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "5d90e8f8ae87ac11746bd0a08d7ab504fdf068d4246ee368847b72e2e1e63bcd",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kp in terms of mole fractions and total pressure",
+     "targets": [
+      "theory:E1-t19",
+      "theory:E1-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "64fb87b589d0db242eb525e3bb5e868012eef0a84ef589315287f8bdf22c912b",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kp = Kx P^dn and Kx = Kp P^-dn",
+     "targets": [
+      "theory:E1-t21"
+     ]
+    },
+    {
+     "id": "p21.u2",
+     "kind": "claim",
+     "disposition": "adapted",
+     "label": "Kc and Kp depend on T only; Kx on T and total pressure unless dn = 0",
+     "targets": [
+      "theory:E1-t21",
+      "theory:E1-t50"
+     ],
+     "rationale": "Scope note added: Kx needs a stated total pressure."
+    },
+    {
+     "id": "p21.u3",
+     "kind": "claim",
+     "disposition": "adapted",
+     "label": "units of equilibrium constants depend on the stoichiometric coefficients",
+     "targets": [
+      "theory:E1-t08",
+      "theory:E1-t24",
+      "theory:E1-t22"
+     ],
+     "rationale": "Lesson separates dimensionless thermodynamic K from classroom Kc/Kp with units; added original note on activities and ideal-gas approximation."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "44741a44e3e2835c2a4a89261ba4410150c236946b48ee7d9a56d3c60fa6bc68",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "N2O4 and NO2 masses in a 5.0 L flask: Kc and Kp",
+     "targets": [
+      "worked:6"
+     ],
+     "rationale": "Source-derived numbers (12.75 g, 2.60 g, 5.0 L), solution rewritten; Kc 4.61e-3 matches quiz 5."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "c676b41b5483540919332f9b3bdf17ada29e5c880a5ba8b034e33e4a5044bd7c",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "same exercise: Kx from mole fractions",
+     "targets": [
+      "worked:6",
+      "theory:E1-t21"
+     ],
+     "rationale": "Source-derived numbers; Kx needs a stated total pressure."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "a5e2181954d7997e90b1222f8119e88f1ae3f0ac96fe36a4ec71d3de4fcad11a",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "pure solids and liquids do not appear in K; liquid mixtures do",
+     "targets": [
+      "theory:E1-t12",
+      "theory:E1-t13",
+      "theory:E1-t48"
+     ],
+     "rationale": "Added original sentence on constant effective concentration."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "4ee676340ebdd916574788d5f2a740db1a22cc3cb93302166b9ee4d7f3da9395",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "limestone decomposition: CO2 pressure independent of solid amount",
+     "targets": [
+      "theory:E1-t13",
+      "theory:E1-t58"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "b2972a7c6a09a65287c53c93de5fb7a856a5ce7af99a40511cb68571a1272db0",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "vapor pressure as a Kp value",
+     "targets": [
+      "theory:E1-t16",
+      "theory:E1-t58"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "7cb3b1c4eea95fbd8459545de0b12a0ecc78a91a74149db91efa478dfb99384a",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "reverse, scale and root rules for K",
+     "targets": [
+      "theory:E1-t26",
+      "theory:E1-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "ba826735f7349d05911aa2f2592004a4a147b5df177216c81b4b60a676316cf1",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "reverse and doubled CH3OH equations",
+     "targets": [
+      "theory:E1-t30",
+      "theory:E1-t26",
+      "theory:E1-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "b3290de4810db14a573b6796c61be34c25b5143f165b2ef6c39399beaccc7633",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "adding reactions: N2O + 1/2 O2 to 2NO from two given K, result 1.7e-13",
+     "targets": [
+      "theory:E1-t28",
+      "theory:E1-t31",
+      "theory:E1-t51"
+     ],
+     "rationale": "Slide-given constants used as given data."
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "a6ea6877b14b691c569233d34a37cc5b8f0a08f51414eb617d52e7b590563cd5",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "definition: homogeneous (one phase) versus heterogeneous (several phases)",
+     "targets": [
+      "theory:E1-t15"
+     ]
+    },
+    {
+     "id": "p30.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "H2O(s) and H2O(l) with H2O(g): Kp = P(H2O)",
+     "targets": [
+      "theory:E1-t16"
+     ]
+    },
+    {
+     "id": "p30.u3",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "autoionization of water: Kc = [H3O+][OH-]",
+     "targets": [
+      "theory:E1-t17",
+      "theory:E1-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "6be05b9e2ee5db87b90d8d187dd9f59a6f8e968a0b52d00f1eef382f13c4f535",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "CuSO4 hydrate loses water vapor: Kp = P(H2O)^2",
+     "targets": [
+      "theory:E1-t13",
+      "theory:E1-t16"
+     ]
+    },
+    {
+     "id": "p31.u2",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "NO + 1/2 O2 giving NO3(g): Kp with a fractional exponent",
+     "targets": [
+      "theory:E1-t31",
+      "theory:E1-t51"
+     ],
+     "rationale": "Source reaction as printed is not mass balanced (3 O right, 2 O left). Not copied; only the general fractional-exponent rule is kept."
+    },
+    {
+     "id": "p31.u3",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "La(IO3)3 precipitation: Kc = 1/([La3+][IO3-]^3)",
+     "targets": [
+      "theory:E1-t13",
+      "theory:E1-t17"
+     ]
+    },
+    {
+     "id": "p31.u4",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "HNO2 disproportionation: Kc and the mixed K with P(NO)",
+     "targets": [
+      "theory:E1-t12",
+      "theory:E1-t14",
+      "theory:E1-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "375e660c0124d6b4de874bd3fe964a40a2b2b63e80c48fb7a9ce0fc96d4d33db",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "n-butane to iso-butane: K fixes the ratio from any start",
+     "targets": [
+      "theory:E1-t40",
+      "theory:E1-t38",
+      "theory:E1-t59"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "3fdd285230b4f7590e408c7363e04d370b0197a5d4930f73e33cd278c0d07d1d",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "approach to the K line from either side",
+     "targets": [
+      "theory:E1-t40",
+      "theory:E1-t59"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "025aa9c198df99d3bca3ca8eb64cdcaa0ed0ae00f1361dbe96be7d9bc48e20a2",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "reaction quotient definition and Q values at start states",
+     "targets": [
+      "theory:E1-t33",
+      "theory:E1-t43",
+      "theory:E1-t54"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "7d5da6891e2427e7905685cbac87ca5cb6a8342345bc617a5e6d4e43bef33eb7",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "Qc < Kc: net forward; Qc > Kc: net reverse",
+     "targets": [
+      "theory:E1-t34",
+      "theory:E1-t35"
+     ]
+    },
+    {
+     "id": "p35.u2",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "states from pure reactants (Q = 0) to equilibrium to pure products",
+     "targets": [
+      "theory:E1-t36",
+      "theory:E1-t54"
+     ],
+     "rationale": "Photo panels of the source are not reproduced; the lesson draws its own Q-versus-K strip."
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "e4e76d38b4f07048bce680efa9444fda6a37d417728c3ac041aaa2c9c41875d5",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "water-gas shift: direction from Q with extra products",
+     "targets": [
+      "worked:2",
+      "quiz:14",
+      "theory:E1-t43"
+     ],
+     "rationale": "Own numbers (SO2 case and a CO/H2O quiz item)."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "dedbdba89d9f9551e7a6e6314f23965deb0877ce33c48e72df0732e26034d0b1",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "water-gas shift solution: Q greater than K goes in reverse",
+     "targets": [
+      "worked:2",
+      "quiz:14"
+     ],
+     "rationale": "Own numbers."
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "11143792f626fac42f46c695f458ee0a4f9bcae16469383e6505733425179aed",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "Table of K values for common reactions",
+     "targets": [
+      "theory:E1-t38"
+     ],
+     "rationale": "K table values not copied; lesson uses own scoped statements."
+    },
+    {
+     "id": "p38.u2",
+     "kind": "claim",
+     "disposition": "adapted",
+     "label": "first reaction (huge K) goes to completion; kinetics may still decide",
+     "targets": [
+      "theory:E1-t38",
+      "theory:E1-t10"
+     ],
+     "rationale": "Own scoped wording on kinetic control."
+    },
+    {
+     "id": "p38.u3",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "second reaction (tiny K) does not occur",
+     "targets": [
+      "theory:E1-t38"
+     ]
+    },
+    {
+     "id": "p38.u4",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "third reaction: forward and reverse both matter",
+     "targets": [
+      "theory:E1-t38",
+      "theory:E1-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "037aee3b7090487dd5d147bb46ec00ab9d32606aa7f64e5984ce0b35492eb30f",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "NOCl with very large K: complete-reaction first step",
+     "targets": [
+      "worked:7",
+      "theory:E1-t44"
+     ],
+     "rationale": "Own K value and pressures."
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "ecec1e2bc4b3062aa0f2c6666f27268e7f19e4e513b1887d5efb9adf1d495d99",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "small x approximation check for the large-K case",
+     "targets": [
+      "worked:7",
+      "theory:E1-t44",
+      "theory:E1-t39"
+     ],
+     "rationale": "x check stated."
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "0ddde714bfaf7a7e5b52fc98c38780471a84c923c0aa7172432882f783963e60",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "a change in temperature changes K",
+     "targets": [
+      "theory:E1-t29",
+      "theory:E1-t50"
+     ]
+    },
+    {
+     "id": "p41.u2",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "concentration, pressure or volume changes do not change K",
+     "targets": [
+      "theory:E1-t50"
+     ]
+    },
+    {
+     "id": "p41.u3",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "a catalyst changes the rate of reaching equilibrium, not K",
+     "targets": [
+      "theory:E1-t50"
+     ],
+     "rationale": "The Le Chatelier statement on this page is mapped in E2."
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "8d817db91f76f674677cc52ec0dc619c6814a04ba96a7388d85fa3c010e36752",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "derivation of Kc from equal forward and reverse rates",
+     "targets": [
+      "theory:E1-t10",
+      "theory:E1-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "488ee244eae0f875fc221b0cfa404a635b8d9d6685796671961d56c0374d6a37",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "general Kc; value changes with reaction and temperature",
+     "targets": [
+      "theory:E1-t07",
+      "theory:E1-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "6d504499c813ed9c484b338d5fe216049c19416ae44b655771894ec71ea25c7d",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "reverse, multiplied, rooted and summed reactions",
+     "targets": [
+      "theory:E1-t26",
+      "theory:E1-t27",
+      "theory:E1-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "6fcb365648f637c801b87d154a8fc336eecda06c77bfd08ade247d5ae60fbc90",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "subtracting reactions; Kp relation; solids and pure liquids omitted",
+     "targets": [
+      "theory:E1-t31",
+      "theory:E1-t20",
+      "theory:E1-t23",
+      "theory:E1-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "4ca52b0c55ffaa1507f6a67b10341da1fd5b9ab3639b62fdaf920a42f5b74942",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "reaction quotient Qc",
+     "targets": [
+      "theory:E1-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "2043dc2f32f24a2f98876da116a0543ddaad5c61d06f7362ecb85827b31793c3",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "H2 + I2 problem statement, Kc 50",
+     "targets": [
+      "worked:3",
+      "worked:9",
+      "theory:E1-t20"
+     ],
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "005941524b3855c13cc7c7a0133fa795dec5cecec13c9ccdee51af3665809561",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "empty ICE table setup",
+     "targets": [
+      "worked:3",
+      "worked:9",
+      "theory:E1-t42"
+     ],
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "537b1ac117b89dc8a88119d2b7c353341c0f4fb3d1383d5c84f0ee246cb7e8b7",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "ICE change row",
+     "targets": [
+      "worked:3",
+      "worked:9",
+      "theory:E1-t42"
+     ],
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "d91677733d702962c899795104a1949904a1f4145d11511aaea1767facb356bd",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "equilibrium row and Kc expression with volume",
+     "targets": [
+      "worked:3",
+      "worked:9",
+      "theory:E1-t42"
+     ],
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "452195762688abf2b69b821b17417cdfbef8d1b8bb7431d582d8d6cb027a8850",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "quadratic solution and choice of root",
+     "targets": [
+      "worked:3",
+      "worked:9",
+      "theory:E1-t44"
+     ],
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "d64eaa61df077d59f6297bc91d34822cc2dda119ac777a86fd6e4f066f6ae88b",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "NH4HS statement",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "44346622e34fdc389d0fd55541c9aab950dbbba107975ceb057c4a86d02a7f79",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "NH4HS Kp and partial pressure y",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "879860dc35bafe1afbb7564dedfbdf2e8c2bbc0949bb9d36911a3545f5d91bf3",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "ICE table for NH4HS",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "747a2ebc14229428b384c34d480b4d6689fbcdadd078cd19e6fec80911f991f8",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "table in partial pressures",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "c5c2e5b5449f2ea25e949877bdf0e2789a6a1d9324ff6a3e5147b7201814357f",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "table in moles",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "5b207f05d94c5d8b9ce131cd7ea3aebf302dbcad395fdeab102989582170ecfd",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b restated",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "7e58100712d3670ef756e37a9792815b953ae6f50ed3ac60d866fb931acdf3e4",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b table",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "38bb6e72b57cbe8e0c7a41ca8e2e0a0ba0eecbef68d42f03827ee93482b74106",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b adding ammonia",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "ac5581e31abb316685a85531cb18636c2500df743be90f896a06c44fe61ed760",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b table continued",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "95c8b953b3fa2581e1374906696cba7ca72020f50452a5b1d59636f4f47ad1ec",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "part b solving P(NH3)",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "71e9267bdbda1966d0617fe891792738b84a077fbe8c67f0c10ae7f37142ef1b",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "convert P(NH3) to moles",
+     "targets": [
+      "worked:8",
+      "theory:E1-t12"
+     ],
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "a1820b62d75adfdf9fc4c48bba1b6fcf446a69a83dafb1390205045e740654f0",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "class exercise 2: H2 + I2 at 448 C, Kc = 50: Kp, moles, partial pressures",
+     "targets": [
+      "worked:9",
+      "worked:3"
+     ],
+     "rationale": "Other problems on this page (1 Le Chatelier, 3 N2O4 total pressure, 5 HgO) are mapped in E2."
+    },
+    {
+     "id": "p63.u2",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "class exercise 4: NH4HS decomposition fraction and ammonia needed",
+     "targets": [
+      "worked:8"
+     ],
+     "rationale": "Class-exercise numbers (0.06 mol, 2.4 L, Kp 0.05 atm^2, 20 C) as given, solution rewritten, stated in worked 8 for part b."
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "1361a9b8ab6a74a7334e7a8de870423e6a2f5657b5cf3385993d3da1a6af700f",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Ex2 parts c and d: total pressure from nRT/V and partial pressures",
+     "targets": [
+      "worked:9",
+      "theory:E1-t49",
+      "theory:E1-t20"
+     ],
+     "rationale": "Setup from the source (10.0 L, 0.500 mol, 721 K, Kc 50); values recomputed: 5.92 atm, 0.65 and 4.61 atm (slide shows 5.91, 0.656, 4.6 from rounding)."
+    }
+   ]
+  }
+ ]
+}

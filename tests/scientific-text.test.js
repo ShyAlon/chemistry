@@ -30,7 +30,7 @@ test('nuclear course content is pinned to its reviewed snapshot',()=>{
 });
 
 test('course content and answer data stay identical except the explicit V+ worked-answer correction',()=>{
- const copy=structuredClone(data);copy.courses=copy.courses.filter(c=>c.id!=='nuclear');copy.courses[0].topics=copy.courses[0].topics.slice(0,10);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
+ const copy=structuredClone(data);copy.courses=copy.courses.filter(c=>c.id!=='nuclear'&&c.id!=='general-chemistry-2');copy.courses[0].topics=copy.courses[0].topics.slice(0,10);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
  const vanadium=copy.courses.find(c=>c.id==='84102').topics.find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  assert.equal(vanadium.content.length,4);
  assert.match(vanadium.content[2],/לפי כלל ההוצאה הנלמד בקורס/);

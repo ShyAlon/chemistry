@@ -52,3 +52,45 @@ test('isotope mass numbers open the LTR run: left superscripts stay attached',()
  assert.equal(n('²⁷Al + ⁴He → ³⁰P + n'),`${L}²⁷Al + ⁴He → ³⁰P + n${P}`);
  assert.equal(n('CO₂ ו-H₂O ב-STP'),`${L}CO₂${P} ו-${L}H₂O${P} ב-${L}STP${P}`);
 });
+
+test('numbered step labels (שלב N -) stay in the Hebrew flow; subtraction and ranges are untouched',()=>{
+ assert.equal(n('שלב 2 - [D]² = 20 · 0.30³/0.15 = 3.6.'),`שלב 2 - ${L}[D]² = 20 · 0.30³/0.15 = 3.6${P}.`);
+ assert.equal(n('שלב 1 - בדיקה'),'שלב 1 - בדיקה');
+ assert.equal(n('שלב 12 – Kc = 5'),`שלב 12 – ${L}Kc = 5${P}`);
+ // not step labels: other Hebrew words, ranges and subtraction keep the previous output
+ assert.equal(n('הפרש 5 - 3 הוא 2'),`הפרש ${L}5 - 3${P} הוא ${L}2${P}`);
+ assert.equal(n('עמ׳ 2-42 בספר'),`עמ׳ ${L}2-42${P} בספר`);
+ assert.equal(n('הטווח 10 - 20 מ״ל'),`הטווח ${L}10 - 20${P} מ״ל`);
+ assert.equal(n('ההפרש 7 - x קטן'),`ההפרש ${L}7 - x${P} קטן`);
+ // label only in the step-label position, and stays idempotent
+ const t=n('שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');assert.equal(n(t),t);
+ assert.equal(t.replace(/[\u2066-\u2069]/g,''),'שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');
+});
+
+test('long equations render as inline-block equation runs; text, words and short runs are unchanged',()=>{
+ const strip=h=>h.replace(/<[^>]*>/g,'').replace(/&#x27;|&quot;|&amp;|&lt;|&gt;/g,m=>({'&#x27;':"'",'&quot;':'"','&amp;':'&','&lt;':'<','&gt;':'>'}[m]));
+ const eq='שלב 2 - (0.01 + x)·x / (0.01 − x) = 1.2·10⁻² נותן x = 4.5·10⁻³ M.';
+ const html=renderToStaticMarkup(bidiElement('p',null,eq));
+ assert.match(html,/class="bidi-run bidi-eq"/);
+ assert.equal(strip(html).replace(/[\u2066-\u2069]/g,''),eq.replace(/[\u2066-\u2069]/g,''));
+ // a short relation stays atomic and is not an equation block
+ const short=renderToStaticMarkup(bidiElement('p',null,'נתון: pH = 4.50 בלבד'));
+ assert.ok(!short.includes('bidi-eq'));
+ // a long condition that contains English words keeps the previous inline wrapping
+ const words=renderToStaticMarkup(bidiElement('p',null,'לפי ההרצאה: x = 5 and the source-derived value of Ka is larger'));
+ assert.ok(!words.includes('bidi-eq'));
+ // arrow-only reactions: long ones become equation blocks, short ones stay atomic, source text unchanged
+ const rxn='בשקף נכתבה N₂O₄ + 2N₂H₄ → N₂ + 4H₂O. בדוק.';
+ const rh=renderToStaticMarkup(bidiElement('p',null,rxn));
+ assert.match(rh,/class="bidi-run bidi-eq"/);
+ assert.equal(strip(rh).replace(/[\u2066-\u2069]/g,''),rxn);
+ const shortArrow=renderToStaticMarkup(bidiElement('p',null,'התגובה: A → B נוצרת'));
+ assert.ok(!shortArrow.includes('bidi-eq'));
+ // plain English LTR text and machine values are unchanged
+ assert.ok(!renderToStaticMarkup(bidiElement('p',null,'The quick brown fox = jumps over the lazy dog')).includes('bidi-eq'));
+ assert.equal(bidiElement('option',{value:'a = b + c = d'},'a = b + c = d').props.value,'a = b + c = d');
+ // the rule wraps inside the block (no nowrap, no horizontal overflow) and keeps the baseline
+ const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
+ const rule=css.match(/\.bidi-run\.bidi-eq\{[^}]*\}/)[0];
+ assert.match(rule,/display:inline-block/);assert.match(rule,/max-width:100%/);assert.match(rule,/text-align:left/);assert.match(rule,/vertical-align:baseline/);assert.ok(!/nowrap/.test(rule));assert.match(css,/\.bidi-eq \.math-root\{white-space:normal\}/);
+});

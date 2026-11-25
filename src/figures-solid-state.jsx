@@ -422,12 +422,12 @@ export function DopedConductivity({accent}){
   const pts=f=>{const o=[];for(let x=70;x<=500;x+=6)o.push(`${x},${Y(f(x)).toFixed(1)}`);return 'M'+o.join(' L');};
   const N=26;
   const T0=70+70*Math.log((N-2)/150*(Math.exp(430/70)-1)+1);
-  return <Fig label="מוליכות מול טמפרטורה במוליך למחצה מסומם: סביב טמפרטורת החדר נושאי הזיהום שולטים ובקירוב המוליכות כמעט שטוחה, ומעל T0 הנושאים התרמיים שולטים והעקומה מתכנסת לעקומה האינטרינסית" viewBox="0 -10 560 250">
+  return <Fig label="מוליכות מול טמפרטורה במוליך למחצה מסומם: סביב טמפרטורת החדר נושאי הזיהום שולטים המוליכות כמעט אינה גדלה ואף יורדת קצת בגלל ירידת הניידות, ומעל T0 הנושאים התרמיים שולטים והעקומה מתכנסת לעקומה האינטרינסית" viewBox="0 -10 560 250">
     <L x1={60} y1={210} x2={520} y2={210}/><L x1={60} y1={210} x2={60} y2={10}/>
     <Arrow x1={510} y1={210} x2={526} y2={210} stroke={C.line} id="dcv-x"/><Arrow x1={60} y1={22} x2={60} y2={8} stroke={C.line} id="dcv-y"/>
     <T x={290} y={236} size={12} fill={C.mut}>טמפרטורה T</T><T x={40} y={16} size={13} ltr fill={C.mut}>σ</T>
     <path d={pts(si)} stroke={C.mut} strokeWidth={2} fill="none" strokeDasharray="5 4"/>
-    <path d={pts(x=>N+si(x))} stroke={accent} strokeWidth={2.6} fill="none" strokeLinecap="round"/>
+    <path d={pts(x=>N*(1-0.3*Math.min(1,(x-70)/(T0-70)))+si(x))} stroke={accent} strokeWidth={2.6} fill="none" strokeLinecap="round"/>
     <L x1={T0} y1={30} x2={T0} y2={210} stroke="#f2d049" dash="3 4"/>
     <T x={T0} y={24} size={13} ltr fill="#f2d049">T0</T>
     <T x={150} y={150} size={12} fill={accent}>נושאי זיהום שולטים</T>

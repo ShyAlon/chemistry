@@ -382,15 +382,16 @@
     {
      "id": "p22.u1",
      "kind": "exercise",
-     "disposition": "adapted",
-     "label": "Exercise 1: CH3COOH with NaCN, which direction",
+     "disposition": "covered",
+     "label": "Exercise 1: CH3COOH with NaCN, balanced reaction and direction",
      "targets": [
+      "worked:6",
       "worked:3",
       "worked:4",
       "quiz:12",
       "theory:E3-t19"
      ],
-     "rationale": "Own acids and numbers for the same direction rule."
+     "rationale": "Worked 6 follows the slide exercise as given (qualitative, no numbers)."
     }
    ]
   },
@@ -433,13 +434,14 @@
     {
      "id": "p25.u1",
      "kind": "exercise",
-     "disposition": "adapted",
+     "disposition": "covered",
      "label": "Exercise 2: HCl and HBr mixture, hydronium concentration",
      "targets": [
+      "worked:7",
       "worked:5",
       "quiz:13"
      ],
-     "rationale": "Source numbers (0.01 mol HCl, 4.05 g HBr, 150 mL) are not used; the lesson uses own numbers for the same method."
+     "rationale": "Worked 7 uses the slide numbers as given (0.01 mol HCl, 4.05 g HBr, 150 mL, 0.40 M); worked 5 is an own-number variant."
     }
    ]
   },

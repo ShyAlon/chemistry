@@ -88,17 +88,43 @@ test('a dangling report symlink into the repo is refused and writes nothing',t=>
  assert.ok(!fs.existsSync(repoTarget),'nothing may be written into the repo through the dangling link');
 });
 
-test('a hung subprocess times out and stays advisory (exit 0, note)',()=>{
+test('a child that traps SIGTERM is still SIGKILLed at the timeout (advisory, prompt)',()=>{
  const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
- const slow=path.join(tmpdir(),'slow-python.mjs');
- fs.writeFileSync(slow,'setTimeout(()=>{},60000)');
- const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:slow,PREPROCESS_TIMEOUT_MS:'500'};
+ const stubborn=path.join(tmpdir(),'stubborn-python.mjs');
+ fs.writeFileSync(stubborn,"process.on('SIGTERM',()=>{});setTimeout(()=>{},60000)");
+ const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:stubborn,PREPROCESS_TIMEOUT_MS:'500'};
  const started=Date.now();
  const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir()],{encoding:'utf8',env,timeout:30000});
+ const elapsed=Date.now()-started;
  assert.equal(r.status,0);
  assert.match(r.stdout,/advisory only/);
  assert.match(r.stdout,/timed out/);
- assert.ok(Date.now()-started<20000,'the wrapper itself must not hang');
+ assert.ok(elapsed<10000,'a SIGTERM-ignoring child must be SIGKILLed promptly, took '+elapsed+'ms');
+});
+
+test('the total budget stops starting new sources (advisory, exit 0)',()=>{
+ const dir=tmpdir();
+ for(const n of ['a.pdf','b.pdf','c.pdf'])fs.writeFileSync(path.join(dir,n),'%PDF-1.4 stub');
+ const slow=path.join(tmpdir(),'slow-python.mjs');
+ fs.writeFileSync(slow,'setTimeout(()=>{process.stdout.write(JSON.stringify('+JSON.stringify(CANNED)+')+"\\n")},400)');
+ const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:slow,PREPROCESS_TIMEOUT_MS:'5000',PREPROCESS_TOTAL_BUDGET_MS:'600'};
+ const started=Date.now();
+ const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir()],{encoding:'utf8',env,timeout:30000});
+ assert.equal(r.status,0);
+ assert.match(r.stdout,/total time budget reached after [12] of 3 source/);
+ assert.ok(Date.now()-started<10000,'budget path must return promptly');
+});
+
+test('a hung wrapper is stopped by the importer outer bound and ingest continues',t=>{
+ const root=fixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ // wrapper runs the stubborn child; its own per-PDF timeout is set far above
+ // the importer outer bound, so the outer SIGKILL is what stops it
+ const stubborn=path.join(tmpdir(),'stubborn-python.mjs');
+ fs.writeFileSync(stubborn,"process.on('SIGTERM',()=>{});setTimeout(()=>{},60000)");
+ const r=ingest(root,{PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:stubborn,
+  PREPROCESS_TIMEOUT_MS:'60000',IMPORT_PREPROCESS_TIMEOUT_MS:'1500',PREPROCESS_CACHE:tmpdir()});
+ assert.equal(r.status,0,r.stderr);
+ assert.match(r.stdout,/ingested demo: 1 topics/);
 });
 
 test('a flag with no path value is a usage error',()=>{

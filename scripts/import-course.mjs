@@ -32,12 +32,17 @@ const fail=m=>{console.error('import: '+m);process.exit(1)};
 // Advisory preprocessing of the source PDFs, on by default for check/ingest.
 // Private cache outside the repo; any problem is a printed note, never a failure.
 // The wrapper resolves next to this script (not --root, which may be a scratch root).
+// Bounded: the wrapper bounds each PDF (300s, SIGKILL) and its total budget (900s);
+// this outer bound covers a hung wrapper itself. Generous but finite.
+const PREPROCESS_OUTER_MS=parseInt(process.env.IMPORT_PREPROCESS_TIMEOUT_MS||'1260000',10);
 function advisoryPreprocess(srcDir){
  if(!srcDir||has('no-preprocess'))return;
  try{
   const wrapper=fileURLToPath(new URL('preprocess-sources.mjs',import.meta.url));
-  const r=spawnSync(process.execPath,[wrapper,'--sources',path.resolve(srcDir)],{stdio:'inherit'});
-  if(r.status!==0&&r.status!==null)console.log('import: advisory preprocessing skipped (exit '+r.status+'); continuing');
+  const r=spawnSync(process.execPath,[wrapper,'--sources',path.resolve(srcDir)],{stdio:'inherit',timeout:PREPROCESS_OUTER_MS,killSignal:'SIGKILL'});
+  if(r.error&&/ETIMEDOUT/.test(String(r.error.message||r.error)))console.log('import: advisory preprocessing timed out and was stopped; continuing');
+  else if(r.error)console.log('import: advisory preprocessing unavailable ('+String(r.error.message||r.error).split('\n')[0]+'); continuing');
+  else if(r.status!==0&&r.status!==null)console.log('import: advisory preprocessing skipped (exit '+r.status+'); continuing');
  }catch(e){console.log('import: advisory preprocessing unavailable ('+String(e.message||e).split('\n')[0]+'); continuing')}
 }
 if(!command||!course)fail('usage: node scripts/import-course.mjs <baseline|check|ingest|diff|accept> <course> [flags]');

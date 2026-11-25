@@ -94,3 +94,11 @@ or attached anywhere. Known honest limit: a split line whose left side mixes a
 lone charge fragment with real species (e.g. `2- + H+ → ...`) is evaluated
 without the broken-off charge, so a rare false flag is possible there; the
 leads list always stays advisory for exactly this reason.
+
+Bounded execution (tested bounds, not absolute guarantees): each PDF run is
+limited to 300 s and killed with SIGKILL (a child that traps SIGTERM is still
+stopped), the step stops starting new sources after a 15-minute total budget,
+and the importer applies a generous outer bound around the whole step. In
+every one of these cases preparation prints a note and continues unchanged.
+Overrides for tests: `PREPROCESS_TIMEOUT_MS`, `PREPROCESS_TOTAL_BUDGET_MS`,
+`IMPORT_PREPROCESS_TIMEOUT_MS`.

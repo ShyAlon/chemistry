@@ -66,12 +66,20 @@ if(!pdfs.length){note('no PDFs in '+sourcesDir+'; nothing to preprocess');proces
 const python=process.env.PREPROCESS_PYTHON||'python3';
 const script=process.env.PREPROCESS_SCRIPT||path.join(repoRoot,'scripts','preprocess','preprocess.py');
 // one hung PDF must never hang the importer: bound every subprocess run
+// (SIGKILL, so a child that traps SIGTERM is still killed)
 const timeoutMs=parseInt(process.env.PREPROCESS_TIMEOUT_MS||'300000',10);
+// total budget across all PDFs: stop starting new sources once exceeded
+const totalBudgetMs=parseInt(process.env.PREPROCESS_TOTAL_BUDGET_MS||'900000',10);
+const started=Date.now();
 
 const runs=[];
 for(const f of pdfs){
+ if(Date.now()-started>totalBudgetMs){
+  note('advisory only: total time budget reached after '+runs.length+' of '+pdfs.length+' source(s); remaining skipped, preparation continues unchanged');
+  process.exit(0);
+ }
  try{
-  const out=execFileSync(python,[script,path.join(sourcesDir,f),'--cache',cacheDir],{encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:64*1024*1024,timeout:timeoutMs});
+  const out=execFileSync(python,[script,path.join(sourcesDir,f),'--cache',cacheDir],{encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:64*1024*1024,timeout:timeoutMs,killSignal:'SIGKILL'});
   runs.push(JSON.parse(out));
  }catch(e){
   const timedOut=e.killed||e.signal==='SIGTERM'||/ETIMEDOUT/.test(String(e.message||e));

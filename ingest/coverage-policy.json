@@ -1,5 +1,13 @@
 {
  "note": "Topics not yet audited against their sources. A topic not listed here MUST have ingest/<course>/coverage/<topic>.json. Remove an entry when its map lands.",
+ "figureNote": "Courses listed here hash the import closure of their figure roots (paths under src/) into figuresSha256. Courses not listed keep the legacy two-file hash (figures-nuclear.jsx + figures.jsx). Roots are checked fail-closed: a missing root or unresolved relative import is an error.",
+ "figureBinding": {
+  "general-chemistry-2": {
+   "roots": [
+    "figures.jsx"
+   ]
+  }
+ },
  "legacyUnaudited": [
   "84102/P7",
   "84102/P9",

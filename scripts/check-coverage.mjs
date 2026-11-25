@@ -28,6 +28,33 @@ export const contentHash=topic=>sha(JSON.stringify(topic));
 // Hash of the unit map itself (source + pages), so a review cannot survive edits to the map.
 // Hash of the figure implementation file the lesson's figure blocks render through.
 export const figuresHash=(files=['figures-nuclear.jsx','figures.jsx'].map(f=>path.join(root,'src',f)))=>sha(files.map(f=>fs.readFileSync(f,'utf8')).join('\n--file--\n'));
+// Per-course figure binding (policy.figureBinding[courseId]={roots:[...]}). The hash covers the import closure
+// of the roots under src/, so an imported renderer file cannot be left out. Fails closed on a missing root or
+// an unresolvable relative import. Courses without a binding keep the legacy two-file hash above.
+export function figureClosure(roots,srcDir=path.join(root,'src')){
+ const seen=new Map(),errs=[];
+ const visit=f=>{
+  if(seen.has(f))return;
+  const full=path.join(srcDir,f);
+  if(!fs.existsSync(full)){errs.push('figure dependency missing: '+f);return}
+  const text=fs.readFileSync(full,'utf8');seen.set(f,text);
+  for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"](\.[^'"]+)['"]|import\s*['"](\.[^'"]+)['"]/g)){
+   const rel=m[1]||m[2];const t=path.normalize(path.join(path.dirname(f),rel));
+   if(t.startsWith('..')){errs.push('figure dependency escapes src/: '+rel);continue}
+   visit(t);
+  }
+ };
+ for(const r of roots)visit(path.normalize(r));
+ return {files:[...seen.keys()].sort(),texts:seen,errors:errs};
+}
+export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
+ const b=(policy.figureBinding||{})[courseId];
+ if(!b)return {hash:figuresHash(),files:null,errors:[]};
+ if(!Array.isArray(b.roots)||!b.roots.length)return {hash:null,files:[],errors:['figureBinding for '+courseId+' needs roots']};
+ const c=figureClosure(b.roots,srcDir);
+ if(c.errors.length)return {hash:null,files:c.files,errors:c.errors};
+ return {hash:sha(c.files.map(f=>f+'\n'+c.texts.get(f)).join('\n--file--\n')),files:c.files,errors:[]};
+}
 export const unitMapHash=cov=>sha(JSON.stringify({source:cov.source,pages:cov.pages}));
 export function blockExists(topic,ref){
  const m=/^(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
@@ -104,7 +131,8 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(rv.sourceSha256!==cov.source?.sha256)errors.push('review is not bound to this source hash');
    if(rv.contentSha256!==contentHash(t))errors.push('lesson content changed since the review; re-review required');
    if(JSON.stringify([...(rv.adminPagesAttested||[])].sort((a,b)=>a-b))!==JSON.stringify(adminPages(cov)))errors.push('adminPagesAttested must list exactly the all-admin pages the reviewer viewed');
-   if(rv.figuresSha256!==figuresHash())errors.push('figure implementation changed since the review; re-review required');
+   const fh=figuresHashFor(c.id,policy);errors.push(...fh.errors);
+   if(!fh.errors.length&&rv.figuresSha256!==fh.hash)errors.push('figure implementation changed since the review; re-review required');
    if(rv.unitMapSha256!==unitMapHash(cov))errors.push('unit map changed since the review; re-review required');
   }else if(rv.status!=='pending')errors.push('semanticReview.status must be pending or done');
   if(requireReview){
@@ -114,6 +142,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   }
   rows.push({course:c.id,topic:t.id,status:errors.length?'fail':reviewed?'audited-reviewed':'audited-review-pending',errors,pending:r.pending,unmapped:r.unmapped});
  }
+ for(const k of Object.keys(policy.figureBinding||{}))if(!cat.courses.some(c=>c.id===k))rows.push({course:k,topic:'*',status:'fail',errors:['figureBinding names a course that does not exist']});
  for(const k of allow)if(!cat.courses.some(c=>c.topics.some(t=>c.id+'/'+t.id===k)))rows.push({course:k.split('/')[0],topic:k.split('/')[1],status:'fail',errors:['allowlist entry names a topic that does not exist']});
  return rows;
 }

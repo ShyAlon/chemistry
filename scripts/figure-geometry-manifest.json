@@ -1,4 +1,219 @@
 {
+ "born-haber-nacl": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "radius-ratio-ladder": {
+  "labels": [
+   {
+    "text": "3",
+    "box": 0
+   },
+   {
+    "text": "4",
+    "box": 1
+   },
+   {
+    "text": "6",
+    "box": 2
+   },
+   {
+    "text": "8",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "net-dipole": {
+  "labels": [
+   {
+    "text": "מולקולה קוטבית",
+    "box": 0
+   },
+   {
+    "text": "H",
+    "box": 0
+   },
+   {
+    "text": "Cl",
+    "box": 0
+   },
+   {
+    "text": "δ+",
+    "box": 0
+   },
+   {
+    "text": "δ−",
+    "box": 0
+   },
+   {
+    "text": "דיפול נטו קיים",
+    "box": 0
+   },
+   {
+    "text": "HCl",
+    "box": 0
+   },
+   {
+    "text": "מולקולה לא קוטבית",
+    "box": 1
+   },
+   {
+    "text": "Si",
+    "box": 1
+   },
+   {
+    "text": "Cl",
+    "box": 1
+   },
+   {
+    "text": "Cl",
+    "box": 1
+   },
+   {
+    "text": "Cl",
+    "box": 1
+   },
+   {
+    "text": "Cl",
+    "box": 1
+   },
+   {
+    "text": "סכום הדיפולים 0",
+    "box": 1
+   },
+   {
+    "text": "SiCl₄",
+    "box": 1
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "solid-forms": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bonding-families": {
+  "labels": [
+   {
+    "text": "מתכות",
+    "box": 0
+   },
+   {
+    "text": "קישור מתכתי",
+    "box": 0
+   },
+   {
+    "text": "ים אלקטרונים",
+    "box": 0
+   },
+   {
+    "text": "חזקות ודקטיליות",
+    "box": 0
+   },
+   {
+    "text": "מוליכות חשמלית ותרמית גבוהה",
+    "box": 0
+   },
+   {
+    "text": "פולימרים",
+    "box": 1
+   },
+   {
+    "text": "קישור קוולנטי",
+    "box": 1
+   },
+   {
+    "text": "שיתוף אלקטרונים",
+    "box": 1
+   },
+   {
+    "text": "רכים ודקטיליים",
+    "box": 1
+   },
+   {
+    "text": "מבודדים, חוזק וצפיפות נמוכים",
+    "box": 1
+   },
+   {
+    "text": "קרמיקות",
+    "box": 2
+   },
+   {
+    "text": "קישור יוני",
+    "box": 2
+   },
+   {
+    "text": "מתן וקבלת אלקטרונים",
+    "box": 2
+   },
+   {
+    "text": "שבירות ומבודדות",
+    "box": 2
+   },
+   {
+    "text": "תרכובות של מתכת ולא מתכת",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ionic-transfer": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "ionic-melting": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "coordination-sketches": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "force-ranges": {
+  "labels": [
+   {
+    "text": "0.05-40",
+    "box": 0
+   },
+   {
+    "text": "5-25",
+    "box": 1
+   },
+   {
+    "text": "10-40",
+    "box": 2
+   },
+   {
+    "text": "40-600",
+    "box": 3
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "bond-type-scale": {
+  "labels": [
+   {
+    "text": "קוולנטי",
+    "box": 1
+   },
+   {
+    "text": "יוני",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
  "nuclear-half-life": {
   "labels": [],
   "allowContainment": false,

@@ -1,51 +1,8 @@
 {
  "course": "solid-state",
  "kind": "ingested",
- "recordedAt": "2026-11-23T12:31:37.632Z",
- "manifestVersion": 1,
- "sources": [
-  {
-   "file": "Intermolecular forces.pptx",
-   "sha256": "c60fbdef9ac72d4a3cbb9cd276f800f4209c9b4a36aaba1c03b0186c3f34e11a"
-  },
-  {
-   "file": "Intro slides MM.pdf",
-   "sha256": "5202af4234580ce2115ced34f37f7d8814ef7e4871bdb9ab3dee0da111f588a3"
-  },
-  {
-   "file": "MM TA 6 Doping.pdf",
-   "sha256": "6e8f70df5439117e817b11c6429bb9918be0426c33fa0f8b8ec682b151c00b6e"
-  },
-  {
-   "file": "MMM_TA_1.pdf",
-   "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e"
-  },
-  {
-   "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
-   "sha256": "ae1fa9f6828f0db6f23b531ecd00f368cdcfcd0669b1f3ee6dcdb56a2f76a38d"
-  },
-  {
-   "file": "Solid State TA_2 21.10.26.pdf",
-   "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2"
-  },
-  {
-   "file": "Solid State TA_3 28.10.26.pdf",
-   "sha256": "7f46defc1b90bdb375f46a9994e86d5bdd946ff09484fd1516f05377f6a89557"
-  },
-  {
-   "file": "TA 4 Band theory 4.11.26.pdf",
-   "sha256": "01f7ef9876b7619ab91f4382dd7b7fb77ff7fa4248826e64d08e970daf68a91b"
-  },
-  {
-   "file": "TA 5 Band Theory  Semiconductors.pdf",
-   "sha256": "22ce1c7e2e765207dead8574cba55f311e2b8a9a6b31ce8a61501c5ca8f54665"
-  },
-  {
-   "file": "TA1 assignment 2026.pdf",
-   "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25"
-  }
- ],
- "correctionsApplied": [],
+ "recordedAt": "2026-11-25T04:57:15.007Z",
+ "note": "Post-reconciliation state of record.",
  "blocks": {
   "SS1": {
    "theory": [
@@ -94,6 +51,10 @@
      "final": "71f64838d9490067c29b523d28da5a5775736cf9ea98bb2474dd7f4abcb18105"
     },
     {
+     "base": "bae406383c543e381b817ce1c1549abbca2fda8612d404f9fbce3af4728349f4",
+     "final": "bae406383c543e381b817ce1c1549abbca2fda8612d404f9fbce3af4728349f4"
+    },
+    {
      "base": "40980b3acb296b25dbc944aad36e0cda65c8e9070f38d47af0f91b63190ce653",
      "final": "40980b3acb296b25dbc944aad36e0cda65c8e9070f38d47af0f91b63190ce653"
     },
@@ -108,6 +69,10 @@
     {
      "base": "4abd1a50e5bd9651614e0416675a0eafcbe8840263fe0c1b0ba72949b5d1212a",
      "final": "4abd1a50e5bd9651614e0416675a0eafcbe8840263fe0c1b0ba72949b5d1212a"
+    },
+    {
+     "base": "833642f64184363689e664468ff5ff88fd17694cb8ee3f8335a42ab8565a3825",
+     "final": "833642f64184363689e664468ff5ff88fd17694cb8ee3f8335a42ab8565a3825"
     },
     {
      "base": "382f68dea6eb19b2150279d06211adbe65e08212ea7fd9ef87e8f12c548b7a98",
@@ -144,6 +109,10 @@
     {
      "base": "09a9700e7a93c5059c7e02abadbb0cb20422cea4a176139c38f2afe66ae0fc82",
      "final": "09a9700e7a93c5059c7e02abadbb0cb20422cea4a176139c38f2afe66ae0fc82"
+    },
+    {
+     "base": "b67affeeadacd7b163608fb79c57a6e8443e798f99adb3564aa0fff28184d0b6",
+     "final": "b67affeeadacd7b163608fb79c57a6e8443e798f99adb3564aa0fff28184d0b6"
     },
     {
      "base": "ad5c20b6cfcd2a994573b7c74f0bf6ef863282b29d2083d712149c084af10d7f",
@@ -258,6 +227,10 @@
      "final": "8aa1d8c1887023df5bc2e0880e398217ffb82c2e51d6e7d81216da4d11f16796"
     },
     {
+     "base": "3c693b80af8148f1f1c3248cf3990e1c68f6ae63aacf488204f2b2c98ea2b6a2",
+     "final": "3c693b80af8148f1f1c3248cf3990e1c68f6ae63aacf488204f2b2c98ea2b6a2"
+    },
+    {
      "base": "12ba19f646d19a956d083160e9a653d532b506fb0ccf5c8c1f5739465a3cd492",
      "final": "12ba19f646d19a956d083160e9a653d532b506fb0ccf5c8c1f5739465a3cd492"
     },
@@ -268,6 +241,10 @@
     {
      "base": "d58820261f2f6ea7665c4ccda48483a80f5ad2e220468af9e09766afa3aa1498",
      "final": "d58820261f2f6ea7665c4ccda48483a80f5ad2e220468af9e09766afa3aa1498"
+    },
+    {
+     "base": "716b4da3b97051e236c31669c49ec87eaafa78099ad2549b230b1795447d64e7",
+     "final": "716b4da3b97051e236c31669c49ec87eaafa78099ad2549b230b1795447d64e7"
     },
     {
      "base": "9bb4ffa965430de1a6bad9bc6023e995fe42ad163e6393d668874d83bef38019",
@@ -362,6 +339,14 @@
      "final": "2a36523767e2b125d60ead8c6398a60e6f485ab231fdef0aadf1b067418cae3d"
     },
     {
+     "base": "433cbd7f4661ff41f0a10162da1fd2b19e8afbb20d0f14e55be0487dac13d182",
+     "final": "433cbd7f4661ff41f0a10162da1fd2b19e8afbb20d0f14e55be0487dac13d182"
+    },
+    {
+     "base": "c3948f4d1555d5b3a5b81677173e999b2c0fe8920e544a65c4ad38190a9c5549",
+     "final": "c3948f4d1555d5b3a5b81677173e999b2c0fe8920e544a65c4ad38190a9c5549"
+    },
+    {
      "base": "68ef2ac0c7bc6648fdeb35fd367ea2422277466a90d92b9fc545d86e71699bc3",
      "final": "68ef2ac0c7bc6648fdeb35fd367ea2422277466a90d92b9fc545d86e71699bc3"
     },
@@ -438,12 +423,20 @@
      "final": "f16615c9a7591e88dfec174c545c4022f9f0b4a86a2316e96737688bdf93b062"
     },
     {
+     "base": "7a7d5791b6a3d369a9617eac0a1d12a59102eecad8534f9acedcd099fc3757dc",
+     "final": "7a7d5791b6a3d369a9617eac0a1d12a59102eecad8534f9acedcd099fc3757dc"
+    },
+    {
      "base": "a1e8fbc9012110ec179151d2b9f1f6499dfb2c1f4b33b82f3a7b7c60e794b57a",
      "final": "a1e8fbc9012110ec179151d2b9f1f6499dfb2c1f4b33b82f3a7b7c60e794b57a"
     },
     {
      "base": "02e4fd513bb9d34819d9ba29ee07f1ff063ee6345dbe14f671b5bc6bc51ca466",
      "final": "02e4fd513bb9d34819d9ba29ee07f1ff063ee6345dbe14f671b5bc6bc51ca466"
+    },
+    {
+     "base": "6e8a1698aeef0076122721cb96e9477835df03487824f4c700812c572b4b02db",
+     "final": "6e8a1698aeef0076122721cb96e9477835df03487824f4c700812c572b4b02db"
     },
     {
      "base": "eafac45263fa8ae681fb9a37ce3ee6987ee67ba06432025bbef05431c78d9c00",
@@ -464,6 +457,10 @@
     {
      "base": "9c1d5ea9762343f25633a6e91523d5f410dba7b4a89b318dab8acf5af3b3e3c1",
      "final": "9c1d5ea9762343f25633a6e91523d5f410dba7b4a89b318dab8acf5af3b3e3c1"
+    },
+    {
+     "base": "74b011ad4c774c2b8829f97bd79586fdca53a6ba75ceea16c17664c1e0d9f1f6",
+     "final": "74b011ad4c774c2b8829f97bd79586fdca53a6ba75ceea16c17664c1e0d9f1f6"
     },
     {
      "base": "2f1a2bae372bf19125dbb87f6bec0be609d3d20b708c02830628275de7090dbd",
@@ -574,8 +571,8 @@
      "final": "b29a9b0d8ed32009d554d8994f8d19572cbe7290f22d3e2ff1bc0d7e510f56e4"
     },
     {
-     "base": "62b0805e0336b9f45d6f5816fdc2a83ac4f2918863fbbb090876b889e9b5af64",
-     "final": "62b0805e0336b9f45d6f5816fdc2a83ac4f2918863fbbb090876b889e9b5af64"
+     "base": "3685f119895becdf08ba5f7f8a4764ed5ad6dbf8798e565bad596f714ff51aa4",
+     "final": "3685f119895becdf08ba5f7f8a4764ed5ad6dbf8798e565bad596f714ff51aa4"
     },
     {
      "base": "9b528233159e4dec65a7395933fc3651650e7e60d2c1d835e2775a78a1972643",
@@ -642,8 +639,8 @@
      "final": "42225584d1389abfec92be523902d8e0067c19df54e8e05328d14aef33d05026"
     },
     {
-     "base": "5abbd25bb31c3068ee2c97fd0cde49d16c3c9149a9977bfb2243079098f17efe",
-     "final": "5abbd25bb31c3068ee2c97fd0cde49d16c3c9149a9977bfb2243079098f17efe"
+     "base": "c72be4d7da02c9134d55b7effa888fec8182eca9508623bd63140cd503403c1d",
+     "final": "c72be4d7da02c9134d55b7effa888fec8182eca9508623bd63140cd503403c1d"
     }
    ]
   },
@@ -778,8 +775,8 @@
      "final": "bb6ef6f4e7648d3cdd51ff38a8b50741961cf8415381f2710849fcfb9829edab"
     },
     {
-     "base": "5cee0e2b5b7c36176ab07256b4ea1bf15834f6846eaa006aa7f3bbf1559a9772",
-     "final": "5cee0e2b5b7c36176ab07256b4ea1bf15834f6846eaa006aa7f3bbf1559a9772"
+     "base": "adb11e9743a6fe14f256652d5171018fbe7740db8d7a2a026923a3fbf7453b47",
+     "final": "adb11e9743a6fe14f256652d5171018fbe7740db8d7a2a026923a3fbf7453b47"
     },
     {
      "base": "13841c9922a940b0e5bfd1459e5c4003e6f138cd79edfeb4c6974fdacc531d30",
@@ -806,8 +803,8 @@
      "final": "fce44dfc2dff84a09b04b26a0a739d3d4905cb57355c5113a265928195919a36"
     },
     {
-     "base": "03dbf6fecccf09fa6ab1682e30bf250fde082df0e33497b7c0b179b9b7255927",
-     "final": "03dbf6fecccf09fa6ab1682e30bf250fde082df0e33497b7c0b179b9b7255927"
+     "base": "20bfe6d552e6850a2aab426d9682d04d6f59416a296e8f9440c113bbfffe2454",
+     "final": "20bfe6d552e6850a2aab426d9682d04d6f59416a296e8f9440c113bbfffe2454"
     }
    ],
    "worked": [
@@ -834,8 +831,8 @@
      "final": "a874b274caebaf7f4d5d7efe3a88cb8ee4d1bba69e434b53d52ea94fbb634e48"
     },
     {
-     "base": "cfab70851e59b4eeb0e0bb0eb0f15e993a86826a27b33e5b314fba2306706cf8",
-     "final": "cfab70851e59b4eeb0e0bb0eb0f15e993a86826a27b33e5b314fba2306706cf8"
+     "base": "93e43b2900edca74f5752e65f57dd05ddb5a3450ff8aa9bb3e7cb8a3cf3bcaf2",
+     "final": "93e43b2900edca74f5752e65f57dd05ddb5a3450ff8aa9bb3e7cb8a3cf3bcaf2"
     },
     {
      "base": "416e29c3c06d90e7945d066d564aff48c6d94f1727b264685ac9e732e4f1e3e4",
@@ -858,12 +855,12 @@
   "SS8": {
    "theory": [
     {
-     "base": "10beeb7fb90b590cc1986f66c8bf5bcd751b19f8267f4ddeafe552c67d943b23",
-     "final": "10beeb7fb90b590cc1986f66c8bf5bcd751b19f8267f4ddeafe552c67d943b23"
+     "base": "23b3a6303d44e48d39f1b0169289f7886b92ec1f2e529eb57d8262297800e8bf",
+     "final": "23b3a6303d44e48d39f1b0169289f7886b92ec1f2e529eb57d8262297800e8bf"
     },
     {
-     "base": "0141518ad4c468ace3b1f1fbd2a27676286e2c2bb63de0d8fdef062aaccc2273",
-     "final": "0141518ad4c468ace3b1f1fbd2a27676286e2c2bb63de0d8fdef062aaccc2273"
+     "base": "f72bf60dfcd49125c50d664acf3c755055fa2f661fb1baf767a42dd9b5df5dc9",
+     "final": "f72bf60dfcd49125c50d664acf3c755055fa2f661fb1baf767a42dd9b5df5dc9"
     },
     {
      "base": "4c38c6eb55132f6ad93a8bd6cf3405360e1694b24fa962946911435dc351de36",
@@ -898,8 +895,8 @@
      "final": "754c802730c10b9c333fffa0be2a828f4662e23d23908730351e34b848b670b5"
     },
     {
-     "base": "8c9a14b72476ed1fb07141c8123aab9db3eb6411df1e34802e83a45732d53def",
-     "final": "8c9a14b72476ed1fb07141c8123aab9db3eb6411df1e34802e83a45732d53def"
+     "base": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7",
+     "final": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7"
     }
    ],
    "worked": [
@@ -908,18 +905,18 @@
      "final": "86f97b5256c044dafc6ae00e2eb97bd5c21ae85c3fc68ea93a7806879647125c"
     },
     {
-     "base": "87c348bfe1d31979ada34f074b77852d77812199bd5ba6f432d4df86ebee3f42",
-     "final": "87c348bfe1d31979ada34f074b77852d77812199bd5ba6f432d4df86ebee3f42"
+     "base": "917de81c05457004ec85bf8cdba13051c2370aab6a482213a8d5158de26e0845",
+     "final": "917de81c05457004ec85bf8cdba13051c2370aab6a482213a8d5158de26e0845"
     },
     {
-     "base": "f408f69899c0028008dacc1c2273be04225a8edf3586c7f3878d884da8324d6e",
-     "final": "f408f69899c0028008dacc1c2273be04225a8edf3586c7f3878d884da8324d6e"
+     "base": "3aa81465de6b0cd42fb4d0a82c2850e3f4a1867d20ab2df0c5ad24cd02f0ac50",
+     "final": "3aa81465de6b0cd42fb4d0a82c2850e3f4a1867d20ab2df0c5ad24cd02f0ac50"
     }
    ],
    "quiz": [
     {
-     "base": "d86fbd09339e1ce418cc3ffd3bd579f258d5c2aa4bb42386d316447ad844226e",
-     "final": "d86fbd09339e1ce418cc3ffd3bd579f258d5c2aa4bb42386d316447ad844226e"
+     "base": "723ef367091e732cb1c0192942f44e27aea0e8a7f6c5ce91df1e82331accde0d",
+     "final": "723ef367091e732cb1c0192942f44e27aea0e8a7f6c5ce91df1e82331accde0d"
     },
     {
      "base": "91e743e23a2a97bb110d47e7d3d3b4868bea65f22ed15866c4ce8b513bc02391",
@@ -938,18 +935,61 @@
      "final": "9927d0980a92a6482bad306984cb192e9f2ca186dd5c9901fe2994eb36b62b48"
     },
     {
-     "base": "116308cf890145452ce7dc65c72fa3ce752136a605b03d06353287a3e9efa65f",
-     "final": "116308cf890145452ce7dc65c72fa3ce752136a605b03d06353287a3e9efa65f"
+     "base": "134d439628a09de410df6b111f3e7c204cebefa5a39653fa40fcdd9535bea697",
+     "final": "134d439628a09de410df6b111f3e7c204cebefa5a39653fa40fcdd9535bea697"
     },
     {
-     "base": "94bbb7acb78ad6057faf72d941f19c741182d41fbe2e5e398f8f5adc54b5ef53",
-     "final": "94bbb7acb78ad6057faf72d941f19c741182d41fbe2e5e398f8f5adc54b5ef53"
+     "base": "9f23bbffa24dc8089521cdd08a2874b7b4c0e4b3e0dc836b0a026319439d4692",
+     "final": "9f23bbffa24dc8089521cdd08a2874b7b4c0e4b3e0dc836b0a026319439d4692"
     },
     {
-     "base": "effbeabeecb1b683ebe1cefa87066e16da981704b8991b80f962ed53a222edf2",
-     "final": "effbeabeecb1b683ebe1cefa87066e16da981704b8991b80f962ed53a222edf2"
+     "base": "f9ace68f10bf54997a94132e68b73d83e82b71b10e94ead2885220fd3b684158",
+     "final": "f9ace68f10bf54997a94132e68b73d83e82b71b10e94ead2885220fd3b684158"
     }
    ]
   }
- }
+ },
+ "manifestVersion": 1,
+ "sources": [
+  {
+   "file": "Intermolecular forces.pptx",
+   "sha256": "c60fbdef9ac72d4a3cbb9cd276f800f4209c9b4a36aaba1c03b0186c3f34e11a"
+  },
+  {
+   "file": "Intro slides MM.pdf",
+   "sha256": "5202af4234580ce2115ced34f37f7d8814ef7e4871bdb9ab3dee0da111f588a3"
+  },
+  {
+   "file": "MM TA 6 Doping.pdf",
+   "sha256": "6e8f70df5439117e817b11c6429bb9918be0426c33fa0f8b8ec682b151c00b6e"
+  },
+  {
+   "file": "MMM_TA_1.pdf",
+   "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e"
+  },
+  {
+   "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
+   "sha256": "ae1fa9f6828f0db6f23b531ecd00f368cdcfcd0669b1f3ee6dcdb56a2f76a38d"
+  },
+  {
+   "file": "Solid State TA_2 21.10.26.pdf",
+   "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2"
+  },
+  {
+   "file": "Solid State TA_3 28.10.26.pdf",
+   "sha256": "7f46defc1b90bdb375f46a9994e86d5bdd946ff09484fd1516f05377f6a89557"
+  },
+  {
+   "file": "TA 4 Band theory 4.11.26.pdf",
+   "sha256": "01f7ef9876b7619ab91f4382dd7b7fb77ff7fa4248826e64d08e970daf68a91b"
+  },
+  {
+   "file": "TA 5 Band Theory  Semiconductors.pdf",
+   "sha256": "22ce1c7e2e765207dead8574cba55f311e2b8a9a6b31ce8a61501c5ca8f54665"
+  },
+  {
+   "file": "TA1 assignment 2026.pdf",
+   "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25"
+  }
+ ]
 }

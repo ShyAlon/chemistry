@@ -3,9 +3,9 @@
  "course": "general-chemistry-2",
  "topic": "E3",
  "source": {
-  "sha256": "cc3dc0671f04329854011f8e4def749aaeb0047b4047cf0623c20ac0d8331d75",
+  "sha256": "e5102e707d9467facce4aefa25aacc1ddbdf75ee3a5e593c492a44d75b848b73",
   "kind": "pdf",
-  "pageCount": 44,
+  "pageCount": 47,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
@@ -742,6 +742,95 @@
      "rationale": "Duplicate of page 40 content."
     }
    ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "ff5b39eafe40a6f5992ef13aa931a7109ed9eeeddaa85fa56bfe110e1cb19123",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ion product of water, Kw = [H3O+][OH-] = 1.0e-14",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p46), also owned by E4; supports the Kw in the Ka-Kb relation."
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "4678fc8ea276865a19246d085805bef90b193a9ad249e5d6c8773b87eff78b63",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pH + pOH = pKw = 14 from -log Kw",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p47), also owned by E4; supports pKa + pKb = pKw."
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "8d1cb14594aaafb8cfde521bdb1873f6e255b9dd655c277362e5cd2ba41e8ade",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "acetate hydrolysis: Kb = Kw/Ka, 5.7e-10 from Ka 1.75e-5",
+     "targets": [
+      "theory:E3-t17"
+     ],
+     "rationale": "Forward-reference page (original p85), also owned by E4; derives Kb = Kw/Ka for acetate by multiplying by [H3O+]."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "theory:E3-t27"
+   ],
+   "rationale": "The period trend CH4 < NH3 < H2O < HF is not on any source page I found (AB I pages 1-44 checked, plus the pages cited here)."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5"
+   ],
+   "rationale": "Own worked examples (conjugate pairs, Ka from Kb, two direction cases, own-number HCl/HBr mix); not taken from slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15"
+   ],
+   "rationale": "Own quiz questions; the course gave no quiz for this topic."
   }
  ]
 }

@@ -8,7 +8,8 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import catalogue from '#catalogue';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages']);
+const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages','lessonAdditions']);
+const ADDITION_KEYS=new Set(['id','targets','rationale']);
 const REVIEW_KEYS=new Set(['status','reviewer','sourceSha256','contentSha256','unitMapSha256','figuresSha256','adminPagesAttested']);
 const ADMIN_KINDS=new Set(['title','outline','divider','marker']);
 const PH_WORDS=['pending','tbd','todo','dummy','placeholder','fake','sample','example','none','unknown','test','needed'];
@@ -76,7 +77,8 @@ export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
  const parts=c.files.map(f=>'src/'+f+'\n'+c.texts.get(f)).concat([...c.extras.keys()].sort().map(x=>x+'\n'+c.extras.get(x)));
  return {hash:sha(parts.join('\n--file--\n')),files:[...c.files.map(f=>'src/'+f),...[...c.extras.keys()].sort()],errors:[]};
 }
-export const unitMapHash=cov=>sha(JSON.stringify({source:cov.source,pages:cov.pages}));
+// lessonAdditions enter the hash only when present, so every map without them keeps its recorded review binding.
+export const unitMapHash=cov=>sha(JSON.stringify(cov.lessonAdditions===undefined?{source:cov.source,pages:cov.pages}:{source:cov.source,pages:cov.pages,lessonAdditions:cov.lessonAdditions}));
 export function blockExists(topic,ref){
  const m=/^(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
  const arr=topic.content[m[1]];
@@ -127,10 +129,28 @@ export function checkTopic(topic,cov){
   }
  }
  for(let i=1;i<=n;i++)if(!seen.has(i))e('page '+i+' has no units');
+ // Lesson additions: authored material with no source page. Never source coverage; reviewed and hash-bound with the map.
+ const added=new Set();
+ if(cov.lessonAdditions!==undefined){
+  if(!Array.isArray(cov.lessonAdditions)||!cov.lessonAdditions.length)e('lessonAdditions must be a non-empty list when present');
+  const aids=new Set();
+  for(const a of Array.isArray(cov.lessonAdditions)?cov.lessonAdditions:[]){
+   const w='addition '+a?.id+': ';
+   for(const k of Object.keys(a||{}))if(!ADDITION_KEYS.has(k))e(w+'unexpected field '+k);
+   if(!/^a\d+$/.test(a?.id||'')||aids.has(a.id))e(w+'id must be a unique aNN');aids.add(a?.id);
+   if(!(a?.rationale||'').trim()||a.rationale.length>200)e(w+'rationale required, max 200 chars');
+   if(!a?.targets?.length)e(w+'needs targets');
+   for(const t of a?.targets||[]){
+    if(!blockExists(topic,t))e(w+'target not found '+t);
+    else if(used.has(t))e(w+'target is already credited as source coverage '+t);
+    if(added.has(t))e(w+'target listed twice '+t);added.add(t);
+   }
+  }
+ }
  const missingIds=topic.content.theory.filter(b=>b.id===undefined).length;
  if(missingIds)e(missingIds+' theory blocks lack ids');
- const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)).map(b=>b.id);
- return {errors,pending,unmapped};
+ const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
+ return {errors,pending,unmapped,additions:added.size};
 }
 export function loadPolicy(dir=path.join(root,'ingest')){return JSON.parse(fs.readFileSync(path.join(dir,'coverage-policy.json'),'utf8'))}
 export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireReview=false,policy=loadPolicy(dir)}={}){

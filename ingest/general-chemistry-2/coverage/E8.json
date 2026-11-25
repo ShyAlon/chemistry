@@ -1,0 +1,1117 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E8",
+ "source": {
+  "sha256": "a54ffbd37adbdf306698c8cbe98b3d5b805926e4eae7fbd6072795956820dce8",
+  "kind": "pdf",
+  "pageCount": 66,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "9003f5f1dab7cb5e1b334a21d7cf7c1d29f1ec77662db138bd6dba37cc01372c",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "title page of the thermodynamics deck",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "ef824a34c59bff4e41e15aaec9b7965d0fb81ed66bb5e17f95cdf03f2521dd56",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "system, surroundings, open, closed and isolated systems",
+     "targets": [
+      "theory:E8-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "deaba750a200eab81cd98ff1ffe1f71ece088b44ef34e37ef1f2b7acde4ba1d9",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "isolated system (Hebrew page)",
+     "targets": [
+      "theory:E8-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "b2abc1040755203dfb9b2dbead4b70ce97925f3ffd4cb9530bc97ee35c46f767",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "state function: value depends only on the state",
+     "targets": [
+      "theory:E8-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "4b420a78f6cf8e874719fe33da90e3f67c90d887233a57dc1f47675faa7ed7e0",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "state function example, path independence",
+     "targets": [
+      "theory:E8-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "35569ca67bf4486e0984756c7e109f103a1093e3ad656f65d31824e7a0f48b71",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "units of force, pressure, work and energy",
+     "targets": [
+      "theory:E8-t04",
+      "theory:E8-t11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "b83a9506ed3d2060a7ba197c66c5a59fc8f620e3b1f69f82dbd546d28319e831",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "work as force along a path",
+     "targets": [
+      "theory:E8-t07",
+      "theory:E8-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "2000d3d069b383d156609eacd7dbc72476cb8fd47afcc7834c00fb6d95e7c61f",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "work as integral of P dV",
+     "targets": [
+      "theory:E8-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "ebdc480cf78616a77dae96245e315397a3db439e7e9074fe3140b300f1961e84",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "pressure-volume work w = -Pext dV",
+     "targets": [
+      "theory:E8-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "fb45cd89bd097daceab963a10b746a89fa84e798c6fcf4aad6b29bac8bf7e777",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1: isobaric and constant-PV work, statement",
+     "targets": [
+      "worked:11",
+      "theory:E8-t09"
+     ],
+     "rationale": "Worked 11 uses the slide numbers; pressure given in kgf/m2."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "821a1504509ac66562e8da8aaacf70d38d0d0c9a99b274f84f57ac04d1829590",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 1 solution: 39.23 J and 21.55 J",
+     "targets": [
+      "worked:11",
+      "theory:E8-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "13563c057b2025c8e671b3f3d956492ed8f98fc003019db333d5c626e8256035",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "work is the area under the curve and depends on the path; sign convention",
+     "targets": [
+      "theory:E8-t06",
+      "theory:E8-t09",
+      "theory:E8-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "e84ab2cda07a16cb58c36657533acfbd718688e0d856b417e7416cb764cc0cbc",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2: helium expansion, initial volume and final volume",
+     "targets": [
+      "worked:12",
+      "theory:E8-t07"
+     ],
+     "rationale": "Worked 12 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "203ebc916c0baa8d5a234880643314a08f6ce1cfbfecb1c4416587abc4cd8e87",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 2 solution: w = -1.1e2 J and the L atm conversion",
+     "targets": [
+      "worked:12",
+      "theory:E8-t11"
+     ],
+     "rationale": "Slide initial pressure 2.40 atm differs from the 1.30 atm used for the work."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "2b1ece55469f8c35b8d933f185290870fd0b1b225e65900c6ce10e71bdeb2089",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heat as energy transferred by a temperature difference",
+     "targets": [
+      "theory:E8-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "3269a1ad6ed77114c3869b91baf474a66789cee2e964abcc01e957f53be2dda4",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heat definition and sign",
+     "targets": [
+      "theory:E8-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "4d330e5f0f0ec7f9c97d55d96bfcad38f59c6147b59c5fa97363a5ebaa1243fa",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "melting ice: temperature plateau while heat is added",
+     "targets": [
+      "theory:E8-t27"
+     ],
+     "rationale": "Text adaptation, no figure."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "b14a15b9dbbc95bb2eb870740e56c6e50224582a42d2e7f62ba812ec1a245886",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "units of heat and dependence on mass, temperature change and material",
+     "targets": [
+      "theory:E8-t04",
+      "theory:E8-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "01c69ab866c2b39d3ad73ae559428dee51da8e9dbdb54c67ce074f65459c2cc4",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heat capacity and molar heat capacity",
+     "targets": [
+      "theory:E8-t08",
+      "theory:E8-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "5acf8f8270e9e527ee3a2f27780a8d9b0558fc4834cb6b07f257bff1f8e939e5",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "molar heat capacities of several compounds",
+     "targets": [
+      "theory:E8-t08"
+     ],
+     "rationale": "Table values not reproduced; no table in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "10d01afb27811ed63bba5cdd9446fe3a19d3e4f477e902985375369a9e857369",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "determination of specific heat by mixing",
+     "targets": [
+      "theory:E8-t14"
+     ],
+     "rationale": "Text adaptation, no figure."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "dcfe9070be5c2d318db09687d226c59f6fb97ccfc448a35f86a6a6e809323e13",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 3: specific heat of lead 0.13 J/g C",
+     "targets": [
+      "worked:13",
+      "theory:E8-t14"
+     ],
+     "rationale": "Worked 13 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "70a39802e533372cb2c0c526843e2ffc11a92ec8c08eabc43046c46c6a9ab7ea",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "aluminium specific heat 0.903 J/g C and faster thawing",
+     "targets": [
+      "theory:E8-t08"
+     ],
+     "rationale": "Lesson carries the specific heat idea only, not the thawing claim (thermal conductivity is the main factor)."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "52b606db83127fadd57b554b0a118b757fcabfdb9b0cfadd166da5441a9ebedf",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heats of reaction and chemical energy",
+     "targets": [
+      "theory:E8-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "1da06d348b7590e78ae80153cb89f417a454a73f1cd38ce4757c82106ab47f99",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "exothermic and endothermic reactions",
+     "targets": [
+      "theory:E8-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "46588deb4bb1f074e326e50db26c5bdaa17d0b500e6a51a184d384e03f6d4dbd",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "bomb calorimeter: q rxn = -q cal and calorimeter heat capacity",
+     "targets": [
+      "theory:E8-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "504a3587646ce716e09b343b0e0e21d82f0de763928017582d8c154a1995e595",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4: sucrose in a bomb calorimeter, statement",
+     "targets": [
+      "worked:14",
+      "theory:E8-t18"
+     ],
+     "rationale": "Worked 14 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "d491dee17c539d1143b7cf36748c8073f45f288d5191f9edebd3c0bc4441d3fd",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: q cal = 16.7 kJ",
+     "targets": [
+      "worked:14",
+      "theory:E8-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "88de3ae26e3ad37629946cc500b79ee44617222c59bafb03084e856bef1a2b04",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 4 solution: -16.5 kJ/g, kJ/mol and 19 Cal per teaspoon",
+     "targets": [
+      "worked:14",
+      "theory:E8-t18"
+     ],
+     "rationale": "Slide molar mass 343.3 vs 342.3; worked 14 states both."
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "190597161efcbcd6247d66515e6b9ee1bbb719995d4d9dd4fd2275276c395303",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal energy: Joule experiment",
+     "targets": [
+      "theory:E8-t20",
+      "theory:E8-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "31e67eddb99e5e185f83b52cc42be5a15ed031d0f84a7eaf91019c68b9092a2c",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal energy as energy stored in molecules",
+     "targets": [
+      "theory:E8-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "d4de07a8e30665e2c4b387b94d75d7d1b5645fc9abc9412730bbf71a26c25d54",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal energy is independent of position and motion of the body",
+     "targets": [
+      "theory:E8-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "a59ad94b89c8128de487bd3b703fe8e94178223300f94a8d91d6a29247f5c309",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal energy is a state function",
+     "targets": [
+      "theory:E8-t03",
+      "theory:E8-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "3e90553fae5df6a68e5974609aaa2630ff548e6bc82c93a51272bff4cbc1b111",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "zeroth law of thermodynamics",
+     "targets": [
+      "theory:E8-t02"
+     ],
+     "rationale": "Lesson mentions thermal equilibrium only as part of terminology."
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "8d1fbbbe0b6adc09db83ab2408fb0f783893c3681169674ecaddfef1e522c35c",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "first law: delta U = q + w, heat enters and work done on the system",
+     "targets": [
+      "theory:E8-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "de5f4e193f9b246f2eaa332cf210365ff99b6b40f19863bc55e0bb9a34954bff",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "first law: heat leaves the system and work done by the system",
+     "targets": [
+      "theory:E8-t20",
+      "theory:E8-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "5f8158e5df080cbb1c743353274ede7a06964f7dce13fb44400d12558d6151c8",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal energy and enthalpy in chemical reactions",
+     "targets": [
+      "theory:E8-t21",
+      "theory:E8-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "859b5890d798ff3e3736dbec1acf24ca091104a865e34fb67daac34931050e3a",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heats of reaction at constant volume and constant pressure",
+     "targets": [
+      "theory:E8-t21",
+      "theory:E8-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "59ccc218a66cd86bdab14039d046b70bb1c52087e0a96d328870186258f7c17a",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "qP = delta U + P delta V = delta H",
+     "targets": [
+      "theory:E8-t21",
+      "theory:E8-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "804b0355ca377cee7dd5e752eb90dd3bf2772f0590619cb24d222238576b67e6",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "heat of reaction measured at constant V or P",
+     "targets": [
+      "theory:E8-t21",
+      "theory:E8-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "f1f3a9c2cd8b24c9e6078660b8a535b9e9deafe972dcb3301eb8d7a87bc25f59",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "comparing delta H and delta U for 2CO + O2 using RT delta n",
+     "targets": [
+      "theory:E8-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "000f10c59211b2b13de44604215901196707675ea0527ba5a318b2ce6ac81142",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "sucrose combustion: delta H and q V nearly equal, volume unchanged",
+     "targets": [
+      "theory:E8-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "6bd2360e9a59c63779bfd9cf220fe7c14758e2795f105c39b8cc31604309a666",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary of the first law and enthalpy",
+     "targets": [
+      "theory:E8-t20",
+      "theory:E8-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "3260ce3267d4e5ad8436ab36210c19c150b9fc51e3501dfee6d9c730d4722b76",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "enthalpy of vaporization 44.0 and of fusion 6.01 kJ/mol",
+     "targets": [
+      "theory:E8-t27",
+      "theory:E8-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "fc452abde0b5b6e26652498e1b0327986d3e16036e1de4fedd3196a700425257",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 5: 50.0 g water, liquid 10.0 C to vapor 25.0 C",
+     "targets": [
+      "worked:15",
+      "theory:E8-t27"
+     ],
+     "rationale": "Worked 15 uses the slide numbers; slide total 125.14 from rounded steps."
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "ff9f994dfc71064bf0e93a17f4d497131b06dd4b12a247b37cb9608434cefa3b",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "standard states and standard enthalpy changes",
+     "targets": [
+      "theory:E8-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "12c578d23b4af1c9ac8ce94c74f8550dba6eadea009c91e7ca478e5ad1b154d5",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "enthalpy diagram of reactants and products",
+     "targets": [
+      "theory:E8-t22"
+     ],
+     "rationale": "Text adaptation, no diagram."
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "18eac5171905ed5f60bbce6c754ceb204a7d354a8aa23a7d92758e76188264fe",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "enthalpy is extensive; Hess law starts",
+     "targets": [
+      "theory:E8-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "c13f95d022172731e153a78988f468dfebfe87d9a742d6240e5a39f2b947bd06",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Hess law of constant heat summation, state function",
+     "targets": [
+      "theory:E8-t34"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "e27045e16422a6d527e31b1d9b06bf493721b759d76bc2f13c2f8187aa0bfc93",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "Hess law scheme",
+     "targets": [
+      "theory:E8-t34",
+      "theory:E8-t36"
+     ],
+     "rationale": "Text adaptation, no scheme."
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "537ad550cdaaca0b10f6b02e51d983bc98b1686c7231fedfdc57c7d8f0f0c69c",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 6: propane formation from combustion data, statement",
+     "targets": [
+      "worked:10",
+      "theory:E8-t36"
+     ],
+     "rationale": "Worked 10 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "550ac4d1dd4c9be63fed1d5a1c3e2c895f11fbfe65f248561fc37a09b17597b8",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Exercise 6 solution: slide gives -104 kJ",
+     "targets": [
+      "worked:10",
+      "theory:E8-t36"
+     ],
+     "rationale": "The given data (-395, -285.8, -2219) yield -109 kJ; -104 is the table-based value with CO2 -393.5. Worked 10 states this."
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "0896393be7366d407cfe479e352faaa4b56f3978027c7b12cea99d67e5596e62",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "standard enthalpy of formation defined",
+     "targets": [
+      "theory:E8-t30",
+      "theory:E8-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "02977ad6870ddfd294a38bf5ca170c63633e995d3b78b610c40068807f02a445",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of standard enthalpies of formation",
+     "targets": [
+      "theory:E8-t31"
+     ],
+     "rationale": "Table values not reproduced; lesson cites selected approximate values."
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "71e95b9e93e830148f88c0e6a7a906ed3789a824e6b34f0fae6b3f28608b4c4e",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "absolute enthalpies unknown; formation of elements is zero",
+     "targets": [
+      "theory:E8-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "92e1b3de148594064eac9bff4841dffde959e12610b3b9ce0343ac0c04f04aef",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "most stable forms: graphite and diamond, Br2 liquid",
+     "targets": [
+      "theory:E8-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "746ad0c50d9856c7317467c919795b0d2ab305946389e0421b4140b5b27eb2eb",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "standard enthalpy of formation, formaldehyde",
+     "targets": [
+      "theory:E8-t43"
+     ],
+     "rationale": "Text adaptation, no structure drawing."
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "1af370b4f12c65b971d95028852c0b4ebdd6aba81bf795922c9344a4b16fec3f",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "compounds unstable with respect to their elements",
+     "targets": [
+      "theory:E8-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "0712aff9a7529982af26182923ea2fe0ee18d23fad1945c6eb5b68701abf0225",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "standard enthalpy of reaction from formation enthalpies, NaHCO3 decomposition",
+     "targets": [
+      "theory:E8-t31",
+      "worked:8"
+     ],
+     "rationale": "Worked 8 uses table values, not slide numbers; the slide gives no numbers."
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "6682f681382f0de7356534f47cb0b5f9b195a865dce2aca54c90194dba3ab2a2",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 7: delta H f of benzene = +49 kJ/mol",
+     "targets": [
+      "worked:16",
+      "theory:E8-t31"
+     ],
+     "rationale": "Worked 16 uses the slide numbers; slide intermediate -4772 is a typo for -4722."
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "a54fbba362236f3d2cee64e494fb381cc3cb1ad718ac91cb8ca6d793d2ea8895",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "bond energies and the reaction of H2 and Cl2",
+     "targets": [
+      "theory:E8-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "e85c220f611b04eaf9eaccfd69a8bde880938c9e6756f154fcc29559c3702877",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "bond energy values are close but not identical",
+     "targets": [
+      "theory:E8-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "39d14d45cd16dab95ff91ad2b327d07532dcb80bed74a858ac473825f3943ff4",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of average bond energies at 298 K",
+     "targets": [
+      "theory:E8-t40"
+     ],
+     "rationale": "Table not reproduced; lesson lists typical values approximately."
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "7823b2062991a905c91fc18332ea73dd7c5449e8dda92ad2e6fb945261df079d",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 8: ethylene combustion by bond energies, -1093 kJ",
+     "targets": [
+      "worked:17",
+      "theory:E8-t39",
+      "theory:E8-t40"
+     ],
+     "rationale": "Worked 17 uses the slide numbers; slide table-based value -1323 kJ."
+    }
+   ]
+  },
+  {
+   "page": 65,
+   "imageSha256": "d2c6f66c5472d09deabcd36e41990afcfdb52a4510bb79d2e7988eea13ce0b12",
+   "units": [
+    {
+     "id": "p65.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "fuels as sources of energy",
+     "targets": [
+      "theory:E8-t42"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 66,
+   "imageSha256": "0bac3d8549f02e8457a2f45f86892adea25347b54c324a6491783a79edf66c98",
+   "units": [
+    {
+     "id": "p66.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "fats, carbohydrates and energy storage, Cal per gram",
+     "targets": [
+      "theory:E8-t42"
+     ]
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:7",
+    "worked:9"
+   ],
+   "rationale": "Own worked examples, not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E8-t01",
+    "theory:E8-t05",
+    "theory:E8-t12",
+    "theory:E8-t15",
+    "theory:E8-t19",
+    "theory:E8-t26",
+    "theory:E8-t29",
+    "theory:E8-t33",
+    "theory:E8-t37",
+    "theory:E8-t38",
+    "theory:E8-t41"
+   ],
+   "rationale": "Own section headings and own worked illustration (t37); not slide content."
+  }
+ ]
+}

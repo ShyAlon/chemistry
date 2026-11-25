@@ -105,12 +105,13 @@
     {
      "id": "p06.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "a to b with K = 2.5: adding a moves the point back to the K line",
      "targets": [
       "theory:E2-t10",
       "theory:E2-t09"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: the point moving back to the K line is described in words; K = 2.5 is source-given."
     }
    ]
   },
@@ -121,13 +122,14 @@
     {
      "id": "p07.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "adding b: the return path to the K line from the other side",
      "targets": [
       "theory:E2-t10",
       "theory:E2-t06",
       "theory:E2-t07"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: the approach to the K line from the other side is described in words."
     }
    ]
   },
@@ -205,12 +207,13 @@
     {
      "id": "p12.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "volume change moves the mixture toward fewer or more gas moles",
      "targets": [
       "theory:E2-t17",
       "theory:E2-t13"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: the volume effect on gas moles is explained in words and worked 7 and 8."
     }
    ]
   },
@@ -450,12 +453,13 @@
     {
      "id": "p27.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "logP versus polar surface area and oral absorption",
      "targets": [
       "theory:E2-t39",
       "theory:E2-t41"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: the logP and PSA trend is stated in words; the source scatter plot is not reproduced."
     }
    ]
   },
@@ -466,12 +470,13 @@
     {
      "id": "p28.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "logP versus polar surface area and brain permeation",
      "targets": [
       "theory:E2-t39",
       "theory:E2-t41"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: the brain-permeation trend is stated in words; the source plot is not reproduced."
     }
    ]
   },
@@ -552,11 +557,12 @@
     {
      "id": "p33.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "inert gas at constant volume leaves partial pressures unchanged",
      "targets": [
       "theory:E2-t18"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: constant-volume inert gas is explained in words."
     }
    ]
   },
@@ -567,11 +573,12 @@
     {
      "id": "p34.u1",
      "kind": "figure",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "inert gas at constant total pressure grows the volume",
      "targets": [
       "theory:E2-t19"
-     ]
+     ],
+     "rationale": "Text adaptation, no diagram: constant-pressure inert gas is explained in words."
     }
    ]
   },

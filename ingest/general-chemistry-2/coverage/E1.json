@@ -42,7 +42,8 @@
      "label": "H2 + I2 forward approach to equilibrium, concentration-time curves",
      "targets": [
       "theory:E1-t47",
-      "theory:E1-t02"
+      "theory:E1-t02",
+      "theory:E1-t52"
      ]
     }
    ]
@@ -58,7 +59,8 @@
      "label": "2HI reverse approach to the same kind of equilibrium",
      "targets": [
       "theory:E1-t04",
-      "theory:E1-t47"
+      "theory:E1-t47",
+      "theory:E1-t52"
      ]
     }
    ]
@@ -107,7 +109,8 @@
      "label": "equilibrium amounts differ by start but one ratio stays fixed",
      "targets": [
       "theory:E1-t09",
-      "theory:E1-t04"
+      "theory:E1-t04",
+      "theory:E1-t52"
      ]
     }
    ]
@@ -423,7 +426,8 @@
      "disposition": "covered",
      "label": "limestone decomposition: CO2 pressure independent of solid amount",
      "targets": [
-      "theory:E1-t13"
+      "theory:E1-t13",
+      "theory:E1-t53"
      ]
     }
    ]
@@ -438,7 +442,8 @@
      "disposition": "covered",
      "label": "vapor pressure as a Kp value",
      "targets": [
-      "theory:E1-t16"
+      "theory:E1-t16",
+      "theory:E1-t53"
      ]
     }
    ]
@@ -538,7 +543,8 @@
      "label": "n-butane to iso-butane: K fixes the ratio from any start",
      "targets": [
       "theory:E1-t40",
-      "theory:E1-t38"
+      "theory:E1-t38",
+      "theory:E1-t55"
      ]
     }
    ]
@@ -553,7 +559,8 @@
      "disposition": "covered",
      "label": "approach to the K line from either side",
      "targets": [
-      "theory:E1-t40"
+      "theory:E1-t40",
+      "theory:E1-t55"
      ]
     }
    ]
@@ -569,7 +576,8 @@
      "label": "reaction quotient definition and Q values at start states",
      "targets": [
       "theory:E1-t33",
-      "theory:E1-t43"
+      "theory:E1-t43",
+      "theory:E1-t54"
      ]
     }
    ]
@@ -586,7 +594,8 @@
      "targets": [
       "theory:E1-t34",
       "theory:E1-t35",
-      "theory:E1-t36"
+      "theory:E1-t36",
+      "theory:E1-t54"
      ]
     }
    ]

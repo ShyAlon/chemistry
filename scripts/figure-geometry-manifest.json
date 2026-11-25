@@ -1660,5 +1660,25 @@
   "labels": [],
   "allowContainment": false,
   "allowOverlaps": []
+ },
+ "eq-conc-time": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "eq-flask-pressure": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "eq-k-approach": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "eq-q-strip": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
  }
 }

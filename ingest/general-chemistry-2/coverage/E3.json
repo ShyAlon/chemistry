@@ -209,20 +209,7 @@
       "theory:E3-t12",
       "theory:E3-t13",
       "theory:E3-t14"
-     ],
-     "rationale": "Worked 1 and quiz 2 are lesson additions, not from this page."
-    },
-    {
-     "id": "p12.u2",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "lesson additions: conjugate pairs practice",
-     "targets": [
-      "worked:1",
-      "quiz:1",
-      "quiz:2"
-     ],
-     "rationale": "Own practice items, no slide counterpart."
+     ]
     }
    ]
   },
@@ -273,18 +260,6 @@
       "theory:E3-t16",
       "theory:E3-t20"
      ]
-    },
-    {
-     "id": "p15.u2",
-     "kind": "equation",
-     "disposition": "adapted",
-     "label": "lesson addition: Ka times Kb equals Kw",
-     "targets": [
-      "theory:E3-t17",
-      "worked:2",
-      "quiz:5"
-     ],
-     "rationale": "Not shown on this page; own addition to connect Ka and Kb."
     }
    ]
   },
@@ -349,10 +324,7 @@
      "label": "direction of proton transfer favors the weaker acid and weaker base",
      "targets": [
       "theory:E3-t18",
-      "theory:E3-t19",
-      "worked:3",
-      "worked:4",
-      "quiz:12"
+      "theory:E3-t19"
      ]
     }
    ]
@@ -402,9 +374,6 @@
      "label": "Exercise 1: CH3COOH with NaCN, balanced reaction and direction",
      "targets": [
       "worked:6",
-      "worked:3",
-      "worked:4",
-      "quiz:12",
       "theory:E3-t19"
      ],
      "rationale": "Worked 6 follows the slide exercise as given (qualitative, no numbers)."
@@ -453,11 +422,9 @@
      "disposition": "covered",
      "label": "Exercise 2: HCl and HBr mixture, hydronium concentration",
      "targets": [
-      "worked:7",
-      "worked:5",
-      "quiz:13"
+      "worked:7"
      ],
-     "rationale": "Worked 7 uses the slide numbers as given (0.01 mol HCl, 4.05 g HBr, 150 mL, 0.40 M); worked 5 is an own-number variant."
+     "rationale": "Worked 7 uses the slide numbers as given (0.01 mol HCl, 4.05 g HBr, 150 mL, 0.40 M)."
     }
    ]
   },
@@ -556,8 +523,7 @@
      "label": "focus on the anions: localized ethoxide versus delocalized acetate",
      "targets": [
       "theory:E3-t29",
-      "theory:E3-t32",
-      "quiz:14"
+      "theory:E3-t32"
      ]
     }
    ]
@@ -623,8 +589,7 @@
      "label": "amine pKb row: slide gives methylamine 4.74, erroneous value",
      "targets": [
       "theory:E3-t35",
-      "theory:E3-t47",
-      "quiz:15"
+      "theory:E3-t47"
      ],
      "rationale": "Slide 4.74 equals ammonia and breaks its own order; tables give about 3.34. Lesson uses 3.3, slide value recorded as error."
     }
@@ -641,8 +606,7 @@
      "label": "cyclohexylamine and aniline pKb",
      "targets": [
       "theory:E3-t36",
-      "theory:E3-t35",
-      "quiz:7"
+      "theory:E3-t35"
      ],
      "rationale": "Typical reference values; lecturer numbers kept distinct from reference values."
     }
@@ -724,8 +688,7 @@
      "targets": [
       "theory:E3-t37",
       "theory:E3-t38",
-      "theory:E3-t07",
-      "quiz:11"
+      "theory:E3-t07"
      ]
     }
    ]

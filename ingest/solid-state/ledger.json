@@ -1,7 +1,7 @@
 {
  "course": "solid-state",
  "kind": "ingested",
- "recordedAt": "2026-11-25T04:57:15.007Z",
+ "recordedAt": "2026-11-25T05:08:26.067Z",
  "note": "Post-reconciliation state of record.",
  "blocks": {
   "SS1": {
@@ -71,8 +71,8 @@
      "final": "4abd1a50e5bd9651614e0416675a0eafcbe8840263fe0c1b0ba72949b5d1212a"
     },
     {
-     "base": "833642f64184363689e664468ff5ff88fd17694cb8ee3f8335a42ab8565a3825",
-     "final": "833642f64184363689e664468ff5ff88fd17694cb8ee3f8335a42ab8565a3825"
+     "base": "9ce4121ee103bdd7c3a21ebc0e6bf074aa4e2885ff4a102f6ae6f41ca41f6938",
+     "final": "9ce4121ee103bdd7c3a21ebc0e6bf074aa4e2885ff4a102f6ae6f41ca41f6938"
     },
     {
      "base": "382f68dea6eb19b2150279d06211adbe65e08212ea7fd9ef87e8f12c548b7a98",
@@ -227,8 +227,8 @@
      "final": "8aa1d8c1887023df5bc2e0880e398217ffb82c2e51d6e7d81216da4d11f16796"
     },
     {
-     "base": "3c693b80af8148f1f1c3248cf3990e1c68f6ae63aacf488204f2b2c98ea2b6a2",
-     "final": "3c693b80af8148f1f1c3248cf3990e1c68f6ae63aacf488204f2b2c98ea2b6a2"
+     "base": "961576070a92404b4825bfe6aa7f7fc6a6a2b4fa727ef2fb8f5af5b1dd6c34ad",
+     "final": "961576070a92404b4825bfe6aa7f7fc6a6a2b4fa727ef2fb8f5af5b1dd6c34ad"
     },
     {
      "base": "12ba19f646d19a956d083160e9a653d532b506fb0ccf5c8c1f5739465a3cd492",
@@ -423,8 +423,8 @@
      "final": "f16615c9a7591e88dfec174c545c4022f9f0b4a86a2316e96737688bdf93b062"
     },
     {
-     "base": "7a7d5791b6a3d369a9617eac0a1d12a59102eecad8534f9acedcd099fc3757dc",
-     "final": "7a7d5791b6a3d369a9617eac0a1d12a59102eecad8534f9acedcd099fc3757dc"
+     "base": "5872f0d1760707b1c25648fb02c328899e5246990a73f9b028a28ebc196f873d",
+     "final": "5872f0d1760707b1c25648fb02c328899e5246990a73f9b028a28ebc196f873d"
     },
     {
      "base": "a1e8fbc9012110ec179151d2b9f1f6499dfb2c1f4b33b82f3a7b7c60e794b57a",
@@ -459,8 +459,8 @@
      "final": "9c1d5ea9762343f25633a6e91523d5f410dba7b4a89b318dab8acf5af3b3e3c1"
     },
     {
-     "base": "74b011ad4c774c2b8829f97bd79586fdca53a6ba75ceea16c17664c1e0d9f1f6",
-     "final": "74b011ad4c774c2b8829f97bd79586fdca53a6ba75ceea16c17664c1e0d9f1f6"
+     "base": "adf394ae001d78eb91102bec0358b1ccb5f5bd0c6efbd82c6fe7bdbf35c194bc",
+     "final": "adf394ae001d78eb91102bec0358b1ccb5f5bd0c6efbd82c6fe7bdbf35c194bc"
     },
     {
      "base": "2f1a2bae372bf19125dbb87f6bec0be609d3d20b708c02830628275de7090dbd",

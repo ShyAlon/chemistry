@@ -12,18 +12,7 @@
   "chat-01M877TRRM1K3AAJ49C7A13K0A"
  ],
  "semanticReview": {
-  "status": "done",
-  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
-  "sourceSha256": "8a2b9900420f154233117d4c279a7b57c72049805f5c00238ce06c00ede6fc52",
-  "contentSha256": "598896680f9b8e14a911efa0eab05c0fbac04671087cf3a21bfcbe2bddae272b",
-  "unitMapSha256": "3a580c92abd087f0f0e49c2b9584f5201e38316b0f13b669eb0122fd33314a91",
-  "figuresSha256": "0785e386490f32a15f0637f1a83daa86097c7f251c5cd5441906b349d555f58f",
-  "adminPagesAttested": [
-   12,
-   21,
-   50,
-   52
-  ]
+  "status": "pending"
  },
  "pages": [
   {
@@ -1064,6 +1053,13 @@
     "theory:E13-t29"
    ],
    "rationale": "Section headings and own Faraday summary; not slide content."
+  },
+  {
+   "id": "a04",
+   "targets": [
+    "theory:E13-t16"
+   ],
+   "rationale": "Own summary linking dG, E and K with the Zn-Cu example. Slide p40 uses E0 only for the Ksp case; not slide content."
   }
  ]
 }

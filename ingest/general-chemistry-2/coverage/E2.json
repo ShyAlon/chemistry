@@ -3,9 +3,9 @@
  "course": "general-chemistry-2",
  "topic": "E2",
  "source": {
-  "sha256": "fe43bb03fc6c390d90c95e0f6db8110a06bb9af904343faa3b188f5a4f57019d",
+  "sha256": "2bb08753160e78dd04cb6f19cc637ae61ed9d9e1670c8d6ff3717df5f3e2719a",
   "kind": "pdf",
-  "pageCount": 51,
+  "pageCount": 45,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
@@ -575,106 +575,10 @@
   },
   {
    "page": 35,
-   "imageSha256": "2043dc2f32f24a2f98876da116a0543ddaad5c61d06f7362ecb85827b31793c3",
-   "units": [
-    {
-     "id": "p35.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "H2 + I2 problem: Kp, unreacted moles, total and partial pressures",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 36,
-   "imageSha256": "005941524b3855c13cc7c7a0133fa795dec5cecec13c9ccdee51af3665809561",
-   "units": [
-    {
-     "id": "p36.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "empty ICE table",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 37,
-   "imageSha256": "537b1ac117b89dc8a88119d2b7c353341c0f4fb3d1383d5c84f0ee246cb7e8b7",
-   "units": [
-    {
-     "id": "p37.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "ICE change row",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 38,
-   "imageSha256": "d91677733d702962c899795104a1949904a1f4145d11511aaea1767facb356bd",
-   "units": [
-    {
-     "id": "p38.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "equilibrium row and Kc with volume",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 39,
-   "imageSha256": "452195762688abf2b69b821b17417cdfbef8d1b8bb7431d582d8d6cb027a8850",
-   "units": [
-    {
-     "id": "p39.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "quadratic and root choice",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 40,
-   "imageSha256": "1361a9b8ab6a74a7334e7a8de870423e6a2f5657b5cf3385993d3da1a6af700f",
-   "units": [
-    {
-     "id": "p40.u1",
-     "kind": "exercise",
-     "disposition": "adapted",
-     "label": "total pressure and partial pressures",
-     "targets": [
-      "worked:6"
-     ],
-     "rationale": "Own numbers (Kc 50, 10.0 L, 721 K); same method. Table steps shared with E1."
-    }
-   ]
-  },
-  {
-   "page": 41,
    "imageSha256": "4289cda0e1d8f20a0abc854a9e69cc125a23d1d9b065e3fa394125abac8ea1ac",
    "units": [
     {
-     "id": "p41.u1",
+     "id": "p35.u1",
      "kind": "equation",
      "disposition": "covered",
      "label": "partial pressure from mole fraction and total pressure",
@@ -687,11 +591,11 @@
    ]
   },
   {
-   "page": 42,
+   "page": 36,
    "imageSha256": "1d6958b2dccc16e8b7d90da07fb00857f9b4461242f4b9ef79a53bee775a689f",
    "units": [
     {
-     "id": "p42.u1",
+     "id": "p36.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "N2O4 problem: find initial pressure from total at equilibrium",
@@ -703,11 +607,11 @@
    ]
   },
   {
-   "page": 43,
+   "page": 37,
    "imageSha256": "466fa163b4c12fd2562e209c1e13e1472cc035383af085a4a40bb20d8ff5f246",
    "units": [
     {
-     "id": "p43.u1",
+     "id": "p37.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "solution plan with partial pressures",
@@ -719,11 +623,11 @@
    ]
   },
   {
-   "page": 44,
+   "page": 38,
    "imageSha256": "a750840f2e1ef09a635cedfc442959e447b985392698e5c17802cf48b67aee0d",
    "units": [
     {
-     "id": "p44.u1",
+     "id": "p38.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "empty ICE in pressures",
@@ -735,11 +639,11 @@
    ]
   },
   {
-   "page": 45,
+   "page": 39,
    "imageSha256": "e1154835ab54f436c0dd8ffb90a921badda9dcd8a7ac4e7097cb017d17201145",
    "units": [
     {
-     "id": "p45.u1",
+     "id": "p39.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "ICE change row",
@@ -751,11 +655,11 @@
    ]
   },
   {
-   "page": 46,
+   "page": 40,
    "imageSha256": "a5de742bc0ec556f2367c56d33979cdf52584c36f9c55cf2c38cf4e9d668a72c",
    "units": [
     {
-     "id": "p46.u1",
+     "id": "p40.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "pressures sum to total",
@@ -767,11 +671,11 @@
    ]
   },
   {
-   "page": 47,
+   "page": 41,
    "imageSha256": "f70ea9e97fa2b57d77aee98afda2c2c90badaea2deed25550e3b3a2ff5f6491a",
    "units": [
     {
-     "id": "p47.u1",
+     "id": "p41.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "Kp expression and quadratic root choice",
@@ -783,11 +687,11 @@
    ]
   },
   {
-   "page": 48,
+   "page": 42,
    "imageSha256": "14400fa962c9b4adea9c2cbcaeb505a8d521af9515e2ff1b29c8eda88e467a9a",
    "units": [
     {
-     "id": "p48.u1",
+     "id": "p42.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "HgO decomposition problem statement",
@@ -801,11 +705,11 @@
    ]
   },
   {
-   "page": 49,
+   "page": 43,
    "imageSha256": "a5c8945a2117fa58ed98353f8269dc919c3235a7c021ac92e3c967f72a209462",
    "units": [
     {
-     "id": "p49.u1",
+     "id": "p43.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "Kp equals P(O2) and Kc from Kp",
@@ -819,11 +723,11 @@
    ]
   },
   {
-   "page": 50,
+   "page": 44,
    "imageSha256": "6c29ea274a21ce0118d3ac17162cd8c35bf024a900012d40b350b78ed558d459",
    "units": [
     {
-     "id": "p50.u1",
+     "id": "p44.u1",
      "kind": "exercise",
      "disposition": "adapted",
      "label": "volume, pressure, amount of solid and temperature effects",
@@ -837,21 +741,20 @@
    ]
   },
   {
-   "page": 51,
+   "page": 45,
    "imageSha256": "a1820b62d75adfdf9fc4c48bba1b6fcf446a69a83dafb1390205045e740654f0",
    "units": [
     {
-     "id": "p51.u1",
+     "id": "p45.u1",
      "kind": "exercise",
      "disposition": "adapted",
-     "label": "class exercise: ammonia disturbances, H2 + I2, N2O4, NH4HS, HgO",
+     "label": "class exercise: ammonia disturbances, N2O4 total pressure, HgO",
      "targets": [
       "worked:4",
-      "worked:6",
       "worked:7",
       "worked:8"
      ],
-     "rationale": "NH4HS part is mapped in E1; this unit claims the other problems."
+     "rationale": "H2 + I2 and NH4HS parts of this page are mapped in E1; this unit claims the other problems."
     }
    ]
   }

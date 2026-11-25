@@ -3,24 +3,16 @@
  "course": "general-chemistry-2",
  "topic": "E7",
  "source": {
-  "sha256": "7e55e7bf7dc587e934fd9a4808fd2b804c4f9ac6d537a86ae28f41a3c9cc8578",
+  "sha256": "dc3bb08a6e7186cd4825676c0d4397e1f3beb40fbc1192fb12b808965d0c48c2",
   "kind": "pdf",
-  "pageCount": 73,
+  "pageCount": 77,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
   "chat-01M877TRRM1K3AAJ49C7A13K0A"
  ],
  "semanticReview": {
-  "status": "done",
-  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
-  "sourceSha256": "7e55e7bf7dc587e934fd9a4808fd2b804c4f9ac6d537a86ae28f41a3c9cc8578",
-  "contentSha256": "b70eebfcc9ef1911b84695c686e1d3372fcf66b5b71b56b3ada4a36e240ab6ff",
-  "unitMapSha256": "0a172420414951346be2fde548c1da6045a8ed4e005e00ae594260af7052cd43",
-  "figuresSha256": "ed0271a58d49f99265ec2e7a63125d38f0b2a10c5cfdf8110bce236b73390a6e",
-  "adminPagesAttested": [
-   1
-  ]
+  "status": "pending"
  },
  "pages": [
   {
@@ -1175,6 +1167,74 @@
       "worked:10"
      ],
      "rationale": "Same questions as practice exercises 1 to 5."
+    }
+   ]
+  },
+  {
+   "page": 74,
+   "imageSha256": "6c89b026771e590c08f9a29e8658311bdcd748bc28c804af01b048b596aa484c",
+   "units": [
+    {
+     "id": "p74.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 statement: CaF2, Ksp 3.9e-11, solubility, NaF, inert ions",
+     "targets": [
+      "worked:16",
+      "theory:E7-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 75,
+   "imageSha256": "316c8082705b22283c7a6938d91e5bb7243db29f2421ba575301a1d31f27b35f",
+   "units": [
+    {
+     "id": "p75.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 (a): S = 2.14e-4 M, first try 0.046 crossed out (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t07"
+     ],
+     "rationale": "Handwritten 4S^3 route; value 2.14e-4."
+    }
+   ]
+  },
+  {
+   "page": 76,
+   "imageSha256": "1c80649a5ff7dd8cbd5d56d262468127ceeec7cfa471e33474efa2d51398a5b9",
+   "units": [
+    {
+     "id": "p76.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 solution (b): 0.1 M NaF, S = 3.9e-9 M (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t17",
+      "theory:E7-t18"
+     ],
+     "rationale": "Ksp/(0.1)^2 = 3.9e-9; the F- from NaF dominates."
+    }
+   ]
+  },
+  {
+   "page": 77,
+   "imageSha256": "5f8fa7b87a40c45042eb5185917a0edadcab58f28450f8c40cdde18007474ee5",
+   "units": [
+    {
+     "id": "p77.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q3 (c): inert ions raise solubility by reducing attraction (handwritten)",
+     "targets": [
+      "worked:16",
+      "theory:E7-t31"
+     ],
+     "rationale": "Slide says inert ions reduce the attraction between ions; t31 gives the ionic strength explanation."
     }
    ]
   }

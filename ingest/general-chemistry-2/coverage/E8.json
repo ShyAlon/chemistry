@@ -3,24 +3,16 @@
  "course": "general-chemistry-2",
  "topic": "E8",
  "source": {
-  "sha256": "a54ffbd37adbdf306698c8cbe98b3d5b805926e4eae7fbd6072795956820dce8",
+  "sha256": "84d3858f62e730fe758c30cc44878a60fb730c99eb07a1808086c2c7bc2c5bcd",
   "kind": "pdf",
-  "pageCount": 66,
+  "pageCount": 70,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
   "chat-01M877TRRM1K3AAJ49C7A13K0A"
  ],
  "semanticReview": {
-  "status": "done",
-  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
-  "sourceSha256": "a54ffbd37adbdf306698c8cbe98b3d5b805926e4eae7fbd6072795956820dce8",
-  "contentSha256": "f27f85dfea71c21bad4d937c2fb80b30c4780efaeb035d0055b1cb136aa62683",
-  "unitMapSha256": "5ced557a1b2d430e53383b318a8c7108ec4f4fa81b3eec4a4d24cb9bfa73a324",
-  "figuresSha256": "ed0271a58d49f99265ec2e7a63125d38f0b2a10c5cfdf8110bce236b73390a6e",
-  "adminPagesAttested": [
-   1
-  ]
+  "status": "pending"
  },
  "pages": [
   {
@@ -1065,6 +1057,74 @@
      "targets": [
       "theory:E8-t42"
      ]
+    }
+   ]
+  },
+  {
+   "page": 67,
+   "imageSha256": "31a4f48cb6049562bff3eec197d8b95fd4f3d49b4e96c9d22b6ccbde6619d687",
+   "units": [
+    {
+     "id": "p67.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q1 statement: engine cooling, 3000 kcal/min, 130 kg, 0.75 J/g C",
+     "targets": [
+      "worked:18",
+      "theory:E8-t08",
+      "theory:E8-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 68,
+   "imageSha256": "50446cf7d6b597bb47d0e8bb7ca5d5fefa9079e402f45a9a4963d887e81fd4ff",
+   "units": [
+    {
+     "id": "p68.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q1 solution (a): q = mc dT, dT = 128.74 C (handwritten)",
+     "targets": [
+      "worked:18",
+      "theory:E8-t08"
+     ],
+     "rationale": "Handwritten solution read at 90 dpi: 3000x1000x4.184/(130x1000x0.75) = 128.74."
+    }
+   ]
+  },
+  {
+   "page": 69,
+   "imageSha256": "9525eaa1a857c3f3ee7cb065b517643b77a317685990c3b33a9a0fb9ceae8403",
+   "units": [
+    {
+     "id": "p69.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q1 solution (b): water to evaporate, 228.22 mol, 4.107 kg (handwritten)",
+     "targets": [
+      "worked:18",
+      "theory:E8-t28"
+     ],
+     "rationale": "Handwritten 4.107 kg; unrounded 4.108 kg. W18 states about 4.11 kg."
+    }
+   ]
+  },
+  {
+   "page": 70,
+   "imageSha256": "8f9cccb61900659995bb7211507936675cc9f74a8e59237e989c6dbb76026a02",
+   "units": [
+    {
+     "id": "p70.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q1 (c): liquid with higher heat of vaporization needs less (handwritten)",
+     "targets": [
+      "worked:18",
+      "theory:E8-t28"
+     ],
+     "rationale": "Qualitative answer taught in W18 step 4."
     }
    ]
   }

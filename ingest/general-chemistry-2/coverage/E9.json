@@ -3,22 +3,16 @@
  "course": "general-chemistry-2",
  "topic": "E9",
  "source": {
-  "sha256": "cd2fb747fe97fe3889e685b9e6ace46ac41edb0f56136c4fc2f23c989677de3a",
+  "sha256": "9e29f74035079730602126ecb93a26e6f3214b1b36a4576dacdc25b98372e735",
   "kind": "pdf",
-  "pageCount": 38,
+  "pageCount": 42,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
   "chat-01M877TRRM1K3AAJ49C7A13K0A"
  ],
  "semanticReview": {
-  "status": "done",
-  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
-  "sourceSha256": "cd2fb747fe97fe3889e685b9e6ace46ac41edb0f56136c4fc2f23c989677de3a",
-  "contentSha256": "070ead1b5c16cf59f05029fc014de79ecc08de178d7077836d128ae3b02d4d9f",
-  "unitMapSha256": "4c6986c775ba26e88a9389db93877d6896f9f6cb91c30884ccf3426df0885e60",
-  "figuresSha256": "ed0271a58d49f99265ec2e7a63125d38f0b2a10c5cfdf8110bce236b73390a6e",
-  "adminPagesAttested": []
+  "status": "pending"
  },
  "pages": [
   {
@@ -633,6 +627,73 @@
       "theory:E9-t26",
       "theory:E9-t31"
      ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "5fd529b638372bbf1d2b0035b4ffed44dd923cca767f7efcb89c7b5c327e921b",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q4 statement: N2O4 = 2NO2, dHf and S values at 298 K",
+     "targets": [
+      "worked:13",
+      "theory:E9-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "f30f9713dd0b9aa6e95401fa9956e17a5e86bca59e76082f711eed980a349cc8",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q4 solution (a): dH 57.24, dS 175.9, dG 4.82 kJ, K = 0.142 (handwritten)",
+     "targets": [
+      "worked:13",
+      "theory:E9-t30"
+     ],
+     "rationale": "Handwritten ln K = -1.949 and K = 0.142; unrounded 0.143. W13 states both."
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "9c0c294a24b388383d86f21423075d28aa585110fe90bcdbeae89ea05cc380bb",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q4 solution (b): van t Hoff, K at 350 K = 4.42 (handwritten)",
+     "targets": [
+      "worked:13",
+      "theory:E9-t36"
+     ],
+     "rationale": "ln(K2/K1) = 3.43; handwritten 4.42."
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "ce60edb86ac05283607ecc4df9743b3e33d0da7787fe4ccce8d565fd37a9e5cf",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Quiz Q4 (c): endothermic, K grows, products favored when hot (handwritten)",
+     "targets": [
+      "worked:13",
+      "theory:E9-t36"
+     ],
+     "rationale": "Taught in W13 step 4."
     }
    ]
   }

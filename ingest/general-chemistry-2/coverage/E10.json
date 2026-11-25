@@ -198,7 +198,7 @@
       "worked:11",
       "theory:E10-t08"
      ],
-     "rationale": "Slide O2 rate 1.0e-5 uses rounded pressures; unrounded 9.2e-6 atm/s (stated in W11)."
+     "rationale": "Slide rates 1.9e-5 and 1.0e-5 use rounded pressures; unrounded 1.84e-5 and 9.2e-6 atm/s (stated in t08 and W11)."
     }
    ]
   },
@@ -316,7 +316,8 @@
      "label": "rate depends on concentrations; determined only by experiment",
      "targets": [
       "theory:E10-t11"
-     ]
+     ],
+     "rationale": "Slide calls the experimentally found relation the mass action law; used loosely. Lesson t11 limits that law to an elementary step (see p21)."
     }
    ]
   },
@@ -564,6 +565,7 @@
      "disposition": "covered",
      "label": "zero order: straight-line graph, slope -k, units of k",
      "targets": [
+      "theory:E10-t10",
       "theory:E10-t18",
       "theory:E10-t21"
      ]
@@ -692,7 +694,9 @@
      "disposition": "adapted",
      "label": "DTBP pressure decays with constant half-life; ln(P/P0) = -kt",
      "targets": [
-      "theory:E10-t27"
+      "theory:E10-t19",
+      "theory:E10-t27",
+      "worked:17"
      ],
      "rationale": "Figure not reproduced; t27 states the constant half-life property."
     }

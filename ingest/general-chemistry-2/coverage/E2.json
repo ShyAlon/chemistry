@@ -604,7 +604,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -620,7 +620,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -636,7 +636,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -652,7 +652,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -668,7 +668,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -684,7 +684,7 @@
      "targets": [
       "worked:7"
      ],
-     "rationale": "Own numbers (Kp 0.15, total about 0.5 atm)."
+     "rationale": "Source class-exercise numbers (Kp 0.15, total 0.54 atm), adapted; constant V and T stated."
     }
    ]
   },
@@ -702,7 +702,7 @@
       "theory:E2-t29",
       "theory:E2-t21"
      ],
-     "rationale": "Own numbers (8.00 L)."
+     "rationale": "Source class-exercise numbers (0.100 atm O2, 8.00 L), adapted; labeled as given exercise data, not a real value."
     }
    ]
   },
@@ -720,7 +720,7 @@
       "theory:E2-t29",
       "theory:E2-t21"
      ],
-     "rationale": "Own numbers (8.00 L)."
+     "rationale": "Source class-exercise numbers (0.100 atm O2, 8.00 L), adapted; labeled as given exercise data, not a real value."
     }
    ]
   },
@@ -738,7 +738,7 @@
       "theory:E2-t29",
       "theory:E2-t21"
      ],
-     "rationale": "Own numbers (8.00 L)."
+     "rationale": "Source class-exercise numbers (0.100 atm O2, 8.00 L), adapted; labeled as given exercise data, not a real value."
     }
    ]
   },

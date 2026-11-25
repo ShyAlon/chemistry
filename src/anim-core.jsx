@@ -9,7 +9,10 @@ import React,{useEffect,useRef,useState} from 'react';
 //  - a frame is a pure function of time, frame(t), so scrubbing, stepping and
 //    tests are deterministic;
 //  - playback pauses when the figure leaves the screen or the tab is hidden;
-//  - with reduced motion, play steps from stage to stage instead of animating.
+//  - with reduced motion, play steps from stage to stage instead of animating;
+//  - physical parameters (spec.params) get one slider each under the bar. They
+//    are separate from playback speed, start at the values the lesson uses (so
+//    the poster equals the static figure) and never start playback by themselves.
 export const SPEEDS=[0.5,1,2];
 export const clamp01=x=>Math.max(0,Math.min(1,x));
 export const lerp=(a,b,p)=>a+(b-a)*p;
@@ -24,10 +27,13 @@ export function useReducedMotion(){
 }
 
 // spec: {id, duration (seconds at 1x), poster (0..1, default 1), viewBox, label,
-//        stages:[{at,label}] sorted by at, first at = 0, frame(t,{accent,stage})}
+//        stages:[{at,label}] sorted by at, first at = 0, params:[{id,label,min,max,step,value,unit?}], frame(t,{accent,stage,params})}
 export function AnimatedFigure({spec,accent}){
   const poster=spec.poster??1;
   const [t,setT]=useState(poster);const [playing,setPlaying]=useState(false);const [speed,setSpeed]=useState(1);
+  const defaults=Object.fromEntries((spec.params||[]).map(q=>[q.id,q.value]));
+  const [params,setParams]=useState(defaults);
+  const changed=(spec.params||[]).some(q=>params[q.id]!==q.value);
   const root=useRef(null);const tRef=useRef(t);const reduced=useReducedMotion();
   const stages=spec.stages;
   const stageAt=x=>{let k=0;stages.forEach((s,i)=>{if(x>=s.at-1e-9)k=i});return k};
@@ -55,8 +61,8 @@ export function AnimatedFigure({spec,accent}){
   const replay=()=>{set(0);if(reduced){set(ends[0]);setPlaying(false)}else setPlaying(true)};
   const atEnd=t>=1-EPS,atStart=t<=EPS;
   const playLabel=reduced?'השלב הבא':playing?'עצירה':atEnd?'הפעלה מחדש':'הפעלה';
-  return <div className="anim" ref={root} data-anim-id={spec.id} data-anim-t={t.toFixed(3)} data-anim-playing={playing?'1':'0'} data-anim-stage={stage}>
-    <svg viewBox={spec.viewBox} role="img" aria-label={spec.label} className="fig-svg">{spec.frame(t,{accent,stage})}</svg>
+  return <div className="anim" ref={root} data-anim-id={spec.id} data-anim-t={t.toFixed(3)} data-anim-playing={playing?'1':'0'} data-anim-stage={stage} data-anim-params={JSON.stringify(params)}>
+    <svg viewBox={spec.viewBox} role="img" aria-label={spec.label} className="fig-svg">{spec.frame(t,{accent,stage,params})}</svg>
     <div className="anim-controls" role="group" aria-label="בקרי ההנפשה" dir="ltr">
       <button type="button" className="anim-btn" onClick={prev} disabled={atStart} aria-label="השלב הקודם">‹</button>
       <button type="button" className="anim-btn anim-play" onClick={play} aria-label={playLabel} aria-pressed={playing}>{reduced?'›':playing?'❚❚':'▶'}</button>
@@ -66,5 +72,11 @@ export function AnimatedFigure({spec,accent}){
       <button type="button" className="anim-btn" onClick={replay} aria-label="מההתחלה">↺</button>
       <span className="anim-stage" dir="rtl" aria-live={playing?'off':'polite'}>{stages[stage].label}</span>
     </div>
+    {(spec.params||[]).length>0&&<div className="anim-params" role="group" aria-label="פרמטרים פיזיקליים של ההנפשה">
+      {spec.params.map(q=><label key={q.id} className="anim-param"><span className="anim-param-name">{q.label}</span>
+        <input type="range" data-param={q.id} min={q.min} max={q.max} step={q.step} value={params[q.id]} onChange={e=>setParams(o=>({...o,[q.id]:Number(e.target.value)}))} aria-label={q.label}/>
+        <output dir="ltr" className="anim-param-val">{Number(params[q.id]).toFixed(q.step<1?1:0)}{q.unit?' '+q.unit:''}</output></label>)}
+      <button type="button" className="anim-btn anim-param-reset" onClick={()=>setParams(defaults)} disabled={!changed} aria-label="איפוס הפרמטרים לערכי השיעור">איפוס</button>
+    </div>}
   </div>;
 }

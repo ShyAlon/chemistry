@@ -32,11 +32,24 @@ await click('[aria-label="מההתחלה"]');await sleep(200);st=await state();a
 const sp=[];for(let i=0;i<3;i++){sp.push(await ev(`document.querySelector('.anim-speed').textContent`));await click('.anim-speed')}assert.deepEqual(sp.sort(),['0.5×','1×','2×'].sort());
 // 4. every frame is well formed and inside the viewBox
 for(let v=0;v<=1000;v+=50){await setScrub(v);const r=await ev(`(()=>{const s=document.querySelector('.anim svg');const vb=s.viewBox.baseVal;let bad=0;[...s.querySelectorAll('*')].forEach(e=>{for(const at of e.getAttributeNames())if(/NaN|undefined|Infinity/.test(e.getAttribute(at)))bad++});const out=[...s.querySelectorAll('text')].filter(t=>{const b=t.getBBox();return b.x<vb.x-1||b.x+b.width>vb.x+vb.width+1||b.y<vb.y-1||b.y+b.height>vb.y+vb.height+1}).map(t=>t.textContent);return {bad,out}})()`);assert.equal(r.bad,0,'no NaN attributes at '+v);assert.deepEqual(r.out,[],'text inside viewBox at '+v)}
+// 4b. physical parameters: separate from speed, never start playback, reset to lesson values, every frame still well formed
+const setP=(id,v)=>ev(`(()=>{const i=document.querySelector('.anim [data-param="${id}"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'${v}');i.dispatchEvent(new Event('input',{bubbles:true}))})()`);
+const prm=()=>ev(`JSON.parse(document.querySelector('.anim').dataset.animParams)`);
+const bounds=`(()=>{const s=document.querySelector('.anim svg');const vb=s.viewBox.baseVal;let bad=0;[...s.querySelectorAll('*')].forEach(e=>{for(const at of e.getAttributeNames())if(/NaN|undefined|Infinity/.test(e.getAttribute(at)))bad++});const out=[...s.querySelectorAll('text')].filter(t=>{const b=t.getBBox();return b.x<vb.x-1||b.x+b.width>vb.x+vb.width+1||b.y<vb.y-1||b.y+b.height>vb.y+vb.height+1}).map(t=>t.textContent);return {bad,out}})()`;
+await setScrub(1000);await sleep(100);
+assert.deepEqual(await prm(),{photonE:2,count:1},'parameters start at the lesson values');
+const circles=()=>ev(`document.querySelectorAll('.anim svg circle').length`);const c1=await circles();
+await setP('count',6);await sleep(100);assert.equal(await circles(),c1+5,'particle count changes the picture');
+st=await state();assert.equal(st.playing,'0');assert.equal(st.t,1,'changing a parameter does not play or move time');
+await setP('photonE',1.4);await sleep(100);assert.ok((await ev(`document.querySelector('.anim svg').textContent`)).includes('אין בליעה'),'photon below the gap is not absorbed');
+for(const E of [1.0,1.4,1.7,1.8,2.5])for(const n of [1,6]){await setP('photonE',E);await setP('count',n);for(let v=0;v<=1000;v+=100){await setScrub(v);const r=await ev(bounds);assert.equal(r.bad,0,`no NaN E=${E} n=${n} t=${v}`);assert.deepEqual(r.out,[],`text inside viewBox E=${E} n=${n} t=${v}`)}}
+await click('.anim-param-reset');await sleep(100);assert.deepEqual(await prm(),{photonE:2,count:1},'reset restores lesson values');
+await setScrub(1000);
 // 5. off-screen pauses playback
 await setScrub(0);await click('.anim-play');await sleep(200);assert.equal((await state()).playing,'1');await ev(`window.scrollTo(0,0)`);await sleep(700);assert.equal((await state()).playing,'0','leaving the screen pauses');
 // 6. reduced motion: no continuous playback, play steps between stages
 await load(1200,true);st=await state();assert.equal(st.t,1);await click('.anim-play');await sleep(300);st=await state();assert.equal(st.playing,'0');assert.ok(st.t<1);const s0=st.stage;await click('.anim-play');st=await state();assert.ok(st.stage>s0||st.t===1);assert.equal(await ev(`document.querySelector('.anim-speed').disabled`),true);
 // 7. phone: controls fit the card
 await load(390);const fit=await ev(`(()=>{const c=document.querySelector('.anim-controls').getBoundingClientRect();return {l:c.left,r:c.right,w:innerWidth,sw:document.documentElement.scrollWidth}})()`);assert.ok(fit.l>=0&&fit.r<=fit.w+1&&fit.sw<=fit.w+1,'controls fit at 390: '+JSON.stringify(fit));
-console.log('ANIMATION FRAMEWORK PASSED: poster start, play/pause hold, scrub, stage steps, replay, speed, 21 frames well formed, off-screen pause, reduced motion, 390px fit');
+console.log('ANIMATION FRAMEWORK PASSED: poster start, play/pause hold, scrub, stage steps, replay, speed, 21 frames well formed, parameters (photon energy, particle count, reset, 10 combinations x 11 frames), off-screen pause, reduced motion, 390px fit');
 ch.kill();process.exit(0);

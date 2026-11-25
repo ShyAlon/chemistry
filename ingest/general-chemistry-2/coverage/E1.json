@@ -544,7 +544,7 @@
      "targets": [
       "theory:E1-t40",
       "theory:E1-t38",
-      "theory:E1-t55"
+      "theory:E1-t56"
      ]
     }
    ]
@@ -560,7 +560,7 @@
      "label": "approach to the K line from either side",
      "targets": [
       "theory:E1-t40",
-      "theory:E1-t55"
+      "theory:E1-t56"
      ]
     }
    ]

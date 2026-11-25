@@ -23,9 +23,9 @@ export function EqConcTime({accent}){
     <Curve d="M330,150 C370,142 400,134 435,131 L520,131" stroke="#4ed97a" w={2.2}/>
     <Curve d="M330,64 C370,90 400,108 435,112 L520,112" stroke={C.warn} w={2.2}/>
     <L x1={435} y1={44} x2={435} y2={230} stroke={C.mut} dash="4 4"/>
-    <T x={528} y={170} size={12} anchor="end" fill={accent}>ניסוי 1</T>
-    <T x={528} y={135} size={12} anchor="end" fill="#4ed97a">ניסוי 3</T>
-    <T x={528} y={116} size={12} anchor="end" fill={C.warn}>ניסוי 2</T>
+    <T x={564} y={170} size={12} anchor="middle" fill={accent}>ניסוי 1</T>
+    <T x={564} y={135} size={12} anchor="middle" fill="#4ed97a">ניסוי 3</T>
+    <T x={564} y={116} size={12} anchor="middle" fill={C.warn}>ניסוי 2</T>
     <T x={300} y={292} size={12}>הקווים נעצרים בשיווי משקל ולא בהכרח נפגשים; רמות שונות יכולות לתת אותו K</T>
   </Fig>;
 }
@@ -60,14 +60,14 @@ export function EqFlaskPressure({accent}){
 
 // Approach to K from both sides for n-butane <-> iso-butane (K = 2.5 is a given illustrative value).
 export function EqKApproach({accent}){
-  return <Fig viewBox="0 0 560 320" label="היחס [iso]/[n] מתקרב ל-K = 2.5 משני הצדדים: מלמטה כשמתחילים רק מ-n-בוטאן ומלמעלה כשמתחילים רק מ-iso-בוטאן">
+  return <Fig viewBox="0 0 560 320" label="היחס [iso]/[n] מתקרב ל-K = 2.5 משני הצדדים: מלמטה כשמתחילים רק מבוטאן ישר ומלמעלה כשמתחילים רק מאיזובוטאן">
     <Axis x1={70} y1={40} x2={500} y2={240} xLabel="זמן" yLabel="[iso]/[n]"/>
     <Curve d="M70,240 C140,200 200,160 280,146 C340,141 420,140 500,140" stroke={accent} w={2.4}/>
     <Curve d="M70,52 C130,92 190,122 270,134 C330,139 420,140 500,140" stroke="#4ed97a" w={2.4}/>
     <L x1={70} y1={140} x2={500} y2={140} stroke={C.warn} dash="5 4"/>
     <T x={496} y={128} ltr anchor="end" fill={C.warn} size={12}>K = 2.5</T>
-    <T x={300} y={206} size={12} fill={accent}>מתחילים רק מ-n-בוטאן: היחס עולה</T>
-    <T x={300} y={78} size={12} fill="#4ed97a">מתחילים רק מ-iso-בוטאן: היחס יורד</T>
+    <T x={300} y={206} size={12} fill={accent}>מתחילים רק מבוטאן ישר: היחס עולה</T>
+    <T x={300} y={78} size={12} fill="#4ed97a">מתחילים רק מאיזובוטאן: היחס יורד</T>
     <T x={280} y={302} size={12}>בשני המסלולים היחס מתייצב על אותו K, כשהטמפרטורה קבועה</T>
   </Fig>;
 }

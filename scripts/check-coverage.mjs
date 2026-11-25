@@ -38,7 +38,7 @@ export function figureClosure(roots,srcDir=path.join(root,'src'),extra=[],baseDi
   if(/\brequire\s*\(/.test(text))bad.push('require()');
   if(/import\.meta\.(glob|url)/.test(text))bad.push('import.meta.glob/url');
   for(const m of text.matchAll(/\bimport\s*\(\s*([^)]*)\)/g))if(!/^(['"])\.[^'"]*\1\s*$/.test(m[1].trim())&&!/^(['"])[^.'"][^'"]*\1\s*$/.test(m[1].trim()))bad.push('non-literal dynamic import');
-  if(/\bimport\s*\{[^}]*\}\s*from\s*[^'"\s]/.test(text))bad.push('non-literal import source');
+  if(/\bimport\s*\(\s*`/.test(text))bad.push('template-literal dynamic import');
   for(const b of new Set(bad))errs.push('unsupported dependency form in '+f+': '+b);
  };
  const visit=f=>{
@@ -52,9 +52,10 @@ export function figureClosure(roots,srcDir=path.join(root,'src'),extra=[],baseDi
    for(const m of text.matchAll(/url\(\s*['"]?([^'")\s]+)/g))if(!/^(data:|https?:|#|\/)/.test(m[1]))rels.push(m[1]);
   }else{
    unsupported(f,text);
-   for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"]([^'"]+)['"]|import\s*['"]([^'"]+)['"]|import\(\s*['"]([^'"]+)['"]\s*\)/g))rels.push(m[1]||m[2]||m[3]);
+   for(const m of text.matchAll(/\b(?:import|export)\b[^;'"`]*?\bfrom\s*['"]([^'"]+)['"]|\bimport\s*['"]([^'"]+)['"]|\bimport\(\s*['"]([^'"]+)['"]\s*\)/g))rels.push(m[1]||m[2]||m[3]);
   }
   for(const rel of rels){
+   if(/^(#|\/|~|@\/)/.test(rel)||/\?/.test(rel)){errs.push('unsupported dependency form in '+f+': alias/absolute/query specifier '+rel);continue}
    if(!rel.startsWith('.'))continue; // bare package: bound through package.json and the lockfile
    const t=path.normalize(path.join(path.dirname(f),rel));
    if(t.startsWith('..')){errs.push('figure dependency escapes src/: '+rel);continue}

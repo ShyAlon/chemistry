@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {figuresHash,figuresHashFor,figureClosure,loadPolicy} from '../scripts/check-coverage.mjs';
 
 function tree(files){
@@ -112,4 +113,35 @@ test('binding errors surface in checkAll even while a review is only pending',as
  const pol={...loadPolicy(),figureBinding:{nuclear:{roots:['does-not-exist.jsx']}}};
  const row=checkAll({policy:pol}).find(r=>r.course==='nuclear'&&r.topic==='E5');
  assert.equal(row.status,'fail');assert.match(row.errors.join('|'),/missing: does-not-exist\.jsx/);
+});
+
+test('minified import and export-from forms and alias specifiers are classified, not ignored',()=>{
+ let d=tree({'figures.jsx':"import{a}from'./m.jsx';export{b}from'./n.jsx';import*as x from'./o.jsx';\n",'m.jsx':'1','n.jsx':'1','o.jsx':'1'});
+ assert.deepEqual(h(d).files,['src/figures.jsx','src/m.jsx','src/n.jsx','src/o.jsx']);
+ d=tree({'figures.jsx':"import {a} from '#catalogue';\n"});assert.match(h(d).errors.join('|'),/alias\/absolute/);
+ d=tree({'figures.jsx':"const n=1;import(`./x-${n}.jsx`);\n"});assert.match(h(d).errors.join('|'),/unsupported dependency form/);
+});
+test('REAL TREE mutation: one-byte edits in each closure file change the GC2 hash; files outside it do not; the E5 legacy hash follows its own two files only',()=>{
+ const real=fileURLToPath(new URL('../src',import.meta.url)),pkg=fileURLToPath(new URL('..',import.meta.url));
+ const p=loadPolicy(),id='general-chemistry-2';
+ const copy=()=>{const d=fs.mkdtempSync(path.join(os.tmpdir(),'real-'));fs.cpSync(real,path.join(d,'src'),{recursive:true});for(const f of ['package.json','package-lock.json'])fs.copyFileSync(path.join(pkg,f),path.join(d,f));return d};
+ const d0=copy();const base=figuresHashFor(id,p,path.join(d0,'src'));assert.deepEqual(base.errors,[]);
+ assert.equal(base.hash,figuresHashFor(id,p).hash);
+ for(const f of base.files){
+  const d=copy();fs.appendFileSync(path.join(d,f),f.endsWith('.json')?'':'\n/* mutation */\n');
+  if(f.endsWith('.json')){const t=fs.readFileSync(path.join(d,f),'utf8');fs.writeFileSync(path.join(d,f),t.replace(/\s*$/,'\n\n'))}
+  assert.notEqual(figuresHashFor(id,p,path.join(d,'src')).hash,base.hash,f);
+ }
+ const outside=fs.readdirSync(real).filter(f=>/\.(jsx?|css)$/.test(f)&&!base.files.includes('src/'+f));
+ assert.ok(outside.length>0);
+ for(const f of outside.slice(0,6)){const d=copy();fs.appendFileSync(path.join(d,'src',f),'\n/* mutation */\n');assert.equal(figuresHashFor(id,p,path.join(d,'src')).hash,base.hash,f)}
+ // legacy hash: nuclear course has no binding, hash covers exactly figures-nuclear.jsx + figures.jsx
+ assert.equal(figuresHashFor('nuclear',p).hash,figuresHash());
+});
+test('REAL TREE legacy hash (E5): editing figures.jsx or figures-nuclear.jsx changes it; editing any other file does not',()=>{
+ const real=fileURLToPath(new URL('../src',import.meta.url));
+ const mk=mut=>{const d=fs.mkdtempSync(path.join(os.tmpdir(),'leg-'));fs.cpSync(real,d,{recursive:true});if(mut)fs.appendFileSync(path.join(d,mut),'\n/* m */\n');return figuresHash(['figures-nuclear.jsx','figures.jsx'].map(f=>path.join(d,f)))};
+ const base=mk();assert.equal(base,figuresHash());
+ assert.notEqual(mk('figures.jsx'),base);assert.notEqual(mk('figures-nuclear.jsx'),base);
+ for(const f of ['anim-core.jsx','figures-core.jsx','style.css'])assert.equal(mk(f),base,f);
 });

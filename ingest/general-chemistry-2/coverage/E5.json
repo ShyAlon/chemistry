@@ -494,8 +494,7 @@
       "theory:E5-t11",
       "theory:E5-t12",
       "theory:E5-t25",
-      "theory:E5-t22",
-      "theory:E5-t23"
+      "theory:E5-t22"
      ]
     }
    ]
@@ -762,6 +761,13 @@
     "theory:E5-t31"
    ],
    "rationale": "Own summary of hydrolysis of salts of weak acids and bases (E4 and E5 cross-reference); the AB II slides in this range do not present it."
+  },
+  {
+   "id": "a04",
+   "targets": [
+    "theory:E5-t23"
+   ],
+   "rationale": "Own note on the weak acid plus strong base route to a buffer; slide p30 gives only the equal-molarity route and Exercise 20 uses the salt route."
   }
  ]
 }

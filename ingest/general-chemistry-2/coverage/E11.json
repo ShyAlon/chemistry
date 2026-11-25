@@ -203,7 +203,8 @@
       "theory:E11-t12",
       "theory:E11-t13",
       "theory:E11-t14"
-     ]
+     ],
+     "rationale": "Slide asks why not termolecular; t12 now says three-body steps are rare (need simultaneous meeting of three particles)."
     }
    ]
   },
@@ -312,7 +313,8 @@
      "label": "limits k2 << k3 and k2 >> k3 of the steady state rate law",
      "targets": [
       "theory:E11-t20"
-     ]
+     ],
+     "rationale": "Slide crosses out k2 << k3; the experimental v = k[NO]2[O2] selects k2 >> k3 (stated in t20)."
     }
    ]
   },
@@ -377,7 +379,7 @@
      "targets": [
       "theory:E11-t24"
      ],
-     "rationale": "Slide calls CO + 2H2 -> CH3OH the Fischer-Tropsch process; that is methanol synthesis (F-T gives hydrocarbons). Lesson t24 lists Haber and Ostwald only."
+     "rationale": "Slide calls CO + 2H2 -> CH3OH the Fischer-Tropsch process; it is methanol synthesis (F-T gives hydrocarbons). Lesson t24 now teaches the distinction; Haber and Ostwald are in t24."
     }
    ]
   },

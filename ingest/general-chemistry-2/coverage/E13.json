@@ -26,7 +26,8 @@
      "label": "link between chemistry and electricity: measure current to count electrons",
      "targets": [
       "theory:E13-t02"
-     ]
+     ],
+     "rationale": "Partial: the slide contrast of water electrolysis with the Zn-Cu galvanic cell is not taught as a separate point."
     }
    ]
   },
@@ -36,14 +37,13 @@
    "units": [
     {
      "id": "p02.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "Zn oxidation and Cu reduction in an external circuit (diagram)",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "charge of an electron, Faraday constant, q = nF, q = it",
      "targets": [
-      "theory:E13-t02",
-      "theory:E13-t05"
+      "theory:E13-t02"
      ],
-     "rationale": "Diagram not reproduced; t02 and t05 state the electron flow in words."
+     "rationale": "t02 now derives F from the electron charge and N_A, as the slide does."
     }
    ]
   },
@@ -198,13 +198,10 @@
    "units": [
     {
      "id": "p12.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "image-only page: electrochemical cell figure, no text",
-     "targets": [
-      "theory:E13-t05"
-     ],
-     "rationale": "No text on the page; t05 teaches the cell in words. Not claimed as visually reviewed."
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "video thumbnail: Voltaic Cells I, the copper-zinc cell",
+     "rationale": "Video thumbnail with a title only; no teachable content. Reviewer attests bundle page 12."
     }
    ]
   },
@@ -246,12 +243,12 @@
      "id": "p15.u1",
      "kind": "exercise",
      "disposition": "covered",
-     "label": "Exercise 11: Nernst for a Cd-Ag cell",
+     "label": "Exercise 11: describe the Cd-Ag cell (anode, cathode, notation)",
      "targets": [
-      "worked:4",
-      "theory:E13-t06"
+      "theory:E13-t06",
+      "worked:4"
      ],
-     "rationale": "W4 is relabelled source-derived."
+     "rationale": "Slide asks only for the description. t06 and W4 step 1 teach it. W4 voltage is our own extension."
     }
    ]
   },
@@ -308,14 +305,14 @@
     {
      "id": "p19.u1",
      "kind": "concept",
-     "disposition": "corrected",
-     "label": "Zn-H2 and Cu-H2 cells; slide gives Zn E0 as 0.763 V",
+     "disposition": "covered",
+     "label": "Zn-H2 and Cu-H2 cells: Zn oxidation value 0.763 V, flipped to -0.763 V",
      "targets": [
       "theory:E13-t10",
       "theory:E13-t11",
       "theory:E13-t12"
      ],
-     "rationale": "Slide prints 0.763 V for the cell; as a half-cell Zn2+/Zn is -0.76 V (its own table p91 gives -0.764). t10 uses the sign convention."
+     "rationale": "Slide gives the oxidation-direction value and flips the sign itself; 0.763 vs 0.764 (table) is rounding. Not an error."
     }
    ]
   },
@@ -341,13 +338,10 @@
    "units": [
     {
      "id": "p21.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "title page with image: determining the standard potential",
-     "targets": [
-      "theory:E13-t10"
-     ],
-     "rationale": "Title and image only; t10 teaches the method in words."
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "video placeholder: Standard Reduction Potentials",
+     "rationale": "Video placeholder with a title only; no teachable content. Reviewer attests bundle page 21."
     }
    ]
   },
@@ -567,10 +561,11 @@
      "id": "p35.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "Le Chatelier and the Nernst equation",
+     "label": "Nernst for MnO4-/Mn2+ and Le Chatelier; table of E versus [H3O+]",
      "targets": [
       "theory:E13-t19"
-     ]
+     ],
+     "rationale": "t19 now gives the slide table values (1.036 to 1.539 V at [MnO4-] = [Mn2+] = 0.1 M)."
     }
    ]
   },
@@ -648,8 +643,7 @@
      "disposition": "covered",
      "label": "E0 and Ksp: AgCl, E0 = 0.222 V",
      "targets": [
-      "theory:E13-t14",
-      "theory:E13-t16"
+      "theory:E13-t14"
      ]
     }
    ]
@@ -738,11 +732,12 @@
     {
      "id": "p46.u1",
      "kind": "concept",
-     "disposition": "covered",
-     "label": "rust formation: Fe oxidation, O2 reduction",
+     "disposition": "corrected",
+     "label": "corrosion: anode and cathode reactions; Fe(OH)2 to Fe3O4",
      "targets": [
       "theory:E13-t24"
-     ]
+     ],
+     "rationale": "Slide calls Fe3O4 a mixture of FeO and Fe2O3. It is a mixed-valence compound (average +8/3). t24 says so."
     }
    ]
   },
@@ -754,10 +749,11 @@
      "id": "p47.u1",
      "kind": "equation",
      "disposition": "covered",
-     "label": "rust equation 4Fe(OH)2 + O2 -> 2Fe2O3.H2O + 2H2O",
+     "label": "rust equation 4Fe(OH)2 + O2 -> 2H2O + 2Fe2O3.H2O",
      "targets": [
       "theory:E13-t24"
-     ]
+     ],
+     "rationale": "Equation is now in t24; balances in atoms."
     }
    ]
   },
@@ -798,13 +794,10 @@
    "units": [
     {
      "id": "p50.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "title page with image: preventing corrosion",
-     "targets": [
-      "theory:E13-t25"
-     ],
-     "rationale": "Title and image only; t25 teaches the methods in words."
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "video frame (black): preventing corrosion",
+     "rationale": "Black video frame, no text or content. Reviewer attests bundle page 50."
     }
    ]
   },
@@ -814,12 +807,13 @@
    "units": [
     {
      "id": "p51.u1",
-     "kind": "concept",
-     "disposition": "covered",
-     "label": "electrolysis: forced non-spontaneous reaction",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "electrolysis cell figure",
      "targets": [
       "theory:E13-t27"
-     ]
+     ],
+     "rationale": "Figure not reproduced; t27 describes cathode, anode and polarity in words."
     }
    ]
   },
@@ -829,13 +823,10 @@
    "units": [
     {
      "id": "p52.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "image-only page: electrolysis cell figure, no text",
-     "targets": [
-      "theory:E13-t27"
-     ],
-     "rationale": "No text on the page; t27 teaches electrolysis in words. Not claimed as visually reviewed."
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "video frame: black with green dots",
+     "rationale": "Black frame with green dots, no teachable content. Reviewer attests bundle page 52."
     }
    ]
   },
@@ -847,10 +838,11 @@
      "id": "p53.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "applications of electrolysis: Al, Mg, Cl2, F2, purifying and plating",
+     "label": "applications of electrolysis: Al, Mg, Cl2, F2, purifying copper, plating",
      "targets": [
       "theory:E13-t27"
-     ]
+     ],
+     "rationale": "t27 now includes silver plating with the object as cathode."
     }
    ]
   },
@@ -877,10 +869,11 @@
      "id": "p55.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "battery types and uses",
+     "label": "secondary batteries: rechargeable and lithium examples",
      "targets": [
       "theory:E13-t36"
-     ]
+     ],
+     "rationale": "t36 now names the slide examples (rechargeable, lithium)."
     }
    ]
   },
@@ -892,10 +885,11 @@
      "id": "p56.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "Leclanche dry cell",
+     "label": "Leclanche dry cell with follow-up steps",
      "targets": [
       "theory:E13-t30"
-     ]
+     ],
+     "rationale": "t30 now has the two follow-up steps NH4+ + OH- and 2NH3 + Zn2+ + 2Cl-."
     }
    ]
   },

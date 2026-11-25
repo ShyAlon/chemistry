@@ -43,7 +43,7 @@
      "targets": [
       "theory:E1-t47",
       "theory:E1-t02",
-      "theory:E1-t52"
+      "theory:E1-t57"
      ]
     }
    ]
@@ -60,7 +60,7 @@
      "targets": [
       "theory:E1-t04",
       "theory:E1-t47",
-      "theory:E1-t52"
+      "theory:E1-t57"
      ]
     }
    ]
@@ -110,7 +110,7 @@
      "targets": [
       "theory:E1-t09",
       "theory:E1-t04",
-      "theory:E1-t52"
+      "theory:E1-t57"
      ]
     }
    ]
@@ -352,16 +352,35 @@
    "units": [
     {
      "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kp = Kx P^dn and Kx = Kp P^-dn",
+     "targets": [
+      "theory:E1-t21"
+     ]
+    },
+    {
+     "id": "p21.u2",
      "kind": "claim",
      "disposition": "adapted",
-     "label": "Kx depends on T and total pressure; K units follow the coefficients",
+     "label": "Kc and Kp depend on T only; Kx on T and total pressure unless dn = 0",
      "targets": [
       "theory:E1-t21",
-      "theory:E1-t24",
+      "theory:E1-t50"
+     ],
+     "rationale": "Scope note added: Kx needs a stated total pressure."
+    },
+    {
+     "id": "p21.u3",
+     "kind": "claim",
+     "disposition": "adapted",
+     "label": "units of equilibrium constants depend on the stoichiometric coefficients",
+     "targets": [
       "theory:E1-t08",
+      "theory:E1-t24",
       "theory:E1-t22"
      ],
-     "rationale": "Added original note on activities and ideal-gas approximation."
+     "rationale": "Lesson separates dimensionless thermodynamic K from classroom Kc/Kp with units; added original note on activities and ideal-gas approximation."
     }
    ]
   },
@@ -427,7 +446,7 @@
      "label": "limestone decomposition: CO2 pressure independent of solid amount",
      "targets": [
       "theory:E1-t13",
-      "theory:E1-t53"
+      "theory:E1-t58"
      ]
     }
    ]
@@ -443,7 +462,7 @@
      "label": "vapor pressure as a Kp value",
      "targets": [
       "theory:E1-t16",
-      "theory:E1-t53"
+      "theory:E1-t58"
      ]
     }
    ]
@@ -507,10 +526,28 @@
      "id": "p30.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "homogeneous versus heterogeneous equilibrium examples",
+     "label": "definition: homogeneous (one phase) versus heterogeneous (several phases)",
      "targets": [
-      "theory:E1-t15",
+      "theory:E1-t15"
+     ]
+    },
+    {
+     "id": "p30.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "H2O(s) and H2O(l) with H2O(g): Kp = P(H2O)",
+     "targets": [
       "theory:E1-t16"
+     ]
+    },
+    {
+     "id": "p30.u3",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "autoionization of water: Kc = [H3O+][OH-]",
+     "targets": [
+      "theory:E1-t17",
+      "theory:E1-t14"
      ]
     }
    ]
@@ -523,11 +560,40 @@
      "id": "p31.u1",
      "kind": "equation",
      "disposition": "covered",
-     "label": "heterogeneous K expressions: hydrate, La iodate, HNO2 disproportionation",
+     "label": "CuSO4 hydrate loses water vapor: Kp = P(H2O)^2",
      "targets": [
-      "theory:E1-t16",
-      "theory:E1-t17",
-      "theory:E1-t14"
+      "theory:E1-t13",
+      "theory:E1-t16"
+     ]
+    },
+    {
+     "id": "p31.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "NO + 1/2 O2 giving NO3(g): Kp with a fractional exponent",
+     "targets": [
+      "theory:E1-t12"
+     ]
+    },
+    {
+     "id": "p31.u3",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "La(IO3)3 precipitation: Kc = 1/([La3+][IO3-]^3)",
+     "targets": [
+      "theory:E1-t13",
+      "theory:E1-t17"
+     ]
+    },
+    {
+     "id": "p31.u4",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "HNO2 disproportionation: Kc and the mixed K with P(NO)",
+     "targets": [
+      "theory:E1-t12",
+      "theory:E1-t14",
+      "theory:E1-t17"
      ]
     }
    ]
@@ -544,7 +610,7 @@
      "targets": [
       "theory:E1-t40",
       "theory:E1-t38",
-      "theory:E1-t56"
+      "theory:E1-t59"
      ]
     }
    ]
@@ -560,7 +626,7 @@
      "label": "approach to the K line from either side",
      "targets": [
       "theory:E1-t40",
-      "theory:E1-t56"
+      "theory:E1-t59"
      ]
     }
    ]
@@ -588,15 +654,24 @@
    "units": [
     {
      "id": "p35.u1",
-     "kind": "figure",
+     "kind": "claim",
      "disposition": "covered",
-     "label": "Q below, equal to, above K gives direction",
+     "label": "Qc < Kc: net forward; Qc > Kc: net reverse",
      "targets": [
       "theory:E1-t34",
-      "theory:E1-t35",
+      "theory:E1-t35"
+     ]
+    },
+    {
+     "id": "p35.u2",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "states from pure reactants (Q = 0) to equilibrium to pure products",
+     "targets": [
       "theory:E1-t36",
       "theory:E1-t54"
-     ]
+     ],
+     "rationale": "Photo panels of the source are not reproduced; the lesson draws its own Q-versus-K strip."
     }
    ]
   },
@@ -643,12 +718,41 @@
      "id": "p38.u1",
      "kind": "table",
      "disposition": "adapted",
-     "label": "size of K for common reactions and what it means",
+     "label": "Table of K values for common reactions",
+     "targets": [
+      "theory:E1-t38"
+     ],
+     "rationale": "K table values not copied; lesson uses own scoped statements."
+    },
+    {
+     "id": "p38.u2",
+     "kind": "claim",
+     "disposition": "adapted",
+     "label": "first reaction (huge K) goes to completion; kinetics may still decide",
+     "targets": [
+      "theory:E1-t38",
+      "theory:E1-t10"
+     ],
+     "rationale": "Own scoped wording on kinetic control."
+    },
+    {
+     "id": "p38.u3",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "second reaction (tiny K) does not occur",
+     "targets": [
+      "theory:E1-t38"
+     ]
+    },
+    {
+     "id": "p38.u4",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "third reaction: forward and reverse both matter",
      "targets": [
       "theory:E1-t38",
       "theory:E1-t39"
-     ],
-     "rationale": "K table values not copied; lesson uses own scoped statements."
+     ]
     }
    ]
   },
@@ -695,9 +799,27 @@
      "id": "p41.u1",
      "kind": "claim",
      "disposition": "covered",
-     "label": "K changes with temperature only, not with concentration, pressure or catalyst",
+     "label": "a change in temperature changes K",
      "targets": [
       "theory:E1-t29",
+      "theory:E1-t50"
+     ]
+    },
+    {
+     "id": "p41.u2",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "concentration, pressure or volume changes do not change K",
+     "targets": [
+      "theory:E1-t50"
+     ]
+    },
+    {
+     "id": "p41.u3",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "a catalyst changes the rate of reaching equilibrium, not K",
+     "targets": [
       "theory:E1-t50"
      ],
      "rationale": "The Le Chatelier statement on this page is mapped in E2."
@@ -1071,13 +1193,22 @@
      "id": "p63.u1",
      "kind": "exercise",
      "disposition": "adapted",
-     "label": "class exercise: H2 + I2 equilibrium moles and NH4HS decomposition",
+     "label": "class exercise 2: H2 + I2 at 448 C, Kc = 50: Kp, moles, partial pressures",
      "targets": [
-      "worked:3",
-      "worked:8",
-      "worked:9"
+      "worked:9",
+      "worked:3"
      ],
-     "rationale": "Other problems on this page (Le Chatelier, N2O4 total pressure, HgO) are mapped in E2."
+     "rationale": "Other problems on this page (1 Le Chatelier, 3 N2O4 total pressure, 5 HgO) are mapped in E2."
+    },
+    {
+     "id": "p63.u2",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "class exercise 4: NH4HS decomposition fraction and ammonia needed",
+     "targets": [
+      "worked:8"
+     ],
+     "rationale": "Own numbers; source setup (0.06 mol, 2.4 L, 20 C) stated in worked 8 for part b."
     }
    ]
   },

@@ -38,8 +38,8 @@ export function figureClosure(roots,srcDir=path.join(root,'src')){
   const full=path.join(srcDir,f);
   if(!fs.existsSync(full)){errs.push('figure dependency missing: '+f);return}
   const text=fs.readFileSync(full,'utf8');seen.set(f,text);
-  for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"](\.[^'"]+)['"]|import\s*['"](\.[^'"]+)['"]/g)){
-   const rel=m[1]||m[2];const t=path.normalize(path.join(path.dirname(f),rel));
+  for(const m of text.matchAll(/(?:import|export)\s[^;'"]*?from\s*['"](\.[^'"]+)['"]|import\s*['"](\.[^'"]+)['"]|import\(\s*['"](\.[^'"]+)['"]\s*\)/g)){
+   const rel=m[1]||m[2]||m[3];const t=path.normalize(path.join(path.dirname(f),rel));
    if(t.startsWith('..')){errs.push('figure dependency escapes src/: '+rel);continue}
    visit(t);
   }
@@ -127,7 +127,9 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   const reviewed=rv.status==='done';
   if(reviewed){
    if(!genuineReviewer(rv.reviewer))errors.push('reviewer is missing or a placeholder');
-   if((cov.authoredBy||[]).map(normId).includes(normId(rv.reviewer)))errors.push('self-review: reviewer is also an author');
+   const authors=new Set((cov.authoredBy||[]).map(normId));
+   for(const g of policy.authorAliases||[]){const ids=g.map(normId);if(ids.some(i=>authors.has(i)))ids.forEach(i=>authors.add(i))}
+   if(authors.has(normId(rv.reviewer)))errors.push('self-review: reviewer is also an author');
    if(rv.sourceSha256!==cov.source?.sha256)errors.push('review is not bound to this source hash');
    if(rv.contentSha256!==contentHash(t))errors.push('lesson content changed since the review; re-review required');
    if(JSON.stringify([...(rv.adminPagesAttested||[])].sort((a,b)=>a-b))!==JSON.stringify(adminPages(cov)))errors.push('adminPagesAttested must list exactly the all-admin pages the reviewer viewed');

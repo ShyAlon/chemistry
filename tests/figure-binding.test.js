@@ -20,7 +20,7 @@ const base={
 const pol={figureBinding:{gc2:{roots:['figures.jsx']}}};
 const h=(d,id='gc2')=>figuresHashFor(id,pol,d);
 
-test('GC2 binding covers the import closure, sorted, and ignores unrelated files',()=>{
+test('GC2 binding covers the import closure (toy tree), sorted, and ignores unrelated files',()=>{
  const d=tree(base);
  assert.deepEqual(h(d).files,['figures-core.jsx','figures-gc2.jsx','figures.jsx']);
  const before=h(d).hash;
@@ -59,4 +59,33 @@ test('the real policy binds general-chemistry-2 to an existing closure and leave
  assert.ok(p.figureBinding['general-chemistry-2']);assert.equal(p.figureBinding.nuclear,undefined);
  const r=figuresHashFor('general-chemistry-2',p);assert.deepEqual(r.errors,[]);assert.ok(r.files.includes('figures.jsx')&&r.files.includes('figures-core.jsx'));
  assert.equal(figuresHashFor('nuclear',p).hash,figuresHash());
+});
+test('author aliases: a reviewer who is an alias of an author fails self-review; an unrelated id passes',async()=>{
+ const {checkAll,contentHash,unitMapHash,adminPages}=await import('../scripts/check-coverage.mjs');
+ const {default:catalogue}=await import('#catalogue');
+ const topic=catalogue.courses.find(c=>c.id==='nuclear').topics.find(x=>x.id==='E5');
+ const run=(reviewer,policy)=>{
+  const c=JSON.parse(fs.readFileSync(new URL('../ingest/nuclear/coverage/E5.json',import.meta.url)));
+  c.authoredBy=['chat-01AAAAAAAAAAAAAAAAAAAAAAAA'];
+  c.semanticReview={status:'done',reviewer,sourceSha256:c.source.sha256,contentSha256:contentHash(topic),unitMapSha256:unitMapHash(c),figuresSha256:figuresHash(),adminPagesAttested:adminPages(c)};
+  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cov-'));
+  try{fs.mkdirSync(path.join(dir,'nuclear','coverage'),{recursive:true});fs.writeFileSync(path.join(dir,'nuclear','coverage','E5.json'),JSON.stringify(c));
+   return checkAll({dir,requireReview:true,policy}).find(r=>r.topic==='E5')}finally{fs.rmSync(dir,{recursive:true,force:true})}
+ };
+ const base=loadPolicy();
+ const aliased={...base,authorAliases:[['chat-01AAAAAAAAAAAAAAAAAAAAAAAA','agent-01BBBBBBBBBBBBBBBBBBBBBBBB']]};
+ assert.match(run('agent-01BBBBBBBBBBBBBBBBBBBBBBBB',aliased).errors.join('|'),/self-review/);
+ assert.doesNotMatch(run('agent-01BBBBBBBBBBBBBBBBBBBBBBBB',{...base,authorAliases:[]}).errors.join('|'),/self-review/);
+ assert.doesNotMatch(run('agent-01CCCCCCCCCCCCCCCCCCCCCCCC',aliased).errors.join('|'),/self-review/);
+});
+test('dynamic relative imports are followed',()=>{
+ const d=tree({'figures.jsx':"const m=()=>import('./lazy.jsx');\n",'lazy.jsx':'export default 1;\n'});
+ assert.deepEqual(h(d).files,['figures.jsx','lazy.jsx']);
+ fs.writeFileSync(path.join(d,'figures.jsx'),"const m=()=>import('./gone.jsx');\n");
+ assert.match(h(d).errors.join('|'),/missing: gone\.jsx/);
+});
+test('REAL renderer graph: GC2 closure includes the shared nuclear renderer, core, animation, bidi and the stylesheet, so those edits invalidate GC2 reviews',()=>{
+ const r=figuresHashFor('general-chemistry-2',loadPolicy());
+ assert.deepEqual(r.errors,[]);
+ for(const f of ['figures.jsx','figures-nuclear.jsx','figures-core.jsx','anim-core.jsx','anim-figures.jsx','bidi-react.js','style.css'])assert.ok(r.files.includes(f),f);
 });

@@ -54,6 +54,9 @@ if(insideRepo(cacheDir)){console.error('preprocess: refused - cache dir must be 
 if(reportPath&&insideRepo(reportPath)){console.error('preprocess: refused - report path must be outside the repo: '+reportPath);process.exit(2)}
 // an existing final cache dir that is itself a symlink is refused outright
 try{if(fs.lstatSync(path.resolve(cacheDir)).isSymbolicLink()){console.error('preprocess: refused - cache dir must not be a symlink: '+cacheDir);process.exit(2)}}catch{}
+// same for the report path, INCLUDING a dangling symlink (realpath cannot see
+// through it, but writeFileSync would follow it into the repo)
+if(reportPath)try{if(fs.lstatSync(path.resolve(reportPath)).isSymbolicLink()){console.error('preprocess: refused - report path must not be a symlink: '+reportPath);process.exit(2)}}catch{}
 
 let pdfs;
 try{pdfs=fs.readdirSync(sourcesDir).filter(f=>f.toLowerCase().endsWith('.pdf')).sort()}
@@ -62,14 +65,18 @@ if(!pdfs.length){note('no PDFs in '+sourcesDir+'; nothing to preprocess');proces
 
 const python=process.env.PREPROCESS_PYTHON||'python3';
 const script=process.env.PREPROCESS_SCRIPT||path.join(repoRoot,'scripts','preprocess','preprocess.py');
+// one hung PDF must never hang the importer: bound every subprocess run
+const timeoutMs=parseInt(process.env.PREPROCESS_TIMEOUT_MS||'300000',10);
 
 const runs=[];
 for(const f of pdfs){
  try{
-  const out=execFileSync(python,[script,path.join(sourcesDir,f),'--cache',cacheDir],{encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:64*1024*1024});
+  const out=execFileSync(python,[script,path.join(sourcesDir,f),'--cache',cacheDir],{encoding:'utf8',stdio:['ignore','pipe','pipe'],maxBuffer:64*1024*1024,timeout:timeoutMs});
   runs.push(JSON.parse(out));
  }catch(e){
-  note('advisory only: preprocessing unavailable for '+f+' ('+String(e.message||e).split('\n')[0]+'); preparation continues unchanged');
+  const timedOut=e.killed||e.signal==='SIGTERM'||/ETIMEDOUT/.test(String(e.message||e));
+  const why=timedOut?'timed out after '+Math.round(timeoutMs/1000)+'s':String(e.message||e).split('\n')[0];
+  note('advisory only: preprocessing unavailable for '+f+' ('+why+'); preparation continues unchanged');
   process.exit(0);
  }
 }

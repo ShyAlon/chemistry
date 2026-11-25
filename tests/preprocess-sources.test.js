@@ -75,6 +75,32 @@ test('an existing cache dir that is itself a symlink is refused, even pointing o
  assert.match(r.stderr,/must not be a symlink/);
 });
 
+test('a dangling report symlink into the repo is refused and writes nothing',t=>{
+ const outside=tmpdir();t.after(()=>fs.rmSync(outside,{recursive:true,force:true}));
+ const dangle=path.join(outside,'dangle.json');
+ const repoTarget=path.join(repoRoot,'inner-newfile-report.json');
+ fs.symlinkSync(repoTarget,dangle);
+ const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
+ const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:stubPython(tmpdir())};
+ const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir(),'--report',dangle],{encoding:'utf8',env});
+ assert.equal(r.status,2);
+ assert.match(r.stderr,/must not be a symlink/);
+ assert.ok(!fs.existsSync(repoTarget),'nothing may be written into the repo through the dangling link');
+});
+
+test('a hung subprocess times out and stays advisory (exit 0, note)',()=>{
+ const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
+ const slow=path.join(tmpdir(),'slow-python.mjs');
+ fs.writeFileSync(slow,'setTimeout(()=>{},60000)');
+ const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:slow,PREPROCESS_TIMEOUT_MS:'500'};
+ const started=Date.now();
+ const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir()],{encoding:'utf8',env,timeout:30000});
+ assert.equal(r.status,0);
+ assert.match(r.stdout,/advisory only/);
+ assert.match(r.stdout,/timed out/);
+ assert.ok(Date.now()-started<20000,'the wrapper itself must not hang');
+});
+
 test('a flag with no path value is a usage error',()=>{
  const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
  const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache'],{encoding:'utf8'});

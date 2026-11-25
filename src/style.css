@@ -529,3 +529,5 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 @media (max-width:560px){.anim-param{flex-wrap:wrap}.anim-param-name{flex:1 0 100%;white-space:normal}.anim-param input{flex:1 1 60%}}
 
 .bidi-run.bidi-eq{display:inline-block;max-width:100%;text-align:left;vertical-align:baseline}
+.bidi-eq .math-root{white-space:normal}
+

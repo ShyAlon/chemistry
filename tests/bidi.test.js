@@ -85,5 +85,5 @@ test('long equations render as inline-block equation runs; text, words and short
  // the rule wraps inside the block (no nowrap, no horizontal overflow) and keeps the baseline
  const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
  const rule=css.match(/\.bidi-run\.bidi-eq\{[^}]*\}/)[0];
- assert.match(rule,/display:inline-block/);assert.match(rule,/max-width:100%/);assert.match(rule,/text-align:left/);assert.match(rule,/vertical-align:baseline/);assert.ok(!/nowrap/.test(rule));
+ assert.match(rule,/display:inline-block/);assert.match(rule,/max-width:100%/);assert.match(rule,/text-align:left/);assert.match(rule,/vertical-align:baseline/);assert.ok(!/nowrap/.test(rule));assert.match(css,/\.bidi-eq \.math-root\{white-space:normal\}/);
 });

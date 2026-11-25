@@ -1,0 +1,680 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E9",
+ "source": {
+  "sha256": "cd2fb747fe97fe3889e685b9e6ace46ac41edb0f56136c4fc2f23c989677de3a",
+  "kind": "pdf",
+  "pageCount": 38,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "b2309fdd47a7e0d27db3cb2b869ced05fee12bb72d500f3c95d47a7ec41a537e",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "the first law sets no direction; need for a second law",
+     "targets": [
+      "theory:E9-t02",
+      "theory:E9-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "f5739eab2ae759fc6ecc3c5ddf97d39b26cd4ee41e1e664678ce9257dc87f215",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "processes in nature have a definite direction",
+     "targets": [
+      "theory:E9-t02",
+      "theory:E9-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "d1d9105f6d59ad0638d07d1db4ab9da4fd205d6bd3b208669e4d52244084049a",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "entropy as the quantitative expression of the second law",
+     "targets": [
+      "theory:E9-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "85ae120c23a75dcedf816afb95396347c98fda9037c015c3668f929e075f06fc",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "entropy change is a state function; reversible path",
+     "targets": [
+      "theory:E9-t04",
+      "theory:E9-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "7a0bcb8652ab11d4f33266099fd20a68b32e8348102c138cfc5fba1a3f46a28b",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "macroscopic and microscopic description; microstates",
+     "targets": [
+      "theory:E9-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "649e62f66a83b5ad0555de0932bb9af6befb2b1c9246d1f7fa6590b7ccf1cb5e",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "particles over states with the same energy",
+     "targets": [
+      "theory:E9-t07"
+     ],
+     "rationale": "Text adaptation, no figure."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "de5d449ecb8040bd7c8767dd3898b580fb9b3d8bdb3c8131a6f85446ff63c42f",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Boltzmann equation S = k ln W",
+     "targets": [
+      "theory:E9-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "a16059525af96a63d7b88dbb4685de43d4b3deb7612b5c11d466ee0e3e4c580a",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "particle in a box: W grows with L and with temperature",
+     "targets": [
+      "theory:E9-t07",
+      "theory:E9-t13"
+     ],
+     "rationale": "Text adaptation; the energy-level formula is not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "c3725f39295d46b50e435f56648151280d32d9324359a82324cd7efce7da1179",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "qualitative understanding: more energy levels, more entropy",
+     "targets": [
+      "theory:E9-t11",
+      "theory:E9-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "482169305c901be9ffc5aa7c980c3640940533c5f287fa1e9abc47e0531c813a",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "entropy rises for liquids from solids, gases, more particles, mixing",
+     "targets": [
+      "theory:E9-t11",
+      "theory:E9-t12",
+      "theory:E9-t14",
+      "theory:E9-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "2673739fa23e7b561a232786050e04dd9ebd6a4b9e85259833860fbee533190b",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "phase transition: delta S = delta H / T tr, ice melting",
+     "targets": [
+      "theory:E9-t16"
+     ],
+     "rationale": "Slide delta H fus 6.02 kJ at 273.15 K (E8 slide: 6.01); delta S about 22.0 J/mol K."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "9858820827ad5a1f4de580d39c88a377c7f4b5fdeab584ed4203ea28b526bf15",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "third law: entropy of a perfect crystal at 0 K is zero",
+     "targets": [
+      "theory:E9-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "0385f101b3b3757e88c3606dfd8868f326ab48e2c32d941d580a842c485e10a0",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9: delta S of 2NO + O2 -> 2NO2 is -146.5 J/K",
+     "targets": [
+      "worked:10",
+      "theory:E9-t19"
+     ],
+     "rationale": "Worked 10 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "915c3226642f7b565e69a95a660e808ff16f96ef10b840c4bcf48fa66f130492",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "free energy as criterion; universe entropy",
+     "targets": [
+      "theory:E9-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "a6751bb60273bdbb546c8976c7d14855f77d7ce1dcc3a7d8791726e5d0d21d04",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "T delta S univ = -(delta H sys - T delta S sys), G = H - TS",
+     "targets": [
+      "theory:E9-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "d4c934865677b26896fe315f86407bfee175302269e16a5d7b4dcbba97eb7a7f",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "criteria for spontaneous change at constant P and T",
+     "targets": [
+      "theory:E9-t22",
+      "theory:E9-t23",
+      "theory:E9-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "6abe858e8388a34eb4d1a2fafd29b976957cd31fb60e281034e0faadeeeb1569",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "physical meaning of free energy",
+     "targets": [
+      "theory:E9-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "335b5e3612fc86e99a94d562d678bc5842bdd8ace3d7448d75ac0003e9ffb849",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: I2(g) -> 2I(g), spontaneous at high T",
+     "targets": [
+      "worked:11",
+      "theory:E9-t25"
+     ],
+     "rationale": "Worked 11 is a qualitative solution as on the slide."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "e5f139fa455ee77721f87efd39d195dc47c67cf738b997d3a6c976b4bd6ed409",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "standard free energy change and delta G f",
+     "targets": [
+      "theory:E9-t26",
+      "theory:E9-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "8c6595124b8ba6293f128056f0a25e55379c689f9ec95fe1508594667742966c",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "free energy change and equilibrium, evaporation of water",
+     "targets": [
+      "theory:E9-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "6f7542e377c5876728528c9b40c4525908d297795f28ca50bf99a660b00c4ce6",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "water vapor pressure 23.76 mmHg: delta G greater, equal, below zero",
+     "targets": [
+      "theory:E9-t31"
+     ],
+     "rationale": "Text adaptation, no figure."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "92d23c6f27c2ac0d9f6f6bdec4ffbe6ee2bb769b719010c198843c72c8b5be30",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "delta G for nonstandard conditions",
+     "targets": [
+      "theory:E9-t28",
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "50576c5b4536a0d3a04ab77be892b88519244bc7a8f2a616a1af50b2b66d8ea3",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "delta G for nonstandard conditions, continued",
+     "targets": [
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "7a561b83a3408ffb484111b39e87cf1a045a0b6fe96cb21ee0d02972c1cd4fee",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "entropy of an ideal gas depends on pressure: S = S0 - R ln P",
+     "targets": [
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "065fcd6251280bcfec4ca36163ebb2af5aab8348667203f947992193691a267f",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ammonia synthesis: entropy of each gas at its pressure",
+     "targets": [
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "d07ed9912705c3b8b061b4b970beb1e150e0fb279076f15ff4b5c6e06d2ddb7d",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "delta G = delta G0 + RT ln Q for ammonia synthesis",
+     "targets": [
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "ed91e8f53cf0b1e1edf629510b5eac4cb7849081c47628ba7b38f80dfce0b237",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "delta G for nonstandard conditions, summary",
+     "targets": [
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "4915bb6c6438148456fbbaafefcd5cc1c1c50e3892429fe083f1e22d04c8a5d1",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "activities and delta G0 = -RT ln K",
+     "targets": [
+      "theory:E9-t30",
+      "theory:E9-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "4b168e1a022cc1451b1aa1ce530c9e77dfd0b08a7fd258a6b6853b8c7b15c03e",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "forward and reverse reactions; direction of spontaneous change",
+     "targets": [
+      "theory:E9-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "66208ed2b0e768450c8e1b04389776a482adc4690de0625218771b1063560ef7",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "magnitude of delta G0 and the value of K",
+     "targets": [
+      "theory:E9-t32"
+     ],
+     "rationale": "Table not reproduced; lesson t33 gives an own numeric table."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "71b7f34b1b55ceeecbd64b099a0ee817e328c72c9ead85325be81eec47d0e9cf",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary of delta G0 and delta G",
+     "targets": [
+      "theory:E9-t22",
+      "theory:E9-t28",
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "8de710c3fa60aaa233dc394d52e7c0b8f7791c2240f057927933923bfb31c194",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11: 2-propanol decomposition, K 0.444 at 452 K, delta G0 +3.05 kJ",
+     "targets": [
+      "worked:7",
+      "theory:E9-t32"
+     ],
+     "rationale": "Worked 7 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "93a7e8bd35da8e6f68298a16ec4e9609ebf49ccfbc8315ded5eedc184b1c4964",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Exercise 11 solution: nonstandard delta G",
+     "targets": [
+      "worked:7",
+      "theory:E9-t31"
+     ],
+     "rationale": "Slide prints -1.43e3 J/mol; with Q = 0.010 the value is -14.3 kJ/mol. Worked 7 states the slip; direction unchanged."
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "8ca54733ee9689383e8d6973949dc3dff33cbcf4f0d0024a1c1386378a05ff9d",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 12: Mg(OH)2 in acid, delta G0 -95.5 kJ, K about 5e16",
+     "targets": [
+      "worked:12",
+      "theory:E9-t26",
+      "theory:E9-t30"
+     ],
+     "rationale": "Worked 12 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "f3cbbef49c7cc88bfcba5f9d9b00da31a62cceb8ec1719c66f443c97f791080c",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "delta G0 and K as functions of temperature, ln K linear in 1/T",
+     "targets": [
+      "theory:E9-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "eb69454e4fb94b0dfb44d3585cc6b235758b62d1f307350ca4d43336beb1ed79",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "van Hoff plot slope gives delta H of -1.8e2 kJ/mol",
+     "targets": [
+      "theory:E9-t36"
+     ],
+     "rationale": "Lesson states the slope relation; the slide plot and its numbers are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "c9efe74cbdd0ffd02583c8eb7a23ce653278f137a6c2d29db6f2f4f7887af97b",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary: S = k ln W and universe entropy",
+     "targets": [
+      "theory:E9-t07",
+      "theory:E9-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "68250a3a23f0ee1279594a9a44a97148d05cc40c571c1de564147f6febd01489",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "summary: delta G0 = delta H0 - T delta S0, delta G = delta G0 + RT ln Q",
+     "targets": [
+      "theory:E9-t21",
+      "theory:E9-t26",
+      "theory:E9-t31"
+     ]
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4",
+    "worked:5",
+    "worked:6",
+    "worked:8",
+    "worked:9"
+   ],
+   "rationale": "Own worked examples, not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E9-t01",
+    "theory:E9-t06",
+    "theory:E9-t08",
+    "theory:E9-t09",
+    "theory:E9-t10",
+    "theory:E9-t17",
+    "theory:E9-t20",
+    "theory:E9-t29",
+    "theory:E9-t33",
+    "theory:E9-t34",
+    "theory:E9-t35"
+   ],
+   "rationale": "Section headings and own illustrations or calculations (t08, t09, t33, t34); not slide content."
+  }
+ ]
+}

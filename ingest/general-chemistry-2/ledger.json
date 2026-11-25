@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T08:30:05.414Z",
+ "recordedAt": "2026-11-25T08:37:39.461Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -542,6 +542,10 @@
     {
      "base": "b8b2c8f0113cd308ea3efab546201d8f81a9deb4e5c582d226cbbbdc40ec73ac",
      "final": "b8b2c8f0113cd308ea3efab546201d8f81a9deb4e5c582d226cbbbdc40ec73ac"
+    },
+    {
+     "base": "dc8019b0536aaf9ccea7e95fd52b49d504d03ef82d427be3dfdcd5821692aa24",
+     "final": "dc8019b0536aaf9ccea7e95fd52b49d504d03ef82d427be3dfdcd5821692aa24"
     }
    ],
    "quiz": [
@@ -608,6 +612,10 @@
     {
      "base": "8d6ee1ecf60be3c8a7c466eecafbad07ee71f94c3093c27e6b1fc3577db105eb",
      "final": "8d6ee1ecf60be3c8a7c466eecafbad07ee71f94c3093c27e6b1fc3577db105eb"
+    },
+    {
+     "base": "5a6a5fbaffc9105926a705c655ae536501705d4cc5aad23715441519dde66608",
+     "final": "5a6a5fbaffc9105926a705c655ae536501705d4cc5aad23715441519dde66608"
     }
    ]
   },
@@ -1798,6 +1806,10 @@
     {
      "base": "b34932d6f6c03069f88fbb2964e3c073ec1cb223047603791c72e2dc354d8be1",
      "final": "b34932d6f6c03069f88fbb2964e3c073ec1cb223047603791c72e2dc354d8be1"
+    },
+    {
+     "base": "91de19b5dc4e4dbfd0470b2a0e18220941ef1c9e80573d7feb304c19b5e63cb3",
+     "final": "91de19b5dc4e4dbfd0470b2a0e18220941ef1c9e80573d7feb304c19b5e63cb3"
     }
    ],
    "quiz": [
@@ -1860,6 +1872,10 @@
     {
      "base": "8e27d6b8056b2485ba9209a81bb04e66cb4816b83aac123be51090090cdac107",
      "final": "8e27d6b8056b2485ba9209a81bb04e66cb4816b83aac123be51090090cdac107"
+    },
+    {
+     "base": "09c551c9c35b2ac6f7199375e3d784e089204b266fb83950ea03c0f33b341579",
+     "final": "09c551c9c35b2ac6f7199375e3d784e089204b266fb83950ea03c0f33b341579"
     }
    ]
   },
@@ -2058,6 +2074,10 @@
     {
      "base": "8dbab953a639361fe797e298f90450984e6f52e8eae038253d72f7e21da5b47d",
      "final": "8dbab953a639361fe797e298f90450984e6f52e8eae038253d72f7e21da5b47d"
+    },
+    {
+     "base": "4e3eb69856859a9050efc32c4a224d482b01478f9722ca1bcf06239756090b99",
+     "final": "4e3eb69856859a9050efc32c4a224d482b01478f9722ca1bcf06239756090b99"
     }
    ],
    "quiz": [
@@ -2120,6 +2140,10 @@
     {
      "base": "872bd52a12d57bed6ddb7f6ab7fb2fa4a2874fd47f4704701ae1870e734cce31",
      "final": "872bd52a12d57bed6ddb7f6ab7fb2fa4a2874fd47f4704701ae1870e734cce31"
+    },
+    {
+     "base": "aa29e904bcd3c601a92af1e8f26d0945ab9ad97556c0fd451f261dbafe79fe5c",
+     "final": "aa29e904bcd3c601a92af1e8f26d0945ab9ad97556c0fd451f261dbafe79fe5c"
     }
    ]
   },
@@ -2298,6 +2322,10 @@
     {
      "base": "123c1481919d4c9e256d100fd1f4c4f6152ce1864f6121043a22fafe3e3582a3",
      "final": "123c1481919d4c9e256d100fd1f4c4f6152ce1864f6121043a22fafe3e3582a3"
+    },
+    {
+     "base": "c35cd6ba9040474863c30a3db1736116a596e29e4ebbc776e94393d30a8e9443",
+     "final": "c35cd6ba9040474863c30a3db1736116a596e29e4ebbc776e94393d30a8e9443"
     }
    ],
    "quiz": [
@@ -2364,6 +2392,10 @@
     {
      "base": "e19a3d12822de7d80d84cdd86b5272dd25109448acc9a94d08363e815aee0df8",
      "final": "e19a3d12822de7d80d84cdd86b5272dd25109448acc9a94d08363e815aee0df8"
+    },
+    {
+     "base": "ba30536ca639440123cdd5980ef36571fb1a112d3829f05d4ed9e51229d02684",
+     "final": "ba30536ca639440123cdd5980ef36571fb1a112d3829f05d4ed9e51229d02684"
     }
    ]
   },

@@ -12,7 +12,7 @@ test('split manifest preserves ordered course/topic identity and complete conten
  assert.deepEqual(catalogue.courses.map(c=>[c.id,c.topics.length]),[['84102',12],['84101',16],['nano',12],['nuclear',10],['solid-state',8],['general-chemistry-2',13]]);
  assert.deepEqual(catalogue.courses[0].topics.map(t=>t.id),['P7','P9','P10','P3','P2','P5','P6','P8','P1','P4','P11','P12']);
  assert.equal(catalogue.courses.flatMap(c=>c.topics).length,71);
- assert.equal(catalogue.courses.flatMap(c=>c.topics.flatMap(t=>t.content.quiz)).length,522);
+ assert.equal(catalogue.courses.flatMap(c=>c.topics.flatMap(t=>t.content.quiz)).length,635);
  assert.deepEqual(loadCatalogue(),catalogue);
  assert.equal(Object.keys(readDocuments()).length,78); // 55 legacy + solid-state topics.json + 8 topic files + general-chemistry-2 topics.json + 13 topic files
 });

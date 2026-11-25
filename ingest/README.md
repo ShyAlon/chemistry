@@ -104,3 +104,10 @@ and the importer applies a generous outer bound around the whole step. In
 every one of these cases preparation prints a note and continues unchanged.
 Overrides for tests: `PREPROCESS_TIMEOUT_MS`, `PREPROCESS_TOTAL_BUDGET_MS`,
 `IMPORT_PREPROCESS_TIMEOUT_MS`.
+
+Honest residual limit: when the importer's OUTER bound stops the step, the
+wrapper's in-flight python child is orphaned (not process-group killed) and
+can keep writing into the private cache after preparation has moved on. Cache
+directories are written meta-last, so a partial directory has no meta.json and
+the next run re-extracts it; still, do not start another preprocessing run
+against the same cache immediately after such an outer timeout.

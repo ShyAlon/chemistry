@@ -813,7 +813,6 @@
      "disposition": "adapted",
      "label": "acid rain: CO2, NO2 reactions, no buffer capacity of water",
      "targets": [
-      "theory:E4-t33",
       "theory:E4-t34"
      ],
      "rationale": "Text adaptation: statue photographs not reproduced."
@@ -836,6 +835,13 @@
     "worked:9"
    ],
    "rationale": "Own worked examples (acetic acid 0.100 and 0.00100 M, ammonia, Ka from pH, percent ionization, HF with HCN, H3PO4 1.0 M, H2SO4 0.020 M, hydrolysis set); not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E4-t33"
+   ],
+   "rationale": "Own acid-rain explanation (clean-rain pH about 5.6, sulfur and nitrogen oxides); the slide shows only the CO2/NO2 reactions and no buffer capacity."
   },
   {
    "id": "a02",

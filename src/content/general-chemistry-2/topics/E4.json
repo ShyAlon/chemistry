@@ -559,11 +559,11 @@
     "prompt": "pH של NaH₂PO₄ אם pKa₁ = 2.12 ו-pKa₂ = 7.21. (שתי ספרות אחרי הנקודה)",
     "fields": [
      {
-      "value": 4.67,
+      "value": 4.66,
       "unit": ""
      }
     ],
-    "answer": "pH = ½(2.12 + 7.21) = 4.665 ≈ 4.67."
+    "answer": "pH = ½(2.12 + 7.21) = 4.665; the lecture value is 4.66 (tolerance accepts 4.66 or 4.67)."
    },
    {
     "id": 16,

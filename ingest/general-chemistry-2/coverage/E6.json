@@ -89,7 +89,7 @@
      "targets": [
       "theory:E6-t40"
      ],
-     "rationale": "Lesson carries a selected approximate list; the slide table and structures are not reproduced."
+     "rationale": "Lesson ranges differ from the slide: slide methyl red 4.8-6.0 and phenolphthalein 8.0-9.6; lesson 4.4-6.2 and 8.2-10.0 (common tables). Table not reproduced."
     }
    ]
   },
@@ -115,13 +115,10 @@
    "units": [
     {
      "id": "p07.u1",
-     "kind": "figure",
-     "disposition": "adapted",
-     "label": "natural indicators page",
-     "targets": [
-      "theory:E6-t39"
-     ],
-     "rationale": "Brief mention of natural indicators only."
+     "kind": "title",
+     "disposition": "admin",
+     "label": "natural indicators video placeholder, black title page",
+     "rationale": "No teachable content; reviewer attests this page. t39 is credited to p52."
     }
    ]
   },
@@ -587,7 +584,7 @@
      "targets": [
       "theory:E6-t27"
      ],
-     "rationale": "Text adaptation, no plot. The calculation of the example is a lesson addition."
+     "rationale": "Text adaptation, no plot. Slide graph (labelled 100 mL of 0.1 M) shows equivalence near 40 mL, inconsistent with the stated volume; the lesson uses its own calculation (a03)."
     }
    ]
   },

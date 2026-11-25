@@ -1,0 +1,1161 @@
+{
+ "schema": 2,
+ "course": "nuclear",
+ "topic": "E5",
+ "source": {
+  "sha256": "b9dcaa8f7ac43897751132631b1afbedd7b34225f460054ae6634088f96f880c",
+  "kind": "pdf",
+  "pageCount": 40,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M88XDWCEWDETM30G3V4PV902",
+  "agent-01M88XDWD1SHV2R522S63EEM2W"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M88ZHANBB4E1BHZPDEC7FZ4F",
+  "sourceSha256": "b9dcaa8f7ac43897751132631b1afbedd7b34225f460054ae6634088f96f880c",
+  "contentSha256": "0766eabb12391e344a223cbc1ab01d89b62b4eb22f5508c58737547672822e05",
+  "unitMapSha256": "82f9133b68ad7b6b7363c727e67fb66c5fd36cde9293cfbb0bfb80ecd6dbcd8a",
+  "figuresSha256": "7e525c2b8407092e649b4774e681c7ba609806e5ccb5fd2dcdd792ab3751da58",
+  "adminPagesAttested": [
+   1,
+   2,
+   4,
+   17,
+   37,
+   39
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "a9315c66c27e2edd3577f7b3b21ac197cae361bc7d05614033961b7423148fac",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "title slide",
+     "rationale": " no teachable content"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "b5be0209546114ed620ec34ed22b43b32eda1968caf8a9dd82236f5c17ee71c2",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "outline",
+     "disposition": "admin",
+     "label": "agenda",
+     "rationale": "outline only"
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "62f4174b07cd6f0198800a6b3612b3ae73c13c6fe7b5d2b4270d3bf578644c73",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "radiation types: mass and charge",
+     "targets": [
+      "theory:E5-t02",
+      "theory:E5-t03",
+      "theory:E5-t04",
+      "theory:E5-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "3b90a2e37c9ec2465bc8e52315e9292b1a93be070d55fb535017875ef7a33e36",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "section divider",
+     "rationale": "no teachable content"
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "cc9678a4edce8fa2db8784fa43909f624af755ebd7aad212613e706a9fd171d0",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "alpha particle and general decay equation",
+     "targets": [
+      "theory:E5-t02",
+      "theory:E5-t07"
+     ]
+    },
+    {
+     "id": "p05.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Ra-226 alpha example",
+     "targets": [
+      "theory:E5-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "351a64cae52c2ed02ac1b7e86817112d1db9a09e5c79a877632e0af60b7d0416",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "alpha energies are discrete, 4-6 MeV",
+     "targets": [
+      "theory:E5-t13",
+      "theory:E5-t16"
+     ]
+    },
+    {
+     "id": "p06.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Be-8 exception",
+     "targets": [
+      "theory:E5-t13"
+     ]
+    },
+    {
+     "id": "p06.u3",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "parent-to-daughter exercise, five isotopes",
+     "targets": [
+      "theory:E5-t17",
+      "theory:E5-t18",
+      "theory:E5-t19",
+      "theory:E5-t20",
+      "theory:E5-t21",
+      "theory:E5-t98",
+      "worked:5",
+      "quiz:10",
+      "quiz:11",
+      "quiz:19",
+      "quiz:20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "d9611ee0a99f8da4d2092fe69bc12f5ce26644c3aeb60e852e33354efa88dfe0",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "five-isotope parent/daughter/energy table",
+     "targets": [
+      "theory:E5-t17",
+      "theory:E5-t18",
+      "theory:E5-t19",
+      "theory:E5-t20",
+      "theory:E5-t21"
+     ]
+    },
+    {
+     "id": "p07.u2",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Po-210 daughter is Pb-206 (slide prints Pb-208)",
+     "targets": [
+      "theory:E5-t20",
+      "quiz:11"
+     ],
+     "rationale": "source error annotated and corrected, LNHB"
+    },
+    {
+     "id": "p07.u3",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "slide alpha energies are Q values, not emitted energies",
+     "targets": [
+      "theory:E5-t14",
+      "theory:E5-t15",
+      "theory:E5-t22",
+      "worked:5",
+      "quiz:9",
+      "quiz:10"
+     ],
+     "rationale": "source labelling error annotated, LNHB values added"
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "7dace0c7c5d81dc4529485ba450bba1949d6c023c5581e85f09a8fc3d3265c57",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "beta particle and nucleon conversion, A unchanged",
+     "targets": [
+      "theory:E5-t03",
+      "theory:E5-t10"
+     ]
+    },
+    {
+     "id": "p08.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "K-40 and F-18 beta equations",
+     "targets": [
+      "theory:E5-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "76852d86e492994e5ca5eb388158e370459f0b64d251bdb8962b029967877e41",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutrino vs antineutrino, positron",
+     "targets": [
+      "theory:E5-t24",
+      "theory:E5-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "92e4277281b1a6a48f645cd205760f09afb2803e4088faf24a66de7b78bf6bcc",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "beta-plus emitter picture",
+     "targets": [
+      "theory:E5-t24",
+      "theory:E5-t26"
+     ],
+     "rationale": "original text equivalent; no copy of lecturer art"
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "bfb912ccbc0435bcd1a71581388873fe97b7ba68241a405aec59d984c40d9a49",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "annihilation, two 0.511 MeV photons",
+     "targets": [
+      "theory:E5-t26",
+      "theory:E5-t60",
+      "quiz:2"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "084332b44f1eea332a555cd62690ffc1e3d1de161a74f9d85581e0f713f8844d",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "beta spectrum is continuous up to Emax",
+     "targets": [
+      "theory:E5-t28",
+      "theory:E5-t30"
+     ]
+    },
+    {
+     "id": "p12.u2",
+     "kind": "table",
+     "disposition": "corrected",
+     "label": "Na-22 and I-131 Emax and mean energy",
+     "targets": [
+      "theory:E5-t29",
+      "quiz:18"
+     ],
+     "rationale": "slide Na-22 values do not match LNHB; LNHB values used and noted"
+    },
+    {
+     "id": "p12.u3",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "beta spectrum graph",
+     "targets": [
+      "theory:E5-t30"
+     ],
+     "rationale": "original schematic figure"
+    },
+    {
+     "id": "p12.u4",
+     "kind": "claim",
+     "disposition": "corrected",
+     "label": "slide says mean is about 30-40% of Emax",
+     "targets": [
+      "theory:E5-t28",
+      "theory:E5-t29",
+      "quiz:18"
+     ],
+     "rationale": "slide claim kept visible as a slide claim; lesson teaches sourced per-isotope ratios (Na-22 0.39, I-131 0.32, LNHB)"
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "4efbc83758cc43f345a9e300762afe1db155b9569b2bd81c47dca35933c9f6e2",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "chart of nuclides: decay direction",
+     "targets": [
+      "theory:E5-t11",
+      "theory:E5-t99",
+      "worked:1"
+     ],
+     "rationale": "original N-Z direction figure plus the Z/A change table"
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "dd26a30e988b665aaf961333702901c28d136f814e85a73e7fc657213778e347",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "ionization and excitation by charged particles",
+     "targets": [
+      "theory:E5-t31",
+      "theory:E5-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "7d0651eecdd17d00aa3ae9307621dbb9157d4e3d04144c631bb00002da68b0b0",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "alpha is a heavy particle with charge +2",
+     "targets": [
+      "theory:E5-t34",
+      "theory:E5-t33"
+     ]
+    },
+    {
+     "id": "p15.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "typical 5 MeV energy, about 50 eV per collision, about 100000 collisions",
+     "targets": [
+      "theory:E5-t34"
+     ]
+    },
+    {
+     "id": "p15.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "about half of the energy goes to ionization and half to excitation",
+     "targets": [
+      "theory:E5-t34"
+     ],
+     "rationale": "approximate, as on the slide"
+    },
+    {
+     "id": "p15.u4",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "range: centimetres in air, about 50 microns in tissue",
+     "targets": [
+      "theory:E5-t34"
+     ]
+    },
+    {
+     "id": "p15.u5",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "dead skin layer of 70 microns stops external alpha",
+     "targets": [
+      "theory:E5-t34"
+     ]
+    },
+    {
+     "id": "p15.u6",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "internal emitter is stopped inside living cells",
+     "targets": [
+      "theory:E5-t34"
+     ]
+    },
+    {
+     "id": "p15.u7",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "cell size 5 microns: energy within about 10 cells, about 5000 damages each",
+     "targets": [
+      "theory:E5-t34",
+      "quiz:3"
+     ],
+     "rationale": "corrected from tens of cells to about ten cells after review"
+    },
+    {
+     "id": "p15.u8",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "high LET",
+     "targets": [
+      "theory:E5-t33",
+      "theory:E5-t34",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "3ec47adce39f2e6028c941475a4162d31371c732471b8acfdd5dbf601ebab9da",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "beta has small mass and charge -1, tortuous path",
+     "targets": [
+      "theory:E5-t36",
+      "theory:E5-t37",
+      "theory:E5-t38"
+     ]
+    },
+    {
+     "id": "p16.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "equal-mass collisions transfer much energy, so fewer collisions",
+     "targets": [
+      "theory:E5-t95",
+      "theory:E5-t38"
+     ]
+    },
+    {
+     "id": "p16.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "beta range grows with energy: low-energy short, high-energy metres in air",
+     "targets": [
+      "theory:E5-t36"
+     ]
+    },
+    {
+     "id": "p16.u4",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "energy per unit path far below alpha, two reasons, low LET",
+     "targets": [
+      "theory:E5-t35",
+      "theory:E5-t36",
+      "theory:E5-t95"
+     ]
+    },
+    {
+     "id": "p16.u5",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "no defined range, only a maximum range",
+     "targets": [
+      "theory:E5-t36"
+     ]
+    },
+    {
+     "id": "p16.u6",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "delta rays and secondary ionization",
+     "targets": [
+      "theory:E5-t38",
+      "quiz:12"
+     ]
+    },
+    {
+     "id": "p16.u7",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "small fraction gives bremsstrahlung and characteristic X radiation",
+     "targets": [
+      "theory:E5-t36",
+      "theory:E5-t39"
+     ]
+    },
+    {
+     "id": "p16.u8",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "beta track diagram with delta rays, ions and bremsstrahlung emission",
+     "targets": [
+      "theory:E5-t37",
+      "theory:E5-t38"
+     ],
+     "rationale": "text description only; the licensed diagram is not reproduced and no original figure was drawn"
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "c36ecfefd7d84bbdd7fddf086fd8d76eb76d9fc62489b5916d5816ed888db4ed",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "section divider",
+     "rationale": "no teachable content"
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "48f6fd9e86b0a73c1ec17141bdccf078247368c5c9b9aa6f83188854b688392f",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "all electromagnetic radiation is photons of varying energy",
+     "targets": [
+      "theory:E5-t40",
+      "theory:E5-t41"
+     ]
+    },
+    {
+     "id": "p18.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "X and gamma energy ranges overlap, they differ in origin",
+     "targets": [
+      "theory:E5-t97"
+     ]
+    },
+    {
+     "id": "p18.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "energy packet moving at light speed, no mass, no charge",
+     "targets": [
+      "theory:E5-t41"
+     ]
+    },
+    {
+     "id": "p18.u4",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "shorter wavelength means higher energy",
+     "targets": [
+      "theory:E5-t41",
+      "theory:E5-t43"
+     ]
+    },
+    {
+     "id": "p18.u5",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "energy-wavelength relation",
+     "targets": [
+      "theory:E5-t42",
+      "worked:8",
+      "quiz:17"
+     ]
+    },
+    {
+     "id": "p18.u6",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "electromagnetic spectrum chart",
+     "targets": [
+      "theory:E5-t43",
+      "theory:E5-t94"
+     ],
+     "rationale": "original log-wavelength band figure replaces lecturer chart"
+    },
+    {
+     "id": "p18.u7",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "band applications from radio to gamma",
+     "targets": [
+      "theory:E5-t101"
+     ],
+     "rationale": "applications as text; the licensed pictures are not reproduced"
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "95a5cd12b7be3c1a4b19abf82c80d5753594d1ebfcd88fdb2f608bf96f6f10e0",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "not deflected by fields; gamma vs X origin",
+     "targets": [
+      "theory:E5-t41",
+      "theory:E5-t04",
+      "theory:E5-t72",
+      "theory:E5-t97"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "54ea3094ef5b9227490c8d363264e8cbe4e5a18a2a723b48f82afca077192320",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "excited-state gamma emission",
+     "targets": [
+      "theory:E5-t45",
+      "theory:E5-t46"
+     ]
+    },
+    {
+     "id": "p20.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Co-60 to Ni-60* to Ni-60 example",
+     "targets": [
+      "theory:E5-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "2cdc1a7926137f0615a28410a3af3f7404bab1f452ea058ede3c6afee12fe322",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "discrete lines identify the radionuclide",
+     "targets": [
+      "theory:E5-t48",
+      "theory:E5-t49"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "9e06cebb5eb0bd1884f5c1f6100a8ee819796afc637f0540dc5242185f4ea61b",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "gamma lines: Am-241, Ra-226, Cs-137, K-40, Co-60",
+     "targets": [
+      "theory:E5-t50",
+      "theory:E5-t51",
+      "theory:E5-t52",
+      "theory:E5-t53",
+      "theory:E5-t54"
+     ]
+    },
+    {
+     "id": "p22.u2",
+     "kind": "table",
+     "disposition": "corrected",
+     "label": "parent decay side data: Cs-137 and K-40 beta max, Am-241 and Ra-226 alpha energy",
+     "targets": [
+      "theory:E5-t100"
+     ],
+     "rationale": "slide Cs-137 1.175 MeV is only the minor branch; LNHB branches given; Am-241 5.486 checked by T=Q*237/241"
+    },
+    {
+     "id": "p22.u3",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "why Co-60 shows two peaks",
+     "targets": [
+      "theory:E5-t54",
+      "quiz:13",
+      "worked:6"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "03843bad9765eeeaaaabdb0e6f666b3bbf8c4520b7894b66d46d8e0fe40608d6",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "X radiation originates outside the nucleus, made in machines or natural",
+     "targets": [
+      "theory:E5-t72"
+     ]
+    },
+    {
+     "id": "p23.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "two production processes: characteristic and bremsstrahlung",
+     "targets": [
+      "theory:E5-t69",
+      "theory:E5-t70",
+      "theory:E5-t72"
+     ]
+    },
+    {
+     "id": "p23.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "X-ray spectrum differs from the gamma spectrum",
+     "targets": [
+      "theory:E5-t69",
+      "theory:E5-t97",
+      "theory:E5-t102"
+     ]
+    },
+    {
+     "id": "p23.u4",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "example X-ray images (security, medical, art)",
+     "targets": [
+      "theory:E5-t72"
+     ],
+     "rationale": "applications listed in text; the licensed images are not reproduced"
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "e7b18159169203eb4b4c437098ffee6b66f2711559a3f7bd8f8bd06aceb1de68",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "characteristic radiation: shell vacancy and cascade",
+     "targets": [
+      "theory:E5-t69"
+     ]
+    },
+    {
+     "id": "p24.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "K-alpha and K-beta line names",
+     "targets": [
+      "theory:E5-t72"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "8293c142574602be9940f9bf812f9db95b4bb9cc696ebd7ab472c14bef4b9793",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "bremsstrahlung: closer approach, higher photon energy",
+     "targets": [
+      "theory:E5-t73"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "b7b0d33065c392ec40ab3a9d4b4442bc4542592ecb6fde81f4bdef7bbb18fbc6",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "continuous spectrum up to maximum energy",
+     "targets": [
+      "theory:E5-t70",
+      "theory:E5-t73"
+     ]
+    },
+    {
+     "id": "p26.u2",
+     "kind": "claim",
+     "disposition": "corrected",
+     "label": "slide says bremsstrahlung mean is about 30% of max",
+     "targets": [
+      "theory:E5-t74"
+     ],
+     "rationale": "slide claim kept visible; lesson separates energy-weighted (Kramers Emax/3) from photon-number mean and cutoff dependence; no fixed percent for calculations"
+    },
+    {
+     "id": "p26.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "filtering removes low-energy photons",
+     "targets": [
+      "theory:E5-t75"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "1fc9cd19ae53953a3aaf13ededfefce2b88ddad0b60bb3a8976040c9ffa83ae8",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "X-ray spectrum: bremsstrahlung plus labelled K-alpha and K-beta lines",
+     "targets": [
+      "theory:E5-t102",
+      "theory:E5-t69",
+      "theory:E5-t70",
+      "quiz:4"
+     ],
+     "rationale": "original schematic figure xray-spectrum, labelled K-alpha, K-beta, Emax and unfiltered-in-vacuum curve; the slide's numeric axis values are not copied"
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "0af1e9c9f49759a0b6e56c3f4f6e0254acef90819b6f3f404c42d981e6ac962b",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "X-ray tube parts, anode metals, few percent X, rest heat",
+     "targets": [
+      "theory:E5-t75"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "658a549a5a6e0a32ff4580e702aebcd3e4ea97da37940d199df6f41d83975be7",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "isotropic emission, collimator, filter, anti-scatter grid",
+     "targets": [
+      "theory:E5-t75"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "75cdf2da726f93c0cb55d8ae8bb8321f06af66d3c173f6b22e2473f2653848bb",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "photon not slowed gradually; three interactions",
+     "targets": [
+      "theory:E5-t56",
+      "theory:E5-t57",
+      "theory:E5-t58",
+      "theory:E5-t59"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "8d1789de2b353fd4df3ee467ec5a94430fddd2cf13171cf7d2f1c2c7a863beaa",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "photoelectric absorption, electron energy",
+     "targets": [
+      "theory:E5-t57",
+      "theory:E5-t62"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "672ac6c9562ab34095cdaae52d87079a7a2bd7a639c15fb6765bd5b49c5e63c8",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Compton scattering, angle dependence",
+     "targets": [
+      "theory:E5-t58",
+      "theory:E5-t63"
+     ]
+    },
+    {
+     "id": "p32.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Compton scattered-photon energy",
+     "targets": [
+      "theory:E5-t64",
+      "worked:4"
+     ],
+     "rationale": "existing worked answer corrected 1294 to 1324"
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "e65e9f939f2a56d678df607f8461e118f5ad22a818a5517981c247f2e048352a",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "pair production near nucleus, 1022 keV",
+     "targets": [
+      "theory:E5-t59",
+      "theory:E5-t65",
+      "worked:2",
+      "quiz:6"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "a482809d33b6c75adadbdd307f2fe77aba004b3541b6c64a46e38f8d76e09573",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "interaction summary table",
+     "targets": [
+      "theory:E5-t66"
+     ]
+    },
+    {
+     "id": "p34.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "dominant interaction vs Z and energy",
+     "targets": [
+      "theory:E5-t67"
+     ],
+     "rationale": "original figure"
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "8295bf6671ce91be98252e010d9c14a6b7f5cd63d920d6487c95dc7587e3ca6a",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutron sources",
+     "targets": [
+      "theory:E5-t79",
+      "quiz:16"
+     ]
+    },
+    {
+     "id": "p35.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutron interactions",
+     "targets": [
+      "theory:E5-t77",
+      "theory:E5-t78",
+      "quiz:7"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "2f5b0522362d90dc7d76dd5a12c6dd2de0c9e685d9f918953a560b38d0986520",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutral radiation removed after interaction",
+     "targets": [
+      "theory:E5-t56",
+      "theory:E5-t77"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "b7033e63d04ebd9de9eccb7b7074b07e2abe47bc13dbf9113cb0a6fc1c83432c",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "section divider",
+     "rationale": "no teachable content"
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "4ebcd9cbeb768c0ba40b4a55a90ee3859642333d4b2244f186c13dc4f9a0aa9c",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "alpha range: tens of micrometres in matter",
+     "targets": [
+      "theory:E5-t81",
+      "worked:3"
+     ]
+    },
+    {
+     "id": "p38.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "beta range: up to tens of millimetres",
+     "targets": [
+      "theory:E5-t82"
+     ]
+    },
+    {
+     "id": "p38.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "X and gamma: no finite range, exponential decrease with thickness",
+     "targets": [
+      "theory:E5-t83"
+     ]
+    },
+    {
+     "id": "p38.u4",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutrons: up to tens of centimetres",
+     "targets": [
+      "theory:E5-t84"
+     ]
+    },
+    {
+     "id": "p38.u5",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutrinos pass almost unabsorbed",
+     "targets": [
+      "theory:E5-t96"
+     ]
+    },
+    {
+     "id": "p38.u6",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "what stops each radiation",
+     "targets": [
+      "theory:E5-t85"
+     ],
+     "rationale": "original figure shows alpha, beta and gamma; neutron and neutrino rows are text only (t84, t96)"
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "02068727934160cdf92dc5aa600a6ff321d0bb9c21ae389a4312601d7064dc42",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "end of topic marker",
+     "rationale": "no teachable content"
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "bf2c6ba2f9929ce39c56bc649234518be7503542af8ae7ce4b47c9c7c3adbc9c",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "photon spectrum in detector: photopeak, Compton, escape, annihilation",
+     "targets": [
+      "theory:E5-t86",
+      "theory:E5-t87",
+      "theory:E5-t88",
+      "theory:E5-t89",
+      "theory:E5-t90",
+      "theory:E5-t91",
+      "theory:E5-t93",
+      "worked:6",
+      "worked:7",
+      "quiz:14",
+      "quiz:15"
+     ]
+    },
+    {
+     "id": "p40.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "labelled photon energy spectrum",
+     "targets": [
+      "theory:E5-t92"
+     ],
+     "rationale": "original schematic, linear energy axis"
+    }
+   ]
+  }
+ ]
+}

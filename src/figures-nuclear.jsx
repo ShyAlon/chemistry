@@ -425,3 +425,133 @@ export function PosterWireframe({accent}){
     <T x={240} y={296} size={12}>סכמת מבנה בלבד</T>
   </Fig>;
 }
+
+// Label on a faint chip so the geometry guard can declare and check its box.
+const Lab=({x,y,children,size=12,fill,ltr=false,w})=>{const n=[...String(children)].length;const ww=w||Math.ceil(n*size*0.58+14);return <g><Box x={x-ww/2} y={y-size-3} w={ww} h={size+9} fill={C.faint} stroke="none" rx={4} opacity={0.92}/><T x={x} y={y} size={size} ltr={ltr} fill={fill}>{children}</T></g>;};
+
+// E5: continuous beta energy spectrum. Schematic shape, not a real isotope.
+export function BetaSpectrum({accent}){
+  const x0=60,x1=500,yb=190,top=50;
+  const f=u=>Math.pow(u,0.6)*Math.pow(1-u,1.8);
+  const mx=Math.max(...Array.from({length:101},(_,i)=>f(i/100)));
+  const pt=u=>[x0+u*(x1-x0),yb-(f(u)/mx)*(yb-top)];
+  const d='M'+Array.from({length:101},(_,i)=>pt(i/100).map(v=>v.toFixed(1)).join(',')).join(' L');
+  const mean=(()=>{let a=0,b=0;for(let i=0;i<=1000;i++){const u=i/1000;a+=u*f(u);b+=f(u)}return a/b})();const avgX=x0+mean*(x1-x0);
+  return <Fig label="ספקטרום בטא רציף: מספר החלקיקים כפונקציה של האנרגיה, מאפס עד אנרגיית המקסימום; האנרגיה הממוצעת נמוכה מהמקסימום ותלויה בגרעין, למשל נתרן 22 כ-0.39 ואשלגן-יוד 131 כ-0.32 מהמקסימום; צורה סכמטית" viewBox="0 -10 560 250">
+    <L x1={x0} y1={yb} x2={x1+20} y2={yb}/>
+    <L x1={x0} y1={yb} x2={x0} y2={20}/>
+    <path d={d} stroke={accent} strokeWidth={2.2} fill="none"/>
+    <L x1={avgX} y1={yb} x2={avgX} y2={60} stroke={C.mut} dash="4 4"/>
+    <Box x={avgX+90} y={8} w={240} h={70} fill={C.faint} stroke="none" rx={4} opacity={0.92}/>
+    <T x={avgX+205} y={30} size={12} fill={C.ink}>אנרגיה ממוצעת: תלויה בגרעין</T>
+    <T x={avgX+205} y={48} size={12} ltr fill={C.ink}>²²Na: 0.39·Emax ; ¹³¹I: 0.32·Emax</T><T x={avgX+205} y={66} size={11} fill={C.mut}>הקו המקווקו: הממוצע בצורה המצוירת, סכמטי</T>
+    <L x1={x1} y1={yb} x2={x1} y2={yb-14} stroke={C.mut}/>
+    <T x={x1} y={yb+18} size={12} ltr fill={C.ink}>Emax</T>
+    <T x={x0} y={yb+18} size={12} ltr fill={C.ink}>0</T>
+    <T x={(x0+x1)/2} y={yb+38} size={12}>אנרגיית החלקיק</T>
+    <T x={x0+6} y={14} size={12} anchor="start">מספר חלקיקים</T>
+  </Fig>;
+}
+
+// E5: schematic gamma energy spectrum in a detector for a 2 MeV photon.
+export function PhotonSpectrum({accent}){
+  const x0=60,x1=500,yb=190;
+  const X=e=>x0+(e/2000)*(x1-x0);
+  const edge=1773;
+  const peak=(e,h,w=4)=>`M${X(e)-w},${yb} L${X(e)},${yb-h} L${X(e)+w},${yb}`;
+  const cont=`M${X(0)},${yb-46} L${X(edge-40)},${yb-30} L${X(edge)},${yb-30} L${X(edge)},${yb-8} L${X(2000)-4},${yb-8}`;
+  return <Fig label="ספקטרום פוטונים סכמטי בגלאי לפוטון של 2 מגה-אלקטרון-וולט: פסגת אניהילציה ב-511, פסגת בריחה כפולה ב-978, פסגת בריחה בודדת ב-1489, קצה קומפטון ב-1773 ופסגת כל האנרגיה ב-2000 קילו-אלקטרון-וולט" viewBox="0 -20 560 270">
+    <L x1={x0} y1={yb} x2={x1+20} y2={yb}/>
+    <L x1={x0} y1={yb} x2={x0} y2={20}/>
+    <path d={cont} stroke={C.mut} strokeWidth={2} fill="none"/>
+    <path d={peak(511,70)} stroke="#f0c978" strokeWidth={2.2} fill="none"/>
+    <path d={peak(978,40)} stroke="#c79af0" strokeWidth={2.2} fill="none"/>
+    <path d={peak(1489,48)} stroke="#c79af0" strokeWidth={2.2} fill="none"/>
+    <path d={peak(2000,150,4)} stroke={accent} strokeWidth={2.4} fill="none"/>
+    <Lab x={X(511)} y={yb-76} fill="#f0c978">אניהילציה</Lab>
+    <Lab x={X(978)} y={yb-46} fill="#c79af0">בריחה כפולה</Lab>
+    <Lab x={X(1489)-6} y={yb-70} fill="#c79af0">בריחה בודדת</Lab>
+    <T x={X(edge)-20} y={yb-14} size={11} fill={C.mut} dy={-30}>קצה קומפטון</T>
+    <Lab x={X(2000)} y={yb-158} fill={C.ink}>כל האנרגיה</Lab>
+    {[[511,'511'],[978,'978'],[1489,'1489'],[1773,'1773'],[2000,'2000']].map(([e,l])=><g key={l}><L x1={X(e)} y1={yb} x2={X(e)} y2={yb+5}/><T x={X(e)} y={yb+20} size={11} ltr>{l}</T></g>)}
+    <T x={(x0+x1)/2} y={yb+40} size={12}>keV, ציר אופקי ליניארי; גבהי הפסגות סכמטיים</T>
+    <T x={x0+6} y={14} size={12} anchor="start">מספר אירועים</T>
+  </Fig>;
+}
+
+// E5: electromagnetic spectrum by wavelength (log scale). Band edges are conventional and overlap;
+// the ionizing edge (about 10 eV, 124 nm) comes from E[eV] = 1240 / lambda[nm].
+export function EmBands({accent}){
+  const x0=40,x1=520,yb=120,uMin=-1,uMax=13;
+  const X=u=>x0+((u-uMin)/(uMax-uMin))*(x1-x0);
+  const bands=[
+    {a:-1,b:0,n:'רדיו',c:'#6aa7f5'},
+    {a:0,b:3,n:'מיקרוגל',c:'#59c9c0'},
+    {a:3,b:6.15,n:'אינפרא-אדום',c:'#e88b6d'},
+    {a:6.15,b:6.4,n:'',c:'#7ddc7d'},
+    {a:6.4,b:8,n:'UV',c:'#b48cf0'},
+    {a:8,b:11,n:'X',c:'#f09797'},
+    {a:11,b:13,n:'γ',c:accent}
+  ];
+  const ion=-Math.log10(1.24e-7);
+  const ticks=[[0,'1 m'],[3,'1 mm'],[6,'1 μm'],[9,'1 nm'],[12,'1 pm']];
+  return <Fig label="הספקטרום האלקטרומגנטי לפי אורך גל בסקאלה לוגריתמית: רדיו, מיקרוגל, אינפרא-אדום, אור נראה, אולטרה-סגול, קרני X וגמא. אורך גל קטן יותר פירושו אנרגיה גבוהה יותר. קו היינון בכעשרה אלקטרון-וולט, כ-124 ננומטר, הוא סף טיפוסי בלבד; הסף תלוי בחומר. גבולות הרצועות מקורבים וחופפים." viewBox="0 0 560 220">
+    {bands.map((b,i)=><g key={i}><rect x={X(b.a)} y={yb-34} width={X(b.b)-X(b.a)} height={34} fill={b.c} opacity={0.75}/>{b.n?<T x={(X(b.a)+X(b.b))/2} y={yb-14} size={12} fill="#10131a">{b.n}</T>:null}</g>)}
+    <T x={X(6.275)} y={yb-44} size={12} fill={C.ink}>נראה</T>
+    <L x1={X(ion)} y1={yb-60} x2={X(ion)} y2={yb+6} stroke={C.ink} dash="4 4"/>
+    <T x={X(ion)-6} y={yb-70} size={12} fill={C.ink}>סף יינון טיפוסי ≈10 eV, תלוי בחומר</T>
+    <L x1={x0} y1={yb} x2={x1} y2={yb}/>
+    {ticks.map(([u,l])=><g key={l}><L x1={X(u)} y1={yb} x2={X(u)} y2={yb+6}/><T x={X(u)} y={yb+22} size={11} ltr fill={C.ink}>{l}</T></g>)}
+    <T x={(x0+x1)/2} y={yb+50} size={12}>אורך גל (סקאלה לוגריתמית): שמאלה אורך גל גדול ואנרגיה נמוכה, ימינה אנרגיה גבוהה</T>
+    <T x={(x0+x1)/2} y={yb+72} size={11} fill={C.mut}>גבולות הרצועות מקורבים וחופפים; X וגמא נבדלות במקור, לא רק באנרגיה</T>
+  </Fig>;
+}
+
+// E5: direction of each decay on the chart of nuclides (x = neutrons N, y = protons Z). Original drawing.
+export function DecayDirections({accent}){
+  const cx=300,cy=105,u=40;
+  const arrows=[
+    {dx:-2,dy:-2,c:'#f09797',n:'α',lx:-30,ly:16},
+    {dx:-1,dy:1,c:'#6aa7f5',n:'β−',lx:-30,ly:-6},
+    {dx:1,dy:-1,c:'#7ddc7d',n:'β+ / EC',lx:50,ly:16},
+    {dx:0,dy:-1,c:'#f0c978',n:'p',lx:-18,ly:16},
+    {dx:-1,dy:0,c:'#c79af0',n:'n',lx:-18,ly:-8}
+  ];
+  return <Fig label="כיוון הדעיכות על מפת הגרעינים: ציר אופקי מספר ניטרונים N וציר אנכי מספר פרוטונים Z. אלפא: N ו-Z יורדים ב-2. בטא מינוס: N יורד ב-1 ו-Z עולה ב-1. בטא פלוס ולכידת אלקטרון: N עולה ב-1 ו-Z יורד ב-1. פליטת פרוטון: Z יורד ב-1. פליטת ניטרון: N יורד ב-1. גמא לא משנה את N או Z." viewBox="0 0 560 250">
+    <L x1={60} y1={220} x2={520} y2={220}/>
+    <L x1={60} y1={220} x2={60} y2={20}/>
+    <T x={540} y={220} size={12} ltr fill={C.ink}>N</T>
+    <T x={60} y={12} size={12} ltr fill={C.ink}>Z</T>
+    <Dot cx={cx} cy={cy} r={7} fill={accent}/>
+    <Lab x={cx+62} y={cy-14} fill={C.ink}>גרעין האם</Lab>
+    {arrows.map((a,i)=><g key={a.n}><Arrow x1={cx} y1={cy} x2={cx+a.dx*u} y2={cy-a.dy*u} stroke={a.c} id={'dd'+i}/><Lab x={cx+a.dx*u+a.lx} y={cy-a.dy*u+a.ly} ltr fill={a.c}>{a.n}</Lab></g>)}
+    <Lab x={cx+130} y={60} fill={C.ink}>גמא: אותו גרעין, פחות אנרגיה</Lab>
+  </Fig>;
+}
+
+// E5: X-ray tube spectrum = continuous bremsstrahlung plus characteristic K lines. Schematic, no energy scale.
+export function XraySpectrum({accent}){
+  const x0=60,x1=500,yb=190,top=40;
+  const X=u=>x0+u*(x1-x0);
+  const g=u=>(1-u)*(1-Math.exp(-u*10));
+  const Y=u=>yb-g(u)*(yb-top); // same scale as the dashed line yb-(1-u)*(yb-top): filtering only lowers intensity
+  const d='M'+Array.from({length:101},(_,i)=>`${X(i/100).toFixed(1)},${Y(i/100).toFixed(1)}`).join(' L');
+  const spike=(u,h,c)=><path d={`M${X(u)-3},${Y(u)} L${X(u)},${Y(u)-h} L${X(u)+3},${Y(u)}`} stroke={c} strokeWidth={2.4} fill="none"/>;
+  return <Fig label="ספקטרום שפופרת רנטגן סכמטי ללא סקאלה: עקומה רציפה של קרינת בלימה שעולה ויורדת עד האנרגיה המרבית Emax, וקו מקווקו לקרינת בלימה ללא סינון בוואקום. על העקומה שני פסים חדים של קרינה אופיינית: Kα מירידת אלקטרון מקליפה L ל-K, ו-Kβ מקליפה M ל-K, מעט באנרגיה גבוהה יותר וחלש יותר מ-Kα. העקומה המלאה אחרי סינון נמוכה מהקו המקווקו בכל אנרגיה ומתקרבת אליו באנרגיות הגבוהות." viewBox="0 0 560 250">
+    <L x1={x0} y1={yb} x2={x1+20} y2={yb}/>
+    <L x1={x0} y1={yb} x2={x0} y2={20}/>
+    <L x1={X(0.0)} y1={top} x2={X(1)} y2={yb} stroke={C.mut} dash="5 4"/>
+    <path d={d} stroke={accent} strokeWidth={2.4} fill="none"/>
+    {spike(0.5,100,'#f0c978')}
+    {spike(0.6,30,'#c79af0')}
+    <Lab x={X(0.5)+26} y={Y(0.5)-92} ltr fill="#f0c978" w={34}>Kα</Lab>
+    <Lab x={X(0.6)+28} y={Y(0.6)-22} ltr fill="#c79af0" w={34}>Kβ</Lab>
+    <Lab x={X(0.84)} y={52} fill={C.ink}>קרינה אופיינית: פסים חדים</Lab>
+    <Lab x={X(0.3)} y={yb-40} fill={C.ink}>קרינת בלימה: רציף</Lab>
+    <Lab x={X(0.3)-10} y={42} fill={C.mut} size={11}>מקווקו: ללא סינון</Lab>
+    <L x1={x1} y1={yb} x2={x1} y2={yb-12} stroke={C.mut}/>
+    <T x={x1} y={yb+18} size={12} ltr fill={C.ink}>Emax</T>
+    <T x={(x0+x1)/2} y={yb+38} size={12}>אנרגיית הפוטון (ציר סכמטי)</T>
+    <T x={x0+6} y={14} size={12} anchor="start">עוצמה יחסית</T>
+  </Fig>;
+}

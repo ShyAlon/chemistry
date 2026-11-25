@@ -19,14 +19,14 @@ test('quantum-number definition preserves all four mappings, range and original 
 test('only authored equation blocks get standalone layout; long source lines are not rewritten',()=>{
  const text='E = h·ν = h·c/λ        h = 6.626×10⁻³⁴ J·s';
  const html=render(React.createElement(DisplayMath,{text}));assert.match(html,/class="display-math" dir="ltr"/);assert.ok(html.includes('<div>E = h·ν = h·c/λ</div>'));assert.ok(html.includes('h = 6.626×10⁻³⁴ J·s'));
- const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2&&!p.batch3&&!p.batch4&&!p.recap&&!p.finalPrep&&p.notationOf===undefined)));assert.equal(equations.length,14);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
+ const equations=data.courses.flatMap(c=>c.topics.filter(t=>!/^G1[3-6]$/.test(t.id)).flatMap(t=>t.content.theory.filter(p=>p.layout==='equation'&&!p.batch2&&!p.batch3&&!p.batch4&&!p.recap&&!p.finalPrep&&p.notationOf===undefined)));assert.equal(equations.length,20);for(const p of equations)assert.ok(!/[\u0590-\u05ff]/.test(p.text));
 });
 
 test('nuclear course content is pinned to its reviewed snapshot',()=>{
  const nuclear=data.courses.find(c=>c.id==='nuclear');
  assert.ok(nuclear);assert.equal(nuclear.topics.length,10);
  const copy=structuredClone(nuclear.topics).map(beforePractice);
- assert.equal(createHash('sha256').update(JSON.stringify(copy)).digest('hex'),'16126e8a89f648328a4800d6b03d0977002b0bf77b4afc42c9bddcd8cf1b920a');
+ assert.equal(createHash('sha256').update(JSON.stringify(copy)).digest('hex'),'6ed4f07c150c15cc2a754094f40e6631e27d8350f1f6d7e8ea486024228b3b45');
 });
 
 test('course content and answer data stay identical except the explicit V+ worked-answer correction',()=>{

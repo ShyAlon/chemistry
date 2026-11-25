@@ -1762,6 +1762,237 @@
     "T",
     "t@celsius"
    ]
+  },
+  "nuclear/E5/theory/15": {
+   "expression": "Tα ≈ Q · (A − 4) / A",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Tα": "T_α@alpha-decay",
+    "Q": "Q@alpha-decay",
+    "A": "A#3"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "T_α@alpha-decay",
+    "Q@alpha-decay",
+    "A#3"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/theory/26": {
+   "expression": "p → n + e⁺ + ν     ;     n → p + e⁻ + ν̄",
+   "contextDigest": "769346f73997b6ea94396cb022ae2d540cfed6f619042dbfad53fa0d5464bb5c",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "p",
+     "kind": "label"
+    },
+    {
+     "text": "n",
+     "kind": "label"
+    },
+    {
+     "text": "e⁺",
+     "kind": "label"
+    },
+    {
+     "text": "e⁻",
+     "kind": "label"
+    },
+    {
+     "text": "ν̄",
+     "kind": "label"
+    },
+    {
+     "text": "ν",
+     "kind": "label"
+    },
+    {
+     "text": "→",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/theory/44": {
+   "expression": "E = h·c / λ     ;     E [keV] ≈ 12.4 / λ [Å]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E": "E@photon-energy",
+    "h": "h",
+    "c": "c",
+    "λ": "λ@wavelength"
+   },
+   "literals": [
+    {
+     "text": "keV",
+     "kind": "unit"
+    },
+    {
+     "text": "Å",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "E@photon-energy",
+    "h",
+    "c",
+    "λ@wavelength"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/theory/50": {
+   "expression": "ᴬ_Z X*  →  ᴬ_Z X  +  γ",
+   "contextDigest": "63a7c0f8cb449c1f5c671c93a1d512aa91657e9f314aab04b92e2ba9b92ffc76",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "ᴬ_Z X*",
+     "kind": "label"
+    },
+    {
+     "text": "ᴬ_Z X",
+     "kind": "label"
+    },
+    {
+     "text": "γ",
+     "kind": "label"
+    },
+    {
+     "text": "→",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/theory/51": {
+   "expression": "⁶⁰₂₇Co → ⁶⁰₂₈Ni* + β⁻     ;     ⁶⁰₂₈Ni* → ⁶⁰₂₈Ni + γ",
+   "contextDigest": "86cdf1926c1add3a457278b1c3bc7184f2af941b2d2f2a005f7777642adc0e2b",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "⁶⁰₂₇Co",
+     "kind": "label"
+    },
+    {
+     "text": "⁶⁰₂₈Ni*",
+     "kind": "label"
+    },
+    {
+     "text": "⁶⁰₂₈Ni",
+     "kind": "label"
+    },
+    {
+     "text": "β⁻",
+     "kind": "label"
+    },
+    {
+     "text": "γ",
+     "kind": "label"
+    },
+    {
+     "text": "→",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/theory/69": {
+   "expression": "E′ = E / [1 + (E / 511 keV)(1 − cos θ)]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E′": "E′@scattered-photon",
+    "E": "E@photon-energy",
+    "θ": "θ@compton-angle"
+   },
+   "literals": [
+    {
+     "text": "keV",
+     "kind": "unit"
+    },
+    {
+     "text": "cos",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "E′@scattered-photon",
+    "E@photon-energy",
+    "θ@compton-angle"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/אנרגיית האלפא הנפלטת": {
+   "expression": "Tα ≈ Q · (A − 4) / A",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Tα": "T_α@alpha-decay",
+    "Q": "Q@alpha-decay",
+    "A": "A#3"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "T_α@alpha-decay",
+    "Q@alpha-decay",
+    "A#3"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/אנרגיית פוטון ואורך גל": {
+   "expression": "E = h·c / λ     ;     E [keV] ≈ 12.4 / λ [Å]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E": "E@photon-energy",
+    "h": "h",
+    "c": "c",
+    "λ": "λ@wavelength"
+   },
+   "literals": [
+    {
+     "text": "keV",
+     "kind": "unit"
+    },
+    {
+     "text": "Å",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "E@photon-energy",
+    "h",
+    "c",
+    "λ@wavelength"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "nuclear/E5/פיזור קומפטון": {
+   "expression": "E′ = E / [1 + (E / 511 keV)(1 − cos θ)]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E′": "E′@scattered-photon",
+    "E": "E@photon-energy",
+    "θ": "θ@compton-angle"
+   },
+   "literals": [
+    {
+     "text": "keV",
+     "kind": "unit"
+    },
+    {
+     "text": "cos",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "E′@scattered-photon",
+    "E@photon-energy",
+    "θ@compton-angle"
+   ],
+   "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
   }
  },
  "legacyUnreviewed": {
@@ -2388,6 +2619,14 @@
   "sheet:concentration": "73673c889cc2578885774cebf25350524e53798ca3ea416e68006d74d64fbcea",
   "sheet:raoult": "0ffcd84019156fe5265aaa54e3a49a0607b64cfbd5042e6f5f5ad21a19fd5544",
   "sheet:NA": "0f66d9e5439be1ef935024dc8a1b2f8d7846e76505a25dcd3865fc3161ddb6d2",
-  "ρ": "31fa7147f347f24eed2a49aed42d88a3007735d97db64a3c7c3edf8551ff0d4d"
+  "ρ": "31fa7147f347f24eed2a49aed42d88a3007735d97db64a3c7c3edf8551ff0d4d",
+  "T_α@alpha-decay": "0d5f9044bb7d66b2212e35b3b5f8db88bc67ac3dfe9e0814249b8326cce87f62",
+  "Q@alpha-decay": "b812d60c61b3781164ca760ccfb77162d30c976742a9fec7a43d90f9a3552505",
+  "A#3": "24a193c56156f898f936010d3055f172e05f768271c0658c485ab0b6b4d3d856",
+  "E@photon-energy": "9534beb8cbf8c7b29d9fa16684b534a125190d668a3c15bf8de878e938997882",
+  "h": "e3018ddc17eaa39ce9b8eee3fe95e70a777c5e5ecc21827717d0cd28fd9a649c",
+  "λ@wavelength": "68770648ed769f85b42cced44a156a9ba317f0dfb5e1e18c7e0048065de47746",
+  "E′@scattered-photon": "59d61851092c8992e0b9be1f1bf4251977127b2b100003ad848a540095150602",
+  "θ@compton-angle": "83c8fd82dc5fa44d1249bb23f5c3cd657bde714a8c3fb591a92ccd24c033d9e3"
  }
 }

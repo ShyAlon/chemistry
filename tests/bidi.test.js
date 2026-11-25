@@ -66,3 +66,24 @@ test('numbered step labels (שלב N -) stay in the Hebrew flow; subtraction and
  const t=n('שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');assert.equal(n(t),t);
  assert.equal(t.replace(/[\u2066-\u2069]/g,''),'שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');
 });
+
+test('long equations render as inline-block equation runs; text, words and short runs are unchanged',()=>{
+ const strip=h=>h.replace(/<[^>]*>/g,'').replace(/&#x27;|&quot;|&amp;|&lt;|&gt;/g,m=>({'&#x27;':"'",'&quot;':'"','&amp;':'&','&lt;':'<','&gt;':'>'}[m]));
+ const eq='שלב 2 - (0.01 + x)·x / (0.01 − x) = 1.2·10⁻² נותן x = 4.5·10⁻³ M.';
+ const html=renderToStaticMarkup(bidiElement('p',null,eq));
+ assert.match(html,/class="bidi-run bidi-eq"/);
+ assert.equal(strip(html).replace(/[\u2066-\u2069]/g,''),eq.replace(/[\u2066-\u2069]/g,''));
+ // a short relation stays atomic and is not an equation block
+ const short=renderToStaticMarkup(bidiElement('p',null,'נתון: pH = 4.50 בלבד'));
+ assert.ok(!short.includes('bidi-eq'));
+ // a long condition that contains English words keeps the previous inline wrapping
+ const words=renderToStaticMarkup(bidiElement('p',null,'לפי ההרצאה: x = 5 and the source-derived value of Ka is larger'));
+ assert.ok(!words.includes('bidi-eq'));
+ // plain English LTR text and machine values are unchanged
+ assert.ok(!renderToStaticMarkup(bidiElement('p',null,'The quick brown fox = jumps over the lazy dog')).includes('bidi-eq'));
+ assert.equal(bidiElement('option',{value:'a = b + c = d'},'a = b + c = d').props.value,'a = b + c = d');
+ // the rule wraps inside the block (no nowrap, no horizontal overflow) and keeps the baseline
+ const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
+ const rule=css.match(/\.bidi-run\.bidi-eq\{[^}]*\}/)[0];
+ assert.match(rule,/display:inline-block/);assert.match(rule,/max-width:100%/);assert.match(rule,/text-align:left/);assert.match(rule,/vertical-align:baseline/);assert.ok(!/nowrap/.test(rule));
+});

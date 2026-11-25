@@ -371,9 +371,10 @@
      "disposition": "adapted",
      "label": "aluminium specific heat 0.903 J/g C and faster thawing",
      "targets": [
-      "theory:E8-t08"
+      "theory:E8-t08",
+      "theory:E8-t28"
      ],
-     "rationale": "Lesson carries the specific heat idea only, not the thawing claim (thermal conductivity is the main factor)."
+     "rationale": "Lesson carries specific heat (t08) and thermal conductivity as the thawing factor (t28); slide thawing claim is not repeated."
     }
    ]
   },
@@ -468,7 +469,7 @@
       "worked:14",
       "theory:E8-t18"
      ],
-     "rationale": "Slide molar mass 343.3 vs 342.3; worked 14 states both."
+     "rationale": "Slide M 343.3 does not give its 5.65e3 (343.3 gives 5.66e3; 342.3 gives 5.65e3); worked 14 says so."
     }
    ]
   },
@@ -544,9 +545,9 @@
      "disposition": "covered",
      "label": "zeroth law of thermodynamics",
      "targets": [
-      "theory:E8-t02"
+      "theory:E8-t24"
      ],
-     "rationale": "Lesson mentions thermal equilibrium only as part of terminology."
+     "rationale": "The lesson states the zeroth law in t24."
     }
    ]
   },
@@ -671,7 +672,8 @@
      "label": "sucrose combustion: delta H and q V nearly equal, volume unchanged",
      "targets": [
       "theory:E8-t25"
-     ]
+     ],
+     "rationale": "Slide prints -5.65e23 kJ (typo for 10^3). Slide p66 shows sucrose -5640 kJ."
     }
    ]
   },
@@ -891,10 +893,11 @@
      "id": "p56.u1",
      "kind": "concept",
      "disposition": "covered",
-     "label": "most stable forms: graphite and diamond, Br2 liquid",
+     "label": "most stable forms: graphite and diamond, Br2 liquid, white and red P",
      "targets": [
       "theory:E8-t32"
-     ]
+     ],
+     "rationale": "Slide: P(white) to P(red) is -17.6 kJ/mol; the reference state is white P by convention although red is more stable."
     }
    ]
   },

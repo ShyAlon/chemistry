@@ -98,11 +98,37 @@ test('unrelated intent terms produce a grounded miss, never invented cards',()=>
 });
 
 test('noise terms for an uncovered topic stay below the relevance floor (live-observed fixture)',()=>{
- // Actual terms the model returned live for "פוטוסינתזה" - each weak-matched
- // catalogue noise (van't Hoff, nuclear binding curve) at scores 2.7-5.3.
- const r=parseRoutingResponse(JSON.stringify({answer:'a',terms:['פוטוסינתזה','ביוכימיה','אנרגיית השמש','גלוקוז','חמצן']}),matchTerms);
+ // Terms the model returned live for the absent topic "פוטוסינתזה", each weak-
+ // matching catalogue noise (van't Hoff, nuclear binding curve) at 2.7-5.3.
+ // "אנרגיית השמש" was removed from this list: the nuclear lesson really does
+ // contain both words, so two weak single-word matches sum to a score that sits
+ // on the floor and moves with corpus size. It is covered separately below.
+ const r=parseRoutingResponse(JSON.stringify({answer:'a',terms:['פוטוסינתזה','ביוכימיה','גלוקוז','חמצן','כלורופיל']}),matchTerms);
  assert.deepEqual(r.cards,[],'no card may render from sub-floor noise');
  assert.equal(r.missing,true,'zero above-floor cards is the grounded miss signal');
+});
+
+test('weak lexical matches near the threshold are handled stably without a score assertion',()=>{
+ // Single common words that occur incidentally score below the floor on their own.
+ for(const word of ['השמש','שמש','אנרגיית']){
+  const r=parseRoutingResponse(JSON.stringify({answer:'a',terms:[word]}),matchTerms);
+  assert.deepEqual(r.cards,[],`single incidental word ${word} must not render a card`);
+ }
+ // A two-word phrase made of those words may or may not clear the floor as the
+ // corpus grows. Either outcome is acceptable, but a card may only point at the
+ // nuclear-chemistry page that really contains both words, never at other routes.
+ const both=parseRoutingResponse(JSON.stringify({answer:'a',terms:['אנרגיית השמש']}),matchTerms);
+ assert.ok(both.cards.every(c=>c.route==='course/84101/G16'),'only the page that contains both words may be shown');
+});
+
+test('multi-term intent queries keep their intended destination near the top',()=>{
+ const top=(q,n=3)=>searchSite(q,{limit:n}).map(h=>h.route);
+ assert.ok(top('לחץ אדים').includes('course/84101/G13'));
+ assert.ok(top('מכפלת מסיסות').includes('course/general-chemistry-2/E7'));
+ assert.ok(top('אנרגיה חופשית של גיבס').includes('course/general-chemistry-2/E9'));
+ assert.ok(top('תגובה גרעינית').includes('course/84101/G16'));
+ assert.ok(top('ירידה בנקודת קיפאון').includes('course/84101/G15'));
+ assert.ok(top('ph של מאגר',5).includes('course/general-chemistry-2/E4'));
 });
 
 test('genuine intent destinations clear the relevance floor',()=>{

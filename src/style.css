@@ -509,3 +509,13 @@ html{scroll-padding-top:calc(var(--chrome-header) + 12px);scroll-padding-bottom:
 .avatar-readaloud{display:flex;gap:15px;align-items:center;justify-content:center;width:100%;background:#1a2737;border:1px solid #536376;color:#cfeeF5;border-radius:7px;padding:12px;font-size:18px;margin-bottom:10px}
 .avatar-readaloud:hover{background:#22344a}
 .avatar-readaloud>span{font-size:22px}
+
+/* Shared animation controls */
+.anim-controls{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.anim-btn{min-width:44px;min-height:44px;background:#16233a;border:1px solid #33445f;color:#a8c4de;border-radius:8px;padding:4px 10px;font-size:16px;line-height:1}
+.anim-btn:hover:not(:disabled){border-color:#7e94ad;color:#fff}
+.anim-play[aria-pressed=true]{border-color:#9ce5ee;color:#e7faff}
+.anim-scrub{flex:1;min-width:120px;accent-color:var(--accent);padding:0;border:0;background:none;height:44px}
+.anim-stage{color:var(--muted);font-size:.95rem;min-width:9em}
+.figure-block.zoomed .anim-controls{max-width:820px}
+@media print{.anim-controls{display:none}}

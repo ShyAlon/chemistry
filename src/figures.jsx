@@ -3,6 +3,8 @@ import {ElectronAffinitySigns,ExamMethodMap} from './figures-recap.jsx';
 import {MaxwellSpeedBand,EffusionQuantities,HydrationOrientation} from './figures-practice.jsx';
 import {LiquidVapor,RaoultLines,OsmosisFlow,DecayMap,HalfLifeCurve} from './figures-supplement.jsx';
 import {RadiationPenetration,FuelCycle,PwrLoops,PhotonInteractions,NeutronFamilies,BindingCurve,FissionEnergySplit,ChainReaction,UraniumIsotopes,EnrichmentCascade,BwrLoop,ReactorTypes,ReactorGenerations,IonizingScale,DiscoveryTimeline,TechniqueChooser,TypicalDoses,DoseEffects,StabilityValley,PosterWireframe} from './figures-nuclear.jsx';
+import {AnimatedFigure} from './anim-core.jsx';
+import {animations} from './anim-figures.jsx';
 import {BornHaberNaCl,RadiusRatioLadder,NetDipole,SolidForms,BondingFamilies,IonicTransfer,IonicMelting,CoordinationSketches,ForceRanges,BondTypeScale,MoBonding,BandClasses,PhotonEnergyRuler,ExciteRelaxEmit,CarrierCreation,ConductivityVsT,DopantLevels,DopedConductivity} from './figures-solid-state.jsx';
 import {bidiElement} from './bidi-react.js';
 import React from 'react';
@@ -98,5 +100,7 @@ export const schematicFigures=new Set(['mo-bonding','band-classes','excite-relax
 export function Figure({id,accent}){
   const F=figures[id];
   if(!F)return null;
+  const A=animations[id];
+  if(A)return <AnimatedFigure spec={A} accent={accent||'#71e4f4'}/>;
   return <F accent={accent||'#71e4f4'}/>;
 }

@@ -19,7 +19,7 @@ test('known configurations match the course exceptions and counts',()=>{
 test('formula sheet covers course topics: exactly for the two original courses, curated subsets for nuclear and nano',()=>{
  // 84101/84102 have sheets matching their topics exactly; nuclear and nano have curated sheets
  // only for topics with real quantitative content (see tests/formula-topics.test.js).
- assert.deepEqual(sheet.map(x=>x.id).sort(),['84101','84102','nano','nuclear']);
+ assert.deepEqual(sheet.map(x=>x.id).sort(),['84101','84102','general-chemistry-2','nano','nuclear']);
  for(const sh of sheet){const c=catalogue.courses.find(x=>x.id===sh.id);assert.ok(c,'formula sheet for unknown course '+sh.id);
   if(sh.id==='84101'||sh.id==='84102')assert.deepEqual(sh.topics.map(t=>t.id).sort(),c.topics.map(t=>t.id).sort());
   else for(const t of sh.topics)assert.ok(c.topics.some(x=>x.id===t.id),'sheet topic missing from course '+t.id)}

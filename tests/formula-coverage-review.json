@@ -1993,6 +1993,1625 @@
     "θ@compton-angle"
    ],
    "note": "Nuclear E5 source-coverage repair; explicit bindings, not global letter inference."
+  },
+  "general-chemistry-2/E1/Kc": {
+   "expression": "Kc = [C]^c·[D]^d/([A]^a·[B]^b)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kc": "gc2:Kc",
+    "[A]": "gc2:A_",
+    "[B]": "gc2:B_",
+    "[C]": "gc2:C_",
+    "[D]": "gc2:D_",
+    "a": "gc2:a",
+    "b": "gc2:b",
+    "c": "gc2:c",
+    "d": "gc2:d"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kc",
+    "gc2:A_",
+    "gc2:B_",
+    "gc2:C_",
+    "gc2:D_",
+    "gc2:a",
+    "gc2:b",
+    "gc2:c",
+    "gc2:d"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E1/Kp": {
+   "expression": "Kp = P_C^c·P_D^d/(P_A^a·P_B^b)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kp": "gc2:Kp",
+    "P_A": "gc2:PA",
+    "P_B": "gc2:PB",
+    "P_C": "gc2:PC",
+    "P_D": "gc2:PD",
+    "a": "gc2:a",
+    "b": "gc2:b",
+    "c": "gc2:c",
+    "d": "gc2:d"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kp",
+    "gc2:PA",
+    "gc2:PB",
+    "gc2:PC",
+    "gc2:PD",
+    "gc2:a",
+    "gc2:b",
+    "gc2:c",
+    "gc2:d"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E1/Kp ו-Kc": {
+   "expression": "Kp = Kc·(RT)^Δn",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kp": "gc2:Kp",
+    "Kc": "gc2:Kc",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "Δn": "gc2:dn"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kp",
+    "gc2:Kc",
+    "gc2:R",
+    "gc2:T",
+    "gc2:dn"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E1/Kp ו-Kx": {
+   "expression": "Kp = Kx·P^Δn",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kp": "gc2:Kp",
+    "Kx": "gc2:Kx",
+    "P": "gc2:P",
+    "Δn": "gc2:dn"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kp",
+    "gc2:Kx",
+    "gc2:P",
+    "gc2:dn"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E1/היפוך, חיבור וכפל": {
+   "expression": "K_rev = 1/K ; K_sum = K₁·K₂ ; K_n = K^n",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K_rev": "gc2:Krev",
+    "K": "gc2:K",
+    "K_sum": "gc2:Ksum",
+    "K₁": "gc2:K1",
+    "K₂": "gc2:K2",
+    "K_n": "gc2:Kn",
+    "n": "gc2:nmult"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Krev",
+    "gc2:K",
+    "gc2:Ksum",
+    "gc2:K1",
+    "gc2:K2",
+    "gc2:Kn",
+    "gc2:nmult"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E1/כיוון התגובה": {
+   "expression": "ΔG = RT·ln(Q/K)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG": "gc2:dG",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "Q": "gc2:Q",
+    "K": "gc2:K"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dG",
+    "gc2:R",
+    "gc2:T",
+    "gc2:Q",
+    "gc2:K"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E2/וואן הוף": {
+   "expression": "ln(K₂/K₁) = (ΔH°/R)·(1/T₁ − 1/T₂)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K₁": "gc2:KT1",
+    "K₂": "gc2:KT2",
+    "ΔH°": "gc2:dH0",
+    "R": "gc2:R",
+    "T₁": "gc2:T1",
+    "T₂": "gc2:T2"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:KT1",
+    "gc2:KT2",
+    "gc2:dH0",
+    "gc2:R",
+    "gc2:T1",
+    "gc2:T2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E2/קבוע התפלגות": {
+   "expression": "K_D = [S]_org/[S]_aq",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K_D": "gc2:KD",
+    "[S]_org": "gc2:Sorg",
+    "[S]_aq": "gc2:Saq"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:KD",
+    "gc2:Sorg",
+    "gc2:Saq"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E2/מיצוי אחד": {
+   "expression": "q = V₁/(V₁ + D·V₂)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q": "gc2:q",
+    "V₁": "gc2:V1",
+    "D": "gc2:D",
+    "V₂": "gc2:V2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:q",
+    "gc2:V1",
+    "gc2:D",
+    "gc2:V2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E2/מיצויים חוזרים": {
+   "expression": "q_n = (V₁/(V₁ + D·V₂))^n",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q_n": "gc2:qn",
+    "V₁": "gc2:V1",
+    "D": "gc2:D",
+    "V₂": "gc2:V2",
+    "n": "gc2:nex"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:qn",
+    "gc2:V1",
+    "gc2:D",
+    "gc2:V2",
+    "gc2:nex"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E2/logP": {
+   "expression": "logP = log(K_ow)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "logP": "gc2:logP",
+    "K_ow": "gc2:Kow"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:logP",
+    "gc2:Kow"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E3/קבוע חומצה": {
+   "expression": "Ka = [H₃O⁺][A⁻]/[HA]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ka": "gc2:Ka",
+    "[H₃O⁺]": "gc2:H3O",
+    "[A⁻]": "gc2:Am",
+    "[HA]": "gc2:HA"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ka",
+    "gc2:H3O",
+    "gc2:Am",
+    "gc2:HA"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E3/קבוע בסיס": {
+   "expression": "Kb = [BH⁺][OH⁻]/[B]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kb": "gc2:Kb",
+    "[BH⁺]": "gc2:BHp",
+    "[OH⁻]": "gc2:OH",
+    "[B]": "gc2:B"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kb",
+    "gc2:BHp",
+    "gc2:OH",
+    "gc2:B"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E3/מכפלת היונים של מים": {
+   "expression": "Kw = [H₃O⁺][OH⁻]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kw": "gc2:Kw",
+    "[H₃O⁺]": "gc2:H3O",
+    "[OH⁻]": "gc2:OH"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kw",
+    "gc2:H3O",
+    "gc2:OH"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E3/זוג צמוד": {
+   "expression": "Ka·Kb = Kw ; pKa + pKb = pKw",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ka": "gc2:Ka",
+    "Kb": "gc2:Kb",
+    "Kw": "gc2:Kw",
+    "pKa": "gc2:pKa",
+    "pKb": "gc2:pKb",
+    "pKw": "gc2:pKw"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ka",
+    "gc2:Kb",
+    "gc2:Kw",
+    "gc2:pKa",
+    "gc2:pKb",
+    "gc2:pKw"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E3/pKa": {
+   "expression": "pKa = −log Ka",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pKa": "gc2:pKa",
+    "Ka": "gc2:Ka"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:pKa",
+    "gc2:Ka"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/pH": {
+   "expression": "pH = −log[H₃O⁺] ; pOH = −log[OH⁻] ; pH + pOH = pKw",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pH": "gc2:pH",
+    "[H₃O⁺]": "gc2:H3O",
+    "pOH": "gc2:pOH",
+    "[OH⁻]": "gc2:OH",
+    "pKw": "gc2:pKw"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:pH",
+    "gc2:H3O",
+    "gc2:pOH",
+    "gc2:OH",
+    "gc2:pKw"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/חומצה חלשה": {
+   "expression": "Ka = x²/(c − x)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ka": "gc2:Ka",
+    "x": "gc2:xH",
+    "c": "gc2:c0"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ka",
+    "gc2:xH",
+    "gc2:c0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/קירוב": {
+   "expression": "x ≈ √(Ka·c)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "x": "gc2:xH",
+    "Ka": "gc2:Ka",
+    "c": "gc2:c0"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:xH",
+    "gc2:Ka",
+    "gc2:c0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/דרגת פירוק": {
+   "expression": "α = x/c ≈ √(Ka/c)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "α": "gc2:alpha",
+    "x": "gc2:xH",
+    "c": "gc2:c0",
+    "Ka": "gc2:Ka"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:alpha",
+    "gc2:xH",
+    "gc2:c0",
+    "gc2:Ka"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/בסיס חלש": {
+   "expression": "Kb = x²/(c − x)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kb": "gc2:Kb",
+    "x": "gc2:xOH",
+    "c": "gc2:c0"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kb",
+    "gc2:xOH",
+    "gc2:c0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E4/דיפרוטית": {
+   "expression": "Ka₁·Ka₂ = [H₃O⁺]²·[A²⁻]/[H₂A]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ka₁": "gc2:Ka1",
+    "Ka₂": "gc2:Ka2",
+    "[H₃O⁺]": "gc2:H3O",
+    "[A²⁻]": "gc2:A2m",
+    "[H₂A]": "gc2:H2A"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ka1",
+    "gc2:Ka2",
+    "gc2:H3O",
+    "gc2:A2m",
+    "gc2:H2A"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E5/הנדרסון-האסלבך": {
+   "expression": "pH = pKa + log([A⁻]/[HA])",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pH": "gc2:pH",
+    "pKa": "gc2:pKa",
+    "[A⁻]": "gc2:Am",
+    "[HA]": "gc2:HA"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:pH",
+    "gc2:pKa",
+    "gc2:Am",
+    "gc2:HA"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E5/בופר בסיסי": {
+   "expression": "pOH = pKb + log([BH⁺]/[B])",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pOH": "gc2:pOH",
+    "pKb": "gc2:pKb",
+    "[BH⁺]": "gc2:BHp",
+    "[B]": "gc2:B"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:pOH",
+    "gc2:pKb",
+    "gc2:BHp",
+    "gc2:B"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E5/יחס לפי pH": {
+   "expression": "[A⁻]/[HA] = 10^(pH − pKa)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[A⁻]": "gc2:Am",
+    "[HA]": "gc2:HA",
+    "pH": "gc2:pH",
+    "pKa": "gc2:pKa"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Am",
+    "gc2:HA",
+    "gc2:pH",
+    "gc2:pKa"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E5/אניון כבסיס": {
+   "expression": "Kb = Kw/Ka",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Kb": "gc2:Kb",
+    "Kw": "gc2:Kw",
+    "Ka": "gc2:Ka"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kb",
+    "gc2:Kw",
+    "gc2:Ka"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E5/אינדיקטור": {
+   "expression": "[In⁻]/[HIn] = KIn/[H₃O⁺]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[In⁻]": "gc2:Inm",
+    "[HIn]": "gc2:HIn",
+    "KIn": "gc2:KIn",
+    "[H₃O⁺]": "gc2:H3O"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Inm",
+    "gc2:HIn",
+    "gc2:KIn",
+    "gc2:H3O"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/שקילות 1:1": {
+   "expression": "C_a·V_a = C_b·V_b",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "C_a": "gc2:Ca",
+    "V_a": "gc2:Va",
+    "C_b": "gc2:Cb",
+    "V_b": "gc2:Vb"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ca",
+    "gc2:Va",
+    "gc2:Cb",
+    "gc2:Vb"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/שגיאת טיטרציה": {
+   "expression": "error% = (V_f − V_e)/V_e·100",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "error%": "gc2:err",
+    "V_f": "gc2:Vf",
+    "V_e": "gc2:Ve"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:err",
+    "gc2:Vf",
+    "gc2:Ve"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/לפני שקילות, חומצה חלשה": {
+   "expression": "pH = pKa + log(n_A⁻/n_HA)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pH": "gc2:pH",
+    "pKa": "gc2:pKa",
+    "n_A⁻": "gc2:nAm",
+    "n_HA": "gc2:nHA"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:pH",
+    "gc2:pKa",
+    "gc2:nAm",
+    "gc2:nHA"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/חומצה חזקה לפני שקילות": {
+   "expression": "[H₃O⁺] = (n_H − n_OH)/V_total",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[H₃O⁺]": "gc2:H3O",
+    "n_H": "gc2:nH",
+    "n_OH": "gc2:nOH",
+    "V_total": "gc2:Vtot"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:H3O",
+    "gc2:nH",
+    "gc2:nOH",
+    "gc2:Vtot"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/בשקילות": {
+   "expression": "[OH⁻] = √(Kb·[A⁻])",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[OH⁻]": "gc2:OH",
+    "Kb": "gc2:Kb",
+    "[A⁻]": "gc2:Am"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:OH",
+    "gc2:Kb",
+    "gc2:Am"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E6/אמפוליט": {
+   "expression": "pH = (pKa₁ + pKa₂)/2",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "pH": "gc2:pH",
+    "pKa₁": "gc2:pKa1",
+    "pKa₂": "gc2:pKa2"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:pH",
+    "gc2:pKa1",
+    "gc2:pKa2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/מכפלת מסיסות": {
+   "expression": "Ksp = [M]^x·[X]^y",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ksp": "gc2:Ksp",
+    "[M]": "gc2:M_",
+    "[X]": "gc2:X_",
+    "x": "gc2:x",
+    "y": "gc2:y"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ksp",
+    "gc2:M_",
+    "gc2:X_",
+    "gc2:x",
+    "gc2:y"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/מסיסות כללית": {
+   "expression": "Ksp = x^x·y^y·S^(x+y)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Ksp": "gc2:Ksp",
+    "x": "gc2:x",
+    "y": "gc2:y",
+    "S": "gc2:S"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Ksp",
+    "gc2:x",
+    "gc2:y",
+    "gc2:S"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/מלח AB": {
+   "expression": "S = √Ksp",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "S": "gc2:S",
+    "Ksp": "gc2:Ksp"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:S",
+    "gc2:Ksp"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/מלח AB₂": {
+   "expression": "S = (Ksp/4)^(1/3)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "S": "gc2:S",
+    "Ksp": "gc2:Ksp"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:S",
+    "gc2:Ksp"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/מנת המסיסות": {
+   "expression": "Q = [M]^x·[X]^y",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "Q": "gc2:Q",
+    "[M]": "gc2:M_",
+    "[X]": "gc2:X_",
+    "x": "gc2:x",
+    "y": "gc2:y"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Q",
+    "gc2:M_",
+    "gc2:X_",
+    "gc2:x",
+    "gc2:y"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/יון משותף": {
+   "expression": "S = Ksp/[X]",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "S": "gc2:S",
+    "Ksp": "gc2:Ksp",
+    "[X]": "gc2:X_"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:S",
+    "gc2:Ksp",
+    "gc2:X_"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E7/חוזק יוני": {
+   "expression": "μ = (1/2)·Σ(Cᵢ·Zᵢ²)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "μ": "gc2:mu",
+    "Cᵢ": "gc2:Ci",
+    "Zᵢ": "gc2:Zi"
+   },
+   "literals": [
+    {
+     "text": "Σ",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:mu",
+    "gc2:Ci",
+    "gc2:Zi"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/החוק הראשון": {
+   "expression": "ΔU = q + w",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔU": "gc2:dU",
+    "q": "gc2:qh",
+    "w": "gc2:w"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dU",
+    "gc2:qh",
+    "gc2:w"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/עבודת לחץ-נפח": {
+   "expression": "w = −P_ext·ΔV",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "w": "gc2:w",
+    "P_ext": "gc2:Pext",
+    "ΔV": "gc2:dV"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:w",
+    "gc2:Pext",
+    "gc2:dV"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/חום וטמפרטורה": {
+   "expression": "q = m·c·ΔT",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q": "gc2:qh",
+    "m": "gc2:m",
+    "c": "gc2:cs",
+    "ΔT": "gc2:dTc"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:qh",
+    "gc2:m",
+    "gc2:cs",
+    "gc2:dTc"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/עבודה איזותרמית הפיכה": {
+   "expression": "w = −nRT·ln(V₂/V₁)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "w": "gc2:w",
+    "n": "gc2:n",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "V₁": "gc2:Vg1",
+    "V₂": "gc2:Vg2"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:w",
+    "gc2:n",
+    "gc2:R",
+    "gc2:T",
+    "gc2:Vg1",
+    "gc2:Vg2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/אנתלפיה וגזים": {
+   "expression": "ΔH = ΔU + Δn_g·RT",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔH": "gc2:dH",
+    "ΔU": "gc2:dU",
+    "Δn_g": "gc2:dng",
+    "R": "gc2:R",
+    "T": "gc2:T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dH",
+    "gc2:dU",
+    "gc2:dng",
+    "gc2:R",
+    "gc2:T"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/קלורימטר": {
+   "expression": "q_rxn = −C_cal·ΔT",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q_rxn": "gc2:qrxn",
+    "C_cal": "gc2:Ccal",
+    "ΔT": "gc2:dTc"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:qrxn",
+    "gc2:Ccal",
+    "gc2:dTc"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/חוק הס": {
+   "expression": "ΔH°rxn = Σν·ΔH°f(prod) − Σν·ΔH°f(react)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔH°rxn": "gc2:dHrxn",
+    "ν": "gc2:nu",
+    "ΔH°f": "gc2:dHf"
+   },
+   "literals": [
+    {
+     "text": "Σ",
+     "kind": "function"
+    },
+    {
+     "text": "prod",
+     "kind": "label"
+    },
+    {
+     "text": "react",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dHrxn",
+    "gc2:nu",
+    "gc2:dHf"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E8/אנרגיות קשר": {
+   "expression": "ΔH ≈ ΣD(broken) − ΣD(formed)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔH": "gc2:dH",
+    "D": "gc2:Dbe"
+   },
+   "literals": [
+    {
+     "text": "Σ",
+     "kind": "function"
+    },
+    {
+     "text": "broken",
+     "kind": "label"
+    },
+    {
+     "text": "formed",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dH",
+    "gc2:Dbe"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/בולצמן": {
+   "expression": "S = k_B·ln W",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "S": "gc2:S_",
+    "k_B": "gc2:kB",
+    "W": "gc2:W"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:S_",
+    "gc2:kB",
+    "gc2:W"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/אנטרופיה הפיכה": {
+   "expression": "ΔS = q_rev/T",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔS": "gc2:dS",
+    "q_rev": "gc2:qrev",
+    "T": "gc2:T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dS",
+    "gc2:qrev",
+    "gc2:T"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/מעבר פאזה": {
+   "expression": "ΔS_tr = ΔH_tr/T_tr",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔS_tr": "gc2:dStr",
+    "ΔH_tr": "gc2:dHtr",
+    "T_tr": "gc2:Ttr"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dStr",
+    "gc2:dHtr",
+    "gc2:Ttr"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/אנטרופיית תגובה": {
+   "expression": "ΔS°rxn = Σν·S°(prod) − Σν·S°(react)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔS°rxn": "gc2:dS0rxn",
+    "ν": "gc2:nu",
+    "S°": "gc2:S0"
+   },
+   "literals": [
+    {
+     "text": "Σ",
+     "kind": "function"
+    },
+    {
+     "text": "prod",
+     "kind": "label"
+    },
+    {
+     "text": "react",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dS0rxn",
+    "gc2:nu",
+    "gc2:S0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/היקום": {
+   "expression": "ΔS_univ = ΔS_sys + ΔS_surr",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔS_univ": "gc2:dSu",
+    "ΔS_sys": "gc2:dSsys",
+    "ΔS_surr": "gc2:dSsur"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dSu",
+    "gc2:dSsys",
+    "gc2:dSsur"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/גיבס": {
+   "expression": "ΔG = ΔH − T·ΔS",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG": "gc2:dG",
+    "ΔH": "gc2:dH",
+    "T": "gc2:T",
+    "ΔS": "gc2:dS"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dG",
+    "gc2:dH",
+    "gc2:T",
+    "gc2:dS"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/טמפרטורת מעבר בין סימנים": {
+   "expression": "T_c = ΔH/ΔS",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "T_c": "gc2:Tc",
+    "ΔH": "gc2:dH",
+    "ΔS": "gc2:dS"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Tc",
+    "gc2:dH",
+    "gc2:dS"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/גיבס סטנדרטי": {
+   "expression": "ΔG°rxn = Σν·ΔG°f(prod) − Σν·ΔG°f(react)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG°rxn": "gc2:dG0rxn",
+    "ν": "gc2:nu",
+    "ΔG°f": "gc2:dG0f"
+   },
+   "literals": [
+    {
+     "text": "Σ",
+     "kind": "function"
+    },
+    {
+     "text": "prod",
+     "kind": "label"
+    },
+    {
+     "text": "react",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dG0rxn",
+    "gc2:nu",
+    "gc2:dG0f"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/ΔG° ו-K": {
+   "expression": "ΔG° = −RT·ln K",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG°": "gc2:dG0",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "K": "gc2:K"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dG0",
+    "gc2:R",
+    "gc2:T",
+    "gc2:K"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/ΔG בתנאים נתונים": {
+   "expression": "ΔG = ΔG° + RT·ln Q",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG": "gc2:dG",
+    "ΔG°": "gc2:dG0",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "Q": "gc2:Q"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dG",
+    "gc2:dG0",
+    "gc2:R",
+    "gc2:T",
+    "gc2:Q"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E9/K וטמפרטורה": {
+   "expression": "ln K = −ΔH°/(RT) + ΔS°/R",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K": "gc2:K",
+    "ΔH°": "gc2:dH0",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "ΔS°": "gc2:dS0"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:K",
+    "gc2:dH0",
+    "gc2:R",
+    "gc2:T",
+    "gc2:dS0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/קצב כללי": {
+   "expression": "r = −(1/a)·d[A]/dt = (1/c)·d[C]/dt",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "r": "gc2:r",
+    "a": "gc2:a",
+    "d[A]": "gc2:dA",
+    "dt": "gc2:dt",
+    "c": "gc2:c",
+    "d[C]": "gc2:dC"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:r",
+    "gc2:a",
+    "gc2:dA",
+    "gc2:dt",
+    "gc2:c",
+    "gc2:dC"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/חוק הקצב": {
+   "expression": "r = k·[A]^m·[B]^n",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "r": "gc2:r",
+    "k": "gc2:k",
+    "[A]": "gc2:At",
+    "[B]": "gc2:Bt",
+    "m": "gc2:mo",
+    "n": "gc2:no"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:r",
+    "gc2:k",
+    "gc2:At",
+    "gc2:Bt",
+    "gc2:mo",
+    "gc2:no"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/סדר מניסוי": {
+   "expression": "m = log(r₂/r₁)/log([A]₂/[A]₁)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "m": "gc2:mo",
+    "r₁": "gc2:r1",
+    "r₂": "gc2:r2",
+    "[A]₁": "gc2:A1",
+    "[A]₂": "gc2:A2"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:mo",
+    "gc2:r1",
+    "gc2:r2",
+    "gc2:A1",
+    "gc2:A2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/סדר אפס": {
+   "expression": "[A] = [A]₀ − k·t ; t½ = [A]₀/(2k)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[A]": "gc2:At",
+    "[A]₀": "gc2:A0",
+    "k": "gc2:k",
+    "t": "gc2:t",
+    "t½": "gc2:thalf"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:At",
+    "gc2:A0",
+    "gc2:k",
+    "gc2:t",
+    "gc2:thalf"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/סדר ראשון": {
+   "expression": "ln[A] = ln[A]₀ − k·t ; t½ = ln 2/k",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[A]": "gc2:At",
+    "[A]₀": "gc2:A0",
+    "k": "gc2:k",
+    "t": "gc2:t",
+    "t½": "gc2:thalf"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:At",
+    "gc2:A0",
+    "gc2:k",
+    "gc2:t",
+    "gc2:thalf"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E10/סדר שני": {
+   "expression": "1/[A] = 1/[A]₀ + k·t ; t½ = 1/(k·[A]₀)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "[A]": "gc2:At",
+    "[A]₀": "gc2:A0",
+    "k": "gc2:k",
+    "t": "gc2:t",
+    "t½": "gc2:thalf"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:At",
+    "gc2:A0",
+    "gc2:k",
+    "gc2:t",
+    "gc2:thalf"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E11/ארניוס": {
+   "expression": "k = A·e^(−Ea/(RT))",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "k": "gc2:k",
+    "A": "gc2:Aprex",
+    "e": "gc2:e",
+    "Ea": "gc2:Ea",
+    "R": "gc2:R",
+    "T": "gc2:T"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:k",
+    "gc2:Aprex",
+    "gc2:e",
+    "gc2:Ea",
+    "gc2:R",
+    "gc2:T"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E11/צורה לינארית": {
+   "expression": "ln k = ln A − (Ea/R)·(1/T)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "k": "gc2:k",
+    "A": "gc2:Aprex",
+    "Ea": "gc2:Ea",
+    "R": "gc2:R",
+    "T": "gc2:T"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:k",
+    "gc2:Aprex",
+    "gc2:Ea",
+    "gc2:R",
+    "gc2:T"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E11/שתי טמפרטורות": {
+   "expression": "ln(k₂/k₁) = (Ea/R)·(1/T₁ − 1/T₂)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "k₁": "gc2:kT1",
+    "k₂": "gc2:kT2",
+    "Ea": "gc2:Ea",
+    "R": "gc2:R",
+    "T₁": "gc2:T1",
+    "T₂": "gc2:T2"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:kT1",
+    "gc2:kT2",
+    "gc2:Ea",
+    "gc2:R",
+    "gc2:T1",
+    "gc2:T2"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E11/צעד מהיר הפיך": {
+   "expression": "K = k₁/k₋₁",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K": "gc2:Kmech",
+    "k₁": "gc2:kf",
+    "k₋₁": "gc2:kr"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:Kmech",
+    "gc2:kf",
+    "gc2:kr"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E11/מיכאליס-מנטן": {
+   "expression": "v = V_max·[S]/(K_M + [S])",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "v": "gc2:vmm",
+    "V_max": "gc2:Vmax",
+    "[S]": "gc2:S_mm",
+    "K_M": "gc2:KM"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:vmm",
+    "gc2:Vmax",
+    "gc2:S_mm",
+    "gc2:KM"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E12/מטען": {
+   "expression": "q = n·F = I·t",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "q": "gc2:qe",
+    "n": "gc2:ne",
+    "F": "gc2:F",
+    "I": "gc2:I",
+    "t": "gc2:t"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:qe",
+    "gc2:ne",
+    "gc2:F",
+    "gc2:I",
+    "gc2:t"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E12/אלקטרוליזה": {
+   "expression": "m = M·I·t/(z·F)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "m": "gc2:mass",
+    "M": "gc2:Mm",
+    "I": "gc2:I",
+    "t": "gc2:t",
+    "z": "gc2:z",
+    "F": "gc2:F"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:mass",
+    "gc2:Mm",
+    "gc2:I",
+    "gc2:t",
+    "gc2:z",
+    "gc2:F"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/פוטנציאל התא": {
+   "expression": "E°cell = E°cathode − E°anode",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E°cell": "gc2:E0cell",
+    "E°cathode": "gc2:E0cat",
+    "E°anode": "gc2:E0an"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:E0cell",
+    "gc2:E0cat",
+    "gc2:E0an"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/אנרגיה חופשית": {
+   "expression": "ΔG = −n·F·E",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG": "gc2:dG",
+    "n": "gc2:nel",
+    "F": "gc2:F",
+    "E": "gc2:E"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "gc2:dG",
+    "gc2:nel",
+    "gc2:F",
+    "gc2:E"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/קשר ל-K": {
+   "expression": "ΔG° = −n·F·E° = −RT·ln K",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "ΔG°": "gc2:dG0",
+    "n": "gc2:nel",
+    "F": "gc2:F",
+    "E°": "gc2:E0",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "K": "gc2:Kne"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:dG0",
+    "gc2:nel",
+    "gc2:F",
+    "gc2:E0",
+    "gc2:R",
+    "gc2:T",
+    "gc2:Kne"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/log K ב-25°C": {
+   "expression": "log K = n·E°/0.0592",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "K": "gc2:Kne",
+    "n": "gc2:nel",
+    "E°": "gc2:E0"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:Kne",
+    "gc2:nel",
+    "gc2:E0"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/נרנסט": {
+   "expression": "E = E° − (RT/nF)·ln Q",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E": "gc2:E",
+    "E°": "gc2:E0",
+    "R": "gc2:R",
+    "T": "gc2:T",
+    "n": "gc2:nel",
+    "F": "gc2:F",
+    "Q": "gc2:Q"
+   },
+   "literals": [
+    {
+     "text": "ln",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:E",
+    "gc2:E0",
+    "gc2:R",
+    "gc2:T",
+    "gc2:nel",
+    "gc2:F",
+    "gc2:Q"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/נרנסט ב-25°C": {
+   "expression": "E = E° − (0.0592/n)·log Q",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E": "gc2:E",
+    "E°": "gc2:E0",
+    "n": "gc2:nel",
+    "Q": "gc2:Q"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:E",
+    "gc2:E0",
+    "gc2:nel",
+    "gc2:Q"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "general-chemistry-2/E13/Ksp מפוטנציאל": {
+   "expression": "E°(MX) = E°(M⁺) + 0.0592·log Ksp",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "E°(MX)": "gc2:E0MX",
+    "E°(M⁺)": "gc2:E0Mp",
+    "Ksp": "gc2:KspE"
+   },
+   "literals": [
+    {
+     "text": "log",
+     "kind": "function"
+    }
+   ],
+   "allowedSymbols": [
+    "gc2:E0MX",
+    "gc2:E0Mp",
+    "gc2:KspE"
+   ],
+   "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
   }
  },
  "legacyUnreviewed": {
@@ -2627,6 +4246,180 @@
   "h": "e3018ddc17eaa39ce9b8eee3fe95e70a777c5e5ecc21827717d0cd28fd9a649c",
   "λ@wavelength": "68770648ed769f85b42cced44a156a9ba317f0dfb5e1e18c7e0048065de47746",
   "E′@scattered-photon": "59d61851092c8992e0b9be1f1bf4251977127b2b100003ad848a540095150602",
-  "θ@compton-angle": "83c8fd82dc5fa44d1249bb23f5c3cd657bde714a8c3fb591a92ccd24c033d9e3"
+  "θ@compton-angle": "83c8fd82dc5fa44d1249bb23f5c3cd657bde714a8c3fb591a92ccd24c033d9e3",
+  "gc2:KT1": "2a22a7cc1c3a9b692526820722ccb9c4d262d92fe831ae93f19884b292fec7b7",
+  "gc2:mu": "87c2e6d00a21b8be5488eab564e27bc539b6ca157c81320297b408f4e7848b90",
+  "gc2:F": "804d941d28187553dec9ab3f7668f4fb04dfaca8d6744cd15baaa3c1bc7e0593",
+  "gc2:PD": "f59eb952ca87b0e0a58b52be879554cc0abeca6f5901a0d48790e45fa9e403de",
+  "gc2:At": "be7f2ffb68dc531588d91a353ff1a2767c0841b12dd2cdc6ed0b499f185abded",
+  "gc2:E0": "18559d2662915f257ac509452b906483dbb1ad4b6c14a00cb489c97ac7b1f273",
+  "gc2:Ttr": "0f60a87915bc77004bbc68d53e53d001d5d198648fbc052f8c985c03a3388827",
+  "gc2:D": "aa167241bfd10d8832a37c1405effff984254e769804dc1b46dad37ec9bd30f0",
+  "gc2:nAm": "d6e461a0ae42b777c110a2b849770994cd6d6cc186459c6394862a72bdb30e0d",
+  "gc2:kf": "13f9e91a6122e2ccf6d595af6aa9e01da6a06a9be73b1775bac9520329dff9a8",
+  "gc2:Aprex": "70d0a65ed3ff9500de2537c921902d44572e003a21c053acb984233a8632aa34",
+  "gc2:m": "18b79627e329eb5677ef8452e6843da2a5fe8219890f31b77bfc825730625a2e",
+  "gc2:dU": "5c53f3a07d66dadca1d575b5e6bc57a238695d3b876fb4303fd92350a7650df4",
+  "gc2:Dbe": "b6ff23f250db57a312e0fbf8e3ffd0a2e357ce19ac0402259dd83a4bd8624560",
+  "gc2:vmm": "c60e8295ae7171c4467b114f588df8141566f405748516803cd04ff9afe6d1b2",
+  "gc2:P": "2bc117c235e3afa04d22e2dadf67296a8707fa874f51d815bff55d0addd8c03e",
+  "gc2:dG0f": "3010ace86275b9dbcafdc86c2ae04207feb3182b145afc582f44d69ae103cdc1",
+  "gc2:Ka": "a9338279b5d5b86e3602d0db5711bf7c208d973ca6b0eab5118f116225e2b900",
+  "gc2:T2": "d9ce195c2eab239a51ee6ac9c8d1e1da0862cc54d4f733196ccf45e981a20292",
+  "gc2:X_": "cfd67a11bcaade76d6d7e9d9b0c1ad470b0e92483a7d0e63ceaf65edadda4250",
+  "gc2:T1": "3ee64aeaada392a5178bce365ee7b50640de3ad34313d375c34cb406b6e70724",
+  "gc2:pOH": "2309fa0a58d5cf3eba444a96bccc35bcd989d77b0861735e72b67ab240eb0bf8",
+  "gc2:k": "fd645709dad12628549e3072c806cf435246dd91df9aa0694d293f81c672a37f",
+  "gc2:Kn": "79bf9b3d93826091afc7c786d7c7d8c838e7da60682e586d1954740000a1c363",
+  "gc2:KIn": "e25f802dec7d2a6deb8bfaeb950b7a3c9a86db792a5fbd60d7513e73b07c87a8",
+  "gc2:ne": "5b0255cca780d972f86f2e832321e05526bd7e9776ebd10d4ba813b6aad58ed7",
+  "gc2:a": "40be53510edc7ab7e9788784a2ab10ff3a4371d0799ed1e122f1efee5933c0c6",
+  "gc2:nHA": "f393ac8eae0d83ac66c530cd4cb2183f101419cc5990c5a65c06c6bad53b01c0",
+  "gc2:dSsys": "971e8071ed58e5f48674358e0d4fba3ccdf866f531658795526c5160b2afb9e7",
+  "gc2:kT1": "2b5c77077be843feaad9c8dc07910a0267a92ef95ca7ad406b5c7478adb084c3",
+  "gc2:dSsur": "178e863c7778413d55b42871b09dd379a6fc4445b9e8fa6c0518d5acef8b72e8",
+  "gc2:HIn": "9eef75bd63ca4e88a9bc488b521a9d12363f6a7db761e16682b5837d05b906e7",
+  "gc2:A_": "c75eb03ef67c19747abbb443f9c349214df82536b010db02bed0314802433852",
+  "gc2:W": "edbc15fd8a1e426d9a56cf3a2adf4be390446cc1ab523bb6cc6a32495eb4c0d6",
+  "gc2:err": "acf9b2a77212e1774015968074dbbdf0287385d6bb2e016723f8cef51dee7e72",
+  "gc2:w": "47867c2986ba976669ac31b80a4e7cc0c86ff917ce7875eef9cbebbe734f6986",
+  "gc2:R": "1b7035232397433cfda47ebac461b094b4c6fcf33c0eb3287911347a7bcb2605",
+  "gc2:logP": "4a113ad75c784a96031261849808fc4a950fa0f7599f2bc7c6bbdd28a01ac204",
+  "gc2:xOH": "1447d79f590e3a4a430d3431aa0901b24927148711e38c62795e9c4bd2edfc7c",
+  "gc2:Ca": "58d0a8172f6d8010c94e5ea4d4f9b81973c2ee92c9e52afb72ef07b81d00eae9",
+  "gc2:Zi": "0087de2a8ba6ae91c135dca131e86e02d9fbc7fd90b44ff388bfdc6cd8fdeeef",
+  "gc2:Vg2": "53e151d6f0d99a77e90e30d7da25f9180af8e9ee3e63bc39e005106d84ead495",
+  "gc2:S_": "ca3261d1ad2f1f48c6de6204d5e92d0133254a6451cfe4d869de978ad79003db",
+  "gc2:S0": "b12774e6bfa6ddd527b4efd2f9a22040d6bc868b63eb1a14fd1716bff478eae5",
+  "gc2:Ksum": "b9f9c6ee81a89be2bbb3eab65d1b253f8d701c400c221406e39bad9a178f23e7",
+  "gc2:E0Mp": "f512259306f27e8b357c534517b60f846ea1b0924313627fed90dbd60f3c976d",
+  "gc2:thalf": "b03c0b025166929a02c2baf1cb0c307df0bde68d7f6fd7fd3d0b76f6a6743467",
+  "gc2:KD": "f8b7af64e125f273aa2c9e55cbaf5a49212f0c8d5f089443753a55660c01431c",
+  "gc2:mo": "d64a54ebc2d1bd6d3f7dbc9e7187313427f107b14a710dfd24dddead8fc4f001",
+  "gc2:c0": "2e750080498de27375565e119244ecbb4934894b5eaea19a3662bd9f0d209c4b",
+  "gc2:nH": "f46c4588e6ad1a8780a7b81bcc81d58a896e9453c527703219238842c33cc974",
+  "gc2:KspE": "1e18fafe0ecbe7aff447e8587f4c3989c8afd3ac7d914ff6c225977d69259caa",
+  "gc2:dng": "c8f258c63cf805d77473607f05980c970a2ba8bed64be669d9d0fe4207094873",
+  "gc2:d": "046fe948c7ad356529d1d776c6ca184f021c1ae590ff04a8287dd20634ab7394",
+  "gc2:H3O": "992e91dca51aef42a61fadf8422f27c48aff218797a247c4c522009284fdc8e3",
+  "gc2:Ccal": "2255ec3bb6604f2e1a0fffde6ad2e29692f585f4db4f95ca713c74f46334c67d",
+  "gc2:dHrxn": "e1cd0b24df04893d4a6f2ea756e8a04cfd61e662ebd0951968f9e93b4d640e13",
+  "gc2:qn": "44050e56f11bbc6391ef905ddfe197384652d49b838904464b3c15b6e2cb460a",
+  "gc2:HA": "111182ebd5fe01c993a039cbe019ed8377a76741820c2426c291c41ccd7c29ea",
+  "gc2:D_": "8620d5f74ded3d1b0e9b04b1ca71b9cb201f37b28b7bf731383c8ca504dcfb9a",
+  "gc2:pKb": "07ba236928e66403be7562d55f4cc5a7215d9c880c31b427dc635a5e6be0c6c6",
+  "gc2:qrxn": "c9cfa11a0b1feb6497c40b49454154ddb1a050530c0188d47dc5611c28ebeff4",
+  "gc2:nel": "402bb198a5109cd14b453a99d71bb9d349a023ff7deb6dcc8675fddd4967089f",
+  "gc2:E0cat": "408de51f8850f8f41236a50e83a5f01c11bfd19e31db8d4775e21422dbaaee29",
+  "gc2:kr": "d18a8903032aa3fc54831cd0cf71c6d6ef05591afe79b4a2dfb892bfd47d61eb",
+  "gc2:Saq": "083ab8df86298e47c048fb87744c4e20f0eb3a0b3921d7974fa3a497af03187f",
+  "gc2:Kp": "92b841222d27512ada53c35c4c8a1c340c9720c5daf039f61247adde1bb74b36",
+  "gc2:Bt": "0207143fee1cde2b9f4c790d50a0d33e1f85a3c745bcc4845ca2b242651e6501",
+  "gc2:A2m": "5447729bd6e7529ba73c01888a86f05652f1ce3745fa720a4dd6064a444aed09",
+  "gc2:KM": "18fb23873c87aab327bf9743ee30ebe1f6bb48313825a4d10f2721c922daba77",
+  "gc2:mass": "0dd9c57b362b2acbea41118202273ce39d15b8f16a778ecafce501dd805e8bfe",
+  "gc2:nOH": "e9f0b481cc92c0e76fb6647f51a590a2ed3cb0e3dfc5a6eb9b2c7bfb3602addf",
+  "gc2:Vtot": "55b8cdf010d9188b10fced0e424665fa0aec8d3356b8213ab3d0c881066bae6f",
+  "gc2:dS": "b3d1ab745af5e3ea37a7a35df617a6dd7fd66962bc6ea08fc8149d51c2dc029c",
+  "gc2:Kne": "a0bbb75c95d72b1740ace14177aec050cddb8fee0be3bb1528dfa15ec94530ed",
+  "gc2:pKa2": "d7c6ababefa4fabcc90fd23ef275040e3fdf16c1a9f714729ee32bea1961cd12",
+  "gc2:dStr": "25c82b5eaa62e4c306824da4a21768044c2f3fe73c87d70dd485111492688f8c",
+  "gc2:A0": "1a867d8e0a89db2893e40fa3563535b3211deaa85cb71911245060c801d86c94",
+  "gc2:q": "2f940e3520a2e9c149a60e8826da1f610ea2e3ad7d5ae3d45134d121b6994393",
+  "gc2:b": "75c2bdd35199ec9d64b4934d833703a18ff4bfce116fee1a9085f272e29366a8",
+  "gc2:dS0rxn": "97af148435f6c446b0bdd165de6009194109c154b5ed688fa14367b9d50091b9",
+  "gc2:S_mm": "5a3683ec06bc179309a83e394d9169bbe03a6c752cddc4cb3f91fb4118503e8c",
+  "gc2:pKw": "23429614b6b2a02bb756b472fd8c10ac6425ad522af99bd379173bf790045fa9",
+  "gc2:t": "928aa2b19e991f65ff4ca42198b163b6cdae6e3120b1fb7d13f1144b6a34cc19",
+  "gc2:OH": "7807288601d85279a7bbff6a54583aab6179b7e3e25c9f694f1e8d253556998d",
+  "gc2:Am": "6c3b84973b2266440246a44fca437f8d0f48d4e67a266b8753f4bbf3c746dba1",
+  "gc2:qe": "9a6f1536c34152d425c877b1d8b865704e7a77ea9b90a5c2a2638122fc317429",
+  "gc2:Ea": "c4bb79b473497421022280e88407cc880e591b6cee02e370a2f5c1b57c93709e",
+  "gc2:pH": "279e01c8e1a66957afbc8ac2162cd215d3f9ba916f3521c5ae32a6ec2d5daa84",
+  "gc2:E0MX": "b4308bbfa70890793f47310a378f12f955eeebaa9fe22b0539eacfb1184a58ab",
+  "gc2:PC": "ef537827d78c1bdcb12c3fbfe2342a6a968bb4d804f042e0539656d03c00d99d",
+  "gc2:Ve": "7fe06eba1d5e6c45e12d9373387fff1acf042d5fe6abcd604af494458e2f1315",
+  "gc2:x": "270868f0f41941090cd7445f81f7c9a8d931abb50980eb865c715097e1fc2e7a",
+  "gc2:Vg1": "230b13d143671266687e3edbe04c1410f311d35b2c245dcd896459930b8558e7",
+  "gc2:r": "174ff900eda22352e1f3c2c2a67290ce1943193f390305c4e14dff371dc6ab5e",
+  "gc2:Kow": "c4035cf0648c71085d2641151083a1a48d0fcfe1f21f608f3658634ee7779c3c",
+  "gc2:xH": "4aa3bf2598efcf620e7edf8b85e1a1191da5928f06ff44800d42f93085c615d8",
+  "gc2:H2A": "b2216ad561aef5f988c1d527dfa8904fae138b1e88979692402d4c304518ee08",
+  "gc2:c": "e56bc5a85d244817dbd03ab3a4136d84d6d9f0ddd40465079dcc7500923777e1",
+  "gc2:K": "75026da268a7b7220212bac0e8e834b607e48bf462fbf5c157c67ca20273346f",
+  "gc2:E": "65d11bb51c3c676f2fedb875a40a8e12b7214555357f87ac6847f3e33f739365",
+  "gc2:y": "bdc644049b654fc7c67f7c17c5922252e8d9ec6cdcf5cc47cf2293e2b9bbe3f9",
+  "gc2:alpha": "daf73ad05ad3527626d1e6a7cb832bc8058c65140296527e81c1c34c93af35a6",
+  "gc2:Ksp": "8f602b50fe8428a4eba7d2634f8100a62310ed7ffc298ad835ecdd6ab40b40b3",
+  "gc2:Kb": "9faed4fb6c25e5e9e3afcf2cd82c4afd40a32d14ff24d13509a37116d55c20cf",
+  "gc2:S": "f46e350712de98857feb25061f91d3a23c075f4669f2d6b1e2cb602217663498",
+  "gc2:Vmax": "46b22f99d9fed562cb3fb83f548f28ef88e84561b08f2ca530521a19d0e743db",
+  "gc2:nmult": "b22df94e6a018b1bc2848c73df6cf375a0e6f6378ed2512f442f2fac2a392ad6",
+  "gc2:dH0": "62a4614b0671b949ae7d67e5f9f88a55d7ff82e29948bc67f56791043bb8285d",
+  "gc2:Kx": "58bbba476acc1f8442dc0be9e4fbd13e23fba5b8c4126f5e44bdb13ed036d303",
+  "gc2:A2": "039ac0d13a3fe3f9a5d3e1819c4c5c82ddaab97075ab67c40baba1b5bf5fdd60",
+  "gc2:dt": "3300122c9c33c624a16daf6981a48ec41d700ca643fd8e111ae70bf1bddbb40d",
+  "gc2:r2": "16b03270b9631cbbb4859e79e923130d249a035f6b2b672d5f3bbbc88c86592e",
+  "gc2:dS0": "75747525bd36cf43cbbfb1df4f072290c152fbc8282dc08593c6254af9bdc1c3",
+  "gc2:B": "ac5b5a07e6aa80ea091de6d5c0b0aaa0f43a31cb919cd209a03789b5cde7aabc",
+  "gc2:dG": "372cbdd738662fde8392d1df0defb54eb44e53acc0f0e2fdf131eb9e83103cda",
+  "gc2:nu": "21a841257048c44894a5be85fcca2adceb5975a381cb84248db5a62e2273503b",
+  "gc2:dA": "7f348bfc651fc04d4182bea2d99b908b0e8896033b802a672083759208a333ae",
+  "gc2:z": "2632f57d3f20184cce9cb30e89722870f69a08f1901593333948a510e9c459fb",
+  "gc2:PA": "530b8169b15a7f96c6d4c9c0cb93e9cbeecfe0a942869f0a1847f0d5ba74a23a",
+  "gc2:pKa": "01423914d5fcfe0185e24afedba085d48f0af6dc45e3a5c6f5cf6d49c74a7b06",
+  "gc2:dV": "230c5999e4eaad93b20f95c0e53e48ceb02060ce97898a7eacf9562be73b7035",
+  "gc2:kT2": "42da5d2ea16e1be2a3ef2ee4c5544a9b756bb4495ebb4ea52593f60ec5cbb1e3",
+  "gc2:B_": "e73f005a74e6c4655510479830c10753d20e66a05a0d82323b324ae79124c341",
+  "gc2:Tc": "468b8bfc95cdc1bd110baea29484b6486ee1f974907af361720463776ee4f0c7",
+  "gc2:r1": "af2df36fd214e665ddf6ce507177d1f73a33c2e0d0ce18291097a969559eb006",
+  "gc2:nex": "4acd84251b0b80968f89a775b9858975998d50fff29e67932d2bbd9ce23ecde0",
+  "gc2:Krev": "8b7d4a3027388de178ac5950f510325e34e98d572dd17f952615d14012da6715",
+  "gc2:n": "bd2c0ebca1e6f9456692db4beec1f42d63f018d9980a3543260a57c4e5e88a25",
+  "gc2:kB": "9d21e091eb18973d097239544aea1c37f7c8d3f3c3b62269e135f645125273e3",
+  "gc2:Kw": "512ce7f4117d12b2265a30dbcdcac0d24bc7fd8074e966b311787bb2feb6902a",
+  "gc2:dTc": "6b7c0f02fb324f5fea8279d58fd9df8f4bc6cb5a4e1451e95c2e54b8a38fdace",
+  "gc2:qrev": "9dedaffb994f5bfa35f86a14ac71235ab5976051b4b340e7d7702b76c35171ef",
+  "gc2:Cb": "4ece5599402a964640b9429cf7b1199b1d50639e386602d977d029e9572226d2",
+  "gc2:qh": "1e4b8bb880f24d57964d0ffe0bb194d6057a68cb698b4dacb948182e6c95c183",
+  "gc2:Pext": "2b8f43bea8e0a366f053dd7040635b8a782605613d9be86abdadf968d3042ee2",
+  "gc2:no": "5597db78199585ad87a46b4919949a00e3f873befdb57756ca16f7f7b4d52c4b",
+  "gc2:PB": "1990cdb1799516d576048c6ff51d6201a81e5d7ab8e042432d1b49040932b43b",
+  "gc2:Ka2": "243ce6dbb25d5a6e163635f9837925186e7b86eb872c2ab6c8ba0c8e933a221d",
+  "gc2:C_": "725cf04c142ee3468252f3d00a7aae652a6b2017d1e37d299405cc19a7d44c43",
+  "gc2:Ci": "d417e8ddfe6ea7547fd08d0b6d126d0bf69468bb6027c6dab6d767f37d581a5d",
+  "gc2:Q": "9d2b4702e7436d35708bcece4a1d37d2b6588b550a6a8fed35ad2f37e1280061",
+  "gc2:dH": "23ba2be257a40aa357448b76842517eb7dacef083f13ea08a754161468259f62",
+  "gc2:V2": "2fca8236b79c9257d961a62da64c2572634552025474385a76f81380f156a3bc",
+  "gc2:A1": "6b379c1218725f987f2312a133bb73e1f625cb96157cccd12f51b36deb37d60c",
+  "gc2:cs": "e0af5e983320be8a7d3496f8373240e6b0d50533cdee651508bf7943a75f81aa",
+  "gc2:pKa1": "d3ecf548f8e7ea4a72f2405c518679c4c6083f6aeb80b456acc9f35f0fecbab6",
+  "gc2:Sorg": "b06f06aaf33240156a83dc1d53fded8dec04889619568892fabba1526c27ef76",
+  "gc2:Mm": "00c53c39fad0ea4979f816e4ee77f96e48fef1edd0c746b52053dcfae139cf77",
+  "gc2:E0cell": "ffb9376a23baa893f7da33b82513a145e58a99e839146be403793c1928a9419b",
+  "gc2:dG0": "77b9524bdfd1e6dec291b53c0d2e5fa68bd98fc0894d476bb4f870bb2cde157e",
+  "gc2:Va": "23368e8f5f398683acc8baab3c78b3c333bb289f65430e2ea871b4898f3e4906",
+  "gc2:Vf": "2a9c31db3e87d58a4f0e7b42d9b8ecd3f95fae586ba05950c5b21ca2ffc1a4a3",
+  "gc2:dn": "a6acfc6f4f8f07ea390281e34364706bdcb228892b41c072742300d85bf45767",
+  "gc2:Vb": "d2a25f70fcd636b74bd898c5a60c1b0fcabfa907c03a8246fd8a14913ed68949",
+  "gc2:I": "067a2a4c67355dab51e0d422508c6598272f336e942340fc77b0ef0943ee3a88",
+  "gc2:K1": "f52fa5cd507bb74ceba374b9ff069c2195a6ee946e5e17a733dd24c749b028c1",
+  "gc2:Ka1": "d70ce1364002049367e07c9d0ad25d9d430317f415cd1d62010e416f0922462f",
+  "gc2:V1": "328aa8afa891fd59937d66778d88f4f249d2823d6239da9a5cdb3b227f1ab303",
+  "gc2:dG0rxn": "5c295c1f24c607c8344f599723ca4f176eccf0467330bad2ece8c1e81de928a1",
+  "gc2:Kmech": "3a30bea3585f47b98277d12ef0179d010636f73fccd009f75c866de9097c0a2e",
+  "gc2:E0an": "4c9835701506665fcbb3b60af96c8357d547098315c11faa90c67464ead16c5b",
+  "gc2:K2": "fb3da1e828625d5a2d61b50c7d23d2e96434228739f1baff7c994f96c006eb65",
+  "gc2:M_": "e3170900c06149ef0c1b07239fbf6870cd98d416db810eba9e3c507853130bc9",
+  "gc2:T": "7a9f960e2ae7b26127b0358898a444d1cc510032e3d36ecd3ae8f48d34b1c2e2",
+  "gc2:Inm": "a969c630998a7700014135803209029235eb702ba45e3bd66314eda149dafbf1",
+  "gc2:e": "efe8d232eea61cf26803ccddec7eee013e70e087db439631f68ab2b353cad619",
+  "gc2:Kc": "26c93add558d08352bb552d9557edac2ba9c2049623756fc1acbcafdf6b24850",
+  "gc2:dSu": "df2dc308f72fe9bcb793a0819d6be6476a2c6a5d241b62d247feef045dc6b63e",
+  "gc2:dC": "46e927454ca66e2a10cd71ad5f42c0a583021efbfcff1d40a7cd767c514ac30b",
+  "gc2:KT2": "741921605f5beaa4d1b4a6ada7f4314e4c4015c4630dccf4e7af5cb4aec2072b",
+  "gc2:dHf": "478bebb84a8f29b70ea6912ecbfed012d6ed4430ae45b51df464c3b468e8baed",
+  "gc2:dHtr": "c11e7cfe66f97008597d590fb12be81e6f70a6b2576557b4850ae702e46d457e",
+  "gc2:BHp": "753c98d36bf463a13767b9aeadb397332d4655b9d0a4cad80e5d7f02acb6b232"
  }
 }

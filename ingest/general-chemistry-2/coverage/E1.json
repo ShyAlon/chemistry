@@ -876,7 +876,7 @@
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
     }
    ]
   },
@@ -893,7 +893,7 @@
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
     }
    ]
   },
@@ -910,7 +910,7 @@
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
     }
    ]
   },
@@ -927,7 +927,7 @@
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
     }
    ]
   },
@@ -944,7 +944,7 @@
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Slides 28-32 (part a) use 2.5 L; the lesson uses 2.40 L as in part b and the class exercise, and states both."
     }
    ]
   },
@@ -955,13 +955,13 @@
     {
      "id": "p57.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "part b restated",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },
@@ -972,13 +972,13 @@
     {
      "id": "p58.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "part b table",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },
@@ -989,13 +989,13 @@
     {
      "id": "p59.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "part b adding ammonia",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },
@@ -1006,13 +1006,13 @@
     {
      "id": "p60.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "part b table continued",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },
@@ -1023,13 +1023,13 @@
     {
      "id": "p61.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "part b solving P(NH3)",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },
@@ -1040,13 +1040,13 @@
     {
      "id": "p62.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "adapted",
      "label": "convert P(NH3) to moles",
      "targets": [
       "worked:8",
       "theory:E1-t12"
      ],
-     "rationale": "Slide switches between 2.5 L and 2.4 L; the lesson uses 2.40 L as in the class exercise."
+     "rationale": "Part b and the class exercise use 2.4 L, as the lesson does."
     }
    ]
   },

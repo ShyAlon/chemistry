@@ -80,6 +80,17 @@ Arithmetic coverage is whatever simple equality lines the slides happen to
 contain - usually very few - and is not meaningful verification by itself.
 
 Standalone use: `npm run preprocess:sources -- --sources DIR [--cache DIR] [--report FILE]`.
-Cache and report paths inside the repo are refused. Sources are only read;
-neither they nor the cache ever enter the repo. If python3/pymupdf is missing
-the step prints a note and preparation continues unchanged (exit 0).
+Cache and report paths inside the repo are refused (symlink-safe: paths that
+reach the repo through a symlinked parent or an existing symlinked cache dir
+are refused too). Sources are only read; neither they nor the cache ever enter
+the repo. If python3/pymupdf is missing or a source cannot be processed, the
+step prints a note and preparation continues unchanged (exit 0).
+
+Privacy: the cache holds extracted private slide text and page images, and a
+`--report` file holds source equation lines. Both live only outside the repo
+(the default cache is `~/.cache/spectra-preprocess`), are retained for reuse
+across runs, can be deleted at any time, and must never be committed, shared
+or attached anywhere. Known honest limit: a split line whose left side mixes a
+lone charge fragment with real species (e.g. `2- + H+ → ...`) is evaluated
+without the broken-off charge, so a rare false flag is possible there; the
+leads list always stays advisory for exactly this reason.

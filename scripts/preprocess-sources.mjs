@@ -26,15 +26,16 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
 const args=process.argv.slice(2);
-const flag=n=>{const i=args.indexOf('--'+n);return i<0?undefined:args[i+1]};
+const flag=n=>{const i=args.indexOf('--'+n);if(i<0)return undefined;const v=args[i+1];return v!==undefined&&!v.startsWith('--')?v:''};
 const repoRoot=path.resolve(fileURLToPath(new URL('..',import.meta.url)));
 const note=m=>console.log('preprocess: '+m);
 
 const sourcesDir=flag('sources');
-if(!sourcesDir){
+if(sourcesDir===undefined||sourcesDir===''){
  console.error('usage: node scripts/preprocess-sources.mjs --sources DIR [--cache DIR] [--report FILE]');
  process.exit(2);
 }
+for(const f of ['cache','report'])if(args.includes('--'+f)&&flag(f)===''){console.error('preprocess: --'+f+' needs a path value');process.exit(2)}
 // Symlink-safe repo-containment check: resolve the real path of the target (or
 // its nearest existing ancestor, since the target may not exist yet) and of the
 // repo root, so a symlinked parent cannot smuggle the cache/report into the repo.
@@ -51,6 +52,8 @@ const cacheDir=flag('cache')||process.env.PREPROCESS_CACHE||path.join(os.homedir
 const reportPath=flag('report')||null;
 if(insideRepo(cacheDir)){console.error('preprocess: refused - cache dir must be outside the repo: '+cacheDir);process.exit(2)}
 if(reportPath&&insideRepo(reportPath)){console.error('preprocess: refused - report path must be outside the repo: '+reportPath);process.exit(2)}
+// an existing final cache dir that is itself a symlink is refused outright
+try{if(fs.lstatSync(path.resolve(cacheDir)).isSymbolicLink()){console.error('preprocess: refused - cache dir must not be a symlink: '+cacheDir);process.exit(2)}}catch{}
 
 let pdfs;
 try{pdfs=fs.readdirSync(sourcesDir).filter(f=>f.toLowerCase().endsWith('.pdf')).sort()}

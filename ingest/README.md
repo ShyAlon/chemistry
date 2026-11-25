@@ -58,3 +58,28 @@ revision with fresh hashes.
 - Block alignment is positional within each topic array; a heavily reordered
   re-import shows up as many added/removed entries for review, not as silent
   merges.
+
+## Advisory source preprocessing (default during preparation)
+
+Whenever `check` or `ingest` verifies a `--sources DIR`, an advisory
+preprocessing step runs automatically (`scripts/preprocess-sources.mjs`,
+opt out with `--no-preprocess`). It extracts each source PDF once into a
+PRIVATE cache outside the repo (default `~/.cache/spectra-preprocess`) and
+prints review leads: text-layer equation lines classed as `balanced`,
+`balanced-ambiguous` (the plain-text charge notation is ambiguous and a
+person must decide which reading the slide meant), `unbalanced`, `unparsed`,
+`notation` or `fragment`, plus arithmetic mismatches in simple `a op b = c`
+lines. Repeat preparations reuse the cache; a changed source (new SHA-256)
+re-extracts, and the cache identity carries the tool version, image DPI and
+extraction mode so a config change never silently reuses stale pages.
+
+Limits: leads only, never science sign-off; the human review and release gate
+above are unchanged. Equations drawn inside slide images are invisible to the
+text-layer check (the cached page images are the review mechanism there).
+Arithmetic coverage is whatever simple equality lines the slides happen to
+contain - usually very few - and is not meaningful verification by itself.
+
+Standalone use: `npm run preprocess:sources -- --sources DIR [--cache DIR] [--report FILE]`.
+Cache and report paths inside the repo are refused. Sources are only read;
+neither they nor the cache ever enter the repo. If python3/pymupdf is missing
+the step prints a note and preparation continues unchanged (exit 0).

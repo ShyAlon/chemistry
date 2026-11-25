@@ -574,7 +574,7 @@
      "targets": [
       "theory:E1-t12"
      ],
-     "rationale": "Source reaction as printed is not mass balanced (3 O on the right, 2 on the left). Not copied; the lesson keeps only the general rule that Kp uses partial pressures with the stoichiometric exponents, fractional ones included."
+     "rationale": "Source reaction as printed is not mass balanced (3 O right, 2 O left). Not copied; only the general fractional-exponent rule is kept."
     },
     {
      "id": "p31.u3",

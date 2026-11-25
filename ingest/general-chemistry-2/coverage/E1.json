@@ -94,7 +94,7 @@
      "targets": [
       "theory:E1-t09"
      ],
-     "rationale": "Table values not copied; lesson states the result (K about 14.5 in all three)."
+     "rationale": "Table concentrations reproduced as source-derived data in t09; K recomputed (about 14.5 in all three)."
     }
    ]
   },
@@ -572,7 +572,8 @@
      "disposition": "corrected",
      "label": "NO + 1/2 O2 giving NO3(g): Kp with a fractional exponent",
      "targets": [
-      "theory:E1-t12"
+      "theory:E1-t31",
+      "theory:E1-t51"
      ],
      "rationale": "Source reaction as printed is not mass balanced (3 O right, 2 O left). Not copied; only the general fractional-exponent rule is kept."
     },
@@ -1209,7 +1210,7 @@
      "targets": [
       "worked:8"
      ],
-     "rationale": "Own numbers; source setup (0.06 mol, 2.4 L, 20 C) stated in worked 8 for part b."
+     "rationale": "Class-exercise numbers (0.06 mol, 2.4 L, Kp 0.05 atm^2, 20 C) as given, solution rewritten, stated in worked 8 for part b."
     }
    ]
   },
@@ -1227,7 +1228,7 @@
       "theory:E1-t49",
       "theory:E1-t20"
      ],
-     "rationale": "Source numbers (10.0 L, 0.500 mol, 721 K, Kc 50: 5.92 atm, 0.65 and 4.61 atm); solution rewritten."
+     "rationale": "Setup from the source (10.0 L, 0.500 mol, 721 K, Kc 50); values recomputed: 5.92 atm, 0.65 and 4.61 atm (slide shows 5.91, 0.656, 4.6 from rounding)."
     }
    ]
   }

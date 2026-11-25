@@ -138,13 +138,15 @@
     {
      "id": "p08.u1",
      "kind": "exercise",
-     "disposition": "covered",
+     "disposition": "adapted",
      "label": "SO3 added to SO2/O2/SO3: Q greater than K, shift back",
      "targets": [
       "theory:E2-t11",
       "theory:E2-t07",
-      "theory:E2-t03"
-     ]
+      "theory:E2-t03",
+      "worked:6"
+     ],
+     "rationale": "Source case is covered by the theory blocks; worked 6 adds an own example (H2 added to H2 + I2 at Kc 50, own numbers) of the same shift."
     }
    ]
   },

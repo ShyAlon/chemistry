@@ -1,0 +1,111 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import catalogue from '#catalogue';
+import {checkTopic,checkAll,contentHash,unitMapHash,figuresHash,adminPages,blockExists,genuineApproval,genuineReviewer,loadPolicy} from '../scripts/check-coverage.mjs';
+const topic=catalogue.courses.find(c=>c.id==='nuclear').topics.find(t=>t.id==='E5');
+const cov=()=>JSON.parse(fs.readFileSync(new URL('../ingest/nuclear/coverage/E5.json',import.meta.url)));
+const errs=(f,t=topic)=>{const c=cov();f(c);return checkTopic(t,c).errors.join('|')};
+const GOOD_APPROVAL='whatsapp:wamid.HBgMOTcyNTQ1Njc4MzMw';
+function reviewed(c,t=topic){c.semanticReview={status:'done',reviewer:'reviewer.alice',sourceSha256:c.source.sha256,contentSha256:contentHash(t),unitMapSha256:unitMapHash(c),figuresSha256:figuresHash(),adminPagesAttested:adminPages(c)};return c}
+function run(c,{cat=catalogue,requireReview=false}={}){
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cov-'));
+ try{fs.mkdirSync(path.join(dir,'nuclear','coverage'),{recursive:true});fs.writeFileSync(path.join(dir,'nuclear','coverage','E5.json'),JSON.stringify(c));
+  return checkAll({cat,dir,requireReview,policy:loadPolicy()}).find(r=>r.topic==='E5')}finally{fs.rmSync(dir,{recursive:true,force:true})}
+}
+test('E5 map is valid, traced, and has no pending exclusions',()=>{
+ const r=checkTopic(topic,cov());assert.deepEqual(r.errors,[]);assert.deepEqual(r.unmapped,[]);assert.deepEqual(r.pending,[]);
+});
+test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,57);
+ const pol={legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
+ const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
+ assert.match(checkAll({policy:{legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
+ assert.match(checkAll({policy:{legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
+});
+test('legacy topics are unaudited, not failed',()=>{
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,57);
+});
+test('missing and duplicate page, unit and target fail closed',()=>{
+ assert.match(errs(c=>c.pages.pop()),/page 40 has no units/);
+ assert.match(errs(c=>{c.pages[1].page=1}),/duplicate page 1/);
+ assert.match(errs(c=>{c.pages[3].units=[]}),/page 4: no units/);
+ assert.match(errs(c=>{c.pages[5].units[1].id=c.pages[5].units[0].id}),/duplicate id/);
+ assert.match(errs(c=>{c.pages[5].units[0].id='p07.u1'}),/must start with its page locator/);
+ assert.match(errs(c=>{c.pages[2].units[0].targets=['theory:E5-t999']}),/target not found/);
+ assert.match(errs(c=>{c.pages[2].units[0].targets=['worked:99']}),/target not found/);
+ assert.match(errs(c=>{c.pages[2].units[0].targets=[]}),/needs targets/);
+ assert.match(errs(c=>{c.pages[2].units[0].targets=['bogus']}),/target not found/);
+ assert.match(errs(c=>{c.pages[5].units.pop();c.pages[5].units.pop();c.pages[5].units.pop()}),/no units/);
+ assert.match(errs(c=>{c.pages[2].units[0].extra=1}),/unexpected field extra/);
+ assert.match(errs(c=>{c.pages[2].units[0].text='copied slide text'}),/no source text/);
+ assert.match(errs(c=>{c.pages[2].units[0].label='x'.repeat(81)}),/label required/);
+ assert.match(errs(c=>{c.schema=1}),/schema must be 2/);
+ assert.match(errs(c=>{c.unknownTop=1}),/unexpected field unknownTop/);
+ assert.match(errs(c=>{delete c.authoredBy}),/authoredBy/);
+});
+test('admin cannot hide substantive content, and excluded content needs a genuine owner approval reference',()=>{
+ assert.match(errs(c=>{const u=c.pages[2].units[0];u.disposition='admin';delete u.targets;u.rationale='skip'}),/admin disposition is only for/);
+ assert.match(errs(c=>{c.pages[0].units[0].disposition='covered'}),/non-content units must be admin/);
+ const ex=c=>{const u=c.pages[2].units[0];u.disposition='excluded';u.rationale='scoped reason'};
+ assert.match(errs(c=>ex(c)),/needs approval reference/);
+ for(const bad of ['pending-owner','NEEDED','whatsapp:test','whatsapp:wamid.TESTAPPROVAL123','ok','yes','email:placeholder-approval-id','whatsapp:short'])
+  assert.match(errs(c=>{ex(c);c.pages[2].units[0].approval=bad}),/not a genuine owner-message reference/,bad);
+ assert.equal(errs(c=>{ex(c);c.pages[2].units[0].approval=GOOD_APPROVAL}),'');
+ assert.match(errs(c=>{ex(c);c.pages[2].units[0].approval=GOOD_APPROVAL;delete c.pages[2].units[0].rationale}),/excluded needs rationale/);
+ assert.ok(genuineApproval('whatsapp:wamid.HBgMtestXY7Q9aZ')&&genuineReviewer('contestant-77')&&genuineReviewer('nadia.k'),'random ids containing letters like test are legitimate');
+ assert.ok(genuineApproval(GOOD_APPROVAL)&&!genuineApproval('pending-owner'));
+ assert.ok(genuineReviewer('reviewer.alice')&&!genuineReviewer('TBD')&&!genuineReviewer('test-reviewer')&&!genuineReviewer(''));
+});
+test('review must be independent and bound to exact source, content and unit-map hashes',()=>{
+ assert.equal(run(reviewed(cov())).status,'audited-reviewed');
+ // placeholder / missing / self reviewers
+ for(const who of ['TBD','pending','test','x',''])assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer=who;return c})()).errors.join('|'),/placeholder/,who);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer=c.authoredBy[0];return c})()).errors.join('|'),/self-review/);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer=c.authoredBy[0].toUpperCase();return c})()).errors.join('|'),/self-review/);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer='agent-'+c.authoredBy[0].replace(/^chat-/,'');return c})()).errors.join('|'),/self-review/);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer=c.authoredBy[1];return c})()).errors.join('|'),/self-review/);
+ assert.equal(run((()=>{const c=reviewed(cov());c.semanticReview.reviewer='chat-01M88ZHANBB4E1BHZPDEC7FZ4F';return c})()).errors.length,0);
+ assert.match(run((()=>{const c=reviewed(cov());delete c.semanticReview.reviewer;return c})()).errors.join('|'),/placeholder/);
+ // stale source hash
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.sourceSha256='0'.repeat(64);return c})()).errors.join('|'),/source hash/);
+ // stale content hash
+ const edited=structuredClone(catalogue);edited.courses.find(x=>x.id==='nuclear').topics.find(t=>t.id==='E5').content.theory[1].text+=' x';
+ assert.match(run(reviewed(cov()),{cat:edited}).errors.join('|'),/content changed since the review/);
+ // stale unit map: change a rationale / target / disposition after review
+ for(const f of [c=>{c.pages[6].units[0].rationale='changed'},c=>{c.pages[2].units[0].targets=['theory:E5-t02']},c=>{c.pages[0].units.push({id:'p01.u9',kind:'marker',disposition:'admin',label:'extra',rationale:'extra'})}]){
+  const c=reviewed(cov());f(c);assert.match(run(c).errors.join('|'),/unit map changed since the review/);
+ }
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.figuresSha256='0'.repeat(64);return c})()).errors.join('|'),/figure implementation changed/);
+ assert.match(run((()=>{const c=reviewed(cov());delete c.semanticReview.figuresSha256;return c})()).errors.join('|'),/figure implementation changed/);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.adminPagesAttested.pop();return c})()).errors.join('|'),/adminPagesAttested/);
+ assert.match(run((()=>{const c=reviewed(cov());delete c.semanticReview.adminPagesAttested;return c})()).errors.join('|'),/adminPagesAttested/);
+ assert.match(errs(c=>{delete c.pages[3].imageSha256}),/imageSha256/);
+ assert.match(errs(c=>{c.pages[3].imageSha256='abc'}),/imageSha256/);
+ // unknown review fields and bad status fail closed
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.note='ok';return c})()).errors.join('|'),/unexpected review field/);
+ assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.status='approved';return c})()).errors.join('|'),/pending or done/);
+});
+test('release mode refuses unreviewed maps and untraced blocks; blocks resolve by id',()=>{
+ const r=run((()=>{const c=cov();c.semanticReview={status:'pending'};return c})(),{requireReview:true});assert.equal(r.status,'fail');assert.match(r.errors.join('|'),/review not recorded/);
+ const t=structuredClone(topic);t.content.theory.splice(t.content.theory.findIndex(b=>b.id==='E5-t13'),1);
+ assert.match(checkTopic(t,cov()).errors.join('|'),/target not found theory:E5-t13/);
+ const t2=structuredClone(topic);t2.content.theory.push({text:'new untraced block',style:'Normal',id:'E5-t999'});
+ assert.deepEqual(checkTopic(t2,cov()).unmapped,['E5-t999']);
+ assert.ok(blockExists(topic,'theory:E5-t12')&&!blockExists(topic,'worked:0'));
+ const raw=fs.readFileSync(new URL('../ingest/nuclear/coverage/E5.json',import.meta.url),'utf8');
+ assert.ok(!/[\u0590-\u05ff]/.test(raw),'map holds locators and own-word English labels only');
+});
+
+test('release wiring: npm run build starts with the review gate and checks the production dist; the deploy workflow runs npm run build',()=>{
+ const pkg=JSON.parse(fs.readFileSync(new URL('../package.json',import.meta.url),'utf8'));
+ const steps=pkg.scripts.build.split('&&').map(s=>s.trim());
+ assert.equal(steps[0],'npm run release:coverage');
+ assert.ok(steps.includes('DIST_DIR=dist npm run test:served'),'served check must run on the production dist');
+ assert.ok(steps.indexOf('vite build')<steps.indexOf('DIST_DIR=dist npm run test:served'));
+ assert.match(pkg.scripts['release:coverage'],/check-coverage\.mjs --release/);
+ const wf=fs.readFileSync(new URL('../.github/workflows/pages.yml',import.meta.url),'utf8');
+ assert.match(wf,/^\s*- run: npm run build\s*$/m);
+});

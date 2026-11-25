@@ -50,6 +50,31 @@ test('refuses a report path inside the repo',()=>{
  assert.match(r.stderr,/must be outside the repo/);
 });
 
+test('refuses cache/report paths that reach the repo through a symlink',t=>{
+ const outside=tmpdir();t.after(()=>fs.rmSync(outside,{recursive:true,force:true}));
+ const link=path.join(outside,'repo-link');
+ fs.symlinkSync(repoRoot,link);
+ const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
+ const viaLinkCache=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',path.join(link,'cache')],{encoding:'utf8'});
+ assert.equal(viaLinkCache.status,2);
+ assert.match(viaLinkCache.stderr,/must be outside the repo/);
+ const viaLinkReport=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir(),'--report',path.join(link,'out','report.json')],{encoding:'utf8'});
+ assert.equal(viaLinkReport.status,2);
+ assert.match(viaLinkReport.stderr,/must be outside the repo/);
+});
+
+test('a symlinked cache that points OUTSIDE the repo is allowed',t=>{
+ const outside=tmpdir();t.after(()=>fs.rmSync(outside,{recursive:true,force:true}));
+ const real=tmpdir();t.after(()=>fs.rmSync(real,{recursive:true,force:true}));
+ const link=path.join(outside,'cache-link');
+ fs.symlinkSync(real,link);
+ const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
+ const env={...process.env,PREPROCESS_PYTHON:process.execPath,PREPROCESS_SCRIPT:stubPython(tmpdir())};
+ const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',link],{encoding:'utf8',env});
+ assert.equal(r.status,0,r.stderr);
+ assert.match(r.stdout,/review leads/);
+});
+
 test('advisory: missing tool exits 0 with a note, never blocks',()=>{
  const dir=tmpdir();fs.writeFileSync(path.join(dir,'a.pdf'),'%PDF-1.4 stub');
  const r=spawnSync(process.execPath,[wrapper,'--sources',dir,'--cache',tmpdir()],{encoding:'utf8',

@@ -35,9 +35,20 @@ if(!sourcesDir){
  console.error('usage: node scripts/preprocess-sources.mjs --sources DIR [--cache DIR] [--report FILE]');
  process.exit(2);
 }
-const cacheDir=path.resolve(flag('cache')||process.env.PREPROCESS_CACHE||path.join(os.homedir(),'.cache','spectra-preprocess'));
-const reportPath=flag('report')?path.resolve(flag('report')):null;
-const insideRepo=p=>{const r=path.relative(repoRoot,p);return r!==''&&!r.startsWith('..')&&!path.isAbsolute(r)};
+// Symlink-safe repo-containment check: resolve the real path of the target (or
+// its nearest existing ancestor, since the target may not exist yet) and of the
+// repo root, so a symlinked parent cannot smuggle the cache/report into the repo.
+const realRepo=fs.realpathSync(repoRoot);
+const realpathNearest=p=>{
+ let cur=path.resolve(p);const tail=[];
+ while(true){
+  try{return path.join(fs.realpathSync(cur),...tail.reverse())}
+  catch{const parent=path.dirname(cur);if(parent===cur)return cur;tail.push(path.basename(cur));cur=parent}
+ }
+};
+const insideRepo=p=>{const r=path.relative(realRepo,realpathNearest(p));return r!==''&&!r.startsWith('..')&&!path.isAbsolute(r)};
+const cacheDir=flag('cache')||process.env.PREPROCESS_CACHE||path.join(os.homedir(),'.cache','spectra-preprocess');
+const reportPath=flag('report')||null;
 if(insideRepo(cacheDir)){console.error('preprocess: refused - cache dir must be outside the repo: '+cacheDir);process.exit(2)}
 if(reportPath&&insideRepo(reportPath)){console.error('preprocess: refused - report path must be outside the repo: '+reportPath);process.exit(2)}
 

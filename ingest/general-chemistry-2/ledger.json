@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T08:56:18.539Z",
+ "recordedAt": "2026-11-25T08:58:35.867Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -790,6 +790,10 @@
      "final": "5665c3d000dcd9d68e43e36a67773d5b1d8951a0c8d2d33171380b544de4ce77"
     },
     {
+     "base": "878b265e94347148acced9f8ef2beb8c49626780497135c727f2ce333c88cbd0",
+     "final": "878b265e94347148acced9f8ef2beb8c49626780497135c727f2ce333c88cbd0"
+    },
+    {
      "base": "7831621e0734292c394c6acdbc12eafb70db4b63e2a3196045d8e71ca4bc7cb9",
      "final": "7831621e0734292c394c6acdbc12eafb70db4b63e2a3196045d8e71ca4bc7cb9"
     },
@@ -1446,6 +1450,10 @@
      "final": "726c20a968db734df6d3219f2a5277dbfb7712ff36f1b950561c7b404cc9ace6"
     },
     {
+     "base": "24d6dde1208f0d229e1b80666cc796101b78ea3730d5c3e8cce11c742cd4964f",
+     "final": "24d6dde1208f0d229e1b80666cc796101b78ea3730d5c3e8cce11c742cd4964f"
+    },
+    {
      "base": "27cab00c4293d1dca4e74074b6efef0f688d20af73634e7c82be97d84a635075",
      "final": "27cab00c4293d1dca4e74074b6efef0f688d20af73634e7c82be97d84a635075"
     },
@@ -1688,6 +1696,10 @@
     {
      "base": "2b426523e1c9c30bf3e6e6b016e4a41f7980819716a8275b5a2d56a2f6a4077a",
      "final": "2b426523e1c9c30bf3e6e6b016e4a41f7980819716a8275b5a2d56a2f6a4077a"
+    },
+    {
+     "base": "c73d0c64deac04e60eb28acd33b966f31c943228e36d9389ed198ec080a6805a",
+     "final": "c73d0c64deac04e60eb28acd33b966f31c943228e36d9389ed198ec080a6805a"
     },
     {
      "base": "8e0fff3b9350b62e08e72e4b7207c5a01615c7af591815e291462720c85e11b8",
@@ -2054,6 +2066,10 @@
      "final": "2966e49c193abd8b5adf8b837a086942d5188d52bfeeaceff89682f2ffa9d21d"
     },
     {
+     "base": "6de7e70c374565148e89cfce235d0e6912b3bf89b45296191d14b5547120fac6",
+     "final": "6de7e70c374565148e89cfce235d0e6912b3bf89b45296191d14b5547120fac6"
+    },
+    {
      "base": "dd3d9669e4905419046f000471da6c077de3d587c124785ab887b33f25515ee5",
      "final": "dd3d9669e4905419046f000471da6c077de3d587c124785ab887b33f25515ee5"
     },
@@ -2112,6 +2128,14 @@
     {
      "base": "b8feaa56a3fe5d366deb35155a5b8c0226df4c833eb7996c31cfc355372db56f",
      "final": "b8feaa56a3fe5d366deb35155a5b8c0226df4c833eb7996c31cfc355372db56f"
+    },
+    {
+     "base": "69d477c500f3294020a8183abef92e024d623764fd5a8f856d3c3722db127728",
+     "final": "69d477c500f3294020a8183abef92e024d623764fd5a8f856d3c3722db127728"
+    },
+    {
+     "base": "4df45766a5297b251dd9d13884419f6f6c70ad0ac075373431f9aeca765db14d",
+     "final": "4df45766a5297b251dd9d13884419f6f6c70ad0ac075373431f9aeca765db14d"
     }
    ],
    "worked": [
@@ -2356,6 +2380,10 @@
     {
      "base": "06cf6c419101db5f10448fee2001a7933d2773949471d806035d35df4ffbbeff",
      "final": "06cf6c419101db5f10448fee2001a7933d2773949471d806035d35df4ffbbeff"
+    },
+    {
+     "base": "b89b71a4ca7640b5a8e1d58354b167aa75726bf381e7f80b9d1b1d9d7daec0de",
+     "final": "b89b71a4ca7640b5a8e1d58354b167aa75726bf381e7f80b9d1b1d9d7daec0de"
     },
     {
      "base": "cb197e7ce18b97b6cfebd138a2406a7f63203c909fdd66b91412bbb0596d4bbe",

@@ -481,7 +481,7 @@
      "id": "p29.u1",
      "kind": "exercise",
      "disposition": "covered",
-     "label": "adding reactions: N2O + 1/2 O2 to 2NO from Kc(2) 2.7e-18 and Kc(3) 4.7e-31, K = 1.7e-13",
+     "label": "adding reactions: N2O + 1/2 O2 to 2NO from two given K, result 1.7e-13",
      "targets": [
       "theory:E1-t28",
       "theory:E1-t31",

@@ -1,7 +1,7 @@
 {
  "course": "solid-state",
  "kind": "ingested",
- "recordedAt": "2026-11-25T06:07:15.324Z",
+ "recordedAt": "2026-11-25T06:24:50.346Z",
  "note": "Post-reconciliation state of record.",
  "blocks": {
   "SS1": {
@@ -923,8 +923,8 @@
      "final": "754c802730c10b9c333fffa0be2a828f4662e23d23908730351e34b848b670b5"
     },
     {
-     "base": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7",
-     "final": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7"
+     "base": "c124026027e4a50df5b86ab26c61a429778e926e6e17386f663cdee3a8b820a8",
+     "final": "c124026027e4a50df5b86ab26c61a429778e926e6e17386f663cdee3a8b820a8"
     },
     {
      "base": "0304726a3e8d381f278d7d74776257befcb55d1a5047027ba465b64e132f0ff6",

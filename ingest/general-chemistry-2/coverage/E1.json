@@ -569,11 +569,12 @@
     {
      "id": "p31.u2",
      "kind": "equation",
-     "disposition": "covered",
+     "disposition": "corrected",
      "label": "NO + 1/2 O2 giving NO3(g): Kp with a fractional exponent",
      "targets": [
       "theory:E1-t12"
-     ]
+     ],
+     "rationale": "Source reaction as printed is not mass balanced (3 O on the right, 2 on the left). Not copied; the lesson keeps only the general rule that Kp uses partial pressures with the stoichiometric exponents, fractional ones included."
     },
     {
      "id": "p31.u3",

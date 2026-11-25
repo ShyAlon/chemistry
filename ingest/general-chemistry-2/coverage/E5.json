@@ -1,0 +1,767 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E5",
+ "source": {
+  "sha256": "e105fbe29b9ff1336c28974e71b85c21c9b70f2ee98ebe766485fa970f78dfbc",
+  "kind": "pdf",
+  "pageCount": 44,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "c39cc2ae51096a1d13ae33bf134fe5640267b542f4a1542ce22bc01d3fe20c45",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "Exercise 14: one drop of 1 M HCl into water and into 1 M NaOH, pH change",
+     "targets": [
+      "theory:E5-t09"
+     ],
+     "rationale": "Slide says 0.0004 for 1 M NaOH; exact change is about 0.0002, lesson states 0.0002."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "a1688b96e1c8499fd1688a45eaabf0e08e6e8bfe3b4c9bb4834b19645602391e",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffer definition: strong and weak electrolyte with a common ion",
+     "targets": [
+      "theory:E5-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "ce41e83919f897c2ffc86fe8d26b132e59aa1916ff2fe8bd45df1ea0eb7ea135",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of buffer pairs with common ion and maintained ion",
+     "targets": [
+      "theory:E5-t26"
+     ],
+     "rationale": "Lesson keeps only valid conjugate pairs; rows pairing HF with HCl, NH4OH or Al(OH)3 with NaOH are not buffers and are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "4e1e86df3995d0f33b97e128e0fa899de2d009ed7957271ff303844a7e9f6375",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "continuation of the buffer pair table: maintained ion versus common ion",
+     "targets": [
+      "theory:E5-t07",
+      "theory:E5-t10"
+     ],
+     "rationale": "Pair table page; the lesson states the two-component requirement in words."
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "df07348482fbde23827283eb7eff80ff9afd46bb3ae620cf77b8a4671f2e3c69",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "common-ion effect definition; 0.100 M acetic acid and HCl mixture",
+     "targets": [
+      "theory:E5-t01",
+      "theory:E5-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "c89124c7920363547248c07d236d305499dbd215420f3c0a7bbebf63bbfba17f",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "effect on pH of 0.1 M HCl, 0.1 M acetic acid and their mixture",
+     "targets": [
+      "theory:E5-t04"
+     ],
+     "rationale": "Text adaptation, no diagram: the pH values are not reproduced from the slide graphic."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "d353137f0aefd6037ac9f51be7ce563dbcf2470f157ab2aaa741ea3bca28b83b",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15: acetic acid alone and with 0.100 M HCl (statement)",
+     "targets": [
+      "worked:9",
+      "theory:E5-t04"
+     ],
+     "rationale": "Worked 9 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "9d55699ec5d295ed58a229a5680c3813c36ad43ac92ae901d22eceedba714300",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15: ICE tables, x << 0.100 assumption, part (a) 1.3e-3 M",
+     "targets": [
+      "worked:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "6cd31d5bedd407dbed8abf0054674a7d0302b475e3c259db2ff77cb135bff5cb",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15: part (b) with HCl, [CH3CO2-] 1.8e-5 M and pH",
+     "targets": [
+      "worked:9",
+      "theory:E5-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "0b0f2d3fe6d46474d510669c177487292b8c53953e0455f1095dbe18960e752e",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "strong acid supplies common ion H3O+, equilibrium shifts",
+     "targets": [
+      "theory:E5-t02"
+     ],
+     "rationale": "Text adaptation, no diagram: the shift is described in words and equations."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "4fe521baec4dd657557bb493955e4df00a0e9ae1ba3286d5c659bf025ccd0c76",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "strong base supplies the common ion OH-, equilibrium shifts to form more NH3",
+     "targets": [
+      "theory:E5-t03"
+     ],
+     "rationale": "Text adaptation, no diagram."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "8899d114dc6c0a0381d9e8f1eaaaa07f9c7c3ea7ad097e989b8b9c75373b4a16",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salt of a weak acid is a strong electrolyte, its anion is the common ion",
+     "targets": [
+      "theory:E5-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "a2dc59a1baaec3eaa532b6105f9317538698816e7c420a7435fd8a5ca700db79",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "salt supplies the common cation NH4+, equilibrium shifts to form more NH3",
+     "targets": [
+      "theory:E5-t03",
+      "theory:E5-t05"
+     ],
+     "rationale": "Text adaptation, no diagram."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "60ddedea2f60cabfcdcd82d91684a48915d483ca5ab76074611ea8d043365200",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 16: acetic acid with sodium acetate, statement and ICE",
+     "targets": [
+      "worked:10",
+      "theory:E5-t02"
+     ],
+     "rationale": "Worked 10 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "2464b925c75c6b036d41c314ea0ad4676891cc206cadeb9505dec33f0c6b5c5e",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 16: x = 1.8e-5 M, change in pH much smaller than for the acid alone",
+     "targets": [
+      "worked:10",
+      "theory:E5-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "bab81d98bf5f4e21318e36bb8a81bafa25a3317646ad278599b8d41d9e5988af",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffer: two components, one neutralizes acid, one neutralizes base",
+     "targets": [
+      "theory:E5-t07",
+      "theory:E5-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "2e760b8e4df6d23e5eb1d9f9ac50e6cd1144ccba0515a1ce87e51fbf16c7ece8",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "how a buffer works: acetic acid and sodium acetate equilibrium",
+     "targets": [
+      "theory:E5-t07",
+      "theory:E5-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "1f31b18a172d611bb130691018922a7fdc87a22427d20512eb5456f04c3bca9f",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "addition of a small amount of strong acid reacts with acetate",
+     "targets": [
+      "theory:E5-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "eed74733a5872caecf423d665e5475f8659f0a6e88768bd1e5810d936d809d4f",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "addition of a small amount of strong base reacts with acetic acid",
+     "targets": [
+      "theory:E5-t08",
+      "theory:E5-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "7ca364aa0020a54e4d6740086a2b8f2985bde6f4f04befbf4d51c7a12ffa7968",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffer range about +-1 pH unit around pKa",
+     "targets": [
+      "theory:E5-t20"
+     ],
+     "rationale": "Approximate rule of thumb."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "dc7ed049c91c22aef5812d5d14ec612535d2584d38736e326b2bccf2b8cf26f1",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Henderson-Hasselbalch derivation for acid and salt",
+     "targets": [
+      "theory:E5-t12",
+      "theory:E5-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "2d86d66e1b7ce7301f366352cbada4f45141b2bcf834debcf56d6b8176d0c154",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "weak base and its salt: [OH-] = Kb [base]/[salt] and the pOH form",
+     "targets": [
+      "theory:E5-t12",
+      "theory:E5-t14",
+      "theory:E5-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "518ace3e494674d0c2168f0c01d85cfde29a782466b3f675df1347f4878413e5",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 17: NH3/NH4Cl is a buffer; expected pH range",
+     "targets": [
+      "worked:11",
+      "theory:E5-t20"
+     ],
+     "rationale": "Worked 11 uses the slide numbers; the slide range 8 to 10 is stated as approximate (pKa +-1 gives about 8.3 to 10.3)."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "b60a71261b8702ccc7bdfe739918dce567b7a26edaffd7099426dec5fe4edeb8",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 18: 25.5 g NaC2H3O2 in 500 mL of 0.550 M acid (statement)",
+     "targets": [
+      "worked:12"
+     ],
+     "rationale": "Worked 12 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "eaab42b78ebd8736d4976c05e5480d044b2f49f82f101a37444478c9ab2f3471",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 18: ICE table with 0.622 M acetate and 0.550 M acid",
+     "targets": [
+      "worked:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "12376c59e3648fe5f2ed74a3f7755f226c70f576a130a22d1cf43926ce843e21",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 18: x = 1.6e-5 M, pH = 4.80",
+     "targets": [
+      "worked:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "3a473424c84ae28d255592b7a82b2acff37e96833b9a5f6744984bf81db06edd",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 19: buffer from 1.20 g acid and 1.64 g salt, plus HCl (statement)",
+     "targets": [
+      "worked:7"
+     ],
+     "rationale": "Worked 7 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "cc2e6924bddc3a4c948b6115a4de43725cb963d9e6a9319f2b1995c1222e97a2",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 19: concentrations 0.1 M each, pH = pKa = 4.757",
+     "targets": [
+      "worked:7",
+      "theory:E5-t12"
+     ],
+     "rationale": "Slide Ka 1.75e-5; the lesson labels the table value 1.8e-5."
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "c6b06178319476bde9efaa3d5b2b797fab9ccc3a638f73f2cb02f041706a9ef4",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 19 part 2: HCl added, pH 4.735, versus pure water",
+     "targets": [
+      "worked:7",
+      "theory:E5-t09",
+      "theory:E5-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "9a6a85ec728495e18d5600dd1920d7ccebf7fbae421dbb0e08335c32285d2dd0",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Henderson-Hasselbalch equation and two ways to prepare a buffer of a given pH",
+     "targets": [
+      "theory:E5-t11",
+      "theory:E5-t12",
+      "theory:E5-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "d053fca1997b8385690d285d915f63d7b4593ce9c70bdc83d94343d12c4bd047",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 20: mass of NaC2H3O2 in 0.300 L of 0.25 M acid for pH 5.09 (statement)",
+     "targets": [
+      "worked:5"
+     ],
+     "rationale": "Worked 5 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "17439366d83555377a4f11cb43deb6ff309acf7031d83a17b6181b0dc09ee386",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 20: [H3O+] = 8.1e-6 M and [C2H3O2-] = 0.56 M",
+     "targets": [
+      "worked:5"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "c31fd723f3b3ea5f2ec0cf798617861d70cf8924b04f7bd81252864603181b0a",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 20: mass about 14 g",
+     "targets": [
+      "worked:5"
+     ],
+     "rationale": "Exact arithmetic gives 13.8 g; the slide rounds to 14 g."
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "6980a998ca5caab6cafe472bd1b072f91ae9084ffc9e3a2c49d45755c67f6b1d",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffer quality factor A: 1.0 M versus 0.1 M buffer with HCl",
+     "targets": [
+      "worked:13",
+      "theory:E5-t19"
+     ],
+     "rationale": "Worked 13 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "93f467654aaeeca895d9c3f643c694a6303c5a301d7fdf13d65e8a53ab81a48b",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffer quality factors B and C: ratio near 1, concentrations vs H3O+/OH-",
+     "targets": [
+      "theory:E5-t18",
+      "theory:E5-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "ab5c1b6ad877a05326b152ffdec91d44070d82e4da1fe80063c682ae1fb5694e",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "exact equations for a dilute buffer, weak acid HA with its salt KA",
+     "targets": [
+      "theory:E5-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "e0c67dc5e67b124cd45c2aed59b32d3cfaed81e1c59b858b9bb6ac662518d1d6",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "dilute buffer: 5e-4 M formic acid with 2e-5 M formate, pH 3.67 vs 2.35",
+     "targets": [
+      "worked:8",
+      "theory:E5-t15"
+     ],
+     "rationale": "Worked 8 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "3cca6a698bfff86b84a6039b9b36407d081e8f93042fe95a57d5d30f20041a2f",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak base BH+ and B: methylamine 7e-5 M each, [OH-] 5.44e-5 M, pH 9.74",
+     "targets": [
+      "worked:14",
+      "theory:E5-t15"
+     ],
+     "rationale": "Slide Kb 4.35e-4 for methylamine; E4 slide gives 4.2e-4 (typical value about 4.4e-4). Labelled source-derived."
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "48d5ab2aadb9be205fc5ae8eb8e3be2e71ec1fc5686edfd08185fe286af954f3",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "notes: HH needs the common-ion effect; dilute weak acids act like strong",
+     "targets": [
+      "theory:E5-t13",
+      "theory:E5-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "ed044e2d25ae4ab62a2f9dc50c75b09416e4404deef95776b72456fd1280ca3c",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "a weak electrolyte alone is a non-optimal buffer",
+     "targets": [
+      "theory:E5-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "8cbe892f9ed9f62ad7e3d375a8a2e8e6a1b0dc40b708992e317970468cb90249",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "buffers in blood: pH 7.4, enzymes work between pH 6 and 8, carbonic acid system",
+     "targets": [
+      "theory:E5-t27",
+      "theory:E5-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "4af93f8bf65f27f0ea0020d498fb98a81445611d06e8598d49abe459531ee937",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "blood 11/1 ratio outside maximum capacity, acid need is larger",
+     "targets": [
+      "theory:E5-t28",
+      "theory:E5-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "24a9a0b5f8f40e961dba7f1d34894f89b90b4388bc7e3c88d307debcc453da8c",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 21: [HCO3-]/[H2CO3] at pH 7.4, Ka 4.45e-7, ratio 11.13",
+     "targets": [
+      "worked:6",
+      "theory:E5-t29"
+     ],
+     "rationale": "Worked 6 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "308fe4188e33c548aba3675b54782a7805e593bb76529e6a514a5aa17349a756",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "section title Buffer Systems with a video warning screen",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:4"
+   ],
+   "rationale": "Own worked examples (buffer with 0.010 mol HCl, buffer design, salt pH, buffer warning case); not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E5-t30",
+    "theory:E5-t31"
+   ],
+   "rationale": "Own summary of hydrolysis of salts of weak acids and bases (E4 and E5 cross-reference); the AB II slides in this range do not present it."
+  }
+ ]
+}

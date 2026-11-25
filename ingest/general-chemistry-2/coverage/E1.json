@@ -3,9 +3,9 @@
  "course": "general-chemistry-2",
  "topic": "E1",
  "source": {
-  "sha256": "9f24553313fb5eb26d828b79aee3d370bd2a4c3effe3c7f386a46e1b321a6503",
+  "sha256": "e4acd959fc561ee6bb0dc70acf409ebfb5c45aa70828c6190fedc4ba6539503d",
   "kind": "pdf",
-  "pageCount": 63,
+  "pageCount": 64,
   "locatorScheme": "pdf-page"
  },
  "authoredBy": [
@@ -267,7 +267,8 @@
      "disposition": "covered",
      "label": "concentration written as partial pressure over RT",
      "targets": [
-      "theory:E1-t19"
+      "theory:E1-t19",
+      "theory:E1-t49"
      ]
     }
    ]
@@ -683,7 +684,8 @@
      "disposition": "covered",
      "label": "K changes with temperature only, not with concentration, pressure or catalyst",
      "targets": [
-      "theory:E1-t29"
+      "theory:E1-t29",
+      "theory:E1-t50"
      ],
      "rationale": "The Le Chatelier statement on this page is mapped in E2."
     }
@@ -781,9 +783,11 @@
      "disposition": "adapted",
      "label": "H2 + I2 problem statement, Kc 50",
      "targets": [
-      "worked:3"
+      "worked:3",
+      "worked:9",
+      "theory:E1-t20"
      ],
-     "rationale": "Own numbers (0.100 M each); same method."
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
     }
    ]
   },
@@ -798,9 +802,10 @@
      "label": "empty ICE table setup",
      "targets": [
       "worked:3",
+      "worked:9",
       "theory:E1-t42"
      ],
-     "rationale": "Own numbers (0.100 M each); same method."
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
     }
    ]
   },
@@ -815,9 +820,10 @@
      "label": "ICE change row",
      "targets": [
       "worked:3",
+      "worked:9",
       "theory:E1-t42"
      ],
-     "rationale": "Own numbers (0.100 M each); same method."
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
     }
    ]
   },
@@ -832,9 +838,10 @@
      "label": "equilibrium row and Kc expression with volume",
      "targets": [
       "worked:3",
+      "worked:9",
       "theory:E1-t42"
      ],
-     "rationale": "Own numbers (0.100 M each); same method."
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
     }
    ]
   },
@@ -849,9 +856,10 @@
      "label": "quadratic solution and choice of root",
      "targets": [
       "worked:3",
+      "worked:9",
       "theory:E1-t44"
      ],
-     "rationale": "Own numbers (0.100 M each); same method."
+     "rationale": "Method on own numbers (0.100 M each, worked 3); the tutorial numbers (10.0 L, 0.500 mol, Kc 50) are in worked 9."
     }
    ]
   },
@@ -1053,9 +1061,28 @@
      "label": "class exercise: H2 + I2 equilibrium moles and NH4HS decomposition",
      "targets": [
       "worked:3",
-      "worked:8"
+      "worked:8",
+      "worked:9"
      ],
      "rationale": "Other problems on this page (Le Chatelier, N2O4 total pressure, HgO) are mapped in E2."
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "1361a9b8ab6a74a7334e7a8de870423e6a2f5657b5cf3385993d3da1a6af700f",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Ex2 parts c and d: total pressure from nRT/V and partial pressures",
+     "targets": [
+      "worked:9",
+      "theory:E1-t49",
+      "theory:E1-t20"
+     ],
+     "rationale": "Source numbers (10.0 L, 0.500 mol, 721 K, Kc 50: 5.92 atm, 0.65 and 4.61 atm); solution rewritten."
     }
    ]
   }

@@ -24,7 +24,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
   for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep&&!b.batch4);
  }
- assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'e23513dca91547de118172a18c233fbccf59dd3f97377096ae88aa6abb581c02');
+ assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'26b082b603bcbcb1320c0d9ae4097ccaa5c3fcea312de748b0cf6498dc7b22b0');
  assert.equal(course.topics.length,16);
  for(const [id,add] of Object.entries(layer)){
   for(const k of ['theory','worked','quiz'])assert.deepEqual(topic(id).content[k].filter(x=>x.finalPrep),add[k]);

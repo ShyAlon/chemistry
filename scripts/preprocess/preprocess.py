@@ -184,7 +184,10 @@ def parse_formula_readings(f):
     readings, seen = [], set()
     for body, charge in bodies:
         if not body:
-            counts = {}  # state marker only, e.g. bare (aq)
+            # state marker only (bare '(aq)') or a charge fragment split off by
+            # a text-layer line break ('2-', '-(aq)'). A lone charge is not a
+            # species: discard it so split lines stay honest fragments.
+            counts, charge = {}, 0
         elif body == 'e':
             counts, charge = {}, (charge if charge else -1)  # electron: e or e-
         else:

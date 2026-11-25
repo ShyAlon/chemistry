@@ -96,6 +96,13 @@ T('NEGATIVE NH4+ → NH3 all readings wrong', pp.check_equation('NH4+ → NH3')[
 T('NEGATIVE MnO4- → Mn+2 all readings wrong', pp.check_equation('MnO4- → Mn+2')[0], 'unbalanced')
 # adversarial: a line that only balances under one reading stays a lead
 T('one-reading-balances stays ambiguous', pp.check_equation('SO42- + 2H+ → H2SO4')[0], 'balanced-ambiguous')
+# split-line charge fragments are not species: the equation tail stays a
+# fragment lead, not a chemical error flag (regression for 12 real slides lines)
+T('charge fragment 2- is not a species', parse1('2-'), ({}, 0, True))
+T('charge fragment - is not a species', parse1('-'), ({}, 0, True))
+T('split tail 2-(aq) stays fragment', pp.check_equation('2-(aq) → NH3 + HCO3')[0], 'fragment')
+T('split tail -(aq) stays fragment', pp.check_equation('-(aq)  →   SO4')[0], 'fragment')
+T('split tail 2-(aq) before Mn stays fragment', pp.check_equation('-(aq)  →  2 Mn2+(aq) + 8 H2O(l)')[0], 'fragment')
 
 # ---- check_arith: exact Decimal, claim-precision comparison, no abs floor ----
 T('arith ok with label', pp.check_arith('x = 0.10 - 0.04 = 0.06'), ('ok', 'x = 0.10 - 0.04 = 0.06'))

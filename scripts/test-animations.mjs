@@ -42,6 +42,8 @@ const circles=()=>ev(`document.querySelectorAll('.anim svg circle').length`);con
 await setP('count',6);await sleep(100);assert.equal(await circles(),c1+5,'particle count changes the picture');
 st=await state();assert.equal(st.playing,'0');assert.equal(st.t,1,'changing a parameter does not play or move time');
 await setP('photonE',1.4);await sleep(100);assert.ok((await ev(`document.querySelector('.anim svg').textContent`)).includes('אין בליעה'),'photon below the gap is not absorbed');
+await setScrub(1000);await sleep(100);assert.ok((await ev(`document.querySelector('.anim .anim-stage').textContent`)).includes('אין פליטה'),'below-gap stage labels say nothing happens');assert.equal(await ev(`document.querySelectorAll('.anim svg [marker-end]').length`),0,'below the gap no excitation arrow is drawn');
+await setP('photonE',2.0);await setScrub(1000);await sleep(100);assert.ok(await ev(`document.querySelectorAll('.anim svg [marker-end]').length`)>=3,'above the gap the three arrows are drawn');await setP('photonE',1.4);
 for(const E of [1.0,1.4,1.7,1.8,2.5])for(const n of [1,6]){await setP('photonE',E);await setP('count',n);for(let v=0;v<=1000;v+=100){await setScrub(v);const r=await ev(bounds);assert.equal(r.bad,0,`no NaN E=${E} n=${n} t=${v}`);assert.deepEqual(r.out,[],`text inside viewBox E=${E} n=${n} t=${v}`)}}
 await click('.anim-param-reset');await sleep(100);assert.deepEqual(await prm(),{photonE:2,count:1},'reset restores lesson values');
 await setScrub(1000);

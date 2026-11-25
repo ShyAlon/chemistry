@@ -39,6 +39,7 @@ export function AnimatedFigure({spec,accent}){
   const stageAt=x=>{let k=0;stages.forEach((s,i)=>{if(x>=s.at-1e-9)k=i});return k};
   const ends=stages.map((s,i)=>i<stages.length-1?stages[i+1].at-EPS:1);
   const stage=stageAt(t);
+  const lbl=i=>spec.stageLabel?spec.stageLabel(i,params):stages[i].label;
   const set=x=>{const v=clamp01(x);tRef.current=v;setT(v)};
   useEffect(()=>{
     if(!playing)return;let raf,last=performance.now();
@@ -62,15 +63,15 @@ export function AnimatedFigure({spec,accent}){
   const atEnd=t>=1-EPS,atStart=t<=EPS;
   const playLabel=reduced?'השלב הבא':playing?'עצירה':atEnd?'הפעלה מחדש':'הפעלה';
   return <div className="anim" ref={root} data-anim-id={spec.id} data-anim-t={t.toFixed(3)} data-anim-playing={playing?'1':'0'} data-anim-stage={stage} data-anim-params={JSON.stringify(params)}>
-    <svg viewBox={spec.viewBox} role="img" aria-label={spec.label} className="fig-svg">{spec.frame(t,{accent,stage,params})}</svg>
+    <svg viewBox={spec.viewBox} role="img" aria-label={typeof spec.label==='function'?spec.label(params):spec.label} className="fig-svg">{spec.frame(t,{accent,stage,params})}</svg>
     <div className="anim-controls" role="group" aria-label="בקרי ההנפשה" dir="ltr">
       <button type="button" className="anim-btn" onClick={prev} disabled={atStart} aria-label="השלב הקודם">‹</button>
       <button type="button" className="anim-btn anim-play" onClick={play} aria-label={playLabel} aria-pressed={playing}>{reduced?'›':playing?'❚❚':'▶'}</button>
       <button type="button" className="anim-btn" onClick={next} disabled={atEnd} aria-label="השלב הבא">›</button>
-      <input className="anim-scrub" type="range" min="0" max="1000" step="1" value={Math.round(t*1000)} onChange={e=>{setPlaying(false);set(Number(e.target.value)/1000)}} aria-label="ציר הזמן של ההנפשה" aria-valuetext={stages[stage].label}/>
+      <input className="anim-scrub" type="range" min="0" max="1000" step="1" value={Math.round(t*1000)} onChange={e=>{setPlaying(false);set(Number(e.target.value)/1000)}} aria-label="ציר הזמן של ההנפשה" aria-valuetext={lbl(stage)}/>
       <button type="button" className="anim-btn anim-speed" onClick={()=>setSpeed(s=>SPEEDS[(SPEEDS.indexOf(s)+1)%SPEEDS.length])} aria-label={'מהירות ההנפשה, כעת פי '+speed} disabled={reduced}>{speed}×</button>
       <button type="button" className="anim-btn" onClick={replay} aria-label="מההתחלה">↺</button>
-      <span className="anim-stage" dir="rtl" aria-live={playing?'off':'polite'}>{stages[stage].label}</span>
+      <span className="anim-stage" dir="rtl" aria-live={playing?'off':'polite'}>{lbl(stage)}</span>
     </div>
     {(spec.params||[]).length>0&&<div className="anim-params" role="group" aria-label="פרמטרים פיזיקליים של ההנפשה">
       {spec.params.map(q=><label key={q.id} className="anim-param"><span className="anim-param-name">{q.label}</span>

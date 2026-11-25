@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T09:10:40.747Z",
+ "recordedAt": "2026-11-25T09:12:02.614Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -214,12 +214,12 @@
      "final": "907f881e6503d6595f4632b16a0723d0737bfea6ecc24b7b4d4237c5b103d95f"
     },
     {
-     "base": "0a2a0aa3bab75dd6f3f36f57fad9a4a9dddd9cbdb16d41e2f7ca4eb5855a6e05",
-     "final": "0a2a0aa3bab75dd6f3f36f57fad9a4a9dddd9cbdb16d41e2f7ca4eb5855a6e05"
+     "base": "d5ef4cb15a8b5d2df1c0f44cb3a6ce45f2a3ed6bdee4806c0ff38c4780d3bf7d",
+     "final": "d5ef4cb15a8b5d2df1c0f44cb3a6ce45f2a3ed6bdee4806c0ff38c4780d3bf7d"
     },
     {
-     "base": "00fafde66c8846cfd2212e2c12c168ffa26920d23e1ec59a62f59bb7e4805c30",
-     "final": "00fafde66c8846cfd2212e2c12c168ffa26920d23e1ec59a62f59bb7e4805c30"
+     "base": "cbba1531204ed924c43f0404fe455de78ed989773e3ee386112ea31686a2efa5",
+     "final": "cbba1531204ed924c43f0404fe455de78ed989773e3ee386112ea31686a2efa5"
     },
     {
      "base": "0406516d2460f18c014673ea0412ea3ebbc242003685df966fbd11037fa35d1f",
@@ -2206,8 +2206,8 @@
      "final": "bffa0fa998b0e6aa8c9db31127ac9dea80430f5178b8b826817470d8ed9b989e"
     },
     {
-     "base": "107d6139065d16c50cdc98b5a4e211090d902f9442f54fc25372ef0a5bdc1729",
-     "final": "107d6139065d16c50cdc98b5a4e211090d902f9442f54fc25372ef0a5bdc1729"
+     "base": "75aa3bd7d54f9f13ca4f5471290a86b040b047504ba0113cdf2956d8b45bd65f",
+     "final": "75aa3bd7d54f9f13ca4f5471290a86b040b047504ba0113cdf2956d8b45bd65f"
     },
     {
      "base": "c076c847d21d5015dfd5f61ffbd376aca72d865b1d86a019c7593f2420960fe8",
@@ -2302,8 +2302,12 @@
      "final": "ae172d3728291a80b1fbe8d06c00669a951a351f349a7fc9e2c2a93b3f8e2e22"
     },
     {
-     "base": "1787e566b79ab5ee0e5e832a7edcea83921dc68e05dba8ebca7b5f758340f7d2",
-     "final": "1787e566b79ab5ee0e5e832a7edcea83921dc68e05dba8ebca7b5f758340f7d2"
+     "base": "c4b695b9c76406e057b0295af477be9d0dfc57f6bed8736217e911d3e9f7ba55",
+     "final": "c4b695b9c76406e057b0295af477be9d0dfc57f6bed8736217e911d3e9f7ba55"
+    },
+    {
+     "base": "077f205b22ec56249d6a231197a3b720313fc42a9c018ec8ab79bf410a680c7e",
+     "final": "077f205b22ec56249d6a231197a3b720313fc42a9c018ec8ab79bf410a680c7e"
     },
     {
      "base": "633d1cc29749761271fa81243c77becb3a14ecc202ffedd6c11fccf15d3fbfb7",
@@ -2314,16 +2318,20 @@
      "final": "361bdd58e31863304ee3a06d0a1b1a7b5f082fef7ddabef2ad8ba126fb5a3bf7"
     },
     {
-     "base": "f3ff8e0bbcfe91b549291cce92ff96803a066fb2c3d2f61de23dc695b16d74de",
-     "final": "f3ff8e0bbcfe91b549291cce92ff96803a066fb2c3d2f61de23dc695b16d74de"
+     "base": "b30717f7efb49801822cb1c4ab895f2f48220c0e5aa28e53d4f1339850a9fc5d",
+     "final": "b30717f7efb49801822cb1c4ab895f2f48220c0e5aa28e53d4f1339850a9fc5d"
     },
     {
-     "base": "ded8955bed57e268f9ee03ab98807fa741e570c5bd827732e9125ce2321d9617",
-     "final": "ded8955bed57e268f9ee03ab98807fa741e570c5bd827732e9125ce2321d9617"
+     "base": "94ecf01b54feeeb3943da314afa76bad25bc8762e0922d67a77375d7ea76d258",
+     "final": "94ecf01b54feeeb3943da314afa76bad25bc8762e0922d67a77375d7ea76d258"
     },
     {
-     "base": "119b581984f4683e108b0ea0029a8beb2ab31b2ca7481d6fb97b00fed29d3023",
-     "final": "119b581984f4683e108b0ea0029a8beb2ab31b2ca7481d6fb97b00fed29d3023"
+     "base": "74adfa4449e11601274d3ac4d9d7e5f3f921cb34df5bf389d20323bbd17553f8",
+     "final": "74adfa4449e11601274d3ac4d9d7e5f3f921cb34df5bf389d20323bbd17553f8"
+    },
+    {
+     "base": "c9b4155429b0772799874e703bb4654ad48874c356ebbe053e9fa37d903fbe13",
+     "final": "c9b4155429b0772799874e703bb4654ad48874c356ebbe053e9fa37d903fbe13"
     },
     {
      "base": "cb197e7ce18b97b6cfebd138a2406a7f63203c909fdd66b91412bbb0596d4bbe",
@@ -3146,8 +3154,8 @@
      "final": "08fd0d74355750b0036a23645b40f80d90c824bd72660bce53beb575e11f65af"
     },
     {
-     "base": "a9746c50a4d4662d738bb3da374d001a70033cb6955e92055eb092cce07b461e",
-     "final": "a9746c50a4d4662d738bb3da374d001a70033cb6955e92055eb092cce07b461e"
+     "base": "869de03172b5292c29d52fdaa75286123c48320e0c46cd8c7036fb9a51d30b73",
+     "final": "869de03172b5292c29d52fdaa75286123c48320e0c46cd8c7036fb9a51d30b73"
     },
     {
      "base": "9de549495b765d5ff0fd50f667036702b08dea0c876d7c3451eb3bf825963bc5",

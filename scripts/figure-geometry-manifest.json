@@ -226,6 +226,174 @@
   "allowContainment": false,
   "allowOverlaps": []
  },
+ "mo-bonding": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "band-classes": {
+  "labels": [
+   {
+    "text": "ריק",
+    "box": 0
+   },
+   {
+    "text": "מלא",
+    "box": 0
+   },
+   {
+    "text": "CB",
+    "box": 4
+   },
+   {
+    "text": "VB",
+    "box": 5
+   },
+   {
+    "text": "Eg",
+    "box": 3
+   },
+   {
+    "text": "CB",
+    "box": 7
+   },
+   {
+    "text": "VB",
+    "box": 8
+   },
+   {
+    "text": "Eg",
+    "box": 6
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "photon-energy-ruler": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "excite-relax-emit": {
+  "labels": [
+   {
+    "text": "CB",
+    "box": 0
+   },
+   {
+    "text": "VB",
+    "box": 1
+   },
+   {
+    "text": "2",
+    "box": 0
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "carrier-creation": {
+  "labels": [
+   {
+    "text": "CB",
+    "box": 1
+   },
+   {
+    "text": "VB",
+    "box": 2
+   },
+   {
+    "text": "e⁻",
+    "box": 1
+   },
+   {
+    "text": "h⁺",
+    "box": 2
+   },
+   {
+    "text": "CB",
+    "box": 4
+   },
+   {
+    "text": "VB",
+    "box": 5
+   },
+   {
+    "text": "e⁻",
+    "box": 4
+   },
+   {
+    "text": "h⁺",
+    "box": 5
+   },
+   {
+    "text": "CB",
+    "box": 7
+   },
+   {
+    "text": "VB",
+    "box": 8
+   },
+   {
+    "text": "e⁻",
+    "box": 7
+   },
+   {
+    "text": "h⁺",
+    "box": 8
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "conductivity-vs-t": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "dopant-levels": {
+  "labels": [
+   {
+    "text": "CB",
+    "box": 1
+   },
+   {
+    "text": "VB",
+    "box": 2
+   },
+   {
+    "text": "donor",
+    "box": 0
+   },
+   {
+    "text": "EF",
+    "box": 0
+   },
+   {
+    "text": "CB",
+    "box": 4
+   },
+   {
+    "text": "VB",
+    "box": 5
+   },
+   {
+    "text": "acceptor",
+    "box": 3
+   },
+   {
+    "text": "EF",
+    "box": 3
+   }
+  ],
+  "allowContainment": true,
+  "allowOverlaps": []
+ },
+ "doped-conductivity": {
+  "labels": [],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
  "nuclear-half-life": {
   "labels": [],
   "allowContainment": false,

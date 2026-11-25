@@ -1,7 +1,7 @@
 {
  "course": "solid-state",
  "kind": "ingested",
- "recordedAt": "2026-11-25T05:08:26.067Z",
+ "recordedAt": "2026-11-25T05:36:39.043Z",
  "note": "Post-reconciliation state of record.",
  "blocks": {
   "SS1": {
@@ -551,6 +551,10 @@
      "final": "8ed039241780488a832f9be86d92016c86fbb7f38a44605712ec6cb659eda47b"
     },
     {
+     "base": "cbddc9f2a65b37f71abb56a931fce7d2002f6feac318334376b272a2a21484d6",
+     "final": "cbddc9f2a65b37f71abb56a931fce7d2002f6feac318334376b272a2a21484d6"
+    },
+    {
      "base": "ed653b6e6c57159fd791024dcf2f3cb19d573bb5fb0ebf3fb9d9bf281265392c",
      "final": "ed653b6e6c57159fd791024dcf2f3cb19d573bb5fb0ebf3fb9d9bf281265392c"
     },
@@ -573,6 +577,10 @@
     {
      "base": "3685f119895becdf08ba5f7f8a4764ed5ad6dbf8798e565bad596f714ff51aa4",
      "final": "3685f119895becdf08ba5f7f8a4764ed5ad6dbf8798e565bad596f714ff51aa4"
+    },
+    {
+     "base": "baaa9a4476a64f2f8b0bd0c8ef841db653e7ca731d5bf5f256632281907a5360",
+     "final": "baaa9a4476a64f2f8b0bd0c8ef841db653e7ca731d5bf5f256632281907a5360"
     },
     {
      "base": "9b528233159e4dec65a7395933fc3651650e7e60d2c1d835e2775a78a1972643",
@@ -655,6 +663,10 @@
      "final": "bd3f9d8470f2d626a8f0f40b30bd1763a6e315a567cfb96e9f998770279060b8"
     },
     {
+     "base": "35dfa4a354cb6e6ad94c07c751a228386eef6eb8796b67c41b07d622aca436da",
+     "final": "35dfa4a354cb6e6ad94c07c751a228386eef6eb8796b67c41b07d622aca436da"
+    },
+    {
      "base": "2142e6cbd18dbd5423569bc75b9b4f867d598f91aecb38b395120b8a2709255d",
      "final": "2142e6cbd18dbd5423569bc75b9b4f867d598f91aecb38b395120b8a2709255d"
     },
@@ -665,6 +677,10 @@
     {
      "base": "ebc0a2355907066c1d4938b0abbe55d110ecb71f092c099bc62eaadd929e844b",
      "final": "ebc0a2355907066c1d4938b0abbe55d110ecb71f092c099bc62eaadd929e844b"
+    },
+    {
+     "base": "bd33d8129108c9b18d2c416cf877140cafdf44886ca9aec58d87c705b1e8f1aa",
+     "final": "bd33d8129108c9b18d2c416cf877140cafdf44886ca9aec58d87c705b1e8f1aa"
     },
     {
      "base": "77dc108895ebdc75adbffd6db5b8207fd4566d97a87a30c5b63eb62969cd8619",
@@ -771,6 +787,10 @@
      "final": "6b48d4ac0a9e1f19a80ffdb44cce04b303d85b8d99145752a5a67be683cdf91c"
     },
     {
+     "base": "3c7ebbae80657fef0b80eb745e1646509a92454cc8ddba69aff89d01cf2c71b1",
+     "final": "3c7ebbae80657fef0b80eb745e1646509a92454cc8ddba69aff89d01cf2c71b1"
+    },
+    {
      "base": "bb6ef6f4e7648d3cdd51ff38a8b50741961cf8415381f2710849fcfb9829edab",
      "final": "bb6ef6f4e7648d3cdd51ff38a8b50741961cf8415381f2710849fcfb9829edab"
     },
@@ -801,6 +821,10 @@
     {
      "base": "fce44dfc2dff84a09b04b26a0a739d3d4905cb57355c5113a265928195919a36",
      "final": "fce44dfc2dff84a09b04b26a0a739d3d4905cb57355c5113a265928195919a36"
+    },
+    {
+     "base": "4896c193aa4988965f0e169b3d4af11e370283cf416ba27376d3d6b6efdb4c4e",
+     "final": "4896c193aa4988965f0e169b3d4af11e370283cf416ba27376d3d6b6efdb4c4e"
     },
     {
      "base": "20bfe6d552e6850a2aab426d9682d04d6f59416a296e8f9440c113bbfffe2454",
@@ -879,6 +903,10 @@
      "final": "56e60235b93da79b8a9388c4740d913a881be9b430a989aec6f8f5275585489b"
     },
     {
+     "base": "80d101a7f0f47b4e14a443f09e675d53052f314ab358e0d916283bfc1ebacf54",
+     "final": "80d101a7f0f47b4e14a443f09e675d53052f314ab358e0d916283bfc1ebacf54"
+    },
+    {
      "base": "9f7c1686c6fceb9f0b62408c73b2af33ea633403f66c23d293a0f6e6c941713d",
      "final": "9f7c1686c6fceb9f0b62408c73b2af33ea633403f66c23d293a0f6e6c941713d"
     },
@@ -897,6 +925,10 @@
     {
      "base": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7",
      "final": "d3de15152c72511d7846b846b1dde9a4bd484991358b61516aac6a96c7929fe7"
+    },
+    {
+     "base": "d38167069533109a3578cac109c28fa94a9407ad29489ba23717729144b485e4",
+     "final": "d38167069533109a3578cac109c28fa94a9407ad29489ba23717729144b485e4"
     }
    ],
    "worked": [

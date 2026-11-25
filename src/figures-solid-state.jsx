@@ -244,3 +244,195 @@ export function BondTypeScale({accent}){
     <T x={X(3.2)} y={22} size={12} anchor="end" ltr fill={C.mut}>Δχ = |χA − χB|</T>
   </Fig>;
 }
+
+// SS5: bonding and antibonding molecular orbitals from two atomic orbitals (LCAO sketch).
+export function MoBonding({accent}){
+  const a='#7aa7f0',b='#f0c978';
+  return <Fig label="צירוף לינארי של שני אורביטלים אטומיים: חפיפה באותה פאזה נותנת אורביטל קושר באנרגיה נמוכה, וחפיפה בפאזה מנוגדת נותנת אורביטל אנטי קושר באנרגיה גבוהה עם מישור אפס" viewBox="0 -10 560 250">
+    <Arrow x1={14} y1={190} x2={14} y2={14} stroke={C.line} id="mo-e"/>
+    <T x={26} y={16} size={11} anchor="start" fill={C.mut}>אנרגיה</T>
+    <L x1={470} y1={110} x2={546} y2={110} stroke={C.ink} w={2.5}/><T x={508} y={130} size={12} ltr fill={C.ink}>φB</T>
+    <L x1={60} y1={110} x2={136} y2={110} stroke={C.ink} w={2.5}/><T x={98} y={130} size={12} ltr fill={C.ink}>φA</T>
+    <L x1={136} y1={110} x2={200} y2={170} stroke={C.mut} dash="3 4"/><L x1={470} y1={110} x2={400} y2={170} stroke={C.mut} dash="3 4"/>
+    <L x1={136} y1={110} x2={200} y2={50} stroke={C.mut} dash="3 4"/><L x1={470} y1={110} x2={400} y2={50} stroke={C.mut} dash="3 4"/>
+    <L x1={200} y1={170} x2={400} y2={170} stroke={accent} w={3}/>
+    <L x1={200} y1={50} x2={400} y2={50} stroke="#f09797" w={3}/>
+    <T x={300} y={192} size={13} fill={accent}>אורביטל קושר, אנרגיה נמוכה</T>
+    <T x={300} y={36} size={13} fill="#f09797">אורביטל אנטי־קושר, אנרגיה גבוהה</T>
+    <Dot cx={270} cy={150} r={14} fill={C.line} stroke={a}/><Dot cx={300} cy={150} r={14} fill={C.line} stroke={a}/>
+    <T x={270} y={155} size={14} ltr fill={C.ink}>+</T><T x={300} y={155} size={14} ltr fill={C.ink}>+</T>
+    <Dot cx={266} cy={82} r={14} fill={C.line} stroke={a}/><Dot cx={306} cy={82} r={14} fill={C.line} stroke={b}/>
+    <T x={266} y={87} size={14} ltr fill={C.ink}>+</T><T x={306} y={87} size={14} ltr fill={C.ink}>−</T>
+    <L x1={286} y1={62} x2={286} y2={104} stroke="#f09797" dash="3 3"/>
+    <T x={286} y={118} size={11} fill="#f09797">מישור אפס</T>
+  </Fig>;
+}
+
+// SS5: band pictures for a metal, a semiconductor and an insulator.
+export function BandClasses({accent}){
+  const P=[{x:380,n:'מתכת',t:'אין פער',k:'m',c:'#f0c978'},{x:200,n:'מוליך למחצה',t:'פער קטן',k:'s',c:accent},{x:20,n:'מבודד',t:'פער גדול',k:'i',c:'#f09797'}];
+  const fillc='#2d4a6b';
+  return <Fig label="מבנה פסים של מתכת, מוליך למחצה ומבודד: במתכת פס מלא חלקית ואין פער, במוליך למחצה פער קטן בין פס הערכיות לפס ההולכה, ובמבודד פער גדול מאוד" viewBox="0 -10 560 260">
+    {P.map(p=><g key={p.k}>
+      <Box x={p.x} y={4} w={160} h={190} fill={C.faint} stroke={p.c}/>
+      {p.k==='m'&&<g>
+        <rect x={p.x+30} y={30} width={70} height={64} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+        <rect x={p.x+30} y={94} width={70} height={64} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+        <T x={p.x+132} y={66} size={11} fill={C.mut}>ריק</T><T x={p.x+132} y={130} size={11} fill={C.mut}>מלא</T>
+      </g>}
+      {p.k==='s'&&<g>
+        <rect x={p.x+30} y={24} width={70} height={46} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+        <rect x={p.x+30} y={110} width={70} height={60} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+        <T x={p.x+65} y={52} size={12} ltr fill={C.ink}>CB</T><T x={p.x+65} y={144} size={12} ltr fill={C.ink}>VB</T>
+        <Arrow x1={p.x+120} y1={72} x2={p.x+120} y2={108} stroke="#f2d049" id="bc-s1"/><Arrow x1={p.x+120} y1={108} x2={p.x+120} y2={72} stroke="#f2d049" id="bc-s2"/>
+        <T x={p.x+137} y={95} size={12} ltr fill="#f2d049">Eg</T>
+      </g>}
+      {p.k==='i'&&<g>
+        <rect x={p.x+30} y={14} width={70} height={30} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+        <rect x={p.x+30} y={134} width={70} height={46} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+        <T x={p.x+65} y={34} size={12} ltr fill={C.ink}>CB</T><T x={p.x+65} y={162} size={12} ltr fill={C.ink}>VB</T>
+        <Arrow x1={p.x+120} y1={46} x2={p.x+120} y2={132} stroke="#f2d049" id="bc-i1"/><Arrow x1={p.x+120} y1={132} x2={p.x+120} y2={46} stroke="#f2d049" id="bc-i2"/>
+        <T x={p.x+137} y={92} size={12} ltr fill="#f2d049">Eg</T>
+      </g>}
+      <T x={p.x+80} y={216} size={14} weight="bold" fill={C.ink}>{p.n}</T>
+      <T x={p.x+80} y={234} size={12} fill={p.c}>{p.t}</T>
+    </g>)}
+  </Fig>;
+}
+
+// SS6: photon energy from wavelength with the course shortcut E(eV) = 1240 / wavelength(nm).
+export function PhotonEnergyRuler({accent}){
+  const X=l=>40+(l-350)/900*480;
+  const M=[[400,'3.10'],[500,'2.48'],[600,'2.07'],[700,'1.77'],[1107,'1.12']];
+  return <Fig label="אנרגיית פוטון לפי אורך גל, E בקירוב 1240 חלקי אורך הגל בננומטר: 400 ננומטר 3.10 eV, 500 ננומטר 2.48, 600 ננומטר 2.07, 700 ננומטר 1.77, וקצה הפס של סיליקון בכ-1107 ננומטר 1.12 eV" viewBox="0 -10 560 230">
+    <defs><linearGradient id="ss6vis" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stopColor="#7a5cf0"/><stop offset="0.25" stopColor="#4f8df0"/><stop offset="0.5" stopColor="#5fd08a"/><stop offset="0.75" stopColor="#f0d050"/><stop offset="1" stopColor="#f06060"/></linearGradient></defs>
+    <rect x={X(400)} y={96} width={X(700)-X(400)} height={22} fill="url(#ss6vis)" opacity={0.85}/>
+    <L x1={40} y1={118} x2={520} y2={118}/>
+    <T x={(X(400)+X(700))/2} y={86} size={12} fill={C.ink}>אור נראה</T>
+    {M.map(([l,e])=><g key={l}>
+      <L x1={X(l)} y1={118} x2={X(l)} y2={126}/>
+      <T x={X(l)} y={142} size={12} ltr fill={C.ink}>{l}</T>
+      <T x={X(l)} y={36} size={13} ltr weight="bold" fill={l===1107?'#f2d049':accent}>{e}</T>
+      <L x1={X(l)} y1={44} x2={X(l)} y2={96} stroke={C.soft} dash="2 4"/>
+    </g>)}
+    <T x={520} y={160} size={11} anchor="end" ltr fill={C.mut}>λ (nm)</T>
+    <T x={40} y={16} size={11} anchor="start" ltr fill={C.mut}>E (eV) ≈ 1240 / λ (nm)</T>
+    <T x={X(1107)} y={176} size={11} fill="#f2d049">קצה הפס של סיליקון</T>
+    <T x={X(1107)} y={192} size={11} fill={C.mut}>בערך, באינפרא־אדום</T>
+  </Fig>;
+}
+
+// SS6: absorb 2 eV, shed 0.3 eV as heat, optionally emit 1.7 eV (course example, Eg = 1.7 eV).
+export function ExciteRelaxEmit({accent}){
+  const Y=e=>200-e*60;
+  const fillc='#2d4a6b';
+  return <Fig label="דוגמת הקורס עם פער 1.7 eV: אלקטרון בולע פוטון של 2 eV ועולה, מאבד 0.3 eV כחום, ואז יכול לפלוט פוטון של 1.7 eV" viewBox="0 -10 560 250">
+    <rect x={50} y={Y(2.7)} width={200} height={Y(1.7)-Y(2.7)} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+    <rect x={50} y={Y(0)} width={200} height={40} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+    <T x={70} y={Y(2.7)+16} size={12} anchor="start" ltr fill={C.ink}>CB</T><T x={70} y={Y(0)+26} size={12} anchor="start" ltr fill={C.ink}>VB</T>
+    <L x1={250} y1={Y(1.7)} x2={286} y2={Y(1.7)} stroke={C.soft} dash="3 3"/>
+    <Arrow x1={90} y1={Y(0)-2} x2={90} y2={Y(2.0)} stroke="#a58bf0" id="ere1"/>
+    <Dot cx={90} cy={Y(2.0)} r={5} fill="#a58bf0"/>
+    <Arrow x1={150} y1={Y(2.0)} x2={150} y2={Y(1.7)+3} stroke="#f09797" dash="4 3" id="ere2"/>
+    <Arrow x1={210} y1={Y(1.7)} x2={210} y2={Y(0)+3} stroke="#7aa7f0" id="ere3"/>
+    <T x={100} y={Y(1.0)} size={13} anchor="start" ltr fill="#a58bf0">1</T>
+    <T x={160} y={Y(1.85)} size={13} anchor="start" ltr fill="#f09797">2</T>
+    <T x={220} y={Y(0.9)} size={13} anchor="start" ltr fill="#7aa7f0">3</T>
+    <T x={298} y={36} size={12} anchor="start" fill={C.ink}>בליעה של פוטון</T><T x={540} y={36} size={12} anchor="end" ltr fill="#a58bf0">2 eV</T>
+    <T x={298} y={76} size={12} anchor="start" fill={C.ink}>רגיעה תרמית, חום</T><T x={540} y={76} size={12} anchor="end" ltr fill="#f09797">0.3 eV</T>
+    <T x={298} y={116} size={12} anchor="start" fill={C.ink}>פליטה, אם מתרחשת</T><T x={540} y={116} size={12} anchor="end" ltr fill="#7aa7f0">1.7 eV</T>
+    <T x={298} y={160} size={12} anchor="start" ltr fill={C.mut}>Eg = 1.7 eV</T>
+    <T x={298} y={180} size={11} anchor="start" fill={C.mut}>הפוטון הנפלט ארוך גל יותר מהנבלע</T>
+  </Fig>;
+}
+
+// SS7: three ways to make carriers; each excitation makes exactly one electron-hole pair.
+export function CarrierCreation({accent}){
+  const P=[{x:380,n:'עירור אופטי',t:'hν ≥ Eg',tl:true,c:'#a58bf0'},{x:200,n:'עירור חשמלי',t:'שדה חזק',tl:false,c:'#f0c978'},{x:20,n:'עירור תרמי',t:'חימום',tl:false,c:'#f09797'}];
+  const fillc='#2d4a6b';
+  return <Fig label="שלוש דרכים ליצור נושאי מטען במוליך למחצה: בליעת פוטון, שדה חשמלי חזק וחימום; כל עירור יוצר זוג אחד של אלקטרון בפס ההולכה וחור בפס הערכיות" viewBox="0 -10 560 250">
+    {P.map((p,i)=><g key={i}>
+      <Box x={p.x} y={4} w={160} h={190} fill={C.faint} stroke={p.c}/>
+      <rect x={p.x+24} y={22} width={90} height={44} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+      <rect x={p.x+24} y={120} width={90} height={56} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+      <T x={p.x+30} y={58} size={11} anchor="start" ltr fill={C.ink}>CB</T><T x={p.x+30} y={168} size={11} anchor="start" ltr fill={C.ink}>VB</T>
+      <Arrow x1={p.x+58} y1={118} x2={p.x+58} y2={50} stroke={p.c} dash={i===2?'2 3':undefined} w={i===2?2.4:1.6} id={'cc'+i}/>
+      <Dot cx={p.x+58} cy={44} r={6} fill="#7aa7f0"/><T x={p.x+80} y={36} size={10} ltr fill="#7aa7f0">e⁻</T>
+      <Dot cx={p.x+94} cy={128} r={6} fill="none" stroke="#f09797" w={2}/><T x={p.x+94} y={148} size={10} ltr fill="#f09797">h⁺</T>
+      <T x={p.x+80} y={214} size={13} weight="bold" fill={C.ink}>{p.n}</T>
+      {p.tl?<T x={p.x+80} y={232} size={12} ltr fill={p.c}>{p.t}</T>:<T x={p.x+80} y={232} size={12} fill={p.c}>{p.t}</T>}
+    </g>)}
+  </Fig>;
+}
+
+// SS7: qualitative conductivity vs temperature for a metal, an intrinsic semiconductor and an insulator.
+export function ConductivityVsT({accent}){
+  const m='#f0c978',s='#7aa7f0',i='#f09797';
+  const pts=f=>{const o=[];for(let x=70;x<=500;x+=10)o.push(`${x},${f(x).toFixed(1)}`);return 'M'+o.join(' L');};
+  const metal=x=>40+(x-70)*0.22;
+  const semi=x=>200-165*(Math.exp((x-70)/95)-1)/(Math.exp(430/95)-1)-4;
+  const ins=x=>206-(x-70)*0.012;
+  return <Fig label="מוליכות מול טמפרטורה, באופן איכותי: במתכת המוליכות יורדת עם הטמפרטורה, במוליך למחצה אינטרינסי היא עולה, ובמבודד היא נמוכה מאוד ועולה מעט" viewBox="0 -10 560 250">
+    <L x1={60} y1={210} x2={520} y2={210}/><L x1={60} y1={210} x2={60} y2={10}/>
+    <Arrow x1={510} y1={210} x2={526} y2={210} stroke={C.line} id="cvt-x"/><Arrow x1={60} y1={22} x2={60} y2={8} stroke={C.line} id="cvt-y"/>
+    <T x={290} y={236} size={12} fill={C.mut}>טמפרטורה T</T><T x={40} y={16} size={13} ltr fill={C.mut}>σ</T>
+    <path d={pts(metal)} stroke={m} strokeWidth={2.4} fill="none" strokeLinecap="round"/>
+    <path d={pts(semi)} stroke={s} strokeWidth={2.4} fill="none" strokeLinecap="round"/>
+    <path d={pts(ins)} stroke={i} strokeWidth={2.4} fill="none" strokeLinecap="round"/>
+    <T x={500} y={78} size={12} anchor="end" fill={m}>מתכת: יורדת</T>
+    <T x={500} y={18} size={12} anchor="end" fill={s}>מוליך למחצה אינטרינסי: עולה</T>
+    <T x={500} y={194} size={12} anchor="end" fill={i}>מבודד: נמוכה מאוד, עולה מעט</T>
+  </Fig>;
+}
+
+// SS8: donor and acceptor levels near the band edges (not to scale).
+export function DopantLevels({accent}){
+  const fillc='#2d4a6b';
+  return <Fig label="רמות סימום: רמת תורם קרובה לתחתית פס ההולכה בסימום n, רמת מקלט קרובה לראש פס הערכיות בסימום p; רמת פרמי זזה לכיוון הפס הדומיננטי" viewBox="0 -10 560 260">
+    <Box x={290} y={4} w={250} h={196} fill={C.faint} stroke={accent}/>
+    <rect x={314} y={22} width={150} height={60} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+    <rect x={314} y={134} width={150} height={52} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+    <T x={330} y={44} size={11} anchor="start" ltr fill={C.ink}>CB</T><T x={330} y={170} size={11} anchor="start" ltr fill={C.ink}>VB</T>
+    <L x1={346} y1={106} x2={420} y2={106} stroke="#f0c978" w={2.5} dash="6 3"/>
+    <T x={500} y={110} size={11} anchor="middle" ltr fill="#f0c978">donor</T>
+    <Dot cx={366} cy={106} r={5} fill="#7aa7f0"/>
+    <Arrow x1={366} y1={100} x2={366} y2={56} stroke="#7aa7f0" id="dl-n"/>
+    <L x1={314} y1={92} x2={464} y2={92} stroke="#c79af0" w={1.5} dash="2 3"/>
+    <T x={500} y={88} size={11} ltr fill="#c79af0">EF</T>
+    <T x={415} y={220} size={13} weight="bold" fill={C.ink}>סימום מסוג n</T><T x={415} y={238} size={11} fill={C.mut}>תורם: אלקטרון נייד ויון קבוע</T>
+    <Box x={20} y={4} w={250} h={196} fill={C.faint} stroke="#f09797"/>
+    <rect x={44} y={22} width={150} height={52} fill="none" stroke={C.mut} strokeWidth={1.6}/>
+    <rect x={44} y={142} width={150} height={44} fill={fillc} stroke={C.mut} strokeWidth={1.6}/>
+    <T x={60} y={44} size={11} anchor="start" ltr fill={C.ink}>CB</T><T x={60} y={172} size={11} anchor="start" ltr fill={C.ink}>VB</T>
+    <L x1={76} y1={122} x2={150} y2={122} stroke="#f0c978" w={2.5} dash="6 3"/>
+    <T x={230} y={118} size={11} anchor="middle" ltr fill="#f0c978">acceptor</T>
+    <L x1={44} y1={133} x2={194} y2={133} stroke="#c79af0" w={1.5} dash="2 3"/>
+    <T x={230} y={137} size={11} ltr fill="#c79af0">EF</T>
+    <Dot cx={96} cy={152} r={5} fill="#7aa7f0"/>
+    <Arrow x1={96} y1={148} x2={96} y2={128} stroke="#7aa7f0" id="dl-p"/>
+    <Dot cx={130} cy={152} r={6} fill="none" stroke="#f09797" w={2}/>
+    <T x={145} y={220} size={13} weight="bold" fill={C.ink}>סימום מסוג p</T><T x={145} y={238} size={11} fill={C.mut}>מקלט: חור נייד ויון קבוע</T>
+  </Fig>;
+}
+
+// SS8: conductivity of a doped semiconductor vs temperature; the extrinsic plateau meets the intrinsic curve above T0.
+export function DopedConductivity({accent}){
+  const si=x=>2+150*(Math.exp((x-70)/70)-1)/(Math.exp(430/70)-1);
+  const Y=v=>205-v;
+  const pts=f=>{const o=[];for(let x=70;x<=500;x+=6)o.push(`${x},${Y(f(x)).toFixed(1)}`);return 'M'+o.join(' L');};
+  const N=26;
+  const T0=70+70*Math.log((N-2)/150*(Math.exp(430/70)-1)+1);
+  return <Fig label="מוליכות מול טמפרטורה במוליך למחצה מסומם: סביב טמפרטורת החדר נושאי הזיהום שולטים והמוליכות כמעט שטוחה, ומעל T0 הנושאים התרמיים שולטים והעקומה מתכנסת לעקומה האינטרינסית" viewBox="0 -10 560 250">
+    <L x1={60} y1={210} x2={520} y2={210}/><L x1={60} y1={210} x2={60} y2={10}/>
+    <Arrow x1={510} y1={210} x2={526} y2={210} stroke={C.line} id="dcv-x"/><Arrow x1={60} y1={22} x2={60} y2={8} stroke={C.line} id="dcv-y"/>
+    <T x={290} y={236} size={12} fill={C.mut}>טמפרטורה T</T><T x={40} y={16} size={13} ltr fill={C.mut}>σ</T>
+    <path d={pts(si)} stroke={C.mut} strokeWidth={2} fill="none" strokeDasharray="5 4"/>
+    <path d={pts(x=>N+si(x))} stroke={accent} strokeWidth={2.6} fill="none" strokeLinecap="round"/>
+    <L x1={T0} y1={30} x2={T0} y2={210} stroke="#f2d049" dash="3 4"/>
+    <T x={T0} y={24} size={13} ltr fill="#f2d049">T0</T>
+    <T x={150} y={150} size={12} fill={accent}>נושאי זיהום שולטים</T>
+    <T x={150} y={168} size={11} fill={C.mut}>סביב טמפרטורת החדר</T>
+    <T x={330} y={100} size={12} fill={C.ink}>נושאים תרמיים שולטים</T>
+    <T x={150} y={60} size={11} fill={accent}>קו מלא: מסומם</T><T x={150} y={78} size={11} fill={C.mut}>קו מקווקו: אינטרינסי</T>
+  </Fig>;
+}

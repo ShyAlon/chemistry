@@ -1,0 +1,726 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E6",
+ "source": {
+  "sha256": "b97d2ec77fdbd93a9fc9486f7a00e3377c3d158a63f55554cd6ddd2dbfc1107c",
+  "kind": "pdf",
+  "pageCount": 41,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "1e7161cb7a07960064e00264e8bbc7f033d1249db94aedb127ba2ff7655cd6d3",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "titration: measured addition, primary and standard solutions",
+     "targets": [
+      "theory:E6-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "d8ca2b3edd2f4b6b39c1e242f631e0753c61a0685dd54f3e767711215a140632",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "indicators are weak acids or bases whose two forms have different colors",
+     "targets": [
+      "theory:E6-t38"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "9172feb017c04105f764335a26527a006d566ee6dc8ac37da7bd5ac5c60bf642",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "sensitivity of the eye to color mixtures in a red/yellow indicator",
+     "targets": [
+      "theory:E6-t38"
+     ],
+     "rationale": "Text adaptation: the 10:1 visibility rule is stated in words."
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "0f95006d8126caafd1952cd4d47f1915b30e54e61bce4e566ea784866c16bf56",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "indicator ratio [In-]/[HIn] and color ranges at pKHIn +-1",
+     "targets": [
+      "theory:E6-t38",
+      "theory:E6-t40"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "6af562d803b1fa476f923deb6c27a3aecd2d8ad8743893121a04325211e96cfa",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of useful indicators, ranges and colors, acid and base forms",
+     "targets": [
+      "theory:E6-t40"
+     ],
+     "rationale": "Lesson carries a selected approximate list; the slide table and structures are not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "544c2e03fbb31afb4113a249eb843145abe2cd7e080fda7196381c5ee4a95c30",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "chart of indicator colors against pH",
+     "targets": [
+      "theory:E6-t40"
+     ],
+     "rationale": "Text adaptation, no chart: ranges given in words and approximate."
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "b8f74a854dab2e2272fa41ed619121455298530ce642d745402a3d85eee24a51",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "natural indicators page",
+     "targets": [
+      "theory:E6-t39"
+     ],
+     "rationale": "Brief mention of natural indicators only."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "dcfe2265c996fab92a4de3399887c7a6dac67adbb5d09bdf72d6edc1427daa71",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "falling leaves: anthocyanin color changes with acidity",
+     "targets": [
+      "theory:E6-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "945c3f6583b6f23a98b24872a38542583a71805ba81071b2f88275fff378de52",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "neutralization stoichiometry from the balanced equation; Exercise 22",
+     "targets": [
+      "theory:E6-t02",
+      "worked:7"
+     ],
+     "rationale": "Worked 7 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "688616a225b8ec75c156c2f554cbdac5c52eec3aefe651ff45acaa47cb21f02b",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 22: 25 mL HNO3 against 21.2 mL of 0.1122 M NaOH, 0.0952 M",
+     "targets": [
+      "worked:7",
+      "theory:E6-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "2de960b93f903b9642b681ff0de2c36617c42279ffae6629043e893f3191b4c7",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "n(acid) = n(base) and C1V1 = C2V2 for 1:1 neutralization",
+     "targets": [
+      "theory:E6-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "d1424bcd4938166d5cf7ad11e5bac9b972aef85bb38c75f5e01e7c865b96ea3f",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 23: volume of 0.1234 M HCl for 0.4321 g NaOH, about 0.088 L",
+     "targets": [
+      "worked:8"
+     ],
+     "rationale": "Exact arithmetic 0.0875 L; the slide rounds."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "1f7f35a51106db340ab485fb5102fc93ccf0afbff0f0558b82da98f28732a165",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "normality and equivalents; H3PO4 reacts with 1, 2 or 3 NaOH",
+     "targets": [
+      "theory:E6-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "46b0cb19a1579cba4e890de4c6b242c50637288405550c3be5c92615348b16fc",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "titration curve: pH against titrant volume on a log scale",
+     "targets": [
+      "theory:E6-t05",
+      "theory:E6-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "bf3479d57894c7a2fbb95463a7319a31d1570f70441510d4cf596eb71accd426",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "equivalence point versus end point; indicator choice",
+     "targets": [
+      "theory:E6-t03",
+      "theory:E6-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "7453ad16adbb0730e774213b44b7067326a526570be4defa7f0f97bec3bdcc84",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "titration error formula and two examples, -0.91 percent and +1.2 percent",
+     "targets": [
+      "theory:E6-t04",
+      "worked:6"
+     ],
+     "rationale": "Worked 6 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "fa0ffe3c9fbbe430ac8f9d72a21e079066f894d307a7e98dc57adaa67512171c",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "video warning screen between sections",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "2550569a69f35e081fca20530d87e0d746ebc4c129e8a80be866495148ee0ac1",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "cartoon illustration of a titration gone wrong",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "af55a6c011a6cfaf23a27d9d2657adb0ce08578d155ecc79a204dd8e13e6fff7",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "HCl with NaOH: 20 mL of 0.1 M, moles and four regions",
+     "targets": [
+      "worked:1",
+      "theory:E6-t09",
+      "theory:E6-t12"
+     ],
+     "rationale": "Worked 1 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "9d973093d0528757a60d1bde21e2968980facad2d8c20d94e6b2006d8f247bb3",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "HCl titration: pH before any base and after 1 mL of NaOH",
+     "targets": [
+      "worked:1",
+      "theory:E6-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "dd813433341fb7175000ea27df7a6bcad25271dcc324a98a6c3cf06d48289a09",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "HCl titration: pH after 1, 5 and 19.9 mL of NaOH",
+     "targets": [
+      "worked:1",
+      "theory:E6-t09",
+      "theory:E6-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "53a8e744c3eda7dad111619504f2cc601475cb0dcdcf795713f01c8524a1d08b",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "HCl titration: equivalence pH 7.0 and pH 10.40 after 20.1 mL",
+     "targets": [
+      "worked:1",
+      "theory:E6-t10",
+      "theory:E6-t11",
+      "theory:E6-t12"
+     ],
+     "rationale": "Valid at 25 C."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "98cafde8b4af07b02fe5c3f2d88cf3a356181309ef80bb69f673a9c7980e56c5",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "pH values against volume for HCl and NaOH, suitable indicators",
+     "targets": [
+      "theory:E6-t14"
+     ],
+     "rationale": "Text adaptation, no plot: indicators are named with approximate ranges."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "254b53f069deb9a25020aee4eee72064335500a82bf86da19375f296ec1cf880",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "titration curves of HCl with NaOH at different concentrations",
+     "targets": [
+      "theory:E6-t13",
+      "theory:E6-t14"
+     ],
+     "rationale": "Text adaptation, no plot. The concentration-effect numbers in t13 are an own calculation, not slide content."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "f3da3af476b5e0fe20c7e02eb554993681cd0812196583004b6910bc4e29c635",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "strong base titrated with a strong acid, mirrored curve",
+     "targets": [
+      "theory:E6-t15"
+     ],
+     "rationale": "Text adaptation, no plot."
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "c32e6334f16d8e8f5814a6523968c13427263843fac8c477ed09223516518122",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "the millimole: mmol = mL times M for small titrations",
+     "targets": [
+      "theory:E6-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "93015092c32383f3a1fab864663b5122ef0e35a07e521165a9ed3d7d33c600ce",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid with strong base: 25.00 mL of 0.100 M acetic acid, five points",
+     "targets": [
+      "worked:2",
+      "theory:E6-t17"
+     ],
+     "rationale": "Worked 2 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "424a1b4e43a0ddd3fa17896c0f6f9a91e49521cdcc844181b5a46ccde2ee0cd7",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: initial pH 2.89",
+     "targets": [
+      "worked:2",
+      "theory:E6-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "08252313af3b45b0736eb2f987578926fa887acfd8c949547ac60149a9779079",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: millimoles and volume after 10 mL of NaOH",
+     "targets": [
+      "worked:2",
+      "theory:E6-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "b63c2c80923715889a290b93ecbb85eec90f990b06ce40fc2758d7a26c16e833",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: buffer region, pH 4.56 after 10.00 mL",
+     "targets": [
+      "worked:2",
+      "theory:E6-t19"
+     ],
+     "rationale": "Table on a later slide shows 4.57; rounding of pKa."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "6d75ec075ac289a29051877d8f6145da5e11ea78a2a195d4724a3c5d7b59165b",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: half equivalence, pH = pKa = 4.74",
+     "targets": [
+      "worked:2",
+      "theory:E6-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "c2012912d62eb49a050813df9a40fa9e74c810609136620df318f8cb48f47f05",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: equivalence, 0.0500 M acetate, pH 8.72",
+     "targets": [
+      "worked:2",
+      "theory:E6-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "448eb4c788fedd369b6e958f21e16cd3a3a35d1ecf31f130688bd8cf579f3381",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "weak acid titration: excess strong base after 26.00 mL, pH 11.30",
+     "targets": [
+      "worked:2",
+      "theory:E6-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "a312d802f5b92c2245fd1504dba376d350df302356b1bfc0b4c1a5bf65c8319f",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary of the weak acid titration curve and indicators",
+     "targets": [
+      "theory:E6-t23",
+      "theory:E6-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "5643c2b85bdca29cd05afa6921d7bef9f1f7a5b8da076a1e9502f86d52250169",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "weak acid titration curve: regions and data table",
+     "targets": [
+      "theory:E6-t17",
+      "theory:E6-t24"
+     ],
+     "rationale": "Table values are source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "e6c60d2c1a680932efa724e26fefe8bb144a116aab8a647a60021c280b864441",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "ammonia titrated with HCl: suitable indicators; weak with weak has no indicator",
+     "targets": [
+      "theory:E6-t27"
+     ],
+     "rationale": "Text adaptation, no plot. The calculation of the example is a lesson addition."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "512254caf2d34634d89fb04b1d34b82798b2e308be4817c200f518cc180bf6cd",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "titration of H3PO4: Ka and Kb of H2PO4- and HPO4(2-)",
+     "targets": [
+      "theory:E6-t30",
+      "theory:E6-t31",
+      "theory:E6-t32"
+     ],
+     "rationale": "Slide Ka values for the two anions: 6.3e-8 and 4.2e-13."
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "1b79ae47f8f68a5195c590719fc8898726bd330b6f7242594a9372e367f67efc",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "third equivalence point of H3PO4 needs strong base; PO4(3-) is a base",
+     "targets": [
+      "theory:E6-t31",
+      "theory:E6-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "59942636d0fc93c125074bf37bf53796c5e93019debfea3e4bccc249730445ed",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 25: pH of 1.0 M Na3PO4, Kb 2.4e-2 (statement and ICE)",
+     "targets": [
+      "worked:9",
+      "theory:E6-t32"
+     ],
+     "rationale": "Worked 9 uses the slide numbers."
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "742e87b4c3597155a4eed0535e9d7e880558e892797ba56c8d6a51dfd4c267b5",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 25: quadratic, x = 0.14 M, pH 13.15",
+     "targets": [
+      "worked:9",
+      "theory:E6-t32"
+     ],
+     "rationale": "Slide labels the solution page Exercise 24; the statement says 25."
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "7cda3cf0acbbbad7224b013ea8713538afe29b93221941f6ccc686a83576fdd7",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "concentrated polyprotic salts: pH = half of pKa sum, 4.68 and 9.79",
+     "targets": [
+      "worked:3",
+      "theory:E6-t31",
+      "theory:E6-t32"
+     ],
+     "rationale": "Slide pKa 2.15, 7.20, 12.38."
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:4",
+    "worked:5"
+   ],
+   "rationale": "Own worked examples (propanoic acid curve, H3PO4 volume and normality); not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16",
+    "quiz:17",
+    "quiz:18",
+    "quiz:19"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E6-t28",
+    "theory:E6-t34",
+    "theory:E6-t35",
+    "theory:E6-t36"
+   ],
+   "rationale": "Own ammonia titration example and solution steps; the slides show these only as graphs or not at all."
+  }
+ ]
+}

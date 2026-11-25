@@ -22,12 +22,12 @@
     {
      "id": "p01.u1",
      "kind": "exercise",
-     "disposition": "corrected",
+     "disposition": "covered",
      "label": "Exercise 14: one drop of 1 M HCl into water and into 1 M NaOH, pH change",
      "targets": [
       "theory:E5-t09"
      ],
-     "rationale": "Slide says 0.0004 for 1 M NaOH; exact change is about 0.0002, lesson states 0.0002."
+     "rationale": "Slide values 3.3 (change 3.7) and 0.0004 are correct; exact NaOH case: 0.09995 mol in 0.10005 L, 0.9990 M, change about 0.00043."
     }
    ]
   },
@@ -58,7 +58,7 @@
      "targets": [
       "theory:E5-t26"
      ],
-     "rationale": "Lesson keeps only valid conjugate pairs; rows pairing HF with HCl, NH4OH or Al(OH)3 with NaOH are not buffers and are not reproduced."
+     "rationale": "Slide row H2CO3/NaHCO3 gives CO3(2-) as common ion; it is HCO3-. Rows with HF/HCl, NH4OH/NaOH, Al(OH)3/NaOH are not buffers; omitted."
     }
    ]
   },
@@ -68,14 +68,13 @@
    "units": [
     {
      "id": "p04.u1",
-     "kind": "concept",
-     "disposition": "covered",
-     "label": "continuation of the buffer pair table: maintained ion versus common ion",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "strong acid or base in water shields H3O+ or OH-, but is not a buffer",
      "targets": [
-      "theory:E5-t07",
-      "theory:E5-t10"
+      "theory:E5-t09"
      ],
-     "rationale": "Pair table page; the lesson states the two-component requirement in words."
+     "rationale": "Table: NaOH or HCl with water as the weak electrolyte; the lesson explains the shield case in t09."
     }
    ]
   },
@@ -298,7 +297,8 @@
      "disposition": "covered",
      "label": "addition of a small amount of strong acid reacts with acetate",
      "targets": [
-      "theory:E5-t08"
+      "theory:E5-t08",
+      "theory:E5-t10"
      ]
     }
    ]
@@ -744,13 +744,11 @@
     "quiz:7",
     "quiz:8",
     "quiz:9",
-    "quiz:10",
     "quiz:11",
     "quiz:12",
     "quiz:13",
     "quiz:14",
     "quiz:15",
-    "quiz:16",
     "quiz:17"
    ],
    "rationale": "Own quiz items; not slide exercises."

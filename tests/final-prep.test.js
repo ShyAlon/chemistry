@@ -17,7 +17,7 @@ const w=(id,i)=>blocksText(layer[id].worked[i]);
 const e=id=>exam.find(e=>e.id===id).parts.map(blocksText).join(' ');
 
 test('final preparation is append-only on exact reviewed main; every other byte of the parsed catalogue is retained',()=>{
- const original=structuredClone(catalogue);
+ const original=structuredClone(catalogue);original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   else undoFormulaReview(t);

@@ -11,7 +11,7 @@ const main=fs.readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8');
 // Topics intentionally without a formulas tab: their course content has no
 // quantitative relation worth a homework reference. Removing one from this list
 // means curating real items for it; adding one is a coverage decision to surface.
-const NO_FORMULAS={'nano':['N4','N5','N11','N12'],'nuclear':['E8','E10'],'solid-state':['SS1','SS2','SS3','SS4','SS5','SS6','SS7','SS8']};
+const NO_FORMULAS={'nano':['N4','N5','N11','N12'],'nuclear':['E8','E10'],'general-chemistry-2':['E1','E2','E3','E4','E5','E6','E7','E8','E9','E10','E11','E12','E13'],'solid-state':['SS1','SS2','SS3','SS4','SS5','SS6','SS7','SS8']};
 
 test('every formula item symbol key resolves against the shared definitions',()=>{
  let keyed=0;

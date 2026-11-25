@@ -1,0 +1,62 @@
+{
+ "course": "general-chemistry-2",
+ "version": 1,
+ "sources": [
+  {
+   "file": "01 Ksp-AO1 - תשפה.pdf",
+   "sha256": "c07ddebc9d822da2e883e14a2f51f140fbfd0e906afe154a056431166ca88558"
+  },
+  {
+   "file": "Acid and Bases I - תשפה.pdf",
+   "sha256": "05e63c993caecf5966356830e4a5905cc86478eb574c2a0f9132f8a771e134c9"
+  },
+  {
+   "file": "Acid and Bases II - תשפה.pdf",
+   "sha256": "3cac7da7a519aaa679926e3fd423537f9258f387dada093feea7c824b3f0ecd4"
+  },
+  {
+   "file": "Equilibrium - תשפו.pdf",
+   "sha256": "fb01f99da4a0c7319a14531485e3bf32583f9de8c2f0e2226dacbe0e1bb03ff0"
+  },
+  {
+   "file": "Introduction-תשפו.pdf",
+   "sha256": "350a9a62a1ee90d6572e805b3ee22ca7a32cf841eb1625a360f4fcc621496112"
+  },
+  {
+   "file": "Kinetics - תשפה.pdf",
+   "sha256": "1ca6cd1ca7c8cf9ac27b8db10210349589d1d68f28a1dfc649b5f87f82d127a0"
+  },
+  {
+   "file": "Redox - תשפה.pdf",
+   "sha256": "91b61b6a6d5ac6695145c5907a38d9c64e698b718a047c88e54680f2ade94665"
+  },
+  {
+   "file": "Thermodynamics - תשפה.pdf",
+   "sha256": "edd30a7658e2f6bce95a230618a6b66425ea7ea811561413122a9832e0496146"
+  },
+  {
+   "file": "מצגת חזרה.pdf",
+   "sha256": "de026aadbde320e6170e9b5ce3a7a4c030957ffb804a0ade830de7a2d08dc55a"
+  },
+  {
+   "file": "מצגת כללי מסיסות.pdf",
+   "sha256": "352ccac7cb47aace6f7c39b34aafc08a9ae957ae3e253f216494d12a70bedb67"
+  },
+  {
+   "file": "מצגת תרגול 1 שיווי משקל.pdf",
+   "sha256": "ca4c8f4cd2bc0003ab1de4952ff6dd4adceb31bb32da4c037e3221ca229ad1d0"
+  },
+  {
+   "file": "תרגול 2- מסיסות.pdf",
+   "sha256": "9677b98098a7fc8f504f0b4b317546ead6d2859c774803bcdb3f98e0ff16f25c"
+  },
+  {
+   "file": "תרגיל כיתה 1 - שיווי משקל.pdf",
+   "sha256": "66bdb9beba9f872112297f3443a39efe6914784976937fa01971d38f67b0406c"
+  },
+  {
+   "file": "תרגיל כיתה 2 - מלחים קשי תמס ומכפלת מסיסות.pdf",
+   "sha256": "c8215e14230d5ae8783a30a695123fcd947bf4b7bb911bc1a1728eca501b4784"
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T10:23:58.041Z",
+ "recordedAt": "2026-11-25T10:24:21.891Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -1322,6 +1322,10 @@
     {
      "base": "f0ec91f4f4e3ebb522be23f32909cd8615216bcbd022558664c4d3940fdc1a06",
      "final": "f0ec91f4f4e3ebb522be23f32909cd8615216bcbd022558664c4d3940fdc1a06"
+    },
+    {
+     "base": "190358fc210ce2219995cadc64aab2a77860f388a3c6e96534667ed183f77e01",
+     "final": "190358fc210ce2219995cadc64aab2a77860f388a3c6e96534667ed183f77e01"
     }
    ],
    "quiz": [
@@ -1388,6 +1392,10 @@
     {
      "base": "3f7202947337bc9aa6dff32dd1e90572bb224d3487e808d7f5dc814281ec27ef",
      "final": "3f7202947337bc9aa6dff32dd1e90572bb224d3487e808d7f5dc814281ec27ef"
+    },
+    {
+     "base": "a449196f917a01c86e3ebf9461e8a0e5741fe0ff0a2422a12ae185ef68ac6595",
+     "final": "a449196f917a01c86e3ebf9461e8a0e5741fe0ff0a2422a12ae185ef68ac6595"
     }
    ]
   },

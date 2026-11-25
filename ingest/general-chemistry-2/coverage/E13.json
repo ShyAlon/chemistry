@@ -1,0 +1,1064 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E13",
+ "source": {
+  "sha256": "8a2b9900420f154233117d4c279a7b57c72049805f5c00238ce06c00ede6fc52",
+  "kind": "pdf",
+  "pageCount": 63,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "b89e0bb69f372d0cb43336ca6e6c131cbac8b2b8a9f18e7f0a874e6357e3dfad",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "link between chemistry and electricity: measure current to count electrons",
+     "targets": [
+      "theory:E13-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "3a6d6fd1a9f3e0ceccfcb58aefa2ef86dee459f96f6599abfcd39904cbc111e9",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "Zn oxidation and Cu reduction in an external circuit (diagram)",
+     "targets": [
+      "theory:E13-t02",
+      "theory:E13-t05"
+     ],
+     "rationale": "Diagram not reproduced; t02 and t05 state the electron flow in words."
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "15298918b524bbd32ae654d7178a7475ea1778d4681fe372a3a09f244261063a",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9 statement: charge from oxidizing cadmium",
+     "targets": [
+      "worked:8",
+      "theory:E13-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "c645658fb88ec88bb4b19a8563764f4230afb92651847f059abf63b7d5a463f1",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 9 solution with F = 96500 C/mol",
+     "targets": [
+      "worked:8",
+      "theory:E13-t02"
+     ],
+     "rationale": "W8 uses the slide numbers and notes the rounded F."
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "b8bdf423c003bb061940ee9a9d1b8144ac1477a4544cdc92d0676a44971bb3c2",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "voltage as energy per charge; electrical work",
+     "targets": [
+      "theory:E13-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "9b16c2b79e2f63110ec9b14351759c6bc57c1e721d95caf54d526c1cd41135de",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "E and delta G relation, P = E*I",
+     "targets": [
+      "theory:E13-t03",
+      "theory:E13-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "9e70ca3b7a33f86704825d08c5bbf357e606eeb3b2e8364e0519ba44e3937ad2",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 10: charge to reduce iron ions",
+     "targets": [
+      "worked:9",
+      "theory:E13-t02"
+     ],
+     "rationale": "W9 uses the slide numbers and notes rounding."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "0f7cf583ead2522aace3b0d0f1c811b65a4a7cd5e13b85f0f05b425454bd44ea",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "galvanic cell: spontaneous reaction, separated half-cells",
+     "targets": [
+      "theory:E13-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "5f0a387935b5871e4dfe707d633af49ca0e93062d69544204d8b06a8bb6e42aa",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "salt bridge and ion flow",
+     "targets": [
+      "theory:E13-t05",
+      "theory:E13-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "6f21d100ab5f01b504a2f0668ed4d376ef8f9ca88ca5829aac1bc162b3670bb3",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "galvanic cell diagram: Zn, Cu, salt bridge, ammeter",
+     "targets": [
+      "theory:E13-t05",
+      "theory:E13-t06"
+     ],
+     "rationale": "Diagram not reproduced; t05 and t06 describe the parts in words."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "436b2ed1da6d182c1a158c870ac84576863e6891c15354fb1665fc921c9a968c",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "half-cell: metal in a solution of its ions; anode and cathode",
+     "targets": [
+      "theory:E13-t05",
+      "theory:E13-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "06173e52b45463faad48d3464c9db26722e950f1b2c23efa571b2957f723795c",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "image-only page: electrochemical cell figure, no text",
+     "targets": [
+      "theory:E13-t05"
+     ],
+     "rationale": "No text on the page; t05 teaches the cell in words. Not claimed as visually reviewed."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "5c7f7864d4fdb1e1a30d9b81b9c02749e5b2beb6bbe50dbcbdaeb3a76d121765",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "electrode types: metal/ion, amalgam, gas, inert",
+     "targets": [
+      "theory:E13-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "3a2eb7d39569611bb7c6c2594f168a2773566ff685bcb27c32be323d1a91a599",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "cell notation: anode left, phase lines, salt bridge",
+     "targets": [
+      "theory:E13-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "87da80712b1aa8b7f63864f97ffc2a44e1bcef34f482f15290a5af1a779aaca0",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 11: Nernst for a Cd-Ag cell",
+     "targets": [
+      "worked:4",
+      "theory:E13-t06"
+     ],
+     "rationale": "W4 is relabelled source-derived."
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "5865c5f71267f41829b1be5ebaf1d9bb1977bf0b7bd0d920e696bd61cb7b0ddb",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Zn-Al and Zn-Cu cells: which metal is oxidized",
+     "targets": [
+      "theory:E13-t11",
+      "theory:E13-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "70f72c036c42fc396f077d690eb3cf3bb0834d683f06965ed2437eb05b78f5d4",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "standard potential and the standard hydrogen electrode",
+     "targets": [
+      "theory:E13-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "03e8337a7bcdf8e64399dc6abc78c86083da07557a296b7e78e714ff621b453c",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "SHE as the zero reference",
+     "targets": [
+      "theory:E13-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "071df80dcb78164336e69a7d599792ae6ec255c88dbfc0ad8918fe6ddaa88c86",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "Zn-H2 and Cu-H2 cells; slide gives Zn E0 as 0.763 V",
+     "targets": [
+      "theory:E13-t10",
+      "theory:E13-t11",
+      "theory:E13-t12"
+     ],
+     "rationale": "Slide prints 0.763 V for the cell; as a half-cell Zn2+/Zn is -0.76 V (its own table p91 gives -0.764). t10 uses the sign convention."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "d67af08c7d8d8940d5ff83eeb05369253e0458193068bb4b51e8dde777d71c4c",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "cell E0 as cathode minus anode",
+     "targets": [
+      "theory:E13-t10",
+      "theory:E13-t11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "5209f127e94e2790d9d4db54cc8317e25fbb5e35aae83396d7c2fbfbd90344a3",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "title page with image: determining the standard potential",
+     "targets": [
+      "theory:E13-t10"
+     ],
+     "rationale": "Title and image only; t10 teaches the method in words."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "218fff48a01261f9e7365042ef01d29faf765597c629bc99dd1ede18430f09e7",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of standard potentials, part 1",
+     "targets": [
+      "theory:E13-t12",
+      "theory:E13-t13"
+     ],
+     "rationale": "Table not reproduced; t12 and t13 list a few values (approximate)."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "0921066934870e2024a7be378508e611d0d2deb020f13591436e4d13c6b583ff",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "table of standard potentials, part 2",
+     "targets": [
+      "theory:E13-t12",
+      "theory:E13-t13"
+     ],
+     "rationale": "Table not reproduced; t13 lists the metal series (approximate)."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "ddf0be72b788c036c2755dc348c838ea6f950f9b7c436e719fa368a7d2274eb6",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "meaning of the sign of E0",
+     "targets": [
+      "theory:E13-t07",
+      "theory:E13-t11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "97bc3bc44723da8ddefe6f5de42eb52996ab86390a262215c22e549510baa6f1",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "summary: potentials, spontaneity, cell E0",
+     "targets": [
+      "theory:E13-t07",
+      "theory:E13-t11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "429a681a996ae0bde73ec4bbc5e1322d6c68a3c0cacd193ca5b4816e8951829e",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 12: E0 of a Cd-Ag cell",
+     "targets": [
+      "worked:10",
+      "theory:E13-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "bf8c11615d99ed2625da05ccb7c16ea81f89e962b71f4b3a5bc6acc5ca126955",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 13: forced reaction, E0 sign",
+     "targets": [
+      "worked:11",
+      "theory:E13-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "2eca59334e67415dd633c3acdcc0c92d9b3049eccb0895bc409d83295c63f150",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Nernst equation: E = E0 - (RT/nF) ln Q",
+     "targets": [
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "c6a80da3d3a69d92b5e782c7590950e3c07f8bb8f43d3395749126db29751c3f",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Nernst at 25 C with log10 and 0.0592/n",
+     "targets": [
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "f99052be080847e470040ab7ecf38d5adca1807d80e8ae46c3ecee772f8595f3",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 14 statement: Nernst for half-reactions",
+     "targets": [
+      "worked:12",
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "eeb469f161607285ccbec93180aa98a8f618d76d98c5bba452c0369b3284a2ad",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 14 solution, first half-reaction",
+     "targets": [
+      "worked:12",
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "898c7b203b3bb3c337585ae964202482468b132df725efefb412c87d8f1eb6e9",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 14 solution, second half-reaction",
+     "targets": [
+      "worked:12",
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "52c4c47172b33b58bb0242fa753168f937a628a70e72048325eaac997b57025f",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15 statement: cadmium rod in different concentrations",
+     "targets": [
+      "worked:13",
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "57dfde0689f3ed0266f994d35b220a74cebeaf5bf0e251404fe4f2231fcacce4",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 15 solution",
+     "targets": [
+      "worked:13",
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "0a5a1c011cc3a74b3d01c17b678f3dab799f38befad0bd45b7f2e24c2a1c05c5",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Le Chatelier and the Nernst equation",
+     "targets": [
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "5f2a2f7e3e50599be6321a770edcd8a550a08ee77ab35e7bc4054d5ba8975f95",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "unnumbered Ag/Fe example: statement",
+     "targets": [
+      "worked:14",
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "a09e256b97b43f15bab7f6fbe05a7dfed2e9b65f7768c27f8e0474e9e0bafdf2",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "unnumbered Ag/Fe example: first method",
+     "targets": [
+      "worked:14",
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "5e5b24fb95f3350e445593e2110927f376d4afcc7e0bad8f8c709eee249aad7b",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "unnumbered Ag/Fe example: second method",
+     "targets": [
+      "worked:14",
+      "theory:E13-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "0f0e0440886fd5bcb348a78846cfbf7495ab755aa9c9e7f0df72586d45437918",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 16: V/Ni cell",
+     "targets": [
+      "worked:15",
+      "theory:E13-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "66064ed3f5baad75dc73435d8c5a3b3e56084e9745e293613857349e2a45667a",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "E0 and Ksp: AgCl, E0 = 0.222 V",
+     "targets": [
+      "theory:E13-t14",
+      "theory:E13-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "16920bc0f74f1ce651aa1de8f8d0f266d58a39bdf3e244e2b3e16e30d4bb30db",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Exercise 18: Ksp from potentials",
+     "targets": [
+      "worked:16",
+      "theory:E13-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "047ea3363e2b7ddbed9e119e2ef9390483933226580fd8ad6ce32d914cb4995f",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "concentration cells",
+     "targets": [
+      "theory:E13-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "5301ad0e4d6c3900f632366e3cd6e2dc50d4b0d5b9ee0833b0c65f75ca28463c",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "concentration cell and pH",
+     "targets": [
+      "theory:E13-t21",
+      "theory:E13-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "07d12bd9c15e6bd273b8c498a4360d6211941609a9e53a55a845f7fe788132b9",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "pH electrode: E = 0.0592 pH versus SHE",
+     "targets": [
+      "theory:E13-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "5800c9baae6c0df15f9731c362c431be43870e60c15239390781b9ad37ebd4fa",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "corrosion of metals",
+     "targets": [
+      "theory:E13-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "de1e43c4b2ba497862328f52d2ae1d01860c6186e09a6fe5ac174cad7c3d9517",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "rust formation: Fe oxidation, O2 reduction",
+     "targets": [
+      "theory:E13-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "65bf5c7d00e2646f41a991d9a59e9c5599830d8d8434473a12338465969d1512",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "rust equation 4Fe(OH)2 + O2 -> 2Fe2O3.H2O + 2H2O",
+     "targets": [
+      "theory:E13-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "3411ddb664db6ae6085ceb02a0d3a583948fb4ffc07911524e476e22cc71d57a",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "factors that speed corrosion; table of potentials",
+     "targets": [
+      "theory:E13-t24",
+      "theory:E13-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "308ae1d4ca0031a479c88f0a1a41099c878057f25c9fe4d5c83bbb8d0a20bce7",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "corrosion prevention: coating, sacrificial metal",
+     "targets": [
+      "theory:E13-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "3c9becc7e73600188b35afddaca9b3255c66fbb563131ccbccfbb06e4ea5f891",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "title page with image: preventing corrosion",
+     "targets": [
+      "theory:E13-t25"
+     ],
+     "rationale": "Title and image only; t25 teaches the methods in words."
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "1010472c9fc0b3ca7eded9715aa2e2b5b65d0b0541ac15ae49f067d6b37fde2f",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "electrolysis: forced non-spontaneous reaction",
+     "targets": [
+      "theory:E13-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "0742d13c53c0c61e96194c1563baf7d153d4e102e81fa9728ab995042743d927",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "image-only page: electrolysis cell figure, no text",
+     "targets": [
+      "theory:E13-t27"
+     ],
+     "rationale": "No text on the page; t27 teaches electrolysis in words. Not claimed as visually reviewed."
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "8cfed7ba1e9822752bec71ec69e69045e878790641b9b8619b6222cf59b4499c",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "applications of electrolysis: Al, Mg, Cl2, F2, purifying and plating",
+     "targets": [
+      "theory:E13-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "e49011d06215b499e528af7b44a90f3edd7ab3dcdb7c1cb84ba0393e9c1b20b0",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "battery types: primary and secondary",
+     "targets": [
+      "theory:E13-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "135dff180f475a84f0ed1c1abc4b710777468b1466112febe68304f7882e3631",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "battery types and uses",
+     "targets": [
+      "theory:E13-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "81ab5f2e6ca21fc83b1fc0a00e2f4cf3c7d3069a5efffab2da00d2539e714fc8",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Leclanche dry cell",
+     "targets": [
+      "theory:E13-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "1b34c7d30f6fca021243641e0b5d5b32be13cc8ab0c8682a74e1f284ac023fb5",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "alkaline cell",
+     "targets": [
+      "theory:E13-t31"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "51625c8ed0c121aa52bf1e1fe303ad2d3d05d15bbc62e9e5960708f686a3b5db",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "zinc-silver oxide cell: about 1.2 V anode, 0.3 V cathode, 1.5 V",
+     "targets": [
+      "theory:E13-t32"
+     ],
+     "rationale": "Values approximate."
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "4a0d53b3936ecb4584fe91c726a135e5b72bc40928de562b661734755895e6a9",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "lead-acid battery; slide says developed in 1915",
+     "targets": [
+      "theory:E13-t33"
+     ],
+     "rationale": "Slide says 1915. The lead-acid cell was invented by Plante in 1859; t33 states this."
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "75d8b83aa0dfe6c15032a1fcd0211f5423934f288f3ffd20b91dd86b73e1d881",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "hydrogen-oxygen fuel cell",
+     "targets": [
+      "theory:E13-t34"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "3c5b113501476ca5586afcb568c842213e7825efcefc65397e1cd0c6a308e4ef",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "air battery: 4Al + 3O2 + 6H2O + 4OH- -> 4[Al(OH)4]-",
+     "targets": [
+      "theory:E13-t35"
+     ],
+     "rationale": "Equation balances in atoms and charge."
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "5cc8708c0d035417819e357b30da3fa646dec684d8233b2b4c96b6ed4d065340",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "photovoltaic cell",
+     "targets": [
+      "theory:E13-t37",
+      "theory:E13-t38"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "868a0281ea5aa3fc6cf227011e8abb3d8658fbbd4c87b516f319f668616d760a",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "photovoltaic cell: light to electricity",
+     "targets": [
+      "theory:E13-t38"
+     ]
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a01",
+   "targets": [
+    "worked:1",
+    "worked:2",
+    "worked:3",
+    "worked:5",
+    "worked:6",
+    "worked:7"
+   ],
+   "rationale": "Own worked examples (types 1-3 and 5-7), not slide exercises."
+  },
+  {
+   "id": "a02",
+   "targets": [
+    "quiz:1",
+    "quiz:2",
+    "quiz:3",
+    "quiz:4",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "quiz:10",
+    "quiz:11",
+    "quiz:12",
+    "quiz:13",
+    "quiz:14",
+    "quiz:15",
+    "quiz:16"
+   ],
+   "rationale": "Own quiz items; not slide exercises."
+  },
+  {
+   "id": "a03",
+   "targets": [
+    "theory:E13-t01",
+    "theory:E13-t04",
+    "theory:E13-t09",
+    "theory:E13-t15",
+    "theory:E13-t17",
+    "theory:E13-t20",
+    "theory:E13-t23",
+    "theory:E13-t26",
+    "theory:E13-t28",
+    "theory:E13-t29"
+   ],
+   "rationale": "Section headings and own Faraday summary; not slide content."
+  }
+ ]
+}

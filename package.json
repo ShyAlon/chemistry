@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build && npm run build:test && DIST_DIR=dist-test npm run test:browser && DIST_DIR=dist-test npm run test:pwa && DIST_DIR=dist-test npm run test:practice && DIST_DIR=dist-test npm run test:mock-exam && DIST_DIR=dist-test npm run test:papers && DIST_DIR=dist-test npm run test:final-prep && npm run test:figures",
+    "build": "npm run release:coverage && vite build && DIST_DIR=dist npm run test:served && npm run build:test && DIST_DIR=dist-test npm run test:browser && DIST_DIR=dist-test npm run test:pwa && DIST_DIR=dist-test npm run test:practice && DIST_DIR=dist-test npm run test:mock-exam && DIST_DIR=dist-test npm run test:papers && DIST_DIR=dist-test npm run test:final-prep && npm run test:figures && DIST_DIR=dist-test npm run test:served",
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.js",
     "test:browser": "node scripts/test-browser.mjs && node scripts/test-read-aloud.mjs && node scripts/test-progress.mjs && node scripts/test-theory-read-aloud.mjs && node scripts/test-animations.mjs",
@@ -20,6 +20,9 @@
     "test:progress": "node scripts/test-progress.mjs",
     "test:mock-exam": "node scripts/test-mock-exam.mjs",
     "test:figures": "node scripts/test-figures.mjs",
+    "test:coverage": "node scripts/check-coverage.mjs",
+    "test:served": "node scripts/test-served-catalogue.mjs",
+    "release:coverage": "node scripts/check-coverage.mjs --release",
     "test:animations": "node scripts/test-animations.mjs"
   },
   "dependencies": {

@@ -1,0 +1,763 @@
+{
+ "schema": 2,
+ "course": "general-chemistry-2",
+ "topic": "E3",
+ "source": {
+  "sha256": "cc3dc0671f04329854011f8e4def749aaeb0047b4047cf0623c20ac0d8331d75",
+  "kind": "pdf",
+  "pageCount": 44,
+  "locatorScheme": "pdf-page"
+ },
+ "authoredBy": [
+  "chat-01M877TRRM1K3AAJ49C7A13K0A"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "00e396c1fd209b0f4538e6ccd4acb343788f50bbc7e083e9cd5c0e88376a248e",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "divider",
+     "disposition": "admin",
+     "label": "chapter opening picture page with a song and a lemonade image",
+     "rationale": "No teachable content; reviewer attests this page."
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "baf1587d5364f907751d396b72a87d6cdf9efd964d9845d5515cba971ae12fb4",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "electrolytes: strong, weak and non-electrolytes, conductivity",
+     "targets": [
+      "theory:E3-t01",
+      "theory:E3-t02",
+      "theory:E3-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "921dff29a1d8da48024b39f17a0414c7132154892e3ddeceb957e30d9c07dcef",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "examples of strong electrolyte, weak electrolyte and non-electrolyte",
+     "targets": [
+      "theory:E3-t03",
+      "theory:E3-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "cff59058111aa0cd01c75c1c4df08b1c8dda49222a1cfcbddb3c2d8cac8a3b5a",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "chapter overview: acid-base definitions, strength, structure",
+     "targets": [
+      "theory:E3-t04",
+      "theory:E3-t05",
+      "theory:E3-t06",
+      "theory:E3-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "e89aacfb16cd98f3212b2dbb458968005fa80ed5a2e13bc8cc5030acb614131a",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "acids and the hydrogen ion in water",
+     "targets": [
+      "theory:E3-t05",
+      "theory:E3-t09",
+      "theory:E3-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "75244f6f7b4578e2e49a3d13afc8b22d1f47f12f5d7892d040bfd22b4be0cffc",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "strong and weak acids: complete and partial ionization",
+     "targets": [
+      "theory:E3-t09",
+      "theory:E3-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "55c10d26487f6f979529ae312347d85bd2be9a65463b00877011c1621bfe0514",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "bases: hydroxide donors and other bases",
+     "targets": [
+      "theory:E3-t05",
+      "theory:E3-t09",
+      "theory:E3-t10",
+      "theory:E3-t08"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "adb9b13261bb7f2d4af79793fad4ee10be4fe0f864809f613601ad1b3aac99fa",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "recognizing acids and bases from equations, including Na2CO3 as a base",
+     "targets": [
+      "theory:E3-t44",
+      "theory:E3-t13",
+      "theory:E3-t14"
+     ],
+     "rationale": "Na2CO3 equation added to the lesson as source-derived text."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "922aa735234b9e08b5d7aa4458bcc6707713f0e6a2a548bbb788af2c961b8629",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "neutralization H+ + OH- gives H2O, enthalpy -55.90 kJ/mol",
+     "targets": [
+      "theory:E3-t09",
+      "theory:E3-t45"
+     ],
+     "rationale": "Value -55.90 kJ/mol is source-given and labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "2daae378c1ce9ce9375c72257123736d44b45d92bf95be5c82d743233ddf7d58",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Arrhenius definition problems: identify acid, base, limits",
+     "targets": [
+      "theory:E3-t08",
+      "theory:E3-t10",
+      "worked:1",
+      "quiz:1"
+     ],
+     "rationale": "Own wording and own examples for the same identification skill."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "878e15bae40640eebf97a5c4dd089d8cb5f048df69e1505ff48d0b1a188ec03d",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "Bronsted-Lowry proton transfer picture with conjugate pairs",
+     "targets": [
+      "theory:E3-t06",
+      "theory:E3-t11",
+      "theory:E3-t13"
+     ],
+     "rationale": "Text adaptation, no diagram: proton transfer and conjugate pairs are explained in words and worked 1."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "cb55caeca14c862204aaca53dac60da339a26b2b68201fea995dae20917c676c",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "conjugate acid-base pairs",
+     "targets": [
+      "theory:E3-t12",
+      "theory:E3-t13",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "d27233fd06715190204cf257c7e28525ecf30bd166427d9b3c17d87728b14c01",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "identify conjugate pairs in proton-transfer reactions",
+     "targets": [
+      "worked:1",
+      "quiz:2"
+     ],
+     "rationale": "Own reactions."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "73223832b8f6557abaa01dfd6e1ffd5a2bda0be4ef87f9b7515d1e72b21f668c",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Kb for ammonia and Ka for acetic acid, both about 1.8e-5",
+     "targets": [
+      "theory:E3-t15",
+      "theory:E3-t16",
+      "theory:E3-t20"
+     ],
+     "rationale": "Both values are typical 25 C values."
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "58cc5537010d9af2ec667687d66d07960a180fe3efb8a5b6bb2610bd7a12c5c0",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Ka times Kb equals Kw for a conjugate pair",
+     "targets": [
+      "theory:E3-t17",
+      "worked:2",
+      "quiz:5"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "b271c995374245f1e6311778cccc87df6036d4207420eb66b46dd3e8a0ad37c5",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "ionization of a strong acid versus a weak acid",
+     "targets": [
+      "theory:E3-t16",
+      "theory:E3-t02",
+      "theory:E3-t09"
+     ],
+     "rationale": "Text adaptation, no diagram: complete versus partial ionization is described in words."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "2b57966ec99c86d28dc70387d9305429df4bea8159ff2044906d8eae9208b015",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "ionization of a weak base in water",
+     "targets": [
+      "theory:E3-t16",
+      "theory:E3-t15"
+     ],
+     "rationale": "Text adaptation, no diagram: weak base ionization is described in words."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "3563de0d4a77a313d1d6af8dd9dce6209e00562070c2707b391d462e4acd83d2",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "relative acid strength and conjugate base strength",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "48cad0c519eda5479d0496205dbc7e07c87297d1a0aa2087148bb75d8bc78415",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "direction of proton transfer favors the weaker acid and weaker base",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t19",
+      "worked:3",
+      "worked:4",
+      "quiz:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "919cea77f3d1f6765bef97a593eab442b41a83152739fce3f0478d9dcc9f5dfa",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "strength ladder of common acids and conjugate bases",
+     "targets": [
+      "theory:E3-t20",
+      "theory:E3-t21",
+      "theory:E3-t18"
+     ],
+     "rationale": "Own wording, own table of typical values; the lecturer table is not reproduced."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "c4987a2760208ddcdcf71831d94b7020880779aa360f70c600548bea11b56b32",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "strong acids and negligible conjugate bases",
+     "targets": [
+      "theory:E3-t18",
+      "theory:E3-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "ef4b31fe4bf13527b3b91de14309f35b1acbc0ced0adec9e294924e527d0791b",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Exercise 1: CH3COOH with NaCN, which direction",
+     "targets": [
+      "worked:3",
+      "worked:4",
+      "quiz:12",
+      "theory:E3-t19"
+     ],
+     "rationale": "Own acids and numbers for the same direction rule."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "d02ad70822649976cfc5a754d842654d078d141f635de34a788fcacd2059b695",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "leveling effect in water",
+     "targets": [
+      "theory:E3-t22",
+      "theory:E3-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "0993ee7b14b9f7b99b463db548952a780e370ccf76cab5c22025b0bcd578cd45",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "leveling and differentiating solvents, methanol example",
+     "targets": [
+      "theory:E3-t23",
+      "theory:E3-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "9b65362a62f7d20cb7a45715c99314bfa9d6612b0d0a9a04ba199b71fe089f70",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "Exercise 2: HCl and HBr mixture, hydronium concentration",
+     "targets": [
+      "worked:5",
+      "quiz:13"
+     ],
+     "rationale": "Source numbers (0.01 mol HCl, 4.05 g HBr, 150 mL) are not used; the lesson uses own numbers for the same method."
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "4487d46ac3afa1b258f7fdbdfd18b7d5e04b7d59c22ef40728d9fcfa9ea872b1",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "binary acid strength: bond length, bond energy and Ka for HX",
+     "targets": [
+      "theory:E3-t25",
+      "theory:E3-t26",
+      "theory:E3-t30"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "ca57185557fd9af5c3f49e944b65c66b2d44acad9d777ecee60557120dc71eae",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "bond lengths, bond energies and Ka for HI, HBr, HCl and HF",
+     "targets": [
+      "theory:E3-t30",
+      "theory:E3-t46"
+     ],
+     "rationale": "Slide values are labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "08c2ae90ef5a2f4601e7563f37901e1172d2ea828c179d73bb9a78bc8ddd3858",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "oxoacids: central atom electronegativity",
+     "targets": [
+      "theory:E3-t28",
+      "theory:E3-t31",
+      "theory:E3-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "292d63122256d5a1d7ac45c5267bf79652bc7bfb248c85e5da7eb870b2e5e8d6",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "HOCl and HOBr electronegativity and Ka, sulfur oxoacids",
+     "targets": [
+      "theory:E3-t31",
+      "theory:E3-t46"
+     ],
+     "rationale": "Slide values are labeled source-derived in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "bfd92a353b865a6b7b7cf22e46743fa521a1371acb4b9d9bc778fb842d863ec7",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "organic acids: carboxylic acids versus alcohols, anion stability",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32",
+      "quiz:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "a9417d61129e5565de42360836a30fa483650da4c76826c6a2323437e83bf478",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "Ka for acetic acid and ethanol",
+     "targets": [
+      "theory:E3-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "de585c47aecd5e79e5119bbd0298dfc9f8571f8d03be417fffe5ad76830ceb79",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "long-chain carboxylic acid Ka",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32"
+     ],
+     "rationale": "Typical values; the lesson claims the trend only."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "2d1a14bde45dd050b98215defeea1b24fe19b7e46a50a7111671b15b3c212427",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "electron-withdrawing substituent raises acid strength, chloroacetic acid",
+     "targets": [
+      "theory:E3-t29",
+      "theory:E3-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "bd2cf8cd19ffb91d1ad5050de35ea9ab325d828f911494ec0dfc67fc5da31f6f",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "amines as bases: ammonia versus bromamine",
+     "targets": [
+      "theory:E3-t33",
+      "theory:E3-t34",
+      "theory:E3-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "27bbc3c057adc9e7ab790c238de62ef12053a60e2dd95d9939c4779f6aec75ed",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "table",
+     "disposition": "corrected",
+     "label": "amine pKb row: slide gives methylamine 4.74, erroneous value",
+     "targets": [
+      "theory:E3-t35",
+      "theory:E3-t47",
+      "quiz:15"
+     ],
+     "rationale": "Slide 4.74 equals ammonia and breaks its own order; tables give about 3.34. Lesson uses 3.3, slide value recorded as error."
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "060994ed7d8c99fddab76e235e7f0d88c5b3c82468b6524347928a067fb1c865",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "cyclohexylamine, aniline and chloroanilines pKb",
+     "targets": [
+      "theory:E3-t36",
+      "theory:E3-t35"
+     ],
+     "rationale": "Typical reference values; lecturer ethyl and propyl numbers are kept distinct from reference values in the lesson."
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "68b63672e482e2b70b3ecc8a4635f7697a125f6c6524300dcc9e2a00ad64dca5",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "aniline and substituted anilines, resonance and inductive effects",
+     "targets": [
+      "theory:E3-t35",
+      "theory:E3-t36",
+      "quiz:7"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "ddcdae6fa6ca3cf329afa9168b13f956f1f6d3ed7c31bc8a3e34d80f3d3678fe",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "acidic and basic oxides",
+     "targets": [
+      "theory:E3-t40",
+      "theory:E3-t41"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "64565f7edfcec7de6fa145d9885102e0bc58810d02ecba2bbd9780a8c602f4e1",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "amphoteric oxides and hydroxides",
+     "targets": [
+      "theory:E3-t42",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "3cb934e90a3c355e7ce5cc1023d786aae62f1c33e0e413a5c0fc7e37eec8e8d4",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "water as both an acid and a base",
+     "targets": [
+      "theory:E3-t43",
+      "theory:E3-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "288aacac5f273bb0fa20c56fd5fde9c50fc73c24ed0210839a2f9c525bb12a38",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Lewis definition: electron-pair acceptor and donor",
+     "targets": [
+      "theory:E3-t37",
+      "theory:E3-t38",
+      "theory:E3-t07",
+      "quiz:11"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "c5847421e5c1e5ac505cd439ba6989b4fcf36c27a1b0b53017eb2815c09a8f72",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Lewis acid-base adducts and coordinate bonds",
+     "targets": [
+      "theory:E3-t38",
+      "theory:E3-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "1688ddb40afd4511102b2f95aeae95943756edf34b4fad83ca54b7aae4e509eb",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Lewis acid-base examples with metal ions",
+     "targets": [
+      "theory:E3-t39",
+      "theory:E3-t38"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "3cb934e90a3c355e7ce5cc1023d786aae62f1c33e0e413a5c0fc7e37eec8e8d4",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "repeat of the water amphoterism page",
+     "targets": [
+      "theory:E3-t43"
+     ],
+     "rationale": "Duplicate of page 40 content."
+    }
+   ]
+  }
+ ]
+}

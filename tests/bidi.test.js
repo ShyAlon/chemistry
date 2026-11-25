@@ -52,3 +52,17 @@ test('isotope mass numbers open the LTR run: left superscripts stay attached',()
  assert.equal(n('²⁷Al + ⁴He → ³⁰P + n'),`${L}²⁷Al + ⁴He → ³⁰P + n${P}`);
  assert.equal(n('CO₂ ו-H₂O ב-STP'),`${L}CO₂${P} ו-${L}H₂O${P} ב-${L}STP${P}`);
 });
+
+test('numbered step labels (שלב N -) stay in the Hebrew flow; subtraction and ranges are untouched',()=>{
+ assert.equal(n('שלב 2 - [D]² = 20 · 0.30³/0.15 = 3.6.'),`שלב 2 - ${L}[D]² = 20 · 0.30³/0.15 = 3.6${P}.`);
+ assert.equal(n('שלב 1 - בדיקה'),'שלב 1 - בדיקה');
+ assert.equal(n('שלב 12 – Kc = 5'),`שלב 12 – ${L}Kc = 5${P}`);
+ // not step labels: other Hebrew words, ranges and subtraction keep the previous output
+ assert.equal(n('הפרש 5 - 3 הוא 2'),`הפרש ${L}5 - 3${P} הוא ${L}2${P}`);
+ assert.equal(n('עמ׳ 2-42 בספר'),`עמ׳ ${L}2-42${P} בספר`);
+ assert.equal(n('הטווח 10 - 20 מ״ל'),`הטווח ${L}10 - 20${P} מ״ל`);
+ assert.equal(n('ההפרש 7 - x קטן'),`ההפרש ${L}7 - x${P} קטן`);
+ // label only in the step-label position, and stays idempotent
+ const t=n('שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');assert.equal(n(t),t);
+ assert.equal(t.replace(/[\u2066-\u2069]/g,''),'שלב 3 - Q = 0.10 · 0.50²/0.20³ = 3.1.');
+});

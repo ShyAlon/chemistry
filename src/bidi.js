@@ -17,7 +17,7 @@ function plain(text){
  const parts=text.split(/([\u0590-\u05ff]+)/u).flatMap(part=>hebrew.test(part)?[part]:scientificParts(part));
  return parts.map((part,index)=>{if(hebrew.test(part)||!ltr.test(part))return part;
    // A numbered label ("שלב 1 - ...") stays in the Hebrew flow, outside the formula run.
-   const label=hebrew.test(parts[index-1]||'')?(part.match(/^\s*\d{1,2}\s*[-\u2013](?:\s+(?=\S)|\s*$)/u)||[''])[0]:'';
+   const label=(parts[index-1]==='שלב'&&!/[\u0590-\u05ff]$/.test(parts[index-2]||''))?(part.match(/^\s*\d{1,2}\s*[-\u2013](?:\s+(?=\S)|\s*$)/u)||[''])[0]:'';
    if(label){const rest=part.slice(label.length);return label+(ltr.test(rest)?plain(rest):rest)}
    let start=part.search(/[A-Za-z0-9\u00b2\u00b3\u00b5\u00b9\u00bc-\u00be\u00c0-\u02ff\u0370-\u03ff\u2070-\u209e]/u);
    // Keep opening formula delimiters with the run, e.g. (SI), [Pa=kg/(m·s²)].

@@ -135,9 +135,10 @@
      "label": "particle in a box: W grows with L and with temperature",
      "targets": [
       "theory:E9-t07",
+      "theory:E9-t09",
       "theory:E9-t13"
      ],
-     "rationale": "Text adaptation; the energy-level formula is not reproduced."
+     "rationale": "Text adaptation; t09 gives the energy-level formula and the L and T dependence."
     }
    ]
   },
@@ -151,6 +152,7 @@
      "disposition": "covered",
      "label": "qualitative understanding: more energy levels, more entropy",
      "targets": [
+      "theory:E9-t09",
       "theory:E9-t11",
       "theory:E9-t13"
      ]
@@ -197,12 +199,13 @@
    "units": [
     {
      "id": "p12.u1",
-     "kind": "concept",
-     "disposition": "covered",
+     "kind": "figure",
+     "disposition": "adapted",
      "label": "third law: entropy of a perfect crystal at 0 K is zero",
      "targets": [
       "theory:E9-t18"
-     ]
+     ],
+     "rationale": "S(T) curve not reproduced; t18 gives the integral and the transition sum."
     }
    ]
   },
@@ -328,6 +331,8 @@
      "disposition": "covered",
      "label": "free energy change and equilibrium, evaporation of water",
      "targets": [
+      "theory:E9-t25",
+      "theory:E9-t26",
       "theory:E9-t30"
      ]
     }
@@ -343,6 +348,7 @@
      "disposition": "adapted",
      "label": "water vapor pressure 23.76 mmHg: delta G greater, equal, below zero",
      "targets": [
+      "theory:E9-t26",
       "theory:E9-t31"
      ],
      "rationale": "Text adaptation, no figure."
@@ -462,12 +468,14 @@
    "units": [
     {
      "id": "p29.u1",
-     "kind": "concept",
-     "disposition": "covered",
+     "kind": "figure",
+     "disposition": "adapted",
      "label": "forward and reverse reactions; direction of spontaneous change",
      "targets": [
+      "theory:E9-t28",
       "theory:E9-t32"
-     ]
+     ],
+     "rationale": "G-vs-xi curves not reproduced; t28 gives the minimum-of-G wording."
     }
    ]
   },
@@ -481,7 +489,9 @@
      "disposition": "adapted",
      "label": "magnitude of delta G0 and the value of K",
      "targets": [
-      "theory:E9-t32"
+      "theory:E9-t32",
+      "theory:E9-t33",
+      "theory:E9-t34"
      ],
      "rationale": "Table not reproduced; lesson t33 gives an own numeric table."
     }
@@ -552,7 +562,7 @@
       "theory:E9-t26",
       "theory:E9-t30"
      ],
-     "rationale": "Worked 12 uses the slide numbers."
+     "rationale": "Slide anomaly: the printed substitution drops the minus sign on dGf Mg(OH)2 (833.5, should be -833.5); the slide result -95.5 matches -833.5. Worked 12 uses -833.5."
     }
    ]
   },
@@ -665,16 +675,13 @@
     "theory:E9-t01",
     "theory:E9-t06",
     "theory:E9-t08",
-    "theory:E9-t09",
     "theory:E9-t10",
     "theory:E9-t17",
     "theory:E9-t20",
     "theory:E9-t29",
-    "theory:E9-t33",
-    "theory:E9-t34",
     "theory:E9-t35"
    ],
-   "rationale": "Section headings and own illustrations or calculations (t08, t09, t33, t34); not slide content."
+   "rationale": "Section headings and own illustrations (t08); not slide content."
   }
  ]
 }

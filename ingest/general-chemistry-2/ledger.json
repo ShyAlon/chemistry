@@ -1,7 +1,7 @@
 {
  "course": "general-chemistry-2",
  "kind": "ingested",
- "recordedAt": "2026-11-25T09:08:17.375Z",
+ "recordedAt": "2026-11-25T09:09:22.843Z",
  "manifestVersion": 1,
  "sources": [
   {
@@ -450,8 +450,8 @@
      "final": "ec921acb61bd1a9542fe29fd88126047c3d7117b4a476b81ac952aecfeba53a1"
     },
     {
-     "base": "e50963b47e7dfce279025a302e130cd9739fc499a617c1a315df356b2f3b3c63",
-     "final": "e50963b47e7dfce279025a302e130cd9739fc499a617c1a315df356b2f3b3c63"
+     "base": "0ec2dbb702f4906bfb879a8f6852fd32e8827fbc5f5ac7920f8b9a619ef00e31",
+     "final": "0ec2dbb702f4906bfb879a8f6852fd32e8827fbc5f5ac7920f8b9a619ef00e31"
     },
     {
      "base": "9e26701f673f6bd7f6f2b167bdf9d042ef21ebe464f24fa9818743adda2e8854",
@@ -536,8 +536,8 @@
      "final": "cf411b048b43488d8194c6c89d8ba422cf324fd7582aac606e8dfb66082ddacd"
     },
     {
-     "base": "231bf0ed6e3b1448d435a6b0dd9ee1dbdafa14663f675408abbcc814b73d5cbf",
-     "final": "231bf0ed6e3b1448d435a6b0dd9ee1dbdafa14663f675408abbcc814b73d5cbf"
+     "base": "b0d8027271fd0f0d64ccf2707fea5947490ef9f801806c28831fc1de18b02e19",
+     "final": "b0d8027271fd0f0d64ccf2707fea5947490ef9f801806c28831fc1de18b02e19"
     },
     {
      "base": "d2e02fbd0ac2aa0b66eac5ef3ef7164d3ab971e003de93572e87a456694651f2",
@@ -610,8 +610,8 @@
      "final": "cc17cbb05b94429febc74ae0e0ce87e8809bc89778af04687702095bb18b5fc1"
     },
     {
-     "base": "7d1b4706c4802479bb93631f8b7182bf129bcd8c3b150abb992959032e8823a6",
-     "final": "7d1b4706c4802479bb93631f8b7182bf129bcd8c3b150abb992959032e8823a6"
+     "base": "077363df04beb5960149bba4619016e2e1826cf8c6fdc1289d67e6fd18bd1006",
+     "final": "077363df04beb5960149bba4619016e2e1826cf8c6fdc1289d67e6fd18bd1006"
     },
     {
      "base": "ef750b620e831a80377ad3ef86cce3d0eb36730fd5972fb05555afe09e0d3841",
@@ -1790,8 +1790,8 @@
      "final": "91f5fdcec0572d0a5cb10a1132c96e3e525c03682543524acd3d9175c563b43e"
     },
     {
-     "base": "160219c5d07245dc3caeae13f0563b23eac8eddf070fb758353047a5dc27db30",
-     "final": "160219c5d07245dc3caeae13f0563b23eac8eddf070fb758353047a5dc27db30"
+     "base": "b43ac70998da11252fdbf858b6408944c6668bb2197574f8b26e09301216d2d8",
+     "final": "b43ac70998da11252fdbf858b6408944c6668bb2197574f8b26e09301216d2d8"
     },
     {
      "base": "1ebb60631c47e6899b52fd2cf3b52cfea0a8a821467029e0f298315eaa761bf9",
@@ -3018,8 +3018,8 @@
      "final": "c071b7dd97df8d4eb09cc3acfdc17428ccd836bf8acdd86e146268ea2edbea68"
     },
     {
-     "base": "372af65c3a890b6c7d504582c7386c4aa68bf03978c363e59fc60405739d05c5",
-     "final": "372af65c3a890b6c7d504582c7386c4aa68bf03978c363e59fc60405739d05c5"
+     "base": "1c6b0407dd7385313b8a7c5641b770f9c528b73cbd596151e8f0e63be4a2e334",
+     "final": "1c6b0407dd7385313b8a7c5641b770f9c528b73cbd596151e8f0e63be4a2e334"
     },
     {
      "base": "e7b32404dda2675697319df9f11c934d54abbb943ac5bad125fed0a2df2f9990",

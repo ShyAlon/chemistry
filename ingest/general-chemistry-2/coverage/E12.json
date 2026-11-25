@@ -124,10 +124,11 @@
      "disposition": "corrected",
      "label": "meaning of oxidation numbers; slide writes KClO5 for chlorine +7",
      "targets": [
+      "theory:E12-t04",
       "theory:E12-t14",
       "worked:13"
      ],
-     "rationale": "Slide prints KClO5; the real perchlorate is KClO4 (Cl +7), as in its own Exercise 4. t14 and W13 use KClO4."
+     "rationale": "Slide prints KClO5; perchlorate is KClO4 (Cl +7), as in its own Ex4; W13 uses KClO4. t04 teaches that Cl +5 or +7 is a formal number."
     }
    ]
   },
@@ -220,8 +221,8 @@
      "id": "p13.u1",
      "kind": "title",
      "disposition": "admin",
-     "label": "section title: oxidation numbers",
-     "rationale": "Section title page with one phrase; no teachable content. Reviewer attests."
+     "label": "video placeholder image with the section title: oxidation numbers",
+     "rationale": "Video-thumbnail image captioned Common Oxidation States, with the section title; no teachable content. Reviewer attests."
     }
    ]
   },
@@ -281,7 +282,8 @@
      "targets": [
       "theory:E12-t05",
       "worked:11"
-     ]
+     ],
+     "rationale": "t05 now includes the slide HNO3 + H2S and N2H4 + H2O2 examples."
     }
    ]
   },
@@ -343,6 +345,7 @@
      "disposition": "covered",
      "label": "nitrogen compounds: highest states oxidize, lowest states reduce",
      "targets": [
+      "theory:E12-t05",
       "theory:E12-t15"
      ]
     }
@@ -414,7 +417,8 @@
       "theory:E12-t22",
       "theory:E12-t23",
       "theory:E12-t24"
-     ]
+     ],
+     "rationale": "Step 5, balancing spectator species, is now in t24."
     }
    ]
   },
@@ -711,7 +715,7 @@
       "theory:E12-t36",
       "theory:E12-t37"
      ],
-     "rationale": "Slide covers cytochromes only; t37 adds respiration as a short own context, not credited to the page."
+     "rationale": "t37 states the slide cytochrome and heme point with the P450 Fe3+/Fe2+ example; respiration and NAD+ are own context."
     }
    ]
   }

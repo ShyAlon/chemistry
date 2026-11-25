@@ -23,8 +23,7 @@
     "test:coverage": "node scripts/check-coverage.mjs",
     "test:served": "node scripts/test-served-catalogue.mjs",
     "release:coverage": "node scripts/check-coverage.mjs --release",
-    "test:animations": "node scripts/test-animations.mjs",
-    "preprocess:sources": "node scripts/preprocess-sources.mjs"
+    "test:animations": "node scripts/test-animations.mjs"
   },
   "dependencies": {
     "firebase": "^13.4.0",

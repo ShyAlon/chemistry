@@ -79,7 +79,9 @@ text-layer check (the cached page images are the review mechanism there).
 Arithmetic coverage is whatever simple equality lines the slides happen to
 contain - usually very few - and is not meaningful verification by itself.
 
-Standalone use: `npm run preprocess:sources -- --sources DIR [--cache DIR] [--report FILE]`.
+Standalone use: `node scripts/preprocess-sources.mjs --sources DIR [--cache DIR] [--report FILE]`.
+(No npm-script alias is provided on purpose: `package.json` is bound into the
+reviewed coverage hashes, so it must not change outside a review.)
 Cache and report paths inside the repo are refused (symlink-safe: paths that
 reach the repo through a symlinked parent or an existing symlinked cache dir
 are refused too). Sources are only read; neither they nor the cache ever enter

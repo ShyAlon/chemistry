@@ -12,7 +12,15 @@
   "chat-01M877TRRM1K3AAJ49C7A13K0A"
  ],
  "semanticReview": {
-  "status": "pending"
+  "status": "done",
+  "reviewer": "chat-01M895MYCPX5JJ1B175RM4FRQP",
+  "sourceSha256": "e105fbe29b9ff1336c28974e71b85c21c9b70f2ee98ebe766485fa970f78dfbc",
+  "contentSha256": "578cb5e26b34fc1eb043d5e5aaf00a7fe26e35e8f5f606a14d588f5370110cf4",
+  "unitMapSha256": "d1835cc7136a97340f7d49d976bf74e96c3005d190f2b531d6be714f3afab308",
+  "figuresSha256": "ed0271a58d49f99265ec2e7a63125d38f0b2a10c5cfdf8110bce236b73390a6e",
+  "adminPagesAttested": [
+   44
+  ]
  },
  "pages": [
   {

@@ -18,7 +18,7 @@ export function SurfaceAreaCut({accent}){
     <T x={410} y={214} size={13} ltr fill={accent}>≈ 600 m²</T>
     <T x={410} y={236} size={12} fill={C.mut}>שטח פנים כולל</T>
     <T x={410} y={256} size={11} ltr fill={C.mut}>10¹⁸ × (10 nm)³</T>
-    <T x={500} y={30} size={14} ltr weight="bold" fill={accent}>×10⁶</T>
+    <T x={280} y={40} size={14} ltr weight="bold" fill={accent}>×10⁶</T>
   </Fig>;
 }
 
@@ -35,8 +35,8 @@ export function LaMerBurst({accent}){
     <path d="M70 205 C130 200 170 150 195 90 C205 62 215 45 235 42 C255 40 262 70 275 92 C300 130 340 142 380 146 C430 149 480 150 520 150" stroke={accent} strokeWidth={2.8} fill="none" strokeLinecap="round"/>
     <T x={84} y={84} size={11} ltr fill="#f0c978" anchor="start">C_min</T><T x={84} y={144} size={11} ltr fill="#f09797" anchor="start">C_s</T>
     <T x={430} y={80} size={12} fill="#f0c978">סף גרעינות</T><T x={430} y={170} size={12} fill="#f09797">ריכוז רוויה</T>
-    <T x={132} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={235} y={30} size={13} weight="bold" ltr fill={C.ink}>II</T><T x={398} y={30} size={13} weight="bold" ltr fill={C.ink}>III</T>
-    <T x={132} y={50} size={11} fill={C.mut}>עלייה</T><T x={235} y={70} size={11} fill={accent}>פרץ גרעינות</T><T x={398} y={50} size={11} fill={C.mut}>גדילה בלבד</T>
+    <T x={132} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={235} y={30} size={13} weight="bold" ltr fill={C.ink}>II</T><T x={350} y={30} size={13} weight="bold" ltr fill={C.ink}>III</T>
+    <T x={132} y={50} size={11} fill={C.mut}>עלייה</T><T x={235} y={70} size={11} fill={accent}>פרץ גרעינות</T><T x={350} y={50} size={11} fill={C.mut}>גדילה בלבד</T>
     <T x={290} y={236} size={12} fill={C.mut}>זמן</T><T x={34} y={20} size={11} fill={C.mut}>ריכוז</T>
   </Fig>;
 }

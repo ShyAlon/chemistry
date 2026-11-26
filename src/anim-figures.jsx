@@ -201,16 +201,16 @@ const lamerY=(pts,x)=>{for(let i=1;i<pts.length;i++)if(pts[i][0]>=x){const a=pts
 const fastY=(r,u)=>{const u1=0.28/r;if(u<=u1)return lamerY(LAMER_PTS,70+185*(u/u1));
   const p=0.45/r,v=(u-u1)%p,k=v/p;
   return k<0.75?100-58*(k/0.75):42+58*((k-0.75)/0.25)};
-const slowY=(r,u)=>210-150*r*Math.pow(u,0.9);
+const slowY=u=>210-75*Math.pow(u,0.9);
 function lamerFrame(t,{accent,params}){
-  const r=params.rate,done=t>=1-1e-9,slow=r<1-1e-9,fast=r>1+1e-9;
+  const r=params.regime===0?0.5:params.regime===2?2:1,done=t>=1-1e-9,slow=params.regime===0,fast=params.regime===2;
   const u=clamp01(t),clipW=70+460*u;
   let d=LAMER_D;
-  if(slow){const p=[];for(let i=0;i<=40;i++){const uu=i/40;p.push((70+450*uu).toFixed(1)+','+slowY(r,uu).toFixed(1))}d='M'+p.join(' L')}
+  if(slow){const p=[];for(let i=0;i<=40;i++){const uu=i/40;p.push((70+450*uu).toFixed(1)+','+slowY(uu).toFixed(1))}d='M'+p.join(' L')}
   if(fast){const p=[];for(let i=0;i<=160;i++){const uu=i/160;p.push((70+450*uu).toFixed(1)+','+fastY(r,uu).toFixed(1))}d='M'+p.join(' L')}
   const xb1=70+450*(0.28/r);
-  const curX=70+450*u,curY=slow?slowY(r,u):fast?fastY(r,u):lamerY(LAMER_PTS,curX);
-  const stageText=slow?'קצב ייצור איטי מדי: הריכוז עולה אך אינו חוצה את סף הגרעינות - לא נוצרים גרעינים':fast?'קצב ייצור גבוה מדי: הרוויה נבנית שוב ושוב, הגרעינות חוזרת והגדלים אינם אחידים':'';
+  const curX=70+450*u,curY=slow?slowY(u):fast?fastY(r,u):lamerY(LAMER_PTS,curX);
+  const stageText=slow?'ייצור איטי: הרוויה נשארת מתחת לרמה הקריטית - המערכת נשארת הומוגנית, בלי גרעינים':fast?'ייצור מהיר: הרוויה נבנית שוב ושוב והגרעינות חוזרת (ציור סכמטי) - הגדלים אינם אחידים':'';
   return <>
     <defs><clipPath id="lm-clip"><rect x={0} y={-10} width={clipW} height={290}/></clipPath></defs>
     {!slow&&!fast&&<>
@@ -228,12 +228,12 @@ function lamerFrame(t,{accent,params}){
     <T x={84} y={84} size={11} ltr fill="#f0c978" anchor="start">C_min</T><T x={84} y={144} size={11} ltr fill="#f09797" anchor="start">C_s</T>
     <T x={430} y={80} size={12} fill="#f0c978">סף גרעינות</T><T x={430} y={170} size={12} fill="#f09797">ריכוז רוויה</T>
     {!slow&&!fast&&<>
-      <T x={132} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={235} y={30} size={13} weight="bold" ltr fill={C.ink}>II</T><T x={398} y={30} size={13} weight="bold" ltr fill={C.ink}>III</T>
-      <T x={132} y={50} size={11} fill={C.mut}>עלייה</T><T x={235} y={70} size={11} fill={accent}>פרץ גרעינות</T><T x={398} y={50} size={11} fill={C.mut}>גדילה בלבד</T>
+      <T x={132} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={235} y={30} size={13} weight="bold" ltr fill={C.ink}>II</T><T x={350} y={30} size={13} weight="bold" ltr fill={C.ink}>III</T>
+      <T x={132} y={50} size={11} fill={C.mut}>עלייה</T><T x={235} y={70} size={11} fill={accent}>פרץ גרעינות</T><T x={350} y={50} size={11} fill={C.mut}>גדילה בלבד</T>
     </>}
     {slow&&<><T x={295} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={295} y={50} size={11} fill={C.mut}>עלייה בלבד</T></>}
     {fast&&<><T x={(70+xb1)/2} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={(xb1+520)/2} y={30} size={11} fill={accent}>פרצי גרעינות חוזרים</T></>}
-    {stageText&&<T x={290} y={5} size={12} fill={accent}>{stageText}</T>}
+    {stageText&&<T x={290} y={252} size={12} fill={accent}>{stageText}</T>}
     {!done&&u>0.02&&<Dot cx={curX} cy={curY} r={5} fill={accent}/>}
     <T x={290} y={236} size={12} fill={C.mut}>זמן</T><T x={34} y={20} size={11} fill={C.mut}>ריכוז</T>
   </>;
@@ -266,10 +266,10 @@ export const animations={
 
   'lamer-burst':{
     id:'lamer-burst',duration:12,viewBox:'0 -10 560 270',
-    label:o=>'מודל LaMer, ציור איכותי בלי ערכים מספריים: ריכוז מונומרים מול זמן. '+(o.rate<1?'קצב ייצור איטי מדי - הריכוז אינו חוצה את סף הגרעינות ולא נוצרים גרעינים':o.rate>1?'קצב ייצור גבוה מדי - הרוויה נבנית שוב ושוב, הגרעינות חוזרת והגדלים אינם אחידים':'בשלב I הריכוז חוצה את סף הגרעינות, בשלב II פרץ קצר צורך את העודף, ובשלב III גדילה בלבד על הגרעינים הקיימים, ולכן הגדלים דומים'),
+    label:o=>'מודל LaMer, ציור איכותי בלי ערכים מספריים: ריכוז מונומרים מול זמן. '+(o.regime===0?'ייצור מונומרים איטי - הרוויה נשארת מתחת לרמה הקריטית והמערכת נשארת הומוגנית, בלי גרעינים':o.regime===2?'ייצור מונומרים מהיר - ציור סכמטי: הרוויה נבנית שוב ושוב, הגרעינות חוזרת והגדלים אינם אחידים; התוצאה האמיתית תלויה במערכת':'בשלב I הריכוז חוצה את סף הגרעינות, בשלב II פרץ קצר צורך את העודף, ובשלב III גדילה בלבד על הגרעינים הקיימים, ולכן הגדלים דומים'),
     stages:[{at:0,label:'1'},{at:0.3,label:'2'},{at:0.55,label:'3'}],
-    stageLabel:(i,o)=>o.rate<1?['1. הריכוז עולה','2. מתקרב לסף הגרעינות','3. נשאר מתחת לסף - אין גרעינות'][i]:o.rate>1?['1. עלייה ראשונה','2. פרץ גרעינות ראשון','3. גרעינות חוזרת'][i]:['1. שלב I - הריכוז עולה','2. שלב II - פרץ גרעינות','3. שלב III - גדילה בלבד'][i],
-    params:[{id:'rate',label:'קצב ייצור מונומרים',min:0.5,max:2,step:0.25,value:1}],
+    stageLabel:(i,o)=>o.regime===0?['1. הרוויה עולה','2. נשארת מתחת לרמה הקריטית','3. הומוגנית - בלי גרעינים'][i]:o.regime===2?['1. עלייה ראשונה','2. פרץ גרעינות ראשון','3. גרעינות חוזרת (סכמטי)'][i]:['1. שלב I - הריכוז עולה','2. שלב II - פרץ גרעינות','3. שלב III - גדילה בלבד'][i],
+    params:[{id:'regime',label:'משטר ייצור המונומרים',min:0,max:2,step:1,value:1,options:['איטי','מבוקר (ציור השיעור)','מהיר']}],
     frame:(t,o)=>lamerFrame(t,o)
   },
   'chain-reaction':{

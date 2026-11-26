@@ -34,35 +34,35 @@ assert.ok(poster.includes('סף גרעינות')&&poster.includes('ריכוז ר
 assert.ok(!poster.includes('חוזר')&&!poster.includes('אין גרעינים'),'poster has no non-default regime text');
 const posterD=await ev(`document.querySelector('.anim svg g[clip-path] path').getAttribute('d')`);
 assert.equal(posterD,LAMER_D,'poster curve is identical to the static lesson figure');
-assert.deepEqual(await prm(),{rate:1},'default monomer production rate is the lesson regime');
+assert.deepEqual(await prm(),{regime:1},'default is the lesson (controlled) regime');
 const aria=async()=>ev(`document.querySelector('.anim svg').getAttribute('aria-label')`);
 assert.ok((await aria()).includes('איכותי'),'aria label states the model is qualitative');
 // the rate parameter is a real physical control, not a relabel: the curve shape itself changes regime
 await setScrub(1000);
-await setP('rate',0.5);await sleep(120);
+await setP('regime',0);await sleep(120);
 const slowD=await ev(`document.querySelector('.anim svg g[clip-path] path').getAttribute('d')`);
-assert.notEqual(slowD,LAMER_D,'slow rate draws a different curve');
+assert.notEqual(slowD,LAMER_D,'slow scenario draws a different curve');
 const slowText=await svgText();
-assert.ok(slowText.includes('עלייה בלבד')&&!slowText.includes('פרץ גרעינות'),'slow rate: rise only, no burst');
-assert.ok((await aria()).includes('אינו חוצה'),'slow-rate aria label says the threshold is never crossed');
+assert.ok(slowText.includes('עלייה בלבד')&&!slowText.includes('פרץ גרעינות'),'slow scenario: rise only, no burst');
+assert.ok((await aria()).includes('הומוגנית'),'slow-scenario aria label: homogeneous, no nuclei');
 // slow curve stays below the nucleation threshold (pixel y >= 90 everywhere)
 const slowMinY=await ev(`Math.min(...document.querySelector('.anim svg g[clip-path] path').getAttribute('d').match(/,([0-9.]+)/g).map(x=>+x.slice(1)))`);
 assert.ok(slowMinY>=89.5,'slow curve never crosses the nucleation threshold line');
-await setP('rate',2);await sleep(120);
+await setP('regime',2);await sleep(120);
 const fastD=await ev(`document.querySelector('.anim svg g[clip-path] path').getAttribute('d')`);
-assert.notEqual(fastD,LAMER_D);assert.notEqual(fastD,slowD,'fast rate draws a third, distinct curve');
+assert.notEqual(fastD,LAMER_D);assert.notEqual(fastD,slowD,'fast scenario draws a third, distinct curve');
 const fastText=await svgText();
-assert.ok(fastText.includes('פרצי גרעינות חוזרים'),'fast rate: repeated bursts labeled');
+assert.ok(fastText.includes('פרצי גרעינות חוזרים'),'fast scenario: repeated bursts labeled');
 assert.ok((await aria()).includes('חוזרת'),'fast-rate aria label says nucleation repeats');
-await setP('rate',1);await sleep(120);
+await setP('regime',1);await sleep(120);
 assert.equal(await ev(`document.querySelector('.anim svg g[clip-path] path').getAttribute('d')`),LAMER_D,'reset to the default rate restores the lesson curve');
 // well-formedness sweep across the whole slider range
-for(const rate of [0.5,0.75,1,1.25,1.5,1.75,2]){
-  await setP('rate',rate);
+for(const rate of [0,1,2]){
+  await setP('regime',rate);
   for(let i=0;i<=10;i++){await setScrub(i*100);await sleep(40);
     const b=await ev(bounds);assert.equal(b.bad,0,`no NaN at rate ${rate}`);assert.deepEqual(b.out,[],`all text inside the viewBox at rate ${rate} t=${i/10}: ${b.out}`);}
 }
-await setP('rate',1);
+await setP('regime',1);
 // N1: the held static surface-area illustration renders in its topic
 await call('Page.navigate',{url:'about:blank'});await call('Page.navigate',{url:baseNano.replace('/N3','/N1')});await sleep(2500);
 const n1=await ev(`[...document.querySelectorAll('svg')].map(x=>x.textContent).join(' ')`);

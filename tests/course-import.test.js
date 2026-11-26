@@ -360,3 +360,77 @@ test('legacy positional behaviour is unchanged when no blocks carry keys',t=>{
  assert.match(r.stdout,/#1 source-changed T1\/theory\[1\]/);
  assert.match(r.stdout,/#2 added T1\/theory\[2\]/);
 });
+
+// ---- decision identity and order consent (reviewer blockers) ----
+const decideRun=(root,decide)=>{
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ const rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ for(const e of rep.entries){const d=decide(e);if(d)Object.assign(e,d)}
+ fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ const a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a.status,0,a.stderr);
+ return rep;
+};
+const editLive=(root,fn)=>{const p=path.join(root,'src/content/demo/topics/T1.json');const t=JSON.parse(fs.readFileSync(p,'utf8'));fn(t);fs.writeFileSync(p,JSON.stringify(t,null,1)+'\n')};
+const liveTexts=root=>readTopic(root,'T1').content.theory.map(b=>b.text).join('|');
+const take={decision:'accept',resolution:'take-staged'},keep={decision:'accept',resolution:'keep-current'},skip={decision:'skip'};
+
+for(const [name,localDec,stagedDec,want] of [
+ ['keep local addition, take staged',keep,take,null],
+ ['take staged (drop local addition), keep current block',take,keep,null]]){
+ test('keyed: a current-only conflict and a staged conflict sharing index decide independently ('+name+')',t=>{
+  const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+  ingestOk(root);
+  const before=readTopic(root,'T1').content.theory.map(b=>b.text);
+  editLive(root,c=>{c.content.theory.splice(1,0,{id:'i-loc',text:'LOC'});c.content.theory[2].text='LOCALB'});
+  editStaged(root,s=>{s.content.theory[1].text='STB'});
+  const rep=decideRun(root,e=>e.status!=='conflict'?null:(/local addition/.test(e.detail)?localDec:stagedDec));
+  const keys=rep.entries.map(e=>[e.topic,e.array,e.index,e.status,e.key].join('|'));
+  assert.equal(new Set(keys).size,keys.length,'decision identities are distinct');
+  const got=liveTexts(root);
+  if(localDec===keep)assert.equal(got,['%s','LOC','STB',...before.slice(2)].join('|').replace('%s',before[0]));
+  else assert.equal(got,[before[0],'LOCALB',...before.slice(2)].join('|'));
+ });
+}
+
+test('keyed: accepting an insert does not reorder existing blocks without the reordered entry',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const before=liveTexts(root).split('|');
+ editStaged(root,s=>{s.content.theory.reverse();s.content.theory.splice(1,0,{id:'i-x',text:'x'})});
+ const rep=decideRun(root,e=>e.status==='added'?take:skip);
+ assert.ok(rep.entries.some(e=>e.status==='reordered'),'reorder is its own entry');
+ const got=liveTexts(root).split('|');
+ assert.deepEqual(got.filter(x=>x!=='x'),before,'existing blocks keep their current order');
+ assert.ok(got.includes('x'));
+});
+
+test('keyed: accepting insert and reorder together reproduces staged; skipped removal stays beside its neighbours',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const cur=readTopic(root,'T1').content.theory;
+ editStaged(root,s=>{s.content.theory.reverse();s.content.theory.splice(1,0,{id:'i-x',text:'x'})});
+ decideRun(root,e=>take);
+ assert.ok(bytesEqual(root),'insert + reorder accepted: byte-equal to staged');
+ // removal skipped while reorder accepted
+ const root2=keyedFixture();t.after(()=>fs.rmSync(root2,{recursive:true,force:true}));
+ ingestOk(root2);
+ const names=readTopic(root2,'T1').content.theory.map(b=>b.id);
+ editStaged(root2,s=>{s.content.theory.splice(1,1);s.content.theory.reverse()});
+ decideRun(root2,e=>e.status==='removed'?skip:take);
+ const got=readTopic(root2,'T1').content.theory.map(b=>b.id);
+ assert.ok(got.includes(names[1]),'skipped removal kept');
+ assert.equal(got.length,names.length);
+ assert.deepEqual(got,[names[1],names[2],names[0]],'kept removal stays before its current successor');
+});
+
+test('keyed: skipping every entry changes nothing, skipped edit stays while accepted insert applies',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const before=fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8');
+ editStaged(root,s=>{s.content.theory.splice(1,0,{id:'i-x',text:'x'});s.content.theory[0].text='edited'});
+ decideRun(root,()=>skip);
+ assert.equal(fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8'),before);
+});

@@ -186,7 +186,6 @@ export function classifyReimport(ledger,currentCourse,staged){
     const curByKey=new Map(curArr.map((b,i)=>[blockKey(a,b),{b,i}]));
     const stKeys=new Set(stArr.map(b=>blockKey(a,b)));
     const ledgerFinals=new Set(lArr.map(le=>le&&le.final));
-    let entriesBefore=entries.length;
     for(let j=0;j<stArr.length;j++){
      const s=stArr[j],k=blockKey(a,s),found=curByKey.get(k);
      if(!found){push(id,a,j,'added','new block',k);continue}
@@ -201,13 +200,14 @@ export function classifyReimport(ledger,currentCourse,staged){
      if(ledgerFinals.has(hash(c)))push(id,a,i,'removed','staged content drops this block',k);
      else push(id,a,i,'conflict','present only in current content, no ledger baseline - local addition?',k);
     }
-    if(entries.length===entriesBefore&&curArr.length===stArr.length){
-     // Same blocks, no content change: flag a pure reorder so accept can
-     // restore the staged order (staged order is authoritative).
-     const curOrder=curArr.map(b=>blockKey(a,b)).join('');
-     const stOrder=stArr.map(b=>blockKey(a,b)).join('');
-     if(curOrder!==stOrder)push(id,a,null,'reordered','same blocks in a new order - accept applies the staged order');
-    }
+    // Order is a separate, explicit decision: whenever the shared blocks sit
+    // in a different order in staged content, emit a reordered entry (also
+    // alongside added/removed/changed entries), so accept never changes the
+    // order of existing blocks unless that entry is accepted too.
+    const curMatchedOrder=curArr.map(b=>blockKey(a,b)).filter(k=>stKeys.has(k));
+    const stMatchedOrder=stArr.map(b=>blockKey(a,b)).filter(k=>curByKey.has(k));
+    if(curMatchedOrder.join('')!==stMatchedOrder.join(''))
+     push(id,a,null,'reordered','shared blocks sit in a new order in the staged content - accept applies the staged order, skip keeps the current order');
     continue;
    }
    // Legacy positional alignment (no stable keys on either side).

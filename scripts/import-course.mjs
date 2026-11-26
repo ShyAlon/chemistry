@@ -130,7 +130,7 @@ if(command==='baseline'){
  const staged=prepareStaged();
  const live=classifyReimport(ledger,current,staged);
  const decisions=loadJson(reportPath).entries||[];
- const key=e=>[e.topic,e.array,e.index,e.status].join('|');
+ const key=e=>[e.topic,e.array,e.index,e.status,e.key===undefined?'':e.key].join('|');
  // Only an explicit decision:'accept' applies an entry; 'skip' (or any other
  // value) leaves the current content byte-identical.
  const decisionMap=new Map(decisions.filter(d=>d.decision==='accept').map(d=>[key(d),d]));
@@ -159,26 +159,46 @@ if(command==='baseline'){
   const [tid,a]=k.split('/');const arr=topics[tid].content[a];
   const stArr=staged.correctedFiles[tid].content[a]||[];
   if(arrayMode(a,arr,stArr,tid)==='keyed'){
-   // Stable-key apply: rebuild the array in staged order (staged order is
-   // authoritative), applying each accepted entry by key. Entries without an
-   // accept decision keep their current block; a kept removal returns to its
-   // current position.
+   // Stable-key apply, by consent: content decisions apply per block key;
+   // the order of EXISTING blocks changes only when the array's reordered
+   // entry was accepted. Accepted inserts take their staged-neighbour
+   // position; a kept removal stays with its current neighbours.
    const decByKey=new Map(list.filter(e=>e.key!==undefined).map(e=>[e.key,e]));
-   const curByKey=new Map(arr.map((b,i)=>[blockKey(a,b),{b,i}]));
-   const stKeys=new Set(stArr.map(b=>blockKey(a,b)));
+   const curKeyed=arr.map((b,i)=>({b,i,k:blockKey(a,b)}));
+   const stKeyed=stArr.map((b,j)=>({b,j,k:blockKey(a,b)}));
+   const curByKey=new Map(curKeyed.map(x=>[x.k,x]));
+   const stByKey=new Map(stKeyed.map(x=>[x.k,x]));
+   const reorderAccepted=list.some(e=>e.status==='reordered');
+   const resolve=k=>decByKey.has(k)?structuredClone(stByKey.get(k).b):curByKey.get(k).b;
    const next=[];
-   for(const s of stArr){
-    const bk=blockKey(a,s),found=curByKey.get(bk);
-    if(!found){if(decByKey.has(bk)){next.push(structuredClone(s));applied++}continue}
-    const e=decByKey.get(bk);
-    if(!e){next.push(found.b);continue}
-    if(e.status==='conflict'&&decisionMap.get(key(e)).resolution==='keep-current'){next.push(found.b);continue}
-    next.push(structuredClone(s));applied++;
+   if(reorderAccepted){
+    // Staged order is authoritative for accepted content.
+    for(const {b,k} of stKeyed){
+     if(curByKey.has(k))next.push({k,b:resolve(k)});
+     else if(decByKey.has(k))next.push({k,b:structuredClone(b)});
+    }
+    // A removal that was not accepted stays beside its current neighbours.
+    for(const x of curKeyed.filter(x=>!stByKey.has(x.k)&&!decByKey.has(x.k))){
+     const after=new Set(curKeyed.slice(x.i+1).map(y=>y.k));
+     const pos=next.findIndex(n=>after.has(n.k));
+     if(pos<0)next.push({k:x.k,b:x.b});else next.splice(pos,0,{k:x.k,b:x.b});
+    }
+   }else{
+    // Current order is preserved; accepted content changes apply in place.
+    for(const x of curKeyed){
+     if(stByKey.has(x.k))next.push({k:x.k,b:resolve(x.k)});
+     else if(!decByKey.has(x.k))next.push({k:x.k,b:x.b});
+    }
+    // An accepted insert lands before its earliest staged successor.
+    for(const {b,k,j} of stKeyed){
+     if(curByKey.has(k)||!decByKey.has(k))continue;
+     const after=new Set(stKeyed.slice(j+1).map(y=>y.k));
+     const pos=next.findIndex(n=>after.has(n.k));
+     if(pos<0)next.push({k,b:structuredClone(b)});else next.splice(pos,0,{k,b:structuredClone(b)});
+    }
    }
-   if(list.some(e=>e.status==='reordered'))applied++;
-   const kept=arr.map((b,i)=>({b,i})).filter(({b})=>!stKeys.has(blockKey(a,b))&&!decByKey.has(blockKey(a,b)));
-   for(const {b,i} of kept)next.splice(Math.min(i,next.length),0,b);
-   topics[tid].content[a]=next;
+   topics[tid].content[a]=next.map(x=>x.b);
+   applied+=list.length;
    continue;
   }
   // Legacy positional apply: descending index order so indices stay valid.

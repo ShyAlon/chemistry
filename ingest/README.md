@@ -111,3 +111,26 @@ can keep writing into the private cache after preparation has moved on. Cache
 directories are written meta-last, so a partial directory has no meta.json and
 the next run re-extracts it; still, do not start another preprocessing run
 against the same cache immediately after such an outer timeout.
+
+## Re-import alignment: stable keys, order consent, ledger v2
+
+`diff` and `accept` align current and staged blocks by a stable key, not by
+position, so an insert, delete or reorder no longer shifts every later block.
+
+- **Keys.** Theory and quiz blocks need an `id` (key `i:<id>`). Worked
+  examples use their `title` (key `t:<title>`); an untitled worked example
+  falls back to a hash of its content (`h:<hash>`), so editing an untitled
+  worked example reads as one removed plus one added block.
+- **Fail closed.** If any block in an array lacks a key while others have one
+  (mixed), or a key appears twice on either side, `diff` aborts before any
+  write. Arrays where no block has a key use the legacy positional rules.
+- **Consent per decision.** Each report entry is decided on its own (decision
+  identity includes the block key), so a local-only conflict and a staged
+  conflict at the same index never overwrite each other. `skip` is honored.
+- **Order is its own entry.** A `reordered` entry appears whenever shared
+  blocks sit in a new order. Existing blocks change order only if that entry
+  is accepted. Without it, accepted inserts land before their earliest staged
+  successor and the current order is kept. With it, staged order applies, and
+  a removal you did not accept stays before its current successor.
+- **Ledger v2.** The ledger records a hash lookup of delivered blocks
+  (`ledgerVersion: 2`). Version 1 ledgers still read.

@@ -202,13 +202,12 @@
         {
           "id": "p11.u1",
           "kind": "figure",
-          "disposition": "adapted",
+          "disposition": "covered",
           "label": "מעגל בורן-האבר ל-CaCl2 עם שני יוני כלור",
           "targets": [
-            "theory:SS2-t18",
-            "theory:SS2-t20"
-          ],
-          "rationale": "אותה שיטה בסטויכיומטריה אחרת; מלכודת המקדמים מכוסה"
+            "theory:SS2-t20",
+            "worked:5"
+          ]
         }
       ]
     },
@@ -251,7 +250,7 @@
             "theory:SS2-t05",
             "theory:SS2-t14"
           ],
-          "rationale": "הערכים לא שוחזרו; מגמות המטען והרדיוס מולמדות ומתורגלות"
+          "rationale": "ערכים מייצגים (LiF 1036, NaCl 787, KCl 715, MgO 3791) שולבו ב-t14; הטבלה המלאה לא שוחזרה"
         }
       ]
     },
@@ -262,13 +261,12 @@
         {
           "id": "p15.u1",
           "kind": "table",
-          "disposition": "adapted",
+          "disposition": "covered",
           "label": "NaF מול MgO: מסיסות, התכה וקשיות",
           "targets": [
-            "theory:SS2-t13",
-            "theory:SS2-t15"
-          ],
-          "rationale": "אותו דפוס השוואת מטען-גודל כמו NaCl/MgO; ערכים ספציפיים לא הועברו"
+            "theory:SS2-t21",
+            "theory:SS2-t11"
+          ]
         }
       ]
     },

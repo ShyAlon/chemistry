@@ -71,7 +71,6 @@
     "nuclear/E8",
     "nuclear/E9",
     "nuclear/E10",
-    "solid-state/SS4",
     "solid-state/SS5",
     "solid-state/SS6",
     "solid-state/SS7",
@@ -82,5 +81,57 @@
       "chat-01M877TRRM1K3AAJ49C7A13K0A",
       "agent-01M877TRS7Y9XKHRFPH3CES430"
     ]
-  ]
+  ],
+  "sourcePartition": {
+    "solid-state": {
+      "files": [
+        {
+          "file": "Intro slides MM.pdf",
+          "pageCount": 31
+        },
+        {
+          "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
+          "pageCount": 29
+        },
+        {
+          "file": "MMM_TA_1.pdf",
+          "pageCount": 18
+        },
+        {
+          "file": "Solid State TA_2 21.10.26.pdf",
+          "pageCount": 29
+        },
+        {
+          "file": "Solid State TA_3 28.10.26.pdf",
+          "pageCount": 20
+        },
+        {
+          "file": "TA1 assignment 2026.pdf",
+          "pageCount": 1
+        },
+        {
+          "file": "Intermolecular forces.pptx",
+          "pageCount": 15
+        }
+      ],
+      "shared": [
+        {
+          "file": "Solid State TA_2 21.10.26.pdf",
+          "page": 5,
+          "topics": [
+            "SS1",
+            "SS2"
+          ]
+        },
+        {
+          "file": "TA1 assignment 2026.pdf",
+          "page": 1,
+          "topics": [
+            "SS2",
+            "SS3"
+          ]
+        }
+      ]
+    }
+  }
 }

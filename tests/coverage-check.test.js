@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import catalogue from '#catalogue';
 import {createHash} from 'node:crypto';
-import {checkTopic,checkAll,contentHash,unitMapHash,figuresHash,adminPages,blockExists,genuineApproval,genuineReviewer,loadPolicy} from '../scripts/check-coverage.mjs';
+import {checkTopic,checkAll,contentHash,unitMapHash,figuresHash,adminPages,blockExists,genuineApproval,genuineReviewer,loadPolicy,sourceBindingErrors,parseSpan} from '../scripts/check-coverage.mjs';
 const topic=catalogue.courses.find(c=>c.id==='nuclear').topics.find(t=>t.id==='E5');
 const cov=()=>JSON.parse(fs.readFileSync(new URL('../ingest/nuclear/coverage/E5.json',import.meta.url)));
 const errs=(f,t=topic)=>{const c=cov();f(c);return checkTopic(t,c).errors.join('|')};
@@ -20,14 +20,32 @@ test('E5 map is valid, traced, and has no pending exclusions',()=>{
  const r=checkTopic(topic,cov());assert.deepEqual(r.errors,[]);assert.deepEqual(r.unmapped,[]);assert.deepEqual(r.pending,[]);
 });
 test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,53);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
  const pol={...loadPolicy(),legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
  const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
 });
 test('legacy topics are unaudited, not failed',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,53);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
+});
+test('deck files are pinned to the manifest, spans respect real page counts, and the cross-topic partition is accountable',()=>{
+ const manifest=[{file:'a.pdf',sha256:'a'.repeat(64)},{file:'b.pdf',sha256:'b'.repeat(64)}];
+ const partition={files:[{file:'a.pdf',pageCount:4},{file:'b.pdf',pageCount:2}],shared:[{file:'a.pdf',page:2,topics:['T1','T2']}]};
+ const deck=(topic,file,pages,sha)=>({topic,file,pages,sha256:sha||(manifest.find(s=>s.file===file)||{sha256:'c'.repeat(64)}).sha256});
+ // complete partition + one declared shared page: clean
+ assert.deepEqual(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}),[]);
+ // file/sha must match the manifest
+ assert.match(sourceBindingErrors({decks:[deck('T1','c.pdf',[1])],manifest,partition:null}).join('|'),/not in sources\.manifest\.json/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1],'0'.repeat(64))],manifest,partition:null}).join('|'),/differs from sources\.manifest\.json/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1])],manifest:null,partition:null}).join('|'),/no sources\.manifest\.json/);
+ // a span past the real page count fails
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3,4,5])],manifest,partition}).join('|'),/exceeds the real page count 4/);
+ // a page missing from every deck fails; an undeclared overlap fails; a stale declaration fails
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}).join('|'),/a\.pdf page 3 is not in any topic deck/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3,4]),deck('T2','a.pdf',[2]),deck('T2','b.pdf',[1,2])],manifest,partition:{...partition,shared:[]}}).join('|'),/page 2 is in T1\+T2 without a matching shared declaration/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,3]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}).join('|'),/shared declaration for page 2 has no multi-topic coverage/);
+ assert.deepEqual(parseSpan('1-3,5'),[1,2,3,5]);
 });
 test('multi-file deck descriptor: spans, firstPage order, pageCount and digest are enforced',()=>{
  const files=[{file:'a.pdf',sha256:'a'.repeat(64),pages:'1-20',firstPage:1},{file:'b.pdf',sha256:'b'.repeat(64),pages:'21-40',firstPage:21}];

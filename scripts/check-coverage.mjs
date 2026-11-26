@@ -178,6 +178,42 @@ export function checkTopic(topic,cov){
  const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
  return {errors,pending,unmapped,additions:added.size};
 }
+export const parseSpan=s=>{const out=[];for(const part of String(s||'').split(',')){const m=/^(\d+)(?:-(\d+))?$/.exec(part.trim());if(!m)return null;const a=+m[1],b=m[2]===undefined?a:+m[2];if(a<1||b<a)return null;for(let i=a;i<=b;i++)out.push(i)}return out};
+// Deck-to-source binding and cross-topic partition, pure core. decks: [{topic,file,sha256,pages:[int]}].
+// Every deck file must be pinned by sources.manifest.json; spans may not pass the file's real page count;
+// every real page must sit in at least one deck, and a page in more than one deck needs an explicit shared declaration.
+export function sourceBindingErrors({decks,manifest,partition}){
+ const e=[];
+ const mset=manifest?new Map(manifest.map(s=>[s.file,s.sha256])):null;
+ const counts=new Map((partition?.files||[]).map(f=>[f.file,f.pageCount]));
+ for(const d of decks){
+  const w='deck '+(d.topic||'?')+' '+(d.file||'?')+': ';
+  if(mset){
+   if(!mset.has(d.file))e.push(w+'file is not in sources.manifest.json');
+   else if(mset.get(d.file)!==d.sha256)e.push(w+'sha256 differs from sources.manifest.json');
+  }else e.push(w+'multi-file deck but no sources.manifest.json');
+  const pc=counts.get(d.file);
+  if(pc!==undefined){const over=(d.pages||[]).filter(p=>p>pc);if(over.length)e.push(w+'span page '+over[0]+' exceeds the real page count '+pc)}
+ }
+ for(const pf of partition?.files||[]){
+  const cover=new Map();
+  for(const d of decks.filter(x=>x.file===pf.file))for(const pg of d.pages||[]){
+   if(!cover.has(pg))cover.set(pg,new Set());cover.get(pg).add(d.topic)
+  }
+  for(let pg=1;pg<=pf.pageCount;pg++)if(!cover.has(pg))e.push(pf.file+' page '+pg+' is not in any topic deck');
+  const declared=new Map((partition.shared||[]).filter(s=>s.file===pf.file).map(s=>[s.page,[...s.topics].sort()]));
+  for(const [pg,topics] of [...cover.entries()].sort((a,b)=>a[0]-b[0])){
+   const ts=[...topics].sort();
+   if(ts.length>1){
+    const decl=declared.get(pg);
+    if(!decl||JSON.stringify(decl)!==JSON.stringify(ts))e.push(pf.file+' page '+pg+' is in '+ts.join('+')+' without a matching shared declaration');
+    declared.delete(pg);
+   }
+  }
+  for(const [pg] of declared)e.push(pf.file+' shared declaration for page '+pg+' has no multi-topic coverage');
+ }
+ return e;
+}
 export function loadPolicy(dir=path.join(root,'ingest')){return JSON.parse(fs.readFileSync(path.join(dir,'coverage-policy.json'),'utf8'))}
 export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireReview=false,policy=loadPolicy(dir)}={}){
  const allow=new Set(policy.legacyUnaudited||[]);
@@ -211,6 +247,22 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(r.unmapped.length)errors.push('theory blocks not traced to any source unit: '+r.unmapped.join(', '));
   }
   rows.push({course:c.id,topic:t.id,status:errors.length?'fail':reviewed?'audited-reviewed':'audited-review-pending',errors,pending:r.pending,unmapped:r.unmapped});
+ }
+ for(const c of cat.courses){
+  const part=(policy.sourcePartition||{})[c.id];
+  const mp=path.join(dir,c.id,'sources.manifest.json');
+  const manifest=fs.existsSync(mp)?(JSON.parse(fs.readFileSync(mp,'utf8')).sources||[]):null;
+  const decks=[];
+  for(const t of c.topics){
+   const f=path.join(dir,c.id,'coverage',t.id+'.json');
+   if(!fs.existsSync(f))continue;
+   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
+   for(const sf of cov.source?.files||[])decks.push({topic:t.id,file:sf.file,sha256:sf.sha256,pages:parseSpan(sf.pages)||[]});
+  }
+  if(decks.length||part){
+   const errs=sourceBindingErrors({decks,manifest,partition:part});
+   if(errs.length)rows.push({course:c.id,topic:'*',status:'fail',errors:errs});
+  }
  }
  for(const k of Object.keys(policy.figureBinding||{}))if(!cat.courses.some(c=>c.id===k))rows.push({course:k,topic:'*',status:'fail',errors:['figureBinding names a course that does not exist']});
  for(const k of allow)if(!cat.courses.some(c=>c.topics.some(t=>c.id+'/'+t.id===k)))rows.push({course:k.split('/')[0],topic:k.split('/')[1],status:'fail',errors:['allowlist entry names a topic that does not exist']});

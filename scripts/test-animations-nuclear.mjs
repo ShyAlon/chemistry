@@ -48,6 +48,11 @@ for(const [id,route] of Object.entries(routes)){
     assert.ok(ph.includes('20 s')===(await ev(`document.querySelector('.anim svg').textContent`)).includes('20 s'));
     await setP('halfLife',2);await sleep(100);const ph2=await svgText();assert.ok(ph2.includes('20 s'),'the physical window stays fixed at 20 s across half-lives');
     await setP('halfLife',1);await sleep(100);assert.ok((await svgText()).includes('t / t½'),'reset to 1 s restores the normalized axis');
+    const aria=async()=>ev(`document.querySelector('.anim svg').getAttribute('aria-label')`);
+    assert.ok(!(await aria()).includes('20 שניות')&&(await aria()).includes('ציר מנורמל'),'default-mode label describes the normalized axis, not a 20 s window');
+    await setP('halfLife',10);await sleep(100);
+    assert.ok((await aria()).includes('20 שניות'),'physical-mode label describes the fixed 20 s window');
+    await setP('halfLife',1);await sleep(100);
     await setP('count',10);await setScrub(1000);await sleep(60);
     const readout=async()=>ev(`[...document.querySelectorAll('.anim svg text')].map(t=>t.textContent).map(x=>x.replace(/[^0-9\\/]/g,'')).find(x=>/^\\d+\\/\\d+$/.test(x))`);
     await setScrub(0);await sleep(60);assert.equal(await readout(),'10/10','all nuclei present at t=0');

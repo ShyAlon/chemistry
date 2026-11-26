@@ -351,7 +351,8 @@
      "label": "תרגיל: SO₂, נקודה קריטית ומצב הצבירה",
      "targets": [
       "theory:G13-t22",
-      "quiz:8"
+      "quiz:8",
+      "worked:9"
      ]
     }
    ]
@@ -370,7 +371,8 @@
       "theory:G13-t09",
       "theory:G13-t10",
       "theory:G13-t12",
-      "theory:G13-t13"
+      "theory:G13-t13",
+      "worked:8"
      ]
     }
    ]
@@ -388,7 +390,9 @@
       "theory:G13-t14",
       "theory:G13-t15",
       "worked:1",
-      "worked:2"
+      "worked:2",
+      "worked:7",
+      "worked:10"
      ]
     }
    ]

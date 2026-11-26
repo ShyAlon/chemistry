@@ -8,7 +8,7 @@ const data=structuredClone(catalogueSource);
 const course=data.courses.find(c=>c.id==='84101');const added=course.topics.slice(12);
 const q=(t,id)=>added.find(t0=>t0.id===t).content.quiz.find(q=>q.id===id);
 test('supplement appends four sourced topics, 16 examples and 26 complete questions',()=>{
- assert.deepEqual(added.map(t=>t.id),['G13','G14','G15','G16']);assert.equal(added.flatMap(t=>t.content.quiz.filter(q=>!q.batch3&&!q.finalPrep)).length,26);assert.equal(added.flatMap(t=>t.content.worked.filter(w=>!w.batch3&&!w.finalPrep)).length,16);
+ assert.deepEqual(added.map(t=>t.id),['G13','G14','G15','G16']);assert.equal(added.flatMap(t=>t.content.quiz.filter(q=>!q.batch3&&!q.batch5&&!q.finalPrep)).length,26);assert.equal(added.flatMap(t=>t.content.worked.filter(w=>!w.batch3&&!w.batch5&&!w.finalPrep)).length,16);
  for(const t of added){assert.ok(t.provenance.sourceReferences.includes('.pdf'));assert.ok(t.provenance.verificationSources.every(x=>x.startsWith('https://')));assert.ok(t.content.theory.length>=14);assert.equal(new Set(t.content.quiz.map(q=>q.id)).size,t.content.quiz.length);for(const q of t.content.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct]);assert.equal(q.options.length,4)}if(q.type==='numeric')for(const f of q.fields)assert.ok(numericCorrect([String(f.value)],[f.unit],[f]))}}
 });
 test('independent arithmetic checks all new numeric answers',()=>{

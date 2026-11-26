@@ -200,7 +200,8 @@
       "theory:G15-t33",
       "theory:G15-t34",
       "theory:G15-t40",
-      "worked:4"
+      "worked:4",
+      "worked:12"
      ],
      "rationale": "בדוגמת המקור חסרים נתונים על נפח התמיסה; הסייג והתיקון הוסברו בבלוק 40."
     }
@@ -264,7 +265,8 @@
      "targets": [
       "theory:G15-t13",
       "theory:G15-t14",
-      "theory:G15-t15"
+      "theory:G15-t15",
+      "worked:9"
      ]
     }
    ]
@@ -424,7 +426,8 @@
       "theory:G15-t36",
       "theory:G15-t37",
       "theory:G15-t38",
-      "theory:G15-t39"
+      "theory:G15-t39",
+      "worked:11"
      ]
     }
    ]
@@ -492,7 +495,8 @@
       "theory:G15-t10",
       "theory:G15-t16",
       "theory:G15-t40",
-      "worked:2"
+      "worked:2",
+      "worked:13"
      ],
      "rationale": "בשקף 72 i=1.94 ובשקף 73 i=1.98 לאותו חישוב; הערך הנכון 0.0361/0.0186=1.941, תוקן בבלוק 40."
     }
@@ -591,7 +595,8 @@
      "targets": [
       "theory:G15-t04",
       "theory:G15-t05",
-      "theory:G15-t06"
+      "theory:G15-t06",
+      "worked:10"
      ]
     }
    ]

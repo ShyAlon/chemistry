@@ -503,7 +503,8 @@
      "label": "סיווג סטיות סוג 1, 2, 3",
      "targets": [
       "theory:G14-t21",
-      "theory:G14-t27"
+      "theory:G14-t27",
+      "worked:8"
      ]
     }
    ]
@@ -537,7 +538,8 @@
      "targets": [
       "theory:G14-t14",
       "theory:G14-t15",
-      "theory:G14-t16"
+      "theory:G14-t16",
+      "worked:7"
      ]
     }
    ]
@@ -554,7 +556,8 @@
      "targets": [
       "theory:G14-t17",
       "theory:G14-t18",
-      "theory:G14-t19"
+      "theory:G14-t19",
+      "worked:6"
      ]
     }
    ]

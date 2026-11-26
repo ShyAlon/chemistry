@@ -121,22 +121,35 @@ function carrierFrame(t,{params}){
 function rng(seed){let a=(seed*2654435761)>>>0;return()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
 const decayTimes=(n,seed)=>{const r=rng(seed*7919+13);return Array.from({length:n},()=>-Math.log(1-r())/Math.LN2).sort((a,b)=>a-b)}; // in half-lives
 function halfLifeFrame(t,{accent,params}){
-  const tau=4*t,n=params.count,seed=params.run,hl=params.halfLife;
-  const phys=hl!==1;
-  const X=u=>80+90*u,Yf=f=>245-190*f;
-  const upto=Math.round(tau*25);
-  const pts=Array.from({length:upto+1},(_,i)=>`${i===0?'M':'L'}${(80+3.6*i).toFixed(1)},${Yf(Math.pow(.5,i/25)).toFixed(1)}`).join(' ');
+  // Two displays of the same decay law N = N0*2^(-t/t1/2):
+  //  - default (half-life 1 s): the lesson's normalized view, 0..4 t/t1/2, poster
+  //    identical to the static lesson figure;
+  //  - any other half-life: a FIXED physical window of 0..20 s independent of the
+  //    half-life, so dragging the slider visibly changes how much decays in the
+  //    same physical time - shorter half-life = faster decay over the same seconds.
+  const n=params.count,seed=params.run,hl=params.halfLife;
+  const norm=hl===1;
+  const el=norm?4*t:20*t;                       // elapsed: half-lives (norm) or seconds (phys)
+  const X=norm?(u=>80+90*u):(sec=>80+19*sec);
+  const at=x=>norm?x:x/hl;                      // x-position time -> half-lives elapsed
+  const upto=Math.round(el*(norm?25:5));
+  const pts=Array.from({length:upto+1},(_,i)=>{const q=norm?i/25:i/5;return `${i===0?'M':'L'}${X(q).toFixed(1)},${Yf_(Math.pow(.5,at(q)))}`}).join(' ');
+  function Yf_(f){return (245-190*f).toFixed(1)}
+  const Yf=f=>245-190*f;
   let stair=null,left=0;
-  if(n>0){const d=decayTimes(n,seed);let k=0;while(k<n&&d[k]<=tau)k++;left=n-k;
-    const seg=[`M${X(0)},${Yf(1)}`];let prev=1;for(let i=0;i<k;i++){const f=(n-i-1)/n;seg.push(`L${X(d[i]).toFixed(1)},${Yf(prev).toFixed(1)}`,`L${X(d[i]).toFixed(1)},${Yf(f).toFixed(1)}`);prev=f}
-    seg.push(`L${X(tau).toFixed(1)},${Yf(prev).toFixed(1)}`);stair=seg.join(' ')}
-  const exp=n*Math.pow(.5,tau);
+  if(n>0){const d=decayTimes(n,seed);const phys=k=>d[k]*hl;let k=0;while(k<n&&(norm?d[k]:phys(k))<=el)k++;left=n-k;
+    const seg=[`M${X(0)},${Yf(1)}`];let prev=1;for(let i=0;i<k;i++){const f=(n-i-1)/n;const xt=X(norm?d[i]:d[i]*hl);seg.push(`L${xt.toFixed(1)},${Yf(prev).toFixed(1)}`,`L${xt.toFixed(1)},${Yf(f).toFixed(1)}`);prev=f}
+    seg.push(`L${X(el).toFixed(1)},${Yf(prev).toFixed(1)}`);stair=seg.join(' ')}
+  const exp=n*Math.pow(.5,norm?el:el/hl);
+  const ticks=norm?[0,1,2,3,4].map(u=>({x:u,txt:''+u,lv:u})):[0,5,10,15,20].map(sec=>({x:sec,txt:sec+' s'}));
+  const dots=norm?[]:[1,2,3,4,5,6,7,8,9,10,20].map(i=>i*hl).filter(sec=>sec<=20&&el>=sec-1e-9);
   return <>
     <L x1={80} y1={40} x2={80} y2={245}/><L x1={80} y1={245} x2={460} y2={245}/>
     {upto>0&&<Curve d={pts} stroke={accent} w={3}/>}
-    {[0,1,2,3,4].filter(i=>tau>=i-1e-9).map(i=><g key={i}><Dot cx={X(i)} cy={Yf(Math.pow(.5,i))} fill={accent}/><T x={X(i)} y={271} size={18} ltr>{phys?i*hl+' s':i}</T></g>)}
+    {ticks.filter(q=>el>=q.x-1e-9).map(q=><T key={q.x} x={X(q.x)} y={271} size={18} ltr>{q.txt}</T>)}
+    {(norm?ticks.filter(q=>q.lv!==undefined&&el>=q.x-1e-9).map(q=>({sec:q.lv,lv:q.lv})):dots.map(sec=>({sec,lv:sec/hl}))).map(q=><Dot key={'d'+q.sec} cx={X(q.sec)} cy={Yf(Math.pow(.5,q.lv))} fill={accent}/>)}
     <T x={45} y={55} size={18} ltr>1</T><T x={42} y={155} size={18} ltr>0.5</T><T x={42} y={205} size={18} ltr>0.25</T>
-    <T x={130} y={25} size={18} ltr>N / N₀</T><T x={300} y={307} size={20} ltr>{phys?'t (s)':'t / t½'}</T>
+    <T x={130} y={25} size={18} ltr>N / N₀</T><T x={300} y={307} size={20} ltr>{norm?'t / t½':'t (s)'}</T>
     {stair&&<Curve d={stair} stroke="#f0c978" w={2} dash="0"/>}
     {n>0&&<g>
       <T x={540} y={107} size={13} anchor="end" fill="#f0c978">דגימה אקראית אחת (הרצה קבועה)</T>
@@ -192,8 +205,9 @@ export const animations={
   },
   'nuclear-half-life':{
     id:'nuclear-half-life',duration:10,viewBox:'0 0 560 320',
-    label:o=>'עקומת דעיכה N חלקי N0 כפונקציה של '+(o.halfLife===1?'t חלקי זמן מחצית החיים':'הזמן בשניות, זמן מחצית '+o.halfLife+' שניות')+', '+(o.count>0?'עם דגימה אקראית אחת של גרעינים שנדעכים בזמנים אקראיים (הרצה קבועה)':'העקומה האידיאלית בלבד'),
+    label:o=>'עקומת דעיכה N חלקי N0 בחלון קבוע של 20 שניות, '+(o.halfLife===1?'ציר מנורמל t חלקי זמן מחצית החיים':'זמן מחצית '+o.halfLife+' שניות - ככל שזמן המחצית קצר יותר, יותר דעך באותן 20 שניות')+(o.count>0?', עם דגימה אקראית אחת של גרעינים שנדעכים בזמנים אקראיים (הרצה קבועה)':', העקומה האידיאלית בלבד'),
     stages:[{at:0,label:'1. עד זמן מחצית ראשון'},{at:0.25,label:'2. עד זמן מחצית שני'},{at:0.5,label:'3. עד זמן מחצית שלישי'},{at:0.75,label:'4. עד זמן מחצית רביעי'}],
+    stageLabel:(i,o)=>o.halfLife===1?['1. עד זמן מחצית ראשון','2. עד זמן מחצית שני','3. עד זמן מחצית שלישי','4. עד זמן מחצית רביעי'][i]:['1. עד 5 שניות','2. עד 10 שניות','3. עד 15 שניות','4. עד 20 שניות'][i],
     params:[{id:'count',label:'מספר גרעינים בדגימה',min:0,max:400,step:10,value:0},{id:'halfLife',label:'זמן מחצית',min:1,max:10,step:1,value:1,unit:'s'},{id:'run',label:'הרצה אקראית',min:1,max:9,step:1,value:1}],
     frame:(t,o)=>halfLifeFrame(t,o)
   },

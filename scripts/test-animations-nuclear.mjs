@@ -38,8 +38,17 @@ for(const [id,route] of Object.entries(routes)){
     assert.ok(!(await svgText()).includes('כל הרצה אחרת'),'long honesty note stays out of the plot');
     assert.ok((await ev('document.body.textContent')).includes('כל הרצה אחרת שונה מעט'),'honesty note lives in the wrapping caption');
     // approved scope: an adjustable half-life. Default 1 s keeps the normalized lesson axis; a physical value switches the axis to seconds.
-    await setP('halfLife',5);await sleep(100);const ph=await svgText();assert.ok(ph.includes('t (s)')&&ph.includes('20 s'),'half-life 5 s gives a physical seconds axis');
+    // fixed physical window: the same 20 s of clock time, visibly different decay
+    await setP('count',0);await setScrub(1000);await setP('halfLife',2);await sleep(100);
+    const d2=await ev(`document.querySelector('.anim svg path').getAttribute('d')`);
+    await setP('halfLife',10);await sleep(100);
+    const d10=await ev(`document.querySelector('.anim svg path').getAttribute('d')`);
+    assert.notEqual(d2,d10,'different half-lives decay visibly differently in the same physical window');
+    const ph=await svgText();assert.ok(ph.includes('t (s)')&&ph.includes('20 s'),'half-life 10 s gives a fixed physical seconds axis');
+    assert.ok(ph.includes('20 s')===(await ev(`document.querySelector('.anim svg').textContent`)).includes('20 s'));
+    await setP('halfLife',2);await sleep(100);const ph2=await svgText();assert.ok(ph2.includes('20 s'),'the physical window stays fixed at 20 s across half-lives');
     await setP('halfLife',1);await sleep(100);assert.ok((await svgText()).includes('t / t½'),'reset to 1 s restores the normalized axis');
+    await setP('count',10);await setScrub(1000);await sleep(60);
     const readout=async()=>ev(`[...document.querySelectorAll('.anim svg text')].map(t=>t.textContent).map(x=>x.replace(/[^0-9\\/]/g,'')).find(x=>/^\\d+\\/\\d+$/.test(x))`);
     await setScrub(0);await sleep(60);assert.equal(await readout(),'10/10','all nuclei present at t=0');
     await setScrub(1000);const end10=await readout();

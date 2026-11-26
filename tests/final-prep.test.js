@@ -26,6 +26,8 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // Solid State SS1-SS4 gained stable theory-block ids for source-coverage mapping; same fixture pattern as E5/E6.
  for(const id of ['SS1','SS2','SS3','SS4']){const n=original.courses.find(c=>c.id==='solid-state'),i=n.topics.findIndex(t=>t.id===id);n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/solid-state-'+id+'-before-repair.json',import.meta.url)))}
  original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
+ // Nano N13 is a new topic authored after the reviewed-main snapshot this hash protects; drop it so the hash still proves every pre-existing byte is retained.
+ {const n=original.courses.find(c=>c.id==='nano');n.topics=n.topics.filter(t=>t.id!=='N13');}
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   else undoFormulaReview(t);
@@ -34,6 +36,8 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  }
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as E5/E6/SS1-SS4 above.
  original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 worked 1 ("סוג 1") answer line was intentionally repaired in the same audit round (3718.55 -> 3718.45); same fixture pattern.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[0].content[1]='E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.';
  // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
  {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
   for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.

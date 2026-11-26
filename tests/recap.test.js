@@ -37,6 +37,8 @@ test('entire General Chemistry course is unchanged outside the flagged batch3 ex
  for(const t of c.topics){t.content.theory=undoNotation(t).content.theory;t.source=t.source.split(' תוספת הכנה למבחן:')[0];for(const k of ['theory','worked','quiz'])t.content[k]=t.content[k].filter(b=>!b.batch3&&!b.batch4&&!b.finalPrep);}
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45 = 3/2*8.3145*298.15); keep the pre-repair text so the baseline digest still proves every other byte.
  c.topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 worked 1 answer line repaired in the same audit round (3718.55 -> 3718.45); same fixture pattern.
+ c.topics.find(t=>t.id==='G10').content.worked[0].content[1]='E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.';
  for(const b of c.topics.find(t=>t.id==='G10').content.theory)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });

@@ -181,3 +181,18 @@ test('lessonAdditions: authored material outside source coverage, hash-bound, st
  assert.match(errs(c=>{c.lessonAdditions=[{id:'a01',targets:[pick],rationale:'credited elsewhere'}]}),/already credited as source coverage/);
  assert.match(errs(c=>{c.lessonAdditions=[]}),/non-empty list/);
 });
+test('supporting sources are validated structurally, hash-pinned against the manifest and bound into the map hash',()=>{
+ const tgt=cov().pages.flatMap(p=>p.units).find(u=>u.targets?.length).targets[0];
+ const good=()=>[{file:'x.pdf',sha256:'a'.repeat(64),items:[{ref:'Q6',use:'method-only',targets:[tgt]}]}];
+ assert.equal(errs(c=>{c.supportingSources=good()}),'');
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].sha256='zz'}),/sha256 must be a 64-hex hash/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].targets=['theory:E5-t998']}),/target not found theory:E5-t998/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].use='same'}),/use must be/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref='page 6'}),/ref must be a question label/);
+ assert.match(errs(c=>{c.supportingSources=[]}),/non-empty list/);
+ const a=cov(),b=cov();b.supportingSources=good();assert.notEqual(unitMapHash(a),unitMapHash(b));
+ // manifest pin: G13 declares the HW6 and sample exam; a wrong hash must fail checkAll.
+ const real=JSON.parse(fs.readFileSync(new URL('../ingest/84101/coverage/G13.json',import.meta.url)));
+ const pins=JSON.parse(fs.readFileSync(new URL('../ingest/84101/sources.manifest.json',import.meta.url))).sources;
+ for(const s of real.supportingSources)assert.equal(pins.find(p=>p.file===s.file)?.sha256,s.sha256,s.file);
+});

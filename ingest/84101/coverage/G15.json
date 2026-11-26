@@ -61,6 +61,113 @@
    "rationale": "לחץ אדים שווה בשני כלים ומסות ממס שונות. מבוסס על תרגיל בית 6 שאלה 18 (סוכר ו-NaCl); אין שקף מקור."
   }
  ],
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q13ג",
+     "use": "method-only",
+     "targets": [
+      "theory:G15-t41",
+      "theory:G15-t42",
+      "theory:G15-t43",
+      "theory:G15-t44"
+     ]
+    },
+    {
+     "ref": "Q14",
+     "use": "method-only",
+     "targets": [
+      "worked:11",
+      "quiz:14"
+     ]
+    },
+    {
+     "ref": "Q15",
+     "use": "method-only",
+     "targets": [
+      "worked:10",
+      "quiz:13"
+     ]
+    },
+    {
+     "ref": "Q18",
+     "use": "data-and-method",
+     "targets": [
+      "worked:13"
+     ]
+    },
+    {
+     "ref": "Q18",
+     "use": "method-only",
+     "targets": [
+      "quiz:15",
+      "theory:G15-t51"
+     ]
+    },
+    {
+     "ref": "Q21",
+     "use": "data-and-method",
+     "targets": [
+      "worked:12"
+     ]
+    },
+    {
+     "ref": "Q21",
+     "use": "method-only",
+     "targets": [
+      "theory:G15-t47",
+      "theory:G15-t48",
+      "theory:G15-t49",
+      "theory:G15-t50"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q3א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9"
+     ]
+    },
+    {
+     "ref": "Q3ב",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9"
+     ]
+    },
+    {
+     "ref": "Q3א",
+     "use": "method-only",
+     "targets": [
+      "quiz:12"
+     ]
+    },
+    {
+     "ref": "Q6א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:11"
+     ]
+    },
+    {
+     "ref": "Q8ד",
+     "use": "data-and-method",
+     "targets": [
+      "worked:10"
+     ]
+    }
+   ]
+  }
+ ],
  "pages": [
   {
    "page": 1,

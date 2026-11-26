@@ -29,6 +29,70 @@
    }
   ]
  },
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q16",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q17",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q16",
+     "use": "method-only",
+     "targets": [
+      "quiz:8",
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q19",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7"
+     ]
+    },
+    {
+     "ref": "Q20",
+     "use": "data-and-method",
+     "targets": [
+      "worked:8"
+     ]
+    },
+    {
+     "ref": "Q20",
+     "use": "method-only",
+     "targets": [
+      "quiz:11"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q13ד",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:10"
+     ]
+    }
+   ]
+  }
+ ],
  "pages": [
   {
    "page": 1,

@@ -38,6 +38,52 @@
    "rationale": "רשימת בדיקה לפני שימוש בקלאוזיוס-קלפירון: סינתזה של טעויות נפוצות בתרגול 6א; אין שקף מקור יחיד."
   }
  ],
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q5",
+     "use": "method-only",
+     "targets": [
+      "worked:9",
+      "quiz:13",
+      "quiz:14",
+      "quiz:15"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "method-only",
+     "targets": [
+      "worked:8",
+      "quiz:11"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q11א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7"
+     ]
+    },
+    {
+     "ref": "Q11א",
+     "use": "method-only",
+     "targets": [
+      "quiz:10"
+     ]
+    }
+   ]
+  }
+ ],
  "pages": [
   {
    "page": 1,

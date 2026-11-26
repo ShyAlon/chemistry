@@ -1,0 +1,398 @@
+{
+  "schema": 2,
+  "course": "solid-state",
+  "topic": "SS2",
+  "source": {
+    "sha256": "6060cd86bc39563026ecdcd68e1e51192647b5655825f95f5f1ac6961ae520eb",
+    "kind": "multi-file-deck",
+    "pageCount": 20,
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png). source.sha256 = sha256(JSON.stringify(source.files)).",
+    "files": [
+      {
+        "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
+        "sha256": "ae1fa9f6828f0db6f23b531ecd00f368cdcfcd0669b1f3ee6dcdb56a2f76a38d",
+        "pages": "10-12,19-22",
+        "firstPage": 1
+      },
+      {
+        "file": "MMM_TA_1.pdf",
+        "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e",
+        "pages": "7-13,17",
+        "firstPage": 8
+      },
+      {
+        "file": "TA1 assignment 2026.pdf",
+        "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25",
+        "pages": "1",
+        "firstPage": 16
+      },
+      {
+        "file": "Solid State TA_2 21.10.26.pdf",
+        "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2",
+        "pages": "5-8",
+        "firstPage": 17
+      }
+    ]
+  },
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+    "agent-01M89RY0MXDEQWC4Q42F62CKET"
+  ],
+  "semanticReview": {
+    "status": "pending"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "fc8e7c4b60b795bd6a1703ea7475d57c98923c3fc3f2a91385fb315167f4f198",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קישור יוני בין יונים +/- , העברת אלקטרון, הפרש אלקטרו-שליליות, דוגמת NaCl",
+          "targets": [
+            "theory:SS2-t02"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "a461deb145a4d1dd037dbb9237ea843ed614d8a218f55ef7bc5220f17e772501",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "איזון משיכה/דחייה: EN=EA+ER, מינימום אנרגיה = מרחק יציב",
+          "targets": [
+            "theory:SS2-t03"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "f681e187a41d00a6d4158f9f5d848001bbcc9eec25ff8452538c84acd9d50526",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קישור יוני דומיננטי בקרמיקות; דוגמאות NaCl, MgO, CaF2, CsCl",
+          "targets": [
+            "theory:SS2-t02"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "67e89a85ce9f85707c020a87d0c80738e694b5fefd7c034d7bdb34611bd50c8f",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תכונות גבישים יוניים: מוצקים, התכה גבוהה, שקופים, מבודדים, קשים ושבירים, מסיסים",
+          "targets": [
+            "theory:SS2-t08",
+            "theory:SS2-t09",
+            "theory:SS2-t11"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "6e4e8bcf2c11ab2ad1dacfd9f70d6bab95e32264d7e4c91668a4e4addd367c35",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "טמפרטורת ההתכה תלויה במטען ובגודל; השוואות NaCl/MgO ו-NaCl/RbI",
+          "targets": [
+            "theory:SS2-t13",
+            "theory:SS2-t14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "286feb861785a74b4fd12f037284f2d697f616744433464a0590358d207b6aaf",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "איור שבירת גביש יוני: הזזת מישור מציבה יונים שווי מטען זה מול זה",
+          "targets": [
+            "theory:SS2-t10"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "04bd9563aa4384b7024b085a1914b47a4a40eb2db7baca0b7e2a6c588f5cc891",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "מעגל בורן-האבר ל-NaCl; המרה 1 eV = 96 kJ/mol",
+          "targets": [
+            "theory:SS2-t18",
+            "theory:SS2-t19",
+            "theory:SS2-t20"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "bdeb0afa7bd4b0d0b499dc0fc70d6b537eecf7dccf5fefd1eac3012acb05d4e9",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הגדרת גביש יוני: סידור תלת-ממדי חוזר של קטיונים ואניונים",
+          "targets": [
+            "theory:SS2-t02"
+          ]
+        },
+        {
+          "id": "p08.u2",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "משוואות משיכה ודחייה; המינימום מגדיר מרחק מועדף",
+          "targets": [
+            "theory:SS2-t03"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "11a96f3abda5ab6fcd49a927be4d07cb601d7cbefad2f463adb1d382fab0d246",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הגדרת אנרגיית סריג: אנרגיה נפלטת ביצירת מול תרכובת מיונים גזיים",
+          "targets": [
+            "theory:SS2-t05"
+          ]
+        },
+        {
+          "id": "p09.u2",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שלושה גורמים לגודלה: מטען, רדיוס, גיאומטריית גביש",
+          "targets": [
+            "theory:SS2-t05"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "93a77522c1eee96304b1b09644cd3f77346eac290f0c65c6d88da19b0920ca22",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "רקע תרמודינמי: אנתלפיה, חוק הס, אקסו/אנדותרמי",
+          "targets": [
+            "theory:SS2-t17"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "18abee4df3162f088e1f96ae07e111dbb5b2e9a92c0ec259103d939dd0d8550e",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "תרגיל: מעגל בורן-האבר ל-NaCl ול-KCl עם גדלי יונים",
+          "targets": [
+            "worked:1",
+            "worked:2"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "5dd79b6851c497bf2f72a58c69511f4187f2dfe17c6f71336db9d814ed832103",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "חמשת צעדי המעגל: סובלימציה, יינון, אטומיזציה, זיקה, יצירת סריג",
+          "targets": [
+            "theory:SS2-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "36962127e068d1c8b9c92daabba4d83c18c9dbf1b0796e7cbead483b789b81dc",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "המשוואה הפתורה ל-NaCl: 411- = 107+122+496-349+ΔHLE",
+          "targets": [
+            "theory:SS2-t19",
+            "worked:1"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "16dcb06104f3a4c68ccc1689a60c8ad9fa70574e70e03639945c3e07ff0bf054",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "מעגל KCl הפתור: ΔHLE = 718- kJ/mol",
+          "targets": [
+            "theory:SS2-t18",
+            "worked:2"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "2186fd115b3e7475b3eaa0519986b1accbe6c6ee011bcfc318065b366da0d241",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "סיכום מונחים: ΔHf תקני, סובלימציה, יינון, משוואות, מעגל בורן-האבר",
+          "targets": [
+            "theory:SS2-t03",
+            "theory:SS2-t05",
+            "theory:SS2-t17"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "e4156e0b5bbf94355d79d7ebbbafa3f969356ba24dcd0e18e8eddc3ce208ea2b",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה 1 במשימה: מעגל בורן-האבר ל-NaCl ול-KCl עם גדלי יונים",
+          "targets": [
+            "worked:1",
+            "worked:2"
+          ]
+        },
+        {
+          "id": "p16.u2",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "שאלה 2 בדף (חיזוי מבנה גביש) שייכת ל-SS3",
+          "rationale": "דף משימה משותף; שאלת מבנה הגביש מכוסה במפת SS3"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "0af7dd6eb1727baf595669b189761f7701a16ce152685ffcea99d8fa9d9b97ec",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "חוק קולון: משיכה חזקה יותר מעלה בדרך כלל את טמפרטורת ההתכה",
+          "targets": [
+            "theory:SS2-t05",
+            "theory:SS2-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "05a2b5709863ea01bd5b3d9f5458ebf55c25dc3d15f9ea8003bcbd91c443c1b6",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "NaCl מול MgO: מטענים 1 מול 4, מרחקים 283/212 pm, התכה 2852 מול 801",
+          "targets": [
+            "theory:SS2-t13",
+            "theory:SS2-t15",
+            "worked:3"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "2c76b742463d74413ad6d89c1e8315d490397fb7a840c77aead6e34636a8bc60",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "NaCl מול RbI: שורת החיזוי בטבלה הפוכה למסקנת השקף ולערכיו",
+          "targets": [
+            "theory:SS2-t14",
+            "theory:SS2-t15",
+            "worked:4"
+          ],
+          "rationale": "שורת טמפ ההתכה החזויה בטבלה סותרת את מסקנת השקף (801 > 642); החומר עוקב אחר המסקנה הנכונה"
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "imageSha256": "e34507379d86ba55140779b994c725bc79d0148aeee5b9cbbc75c1375464d011",
+      "units": [
+        {
+          "id": "p20.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מגמות גודל יונים: קטיון/אניון גדול מוריד את אנרגיית הסריג; עקרון מרכזי",
+          "targets": [
+            "theory:SS2-t14",
+            "theory:SS2-t05"
+          ]
+        },
+        {
+          "id": "p20.u2",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "U כאנרגיית הפרדת הסריג ליונים גזיים, מוסכמת סימן חיובי",
+          "targets": [
+            "theory:SS2-t06"
+          ]
+        }
+      ]
+    }
+  ]
+}

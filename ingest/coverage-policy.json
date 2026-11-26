@@ -1,88 +1,87 @@
 {
- "note": "Topics not yet audited against their sources. A topic not listed here MUST have ingest/<course>/coverage/<topic>.json. Remove an entry when its map lands.",
- "figureNote": "Courses listed here hash the import closure of their figure roots (paths under src/) into figuresSha256. Courses not listed keep the legacy two-file hash (figures-nuclear.jsx + figures.jsx). Roots are checked fail-closed: a missing root or unresolved relative import is an error. GC2 roots are the figure dispatcher (whose import closure includes the shared renderer files, including figures-nuclear.jsx) and the global stylesheet style.css (over-binding by design: any style change requires re-review). extraFiles (repo-root relative) pin the dependency manifest and lockfile. Bare package imports are bound through them. Unsupported dependency forms (require, import.meta.glob/url, non-literal dynamic imports) are rejected, not ignored. CSS @import and relative url() are followed.",
- "figureBinding": {
-  "general-chemistry-2": {
-   "roots": [
-    "figures.jsx",
-    "style.css"
-   ],
-   "extraFiles": [
-    "package.json",
-    "package-lock.json"
-   ]
+  "note": "Topics not yet audited against their sources. A topic not listed here MUST have ingest/<course>/coverage/<topic>.json. Remove an entry when its map lands.",
+  "figureNote": "Courses listed here hash the import closure of their figure roots (paths under src/) into figuresSha256. Courses not listed keep the legacy two-file hash (figures-nuclear.jsx + figures.jsx). Roots are checked fail-closed: a missing root or unresolved relative import is an error. GC2 roots are the figure dispatcher (whose import closure includes the shared renderer files, including figures-nuclear.jsx) and the global stylesheet style.css (over-binding by design: any style change requires re-review). extraFiles (repo-root relative) pin the dependency manifest and lockfile. Bare package imports are bound through them. Unsupported dependency forms (require, import.meta.glob/url, non-literal dynamic imports) are rejected, not ignored. CSS @import and relative url() are followed.",
+  "figureBinding": {
+    "general-chemistry-2": {
+      "roots": [
+        "figures.jsx",
+        "style.css"
+      ],
+      "extraFiles": [
+        "package.json",
+        "package-lock.json"
+      ]
+    },
+    "solid-state": {
+      "roots": [
+        "figures-solid-state.jsx"
+      ],
+      "extraFiles": [
+        "package.json",
+        "package-lock.json"
+      ]
+    }
   },
-  "solid-state": {
-   "roots": [
-    "figures-solid-state.jsx"
-   ],
-   "extraFiles": [
-    "package.json",
-    "package-lock.json"
-   ]
-  }
- },
- "legacyUnaudited": [
-  "84102/P7",
-  "84102/P9",
-  "84102/P10",
-  "84102/P3",
-  "84102/P2",
-  "84102/P5",
-  "84102/P6",
-  "84102/P8",
-  "84102/P1",
-  "84102/P4",
-  "84102/P11",
-  "84102/P12",
-  "84101/G1",
-  "84101/G2",
-  "84101/G3",
-  "84101/G4",
-  "84101/G5",
-  "84101/G6",
-  "84101/G7",
-  "84101/G8",
-  "84101/G9",
-  "84101/G10",
-  "84101/G11",
-  "84101/G12",
-  "84101/G13",
-  "84101/G14",
-  "84101/G15",
-  "84101/G16",
-  "nano/N1",
-  "nano/N2",
-  "nano/N3",
-  "nano/N4",
-  "nano/N5",
-  "nano/N6",
-  "nano/N7",
-  "nano/N8",
-  "nano/N9",
-  "nano/N10",
-  "nano/N11",
-  "nano/N12",
-  "nuclear/E1",
-  "nuclear/E2",
-  "nuclear/E3",
-  "nuclear/E4",
-  "nuclear/E7",
-  "nuclear/E8",
-  "nuclear/E9",
-  "nuclear/E10",
-  "solid-state/SS2",
-  "solid-state/SS3",
-  "solid-state/SS4",
-  "solid-state/SS5",
-  "solid-state/SS6",
-  "solid-state/SS7",
-  "solid-state/SS8"
- ],
- "authorAliases": [
-  [
-   "chat-01M877TRRM1K3AAJ49C7A13K0A",
-   "agent-01M877TRS7Y9XKHRFPH3CES430"
+  "legacyUnaudited": [
+    "84102/P7",
+    "84102/P9",
+    "84102/P10",
+    "84102/P3",
+    "84102/P2",
+    "84102/P5",
+    "84102/P6",
+    "84102/P8",
+    "84102/P1",
+    "84102/P4",
+    "84102/P11",
+    "84102/P12",
+    "84101/G1",
+    "84101/G2",
+    "84101/G3",
+    "84101/G4",
+    "84101/G5",
+    "84101/G6",
+    "84101/G7",
+    "84101/G8",
+    "84101/G9",
+    "84101/G10",
+    "84101/G11",
+    "84101/G12",
+    "84101/G13",
+    "84101/G14",
+    "84101/G15",
+    "84101/G16",
+    "nano/N1",
+    "nano/N2",
+    "nano/N3",
+    "nano/N4",
+    "nano/N5",
+    "nano/N6",
+    "nano/N7",
+    "nano/N8",
+    "nano/N9",
+    "nano/N10",
+    "nano/N11",
+    "nano/N12",
+    "nuclear/E1",
+    "nuclear/E2",
+    "nuclear/E3",
+    "nuclear/E4",
+    "nuclear/E7",
+    "nuclear/E8",
+    "nuclear/E9",
+    "nuclear/E10",
+    "solid-state/SS3",
+    "solid-state/SS4",
+    "solid-state/SS5",
+    "solid-state/SS6",
+    "solid-state/SS7",
+    "solid-state/SS8"
+  ],
+  "authorAliases": [
+    [
+      "chat-01M877TRRM1K3AAJ49C7A13K0A",
+      "agent-01M877TRS7Y9XKHRFPH3CES430"
+    ]
   ]
- ]
 }

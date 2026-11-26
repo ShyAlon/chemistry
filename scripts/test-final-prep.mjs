@@ -20,7 +20,7 @@ if(screenshots)await mkdir(screenshots,{recursive:true});
 const data=structuredClone(catalogueSource);
 const exact=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
 const fixture=renderToStaticMarkup(React.createElement('html',{dir:'rtl',lang:'he'},
- React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8'))),
+ React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8')+await readFile(path.join(root,'src/equation-wrap.css'),'utf8'))),
  React.createElement('body',null,React.createElement('article',{className:'theory panel',style:{margin:24}},
  bidiElement('p',{id:'exact'},exact),
  bidiElement('p',null,'נתון: ΔH_vap = 40.7 kJ/mol; T_1 = 300 K; x_A = 0.25; P°_A = 80 kPa'),
@@ -75,7 +75,7 @@ try{
     const text=await js(`document.querySelectorAll('.exam-part .solution')[${i}].textContent`);assert.ok(text.length>20,p.id+' solution '+i);
    }
    await assertWidth(p.id+' '+width);
-   assert.ok(await js(`Array.from(document.querySelectorAll('.solution .display-math')).every(e=>getComputedStyle(e).direction==='ltr'&&getComputedStyle(e).whiteSpace==='nowrap'&&getComputedStyle(e).overflowX==='auto')`),'authored calculations remain LTR and scrollable');
+   assert.ok(await js(`Array.from(document.querySelectorAll('.solution .display-math')).every(e=>getComputedStyle(e).direction==='ltr'&&getComputedStyle(e).overflowX==='auto'&&(${width}>600?getComputedStyle(e).whiteSpace==='nowrap':e.querySelector('.math-fraction')||getComputedStyle(e).whiteSpace==='normal'))`),'authored calculations stay LTR, scrollable on desktop and wrapped on a phone');
    if(p.id==='E10'&&width!==320){await js(`document.querySelector('.exam-part').scrollIntoView({block:'start'});scrollBy(0,-100)`);await shot('final-prep-inverse-solution-'+width);await js(`document.querySelectorAll('.exam-part')[1].scrollIntoView({block:'start'});scrollBy(0,-100)`);await shot('final-prep-inverse-check-'+width);}
    await js(`document.querySelector('.practice-session-heading button').click()`);await ready('.practice-session-grid');
   }
@@ -97,6 +97,8 @@ try{
    }
    assert.equal(await js(`document.querySelectorAll('.worked .solution').length`),add.worked.length);
    await assertWidth(id+' worked '+width);
+   if(width<=600)assert.deepEqual(await js(`Array.from(document.querySelectorAll('.worked .solution .display-math')).filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>e.textContent.slice(0,40))`),[],id+' worked equations are clipped at '+width);
+   if(width<=600){const tok=await js(`(()=>{const t=Array.from(document.querySelectorAll('.worked .solution .display-math .math-token'));return {n:t.length,split:t.filter(e=>e.getClientRects().length>1||!/\\d|sub/.test(e.innerHTML)).map(e=>e.textContent),numeric:t.filter(e=>/^[+−-]?\\d/.test(e.textContent)).length}})()`);assert.ok(tok.n>0,id+' worked equations have no number tokens at '+width);assert.deepEqual(tok.split,[],id+' a number or symbol+subscript token wraps at '+width)}
    if(id==='G15'&&width===390){await js(`Array.from(document.querySelectorAll('.worked')).find(e=>e.querySelector('h3').textContent.includes('פירוק שניוני')).querySelector('.solution').scrollIntoView({block:'start'});scrollBy(0,-110)`);await shot('final-prep-solution-particles-390');}
    // Submit a fresh new numeric question through the real controls and verify storage on reload.
    if(width===390){

@@ -41,7 +41,25 @@ function CompactFace({text}){
 // by normalizeBidiText so reciprocals and operators keep their order and meaning.
 const mathDir=text=>/[\u0590-\u05ff]/.test(text)?'rtl':'ltr';
 const mathLine=line=>/[\u0590-\u05ff]/.test(line)?mathNotation(normalizeBidiText(line)):mathNotation(line);
-function PlainDisplay({text,typeset,variant}){if(variant==='compact'||variant==='print')return React.createElement(CompactFace,{text:typeset||text});return React.createElement('div',{className:'display-math',dir:mathDir(text),tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(typeset||text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathLine(line))));}
+// Display equations wrap on phones (equation-wrap.css). Numbers, signs and a symbol with its subscript stay whole tokens, so
+// a break can fall between operands but never inside 0.468750 or m_solvent. Text content is unchanged.
+const displayTokens=nodes=>{
+ const flat=[nodes].flat(Infinity),out=[];let k=0;
+ for(const node of flat){
+  if(typeof node==='string'){
+   node.split(/([+−-]?\d+(?:[.,]\d+)*)/g).forEach((part,i)=>{if(!part)return;if(i%2)out.push(React.createElement('span',{key:'t'+k++,className:'math-token'},part));else out.push(part)});
+   continue;
+  }
+  if(node&&node.type==='sub'&&typeof out[out.length-1]==='string'){
+   const m=out[out.length-1].match(/[A-Za-zΑ-Ωα-ω]$/);
+   if(m){out[out.length-1]=out[out.length-1].slice(0,-1)||undefined;if(out[out.length-1]===undefined)out.pop();out.push(React.createElement('span',{key:'t'+k++,className:'math-token'},m[0],node));continue}
+  }
+  out.push(node);
+ }
+ return out.map((x,i)=>typeof x==='string'?x:React.cloneElement(x,{key:'d'+i}));
+};
+const displayLine=line=>displayTokens(mathLine(line));
+function PlainDisplay({text,typeset,variant}){if(variant==='compact'||variant==='print')return React.createElement(CompactFace,{text:typeset||text});return React.createElement('div',{className:'display-math',dir:mathDir(text),tabIndex:0,'aria-label':'נוסחה'},...resolveConstants(typeset||text).split(/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...displayLine(line))));}
 
 // A formula with a symbol popup. The trigger is the formula itself: hovering it
 // (mouse) for half a second opens the popup, keyboard focus opens it at once and
@@ -86,7 +104,7 @@ function SymbolFormula({text,symbols=[],explanation,typeset,variant}){
  },[open]);
  const heading=symbols.length?'מקרא סמלים':'הסבר הסימון';
  const legend=()=>React.createElement(React.Fragment,null,explanation&&React.createElement('p',{className:'formula-explanation'},React.createElement(ScientificText,{runs:[explanation]})),symbols.length>0&&React.createElement(SymbolList,{rows}));
- const lines=()=>resolveConstants(typeset||text).split(explanation&&!symbols.length?/ {3,}| ; /:/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...mathLine(line)));
+ const lines=()=>resolveConstants(typeset||text).split(explanation&&!symbols.length?/ {3,}| ; /:/ {3,}/).map((line,i)=>React.createElement('div',{key:i},...displayLine(line)));
  return React.createElement('div',{ref:tip,className:'formula-tip'+(variant==='compact'?' formula-compact':'')+(open?' open':'')+(place?.above?' above':''),
   onFocus:()=>{cancel();setOpen(true)},onBlur:e=>{if(!e.currentTarget.contains(e.relatedTarget))setOpen(false)},
   onKeyDown:e=>{if(e.key==='Escape'){cancel();setOpen(false);face.current&&face.current.focus()}}},

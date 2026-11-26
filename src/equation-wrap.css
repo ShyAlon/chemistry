@@ -1,0 +1,5 @@
+/* Long non-fraction display equations wrap on phones instead of clipping. */
+@media(max-width:600px){.display-math:not(:has(.math-fraction)){white-space:normal;overflow-wrap:anywhere}.display-math:not(:has(.math-fraction))>div{min-width:0}}
+.display-math .math-token{white-space:nowrap}
+@media(max-width:600px){.formula-pop-eq:not(:has(.math-fraction)){white-space:normal;overflow-wrap:anywhere}}
+.formula-pop-eq .math-token{white-space:nowrap}

@@ -103,7 +103,7 @@ test('formula popup: readable repeated formula, isolated LTR math in symbols, ke
  const html=renderToStaticMarkup(React.createElement(FormulaTip,{text:'Ē\u0304ₖ = 3kT/2        k = R/Nₐ',symbols:Object.entries(SYMBOLS).filter(([id,s])=>s.sym.includes('ₖ')&&JSON.stringify(s.meaning).includes('מולקולה אחת')||id==='k'||id==='R').map(([id])=>id)}));
  assert.match(html,/role="tooltip"/);assert.match(html,/tabindex="0"/);assert.match(html,/aria-describedby=/);
  assert.ok(html.includes('class="formula-pop-eq"'));assert.ok(html.includes('class="formula-print-key"'));
- assert.ok((html.match(/3kT\/2/g)||[]).length>=2,'formula is repeated in the popup');
+ assert.ok((html.replace(/<span class="math-token">(.*?)<\/span>/g,'$1').match(/3kT\/2/g)||[]).length>=2,'formula is repeated in the popup');
  assert.ok(html.includes('<bdi dir="ltr" class="inline-math">1.381×10⁻²³ J/K</bdi>'),html);
  assert.ok(html.includes('<bdi dir="ltr" class="inline-math">8.314 J/(mol·K)</bdi>'));
  const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');

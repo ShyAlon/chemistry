@@ -19,7 +19,7 @@ if(screenshots)await mkdir(screenshots,{recursive:true});
 const data=structuredClone(catalogueSource);
 const exact=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
 const fixture=renderToStaticMarkup(React.createElement('html',{dir:'rtl',lang:'he'},
- React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8'))),
+ React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8')+await readFile(path.join(root,'src/equation-wrap.css'),'utf8'))),
  React.createElement('body',null,React.createElement('article',{className:'theory panel',style:{margin:24}},
  bidiElement('p',{id:'exact'},exact),
  bidiElement('p',null,'נתון: ΔH_vap = 40.7 kJ/mol; T_1 = 300 K; x_A = 0.25; P°_A = 80 kPa'),
@@ -404,6 +404,13 @@ try{
   await tapFace('.formula-tip .display-math');await ready('.formula-tip.open .formula-pop');
   await js(`document.querySelector('.formula-pop-close').click()`);await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
   assert.ok(!await js(`document.querySelector('.formula-tip').classList.contains('open')`),'✕ closes the popup');
+  for(const width of [320,390]){ // long popup equations wrap with whole number tokens instead of clipping (phone widths)
+   await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:true});await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G15'});await ready('article.theory .formula-tip');
+   const pop=await js(`(()=>{const tips=[...document.querySelectorAll('article.theory .formula-tip')].filter(t=>t.querySelector('.formula-pop-eq')&&!t.querySelector('.formula-pop-eq .math-fraction'));tips.forEach(t=>t.classList.add('open'));const eqs=tips.map(t=>t.querySelector('.formula-pop-eq'));return {n:eqs.length,clipped:eqs.filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>e.textContent.slice(0,40)),split:eqs.flatMap(e=>[...e.querySelectorAll('.math-token')]).filter(t=>t.getClientRects().length>1).map(t=>t.textContent),tokens:eqs.reduce((a,e)=>a+e.querySelectorAll('.math-token').length,0)}})()`);
+   assert.ok(pop.n>0&&pop.tokens>0,'popup equations with number tokens exist at '+width);
+   assert.deepEqual(pop.clipped,[],'popup equations are clipped at '+width);
+   assert.deepEqual(pop.split,[],'a popup number token wraps at '+width);
+  }
   console.log('Formula popup checks passed: centered rounded trigger, inert row, barred radicals, 0.5s hover intent, 1s/0.5s fades, hover-capability affordances, tap toggle, ✕ close.');
  }
  // The spectral column shrinks then vanishes on scroll, and the lesson reclaims its width.

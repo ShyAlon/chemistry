@@ -59,7 +59,9 @@ test('mixed Hebrew-prose items render RTL, pure-math items stay LTR',()=>{
  assert.ok(ltr.includes('dir="ltr"'),ltr);
 });
 test('mixed Hebrew items isolate math runs: reciprocals keep order and meaning',()=>{
- const html=render(React.createElement(DisplayMath,{text:'כליאה ∝ 1/R²'}));
+ const raw=render(React.createElement(DisplayMath,{text:'כליאה ∝ 1/R²'}));
+ const html=raw.replace(/<span class="math-token">(.*?)<\/span>/g,'$1'); // number tokens are wrappers only: text and order are unchanged
+ assert.ok(raw.includes('<span class="math-token">1</span>'),raw);
  assert.ok(html.includes('dir="rtl"'),html);
  assert.ok(html.includes('⁦1/R²⁩'),html);
  assert.ok(!html.includes('R²/1'),html);
@@ -96,4 +98,13 @@ test('equation and symbol popup reuse the same stacked fraction expression',()=>
  const html=render(React.createElement(FormulaTip,{text:'frac{a}{b}·e^(−frac{x}{y})',symbols:['exp']}));
  assert.equal((html.match(/class="math-fraction"/g)||[]).length,4);
  assert.ok(html.includes('exp(x) = e<sup>x</sup>'));
+});
+
+test('display equations keep numbers and symbol+subscript pairs as atomic tokens without changing text',()=>{
+ const raw=render(React.createElement(DisplayMath,{text:'i = 2.0925/(1.86·0.468750)   M = K_f·m_solute/[ΔT_f·m_solvent(kg)]   ln(P_2/20.0) = (30000/8.314)·(1/300 − 1/330)'}));
+ for(const t of ['2.0925','1.86','0.468750','20.0','30000','8.314','300','330'])assert.ok(raw.includes('<span class="math-token">'+t+'</span>'),t+' '+raw);
+ assert.ok(raw.includes('<span class="math-token">K<sub>f</sub></span>')&&raw.includes('<span class="math-token">m<sub>solvent</sub></span>'),raw);
+ assert.ok(raw.includes('<span class="math-token">−'+'</span>')===false,'a spaced minus is an operator, not part of a number');
+ const text=raw.replace(/<[^>]+>/g,'');
+ assert.ok(text.includes('2.0925/(1.86·0.468750)'),text);
 });

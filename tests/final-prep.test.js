@@ -26,12 +26,29 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // Solid State SS1-SS4 gained stable theory-block ids for source-coverage mapping; same fixture pattern as E5/E6.
  for(const id of ['SS1','SS2','SS3','SS4']){const n=original.courses.find(c=>c.id==='solid-state'),i=n.topics.findIndex(t=>t.id===id);n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/solid-state-'+id+'-before-repair.json',import.meta.url)))}
  original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
+ // Nano N13 is a new topic authored after the reviewed-main snapshot this hash protects; drop it so the hash still proves every pre-existing byte is retained.
+ {const n=original.courses.find(c=>c.id==='nano');n.topics=n.topics.filter(t=>t.id!=='N13');}
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   else undoFormulaReview(t);
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
   for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep&&!b.batch4);
  }
+ // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as E5/E6/SS1-SS4 above.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 worked 1 ("סוג 1") answer line was intentionally repaired in the same audit round (3718.55 -> 3718.45) and later re-laid-out as short math lines; restore the whole pre-audit array.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.'];
+ // G10 worked 11 (מהלך חופשי) and worked 12 (חימום Cv) were re-laid-out as short math lines in the visual review round; restore their pre-layout arrays.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[10].content=['כלי מכיל CO₂ ב-27°C ובלחץ 0.60 atm. קוטר המולקולה ρ = 3.4 Å. מה המהלך החופשי הממוצע, וכמה פעמים בשנייה מתנגשת מולקולה ממוצעת?','P = 0.60×101325 = 60,795 Pa. λ = 8.314×300.15/(√2·π·(3.4×10⁻¹⁰)²×6.022×10²³×60,795) = 1.33×10⁻⁷ m, כלומר כ-133 nm. v_avg = √(8×8.314×300.15/(π×0.044)) = 380 m/s, ולכן z = 380/1.33×10⁻⁷ ≈ 2.9×10⁹ התנגשויות בשנייה. שימו לב: M הומר לק"ג למול, הלחץ לפסקל והקוטר למטר — לפני ההצבה.'];
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[11].content=['0.200 mol N₂ (מולקולה קווית) בכלי קשיח מחוממים מ-25°C ל-125°C. כמה חום נדרש, בג׳ול ובקלוריות?','N₂ קווית ← Cv = 5R/2. q = 0.200×2.5×8.314×100 = 416 J. בקלוריות: q = 0.200×2.5×1.987×100 = 99.4 cal. להשוואה: גז חד־אטומי באותה כמות היה דורש 0.200×1.5×8.314×100 = 249 J בלבד — אין לו סיבובים "להאכיל".'];
+ // G10 worked 13 (van der Waals/Z) displayed-precision reconciliation (52.88 unrounded in the Z substitution); restore the pre-repair array.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[12].content=['דוחסים 1.00 mol CO₂ ל-0.500 L ב-100°C. נתון a = 3.52 L²·atm/mol² ו-b = 0.0427 L/mol. חשבו את הלחץ לפי ואן דר ואלס, את מקדם הדחיסות Z, ומה לומדים ממנו.','אידיאלי: P = 0.08206×373.15/0.500 = 61.2 atm. ואן דר ואלס: P = RT/(V−b) − a/V² = 30.62/0.4573 − 3.52/0.25 = 66.96 − 14.08 = 52.9 atm. מקדם הדחיסות: Z = PV/RT = 52.9×0.500/30.62 = 0.863. Z<1: בתנאים אלה המשיכה הבין־מולקולרית (a) מנצחת את תיקון הנפח העצמי (b) — הגז נדחס יותר ממה שהמודל האידיאלי חוזה.'];
+ // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
+ {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
+ for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
+  th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';
+  const cvb=th.find(b=>(b.text||'').includes('אלו ערכי מינימום'));
+  cvb.text=cvb.text.replace('מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן','מתעוררת ו-Cv גדל מעבר להם. לכן');}
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'0be1ffb658af1ba6f3b88d2bdd971b99b76cc3623c14bb20d9e38052c5e585d5');
  assert.equal(course.topics.length,16);
  for(const [id,add] of Object.entries(layer)){

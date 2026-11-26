@@ -25,6 +25,15 @@ test('worked calculations keep signs, atomic masses and explicit solution volume
 test('original topics and questions are unchanged except the explicit V+ correction',()=>{
  // Fixed from reviewed main 0d40e61. Does not require historical Git objects in CI.
  const original=[data.courses[0].topics.slice(0,10),course.topics.slice(0,12)].map(ts=>ts.map(beforePractice));
+ // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as the V+ correction below.
+ original[1].find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 worked 1 answer line repaired in the same audit round (3718.55 -> 3718.45); same fixture pattern.
+ original[1].find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.'];
+ {const th=original[1].find(t=>t.id==='G10').content.theory;
+ {const b56=th.find(b=>(b.text||'').includes('√2·π·ρ²·Nₐ·P'));if(b56)b56.text='λ = R·T/(√2·π·ρ²·Nₐ·P)        z = v_avg/λ';} /* pre-repair duplicate-z text restored in-memory; batch3-stripped in some fixtures */
+ {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
+ for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
+ }
  // Restore only the approved correction; retain the original baseline digest.
  const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');

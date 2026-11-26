@@ -30,7 +30,7 @@ test('nuclear course content is pinned to its reviewed snapshot',()=>{
 });
 
 test('course content and answer data stay identical except the explicit V+ worked-answer correction',()=>{
- const copy=structuredClone(data);copy.courses=copy.courses.filter(c=>c.id!=='nuclear'&&c.id!=='general-chemistry-2');copy.courses[0].topics=copy.courses[0].topics.slice(0,10);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
+ const copy=structuredClone(data);copy.courses=copy.courses.filter(c=>c.id!=='nuclear'&&c.id!=='general-chemistry-2');copy.courses[0].topics=copy.courses[0].topics.slice(0,10);copy.courses.find(c=>c.id==='84101').topics=copy.courses.find(c=>c.id==='84101').topics.slice(0,12);copy.courses.find(c=>c.id==='nano').topics=copy.courses.find(c=>c.id==='nano').topics.filter(t=>t.id!=='N13'); /* N13 is new content after the pinned snapshot; removing it keeps the unchanged-content proof intact */for(const c of copy.courses)c.topics=c.topics.map(beforePractice);for(const c of copy.courses)for(const t of c.topics)for(const p of t.content.theory){delete p.definition;delete p.layout}
  const vanadium=copy.courses.find(c=>c.id==='84102').topics.find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  assert.equal(vanadium.content.length,4);
  assert.match(vanadium.content[2],/לפי כלל ההוצאה הנלמד בקורס/);
@@ -39,5 +39,12 @@ test('course content and answer data stay identical except the explicit V+ worke
  assert.match(vanadium.content[3],/\[Ar\]3d⁴/);
  // Restore only this known correction before checking the unchanged content baseline.
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
+ // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as the V+ correction above.
+ copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.']; /* same repaired worked-1 line, reverted in-memory */
+ {const th=copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
+ {const b56=th.find(b=>(b.text||'').includes('√2·π·ρ²·Nₐ·P'));if(b56)b56.text='λ = R·T/(√2·π·ρ²·Nₐ·P)        z = v_avg/λ';} /* pre-repair duplicate-z text restored in-memory; batch3-stripped in some fixtures */
+ {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
+ for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
+ }
  assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'ecac22810423c5707fd80ee9c63b4fa229d3df6c9bb6abba8e0205d69c5ea3e4');
 });

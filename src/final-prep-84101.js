@@ -8,6 +8,7 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t69",
     "style": "Normal",
     "text": "מתחילים במצב, לא בהצבה. רושמים לכל שלב מי נמצא בכלי, כמה מולים יש, ומה נשאר קבוע. מפרידים שלב אידיאלי שבו מוצאים n, משלב צפוף שבו מחשבים P או Z. סילוק גז משנה את n; דחיסה לבדה אינה משנה אותו. לחץ של פחות מ-1 atm יכול להיות הנחת שאלה נוחה, אבל אינו גבול פיזיקלי אוניברסלי לאידיאליות.",
     "finalPrep": true
@@ -18,11 +19,13 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t70",
     "style": "Normal",
     "text": "באותם n,V,T תיקון הנפח מגדיל את הלחץ: למרכזי המולקולות פנוי פחות נפח. תיקון המשיכה מקטין אותו. אין כלל שלפיו גז ממשי תמיד מפעיל פחות לחץ מגז אידיאלי. בודקים את ההפרש בין שני התיקונים, לא את a או b לבדם.",
     "finalPrep": true
    },
    {
+    "id": "G10-t71",
     "text": "P = nRT/(V − nb) − an²/V²",
     "style": "Normal",
     "layout": "equation",
@@ -37,6 +40,7 @@ export const finalPrep84101={
     "notationOf": 43
    },
    {
+    "id": "G10-t72",
     "text": "Z = V/(V − nb) − an/(VRT)",
     "style": "Normal",
     "layout": "equation",
@@ -51,12 +55,14 @@ export const finalPrep84101={
     "notationOf": 44
    },
    {
+    "id": "G10-t73",
     "text": "בצורת הנפח המולרי:",
     "style": "Normal",
     "finalPrep": true,
     "notationOf": 45
    },
    {
+    "id": "G10-t74",
     "text": "Vₘ = V/n",
     "style": "Normal",
     "layout": "equation",
@@ -68,12 +74,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t75",
     "text": "התיקון הראשון הוא:",
     "style": "Normal",
     "notationOf": 45,
     "finalPrep": true
    },
    {
+    "id": "G10-t76",
     "text": "Vₘ/(Vₘ − b)",
     "style": "Normal",
     "layout": "equation",
@@ -85,12 +93,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t77",
     "text": "והתיקון השני הוא:",
     "style": "Normal",
     "notationOf": 45,
     "finalPrep": true
    },
    {
+    "id": "G10-t78",
     "text": "a/(RTVₘ)",
     "style": "Normal",
     "layout": "equation",
@@ -104,12 +114,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t79",
     "text": "בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים בערך:",
     "style": "Normal",
     "notationOf": 45,
     "finalPrep": true
    },
    {
+    "id": "G10-t80",
     "text": "R = {R@latm}",
     "style": "Normal",
     "layout": "equation",
@@ -120,17 +132,20 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t81",
     "text": "אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
     "style": "Normal",
     "notationOf": 45,
     "finalPrep": true
    },
    {
+    "id": "G10-t82",
     "style": "Callout",
     "text": "בדיקת תחום: V חייב להיות גדול מ-nb. קרבה ל-nb גורמת לתיקון גדול ומזהירה מפני שימוש כמותי נאיבי במודל הפשוט. Z = 1 בנקודה אחת אינו אומר שאין כוחות: ייתכן ששני התיקונים מתקזזים.",
     "finalPrep": true
    },
    {
+    "id": "G10-t83",
     "style": "Figure",
     "text": "התרשים מחושב ממודל ואן דר ואלס לדוגמה עם a = 3.592, b = 0.04267 ו-R = 0.08206. הציר האופקי הוא צפיפות מולרית, לא לחץ. הקווים אינם נתוני מדידה; רואים ביטול מסדר ראשון בטמפרטורת בויל, אך לא זהות לגז אידיאלי בכל צפיפות.",
     "finalPrep": true,
@@ -142,12 +157,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t84",
     "text": "נסמן:",
     "style": "Normal",
     "finalPrep": true,
     "notationOf": 49
    },
    {
+    "id": "G10-t85",
     "text": "c = n/V",
     "style": "Normal",
     "layout": "equation",
@@ -159,12 +176,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t86",
     "text": "כאשר bc קטן, מפתחים:",
     "style": "Normal",
     "notationOf": 49,
     "finalPrep": true
    },
    {
+    "id": "G10-t87",
     "text": "1/(1 − bc) ≈ 1 + bc",
     "style": "Normal",
     "layout": "equation",
@@ -176,12 +195,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t88",
     "text": "ונקבל:",
     "style": "Normal",
     "notationOf": 49,
     "finalPrep": true
    },
    {
+    "id": "G10-t89",
     "text": "Z ≈ 1 + [b − a/(RT)]·c",
     "style": "Normal",
     "layout": "equation",
@@ -197,12 +218,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t90",
     "text": "בטמפרטורה:",
     "style": "Normal",
     "notationOf": 49,
     "finalPrep": true
    },
    {
+    "id": "G10-t91",
     "text": "T_B = a/(Rb)",
     "style": "Normal",
     "layout": "equation",
@@ -216,12 +239,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t92",
     "text": "המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
     "style": "Normal",
     "notationOf": 49,
     "finalPrep": true
    },
    {
+    "id": "G10-t93",
     "text": "T_B = a/(Rb)        Z(T_B) − 1 = (bc)²/(1 − bc)",
     "style": "Normal",
     "layout": "equation",
@@ -237,12 +262,14 @@ export const finalPrep84101={
     "notationOf": 50
    },
    {
+    "id": "G10-t94",
     "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה:",
     "style": "Normal",
     "finalPrep": true,
     "notationOf": 51
    },
    {
+    "id": "G10-t95",
     "text": "c = 1.00 mol/L",
     "style": "Normal",
     "layout": "equation",
@@ -253,12 +280,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t96",
     "text": "נותן:",
     "style": "Normal",
     "notationOf": 51,
     "finalPrep": true
    },
    {
+    "id": "G10-t97",
     "text": "bc ≈ 0.043",
     "style": "Normal",
     "layout": "equation",
@@ -270,6 +299,7 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t98",
     "text": "זה קטן, אך לא אפס.",
     "style": "Normal",
     "notationOf": 51,
@@ -281,12 +311,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t99",
     "text": "אם נתונים Z, n, V, T ו-b, מחלצים:",
     "style": "Normal",
     "finalPrep": true,
     "notationOf": 53
    },
    {
+    "id": "G10-t100",
     "text": "a = (VRT/n)·[V/(V − nb) − Z]",
     "style": "Normal",
     "layout": "equation",
@@ -301,12 +333,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t101",
     "text": "אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל:",
     "style": "Normal",
     "notationOf": 53,
     "finalPrep": true
    },
    {
+    "id": "G10-t102",
     "text": "ΔP = nRΔT/(V − nb)",
     "style": "Normal",
     "layout": "equation",
@@ -320,12 +354,14 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t103",
     "text": "מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
     "style": "Normal",
     "notationOf": 53,
     "finalPrep": true
    },
    {
+    "id": "G10-t104",
     "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
     "style": "Normal",
     "layout": "equation",
@@ -341,6 +377,7 @@ export const finalPrep84101={
     "notationOf": 54
    },
    {
+    "id": "G10-t105",
     "text": "b = (V − D)/n        a = [nRT₁/D − P₁]V²/n²",
     "style": "Normal",
     "layout": "equation",
@@ -356,6 +393,7 @@ export const finalPrep84101={
     "notationOf": 55
    },
    {
+    "id": "G10-t106",
     "style": "Normal",
     "text": "סיום פתרון: מציבים את a,b בשתי המדידות המקוריות, ולא רק ביעד. בודקים a≥0 ו-b≥0 למודל הקורס, V>nb, יחידות וסימן הסטייה. מספרים מעוגלים עשויים להחזיר הבדל קטן. אם אין פתרון סביר, בודקים נתונים לפני שמכריזים שהגז מוזר.",
     "finalPrep": true
@@ -366,11 +404,13 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t107",
     "style": "Normal",
     "text": "צפיפות תערובת אידיאלית נותנת מסה מולרית ממוצעת M̄ = ρRT / P. לתערובת בינרית: M̄ = x_AM_A + (1 − x_A)M_B. אחרי שמוצאים הרכב מחשבים את מולי הרכיב שנותר; את המשוואה הממשית מפעילים על הרכיב המבודד, לא על כלל מולי התערובת המקורית.",
     "finalPrep": true
    },
    {
+    "id": "G10-t108",
     "style": "Normal",
     "text": "בתגובה כותבים שינויי מולים לפי מקדמים. לדוגמה 2CO + O₂→2CO₂: אם ξ מול חמצן מגיב, סך המולים יורד ב-ξ ונוצרים 2ξ מול CO₂. משווים את המולים לפני ואחרי, לא לחצים שנמדדו בטמפרטורות שונות ללא תיקון T.",
     "finalPrep": true
@@ -381,6 +421,7 @@ export const finalPrep84101={
     "finalPrep": true
    },
    {
+    "id": "G10-t109",
     "style": "Callout",
     "text": "משוואת ואן דר ואלס היא מודל קורס מועיל, לא טבלת פאזות. למשל החישוב שהתבקש עבור CO₂ ב- −130°C הוא תרגול אלגברי של המודל. אין לפרש אותו כהוכחה שהחומר במצב גז יציב שם. סמוך לעיבוי, לקיפאון או לנקודה הקריטית צריך לבדוק פאזות ומודל מתאים; גם לחץ חיובי לבדו אינו מאמת את ההנחה.",
     "finalPrep": true

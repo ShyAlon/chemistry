@@ -3649,6 +3649,30 @@
    ],
    "allowedSymbols": [],
    "note": "Nuclear E6 source-coverage repair: same UF6 conversion reactions moved from theory/14 to theory/55 on stable-id rewrite, then to theory/54 after a duplicate India block was removed in review; chemical formulas are labels, coefficients are plain numbers, no algebraic quantities."
+  },
+  "84101/G10/theory/64": {
+   "expression": "λ = R·T/(√2·π·ρ²·Nₐ·P)",
+   "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
+   "bindings": {
+    "λ": "λ",
+    "R": "R",
+    "T": "T",
+    "ρ": "ρ#2",
+    "Nₐ": "Nₐ",
+    "P": "P",
+    "π": "pi"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "λ",
+    "R",
+    "T",
+    "ρ#2",
+    "Nₐ",
+    "P",
+    "pi"
+   ],
+   "note": "Round-3 repair: duplicated z = v_avg/λ tail dropped (stated in its own block right below); explicit quantity coverage added per manifest policy."
   }
  },
  "legacyUnreviewed": {
@@ -3699,7 +3723,6 @@
   "84101/G10/theory/47": "4350550f6d09493f0cd67076ae9ed369bf20aa689eec0db42e5a12fb652b5598",
   "84101/G10/theory/52": "82472ce7a564fffd061eb9ba8620d8d9c43e5439a6daf771b866494dfa8e1442",
   "84101/G10/theory/58": "4cfd154dc45046c75fd5892d59e5065f7c2f3ff56a0648305b7896db247ccd22",
-  "84101/G10/theory/64": "17e2ae9ddf0716a7b3101015445c76d18f3c872f71acf4e3243e4bbbcf94e9ff",
   "84101/G10/theory/66": "ca82259c3d03160b30fffe2abf0d37325cca37ec268df1b1ab6242c82de895b5",
   "84101/G10/theory/69": "fce543c87a0e9d83142ce67df20b6022158fdd61ca16fb0167336aaa0fa12661",
   "84101/G10/theory/71": "a18ae5995aef1c3aff644da50c7bbd7e6f1466c9387dd7b8185a85f133cedd5d",
@@ -4456,6 +4479,7 @@
   "gc2:KT2": "741921605f5beaa4d1b4a6ada7f4314e4c4015c4630dccf4e7af5cb4aec2072b",
   "gc2:dHf": "478bebb84a8f29b70ea6912ecbfed012d6ed4430ae45b51df464c3b468e8baed",
   "gc2:dHtr": "c11e7cfe66f97008597d590fb12be81e6f70a6b2576557b4850ae702e46d457e",
-  "gc2:BHp": "753c98d36bf463a13767b9aeadb397332d4655b9d0a4cad80e5d7f02acb6b232"
+  "gc2:BHp": "753c98d36bf463a13767b9aeadb397332d4655b9d0a4cad80e5d7f02acb6b232",
+  "pi": "836d40edf2a4987b9586da6f35fc16dcbe008238c569e08331d96bd10fde8bbc"
  }
 }

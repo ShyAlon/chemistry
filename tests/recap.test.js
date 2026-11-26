@@ -35,6 +35,13 @@ test('all 57 previous inorganic questions and IDs stay byte-for-byte identical',
 test('entire General Chemistry course is unchanged outside the flagged batch3 exam-gap additions',()=>{
  const c=JSON.parse(JSON.stringify(data.courses[1]));
  for(const t of c.topics){t.content.theory=undoNotation(t).content.theory;t.source=t.source.split(' תוספת הכנה למבחן:')[0];for(const k of ['theory','worked','quiz'])t.content[k]=t.content[k].filter(b=>!b.batch3&&!b.batch4&&!b.finalPrep);}
+ // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45 = 3/2*8.3145*298.15); keep the pre-repair text so the baseline digest still proves every other byte.
+ c.topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 worked 1 answer line repaired in the same audit round (3718.55 -> 3718.45); same fixture pattern.
+ c.topics.find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.'];
+ {const th=c.topics.find(t=>t.id==='G10').content.theory;
+ for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
+ }
  assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });
 test('reviewed earlier inorganic data reconstructs with only documented additions and corrections',()=>{

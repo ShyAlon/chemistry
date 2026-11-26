@@ -42,7 +42,7 @@ try{
  for(const width of [320,390,1280]){
   await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<600});
   await navigate('#course/nano');await wait(`!!document.querySelector('.paper-entry')`);await geometry();await js(`document.querySelector('.paper-entry').scrollIntoView({block:'center'});true`);await shot('nano-map-'+width);
-  assert.equal(await js(`document.querySelectorAll('.topic-card').length`),12);
+  assert.equal(await js(`document.querySelectorAll('.topic-card').length`),13);
   await js(`localStorage.setItem('spectra-course-nano-progress-v1',${JSON.stringify(stored)});true`);
   for(const id of ['shape-2026','pbse-2017']){
    await navigate('#course/nano');await wait(`!!document.querySelector('.paper-entry')`);await js(`document.querySelector('.paper-entry a[href="#course/nano/papers/${id}"]').click();true`);await wait(`!!document.querySelector('.paper-reading')`);await geometry();await shot(id+'-reading-'+width);
@@ -74,5 +74,5 @@ try{
   assert.equal(await js(`localStorage.getItem('spectra-course-nano-progress-v1')`),stored);
  }
  assert.deepEqual(errors,[],'No runtime exceptions on paper journeys');
- console.log('PAPERS PASSED: both selected routes; mobile+desktop; all 20 oral reveals; all figure stations and worked answers; source tooltips; unchanged 12-topic progress; no overflow; real service-worker offline reloads and oral flow.');
+ console.log('PAPERS PASSED: both selected routes; mobile+desktop; all 20 oral reveals; all figure stations and worked answers; source tooltips; unchanged 13-topic progress; no overflow; real service-worker offline reloads and oral flow.');
 }finally{ws?.close();chrome.kill('SIGTERM');server.close();await rm(profile,{recursive:true,force:true,maxRetries:4,retryDelay:300})}

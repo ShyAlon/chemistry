@@ -1,0 +1,524 @@
+{
+  "schema": 2,
+  "course": "nuclear",
+  "topic": "E6",
+  "source": {
+    "sha256": "1d287b2db61c29ef1aad6e307c57612e1a7eb50fe3c1c61df4c5ed2c0e6377b0",
+    "kind": "pdf",
+    "pageCount": 26,
+    "locatorScheme": "pdf-page"
+  },
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+    "agent-01M89RY0MXDEQWC4Q42F62CKET"
+  ],
+  "semanticReview": {
+    "status": "done",
+    "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+    "sourceSha256": "1d287b2db61c29ef1aad6e307c57612e1a7eb50fe3c1c61df4c5ed2c0e6377b0",
+    "contentSha256": "a2cb960f400e6fe78f39f9a43c9c4ffe4bf19897aad07ca80d9f7478fe6c1c9e",
+    "unitMapSha256": "db1cbb064fef7f453e7576ed4423fce19db6a9566b4907a83302a90d60745408",
+    "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+    "adminPagesAttested": [
+      1,
+      2,
+      17,
+      25,
+      26
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "3021c2f23dec6384e6582443004fa0ba73a9922e347c71da220b4486a505a06f",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "title",
+          "disposition": "admin",
+          "label": "שקופית שער הקורס/השיעור",
+          "rationale": "שער בלבד, אין תוכן להעברה"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "49efd14610079665a83c8cf44362598258101398e6e1a4c178ec6e1fedae1bf1",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "outline",
+          "disposition": "admin",
+          "label": "תוכן עניינים של ההרצאה",
+          "rationale": "מפת סילבוס ניהולית; מבנה השיעור בנושא עצמו"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "a3a905a8f4e92b756e6371287c5752564147566dbd8838913a937bc8b147001b",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "כורי אוקלו הטבעיים בגבון",
+          "targets": [
+            "theory:E6-t18"
+          ]
+        },
+        {
+          "id": "p03.u2",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "אחוזי איזוטופים על השקופית (99.23%)",
+          "targets": [
+            "theory:E6-t02"
+          ],
+          "rationale": "בשקופית 99.23% ל-238U - שגיאת כתיב; CIAAW 2024: 99.2742% והשיעור שומר 99.27%"
+        },
+        {
+          "id": "p03.u3",
+          "kind": "claim",
+          "disposition": "corrected",
+          "label": "העשרת 235U בעת היווצרות הכורים ~3.6%",
+          "targets": [
+            "theory:E6-t18"
+          ],
+          "rationale": "השיעור אמר ~3%; תוקן ל-~3.6% לפי IAEA/WNA"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "409b5b2abe059645fc927a8494c152f7c232897b2aadacec9b0482d936c4a539",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "מאגרי אורניום לפי מדינה (OECD-NEA/IAEA 2020)",
+          "targets": [
+            "theory:E6-t03",
+            "theory:E6-t04",
+            "theory:E6-t05",
+            "theory:E6-t06",
+            "theory:E6-t07",
+            "theory:E6-t08",
+            "theory:E6-t09",
+            "theory:E6-t10",
+            "theory:E6-t12",
+            "theory:E6-t13",
+            "theory:E6-t14"
+          ],
+          "rationale": "הנתונים כפי שהופיעו; תואמים OECD-NEA/IAEA Uranium 2020 (1.1.2019, <260$/kgU); הודו תוקנה לערך המקור עם סימון אי-התאמה לשקופית"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "a53696572118ce50dc9a5e6f66150798d4a7896ef9709578c5d296d75ed939dd",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "figure",
+          "disposition": "excluded",
+          "label": "גרפי מחיר אורניום היסטוריים על השקופית",
+          "rationale": "גרפי מחיר היסטוריים אינם מועתקים; התקבלה החלטת בעלים (אופציה a) לתקציר מתוארך במקום",
+          "approval": "whatsapp:wareact-3c02095a3d94d3bd07855e1e49"
+        },
+        {
+          "id": "p05.u2",
+          "kind": "concept",
+          "disposition": "adapted",
+          "label": "מסקנת מחיר מתוארכת: דלק חלק קטן מעלות החשמל",
+          "targets": [
+            "theory:E6-t16"
+          ],
+          "rationale": "משפט אחד מתוארך (2026) במקום גרפים, ללא הצגת נתון היסטורי כעדכני"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "86fa194be00c4c61af942bde0935c0f5c0b86baabe38edfbcc2e80b755b2e89e",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "סקר NURE האמריקאי - מיפוי אורניום מהאוויר",
+          "targets": [
+            "theory:E6-t15"
+          ],
+          "rationale": "התווסף פרט 612 האזורים מהשקופית"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "93079f2bc5c753f11c14286dbad3592d71c0a1985e0c1841bf4dd1c61fff9ba4",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "חיידקים מחזרי סולפט מקבעים אורניום (ביורמדיאציה)",
+          "targets": [
+            "theory:E6-t66"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "6e8ff353caf00ac3f946c7edb5f5b265be609505fe02f2eb88ce8dffb4b1e43b",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "concept",
+          "disposition": "excluded",
+          "label": "צמחי מרפא מסורתיים והרדיואקטיביות בהם",
+          "rationale": "תוכן צמחי-מרפא שולי לכימיה גרעינית; הבעלים אישר שלא להעתיק",
+          "approval": "whatsapp:wareact-3c02095a3d94d3bd07855e1e49"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "719c67d3f604b22dea9b2e52f3ce28b150fa45d7e18a665c92cc990701db7177",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מקורות טבעיים: פרימורדיאליים, קוסמוגניים, תוצרי דעיכה (רדון)",
+          "targets": [
+            "theory:E6-t20",
+            "theory:E6-t21",
+            "theory:E6-t22"
+          ]
+        },
+        {
+          "id": "p09.u2",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "רדיואקטיביות במזון (40K בבננות) וחשיפה תזונתית",
+          "targets": [
+            "theory:E6-t23"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "3779cd19e924833ed39da2fbc08a59ec96f12ae5253c5e986dd2b6358539b5f1",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "מקורות אנתרופוגניים לרדיואקטיביות",
+          "targets": [
+            "theory:E6-t23"
+          ],
+          "rationale": "שלוש השורות החסרות נוספו: שחרורים מפעילות כורים, טרייסרים במעבדות, סילוק פסולת"
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "74ab81b149e52adc78734f21b94dccab6990d401147191a2050a65fde4c9fb46",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "238U: 12,437 Bq/g, מחצית חיים 4.468e9 שנים",
+          "targets": [
+            "theory:E6-t24",
+            "theory:E6-t25",
+            "worked:1"
+          ],
+          "rationale": "המסות על השקופית נוסחו מחדש כמסה הנותנת 1 kBq (0.08 גרם; עקבית עם 12,437 Bq/g)"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "b8d9f4badb345e80a1521eec49e5fa66f571e9fc1e8736b0a57b27e8bb58109b",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "238U: חזרה על 12,437 Bq/g",
+          "targets": [
+            "theory:E6-t25"
+          ],
+          "rationale": "השקופית חוזרת על ערכי שקופית 11 - כיסוי משותף"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "f1622c08bebc8e83ce5b90295ace001ef2fa8216568db76dc0b048f248bb1108",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "235U: 79,940 Bq/g, מחצית חיים 704e6 שנים",
+          "targets": [
+            "theory:E6-t26"
+          ],
+          "rationale": "המסה נוסחה מחדש כמסה הנותנת 1 kBq (0.0125 גרם; עקבית עם 79,940 Bq/g)"
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "b94ea7923b41f7656e864eaebe84f8cf554dcd97ceb6cfb029f4700b1ee4efb9",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "234U: 230,200,000 Bq/g, מחצית חיים 245,500 שנים",
+          "targets": [
+            "theory:E6-t27"
+          ],
+          "rationale": "המסה נוסחה מחדש כמסה הנותנת 1 kBq (4.3 מיקרוגרם; עקבית עם 230.2e6 Bq/g)"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "b907cdc46a7e2b9c651f1c94b03a883b9c0cbfcc48e8a4a8fe1093ef2d2ca5a5",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פרדוקס החזיר הבווארי - 137Cs בשר חזירי בר",
+          "targets": [
+            "theory:E6-t23"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "b55574ce26289783d1061332db7e22858a1f1c5b6ca7c127bf3afed05f44a21b",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "גרף דעיכת 137Cs לאורך זמן על השקופית",
+          "targets": [
+            "theory:E6-t28"
+          ],
+          "rationale": "עקומה מקורית מחושבת (A=A0·2^(-t/30.04y), מחצית חיים מ-NNDC) במקום אמנות השקופית"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "127bd08550024e604e962452af62259c1474b676bae20aabffd2754c55cb7620",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "divider",
+          "disposition": "admin",
+          "label": "סיכום אמצע שיעור / רקע אורניום טבעי",
+          "rationale": "שקופית מעבר ניהולית, אין תוכן חדש"
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "2e11860172e1707006649a8a241bed756b052b5ebca80d5cf2ac41a91a1f4f57",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תרשים IAEA של מעגל הדלק המלא",
+          "targets": [
+            "theory:E6-t64"
+          ],
+          "rationale": "האיור הורחב למעגל מלא: מסלול העשרה, מסלול CANDU ישיר, ענף reprocessing מפוצל - Pu לדלק MOX ו-RepU להעשרה חוזרת (WNA)"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "3f2c46db68c8879d301efa412dacad4f78a5719a294321dcf1b2c92b1dcf2742",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שלוש דרכי כרייה וריכוזי עפרה; הפקת Yellowcake",
+          "targets": [
+            "theory:E6-t30"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "imageSha256": "6b0ef2941c709c7e5364b560ba1bafd65789f1105157aff92a0e316a4befcdd0",
+      "units": [
+        {
+          "id": "p20.u1",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "אחד עשר מינרלים נושאי אורניום",
+          "targets": [
+            "theory:E6-t31",
+            "theory:E6-t32",
+            "theory:E6-t33",
+            "theory:E6-t34",
+            "theory:E6-t35",
+            "theory:E6-t36",
+            "theory:E6-t37",
+            "theory:E6-t38",
+            "theory:E6-t39",
+            "theory:E6-t40",
+            "theory:E6-t41",
+            "theory:E6-t42"
+          ],
+          "rationale": "שגיאות כתיב בנוסחאות השקופית תוקנו (Carnotite: K2 ו-VO4; Tyuyamunite: שני UO2)"
+        },
+        {
+          "id": "p20.u2",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "תרשים זרימה של טחינה והסחה",
+          "targets": [
+            "theory:E6-t30"
+          ],
+          "rationale": "שלבי הזרימה הושלמו: מחמצן NaClO3, שקיעת ADU (NH4)2U2O7 עם NH3, זרמי פסולת; שגיאות השקופית (NH3Cl, NH4U2O2) לא הועתקו"
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "imageSha256": "5cd9b94a495e765f6b43d57404a030ac5094efe60773ac94a784ca9403512a2f",
+      "units": [
+        {
+          "id": "p21.u1",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "עשר תרכובות אורניום - צבע ומסיסות",
+          "targets": [
+            "theory:E6-t43",
+            "theory:E6-t44",
+            "theory:E6-t45",
+            "theory:E6-t46",
+            "theory:E6-t47",
+            "theory:E6-t48",
+            "theory:E6-t49",
+            "theory:E6-t50",
+            "theory:E6-t51",
+            "theory:E6-t52",
+            "theory:E6-t53"
+          ],
+          "rationale": "שתי טעויות מסיסות בשקופית תוקנו מול CRC/Wikipedia: UO2F2 מסיס מאוד (לא בלתי מסיס), UO4 כמעט בלתי מסיס (לא מסיס)"
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "imageSha256": "96d6fbfbc7e5543299ecdb69c33efe31606866b06c000248cbb3c1b80fad2f9e",
+      "units": [
+        {
+          "id": "p22.u1",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "הרכב איזוטופי: טבעי/מועשר/דליל",
+          "targets": [
+            "theory:E6-t02",
+            "theory:E6-t55",
+            "theory:E6-t56",
+            "theory:E6-t57",
+            "quiz:1"
+          ],
+          "rationale": "השקופית מעגלת ל-99.28%; CIAAW 2024: 99.2742% והשיעור שומר 99.27%"
+        },
+        {
+          "id": "p22.u2",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שלושה שלבי הפיכה ל-UF6 ושיטות ההעשרה",
+          "targets": [
+            "theory:E6-t55",
+            "theory:E6-t56",
+            "theory:E6-t57",
+            "theory:E6-t58",
+            "theory:E6-t59"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "imageSha256": "d2c9333fcf177ce381d91bfa29dd1fe72768229c4e9c52801a60976395aaa7ec",
+      "units": [
+        {
+          "id": "p23.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "ייצור גלולות UO2, מוטות ומערכי דלק",
+          "targets": [
+            "theory:E6-t61"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "imageSha256": "16a5ba47bb7862ab97250401d920bf22902afc4ad638821ff48fd6c9e08c065e",
+      "units": [
+        {
+          "id": "p24.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דלק משומש: קליטת קרינה, אחסון מים/יבש, קבורה גיאולוגית",
+          "targets": [
+            "theory:E6-t63"
+          ],
+          "rationale": "טענת 3 סדרי גודל ב-40 שנה נתמכת ב-WNA (Myths and Realities: one-thousandth after 40 years)"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "imageSha256": "02edce450a2767ca992e5942444257cae4b3491e90d9b2c6ce5c53695f762272",
+      "units": [
+        {
+          "id": "p25.u1",
+          "kind": "outline",
+          "disposition": "admin",
+          "label": "סיכום וצפייה להרצאה הבאה",
+          "rationale": "סיכום ניהולי; התוכן עצמו בנושא"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "imageSha256": "f963207a299e4844a3d0ad19bf9a21c4903b69ad980929cae64147053a84b3b8",
+      "units": [
+        {
+          "id": "p26.u1",
+          "kind": "title",
+          "disposition": "admin",
+          "label": "שקופית קרדיטים ותודות",
+          "rationale": "קרדיטים בלבד"
+        }
+      ]
+    }
+  ]
+}

@@ -117,6 +117,7 @@ export function checkTopic(topic,cov){
    if(d==='admin'&&!ADMIN_KINDS.has(u.kind))e(w+'admin disposition is only for title/outline/divider/marker units');
    if(ADMIN_KINDS.has(u.kind)&&d!=='admin')e(w+'non-content units must be admin');
    if(d==='admin'){if(u.targets?.length)e(w+'admin units have no targets');if(!(u.rationale||'').trim())e(w+'admin needs rationale')}
+   else if(d==='excluded'){if(u.targets?.length)e(w+'excluded units have no targets')}
    else{
     if(!u.targets?.length)e(w+d+' needs targets');
     for(const t of u.targets||[]){if(!blockExists(topic,t))e(w+'target not found '+t);used.add(t)}

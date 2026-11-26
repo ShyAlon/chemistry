@@ -3612,6 +3612,43 @@
     "gc2:KspE"
    ],
    "note": "GC2 original sheet; every quantity bound explicitly to a GC2-specific definition, no letter inference."
+  },
+  "nuclear/E6/theory/54": {
+   "expression": "UO₂ + 4HF → UF₄ + 2H₂O   ;   UF₄ + F₂ → UF₆",
+   "contextDigest": "bb6eac3ee860f7086e4b8aa96c692fb9df65a1e9f1dd523134f41ec03017295f",
+   "bindings": {},
+   "literals": [
+    {
+     "text": "UO₂",
+     "kind": "label"
+    },
+    {
+     "text": "HF",
+     "kind": "label"
+    },
+    {
+     "text": "UF₄",
+     "kind": "label"
+    },
+    {
+     "text": "H₂O",
+     "kind": "label"
+    },
+    {
+     "text": "UF₆",
+     "kind": "label"
+    },
+    {
+     "text": "F₂",
+     "kind": "label"
+    },
+    {
+     "text": "→",
+     "kind": "label"
+    }
+   ],
+   "allowedSymbols": [],
+   "note": "Nuclear E6 source-coverage repair: same UF6 conversion reactions moved from theory/14 to theory/55 on stable-id rewrite, then to theory/54 after a duplicate India block was removed in review; chemical formulas are labels, coefficients are plain numbers, no algebraic quantities."
   }
  },
  "legacyUnreviewed": {
@@ -3732,7 +3769,6 @@
   "nuclear/E4/theory/18": "e8f58699a05fa1dc8fda939a28cbe40f375afeea13a1f9a2f364ac0a802d4b45",
   "nuclear/E5/theory/7": "917fc418b93fa224b4e9eed81079bd07077e485ad7db5255c436abcb2c2a4b00",
   "nuclear/E5/theory/8": "48650d54857393c1480c370beff81f8a964eda6006486e70c101790ae82d1c96",
-  "nuclear/E6/theory/14": "14623d0b76f4bc99c5f48cad4f00435cafa5afc4e081e37b8c4aff9c7c49e327",
   "nuclear/E7/theory/3": "2f837a04b5f224ad365922a44ac9ad860dcae93c16f91e23930959475b2d22b7",
   "84102/P1/נפח": "467e18ecabce505bb71ef6243b6d23685f29d9a38b0713ed8464e29be2488da9",
   "84102/P1/אורך": "1eeba4fafc5629883ba04cfc3d4e463b87735511f29b1ac4c3fc96bd21d7ddf8",

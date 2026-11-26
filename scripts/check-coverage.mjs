@@ -97,6 +97,31 @@ export function checkTopic(topic,cov){
  for(const k of Object.keys(cov.semanticReview||{}))if(!REVIEW_KEYS.has(k))e('unexpected review field '+k);
  if(!/^[0-9a-f]{64}$/.test(cov.source?.sha256||''))e('source.sha256 must be a 64-hex hash');
  const n=cov.source?.pageCount;if(!Number.isInteger(n)||n<1)e('source.pageCount invalid');
+ // Multi-file decks: the descriptor is the deck. Spans, ordering and the digest are all enforced,
+ // so a wrong span, a reordered file or a stale digest fails closed instead of passing as 64-hex.
+ if(cov.source?.files!==undefined){
+  const files=cov.source.files;
+  if(!Array.isArray(files)||!files.length)e('source.files must be a non-empty list when present');
+  const hex64=/^[0-9a-f]{64}$/;let expect=1,total=0;
+  for(const f of Array.isArray(files)?files:[]){
+   const w='source.files '+(f&&f.file||'?')+': ';
+   if(!f||typeof f.file!=='string'||!f.file.trim())e(w+'needs a file name');
+   if(!hex64.test(f&&f.sha256||''))e(w+'sha256 must be a 64-hex hash');
+   let span=0,ok=true;
+   for(const part of String(f&&f.pages||'').split(',')){
+    const m=/^(\d+)(?:-(\d+))?$/.exec(part.trim());
+    if(!m){ok=false;break}
+    const a=+m[1],b=m[2]===undefined?a:+m[2];
+    if(a<1||b<a){ok=false;break}
+    span+=b-a+1;
+   }
+   if(!ok||!span)e(w+'pages must be a span like "3-6,9"');
+   if(f&&f.firstPage!==expect)e(w+'firstPage must be '+expect+' (spans concatenate in file order)');
+   expect+=span;total+=span;
+  }
+  if(Number.isInteger(n)&&total&&total!==n)e('source.pageCount must equal the total of the source.files spans ('+total+')');
+  if(hex64.test(cov.source?.sha256||'')&&Array.isArray(files)&&files.length&&cov.source.sha256!==sha(JSON.stringify(files)))e('source.sha256 must equal sha256(JSON.stringify(source.files))');
+ }
  const seen=new Set(),ids=new Set(),used=new Set();
  for(const p of cov.pages||[]){
   for(const k of Object.keys(p))if(!PAGE_KEYS.has(k))e('page '+p.page+': unexpected field '+k);

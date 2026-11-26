@@ -34,6 +34,7 @@ test('original topics and questions are unchanged except the explicit V+ correct
  {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
  for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  }
+ for(const id of ['G13','G14','G15'])for(const b of original[1].find(t=>t.id===id)?.content.theory||[])delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  // Restore only the approved correction; retain the original baseline digest.
  const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');

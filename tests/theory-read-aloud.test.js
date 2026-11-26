@@ -6,7 +6,7 @@ test('all sixteen existing theory topics keep one reading unit per original bloc
  assert.equal(topics.length,16);let total=0,equations=0,figures=0;const ids=new Set();
  for(const t of topics){const before=JSON.stringify(t);const chunks=topicNarration(t.id,t.content.theory);assert.equal(chunks.length,t.content.theory.length);assert.equal(JSON.stringify(t),before);
   for(const [i,c]of chunks.entries()){assert.equal(c.display,t.content.theory[i].text);assert.ok(c.spoken.length>0);assert.ok(!/[A-Za-z{}]/.test(c.spoken),c.id);assert.ok(!ids.has(c.id));ids.add(c.id);if(t.content.theory[i].layout==='equation')equations++;if(c.style==='Figure')figures++;}total+=chunks.length;
- }assert.equal(total,542);assert.equal(equations,121);assert.equal(figures,23);assert.equal(Object.keys(readings).length,121);
+ }assert.equal(total,554);assert.equal(equations,121);assert.equal(figures,23);assert.equal(Object.keys(readings).length,121);
 });
 test('changed or newly introduced equation requires source review',()=>{
  const t=structuredClone(topics[0]);t.content.theory[6].text+=' + 1';assert.throws(()=>topicNarration(t.id,t.content.theory),/needs review/);

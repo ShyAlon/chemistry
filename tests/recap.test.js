@@ -38,7 +38,7 @@ test('entire General Chemistry course is unchanged outside the flagged batch3 ex
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45 = 3/2*8.3145*298.15); keep the pre-repair text so the baseline digest still proves every other byte.
  c.topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
  // G10 worked 1 answer line repaired in the same audit round (3718.55 -> 3718.45); same fixture pattern.
- c.topics.find(t=>t.id==='G10').content.worked[0].content[1]='E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.';
+ c.topics.find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.'];
  for(const b of c.topics.find(t=>t.id==='G10').content.theory)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });

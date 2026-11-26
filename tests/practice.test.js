@@ -106,9 +106,9 @@ test('batch3 worked examples carry the verified headline numbers',()=>{
  const lam=8.314*300.15/(Math.SQRT2*Math.PI*(3.4e-10)**2*6.022e23*60795);
  assert.ok(Math.abs(lam-1.33e-7)/1.33e-7<0.01);
  const w10=t('G10').content.worked.filter(w=>w.batch3);
- assert.ok(w10[0].content[1].includes('1.33×10⁻⁷')&&w10[0].content[1].includes('2.9×10⁹'));
+ const w10text=w10[0].content.join(' ');assert.ok(w10text.includes('1.33×10⁻⁷')&&w10text.includes('2.9×10⁹')); /* layout split into short math lines for phone; numbers verified across the item */
  const q=0.2*2.5*8.314*100;assert.ok(Math.abs(q-415.7)<0.1);
- assert.ok(w10[1].content[1].includes('416 J')&&w10[1].content[1].includes('99.4 cal'));
+ const w11text=w10[1].content.join(' ');assert.ok(w11text.includes('416 J')&&w11text.includes('99.4 cal')); /* same short-line layout */
  assert.ok(w10[2].content[1].includes('52.9 atm')&&w10[2].content[1].includes('0.863'));
  const w9=t('G9').content.worked.find(w=>w.batch3);
  const p9=0.2*0.08206*298.15/8+23.76/760;assert.ok(Math.abs(p9-0.643)<0.001);

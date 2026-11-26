@@ -76,7 +76,7 @@ export function AnimatedFigure({spec,accent}){
     {(spec.params||[]).length>0&&<div className="anim-params" role="group" aria-label="פרמטרים פיזיקליים של ההנפשה">
       {spec.params.map(q=><label key={q.id} className="anim-param"><span className="anim-param-name">{q.label}</span>
         <input type="range" data-param={q.id} min={q.min} max={q.max} step={q.step} value={params[q.id]} onChange={e=>setParams(o=>({...o,[q.id]:Number(e.target.value)}))} aria-label={q.label}/>
-        <output dir="ltr" className="anim-param-val">{Number(params[q.id]).toFixed(q.step<1?1:0)}{q.unit?' '+q.unit:''}</output></label>)}
+        <output dir="ltr" className="anim-param-val">{q.options?q.options[params[q.id]-q.min]:Number(params[q.id]).toFixed(q.step<1?1:0)+(q.unit?' '+q.unit:'')}</output></label>)}
       <button type="button" className="anim-btn anim-param-reset" onClick={()=>setParams(defaults)} disabled={!changed} aria-label="איפוס הפרמטרים לערכי השיעור">איפוס</button>
     </div>}
   </div>;

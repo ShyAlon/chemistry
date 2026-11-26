@@ -394,6 +394,62 @@
   "allowContainment": false,
   "allowOverlaps": []
  },
+ "surface-area-cut": {
+  "labels": [
+   {
+    "text": "1 cm³",
+    "box": 0
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "lamer-burst": {
+  "labels": [
+   {
+    "text": "C_min",
+    "box": 0
+   },
+   {
+    "text": "C_s",
+    "box": 0
+   },
+   {
+    "text": "סף גרעינות",
+    "box": 2
+   },
+   {
+    "text": "ריכוז רוויה",
+    "box": 2
+   },
+   {
+    "text": "I",
+    "box": 0
+   },
+   {
+    "text": "II",
+    "box": 1
+   },
+   {
+    "text": "III",
+    "box": 2
+   },
+   {
+    "text": "עלייה",
+    "box": 0
+   },
+   {
+    "text": "פרץ גרעינות",
+    "box": 1
+   },
+   {
+    "text": "גדילה בלבד",
+    "box": 2
+   }
+  ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
  "nuclear-half-life": {
   "labels": [],
   "allowContainment": false,

@@ -34,6 +34,11 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  }
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as E5/E6/SS1-SS4 above.
  original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
+ {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
+  th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';
+  const cvb=th.find(b=>(b.text||'').includes('אלו ערכי מינימום'));
+  cvb.text=cvb.text.replace('מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן','מתעוררת ו-Cv גדל מעבר להם. לכן');}
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'0be1ffb658af1ba6f3b88d2bdd971b99b76cc3623c14bb20d9e38052c5e585d5');
  assert.equal(course.topics.length,16);
  for(const [id,add] of Object.entries(layer)){

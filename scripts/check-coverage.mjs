@@ -183,7 +183,7 @@ export function checkTopic(topic,cov,{loadTopic}={}){
  }
  // Supporting sources: extra exercise files (homework, sample exams) that justify authored methods. This block is provenance, not
  // source coverage. The checker verifies shape, that every declared hash is pinned in sources.manifest.json (checkAll) and that every
- // target exists. It does NOT read the files: that each ref is the right question is asserted by the author and checked by the reviewer.
+ // target exists. not-covered items record a source question that no item uses, with the reason. It does NOT read the files: that each ref is the right question is asserted by the author and checked by the reviewer.
  if(cov.supportingSources!==undefined){
   const list=cov.supportingSources;
   if(!Array.isArray(list)||!list.length)e('supportingSources must be a non-empty list when present');
@@ -196,11 +196,17 @@ export function checkTopic(topic,cov,{loadTopic}={}){
    if(!Array.isArray(s?.items)||!s.items.length)e(w+'needs items');
    for(const it of Array.isArray(s?.items)?s.items:[]){
     const wi=w+'item '+(it&&it.ref)+': ';
-    for(const k of Object.keys(it||{}))if(!['ref','use','targets'].includes(k))e(wi+'unexpected field '+k);
+    for(const k of Object.keys(it||{}))if(!['ref','use','targets','reason'].includes(k))e(wi+'unexpected field '+k);
     if(!/^Q\d{1,2}[א-ת]?(?:-[א-ת])?$/u.test(it?.ref||''))e(wi+'ref must be a question label such as Q6 or Q3א');
-    if(!['data-and-method','method-only'].includes(it?.use))e(wi+'use must be data-and-method or method-only');
+    if(!['data-and-method','method-only','not-covered'].includes(it?.use))e(wi+'use must be data-and-method, method-only or not-covered');
     const key=(s&&s.file)+'|'+(it&&it.ref)+'|'+(it&&it.use);if(seenRef.has(key))e(wi+'listed twice');seenRef.add(key);
-    if(!it?.targets?.length)e(wi+'needs targets');
+    if(it?.use==='not-covered'){
+     if(typeof it.reason!=='string'||it.reason.trim().length<10)e(wi+'not-covered needs a reason');
+     if(it.targets?.length)e(wi+'not-covered must not list targets');
+    }else{
+     if(it?.reason!==undefined)e(wi+'reason is only for not-covered items');
+     if(!it?.targets?.length)e(wi+'needs targets');
+    }
     for(const t of it?.targets||[])if(!blockExists(topic,t))e(wi+'target not found '+t);
    }
   }

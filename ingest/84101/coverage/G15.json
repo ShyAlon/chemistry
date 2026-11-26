@@ -73,7 +73,16 @@
       "theory:G15-t41",
       "theory:G15-t42",
       "theory:G15-t43",
-      "theory:G15-t44"
+      "theory:G15-t44",
+      "quiz:7"
+     ]
+    },
+    {
+     "ref": "Q11",
+     "use": "method-only",
+     "targets": [
+      "worked:8",
+      "quiz:11"
      ]
     },
     {
@@ -103,6 +112,7 @@
      "ref": "Q18",
      "use": "method-only",
      "targets": [
+      "quiz:10",
       "quiz:15",
       "theory:G15-t51"
      ]
@@ -118,11 +128,22 @@
      "ref": "Q21",
      "use": "method-only",
      "targets": [
+      "quiz:8",
       "theory:G15-t47",
       "theory:G15-t48",
       "theory:G15-t49",
       "theory:G15-t50"
      ]
+    },
+    {
+     "ref": "Q10",
+     "use": "not-covered",
+     "reason": "קבוע Kf כשהממס הוא HgCl₂ והמומס HgCl: אין פריט ייעודי."
+    },
+    {
+     "ref": "Q12",
+     "use": "not-covered",
+     "reason": "נקודות רתיחה של תמיסות שאלה 11: אין פריט ייעודי."
     }
    ]
   },
@@ -164,6 +185,38 @@
      "targets": [
       "worked:10"
      ]
+    },
+    {
+     "ref": "Q13ב",
+     "use": "method-only",
+     "targets": [
+      "worked:8",
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q11ג",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q13ג",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q3ג",
+     "use": "not-covered",
+     "reason": "נקודת רתיחה של NaCl ב-50% משקלי: לא נבנה פריט. התמיסה רחוקה מהמודל המדולל (ולפי ידיעה כללית, לא מקור, גם מעל המסיסות של NaCl), ולכן הפריט נדחה."
+    },
+    {
+     "ref": "Q11ב",
+     "use": "not-covered",
+     "reason": "השוואת נקודות רתיחה של NaCl וגלוקוז: אין פריט ייעודי."
     }
    ]
   }

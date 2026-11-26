@@ -188,6 +188,10 @@ test('supporting sources are validated structurally, hash-pinned against the man
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].sha256='zz'}),/sha256 must be a 64-hex hash/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].targets=['theory:E5-t998']}),/target not found theory:E5-t998/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].use='same'}),/use must be/);
+ assert.equal(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question'})}),'');
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered'})}),/needs a reason/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question',targets:[tgt]})}),/must not list targets/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].reason='x'}),/reason is only for not-covered/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref='page 6'}),/ref must be a question label/);
  assert.match(errs(c=>{c.supportingSources=[]}),/non-empty list/);
  const a=cov(),b=cov();b.supportingSources=good();assert.notEqual(unitMapHash(a),unitMapHash(b));

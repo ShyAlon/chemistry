@@ -44,6 +44,20 @@
    "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
    "items": [
     {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
      "ref": "Q5",
      "use": "method-only",
      "targets": [
@@ -57,9 +71,16 @@
      "ref": "Q6",
      "use": "method-only",
      "targets": [
+      "worked:5",
       "worked:8",
+      "quiz:7",
       "quiz:11"
      ]
+    },
+    {
+     "ref": "Q4",
+     "use": "not-covered",
+     "reason": "נתוני השאלה אינם עקביים (גוררים נקודת רתיחה נורמלית של כ-29.7- מעלות), לכן לא נבנה פריט ממנה."
     }
    ]
   },

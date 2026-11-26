@@ -18,7 +18,7 @@ import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {readDocuments,contentRoot as defaultContentRoot} from './content-store.mjs';
 import {assembleCatalogue} from '../src/catalogue-contract.js';
-import {ARRAYS,readStaged,applyCorrections,verifySources,baselineLedger,ingestLedger,buildWriteSet,classifyReimport,hash,loadJson} from './import-lib.mjs';
+import {ARRAYS,readStaged,applyCorrections,verifySources,baselineLedger,ingestLedger,buildWriteSet,classifyReimport,hash,loadJson,blockKey,arrayMode} from './import-lib.mjs';
 
 const args=process.argv.slice(2);
 const command=args[0],course=args[1];
@@ -131,7 +131,9 @@ if(command==='baseline'){
  const live=classifyReimport(ledger,current,staged);
  const decisions=loadJson(reportPath).entries||[];
  const key=e=>[e.topic,e.array,e.index,e.status].join('|');
- const decisionMap=new Map(decisions.filter(d=>d.decision).map(d=>[key(d),d]));
+ // Only an explicit decision:'accept' applies an entry; 'skip' (or any other
+ // value) leaves the current content byte-identical.
+ const decisionMap=new Map(decisions.filter(d=>d.decision==='accept').map(d=>[key(d),d]));
  const topics=Object.fromEntries(current.topics.map(t=>[t.id,structuredClone(t)]));
  const topicRefs=current.topics.map(t=>({id:t.id,file:'topics/'+t.id+'.json'}));
  let applied=0,skipped=0;
@@ -145,17 +147,42 @@ if(command==='baseline'){
   if(e.status==='topic-removed'){delete topics[e.topic];const i=topicRefs.findIndex(r=>r.id===e.topic);if(i>=0)topicRefs.splice(i,1);applied++;continue}
   arraysToFix.add(e.topic+'/'+e.array);
  }
- // Apply block-level entries per array in descending index order so indices stay valid.
+ // Apply block-level entries per array.
  const perArray={};
  for(const e of live.entries){
   const d=decisionMap.get(key(e));if(!d)continue;
   if(e.status==='conflict'&&d.resolution==='keep-current')continue;
-  if(!['added','removed','source-changed','conflict'].includes(e.status))continue;
+  if(!['added','removed','source-changed','conflict','reordered'].includes(e.status))continue;
   (perArray[e.topic+'/'+e.array]=perArray[e.topic+'/'+e.array]||[]).push(e);
  }
  for(const [k,list] of Object.entries(perArray)){
   const [tid,a]=k.split('/');const arr=topics[tid].content[a];
-  for(const e of list.sort((x,y)=>y.index-x.index)){
+  const stArr=staged.correctedFiles[tid].content[a]||[];
+  if(arrayMode(a,arr,stArr,tid)==='keyed'){
+   // Stable-key apply: rebuild the array in staged order (staged order is
+   // authoritative), applying each accepted entry by key. Entries without an
+   // accept decision keep their current block; a kept removal returns to its
+   // current position.
+   const decByKey=new Map(list.filter(e=>e.key!==undefined).map(e=>[e.key,e]));
+   const curByKey=new Map(arr.map((b,i)=>[blockKey(a,b),{b,i}]));
+   const stKeys=new Set(stArr.map(b=>blockKey(a,b)));
+   const next=[];
+   for(const s of stArr){
+    const bk=blockKey(a,s),found=curByKey.get(bk);
+    if(!found){if(decByKey.has(bk)){next.push(structuredClone(s));applied++}continue}
+    const e=decByKey.get(bk);
+    if(!e){next.push(found.b);continue}
+    if(e.status==='conflict'&&decisionMap.get(key(e)).resolution==='keep-current'){next.push(found.b);continue}
+    next.push(structuredClone(s));applied++;
+   }
+   if(list.some(e=>e.status==='reordered'))applied++;
+   const kept=arr.map((b,i)=>({b,i})).filter(({b})=>!stKeys.has(blockKey(a,b))&&!decByKey.has(blockKey(a,b)));
+   for(const {b,i} of kept)next.splice(Math.min(i,next.length),0,b);
+   topics[tid].content[a]=next;
+   continue;
+  }
+  // Legacy positional apply: descending index order so indices stay valid.
+  for(const e of list.filter(e=>e.status!=='reordered').sort((x,y)=>y.index-x.index)){
    if(e.status==='added')arr.splice(e.index,0,structuredClone(staged.correctedFiles[tid].content[a][e.index]));
    else if(e.status==='removed')arr.splice(e.index,1);
    else arr[e.index]=structuredClone(staged.correctedFiles[tid].content[a][e.index]);

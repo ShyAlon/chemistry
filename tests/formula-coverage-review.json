@@ -167,7 +167,7 @@
    ],
    "note": "Audit register #8; explicit aliases are intentional, not global letter inference."
   },
-  "84101/G14/theory/12": {
+  "84101/G14/theory/13": {
    "expression": "x_A = n_A/(n_A + n_B)",
    "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
    "bindings": {
@@ -182,7 +182,7 @@
    ],
    "note": "Audit register #9; explicit aliases are intentional, not global letter inference."
   },
-  "84101/G14/theory/16": {
+  "84101/G14/theory/17": {
    "expression": "P_total = P_A + P_B",
    "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
    "bindings": {
@@ -197,7 +197,7 @@
    ],
    "note": "Audit register #10; explicit aliases are intentional, not global letter inference."
   },
-  "84101/G14/theory/20": {
+  "84101/G14/theory/21": {
    "expression": "y_A = P_A/P_total",
    "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
    "bindings": {
@@ -282,7 +282,7 @@
    ],
    "note": "Audit register #14; explicit aliases are intentional, not global letter inference."
   },
-  "84101/G15/theory/26": {
+  "84101/G15/theory/28": {
    "expression": "Π = i·M·R·T",
    "contextDigest": "e8f927569ae3909fa8eb654ca2ee75426e4a2ecd3a558451343bdf848cd80124",
    "bindings": {
@@ -3755,30 +3755,9 @@
   "84101/G12/theory/26": "42998c1172895a7dc42e5a97a7340b771a7396d197ab1ee389e1a0bce9a185b9",
   "84101/G12/theory/28": "07e3f6f427f4e6e8de53ec8669e12b1e38ac78bbed28464fab181819e59f7351",
   "84101/G12/theory/29": "9ce90aa01fd0bf05d3277268ea25b937a6cebd92b5b565d88a2fb74b0ba6ab26",
-  "84101/G13/theory/10": "b4942a58f8ec641d465bc0d611f3b5da47fdbc7e404497d2726dea34576e2eca",
-  "84101/G13/theory/12": "4b1fd82723e0ebe913919b258348b1f47e13eae07af5dfdf917dfb415189574b",
-  "84101/G13/theory/15": "c4264d65ddf13641ad80243150f404fe5e73858d8199127d90cdf2d2b1fa96e9",
-  "84101/G13/theory/17": "a3013482e9720681b2abb0d3bc09e6e1f4294e280bde633f28af992d2d70d835",
-  "84101/G13/theory/20": "b66986ff20be4478765fea191459ce8bac5962d7e3d88cf417ae53177d9a22f6",
-  "84101/G13/theory/22": "d3618a7acd28f27d37ddafb9d17bfca9e032a3a104c6addc5b4f2dfd44ca3089",
-  "84101/G14/theory/6": "17cf0afb330b6cb639b7b906843cfb34bfcf4890159c4321a8bcd66f6e1d2768",
-  "84101/G14/theory/10": "857aec57a77bbc404074889660e8102627230bd5e1b93a5235c0d14f686f661c",
-  "84101/G14/theory/14": "10ba1be5e1d9daac1ec3837b023dcd1ddea15a8ca078cc88a2752fc1f6e82604",
   "84101/G15/theory/3": "8607c9054049dcb83e2246179b52f8729998e9ba2f33a9eddcbd005601257ef9",
   "84101/G15/theory/5": "fd8130f29cee7524e81519ee2e784901920c49d24e6d5123cb0bce9fe2340195",
   "84101/G15/theory/13": "bfb227afe3e2176cc8d991cb4a0310a80e4ded66b5b1171f7466e60a47c4e002",
-  "84101/G15/theory/22": "6dcdc4b7c18bf18aa2c22517fcfcd2e3c3810d7ee4627e60a900f4cfeed0c3fb",
-  "84101/G15/theory/28": "036ee9ef0ccc9673f6d09e882f9561717a8a751f944108d961ea8e75eb43f4a2",
-  "84101/G15/theory/32": "1024bdf5889ead9c5c3fb7121b3493747f0180603ab4973a5c4c75f5eeb844b6",
-  "84101/G15/theory/34": "f889830afb13cf835ebdcbeede1fd08e72f5086b8ecd20fec8cf05b4312eba50",
-  "84101/G15/theory/37": "d899eb68c86e33d9764cbdcb2e6df8ae18231efa0ae361e2635cac7453cd5489",
-  "84101/G15/theory/39": "8a75e1d38811c35e18e673d543c30171f19b81c69bf8cb8ab9a3e44bba325cc7",
-  "84101/G15/theory/41": "80b83cc3285e8eda9126b1b52e4804f1ce7ac897231ee9d2dc9a02da74a51afd",
-  "84101/G15/theory/46": "85a8532aaa8d4de822d91e695353829625190943704a2f7703bea0992f3f34c9",
-  "84101/G15/theory/47": "0df93609b8348bc90a37cef63a60a1ca134db29439618b9cb39bbbcc4efc58a4",
-  "84101/G15/theory/51": "8846eef08e8b3a53d5a997dd4ba04fc5594099e06cb07210f682d7b134013cf9",
-  "84101/G15/theory/53": "c320c593b22247ad32f5cd2be985e35648ac6e3cc41d923efa47dae71ee2a58d",
-  "84101/G15/theory/55": "92a2b94af54bad1a2bd8947c693da2f66f025c6396a4578977500ccffa26a751",
   "84101/G16/theory/5": "628c4e3d7eb8974177e450f6f58e60e041999f98ad6d6c237071b451b55fdb97",
   "84101/G16/theory/7": "4291366d4ac996ca3ae711f417ede9c9de6d7a186e4270721bf16b52809659dc",
   "84101/G16/theory/9": "016a7359274ce18ab935e6368b5e2f727027313f1c4e08d595c7cd13a663464c",
@@ -4481,5 +4460,91 @@
   "gc2:dHtr": "c11e7cfe66f97008597d590fb12be81e6f70a6b2576557b4850ae702e46d457e",
   "gc2:BHp": "753c98d36bf463a13767b9aeadb397332d4655b9d0a4cad80e5d7f02acb6b232",
   "pi": "836d40edf2a4987b9586da6f35fc16dcbe008238c569e08331d96bd10fde8bbc"
+ },
+ "legacyRekeys": {
+  "84101/G13/theory/14": {
+   "origin": "84101/G13/theory/10",
+   "hash": "b4942a58f8ec641d465bc0d611f3b5da47fdbc7e404497d2726dea34576e2eca"
+  },
+  "84101/G13/theory/16": {
+   "origin": "84101/G13/theory/12",
+   "hash": "4b1fd82723e0ebe913919b258348b1f47e13eae07af5dfdf917dfb415189574b"
+  },
+  "84101/G13/theory/19": {
+   "origin": "84101/G13/theory/15",
+   "hash": "c4264d65ddf13641ad80243150f404fe5e73858d8199127d90cdf2d2b1fa96e9"
+  },
+  "84101/G13/theory/21": {
+   "origin": "84101/G13/theory/17",
+   "hash": "a3013482e9720681b2abb0d3bc09e6e1f4294e280bde633f28af992d2d70d835"
+  },
+  "84101/G13/theory/24": {
+   "origin": "84101/G13/theory/20",
+   "hash": "b66986ff20be4478765fea191459ce8bac5962d7e3d88cf417ae53177d9a22f6"
+  },
+  "84101/G13/theory/26": {
+   "origin": "84101/G13/theory/22",
+   "hash": "d3618a7acd28f27d37ddafb9d17bfca9e032a3a104c6addc5b4f2dfd44ca3089"
+  },
+  "84101/G14/theory/7": {
+   "origin": "84101/G14/theory/6",
+   "hash": "17cf0afb330b6cb639b7b906843cfb34bfcf4890159c4321a8bcd66f6e1d2768"
+  },
+  "84101/G14/theory/11": {
+   "origin": "84101/G14/theory/10",
+   "hash": "857aec57a77bbc404074889660e8102627230bd5e1b93a5235c0d14f686f661c"
+  },
+  "84101/G14/theory/15": {
+   "origin": "84101/G14/theory/14",
+   "hash": "10ba1be5e1d9daac1ec3837b023dcd1ddea15a8ca078cc88a2752fc1f6e82604"
+  },
+  "84101/G15/theory/24": {
+   "origin": "84101/G15/theory/22",
+   "hash": "6dcdc4b7c18bf18aa2c22517fcfcd2e3c3810d7ee4627e60a900f4cfeed0c3fb"
+  },
+  "84101/G15/theory/30": {
+   "origin": "84101/G15/theory/28",
+   "hash": "036ee9ef0ccc9673f6d09e882f9561717a8a751f944108d961ea8e75eb43f4a2"
+  },
+  "84101/G15/theory/34": {
+   "origin": "84101/G15/theory/32",
+   "hash": "1024bdf5889ead9c5c3fb7121b3493747f0180603ab4973a5c4c75f5eeb844b6"
+  },
+  "84101/G15/theory/36": {
+   "origin": "84101/G15/theory/34",
+   "hash": "f889830afb13cf835ebdcbeede1fd08e72f5086b8ecd20fec8cf05b4312eba50"
+  },
+  "84101/G15/theory/39": {
+   "origin": "84101/G15/theory/37",
+   "hash": "d899eb68c86e33d9764cbdcb2e6df8ae18231efa0ae361e2635cac7453cd5489"
+  },
+  "84101/G15/theory/41": {
+   "origin": "84101/G15/theory/39",
+   "hash": "8a75e1d38811c35e18e673d543c30171f19b81c69bf8cb8ab9a3e44bba325cc7"
+  },
+  "84101/G15/theory/43": {
+   "origin": "84101/G15/theory/41",
+   "hash": "80b83cc3285e8eda9126b1b52e4804f1ce7ac897231ee9d2dc9a02da74a51afd"
+  },
+  "84101/G15/theory/48": {
+   "origin": "84101/G15/theory/46",
+   "hash": "85a8532aaa8d4de822d91e695353829625190943704a2f7703bea0992f3f34c9"
+  },
+  "84101/G15/theory/49": {
+   "origin": "84101/G15/theory/47",
+   "hash": "0df93609b8348bc90a37cef63a60a1ca134db29439618b9cb39bbbcc4efc58a4"
+  },
+  "84101/G15/theory/53": {
+   "origin": "84101/G15/theory/51",
+   "hash": "8846eef08e8b3a53d5a997dd4ba04fc5594099e06cb07210f682d7b134013cf9"
+  },
+  "84101/G15/theory/55": {
+   "origin": "84101/G15/theory/53",
+   "hash": "c320c593b22247ad32f5cd2be985e35648ac6e3cc41d923efa47dae71ee2a58d"
+  },
+  "84101/G15/theory/57": {
+   "origin": "84101/G15/theory/55",
+   "hash": "92a2b94af54bad1a2bd8947c693da2f66f025c6396a4578977500ccffa26a751"
+  }
  }
 }

@@ -57,11 +57,15 @@ export function validateCoverage(row,contract,definitions=SYMBOLS){
 }
 export function validateCoverageManifest(rows,manifest,definitions=SYMBOLS){
  if(manifest.version!==1)throw new Error('Unknown formula coverage manifest');
- const seen=new Set();let reviewed=0,legacy=0;
+ const seen=new Set(),movedFrom=new Set(),rekeys=manifest.legacyRekeys||{};let reviewed=0,legacy=0;
  for(const row of rows){
   if(seen.has(row.key))throw new Error('Duplicate formula record '+row.key);seen.add(row.key);
   if(manifest.reviewed[row.key]){validateCoverage(row,manifest.reviewed[row.key],definitions);reviewed++}
-  else if(manifest.legacyUnreviewed[row.key]){
+  else if(rekeys[row.key]){
+   // A legacy record that moved only because a block was inserted before it. The locked hash is unchanged and still covers the ORIGINAL key plus the unchanged expression, symbols and definitions.
+   const {origin,hash}=rekeys[row.key];if(movedFrom.has(origin))throw new Error(origin+': legacy origin claimed twice');movedFrom.add(origin);
+   if(recordFingerprint({...row,key:origin},definitions)!==hash)throw new Error(row.key+': moved legacy record changed; add explicit quantity coverage, do not refresh the legacy hash');legacy++;
+  }else if(manifest.legacyUnreviewed[row.key]){
    if(recordFingerprint(row,definitions)!==manifest.legacyUnreviewed[row.key])throw new Error(row.key+': legacy record changed; add explicit quantity coverage, do not refresh the legacy hash');legacy++;
   }else throw new Error(row.key+': new display record needs explicit quantity coverage');
  }

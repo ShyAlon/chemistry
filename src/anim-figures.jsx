@@ -186,6 +186,58 @@ function chainFrame(t,{accent,params}){
   </>;
 }
 
+// N3: LaMer burst nucleation (qualitative, no numeric values - the lesson figure
+// is a didactic sketch). The monomer production rate decides the regime
+// (LaMer & Dinegar 1950): slow production never crosses the nucleation
+// threshold; the classic controlled rate gives one short burst; production
+// faster than consumption re-builds supersaturation and nucleation repeats,
+// giving non-uniform sizes. Default rate reproduces the static lesson figure.
+const LAMER_D='M70 205 C130 200 170 150 195 90 C205 62 215 45 235 42 C255 40 262 70 275 92 C300 130 340 142 380 146 C430 149 480 150 520 150';
+const LAMER_SEGS=[[[70,205],[130,200],[170,150],[195,90]],[[195,90],[205,62],[215,45],[235,42]],[[235,42],[255,40],[262,70],[275,92]],[[275,92],[300,130],[340,142],[380,146]],[[380,146],[430,149],[480,150],[520,150]]];
+const bez=(p,s)=>{const q=1-s;return [q*q*q*p[0][0]+3*q*q*s*p[1][0]+3*q*s*s*p[2][0]+s*s*s*p[3][0],q*q*q*p[0][1]+3*q*q*s*p[1][1]+3*q*s*s*p[2][1]+s*s*s*p[3][1]]};
+const LAMER_PTS=[];for(const g of LAMER_SEGS)for(let i=0;i<=40;i++)LAMER_PTS.push(bez(g,i/40));
+const lamerY=(pts,x)=>{for(let i=1;i<pts.length;i++)if(pts[i][0]>=x){const a=pts[i-1],b=pts[i];return a[1]+(b[1]-a[1])*(x-a[0])/Math.max(1e-6,b[0]-a[0])}return pts[pts.length-1][1]};
+// Fast-rate sawtooth: first burst at u1, drop, supersaturation rebuilds, burst repeats.
+const fastY=(r,u)=>{const u1=0.28/r;if(u<=u1)return lamerY(LAMER_PTS,70+185*(u/u1));
+  const p=0.45/r,v=(u-u1)%p,k=v/p;
+  return k<0.75?100-58*(k/0.75):42+58*((k-0.75)/0.25)};
+const slowY=(r,u)=>210-150*r*Math.pow(u,0.9);
+function lamerFrame(t,{accent,params}){
+  const r=params.rate,done=t>=1-1e-9,slow=r<1-1e-9,fast=r>1+1e-9;
+  const u=clamp01(t),clipW=70+460*u;
+  let d=LAMER_D;
+  if(slow){const p=[];for(let i=0;i<=40;i++){const uu=i/40;p.push((70+450*uu).toFixed(1)+','+slowY(r,uu).toFixed(1))}d='M'+p.join(' L')}
+  if(fast){const p=[];for(let i=0;i<=160;i++){const uu=i/160;p.push((70+450*uu).toFixed(1)+','+fastY(r,uu).toFixed(1))}d='M'+p.join(' L')}
+  const xb1=70+450*(0.28/r);
+  const curX=70+450*u,curY=slow?slowY(r,u):fast?fastY(r,u):lamerY(LAMER_PTS,curX);
+  const stageText=slow?'קצב ייצור איטי מדי: הריכוז עולה אך אינו חוצה את סף הגרעינות - לא נוצרים גרעינים':fast?'קצב ייצור גבוה מדי: הרוויה נבנית שוב ושוב, הגרעינות חוזרת והגדלים אינם אחידים':'';
+  return <>
+    <defs><clipPath id="lm-clip"><rect x={0} y={-10} width={clipW} height={290}/></clipPath></defs>
+    {!slow&&!fast&&<>
+      <rect x={70} y={10} width={125} height={200} fill={C.faint} opacity={0.55}/>
+      <rect x={195} y={10} width={80} height={200} fill={accent} opacity={0.14}/>
+      <rect x={275} y={10} width={245} height={200} fill={C.faint} opacity={0.55}/>
+    </>}
+    {slow&&<rect x={70} y={10} width={450} height={200} fill={C.faint} opacity={0.55}/>}
+    {fast&&<><rect x={70} y={10} width={xb1-70} height={200} fill={C.faint} opacity={0.55}/><rect x={xb1} y={10} width={520-xb1} height={200} fill={accent} opacity={0.14}/></>}
+    <L x1={60} y1={210} x2={525} y2={210}/><L x1={60} y1={210} x2={60} y2={8}/>
+    <Arrow x1={510} y1={210} x2={526} y2={210} stroke={C.line} id="lm-x"/><Arrow x1={60} y1={22} x2={60} y2={8} stroke={C.line} id="lm-y"/>
+    <L x1={60} y1={90} x2={520} y2={90} stroke="#f0c978" dash="5 4"/>
+    <L x1={60} y1={150} x2={520} y2={150} stroke="#f09797" dash="5 4"/>
+    <g clipPath="url(#lm-clip)"><path d={d} stroke={accent} strokeWidth={2.8} fill="none" strokeLinecap="round"/></g>
+    <T x={84} y={84} size={11} ltr fill="#f0c978" anchor="start">C_min</T><T x={84} y={144} size={11} ltr fill="#f09797" anchor="start">C_s</T>
+    <T x={430} y={80} size={12} fill="#f0c978">סף גרעינות</T><T x={430} y={170} size={12} fill="#f09797">ריכוז רוויה</T>
+    {!slow&&!fast&&<>
+      <T x={132} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={235} y={30} size={13} weight="bold" ltr fill={C.ink}>II</T><T x={398} y={30} size={13} weight="bold" ltr fill={C.ink}>III</T>
+      <T x={132} y={50} size={11} fill={C.mut}>עלייה</T><T x={235} y={70} size={11} fill={accent}>פרץ גרעינות</T><T x={398} y={50} size={11} fill={C.mut}>גדילה בלבד</T>
+    </>}
+    {slow&&<><T x={295} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={295} y={50} size={11} fill={C.mut}>עלייה בלבד</T></>}
+    {fast&&<><T x={(70+xb1)/2} y={30} size={13} weight="bold" ltr fill={C.ink}>I</T><T x={(xb1+520)/2} y={30} size={11} fill={accent}>פרצי גרעינות חוזרים</T></>}
+    {stageText&&<T x={290} y={5} size={12} fill={accent}>{stageText}</T>}
+    {!done&&u>0.02&&<Dot cx={curX} cy={curY} r={5} fill={accent}/>}
+    <T x={290} y={236} size={12} fill={C.mut}>זמן</T><T x={34} y={20} size={11} fill={C.mut}>ריכוז</T>
+  </>;
+}
 export const animations={
   'excite-relax-emit':{
     id:'excite-relax-emit',duration:9,viewBox:'0 -10 560 250',
@@ -210,6 +262,15 @@ export const animations={
     stageLabel:(i,o)=>o.halfLife===1?['1. עד זמן מחצית ראשון','2. עד זמן מחצית שני','3. עד זמן מחצית שלישי','4. עד זמן מחצית רביעי'][i]:['1. עד 5 שניות','2. עד 10 שניות','3. עד 15 שניות','4. עד 20 שניות'][i],
     params:[{id:'count',label:'מספר גרעינים בדגימה',min:0,max:400,step:10,value:0},{id:'halfLife',label:'זמן מחצית',min:1,max:10,step:1,value:1,unit:'s'},{id:'run',label:'הרצה אקראית',min:1,max:9,step:1,value:1}],
     frame:(t,o)=>halfLifeFrame(t,o)
+  },
+
+  'lamer-burst':{
+    id:'lamer-burst',duration:12,viewBox:'0 -10 560 270',
+    label:o=>'מודל LaMer, ציור איכותי בלי ערכים מספריים: ריכוז מונומרים מול זמן. '+(o.rate<1?'קצב ייצור איטי מדי - הריכוז אינו חוצה את סף הגרעינות ולא נוצרים גרעינים':o.rate>1?'קצב ייצור גבוה מדי - הרוויה נבנית שוב ושוב, הגרעינות חוזרת והגדלים אינם אחידים':'בשלב I הריכוז חוצה את סף הגרעינות, בשלב II פרץ קצר צורך את העודף, ובשלב III גדילה בלבד על הגרעינים הקיימים, ולכן הגדלים דומים'),
+    stages:[{at:0,label:'1'},{at:0.3,label:'2'},{at:0.55,label:'3'}],
+    stageLabel:(i,o)=>o.rate<1?['1. הריכוז עולה','2. מתקרב לסף הגרעינות','3. נשאר מתחת לסף - אין גרעינות'][i]:o.rate>1?['1. עלייה ראשונה','2. פרץ גרעינות ראשון','3. גרעינות חוזרת'][i]:['1. שלב I - הריכוז עולה','2. שלב II - פרץ גרעינות','3. שלב III - גדילה בלבד'][i],
+    params:[{id:'rate',label:'קצב ייצור מונומרים',min:0.5,max:2,step:0.25,value:1}],
+    frame:(t,o)=>lamerFrame(t,o)
   },
   'chain-reaction':{
     id:'chain-reaction',duration:9,viewBox:'0 -90 560 352',

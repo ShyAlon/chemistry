@@ -180,3 +180,257 @@ test('content freeze detects any mutation and passes when clean',t=>{
  assert.match(bad.stderr,/content freeze FAILED/);
  assert.match(bad.stderr,/courses\.json/);
 });
+
+// ---- stable-key alignment (importer positional-insertion repair) ----
+// Keyed arrays: theory/quiz by `id`, worked by `title`; staged order is
+// authoritative on accept. Arrays with no keys keep legacy positional
+// behaviour. Mixed or duplicate keys abort with no writes.
+
+function keyedFixture(){
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'import-keyed-'));
+ writeJson(path.join(root,'src/content/courses.json'),{courses:[]});
+ writeJson(path.join(root,'staged/demo/course.json'),{id:'demo',name:'Demo course',title:'Demo'});
+ writeJson(path.join(root,'staged/demo/topics.json'),{topics:[{id:'T1',file:'topics/T1.json'}]});
+ writeJson(path.join(root,'staged/demo/topics/T1.json'),{id:'T1',title:'Keyed',content:{
+  theory:[{id:'T1-t1',text:'alpha'},{id:'T1-t2',text:'beta'},{id:'T1-t3',text:'gamma'}],
+  worked:[{title:'W-one',content:['one']},{title:'W-two',content:['two']}],
+  quiz:[{type:'mc',id:'q1',prompt:'p1',options:['a','b'],correct:0,answer:'a'},{type:'mc',id:'q2',prompt:'p2',options:['a','b'],correct:0,answer:'a'}]}});
+ fs.mkdirSync(path.join(root,'sources/demo'),{recursive:true});
+ fs.writeFileSync(path.join(root,'sources/demo','lec.pdf'),'fake pdf bytes');
+ writeJson(path.join(root,'ingest/demo/sources.manifest.json'),{course:'demo',version:1,sources:[{file:'lec.pdf',sha256:sha(path.join(root,'sources/demo','lec.pdf'))}]});
+ return root;
+}
+const stagedTopic=(root)=>path.join(root,'staged/demo/topics/T1.json');
+const editStaged=(root,fn)=>{const p=stagedTopic(root);const t=JSON.parse(fs.readFileSync(p,'utf8'));fn(t);fs.writeFileSync(p,JSON.stringify(t,null,1)+'\n');return t};
+const acceptAll=(root,decision)=>{
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ const rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ for(const e of rep.entries){e.decision=decision||'accept';if(e.status==='conflict')e.resolution='take-staged'}
+ fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ return {report,a:cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report),rep};
+};
+const bytesEqual=(root)=>fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8')===fs.readFileSync(stagedTopic(root),'utf8');
+
+test('keyed: inserting blocks mid-array classifies only the inserts and accept reproduces staged byte-for-byte',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{
+  topic.content.theory.splice(1,0,{id:'T1-t1b',text:'inserted theory'});
+  topic.content.worked.splice(1,0,{title:'W-mid',content:['mid']});
+  topic.content.quiz.splice(1,0,{type:'mc',id:'q1b',prompt:'pb',options:['a','b'],correct:0,answer:'a'});
+ });
+ const {a,rep}=acceptAll(root);
+ assert.equal(a.status,0,a.stderr);
+ assert.deepEqual(rep.entries.map(e=>e.status),['added','added','added']);
+ assert.deepEqual(rep.entries.map(e=>e.key).sort(),['i:T1-t1b','i:q1b','t:W-mid']);
+ assert.equal(rep.summary.sourceChanged,0,'no cascade of phantom source-changed entries');
+ assert.equal(rep.summary.conflicts,0);
+ assert.ok(bytesEqual(root),'accepted content is byte-for-byte the staged file');
+ const ledger=JSON.parse(fs.readFileSync(path.join(root,'ingest/demo/ledger.json'),'utf8'));
+ assert.equal(ledger.ledgerVersion,2);
+});
+
+test('keyed: deleting a block mid-array classifies only the removal and accept reproduces staged',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{
+  topic.content.theory.splice(1,1);
+  topic.content.worked.splice(0,1);
+ });
+ const {a,rep}=acceptAll(root);
+ assert.equal(a.status,0,a.stderr);
+ assert.deepEqual(rep.entries.map(e=>e.status).sort(),['removed','removed']);
+ assert.ok(bytesEqual(root));
+});
+
+test('keyed: a pure reorder is one reordered entry per array; skip keeps current order, accept restores staged order',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{
+  topic.content.theory.reverse();
+  topic.content.worked.reverse();
+ });
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ const rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ assert.deepEqual(rep.entries.map(e=>e.status).sort(),['reordered','reordered']);
+ // decision:'skip' leaves content byte-identical
+ for(const e of rep.entries)e.decision='skip';
+ fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ const before=fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8');
+ const a1=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a1.status,0,a1.stderr);
+ assert.match(a1.stdout,/0 entries applied/);
+ assert.equal(fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8'),before);
+ // accept applies the staged order
+ for(const e of rep.entries)e.decision='accept';
+ fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ const a2=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a2.status,0,a2.stderr);
+ assert.ok(bytesEqual(root));
+});
+
+test('keyed: a staged content change hits its own block only, by id',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{topic.content.theory[1].text='beta, revised'});
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ assert.match(r.stdout,/#1 source-changed T1\/theory\[1\]/);
+ const rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ assert.equal(rep.entries.length,1);
+ assert.equal(rep.entries[0].key,'i:T1-t2');
+ rep.entries[0].decision='accept';fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ const a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a.status,0,a.stderr);
+ assert.ok(bytesEqual(root));
+});
+
+test('keyed: local edit colliding with a staged change is a conflict; take-staged and keep-current both honored',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const cp=path.join(root,'src/content/demo/topics/T1.json');
+ const cur=JSON.parse(fs.readFileSync(cp,'utf8'));
+ cur.content.theory[1].text='beta, locally corrected';
+ fs.writeFileSync(cp,JSON.stringify(cur,null,1)+'\n');
+ editStaged(root,topic=>{topic.content.theory[1].text='beta, rewritten from new slides'});
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ assert.match(r.stdout,/#1 conflict T1\/theory\[1\]/);
+ let rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ rep.entries[0].decision='accept';fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ let a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.notEqual(a.status,0,'conflict without resolution fails closed');
+ rep.entries[0].resolution='keep-current';fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a.status,0,a.stderr);
+ assert.equal(readTopic(root,'T1').content.theory[1].text,'beta, locally corrected');
+ // after keep-current, a fresh reconciliation classifies the staged rewrite as a clean source change
+ const report2=path.join(root,'report2.json');
+ const r2=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report2);
+ assert.equal(r2.status,0,r2.stderr);
+ assert.match(r2.stdout,/#1 source-changed T1\/theory\[1\]/);
+ const rep2=JSON.parse(fs.readFileSync(report2,'utf8'));
+ rep2.entries[0].decision='accept';fs.writeFileSync(report2,JSON.stringify(rep2,null,1));
+ a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report2);
+ assert.equal(a.status,0,a.stderr);
+ assert.equal(readTopic(root,'T1').content.theory[1].text,'beta, rewritten from new slides');
+ // and the reconciled state matches staged everywhere else
+ assert.ok(bytesEqual(root));
+});
+
+test('keyed: duplicate stable keys abort the run with no writes',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{topic.content.theory.push({id:'T1-t2',text:'duplicated id'})});
+ const before=fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'));
+ assert.notEqual(r.status,0);
+ assert.match(r.stderr,/duplicate stable key i:T1-t2 in staged/);
+ assert.equal(fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8'),before);
+});
+
+test('mixed stable keys (some blocks with ids, some without) abort the run with no writes',t=>{
+ const root=fixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ editStaged(root,topic=>{topic.content.theory[0].id='T1-t0'});
+ const before=fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'));
+ assert.notEqual(r.status,0);
+ assert.match(r.stderr,/mixed stable keys in T1\/theory/);
+ assert.equal(fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8'),before);
+});
+
+test('legacy positional behaviour is unchanged when no blocks carry keys',t=>{
+ const root=fixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ // insert a theory block mid-array in staged content without ids: the legacy
+ // positional cascade is pinned here intentionally - keyed lessons do not
+ // have it (see the keyed tests above).
+ const tp=stagedTopic(root);const topic=JSON.parse(fs.readFileSync(tp,'utf8'));
+ topic.content.theory.splice(1,0,{text:'inserted without an id'});
+ fs.writeFileSync(tp,JSON.stringify(topic,null,1)+'\n');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'));
+ assert.equal(r.status,0,r.stderr);
+ assert.match(r.stdout,/#1 source-changed T1\/theory\[1\]/);
+ assert.match(r.stdout,/#2 added T1\/theory\[2\]/);
+});
+
+// ---- decision identity and order consent (reviewer blockers) ----
+const decideRun=(root,decide)=>{
+ const report=path.join(root,'report.json');
+ const r=cli('diff','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(r.status,0,r.stderr);
+ const rep=JSON.parse(fs.readFileSync(report,'utf8'));
+ for(const e of rep.entries){const d=decide(e);if(d)Object.assign(e,d)}
+ fs.writeFileSync(report,JSON.stringify(rep,null,1));
+ const a=cli('accept','demo','--root',root,'--staged',path.join(root,'staged/demo'),'--report',report);
+ assert.equal(a.status,0,a.stderr);
+ return rep;
+};
+const editLive=(root,fn)=>{const p=path.join(root,'src/content/demo/topics/T1.json');const t=JSON.parse(fs.readFileSync(p,'utf8'));fn(t);fs.writeFileSync(p,JSON.stringify(t,null,1)+'\n')};
+const liveTexts=root=>readTopic(root,'T1').content.theory.map(b=>b.text).join('|');
+const take={decision:'accept',resolution:'take-staged'},keep={decision:'accept',resolution:'keep-current'},skip={decision:'skip'};
+
+for(const [name,localDec,stagedDec,want] of [
+ ['keep local addition, take staged',keep,take,null],
+ ['take staged (drop local addition), keep current block',take,keep,null]]){
+ test('keyed: a current-only conflict and a staged conflict sharing index decide independently ('+name+')',t=>{
+  const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+  ingestOk(root);
+  const before=readTopic(root,'T1').content.theory.map(b=>b.text);
+  editLive(root,c=>{c.content.theory.splice(1,0,{id:'i-loc',text:'LOC'});c.content.theory[2].text='LOCALB'});
+  editStaged(root,s=>{s.content.theory[1].text='STB'});
+  const rep=decideRun(root,e=>e.status!=='conflict'?null:(/local addition/.test(e.detail)?localDec:stagedDec));
+  const keys=rep.entries.map(e=>[e.topic,e.array,e.index,e.status,e.key].join('|'));
+  assert.equal(new Set(keys).size,keys.length,'decision identities are distinct');
+  const got=liveTexts(root);
+  if(localDec===keep)assert.equal(got,['%s','LOC','STB',...before.slice(2)].join('|').replace('%s',before[0]));
+  else assert.equal(got,[before[0],'LOCALB',...before.slice(2)].join('|'));
+ });
+}
+
+test('keyed: accepting an insert does not reorder existing blocks without the reordered entry',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const before=liveTexts(root).split('|');
+ editStaged(root,s=>{s.content.theory.reverse();s.content.theory.splice(1,0,{id:'i-x',text:'x'})});
+ const rep=decideRun(root,e=>e.status==='added'?take:skip);
+ assert.ok(rep.entries.some(e=>e.status==='reordered'),'reorder is its own entry');
+ const got=liveTexts(root).split('|');
+ assert.deepEqual(got.filter(x=>x!=='x'),before,'existing blocks keep their current order');
+ assert.ok(got.includes('x'));
+});
+
+test('keyed: accepting insert and reorder together reproduces staged; skipped removal stays beside its neighbours',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const cur=readTopic(root,'T1').content.theory;
+ editStaged(root,s=>{s.content.theory.reverse();s.content.theory.splice(1,0,{id:'i-x',text:'x'})});
+ decideRun(root,e=>take);
+ assert.ok(bytesEqual(root),'insert + reorder accepted: byte-equal to staged');
+ // removal skipped while reorder accepted
+ const root2=keyedFixture();t.after(()=>fs.rmSync(root2,{recursive:true,force:true}));
+ ingestOk(root2);
+ const names=readTopic(root2,'T1').content.theory.map(b=>b.id);
+ editStaged(root2,s=>{s.content.theory.splice(1,1);s.content.theory.reverse()});
+ decideRun(root2,e=>e.status==='removed'?skip:take);
+ const got=readTopic(root2,'T1').content.theory.map(b=>b.id);
+ assert.ok(got.includes(names[1]),'skipped removal kept');
+ assert.equal(got.length,names.length);
+ assert.deepEqual(got,[names[1],names[2],names[0]],'kept removal stays before its current successor');
+});
+
+test('keyed: skipping every entry changes nothing, skipped edit stays while accepted insert applies',t=>{
+ const root=keyedFixture();t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+ ingestOk(root);
+ const before=fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8');
+ editStaged(root,s=>{s.content.theory.splice(1,0,{id:'i-x',text:'x'});s.content.theory[0].text='edited'});
+ decideRun(root,()=>skip);
+ assert.equal(fs.readFileSync(path.join(root,'src/content/demo/topics/T1.json'),'utf8'),before);
+});

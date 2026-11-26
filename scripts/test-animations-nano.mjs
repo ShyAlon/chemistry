@@ -43,8 +43,14 @@ await setP('regime',0);await sleep(120);
 const slowD=await ev(`document.querySelector('.anim svg g[clip-path] path').getAttribute('d')`);
 assert.notEqual(slowD,LAMER_D,'slow scenario draws a different curve');
 const slowText=await svgText();
-assert.ok(slowText.includes('עלייה בלבד')&&!slowText.includes('פרץ גרעינות'),'slow scenario: rise only, no burst');
-assert.ok((await aria()).includes('הומוגנית'),'slow-scenario aria label: homogeneous, no nuclei');
+assert.ok(slowText.includes('עלייה בלבד'),'slow scenario: rise only');
+const slowStage=await ev(`document.querySelector('.anim-stage').textContent`);
+assert.ok(slowStage.includes('בלי פרץ גרעינות')&&!slowStage.includes('בלי גרעינים'),'slow stage label: no nucleation burst, never no-nuclei');
+assert.ok(slowText.includes('בלי פרץ גרעינות')&&slowText.includes('הדרגתית ולא אחידה'),'slow on-figure note: no burst; any formation gradual and non-uniform');
+assert.ok(!slowText.includes('בלי גרעינים')&&!slowText.includes('הומוגנית'),'slow scenario never claims homogeneous / no nuclei');
+const slowAria=await aria();
+assert.ok(slowAria.includes('בזמן המוצג')&&slowAria.includes('אין פרץ גרעינות')&&slowAria.includes('הדרגתית ולא אחידה'),'slow-scenario aria: below critical level in the time shown, no burst, gradual non-uniform formation');
+assert.ok(!slowAria.includes('הומוגנית')&&!slowAria.includes('בלי גרעינים'),'slow-scenario aria never claims homogeneous / no nuclei');
 // slow curve stays below the nucleation threshold (pixel y >= 90 everywhere)
 const slowMinY=await ev(`Math.min(...document.querySelector('.anim svg g[clip-path] path').getAttribute('d').match(/,([0-9.]+)/g).map(x=>+x.slice(1)))`);
 assert.ok(slowMinY>=89.5,'slow curve never crosses the nucleation threshold line');

@@ -7,17 +7,17 @@ import {C,T,L,Arrow,Dot,Box,Fig} from './figures-core.jsx';
 // N1: the same volume, cut into 10 nm cubes, has a million times the surface area.
 export function SurfaceAreaCut({accent}){
   const tiny=[];for(let i=0;i<8;i++)for(let j=0;j<8;j++)tiny.push(<rect key={i+'-'+j} x={330+i*20} y={44+j*20} width={16} height={16} fill="none" stroke={accent} strokeWidth={1.4}/>);
-  return <Fig label="אותו נפח של סנטימטר מעוקב אחד: קובייה אחת עם שטח פנים של 6 סמ״ר, או 10 בחזקת 18 קוביות של 10 ננומטר עם שטח פנים כולל של בערך 600 מ״ר, פי מיליון" viewBox="0 -10 560 280">
+  return <Fig label="אותו נפח של סנטימטר מעוקב אחד: קובייה אחת עם שטח פנים של 6 סמ״ר, או 10 בחזקת 18 קוביות של 10 ננומטר עם שטח פנים כולל של בערך 600 מ״ר, פי מיליון" viewBox="0 -54 560 324">
     <Box x={30} y={40} w={150} h={150} fill={C.faint} stroke={C.mut}/>
     <T x={105} y={120} size={14} ltr fill={C.ink}>1 cm³</T>
-    <T x={105} y={214} size={13} ltr fill={C.mut}>6 cm²</T>
-    <T x={105} y={236} size={12} fill={C.mut}>שטח פנים</T>
+    <T x={105} y={222} size={13} ltr fill={C.mut}>6 cm²</T>
+    <T x={105} y={244} size={12} fill={C.mut}>שטח פנים</T>
     <Arrow x1={200} y1={115} x2={300} y2={115} stroke={accent} id="sac-arrow"/>
     <T x={250} y={100} size={12} fill={C.mut}>חיתוך</T>
     {tiny}
-    <T x={410} y={214} size={13} ltr fill={accent}>≈ 600 m²</T>
-    <T x={410} y={236} size={12} fill={C.mut}>שטח פנים כולל</T>
-    <T x={410} y={256} size={11} ltr fill={C.mut}>10¹⁸ × (10 nm)³</T>
+    <T x={410} y={222} size={13} ltr fill={accent}>≈ 600 m²</T>
+    <T x={410} y={244} size={12} fill={C.mut}>שטח פנים כולל</T>
+    <T x={410} y={262} size={11} ltr fill={C.mut}>10¹⁸ × (10 nm)³</T>
     <T x={280} y={40} size={14} ltr weight="bold" fill={accent}>×10⁶</T>
   </Fig>;
 }

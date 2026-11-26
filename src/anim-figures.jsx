@@ -248,7 +248,7 @@ export const animations={
     frame:(t,o)=>exciteFrame(t,o)
   },
   'carrier-creation':{
-    id:'carrier-creation',duration:9,viewBox:'0 -10 560 276',
+    id:'carrier-creation',duration:9,viewBox:'0 -96 560 362',
     label:o=>'הנפשה: שלוש דרכים ליצור זוג אלקטרון-חור במוליך למחצה - בליעת פוטון, שדה חשמלי חזק וחימום; צפיפות הזוגות התרמית גדלה מעריכית עם הטמפרטורה (ni פרופורציונית ל-T^1.5 כפול e בחזקת מינוס Eg חלקי 2kBT) ואינה מתאפסת באף טמפרטורה; כעת '+Math.round(o.temp)+' קלווין',
     stages:[{at:0,label:'1. עירור אופטי (פוטון)'},{at:0.34,label:'2. עירור חשמלי (שדה חזק)'},{at:0.67,label:'3. עירור תרמי (חימום)'}],
     params:[{id:'temp',label:'הטמפרטורה',min:200,max:500,step:50,value:300,unit:'K'}],

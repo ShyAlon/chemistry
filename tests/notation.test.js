@@ -189,7 +189,9 @@ test('regenerating the enrichment layer restores the converted blocks exactly, a
   t.content.theory=t.content.theory.filter(b=>!b.enrich);t.content.worked=t.content.worked.filter(b=>!b.enrich);
   t.content.theory.push(...add.theory);if(add.worked)t.content.worked.push(...add.worked)}
  applyNotation(copy,entries);
- const conv=(c,id)=>c.courses.find(x=>x.id==='84101').topics.flatMap(t=>t.content.theory.filter(b=>b.notationOf!==undefined&&!b.finalPrep&&(id?b.enrich:!b.enrich)).map(b=>t.id+'|'+JSON.stringify(b)));
+ // Coverage-map stable ids live only on catalogue blocks; the regeneration comparison ignores them by design.
+ const strip=({id:_id,...rest})=>rest;
+ const conv=(c,id)=>c.courses.find(x=>x.id==='84101').topics.flatMap(t=>t.content.theory.filter(b=>b.notationOf!==undefined&&!b.finalPrep&&(id?b.enrich:!b.enrich)).map(b=>t.id+'|'+JSON.stringify(strip(b))));
  // Converted paragraphs that come from the enrichment layer must be restored identically (order-insensitive).
  assert.deepEqual(conv(copy,true).sort(),conv(catalogue,true).sort());
  assert.ok(conv(catalogue,true).length>=50);

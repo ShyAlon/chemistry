@@ -41,5 +41,6 @@ test('course content and answer data stay identical except the explicit V+ worke
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as the V+ correction above.
  copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
+ for(const b of copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'ecac22810423c5707fd80ee9c63b4fa229d3df6c9bb6abba8e0205d69c5ea3e4');
 });

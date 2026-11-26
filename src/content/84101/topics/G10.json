@@ -29,12 +29,14 @@
    },
    {
     "text": "במודל הקינטי מולקולות נעות באקראי ומתנגשות אלסטית. הלחץ נובע מהעברת תנע לדפנות. באותה טמפרטורה לכל הגזים אותה אנרגיה קינטית תרגומית ממוצעת, אך לא אותה מהירות.",
-    "style": "Normal"
+    "style": "Normal",
+    "id": "G10-t01"
    },
    {
     "text": "האנרגיה הקינטית התרגומית הממוצעת תלויה רק בטמפרטורה. למול של גז:",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t02"
    },
    {
     "text": "Ēₖ = 3RT/2",
@@ -45,12 +47,14 @@
      "R",
      "T"
     ],
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t03"
    },
    {
     "text": "ולמולקולה אחת:",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t04"
    },
    {
     "text": "Ēₖ = 3kT/2        k = R/Nₐ",
@@ -63,12 +67,14 @@
      "Nₐ",
      "T"
     ],
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t05"
    },
    {
     "text": "מהירות RMS היא שורש ממוצע ריבועי המהירויות, ולא המהירות הממוצעת הפשוטה:",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t06"
    },
    {
     "text": "u_rms = √(3RT/M)",
@@ -80,7 +86,8 @@
      "M",
      "u_rms"
     ],
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G10-t07"
    },
    {
     "text": "אפוזיה",
@@ -89,7 +96,8 @@
    {
     "text": "אפוזיה היא מעבר דרך נקב קטן מספיק לעומת המהלך החופשי הממוצע. באותם תנאים יחס הקצבים של גז A לגז B הוא:",
     "style": "Normal",
-    "notationOf": 4
+    "notationOf": 4,
+    "id": "G10-t08"
    },
    {
     "text": "r_A/r_B = √(M_B/M_A)",
@@ -99,12 +107,14 @@
      "r_A, r_B",
      "M_A, M_B"
     ],
-    "notationOf": 4
+    "notationOf": 4,
+    "id": "G10-t09"
    },
    {
     "text": "גז קל עובר מהר יותר. בתערובת יש להתחשב גם בלחצים החלקיים:",
     "style": "Normal",
-    "notationOf": 4
+    "notationOf": 4,
+    "id": "G10-t10"
    },
    {
     "text": "r_A/r_B = (P_A/P_B)·√(M_B/M_A)",
@@ -115,11 +125,13 @@
      "M_A, M_B",
      "P_A, P_B"
     ],
-    "notationOf": 4
+    "notationOf": 4,
+    "id": "G10-t11"
    },
    {
     "text": "בהרכב היוצא בתחילת אפוזיה עשויה להיות העשרה בגז הקל. אין להחליף זאת בהרכב ההתחלתי בכלי או בהנחה על אותו הרכב לאורך כל זמן הריקון. יחס מהירויות אינו יחס מסות ישיר אלא שורש הפוך.",
-    "style": "Normal"
+    "style": "Normal",
+    "id": "G10-t12"
    },
    {
     "text": "המודל האידיאלי הוא קירוב",
@@ -128,7 +140,8 @@
    {
     "text": "נפח עצמי וכוחות משיכה נעשים חשובים במיוחד בלחץ גבוה ובטמפרטורה נמוכה. משוואת ואן דר ואלס:",
     "style": "Normal",
-    "notationOf": 7
+    "notationOf": 7,
+    "id": "G10-t13"
    },
    {
     "text": "(P + an²/V²)(V − nb) = nRT",
@@ -141,12 +154,14 @@
      "a",
      "b"
     ],
-    "notationOf": 7
+    "notationOf": 7,
+    "id": "G10-t14"
    },
    {
     "text": "מקדם הדחיסות:",
     "style": "Normal",
-    "notationOf": 8
+    "notationOf": 8,
+    "id": "G10-t15"
    },
    {
     "text": "Z = PV/(nRT)",
@@ -157,12 +172,14 @@
      "P, V, T, n",
      "R:gas"
     ],
-    "notationOf": 8
+    "notationOf": 8,
+    "id": "G10-t16"
    },
    {
     "text": "לגז אידיאלי Z=1. כאשר המשיכה דומיננטית Z עשוי להיות קטן מ-1; כאשר נפח עצמי ודחייה דומיננטיים Z עשוי להיות גדול מ-1. כדי לחשב Z מספרי ממשוואת ואן דר ואלס צריך את a,b, או מידע נוסף שמספיק לקבוע אותם.",
     "style": "Normal",
-    "notationOf": 8
+    "notationOf": 8,
+    "id": "G10-t17"
    },
    {
     "style": "Heading",
@@ -172,19 +189,22 @@
    {
     "style": "Normal",
     "text": "התורה הקינטית קושרת מאקרו למיקרו: לחץ הוא ממוצע הפגיעות בדפנות, וטמפרטורה היא מדד לאנרגיה הקינטית הממוצעת של המולקולות: ⟨Eₖ⟩ = (3/2)kT. המשמעות: בטמפרטורה נתונה, לכל הגזים אותה אנרגיה קינטית ממוצעת — ולכן מולקולה כבדה זזה לאט יותר.",
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t18"
    },
    {
     "style": "Figure",
     "figure": "maxwell-boltzmann",
     "text": "התפלגות מקסוול-בולצמן: לא \"המהירות\" אלא פיזור שלם. חימום מזיז את השיא ימינה ומשטח את הזנב — יש יותר מולקולות מהירות במיוחד.",
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t19"
    },
    {
     "text": "מהירות שורש-ממוצע-ריבוע, כש-M בק\"ג למול:",
     "style": "Normal",
     "enrich": true,
-    "notationOf": 12
+    "notationOf": 12,
+    "id": "G10-t20"
    },
    {
     "text": "u_rms = √(3RT/M)",
@@ -197,19 +217,22 @@
      "M"
     ],
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t21"
    },
    {
     "text": "לחנקן ב-298 K יוצא כ-515 m/s — מהיר מקליע. ולמה rms ולא ממוצע פשוט? כי האנרגיה תלויה ב-v², והממוצע של הריבועים שונה מריבוע הממוצע.",
     "style": "Normal",
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t22"
    },
    {
     "text": "חוק גרהם מתאר אפוזיה דרך נקב זעיר בתנאים מתאימים: באותו לחץ וטמפרטורה, קצב מעבר החלקיקים פרופורציוני ל:",
     "style": "Normal",
     "enrich": true,
-    "notationOf": 13
+    "notationOf": 13,
+    "id": "G10-t23"
    },
    {
     "text": "r ∝ 1/√M",
@@ -220,13 +243,15 @@
      "M"
     ],
     "notationOf": 13,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t24"
    },
    {
     "text": "דרך אותו נקב קצב ההליום גדול מזה של חנקן פי:",
     "style": "Normal",
     "notationOf": 13,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t25"
    },
    {
     "text": "√(28/4) ≈ 2.65",
@@ -237,19 +262,22 @@
      "2.65"
     ],
     "notationOf": 13,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t26"
    },
    {
     "text": "דליפה דרך חומר הבלון כוללת גם המסה וחדירה בפולימר, ואינה ניסוי אפוזיה נקי.",
     "style": "Normal",
     "notationOf": 13,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t27"
    },
    {
     "text": "גזים ממשיים סוטים מהאידיאל כאשר נפח החלקיקים והמשיכה ביניהם אינם זניחים. עבור n מולים בנפח הכולל V, משוואת ואן דר ואלס היא:",
     "style": "Normal",
     "enrich": true,
-    "notationOf": 14
+    "notationOf": 14,
+    "id": "G10-t28"
    },
    {
     "text": "(P + an²/V²)(V − nb) = nRT",
@@ -264,13 +292,15 @@
      "T"
     ],
     "notationOf": 14,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t29"
    },
    {
     "text": "עבור נפח מולרי Vₘ נכתוב:",
     "style": "Normal",
     "notationOf": 14,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t30"
    },
    {
     "text": "(P + a/Vₘ²)(Vₘ − b) = RT",
@@ -284,19 +314,22 @@
      "T"
     ],
     "notationOf": 14,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t31"
    },
    {
     "text": "אין לערבב בין שתי צורות המשוואה.",
     "style": "Normal",
     "notationOf": 14,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t32"
    },
    {
     "text": "מלכודת יחידות: בחישוב מהירות עם R={R}, מכניסים M בקילוגרם למול. בחוק גרהם מופיע יחס מסות מולריות, ולכן אפשר להשתמש גם בגרם למול, בתנאי ששתי המסות באותה יחידה.",
     "style": "Callout",
     "enrich": true,
-    "notationOf": 15
+    "notationOf": 15,
+    "id": "G10-t33"
    },
    {
     "style": "Heading",
@@ -306,7 +339,8 @@
    {
     "style": "Normal",
     "text": "המהירות המסתברת ביותר היא מיקום השיא של צפיפות ההתפלגות. המהירות הממוצעת היא ממוצע הגדלים של מהירויות החלקיקים. RMS מבוססת על ממוצע ריבועי המהירויות. אף אחת מהן אינה מהירות כל המולקולות.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t34"
    },
    {
     "text": "v_mp = √(2RT/M)        v_avg = √(8RT/(πM))        v_rms = √(3RT/M)",
@@ -321,13 +355,15 @@
      "M"
     ],
     "batch2": true,
-    "notationOf": 18
+    "notationOf": 18,
+    "id": "G10-t35"
    },
    {
     "text": "בכל התפלגות מקסוול של גז אידיאלי בשיווי משקל:",
     "style": "Normal",
     "batch2": true,
-    "notationOf": 19
+    "notationOf": 19,
+    "id": "G10-t36"
    },
    {
     "text": "v_mp < v_avg < v_rms",
@@ -338,18 +374,21 @@
      "v_avg",
      "v_rms"
     ],
-    "notationOf": 19
+    "notationOf": 19,
+    "id": "G10-t37"
    },
    {
     "text": "כל שלוש המהירויות גדלות כמו √T עבור אותו גז, וקטנות כמו 1/√M באותה טמפרטורה. המהירות הווקטורית הממוצעת בגז במנוחה היא אפס, אף שהמהירות הממוצעת אינה אפס.",
     "style": "Normal",
-    "notationOf": 19
+    "notationOf": 19,
+    "id": "G10-t38"
    },
    {
     "style": "Figure",
     "figure": "maxwell-speed-band",
     "text": "עקומה מחושבת ל-N₂ ב-300 K, עם שלוש המהירויות וסימון תחום 400-420 m/s. ההסתברות היא השטח בתחום, לא גובה העקומה. המסה המולרית במודל: 0.028 kg/mol.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t39"
    },
    {
     "style": "Heading",
@@ -370,12 +409,14 @@
      "M"
     ],
     "batch2": true,
-    "notationOf": 22
+    "notationOf": 22,
+    "id": "G10-t40"
    },
    {
     "style": "Normal",
     "text": "משוואת מקסוול–בולצמן (תרגול 5א, שקופית 10) — הצורה המפורשת לחישוב שבר המולקולות בתחום מהירויות:",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t41"
    },
    {
     "text": "ΔN/N ≈ 4π(Mw/(2πRT))^(3/2)·v²   ·exp(−Mwv²/(2RT))·Δv",
@@ -392,22 +433,26 @@
      "Δv@width",
      "exp"
     ],
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t42"
    },
    {
     "style": "Normal",
     "text": "ΔN — מספר המולקולות בתחום המבוקש בלבד; N — מספר המולקולות הכולל; ΔN/N — שבר המולקולות (ללא יחידות). Mw — המסה המולרית ב-kg/mol, בסימון התרגול; בדף הנוסחאות המרכזי ובשאר השיעור היא M. R = 8.314 J/(mol·K) ו-T בקלווין; v ו-Δv ב-m/s. v היא מהירות מייצגת בתחום, ובקירוב בוחרים את אמצע התחום. התנאי לשימוש: תחום צר (Δv קטן). השבר המדויק בתחום סופי הוא האינטגרל של f(v) על התחום, ולכן כאן ≈ ולא = כפי שמודפס בשקופית. הכתיב המקוצר שלמעלה זהה לנוסחה המפורשת: πA = Mw/(2RT).",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t43"
    },
    {
     "style": "Normal",
     "text": "f(v) היא צפיפות הסתברות, ביחידות ההופכיות למהירות. ההסתברות בין v₁ ל-v₂ היא האינטגרל של f(v) בתחום. בתחום צר אפשר לקרב: fraction≈f(v_mid)Δv, כאשר v_mid הוא אמצע התחום. מכפילים במספר החלקיקים הכולל כדי לקבל מספר חלקיקים, או במספר המולים הכולל כדי לקבל מולים.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t44"
    },
    {
     "style": "Callout",
     "text": "במודל רציף ההסתברות למהירות מדויקת אחת היא אפס. השאלה הפיזיקלית עוסקת בתחום סופי. יש להמיר גם את קצות התחום וגם את רוחבו ל-m/s. הקירוב f(v_mid)Δv אינו זהות כללית, ובתחום רחב צריך אינטגרציה.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t45"
    },
    {
     "style": "Heading",
@@ -428,12 +473,14 @@
      "n, P, V"
     ],
     "batch2": true,
-    "notationOf": 26
+    "notationOf": 26,
+    "id": "G10-t46"
    },
    {
     "style": "Normal",
     "text": "אלו אנרגיות קינטיות תרגומיות בלבד. במולקולות יש גם אופני סיבוב ותנודה, ולכן אין לכנות 3nRT/2 בשם האנרגיה הפנימית הכוללת של כל גז. באותה T האנרגיה התרגומית הממוצעת לחלקיק שווה, אך האנרגיה של שתי דגימות אינה שווה אם מספר החלקיקים שונה.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t47"
    },
    {
     "style": "Heading",
@@ -444,7 +491,8 @@
     "text": "באותו T ובאותו נקב, קצב מולי פרופורציוני ל:",
     "style": "Normal",
     "batch2": true,
-    "notationOf": 29
+    "notationOf": 29,
+    "id": "G10-t48"
    },
    {
     "text": "r_mol ∝ P/√M",
@@ -455,12 +503,14 @@
      "P",
      "M"
     ],
-    "notationOf": 29
+    "notationOf": 29,
+    "id": "G10-t49"
    },
    {
     "text": "קצב מסה הוא הקצב המולי כפול M, ולכן באותו לחץ הוא פרופורציוני ל-√M. להשוואת זמנים כותבים:",
     "style": "Normal",
-    "notationOf": 29
+    "notationOf": 29,
+    "id": "G10-t50"
    },
    {
     "text": "t = n/r",
@@ -471,23 +521,27 @@
      "n#2",
      "t"
     ],
-    "notationOf": 29
+    "notationOf": 29,
+    "id": "G10-t51"
    },
    {
     "text": "ולא הופכים אוטומטית את יחס הקצבים כאשר הכמויות אינן שוות.",
     "style": "Normal",
-    "notationOf": 29
+    "notationOf": 29,
+    "id": "G10-t52"
    },
    {
     "style": "Callout",
     "text": "מודל מקור גדול שומר בקירוב על לחץ והרכב קבועים בזמן המעבר. במקור קטן הלחץ יורד, הרכב תערובת עשוי להשתנות, ו״זמן ריקון מלא״ אינו זמן סופי פשוט במודל האידיאלי. מעבר HCl ו-NH₃ בצינור הוא דיפוזיה; יחס גרהם נותן בו הערכת קורס, לא תיאור מלא של הובלה ותגובה.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t53"
    },
    {
     "style": "Figure",
     "figure": "effusion-quantities",
     "text": "באפוזיה בתנאי מקור קבועים: גז קל מעביר יותר מולים בזמן נתון; גז כבד יכול להעביר יותר גרמים. כשמשווים זמנים חייבים לציין גם את הכמות והיחידה.",
-    "batch2": true
+    "batch2": true,
+    "id": "G10-t54"
    },
    {
     "style": "Heading",
@@ -499,7 +553,8 @@
     "style": "Normal",
     "text": "המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר). המודל מניח מולקולות כדוריות קשיחות בגז דליל, ולכן עבור גזים ממשיים הערכים המחושבים הם הערכת סדר־גודל, לא ערך מדויק.",
     "enrich": true,
-    "batch3": true
+    "batch3": true,
+    "id": "G10-t55"
    },
    {
     "text": "λ = R·T/(√2·π·ρ²·Nₐ·P)        z = v_avg/λ",
@@ -517,14 +572,16 @@
     ],
     "enrich": true,
     "batch3": true,
-    "notationOf": 34
+    "notationOf": 34,
+    "id": "G10-t56"
    },
    {
     "text": "מספר ההתנגשויות לשנייה של מולקולה ממוצעת הוא:",
     "style": "Normal",
     "enrich": true,
     "batch3": true,
-    "notationOf": 35
+    "notationOf": 35,
+    "id": "G10-t57"
    },
    {
     "text": "z = v_avg/λ",
@@ -536,20 +593,23 @@
      "λ"
     ],
     "notationOf": 35,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t58"
    },
    {
     "text": "זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.",
     "style": "Normal",
     "notationOf": 35,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t59"
    },
    {
     "text": "חימום גז בנפח קבוע דורש לדעת לאן הולכת האנרגיה. לגז אידיאלי סביב טמפרטורת החדר, כשאופני הסיבוב פעילים אבל התנודות עוד קפואות: מולקולה חד־אטומית אוגרת הכול בתנועה בלבד:",
     "style": "Normal",
     "enrich": true,
     "batch3": true,
-    "notationOf": 36
+    "notationOf": 36,
+    "id": "G10-t60"
    },
    {
     "text": "C_v = 3R/2",
@@ -560,13 +620,15 @@
      "R"
     ],
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t61"
    },
    {
     "text": "מולקולה קווית מוסיפה שני אופני סיבוב:",
     "style": "Normal",
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t62"
    },
    {
     "text": "C_v = 5R/2",
@@ -577,13 +639,15 @@
      "R"
     ],
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t63"
    },
    {
     "text": "ומולקולה לא־קווית שלושה:",
     "style": "Normal",
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t64"
    },
    {
     "text": "C_v = 3R",
@@ -594,13 +658,15 @@
      "R"
     ],
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t65"
    },
    {
     "text": "אלו ערכי מינימום: בטמפרטורות גבוהות התנודה מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן אותה כמות חום מחממת גז חד־אטומי יותר מגז מולקולרי — ומדידת q מול ΔT חושפת את הגיאומטריה.",
     "style": "Normal",
     "notationOf": 36,
-    "enrich": true
+    "enrich": true,
+    "id": "G10-t66"
    },
    {
     "text": "q = n·Cv·ΔT",
@@ -614,14 +680,16 @@
     ],
     "enrich": true,
     "batch3": true,
-    "notationOf": 37
+    "notationOf": 37,
+    "id": "G10-t67"
    },
    {
     "text": "מלכודת יחידות: בחישובי חום בקלוריות משתמשים ב-R = {R@cal}, לא ב-{R@value}. בכיוון ההפוך — מ-q ו-ΔT מחלצים Cv, וממנו מסיקים אם המולקולה קווית או לא־קווית.",
     "style": "Callout",
     "enrich": true,
     "batch3": true,
-    "notationOf": 38
+    "notationOf": 38,
+    "id": "G10-t68"
    },
    {
     "style": "Heading",
@@ -631,7 +699,8 @@
    {
     "style": "Normal",
     "text": "מתחילים במצב, לא בהצבה. רושמים לכל שלב מי נמצא בכלי, כמה מולים יש, ומה נשאר קבוע. מפרידים שלב אידיאלי שבו מוצאים n, משלב צפוף שבו מחשבים P או Z. סילוק גז משנה את n; דחיסה לבדה אינה משנה אותו. לחץ של פחות מ-1 atm יכול להיות הנחת שאלה נוחה, אבל אינו גבול פיזיקלי אוניברסלי לאידיאליות.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t69"
    },
    {
     "style": "Heading",
@@ -641,7 +710,8 @@
    {
     "style": "Normal",
     "text": "באותם n,V,T תיקון הנפח מגדיל את הלחץ: למרכזי המולקולות פנוי פחות נפח. תיקון המשיכה מקטין אותו. אין כלל שלפיו גז ממשי תמיד מפעיל פחות לחץ מגז אידיאלי. בודקים את ההפרש בין שני התיקונים, לא את a או b לבדם.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t70"
    },
    {
     "text": "P = nRT/(V − nb) − an²/V²",
@@ -655,7 +725,8 @@
      "b"
     ],
     "finalPrep": true,
-    "notationOf": 43
+    "notationOf": 43,
+    "id": "G10-t71"
    },
    {
     "text": "Z = V/(V − nb) − an/(VRT)",
@@ -669,13 +740,15 @@
      "b"
     ],
     "finalPrep": true,
-    "notationOf": 44
+    "notationOf": 44,
+    "id": "G10-t72"
    },
    {
     "text": "בצורת הנפח המולרי:",
     "style": "Normal",
     "finalPrep": true,
-    "notationOf": 45
+    "notationOf": 45,
+    "id": "G10-t73"
    },
    {
     "text": "Vₘ = V/n",
@@ -686,13 +759,15 @@
      "V, n"
     ],
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t74"
    },
    {
     "text": "התיקון הראשון הוא:",
     "style": "Normal",
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t75"
    },
    {
     "text": "Vₘ/(Vₘ − b)",
@@ -703,13 +778,15 @@
      "b#2"
     ],
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t76"
    },
    {
     "text": "והתיקון השני הוא:",
     "style": "Normal",
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t77"
    },
    {
     "text": "a/(RTVₘ)",
@@ -722,13 +799,15 @@
      "Vₘ"
     ],
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t78"
    },
    {
     "text": "בדיקת יחידות: b בנפח למול, a בלחץ כפול נפח בריבוע למול בריבוע. עם ליטר ו-atm משתמשים בערך:",
     "style": "Normal",
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t79"
    },
    {
     "text": "R = {R@latm}",
@@ -738,24 +817,28 @@
      "R:latm"
     ],
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t80"
    },
    {
     "text": "אסור להציב מסה במקום n או לערבב בין V לבין Vₘ.",
     "style": "Normal",
     "notationOf": 45,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t81"
    },
    {
     "style": "Callout",
     "text": "בדיקת תחום: V חייב להיות גדול מ-nb. קרבה ל-nb גורמת לתיקון גדול ומזהירה מפני שימוש כמותי נאיבי במודל הפשוט. Z = 1 בנקודה אחת אינו אומר שאין כוחות: ייתכן ששני התיקונים מתקזזים.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t82"
    },
    {
     "style": "Figure",
     "text": "התרשים מחושב ממודל ואן דר ואלס לדוגמה עם a = 3.592, b = 0.04267 ו-R = 0.08206. הציר האופקי הוא צפיפות מולרית, לא לחץ. הקווים אינם נתוני מדידה; רואים ביטול מסדר ראשון בטמפרטורת בויל, אך לא זהות לגז אידיאלי בכל צפיפות.",
     "finalPrep": true,
-    "figure": "real-gas-boyle"
+    "figure": "real-gas-boyle",
+    "id": "G10-t83"
    },
    {
     "style": "Heading",
@@ -766,7 +849,8 @@
     "text": "נסמן:",
     "style": "Normal",
     "finalPrep": true,
-    "notationOf": 49
+    "notationOf": 49,
+    "id": "G10-t84"
    },
    {
     "text": "c = n/V",
@@ -777,13 +861,15 @@
      "n, V"
     ],
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t85"
    },
    {
     "text": "כאשר bc קטן, מפתחים:",
     "style": "Normal",
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t86"
    },
    {
     "text": "1/(1 − bc) ≈ 1 + bc",
@@ -794,13 +880,15 @@
      "c@concentration"
     ],
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t87"
    },
    {
     "text": "ונקבל:",
     "style": "Normal",
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t88"
    },
    {
     "text": "Z ≈ 1 + [b − a/(RT)]·c",
@@ -815,13 +903,15 @@
      "T"
     ],
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t89"
    },
    {
     "text": "בטמפרטורה:",
     "style": "Normal",
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t90"
    },
    {
     "text": "T_B = a/(Rb)",
@@ -834,13 +924,15 @@
      "R"
     ],
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t91"
    },
    {
     "text": "המקדם של c מתאפס. זו טמפרטורת בויל של המודל: הסטייה המובילה בגבול צפיפות נמוכה מתבטלת. האיברים מסדר שני ומעלה נשארים; אין כאן הבטחה לאידיאליות בכל לחץ.",
     "style": "Normal",
     "notationOf": 49,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t92"
    },
    {
     "text": "T_B = a/(Rb)        Z(T_B) − 1 = (bc)²/(1 − bc)",
@@ -855,13 +947,15 @@
      "R"
     ],
     "finalPrep": true,
-    "notationOf": 50
+    "notationOf": 50,
+    "id": "G10-t93"
    },
    {
     "text": "הנוסחה האחרונה היא זהות של מודל ואן דר ואלס, לאחר הצבת T_B. היא מסבירה מדוע הסטייה עדיין חיובית בצפיפות סופית גם כאשר השיפוע בראשית הוא אפס. לדוגמה:",
     "style": "Normal",
     "finalPrep": true,
-    "notationOf": 51
+    "notationOf": 51,
+    "id": "G10-t94"
    },
    {
     "text": "c = 1.00 mol/L",
@@ -871,13 +965,15 @@
      "c@concentration"
     ],
     "notationOf": 51,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t95"
    },
    {
     "text": "נותן:",
     "style": "Normal",
     "notationOf": 51,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t96"
    },
    {
     "text": "bc ≈ 0.043",
@@ -888,13 +984,15 @@
      "c@concentration"
     ],
     "notationOf": 51,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t97"
    },
    {
     "text": "זה קטן, אך לא אפס.",
     "style": "Normal",
     "notationOf": 51,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t98"
    },
    {
     "style": "Heading",
@@ -905,7 +1003,8 @@
     "text": "אם נתונים Z, n, V, T ו-b, מחלצים:",
     "style": "Normal",
     "finalPrep": true,
-    "notationOf": 53
+    "notationOf": 53,
+    "id": "G10-t99"
    },
    {
     "text": "a = (VRT/n)·[V/(V − nb) − Z]",
@@ -919,13 +1018,15 @@
      "R"
     ],
     "notationOf": 53,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t100"
    },
    {
     "text": "אם אף אחד משני הפרמטרים אינו ידוע, מדידה אחת אינה מספיקה. בשתי מדידות באותו n,V מחסרים את משוואות הלחץ: איבר המשיכה מתבטל ומתקבל:",
     "style": "Normal",
     "notationOf": 53,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t101"
    },
    {
     "text": "ΔP = nRΔT/(V − nb)",
@@ -938,13 +1039,15 @@
      "b"
     ],
     "notationOf": 53,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t102"
    },
    {
     "text": "מחשבים קודם את הנפח הפנוי, אחר כך b, ולבסוף a מאחת המדידות.",
     "style": "Normal",
     "notationOf": 53,
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t103"
    },
    {
     "text": "D = V − nb = nR(T₁ − T₂)/(P₁ − P₂)",
@@ -959,7 +1062,8 @@
      "P₁, P₂"
     ],
     "finalPrep": true,
-    "notationOf": 54
+    "notationOf": 54,
+    "id": "G10-t104"
    },
    {
     "text": "b = (V − D)/n        a = [nRT₁/D − P₁]V²/n²",
@@ -974,12 +1078,14 @@
      "T₁, P₁"
     ],
     "finalPrep": true,
-    "notationOf": 55
+    "notationOf": 55,
+    "id": "G10-t105"
    },
    {
     "style": "Normal",
     "text": "סיום פתרון: מציבים את a,b בשתי המדידות המקוריות, ולא רק ביעד. בודקים a≥0 ו-b≥0 למודל הקורס, V>nb, יחידות וסימן הסטייה. מספרים מעוגלים עשויים להחזיר הבדל קטן. אם אין פתרון סביר, בודקים נתונים לפני שמכריזים שהגז מוזר.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t106"
    },
    {
     "style": "Heading",
@@ -989,12 +1095,14 @@
    {
     "style": "Normal",
     "text": "צפיפות תערובת אידיאלית נותנת מסה מולרית ממוצעת M̄ = ρRT / P. לתערובת בינרית: M̄ = x_AM_A + (1 − x_A)M_B. אחרי שמוצאים הרכב מחשבים את מולי הרכיב שנותר; את המשוואה הממשית מפעילים על הרכיב המבודד, לא על כלל מולי התערובת המקורית.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t107"
    },
    {
     "style": "Normal",
     "text": "בתגובה כותבים שינויי מולים לפי מקדמים. לדוגמה 2CO + O₂→2CO₂: אם ξ מול חמצן מגיב, סך המולים יורד ב-ξ ונוצרים 2ξ מול CO₂. משווים את המולים לפני ואחרי, לא לחצים שנמדדו בטמפרטורות שונות ללא תיקון T.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t108"
    },
    {
     "style": "Heading",
@@ -1004,7 +1112,8 @@
    {
     "style": "Callout",
     "text": "משוואת ואן דר ואלס היא מודל קורס מועיל, לא טבלת פאזות. למשל החישוב שהתבקש עבור CO₂ ב- −130°C הוא תרגול אלגברי של המודל. אין לפרש אותו כהוכחה שהחומר במצב גז יציב שם. סמוך לעיבוי, לקיפאון או לנקודה הקריטית צריך לבדוק פאזות ומודל מתאים; גם לחץ חיובי לבדו אינו מאמת את ההנחה.",
-    "finalPrep": true
+    "finalPrep": true,
+    "id": "G10-t109"
    },
    {
     "style": "Heading",
@@ -1014,22 +1123,26 @@
    {
     "style": "Normal",
     "text": "בהתפשטות חופשית אל תוך ואקום, כמו פתיחת הברז בין שני הנורות בשקף, הגז לא מבצע עבודה על הסביבה ולא עובר חום. האנרגיה הפנימית נשמרת. בגז אידיאלי האנרגיה הפנימית תלויה בטמפרטורה בלבד, ולכן הטמפרטורה אינה משתנה בהתפשטות כזו.",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t110"
    },
    {
     "style": "Normal",
     "text": "בגז ממשי עם משיכה בין-מולקולרית, הגדלת המרחקים הממוצעים בין המולקולות מעלה את האנרגיה הפוטנציאלית. מכיוון שהאנרגיה הכוללת נשמרת, העלייה באה על חשבון האנרגיה הקינטית של המולקולות, ולכן הטמפרטורה יורדת. זו המשמעות של ההערה בשקף: בכדי לפצות הטמפרטורה יורדת.",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t111"
    },
    {
     "style": "Normal",
     "text": "כך פועל הקירור במקררים ובמזגנים: גז ממשי שמתפשט מתקרר. ניצול האפקט דורש שהמשיכה הבין-מולקולרית תהיה הכוח הדומיננטי בתנאי העבודה.",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t112"
    },
    {
     "style": "Callout",
     "text": "אין ליישם את המסקנה על גז אידיאלי: ללא כוחות בין-מולקולריים אין שינוי באנרגיה הפוטנציאלית, ולכן אין שינוי טמפרטורה בהתפשטות חופשית. ירידת לחץ לבדה אינה גורמת לקירור.",
-    "batch4": true
+    "batch4": true,
+    "id": "G10-t113"
    }
   ],
   "worked": [

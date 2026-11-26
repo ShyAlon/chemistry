@@ -8,7 +8,7 @@ test('only the two selected nano papers have independent discussion routes',()=>
  assert.deepEqual(papers.map(p=>p.id),['shape-2026','pbse-2017']);
  for(const p of papers){assert.equal(paperFromRoute('course/nano/papers/'+p.id),p);assert.equal(paperFromRoute('/course/nano/papers/'+p.id),p)}
  for(const r of ['course/84101/papers/pbse-2017','course/nano/N8','course/nano/papers/turkevich','course/nano/papers/pbse-2017/extra'])assert.equal(paperFromRoute(r),null);
- assert.equal(catalogue.courses.find(c=>c.id==='nano').topics.length,12);
+ assert.equal(catalogue.courses.find(c=>c.id==='nano').topics.length,13);
 });
 test('paper guides include sourced argument, figure analysis, worked reasoning and oral checkpoints',()=>{
  for(const p of papers){assert.ok(p.opener.length>300);assert.ok(p.sections.length>=10);assert.equal(p.figures.length,4);assert.ok(p.examples.length>=3);assert.equal(p.oral.length,10);assert.ok(paperSources[p.source]);

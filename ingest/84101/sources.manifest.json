@@ -1,0 +1,26 @@
+{
+ "course": "84101",
+ "version": 1,
+ "sources": [
+  {
+   "file": "Ex 7.docx",
+   "sha256": "38c58696167333d4dfc2a012e777915aca24f2d867bec02047ff9e94ed23e33a"
+  },
+  {
+   "file": "General Chemistry 4.pdf",
+   "sha256": "5821797726b5020cb41a68ddfa6d3b3260052676ef99ee8ba407564240be1102"
+  },
+  {
+   "file": "שאלות לדוגמא כימיה כללית תשפז.pdf",
+   "sha256": "d1fb53fa1569f32d12dfce8da10641929ac7bd4929e185631d277e628fe9d357"
+  },
+  {
+   "file": "תרגול 5א- תאוריה קינטית של גזים .pdf",
+   "sha256": "1258b67e67bb663fd341efb496b055f47311cb7757ade8b6726c235af4a30c19"
+  },
+  {
+   "file": "תרגול 5ב - גזים ריאליים.pdf",
+   "sha256": "2cd6c20eb2c586df3a5040c9412e86d384bc1dc36169d2c25350cee43bfda9cb"
+  }
+ ]
+}

@@ -25,7 +25,7 @@ test('every reformatted passage keeps each of its original formula runs',()=>{
  // Intentional, reviewed notation changes: ASCII-only subscript names replace
  // Hebrew subscripts so equation blocks stay free of Hebrew, constants now carry
  // their units, and one ambiguous comma is dropped. G2.4 moved the value of Nₐ into the central symbol key. G10.53 gained explicit parentheses around VRT/n.
- const exempt=new Set(['G1.14','G9.6','G2.4','G10.53']);
+ const exempt=new Set(['G1.14','G9.6','G2.4','G10.53','G10.34']); // G10.34: the duplicated z = v_avg/λ tail was intentionally dropped (stated in its own block right below)
  let checked=0;const misses=[];
  for(const c of notationCorrections){
   const after=gc.topics.find(t=>t.id===c.topic).content.theory.filter(b=>b.notationOf===c.index);
@@ -172,7 +172,7 @@ test('reference sentences state R through placeholders; supplied exercise values
  assert.equal(formatConstant('R@value'),'8.314');
  const text=gc.topics.flatMap(t=>t.content.theory).map(b=>b.text||'').join('\n');
  assert.ok(text.includes('R = {R@cal}, לא ב-{R@value}'));
- assert.ok(text.includes('R = {R} ו-ρ במטר'));
+ assert.ok(text.includes('⁧R = {R}⁩ ואת הקוטר ρ במטר')); /* SI units string LTR-isolated after round-3 bidi fix */
  // supplied values in prompts and worked arithmetic are deliberate and unchanged
  const quiz=JSON.stringify(gc.topics.find(t=>t.id==='G10').content.quiz);
  assert.ok(quiz.includes('R=8.3145 J/(mol·K)'));assert.ok(quiz.includes('R = 0.08206'));

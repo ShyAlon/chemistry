@@ -43,7 +43,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[11].content=['0.200 mol N₂ (מולקולה קווית) בכלי קשיח מחוממים מ-25°C ל-125°C. כמה חום נדרש, בג׳ול ובקלוריות?','N₂ קווית ← Cv = 5R/2. q = 0.200×2.5×8.314×100 = 416 J. בקלוריות: q = 0.200×2.5×1.987×100 = 99.4 cal. להשוואה: גז חד־אטומי באותה כמות היה דורש 0.200×1.5×8.314×100 = 249 J בלבד — אין לו סיבובים "להאכיל".'];
  // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
  {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
-  for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
+ for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
   th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';
   const cvb=th.find(b=>(b.text||'').includes('אלו ערכי מינימום'));
   cvb.text=cvb.text.replace('מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן','מתעוררת ו-Cv גדל מעבר להם. לכן');}

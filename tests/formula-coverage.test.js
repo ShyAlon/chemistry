@@ -13,7 +13,7 @@ const rows=collectFormulaRecords(),by=new Map(rows.map(r=>[r.key,r]));
 const effusion=rows.find(r=>r.expression==='r_mol ∝ P/√M');
 
 test('reviewed coverage is distinct from the explicitly unreviewed, change-locked legacy inventory',()=>{
- assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:168,legacy:512,total:680});
+ assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:169,legacy:511,total:680});
  assert.ok(review.scope.includes('do not certify'));
  assert.ok(!Object.keys(review.reviewed).some(k=>Object.hasOwn(review.legacyUnreviewed,k)));
 });
@@ -72,7 +72,7 @@ test('reviewed definition meanings are locked as well as the IDs, while the corr
  const copy=structuredClone(rows),changed=copy.find(r=>r.key===average.key);changed.metadata.symbols=changed.metadata.symbols.map(id=>id==='M@gas-average'?'M̄':id);
  assert.throws(()=>validateCoverageManifest(copy,review),/legacy record changed/);
 });
-test('all 17 repaired theory records replay from the stored notation source with the same complete bindings',()=>{
+test('all 18 repaired theory records replay from the stored notation source with the same complete bindings',()=>{
  const entries=JSON.parse(fs.readFileSync(new URL('../src/notation-blocks.json',import.meta.url)));
  let checked=0;
  for(const row of rows.filter(r=>review.reviewed[r.key]&&r.key.includes('/theory/')&&!r.key.startsWith('nuclear/E5/')&&!r.key.startsWith('nuclear/E6/'))){
@@ -82,7 +82,7 @@ test('all 17 repaired theory records replay from the stored notation source with
   const metadata=formulaMetadata(block.text,{symbols:block.symbols});assert.deepEqual(metadata,row.metadata,row.key);
   assert.doesNotThrow(()=>validateCoverage({...row,metadata},review.reviewed[row.key]));checked++;
  }
- assert.equal(checked,17);
+ assert.equal(checked,18);
 });
 test('nuclear/E5 reviewed theory records replay from the live block with the same complete bindings (equivalent of the notation replay)',()=>{
  const keys=rows.filter(r=>review.reviewed[r.key]&&r.key.startsWith('nuclear/E5/theory/')||review.reviewed[r.key]&&r.key.startsWith('nuclear/E6/theory/'));

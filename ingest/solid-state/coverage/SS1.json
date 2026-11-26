@@ -1,0 +1,571 @@
+{
+ "schema": 2,
+ "course": "solid-state",
+ "topic": "SS1",
+ "source": {
+  "sha256": "30da118f6e57152cc359f19be01bf498d7d14cbeaca5fe2de8ad8f39bed3bef4",
+  "kind": "multi-file-deck",
+  "pageCount": 32,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png). source.sha256 = sha256(JSON.stringify(source.files)).",
+  "files": [
+   {
+    "file": "Intro slides MM.pdf",
+    "sha256": "5202af4234580ce2115ced34f37f7d8814ef7e4871bdb9ab3dee0da111f588a3",
+    "pages": "9-16,19-22,28-30",
+    "firstPage": 1
+   },
+   {
+    "file": "Matzav_Mutzak_1_-_ionic_crystals_2026.pdf",
+    "sha256": "ae1fa9f6828f0db6f23b531ecd00f368cdcfcd0669b1f3ee6dcdb56a2f76a38d",
+    "pages": "2-8,13-15",
+    "firstPage": 16
+   },
+   {
+    "file": "MMM_TA_1.pdf",
+    "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e",
+    "pages": "3-6",
+    "firstPage": 26
+   },
+   {
+    "file": "Solid State TA_2 21.10.26.pdf",
+    "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2",
+    "pages": "3-5",
+    "firstPage": 30
+   }
+  ]
+ },
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "9e5bc23afd7e9c372239971dbfc8686d759c9c6f0bb15bb3ccd4133fb6204b00",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "זיקת גומלין מבנה-עיבוד-תכונות כיסוד מדע החומרים",
+     "targets": [
+      "theory:SS1-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "5e440bf1dcbfc7e8637482e34f6bf16d51ed6f905666a60496b87bd0585d055c",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הרכב + סידור אטומי ועיבוד קובעים את רשימת התכונות",
+     "targets": [
+      "theory:SS1-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "c64a9c6d3cf9eea90c7a01f2d785ac0ab249896aef3fb443789eee0c19e7ce41",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "שלוש צורות מוצק: גבישי, פולי-גבישי, אמורפי; גביש יחיד ופיריט",
+     "targets": [
+      "theory:SS1-t09",
+      "theory:SS1-t10",
+      "theory:SS1-t11",
+      "theory:SS1-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "6f331bbfc9476e95124b166777534b50e861f3882c5608cf8b14d92fc5098472",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "משפחות מתכות/פולימרים/קרמיקות עם סוג הקישור ופרופיל התכונות",
+     "targets": [
+      "theory:SS1-t14",
+      "theory:SS1-t15",
+      "theory:SS1-t16",
+      "theory:SS1-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "ecefb6d6e21597a14da17d5445137b3c1cbf9e4673be858b378b89656e9c73fb",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים טקסונומיית חומר: טהורים/תערובות, קוולנטי-רשתי, סגסוגות, זכוכיות",
+     "targets": [
+      "theory:SS1-t14",
+      "theory:SS1-t15",
+      "theory:SS1-t16"
+     ],
+     "rationale": "רעיון הסיווג מועבר דרך שלוש המשפחות; פירוט תערובות/קומפוזיטים לא הועבר"
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "f994f3d271fee5cfd5cb52e79bf505e8f829c846981ef7cf524434178db3c4ce",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "שרשרת מבנה אלקטרוני ← קישור ← תכונות",
+     "targets": [
+      "theory:SS1-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "3da231e2110e765af9f2bcf3542a6e5658689981de32b78b3caafdbad00c3ece",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "רקע מובהל: מודל בוהר, מספרים קוונטיים, LCAO-MO, היברידיזציה",
+     "targets": [
+      "theory:SS1-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "bb5bf51167095f635384afa53c743dcf727cbc74ab09c63b4e996d2b2adfac5f",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "פוסטולטות בוהר כולל קוונטיזציית תנע זוויתי ויחס פלאנק-איינשטין",
+     "targets": [
+      "theory:SS1-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "28cad1d206071a0478e425c89e4672dfb59bc6b652b90b5c252832036a3c5ad6",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "שרשרת תכונות-קישור-מבנה אלקטרוני בפריסה הפוכה (חזרה)",
+     "targets": [
+      "theory:SS1-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "9049b70635990638c000602ee3dfa151a7c86ff595c5df5bb65e6832fe358c6a",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "מוליכות חשמלית על פני 25 סדרי גודל + השאלה המנחה",
+     "targets": [
+      "theory:SS1-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "cc5fae2ca5c8c320082e4d56a9cd29df3162aac0a31e639f3de90dd7e60aaa11",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "מוליכות תרמית על פני 5 סדרי גודל",
+     "targets": [
+      "theory:SS1-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "981551b95f92c61f84522107febd0645a02873d59f10460325eb3f65676308cb",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשימי Ashby-Jones כמופע מכני של אותה שאלה מנחה",
+     "targets": [
+      "theory:SS1-t06"
+     ],
+     "rationale": "שיטת תרשימי אשבי עצמה לא הועברה; השאלה המנחה ופער התכונות כן"
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "5e440bf1dcbfc7e8637482e34f6bf16d51ed6f905666a60496b87bd0585d055c",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרשים הרכב+סידור←עיבוד←תכונות (חזרה על שקף ההקדמה)",
+     "targets": [
+      "theory:SS1-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "a04c18d9168ef96781c5bb3499d1c858bbdb9517626bcd91d97b231f4cc519e1",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תכונות תלויות במבנה: קשיות פלדה מול מבנה",
+     "targets": [
+      "theory:SS1-t03"
+     ]
+    },
+    {
+     "id": "p14.u2",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "קשיות מול קצב קירור 0.01-1000 °C/s; העיבוד משנה את המבנה",
+     "targets": [
+      "theory:SS1-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "2c3ace35a2dcaae31b4b6cec36ce1da8c64a61cfe38a8baa76753cee27f025b2",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "outline",
+     "disposition": "admin",
+     "label": "שקף מטרות הקורס",
+     "rationale": "מטרות ברמת מסגרת קורס, אין תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "710d4f021c595dc4248642eaffd38b2536c6cd78c6d10862db0b3116c8c271ec",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אלקטרון כגל/חלקיק, אורביטל הסתברותי, מספרים קוונטיים n,l,ml",
+     "targets": [
+      "theory:SS1-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "5eac5c22f4ec2c7f8a060a710f52b13914e9a5105d2b61c137cb462d0df7f8cc",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מצבי אנרגיה בדידים; יישוב המצב הפנוי הנמוך ביותר",
+     "targets": [
+      "theory:SS1-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "0afa53db512f4ca4423c4cfe8291aa66d2d710af023e351e0bfcc68804f67a8e",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "סקר קונפיגורציות יסודות; רוב הקליפות לא מלאות ולא יציבות",
+     "targets": [
+      "theory:SS1-t22"
+     ],
+     "rationale": "הטבלה המפורטת כוסתה כעקרון כללי ללא שחזור כל שורה"
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "4101f433cf4edf6d7bed4feb6c8e92df2de8ca5b2885213efbf4e61cb7f6ca51",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "דוגמת Fe לקריאת קונפיגורציה ואלקטרוני ערכיות",
+     "targets": [
+      "theory:SS1-t22"
+     ],
+     "rationale": "הדוגמה הספציפית לא הועברה; עקרון העמודה-לפי-ערכיות כן"
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "680dd04b2d29578b38ab3b4d15e4fd9a2ebe144eed2db527de9b859e43be44d7",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "עמודות הטבלה לפי מבנה ערכיות דומה; מסירה/קליטה לפי עמודה",
+     "targets": [
+      "theory:SS1-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "be1e1051ce51a8e3e07f6afff91664b9313a0f262f0e687c877eb904983df59f",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אלקטרו-שליליות 0.9-4.1, ערכים גבוהים = נטייה לרכוש; טרנדים",
+     "targets": [
+      "theory:SS1-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "24e515eee57e7713a147d5267c14302dcd5aa3331eb616b4589c7839de60db41",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "קישור יוני מתכת+לא-מתכת, תרומה/קליטה, הפרש אלקטרו-שליליות",
+     "targets": [
+      "theory:SS1-t26",
+      "theory:SS1-t27"
+     ],
+     "rationale": "אותו עקרון; דוגמת MgO הוחלפה ב-Na/Cl התואמת לתרגול"
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "b5ac0e78a2b5d4d8eff0d59d6546c1202f6d9f8a36bb9a862e64770caad36e03",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חזרה: משפחות מתכות/פולימרים/קרמיקות (שקף כפול מהמבוא)",
+     "targets": [
+      "theory:SS1-t14",
+      "theory:SS1-t15",
+      "theory:SS1-t16",
+      "theory:SS1-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "2389273041b873c20e26e481ef0efb15b7d3a6e4d1ea71c9948a6c3b4c7e4523",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חזרה: שרשרת מבנה-קישור-תכונות",
+     "targets": [
+      "theory:SS1-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "9d3731a41a219f57d217112667ebb150a72b05fb331f4a8770e172fcb8efa875",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חזרה: השרשרת בפריסה הפוכה",
+     "targets": [
+      "theory:SS1-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "748a4704eb88a2268e6bbca8a1ad5983527b45e1a6bc91439dcd40c1e71aa86f",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "בסיס אטומי: חלקיקים תת-אטומיים, Z, אטום נייטרלי, אלקטרוני ערכיות",
+     "targets": [
+      "theory:SS1-t19",
+      "theory:SS1-t22"
+     ],
+     "rationale": "חזרת תרגול על יסודות האטום; נכלאה ברקע המובהל ובטיפול בערכיות"
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "10700c2c557ff063cc2b8415b3e240f84e0907bfcb6e322b2cc1aaaed9c79a9f",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "יון, כלל האוקטט, אניון/קטיון; Cl+e⁻←Cl⁻, Na←Na⁺+e⁻",
+     "targets": [
+      "theory:SS1-t24",
+      "theory:SS1-t26"
+     ]
+    },
+    {
+     "id": "p27.u2",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמאות יצירת יונים Na/Cl",
+     "targets": [
+      "theory:SS1-t27",
+      "worked:2"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "67ee20068a08b0ebb610351a906f90c6b954f624f3ee21422a3ef38461ef9e31",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "טבלה מחזורית לחיזוי התנהגות; עמודות ותצורות ערכיות",
+     "targets": [
+      "theory:SS1-t22",
+      "worked:2"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "1dd0fc0eeeda25d54b23cda1947f06c60ec0bc2def2dc1ed20e3033b330eda02",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת קשר כימי; שלושה סוגי קישור: יוני/קוולנטי/מתכתי",
+     "targets": [
+      "theory:SS1-t14",
+      "theory:SS1-t15",
+      "theory:SS1-t16",
+      "theory:SS1-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "917d7da0800427877bae5d96a73e54af9ad110eb2f7f942873e1026f1093f8ff",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת אלקטרו-שליליות וטרנדים עם נימוק גרעיני/קליפות",
+     "targets": [
+      "theory:SS1-t23",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "82acaf0cc29e37144a83a2ecffd069ec2e65e44e4444ea410a50c10a8ba5e948",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "רדיוס אטומי מול יוני; קליטה מגדילה, איבוד מקטין; אותה הגדרה",
+     "targets": [
+      "theory:SS1-t24",
+      "worked:3",
+      "quiz:4"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "0af7dd6eb1727baf595669b189761f7701a16ce152685ffcea99d8fa9d9b97ec",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "חוק קולון לחיזוי התכה; r≈rc+ra; בדרך כלל התכה גבוהה יותר",
+     "targets": [
+      "theory:SS1-t28",
+      "worked:4"
+     ]
+    }
+   ]
+  }
+ ]
+}

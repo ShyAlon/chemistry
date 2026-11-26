@@ -11,6 +11,15 @@
     "package.json",
     "package-lock.json"
    ]
+  },
+  "solid-state": {
+   "roots": [
+    "figures-solid-state.jsx"
+   ],
+   "extraFiles": [
+    "package.json",
+    "package-lock.json"
+   ]
   }
  },
  "legacyUnaudited": [
@@ -62,7 +71,6 @@
   "nuclear/E8",
   "nuclear/E9",
   "nuclear/E10",
-  "solid-state/SS1",
   "solid-state/SS2",
   "solid-state/SS3",
   "solid-state/SS4",

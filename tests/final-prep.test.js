@@ -23,6 +23,8 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  {const n=original.courses.find(c=>c.id==='nuclear'),i=n.topics.findIndex(t=>t.id==='E5');n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/nuclear-E5-before-repair.json',import.meta.url)))}
  // Nuclear E6 was intentionally repaired (source coverage, stable ids, reviewer corrections); same fixture pattern as E5.
  {const n=original.courses.find(c=>c.id==='nuclear'),i=n.topics.findIndex(t=>t.id==='E6');n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/nuclear-E6-before-repair.json',import.meta.url)))}
+ // Solid State SS1-SS4 gained stable theory-block ids for source-coverage mapping; same fixture pattern as E5/E6.
+ for(const id of ['SS1','SS2','SS3','SS4']){const n=original.courses.find(c=>c.id==='solid-state'),i=n.topics.findIndex(t=>t.id===id);n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/solid-state-'+id+'-before-repair.json',import.meta.url)))}
  original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
  for(const c of original.courses)for(const t of c.topics){
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;

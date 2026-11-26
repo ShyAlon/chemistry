@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "archive_sha256": "963589592fb9aee2b64d6f8b666a0a07817798169d451b8cef78c890913e4f7b",
-  "source_identity": "35d81ff765c356fd1b991f602ba72cc2bb9ebc0a5c028e3773d5c3e9dd7a315f",
+  "source_identity": "8df5ea6d29f74b3bb19d8eebd697fe7ce23fbf44e86f841a1183ab7e6f15dc5a",
   "origin": "https://shyalon.github.io/chemistry/",
   "service_worker_version": "a59f93314af63cc0",
   "provenance": "Prepared from production dist; exact bytes and tracked source must pass CI before promotion"

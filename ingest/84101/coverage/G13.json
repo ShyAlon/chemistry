@@ -232,13 +232,15 @@
     {
      "id": "p13.u1",
      "kind": "equation",
-     "disposition": "covered",
+     "disposition": "corrected",
      "label": "יחס לחצים בשתי טמפרטורות (קלאוזיוס-קלפירון)",
      "targets": [
       "theory:G13-t08",
       "theory:G13-t10",
-      "theory:G13-t11"
-     ]
+      "theory:G13-t11",
+      "theory:G13-t16"
+     ],
+     "rationale": "בשקף 13 מופיע מינוס מיותר לפני (1/T₁−1/T₂); תוקן, ובדיקת הסימן מופיעה בבלוק 16."
     }
    ]
   },
@@ -249,14 +251,12 @@
     {
      "id": "p14.u1",
      "kind": "equation",
-     "disposition": "corrected",
+     "disposition": "covered",
      "label": "הגדרת ΔH ושימוש בקלאוזיוס-קלפירון",
      "targets": [
       "theory:G13-t14",
-      "theory:G13-t15",
-      "theory:G13-t16"
-     ],
-     "rationale": "בשקף מופיע מינוס מיותר לפני (1/T₁−1/T₂); תוקן ונבדק במבחן סימן."
+      "theory:G13-t15"
+     ]
     }
    ]
   },

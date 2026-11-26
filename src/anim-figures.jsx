@@ -121,7 +121,8 @@ function carrierFrame(t,{params}){
 function rng(seed){let a=(seed*2654435761)>>>0;return()=>{a=(a+0x6D2B79F5)>>>0;let t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
 const decayTimes=(n,seed)=>{const r=rng(seed*7919+13);return Array.from({length:n},()=>-Math.log(1-r())/Math.LN2).sort((a,b)=>a-b)}; // in half-lives
 function halfLifeFrame(t,{accent,params}){
-  const tau=4*t,n=params.count,seed=params.run;
+  const tau=4*t,n=params.count,seed=params.run,hl=params.halfLife;
+  const phys=hl!==1;
   const X=u=>80+90*u,Yf=f=>245-190*f;
   const upto=Math.round(tau*25);
   const pts=Array.from({length:upto+1},(_,i)=>`${i===0?'M':'L'}${(80+3.6*i).toFixed(1)},${Yf(Math.pow(.5,i/25)).toFixed(1)}`).join(' ');
@@ -133,19 +134,21 @@ function halfLifeFrame(t,{accent,params}){
   return <>
     <L x1={80} y1={40} x2={80} y2={245}/><L x1={80} y1={245} x2={460} y2={245}/>
     {upto>0&&<Curve d={pts} stroke={accent} w={3}/>}
-    {[0,1,2,3,4].filter(i=>tau>=i-1e-9).map(i=><g key={i}><Dot cx={X(i)} cy={Yf(Math.pow(.5,i))} fill={accent}/><T x={X(i)} y={271} size={18} ltr>{i}</T></g>)}
+    {[0,1,2,3,4].filter(i=>tau>=i-1e-9).map(i=><g key={i}><Dot cx={X(i)} cy={Yf(Math.pow(.5,i))} fill={accent}/><T x={X(i)} y={271} size={18} ltr>{phys?i*hl+' s':i}</T></g>)}
     <T x={45} y={55} size={18} ltr>1</T><T x={42} y={155} size={18} ltr>0.5</T><T x={42} y={205} size={18} ltr>0.25</T>
-    <T x={130} y={25} size={18} ltr>N / N₀</T><T x={300} y={307} size={20} ltr>t / t½</T>
+    <T x={130} y={25} size={18} ltr>N / N₀</T><T x={300} y={307} size={20} ltr>{phys?'t (s)':'t / t½'}</T>
     {stair&&<Curve d={stair} stroke="#f0c978" w={2} dash="0"/>}
     {n>0&&<g>
       <T x={540} y={107} size={13} anchor="end" fill="#f0c978">דגימה אקראית אחת (הרצה קבועה)</T>
       <T x={540} y={129} size={13} anchor="end" ltr fill="#f0c978">{left} / {n}</T>
       <T x={540} y={155} size={13} anchor="end" fill={accent}>ממוצע צפוי לדגימה כזו</T>
       <T x={540} y={177} size={13} anchor="end" ltr fill={accent}>{exp.toFixed(1)}</T>
-      <T x={540} y={203} size={11} anchor="end" fill={C.mut}>כל הרצה אחרת שונה מעט; רק בדגימה גדולה הדגימה קרובה לעקומה</T>
     </g>}
   </>;
 }
+
+// The long honesty note about one random realization lives in the lesson caption
+// (animFigureNotes in main.jsx), not in the plot, so it can wrap on narrow screens.
 
 // Chain reaction: generations appear one after another. The middle panel follows k, the
 // effective multiplication from one generation of fissions to the next (expected value,
@@ -160,13 +163,13 @@ function chainFrame(t,{accent,params}){
   return <>
     {P.map((p,i)=><g key={i}>
       <Box x={p.x} y={0} w={170} h={218} fill={C.faint} stroke={p.c}/>
-      <T x={p.x+85} y={26} size={14} weight="bold" fill={C.ink}>{p.t}</T>
-      {i===1?<T x={p.x+85} y={46} size={12} ltr fill={p.c}>{crit?'k = 1':'k = '+k.toFixed(1)}</T>:<T x={p.x+85} y={46} size={12} ltr fill={p.c}>{p.k}</T>}
+      <T x={p.x+85} y={27} size={16} weight="bold" fill={C.ink}>{p.t}</T>
+      {i===1?<T x={p.x+85} y={48} size={13} ltr fill={p.c}>{crit?'k = 1':'k = '+k.toFixed(1)}</T>:<T x={p.x+85} y={48} size={13} ltr fill={p.c}>{p.k}</T>}
       {[0,1,2].map(r=><g key={r}>{dots(p,r)}{r<2&&gens[r+1]>0.02&&<L x1={p.x+85} y1={92+r*42} x2={p.x+85} y2={110+r*42} stroke={C.dim}/>}</g>)}
-      <T x={p.x+85} y={204} size={12} fill={C.mut}>{p.n}</T>
+      <T x={p.x+85} y={204} size={13} fill={C.mut}>{p.n}</T>
     </g>)}
-    <T x={280} y={238} size={11}>כל נקודה היא ביקוע; השורות הן דורות עוקבים</T>
-    {!crit&&<T x={280} y={254} size={10} fill={C.mut}>בלוח האמצעי: ממוצע צפוי, נקודה חלקית היא שבר של ביקוע</T>}
+    <T x={280} y={238} size={13}>כל נקודה היא ביקוע; השורות הן דורות עוקבים</T>
+    {!crit&&<T x={280} y={256} size={12} fill={C.mut}>בלוח האמצעי: ממוצע צפוי, נקודה חלקית היא שבר של ביקוע</T>}
   </>;
 }
 
@@ -189,13 +192,13 @@ export const animations={
   },
   'nuclear-half-life':{
     id:'nuclear-half-life',duration:10,viewBox:'0 0 560 320',
-    label:o=>'עקומת דעיכה N חלקי N0 כפונקציה של t חלקי זמן מחצית החיים, '+(o.count>0?'עם דגימה אקראית אחת של גרעינים שנדעכים בזמנים אקראיים (הרצה קבועה)':'העקומה האידיאלית בלבד'),
+    label:o=>'עקומת דעיכה N חלקי N0 כפונקציה של '+(o.halfLife===1?'t חלקי זמן מחצית החיים':'הזמן בשניות, זמן מחצית '+o.halfLife+' שניות')+', '+(o.count>0?'עם דגימה אקראית אחת של גרעינים שנדעכים בזמנים אקראיים (הרצה קבועה)':'העקומה האידיאלית בלבד'),
     stages:[{at:0,label:'1. עד זמן מחצית ראשון'},{at:0.25,label:'2. עד זמן מחצית שני'},{at:0.5,label:'3. עד זמן מחצית שלישי'},{at:0.75,label:'4. עד זמן מחצית רביעי'}],
-    params:[{id:'count',label:'מספר גרעינים בדגימה',min:0,max:400,step:10,value:0},{id:'run',label:'הרצה אקראית',min:1,max:9,step:1,value:1}],
+    params:[{id:'count',label:'מספר גרעינים בדגימה',min:0,max:400,step:10,value:0},{id:'halfLife',label:'זמן מחצית',min:1,max:10,step:1,value:1,unit:'s'},{id:'run',label:'הרצה אקראית',min:1,max:9,step:1,value:1}],
     frame:(t,o)=>halfLifeFrame(t,o)
   },
   'chain-reaction':{
-    id:'chain-reaction',duration:9,viewBox:'0 -90 560 345',
+    id:'chain-reaction',duration:9,viewBox:'0 -90 560 352',
     label:o=>'תגובת שרשרת דור אחר דור: תת-קריטית דועכת, קריטית יציבה, על-קריטית גדלה מעריכית; בלוח האמצעי אפשר לשנות את מקדם ההכפלה האפקטיבי בין דורות',
     stages:[{at:0,label:'1. דור ראשון'},{at:0.34,label:'2. דור שני'},{at:0.67,label:'3. דור שלישי'}],
     params:[{id:'k',label:'מקדם הכפלה אפקטיבי בין דורות (לא נייטרונים לביקוע)',min:0.5,max:2,step:0.1,value:1}],

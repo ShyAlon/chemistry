@@ -30,17 +30,24 @@ for(const [id,route] of Object.entries(routes)){
   let st=await state();assert.ok(st,id+' present');assert.equal(st.t,1,id+' opens on the finished frame');
   const poster=await svgText();
   // poster at lesson defaults carries only what the lesson figure shows
-  if(id==='nuclear-half-life'){assert.deepEqual(await prm(),{count:0,run:1});assert.ok(!poster.includes('דגימה אקראית'),'poster is the lesson curve only');assert.equal(await count('path'),1,'poster: only the ideal curve path');}
-  if(id==='chain-reaction'){assert.deepEqual(await prm(),{k:1});assert.ok(poster.includes('קריטית')&&poster.includes('k = 1')&&!poster.includes('חלקית'),'poster is the lesson figure');assert.equal(await count('circle'),17,'lesson dot counts: 7 + 3 + 7');}
+  if(id==='nuclear-half-life'){assert.deepEqual(await prm(),{count:0,halfLife:1,run:1});assert.ok(!poster.includes('דגימה אקראית'),'poster is the lesson curve only');assert.ok(poster.includes('t / t½'),'poster axis is normalized time');assert.equal(await count('path'),1,'poster: only the ideal curve path');}
+  if(id==='chain-reaction'){assert.deepEqual(await prm(),{k:1});assert.ok((await ev('document.body.textContent')).includes('אינה מתארת את מנגנון הביקוע'),'chain caption labels it generation multiplication, not a microscopic fission event');assert.ok(poster.includes('קריטית')&&poster.includes('k = 1')&&!poster.includes('חלקית'),'poster is the lesson figure');assert.equal(await count('circle'),17,'lesson dot counts: 7 + 3 + 7');}
   await click('.anim-play');await sleep(400);let a=await state();assert.equal(a.playing,'1');await click('.anim-play');
   if(id==='nuclear-half-life'){
     await setScrub(1000);await setP('count',10);await sleep(100);assert.ok((await svgText()).includes('דגימה אקראית אחת'),'sample label appears');
+    assert.ok(!(await svgText()).includes('כל הרצה אחרת'),'long honesty note stays out of the plot');
+    assert.ok((await ev('document.body.textContent')).includes('כל הרצה אחרת שונה מעט'),'honesty note lives in the wrapping caption');
+    // approved scope: an adjustable half-life. Default 1 s keeps the normalized lesson axis; a physical value switches the axis to seconds.
+    await setP('halfLife',5);await sleep(100);const ph=await svgText();assert.ok(ph.includes('t (s)')&&ph.includes('20 s'),'half-life 5 s gives a physical seconds axis');
+    await setP('halfLife',1);await sleep(100);assert.ok((await svgText()).includes('t / t½'),'reset to 1 s restores the normalized axis');
     const readout=async()=>ev(`[...document.querySelectorAll('.anim svg text')].map(t=>t.textContent).map(x=>x.replace(/[^0-9\\/]/g,'')).find(x=>/^\\d+\\/\\d+$/.test(x))`);
     await setScrub(0);await sleep(60);assert.equal(await readout(),'10/10','all nuclei present at t=0');
     await setScrub(1000);const end10=await readout();
     // same seed gives the same realization on replay
     await setScrub(500);const mid1=await readout();await setScrub(0);await setScrub(500);assert.equal(await readout(),mid1,'fixed seed replays identically');
     await setP('run',2);await setScrub(1000);await sleep(60);
+    for(const hl of [1,10]){await setP('halfLife',hl);for(const v of [0,500,1000]){await setScrub(v);const r=await ev(bounds);assert.equal(r.bad,0,`no NaN hl=${hl} t=${v}`);assert.deepEqual(r.out,[],`text inside viewBox hl=${hl} t=${v}`)}}
+    await setP('halfLife',1);
     for(const n of [0,10,100,400])for(const run of [1,5,9]){await setP('count',n);await setP('run',run);for(let v=0;v<=1000;v+=100){await setScrub(v);const r=await ev(bounds);assert.equal(r.bad,0,`no NaN n=${n} run=${run} t=${v}`);assert.deepEqual(r.out,[],`text inside viewBox n=${n} run=${run} t=${v}`)}}
     await setP('count',400);await setScrub(1000);const e=await readout();const left=Number(e.split('/')[0]);assert.ok(left<400*0.1,'after four half-lives only a small fraction remains in a large sample: '+e);
   }

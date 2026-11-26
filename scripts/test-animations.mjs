@@ -53,5 +53,36 @@ await setScrub(0);await click('.anim-play');await sleep(200);assert.equal((await
 await load(1200,true);st=await state();assert.equal(st.t,1);await click('.anim-play');await sleep(300);st=await state();assert.equal(st.playing,'0');assert.ok(st.t<1);const s0=st.stage;await click('.anim-play');st=await state();assert.ok(st.stage>s0||st.t===1);assert.equal(await ev(`document.querySelector('.anim-speed').disabled`),true);
 // 7. phone: controls fit the card
 await load(390);const fit=await ev(`(()=>{const c=document.querySelector('.anim-controls').getBoundingClientRect();return {l:c.left,r:c.right,w:innerWidth,sw:document.documentElement.scrollWidth}})()`);assert.ok(fit.l>=0&&fit.r<=fit.w+1&&fit.sw<=fit.w+1,'controls fit at 390: '+JSON.stringify(fit));
-console.log('ANIMATION FRAMEWORK PASSED: poster start, play/pause hold, scrub, stage steps, replay, speed, 21 frames well formed, parameters (photon energy, particle count, reset, 10 combinations x 11 frames), off-screen pause, reduced motion, 390px fit');
+// 8. SS7 carrier creation: temperature drives the thermal stage continuously, never a false zero
+const base7=`http://127.0.0.1:${s.address().port}/chemistry/index.html#/course/solid-state/SS7`;
+await call('Page.navigate',{url:'about:blank'});await call('Page.navigate',{url:base7});await sleep(2500);await ev(`document.querySelector('.anim').scrollIntoView({block:'center'})`);await sleep(300);
+st=await state();assert.ok(st,'SS7 animated figure present');assert.equal(st.t,1,'SS7 opens on the poster frame');
+assert.deepEqual(await prm(),{temp:300},'SS7 temperature starts at the lesson value');
+const circ=()=>ev(`document.querySelectorAll('.anim svg circle').length`);
+const svgText=()=>ev(`document.querySelector('.anim svg').textContent`);
+assert.equal(await circ(),6,'one electron and one hole per panel at 300 K');
+assert.ok((await svgText()).includes('ni(T)/ni(300K)'),'quantitative ratio readout shown');
+assert.ok((await svgText()).includes('1×'),'ratio readout is 1x at the 300 K reference');
+const captionText=await ev(`(document.querySelector('.anim')?.closest('.figure-block')?.querySelector('figcaption')||{}).innerText||''`);
+assert.ok(captionText.includes('להמחשה בלבד'),'schematic-count disclaimer shown in caption outside the scrolling figure');
+assert.ok(captionText.includes('מודל מנורמל'),'normalized-model assumptions stated in caption');
+await setP('temp',500);await sleep(100);assert.equal(await circ(),10,'two extra schematic pairs at 500 K');
+assert.ok((await svgText()).includes('מספר סכמתי'),'extra pairs labeled schematic at 500 K');
+await setP('temp',400);await sleep(100);assert.equal(await circ(),8,'one extra schematic pair at 400 K');
+await setP('temp',200);await sleep(100);assert.equal(await circ(),6,'the thermal pair is NOT removed at 200 K: no false zero at finite temperature');
+assert.ok((await svgText()).includes('לא אפס'),'low-temperature note says tiny but nonzero');
+assert.ok(!(await svgText()).includes('אין מספיק אנרגיה תרמית'),'old hard-cutoff wording is gone');
+const op200=await ev(`(()=>{const d=[...document.querySelectorAll('.anim svg circle')];return Math.min(...d.map(c=>parseFloat(c.getAttribute('opacity')||'1')))})()`);
+assert.ok(op200<0.6,'thermal pair is faded at 200 K, opacity '+op200);
+assert.ok((await svgText()).includes('4·10⁻⁸'),'one-significant-figure ratio at 200 K (4e-8)');
+st=await state();assert.equal(st.playing,'0');assert.equal(st.t,1,'changing temperature does not play or move time');
+assert.ok((await ev(`document.querySelector('.anim .anim-stage').textContent`)).includes('מעט זוגות'),'low-temperature stage label');
+await setP('temp',300);await sleep(100);assert.equal(await circ(),6,'back to one pair per panel at 300 K');
+const op300=await ev(`(()=>{const d=[...document.querySelectorAll('.anim svg circle')];return Math.min(...d.map(c=>parseFloat(c.getAttribute('opacity')||'1')))})()`);
+assert.ok(op300>=0.99,'thermal pair full opacity at 300 K, opacity '+op300);
+for(const T of [200,300,500]){await setP('temp',T);for(let v=0;v<=1000;v+=100){await setScrub(v);const r=await ev(bounds);assert.equal(r.bad,0,`no NaN T=${T} t=${v}`);assert.deepEqual(r.out,[],`text inside viewBox T=${T} t=${v}`)}}
+await click('.anim-param-reset');await sleep(100);assert.deepEqual(await prm(),{temp:300},'reset restores lesson temperature');
+await setScrub(1000);await sleep(100);
+const fit7=await ev(`(()=>{const c=document.querySelector('.anim-controls').getBoundingClientRect();return {l:c.left,r:c.right,w:innerWidth,sw:document.documentElement.scrollWidth}})()`);assert.ok(fit7.l>=-1&&fit7.r<=fit7.w+1&&fit7.sw<=fit7.w+1,'SS7 controls fit: '+JSON.stringify(fit7));
+console.log('ANIMATION FRAMEWORK PASSED: poster start, play/pause hold, scrub, stage steps, replay, speed, 21 frames well formed, parameters (photon energy, particle count, reset, 10 combinations x 11 frames), off-screen pause, reduced motion, 390px fit; SS7 carrier creation: continuous temperature model, schematic pair counts 6/8/10 at 200-350/400/500 K with quantitative ni ratio readout, no false zero at 200 K (faded pair, tiny-but-nonzero note), reset, 33 frames well formed');
 ch.kill();process.exit(0);

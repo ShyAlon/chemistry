@@ -1,0 +1,2491 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G10",
+ "source": {
+  "sha256": "48472176052948cdd0a42f7cdaba7575ea6a6f6037f916a7d1fbe51f8f42e366",
+  "kind": "multi-file-deck",
+  "pageCount": 113,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 4.pdf",
+    "sha256": "5821797726b5020cb41a68ddfa6d3b3260052676ef99ee8ba407564240be1102",
+    "pages": "1-35",
+    "firstPage": 1
+   },
+   {
+    "file": "תרגול 5א- תאוריה קינטית של גזים .pdf",
+    "sha256": "1258b67e67bb663fd341efb496b055f47311cb7757ade8b6726c235af4a30c19",
+    "pages": "1-42",
+    "firstPage": 36
+   },
+   {
+    "file": "תרגול 5ב - גזים ריאליים.pdf",
+    "sha256": "2cd6c20eb2c586df3a5040c9412e86d384bc1dc36169d2c25350cee43bfda9cb",
+    "pages": "1-29",
+    "firstPage": 78
+   },
+   {
+    "file": "שאלות לדוגמא כימיה כללית תשפז.pdf",
+    "sha256": "d1fb53fa1569f32d12dfce8da10641929ac7bd4929e185631d277e628fe9d357",
+    "pages": "1-3",
+    "firstPage": 107
+   },
+   {
+    "file": "Ex 7.docx",
+    "sha256": "38c58696167333d4dfc2a012e777915aca24f2d867bec02047ff9e94ed23e33a",
+    "pages": "1-4",
+    "firstPage": 110
+   }
+  ]
+ },
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "8281afa20ced042b3b0329cd9eeec3e25218f4dc78423de40a3aca45d7d78fa9",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת ההרצאה",
+     "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "fb5f4ea8bbd981fe6625aa10856a0ae71ed7ff84ae48a3a683ea69544cd2292c",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סקירת התורה הקינטית: לחץ, מהירות, טמפרטורה, דיפוזיה, אפוזיה",
+     "targets": [
+      "theory:G10-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "764dd33b16a731033e844bb8e213a22ccdec7a92058e093932460be19641a232",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "פוסטולטי המודל הקינטי של גזים",
+     "targets": [
+      "theory:G10-t01",
+      "theory:G10-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "9b98e4639b9306dbb1c89aabeae46d13c03547ef265103b94136e8ff8a47f82b",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "גזירת הלחץ מכוחות ההתנגשות בדפנות הכלי",
+     "targets": [
+      "theory:G10-t01",
+      "theory:G10-t18",
+      "theory:G10-t46"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "4de3a15efa56aa775422eb2dd33c362ac2220ad0b1eb305b2943f55f7bcfaebf",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "אנרגיה קינטית ממוצעת, k=R/Nₐ ומהירות rms",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t03",
+      "theory:G10-t04",
+      "theory:G10-t05",
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t46",
+      "theory:G10-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "7bdc48d26ad8359a583a6a5a9dd6eaaea1ca8ee579f33f77de245419bc02f2d8",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "אנרגיה קינטית ממוצעת, k=R/Nₐ ומהירות rms",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t03",
+      "theory:G10-t04",
+      "theory:G10-t05",
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t46",
+      "theory:G10-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "de6522f8e6ecdf68f65ce21cc71b2e7d9f0c6cd07d6fd4a2bdabb578b436542b",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "אנרגיה קינטית ממוצעת, k=R/Nₐ ומהירות rms",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t03",
+      "theory:G10-t04",
+      "theory:G10-t05",
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t46",
+      "theory:G10-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "b8cd8b5fa47e00a7d348d130de8692c71a65418dfef4b4706825727cbafd7434",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "אנרגיה קינטית ממוצעת, k=R/Nₐ ומהירות rms",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t03",
+      "theory:G10-t04",
+      "theory:G10-t05",
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t46",
+      "theory:G10-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "b1dc2792c241613a1072871a88bf77b17a106a46cd28ea4cbe228ea378da7e4d",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "אנרגיה קינטית ממוצעת, k=R/Nₐ ומהירות rms",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t03",
+      "theory:G10-t04",
+      "theory:G10-t05",
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t46",
+      "theory:G10-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "1c2cbec765bbc55e1ed9f0aa47e0299e674d80f99e1f80ee40291c48c1329903",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "המשך גזירת האנרגיה הקינטית וקבוע בולצמן",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t05",
+      "theory:G10-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "cab93230646bff633e9e6a18b8588a34db5e9634b684364b0c145aae06a258cf",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "המשך גזירת האנרגיה הקינטית וקבוע בולצמן",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t05",
+      "theory:G10-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "c582f92fc1595d4ba4dbf968a1c32fc160f1cae2d7cc487fc675fb92dc0f3967",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "המשך גזירת האנרגיה הקינטית וקבוע בולצמן",
+     "targets": [
+      "theory:G10-t02",
+      "theory:G10-t05",
+      "theory:G10-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "05801673a0fe791ef76ef738eae7090356f5ee6a227255b9e1b5bfa45501fa86",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "עקומת מקסוול-בולצמן ומהירויות אופייניות",
+     "targets": [
+      "theory:G10-t19",
+      "theory:G10-t20",
+      "theory:G10-t21",
+      "theory:G10-t22"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי במקום אמנות השקף, לפי מדיניות האתר"
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "79fc6569673d2f12acd9a82c3d0f73f74f81623aad8bf444f6ee64d3bd198c3a",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "עקומת מקסוול-בולצמן ומהירויות אופייניות",
+     "targets": [
+      "theory:G10-t19",
+      "theory:G10-t20",
+      "theory:G10-t21",
+      "theory:G10-t22"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי במקום אמנות השקף, לפי מדיניות האתר"
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "783c1067503756a2fbf3e5f3e75fa0ab82bcb0a98cd4d9fc6dbb3e2a3e33c7bd",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "משמעות הטמפרטורה, שלוש מהירויות ומדידת מהירויות",
+     "targets": [
+      "theory:G10-t18",
+      "theory:G10-t34",
+      "theory:G10-t35",
+      "theory:G10-t36",
+      "theory:G10-t37",
+      "theory:G10-t38",
+      "theory:G10-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "aa64be34ee11195325d4a9a7627841e5c1839bbf03c0d88d097e0b937642798d",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "משמעות הטמפרטורה, שלוש מהירויות ומדידת מהירויות",
+     "targets": [
+      "theory:G10-t18",
+      "theory:G10-t34",
+      "theory:G10-t35",
+      "theory:G10-t36",
+      "theory:G10-t37",
+      "theory:G10-t38",
+      "theory:G10-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "1fcdb471597cfad41b2a231251919b95eef5e49e97c7f15266b4680cbad082f1",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "משמעות הטמפרטורה, שלוש מהירויות ומדידת מהירויות",
+     "targets": [
+      "theory:G10-t18",
+      "theory:G10-t34",
+      "theory:G10-t35",
+      "theory:G10-t36",
+      "theory:G10-t37",
+      "theory:G10-t38",
+      "theory:G10-t39"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "6b4808d7af798673bdb6bc52fc465f4ec5956085811a3d9d3baa80497427668f",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תנאי אפוזיה: מסלול חופשי ממוצע ארוך מקוטר הנקב; הגדרת λ",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t55"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "98fcb1ff83b099eb090cb10856169390136b7a0c7dbac4b98f43fd4b7746f719",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "חוק גרהם לאפוזיה ותנאי תקפותו (לחצים נמוכים, נקב קטן)",
+     "targets": [
+      "theory:G10-t09",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t53"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "23823ee56deb176b2ec15faa519116bc97085ecf6a53215b176fe7d76ccb3cef",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "fbeff58f703bb42f9c4445f5587681e4205fbb97a03c608ef4dc40329ace397b",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "152cf7446cf7f1b48035665c7d8247d86ddc02a22afca5a3730d257cc6947fb0",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "84510b5245e88420f59c4229cbc5c428571e3ea623dcdf145166bfa73be0a90a",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "ec3b98414eac26561ccccae4cb41afc12332c505d57b6b3d3d856245fd0c477c",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "465b7070149efa95a51600d60f76b9473857d8dbdcb2aaebe35bef86de214bb6",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "7fe72d985eea45a711cb967cf267ac2b0dbf2d87230abf9d5383d4927598de8c",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה ואפוזיה, גרהם, תערובות ולחצים חלקיים, הפרדת UF6",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t09",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t23",
+      "theory:G10-t24",
+      "theory:G10-t25",
+      "theory:G10-t26",
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t54",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "1d52a9bb227fa32e445b749327b500e3cc9d38e7098b1f8cc964746c31906c60",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p27.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "1bc0ef96dff79da658228114d66a8a3a091fb5d559fc89677c89222bbb65424a",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p28.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "79ac0dc5e8ad307f05e7c01618d918309445c22345d34cb82dd78cefa943fb19",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p29.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "3fdd710e9f0a92c1fc83ea6354fa892b7eae2a15129c0edbda7e05a380a60aa8",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p30.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "7f33b27415d534460cad74a75b86a8dea122cf8a43679e75015e46e80e943311",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p31.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "d14f0c65b4fa663c3b08469929ce41eb5e7fedb97d32b97a9825d2cd5b1f4ed2",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים ממשיים: מקדם דחיסות Z, פוטנציאל LJ, פרמטרי ואן דר ואלס",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t14",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "theory:G10-t28",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "quiz:4",
+      "quiz:5"
+     ]
+    },
+    {
+     "id": "p32.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים Z מול לחץ/טמפרטורה מהמודל",
+     "targets": [
+      "theory:G10-t83"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ממודל ואן דר ואלס, לא אמנות מהשקף"
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "a735767ede6849cb7e366e00e7c760bfd68ad328658482c69c3fa26a0c29a743",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "התפשטות חופשית של גז ממשי ואפקט ג׳אול-תומסון (קירור)",
+     "targets": [
+      "theory:G10-t110",
+      "theory:G10-t111",
+      "theory:G10-t112",
+      "theory:G10-t113"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "feba1ba4816ae6bea5abb2404d317c5755c96bf6a8b203fe1c584f50601b74a9",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "התפשטות חופשית של גז ממשי ואפקט ג׳אול-תומסון (קירור)",
+     "targets": [
+      "theory:G10-t110",
+      "theory:G10-t111",
+      "theory:G10-t112",
+      "theory:G10-t113"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "ebb7b13b687b5c80d5e10643a7561edc0fa6d48e255cc72946031694cee0e730",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "התפשטות חופשית של גז ממשי ואפקט ג׳אול-תומסון (קירור)",
+     "targets": [
+      "theory:G10-t110",
+      "theory:G10-t111",
+      "theory:G10-t112",
+      "theory:G10-t113"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "4ab348e9f30ff598fa10b934cc99e0615bb1f6f5fd8d4501f2fa8294ecd1e5bc",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת התרגול",
+     "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 37,
+   "imageSha256": "4512fa37b8607fbf5c278a344b035ca95727e1e8bdab14f03c18a633fa5fecdf",
+   "units": [
+    {
+     "id": "p37.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "הגדרות אנרגיה קינטית, R ב-J/cal, k=R/Nₐ, אנרגיה של מי",
+     "targets": [
+      "theory:G10-t03",
+      "theory:G10-t05",
+      "theory:G10-t46",
+      "theory:G10-t47",
+      "theory:G10-t68",
+      "quiz:1",
+      "quiz:10",
+      "quiz:11",
+      "worked:1"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 38,
+   "imageSha256": "c380d7d29f6215ba8a74f6862bc3330ee37c41ecb49a07267712a7ea6be1c1ce",
+   "units": [
+    {
+     "id": "p38.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "הגדרות אנרגיה קינטית, R ב-J/cal, k=R/Nₐ, אנרגיה של מי",
+     "targets": [
+      "theory:G10-t03",
+      "theory:G10-t05",
+      "theory:G10-t46",
+      "theory:G10-t47",
+      "theory:G10-t68",
+      "quiz:1",
+      "quiz:10",
+      "quiz:11",
+      "worked:1"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 39,
+   "imageSha256": "b4450cc9bea349cf9d83c2642a675bf4c7760673ec8a609d3786862f3128c28c",
+   "units": [
+    {
+     "id": "p39.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "v_rms=√(3RT/M) ומלכודת יחידות M בק״ג למול",
+     "targets": [
+      "theory:G10-t06",
+      "theory:G10-t07",
+      "theory:G10-t33",
+      "quiz:2",
+      "quiz:13",
+      "worked:6"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 40,
+   "imageSha256": "57578ed62a7052f3e33d52a66baa717a690c43075babd9d5e65d0c385fea0731",
+   "units": [
+    {
+     "id": "p40.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "עקומת התפלגות מקסוול ושלוש המהירויות האופייניות",
+     "targets": [
+      "theory:G10-t34",
+      "theory:G10-t35",
+      "theory:G10-t36",
+      "theory:G10-t37",
+      "theory:G10-t38",
+      "quiz:6",
+      "quiz:7",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 41,
+   "imageSha256": "fc0ad9c0894f6abc0ea01d3495811f3982446b72e1c6c867040605e540d1ddcf",
+   "units": [
+    {
+     "id": "p41.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "עקומת התפלגות מקסוול ושלוש המהירויות האופייניות",
+     "targets": [
+      "theory:G10-t34",
+      "theory:G10-t35",
+      "theory:G10-t36",
+      "theory:G10-t37",
+      "theory:G10-t38",
+      "quiz:6",
+      "quiz:7",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 42,
+   "imageSha256": "768e08fc84afc50ceb20625f3763c94ba45093da536503bab413f85cd5852a84",
+   "units": [
+    {
+     "id": "p42.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: v_rms של N₂ ב-0°C (493.1 m/s)",
+     "targets": [
+      "worked:3",
+      "quiz:2"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 43,
+   "imageSha256": "2de592925e47acbe13c32c68d290439e3fef06b48fad60c321d88f48566bcded",
+   "units": [
+    {
+     "id": "p43.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: v_rms של N₂ ב-0°C (493.1 m/s)",
+     "targets": [
+      "worked:3",
+      "quiz:2"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 44,
+   "imageSha256": "ff2e675799b9d510617e667df8ac473c6aa8d127c6ff8f9183aa627b7a4d8926",
+   "units": [
+    {
+     "id": "p44.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "עמוד תמונה: התפלגויות N₂ בטמפרטורות שונות",
+     "targets": [
+      "theory:G10-t39"
+     ],
+     "rationale": "האתר מציג תרשים מחושב מקורי ל-N₂ ב-300 K, לא אמנות השקף"
+    }
+   ]
+  },
+  {
+   "page": 45,
+   "imageSha256": "cc967036bc50160bbb25fa900351b6a5810e539bd064047d24337746c833223e",
+   "units": [
+    {
+     "id": "p45.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת מקסוול-בולצמן המפורשת ΔN/N (שקופית 10)",
+     "targets": [
+      "theory:G10-t40",
+      "theory:G10-t41",
+      "theory:G10-t42",
+      "theory:G10-t43",
+      "quiz:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 46,
+   "imageSha256": "01ff349d863e630da47a16fe602236f00d2ddc8b7639362e063018c9be28576f",
+   "units": [
+    {
+     "id": "p46.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: חלון מהירויות צר ב-CO₂ וצפיפות",
+     "targets": [
+      "theory:G10-t44",
+      "theory:G10-t45",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 47,
+   "imageSha256": "f9d3c0e4b5c01fc51dac8eca7277c9230272897941aa75af4f383f87b9eb917f",
+   "units": [
+    {
+     "id": "p47.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: חלון מהירויות צר ב-CO₂ וצפיפות",
+     "targets": [
+      "theory:G10-t44",
+      "theory:G10-t45",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 48,
+   "imageSha256": "cce8f2c8d862ea6a75ba441e4f2627d27d7cc09b5fd714d4e9d7cac18a93e94d",
+   "units": [
+    {
+     "id": "p48.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: חלון מהירויות צר ב-CO₂ וצפיפות",
+     "targets": [
+      "theory:G10-t44",
+      "theory:G10-t45",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 49,
+   "imageSha256": "3b177c0c738d4450c88baa7316c40a2e0d99306baa8b6b8a8c42f577386f7735",
+   "units": [
+    {
+     "id": "p49.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: חלון מהירויות צר ב-CO₂ וצפיפות",
+     "targets": [
+      "theory:G10-t44",
+      "theory:G10-t45",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 50,
+   "imageSha256": "b9cefc2aace6303fa02611bb69c5cdef73a3747eb83b596371e0e8d4bbd7eb9c",
+   "units": [
+    {
+     "id": "p50.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: חלון מהירויות צר ב-CO₂ וצפיפות",
+     "targets": [
+      "theory:G10-t44",
+      "theory:G10-t45",
+      "worked:7",
+      "worked:8"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 51,
+   "imageSha256": "8b29e42186d70cdacc3ba65a3ef2f6f0955575d04fc5e53e392879c8601acee0",
+   "units": [
+    {
+     "id": "p51.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "יחס מהירויות בין גזים √(M₂/M₁)",
+     "targets": [
+      "theory:G10-t09",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 52,
+   "imageSha256": "26f13f6bc7435b50f99e7e418617a92b019daff1e2bbc025d6de1a9d0ae8fbfa",
+   "units": [
+    {
+     "id": "p52.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 3: מרחקי דיפוזיה N₂ מול O₂",
+     "targets": [
+      "worked:4"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 53,
+   "imageSha256": "9eaaea85f893ae03e99706537222b96b2404b0f24d6e1e5fb71b6ab232ba8ed6",
+   "units": [
+    {
+     "id": "p53.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 3: מרחקי דיפוזיה N₂ מול O₂",
+     "targets": [
+      "worked:4"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 54,
+   "imageSha256": "160c8fba78403ee82a86af816553ab95a65e5093aeb265df00115b2100463f61",
+   "units": [
+    {
+     "id": "p54.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 3: מרחקי דיפוזיה N₂ מול O₂",
+     "targets": [
+      "worked:4"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 55,
+   "imageSha256": "f2cc17c78e7b9d62cec77e0d0b3d6f45b9f10574bc547798898030ebe5803f36",
+   "units": [
+    {
+     "id": "p55.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה מול אפוזיה, יחסי קצבים ותערובת עם לחצים חלקיים",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 56,
+   "imageSha256": "18f19bbd36a3fae4bcf5a59bda01239a7ae2e71dd25a3baed4ab1f2cb0ee3f15",
+   "units": [
+    {
+     "id": "p56.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דיפוזיה מול אפוזיה, יחסי קצבים ותערובת עם לחצים חלקיים",
+     "targets": [
+      "theory:G10-t08",
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "theory:G10-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 57,
+   "imageSha256": "025c52b41aa5796d7cd801fe553d0d94e744f8ac6dfefb0c6d4e8bbea569b65d",
+   "units": [
+    {
+     "id": "p57.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 58,
+   "imageSha256": "4f2aa97431f7e4d7583eda520425482662a7d541aa8b3aaba3cc2edbea9881d7",
+   "units": [
+    {
+     "id": "p58.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 59,
+   "imageSha256": "a55d1c6f6d968c825684661ee1a1495bfad467d60bdd2bcb3aa09e5de7123927",
+   "units": [
+    {
+     "id": "p59.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 60,
+   "imageSha256": "3912a5007d14550abffa1f5f7f4007fa6b9e020850fb37725cec5e5fc2a1f14a",
+   "units": [
+    {
+     "id": "p60.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 61,
+   "imageSha256": "4224f502524682ddb277eb64d0db2f4ef9947a0652fcb407f42d184a3a378107",
+   "units": [
+    {
+     "id": "p61.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 62,
+   "imageSha256": "35f3a27b0504b3b131b407a52547817eceee4cfcc7b7700caaf4a3fa28f7175a",
+   "units": [
+    {
+     "id": "p62.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 63,
+   "imageSha256": "4db549e6bbd0a5c39420789a696a00811c188a06477ca62beb1f04119d3546d0",
+   "units": [
+    {
+     "id": "p63.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 64,
+   "imageSha256": "8f6e4b699021883ae5d4c6924262f080f2edb9eec5f97aab5482a5bdec3d1521",
+   "units": [
+    {
+     "id": "p64.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 4: אפוזיית גז לא ידוע; קצב מולי, קצב מסה וזמן",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "worked:2",
+      "worked:10",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 65,
+   "imageSha256": "fa3a0c5b9ea06af478cc94b350b4f1ca03c5aa287357345161f08e49b08bd51c",
+   "units": [
+    {
+     "id": "p65.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 66,
+   "imageSha256": "293a2023f5a4ea6cb386ad74d66106a8a69820759abd783292597f7ae7941937",
+   "units": [
+    {
+     "id": "p66.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 67,
+   "imageSha256": "90b40c1c034a792242d40eb98e8901a86a3f8d9cb488ebd3d86e02707a396f99",
+   "units": [
+    {
+     "id": "p67.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 68,
+   "imageSha256": "8c64b10866796a7ed5c366f10460d1942f524e0bf23df54901a4e50ee07ffbe9",
+   "units": [
+    {
+     "id": "p68.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 69,
+   "imageSha256": "dd2c1867cc2de8d79b153a1a93eecd6e5b358244c0a86ca63880bdc75609d7a7",
+   "units": [
+    {
+     "id": "p69.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 70,
+   "imageSha256": "ede52e3fc3bf428cc78d2e91a9e3de0936c02a6d5c0b4c8448ed271dcbcb0896",
+   "units": [
+    {
+     "id": "p70.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 71,
+   "imageSha256": "b295d2212d1960701ead53c7cfeb4ccf4b89a05f78b9365fc2f1ef1ecd6cc9a5",
+   "units": [
+    {
+     "id": "p71.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 72,
+   "imageSha256": "c32b9c68f7a420c15a7a80a4a6b70efa2588a2e4fa57d2a322bf563de0ae9392",
+   "units": [
+    {
+     "id": "p72.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 5: תערובת He/O₂ דרך נקב והרכב הגז היוצא",
+     "targets": [
+      "theory:G10-t53",
+      "theory:G10-t54",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 73,
+   "imageSha256": "1c87dde2fca4e1a18377eeed866e3f8b06f17858561bfdce0c486c6622a7c2aa",
+   "units": [
+    {
+     "id": "p73.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 6: תערובת CO₂/גז לא ידוע בלחצים חלקיים שווים",
+     "targets": [
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 74,
+   "imageSha256": "acf76a5f8c316d89ee474c493da6b1e594e400c2e5cc436962a95b5d7f38bd52",
+   "units": [
+    {
+     "id": "p74.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 6: תערובת CO₂/גז לא ידוע בלחצים חלקיים שווים",
+     "targets": [
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 75,
+   "imageSha256": "c178277506cff438f9e9f961055f04dd7c1cf4a906da06d99a78639b49c56679",
+   "units": [
+    {
+     "id": "p75.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 6: תערובת CO₂/גז לא ידוע בלחצים חלקיים שווים",
+     "targets": [
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 76,
+   "imageSha256": "2ec29b7c8779b437f166d5c6ec1d6b1a297d668c2181cfe6c80771f945674940",
+   "units": [
+    {
+     "id": "p76.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 6: תערובת CO₂/גז לא ידוע בלחצים חלקיים שווים",
+     "targets": [
+      "theory:G10-t10",
+      "theory:G10-t11",
+      "theory:G10-t12",
+      "worked:9"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 77,
+   "imageSha256": "fafe98e958defd1c416fb758dc8399706662a2c905c582e093ac451677cd1569",
+   "units": [
+    {
+     "id": "p77.u1",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "שקף סיום \"שאלות?\"",
+     "rationale": "שקופית סיום ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 78,
+   "imageSha256": "bae3f0da7dc84402aaab7e0d6e9e55db17b6711b5b5e5608d981d61138bf9592",
+   "units": [
+    {
+     "id": "p78.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת התרגול",
+     "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 79,
+   "imageSha256": "026abb17ed156cf0b1558ab9ce1c588184609a9b27bc896286de9770eb0c56c6",
+   "units": [
+    {
+     "id": "p79.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים לא אידיאליים וארבעת פרמטרי המצב",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 80,
+   "imageSha256": "91aa823a65ddf1349ef20e678079d9f3a8a0509cf24e01fec55dc0447aee1545",
+   "units": [
+    {
+     "id": "p80.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים לא אידיאליים וארבעת פרמטרי המצב",
+     "targets": [
+      "theory:G10-t13",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 81,
+   "imageSha256": "8aa7d92786cfed511ffa6897212fc4f1ab61fd087242ef138194f0606dcd4da0",
+   "units": [
+    {
+     "id": "p81.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "מקדם הדחיסות Z ומשמעותו",
+     "targets": [
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 82,
+   "imageSha256": "ee76f81717bea15e42f62b08bdb88083909f50c2c623b67aebb8026cde674235",
+   "units": [
+    {
+     "id": "p82.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "המשתנים a ו-b: משיכה ונפח עצמי",
+     "targets": [
+      "theory:G10-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 83,
+   "imageSha256": "1fb838e7259f6fc15f27381cc618713e5e9a4781856d210555173570ecbdc807",
+   "units": [
+    {
+     "id": "p83.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת ואן-דר-ואלס וצורות Z השקולות",
+     "targets": [
+      "theory:G10-t14",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "theory:G10-t79",
+      "theory:G10-t80",
+      "theory:G10-t81",
+      "theory:G10-t82",
+      "worked:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 84,
+   "imageSha256": "7c8810602238b3012f871b82c577d18d78228fa619554aa3d884de493b38f935",
+   "units": [
+    {
+     "id": "p84.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת ואן-דר-ואלס וצורות Z השקולות",
+     "targets": [
+      "theory:G10-t14",
+      "theory:G10-t29",
+      "theory:G10-t30",
+      "theory:G10-t31",
+      "theory:G10-t32",
+      "theory:G10-t70",
+      "theory:G10-t71",
+      "theory:G10-t72",
+      "theory:G10-t73",
+      "theory:G10-t74",
+      "theory:G10-t75",
+      "theory:G10-t76",
+      "theory:G10-t77",
+      "theory:G10-t78",
+      "theory:G10-t79",
+      "theory:G10-t80",
+      "theory:G10-t81",
+      "theory:G10-t82",
+      "worked:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 85,
+   "imageSha256": "92f1c58faf8c974203364f7f296424d98fc1319fdf7f9fc0f9b82518af7f2144",
+   "units": [
+    {
+     "id": "p85.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "טמפרטורת בויל: ביטול משיכה ודחיה, התנהגות כמעט אידיאלית",
+     "targets": [
+      "theory:G10-t84",
+      "theory:G10-t85",
+      "theory:G10-t86",
+      "theory:G10-t87",
+      "theory:G10-t88",
+      "theory:G10-t89",
+      "theory:G10-t90",
+      "theory:G10-t91",
+      "theory:G10-t92",
+      "worked:17",
+      "quiz:21"
+     ]
+    },
+    {
+     "id": "p85.u2",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "הזהות Z(T_B)−1=(bc)²/(1−bc) והדוגמה המספרית",
+     "targets": [
+      "theory:G10-t93",
+      "theory:G10-t94",
+      "theory:G10-t95",
+      "theory:G10-t96",
+      "theory:G10-t97",
+      "theory:G10-t98",
+      "quiz:20"
+     ],
+     "rationale": "גזירה פנימית עקבית ממודל ואן דר ואלס ומ-T_B=a/Rb שבשקף; לא מודפסת בשקף עצמו"
+    }
+   ]
+  },
+  {
+   "page": 86,
+   "imageSha256": "dc5b0df5faef3bd26da9095d8f8fe3927045516e86a0d4e9bcb32fb12f8a4999",
+   "units": [
+    {
+     "id": "p86.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 87,
+   "imageSha256": "a0a0761513ed1d8fa312516479692da9059dc711e5a4e26db48d84071c1ecfd3",
+   "units": [
+    {
+     "id": "p87.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 88,
+   "imageSha256": "3170c19ea5cbd24a3d38ec1cba765319213876f337108eeeeaf00d036d782b14",
+   "units": [
+    {
+     "id": "p88.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 89,
+   "imageSha256": "bc61f0450f4a6a961c017baee56d1fe318578f308d50be15c9ec4c72a6bbfeb4",
+   "units": [
+    {
+     "id": "p89.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 90,
+   "imageSha256": "f9c0387c8c0caa3d442a08d5d6807a9abd5ba322c94a3e7d9837747f664103a4",
+   "units": [
+    {
+     "id": "p90.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 91,
+   "imageSha256": "38ecd639b406cd51e9a24fb309c65c69a944d4b404ced7beb1ae6f06998191a0",
+   "units": [
+    {
+     "id": "p91.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 92,
+   "imageSha256": "55503be1d1c23403eaa038cfd3a16a0bd3de0cff6d8dcfea54c5f1a43326ae41",
+   "units": [
+    {
+     "id": "p92.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 93,
+   "imageSha256": "46eb6bc149dd8df758d6b3a6a3b804c796349433eb7cf2934fd38bc9ebbe835e",
+   "units": [
+    {
+     "id": "p93.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 94,
+   "imageSha256": "7fac91c7225d19673a19f8293b902529c0c96082fe3858fb838ec4f2346d5a25",
+   "units": [
+    {
+     "id": "p94.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 95,
+   "imageSha256": "377b84ab80482f9e2adfe7475a2a66a5ad2e43c3c4e7c1de1e818044b0d364a5",
+   "units": [
+    {
+     "id": "p95.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 1: צפיפות תערובת N₂/Cl₂ ומסה מולרית ממוצעת",
+     "targets": [
+      "theory:G10-t107",
+      "worked:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 96,
+   "imageSha256": "761bc1770599eab9c8f3349d30b1abce04147e144e5a399be99ab0e67d14d1ef",
+   "units": [
+    {
+     "id": "p96.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 97,
+   "imageSha256": "59ef4fa875ae82c24561c6a8c2001d82614b41d5482115f6db6ffca83b60d011",
+   "units": [
+    {
+     "id": "p97.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 98,
+   "imageSha256": "49133740522aa7cee111cb654fab99edda4147a0256b93ff1f9041b221b55089",
+   "units": [
+    {
+     "id": "p98.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 99,
+   "imageSha256": "2e35088f6e7a2710942ab1a8bf11b2d72bc0179d230da6579a74558bdf145aa7",
+   "units": [
+    {
+     "id": "p99.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 100,
+   "imageSha256": "a710571f1e383d5d1d10533645154bcb33c8738756be90bddd3847d0fae7d51c",
+   "units": [
+    {
+     "id": "p100.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 101,
+   "imageSha256": "fee0faa6f4a8e1d45818e3d8a690c67657069c68e8bdab9f8fcaf91e18c085d5",
+   "units": [
+    {
+     "id": "p101.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 102,
+   "imageSha256": "60b41f09bf22be0a7c671788fff3b4b3f818041ed81a470951401a6cbd7a14f0",
+   "units": [
+    {
+     "id": "p102.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 103,
+   "imageSha256": "31501fde760a6542800e277b9f124850ebfda20b87ccbee826667b5279e83bd1",
+   "units": [
+    {
+     "id": "p103.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 104,
+   "imageSha256": "71321e302e786e2b6d57d01a5051dbfac4f8c6bbb5557deb2dd58ff12d211336",
+   "units": [
+    {
+     "id": "p104.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 105,
+   "imageSha256": "e714220d0d4fc93537b5ed40b22760848d3d4ef4545c596ecc13de81e0db0140",
+   "units": [
+    {
+     "id": "p105.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "דוגמה 2: CO בוואן דר ואלס, חילוץ a ו-Z",
+     "targets": [
+      "worked:13",
+      "quiz:17",
+      "quiz:18"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים, לא בשכפול התרגיל"
+    }
+   ]
+  },
+  {
+   "page": 106,
+   "imageSha256": "fafe98e958defd1c416fb758dc8399706662a2c905c582e093ac451677cd1569",
+   "units": [
+    {
+     "id": "p106.u1",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "שקף סיום \"שאלות?\"",
+     "rationale": "שקופית סיום ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 107,
+   "imageSha256": "787ba4052505d6451bf02eb15b0602138d0aed8261b6ad6a28cb0f7d09434f81",
+   "units": [
+    {
+     "id": "p107.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "שאלה 3: אפוזיה וקצבי מעבר",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "quiz:12"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים"
+    },
+    {
+     "id": "p107.u2",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "שאר השאלות בעמוד (1-2, 4-6): נושאים אחרים",
+     "rationale": "שאלות סטויכיומטריה/מבנה, בבעלות נושאי 84101 קודמים; מחוץ לתחום G10"
+    }
+   ]
+  },
+  {
+   "page": 108,
+   "imageSha256": "6e142d03657a1a1cc9ce51501a3b70dcb79051c4dbf40a49016870ffff2dd26a",
+   "units": [
+    {
+     "id": "p108.u1",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "שאלות 7-10: סטויכיומטריה ותחמוצת-חיזור",
+     "rationale": "בבעלות נושאי 84101 קודמים; מחוץ לתחום G10"
+    }
+   ]
+  },
+  {
+   "page": 109,
+   "imageSha256": "ea4d91aa027981950efa7fb1cb1a06f2083754ff90c747720bdd76c87e94bfb9",
+   "units": [
+    {
+     "id": "p109.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "שאלות 12-13: אפוזיה ו-Z של CO",
+     "targets": [
+      "theory:G10-t48",
+      "theory:G10-t49",
+      "theory:G10-t50",
+      "theory:G10-t51",
+      "theory:G10-t52",
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "worked:13"
+     ],
+     "rationale": "אותה שיטה מתורגלת באתר במספרים מקוריים"
+    },
+    {
+     "id": "p109.u2",
+     "kind": "marker",
+     "disposition": "admin",
+     "label": "שאר השאלות בעמוד (11, 14-15): נושאים אחרים",
+     "rationale": "בבעלות נושאי 84101 קודמים; מחוץ לתחום G10"
+    }
+   ]
+  },
+  {
+   "page": 110,
+   "imageSha256": "b3e2c49e0d66be40560b321566d1e1effd0f41ac3995cf0fedafd6047d8a5f5f",
+   "units": [
+    {
+     "id": "p110.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "תרגיל 7 שאלה 1: Z מחושב ל-CO₂ ול-He",
+     "targets": [
+      "theory:G10-t15",
+      "theory:G10-t16",
+      "theory:G10-t17",
+      "worked:15",
+      "quiz:19"
+     ],
+     "rationale": "שאלה כתמונה סרוקה; אומתה מול פתרון תרגיל 7 הרשמי"
+    }
+   ]
+  },
+  {
+   "page": 111,
+   "imageSha256": "d320a49ac460b5a24d6acd863f104fb8965a2ec8ee6cbb101e54ce23f53a281f",
+   "units": [
+    {
+     "id": "p111.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "תרגיל 7 שאלה 2: חילוץ a,b משתי מדידות P,T",
+     "targets": [
+      "theory:G10-t99",
+      "theory:G10-t100",
+      "theory:G10-t101",
+      "theory:G10-t102",
+      "theory:G10-t103",
+      "theory:G10-t104",
+      "theory:G10-t105",
+      "theory:G10-t106",
+      "worked:16",
+      "quiz:22"
+     ],
+     "rationale": "שאלה כתמונה סרוקה; אומתה מול פתרון תרגיל 7 הרשמי"
+    }
+   ]
+  },
+  {
+   "page": 112,
+   "imageSha256": "96ce5322de49fac82ce8891c02c968e37effa1d2c4f4e66e1b752b8ad2605e88",
+   "units": [
+    {
+     "id": "p112.u1",
+     "kind": "exercise",
+     "disposition": "adapted",
+     "label": "תרגיל 7 שאלה 3: תגובת CO+O₂ ואז דחיסה",
+     "targets": [
+      "theory:G10-t108",
+      "worked:19",
+      "quiz:23"
+     ],
+     "rationale": "שאלה כתמונה סרוקה; אומתה מול פתרון תרגיל 7 הרשמי"
+    }
+   ]
+  },
+  {
+   "page": 113,
+   "imageSha256": "d855779c44b6138127439892121c665d805fff5af3e9d42718e2643baffb9496",
+   "units": [
+    {
+     "id": "p113.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "תרגיל 7 שאלה 4: ואן דר ואלס ב-143K ואזהרת הפאזה (−130°C)",
+     "targets": [
+      "theory:G10-t109",
+      "quiz:24"
+     ],
+     "rationale": "שאלה כתמונה סרוקה; אומתה מול פתרון תרגיל 7 הרשמי"
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G10-t56",
+    "theory:G10-t57",
+    "theory:G10-t58",
+    "theory:G10-t59",
+    "quiz:14",
+    "quiz:16",
+    "worked:11"
+   ],
+   "rationale": "נוסחת המהלך החופשי ותדירות התנגשויות: פיזיקה סטנדרטית (OpenStax University Physics vol. 2, פרק 2) ללא מקור טקסטואלי בשקפים; ההגדרה עצמה בשקף GC4 p18. נוספה אזהרת מודל כדורים קשיחים בגז דליל."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G10-t60",
+    "theory:G10-t61",
+    "theory:G10-t62",
+    "theory:G10-t63",
+    "theory:G10-t64",
+    "theory:G10-t65",
+    "theory:G10-t66",
+    "theory:G10-t67",
+    "quiz:15",
+    "worked:5",
+    "worked:12"
+   ],
+   "rationale": "סדרת Cv וחימום בנפח קבוע: חלוקת אנרגיה קלאסית סטנדרטית (OpenStax vol. 2, 3.5) ללא מקור בשקפים ובדף הנוסחאות; נוספה אזהרת ערכי מינימום קלאסיים מול גזים ממשיים."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "theory:G10-t69"
+   ],
+   "rationale": "מתודולוגיית הכנה למבחן: סינתזה של דפוסי הבעיות בתרגול 5ב ובתרגיל 7; אין שקף מקור יחיד."
+  }
+ ]
+}

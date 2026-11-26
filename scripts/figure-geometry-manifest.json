@@ -618,7 +618,7 @@
     "box": 2
    },
    {
-    "text": "UF₆",
+    "text": "UF₆ או UO₂",
     "box": 2
    },
    {
@@ -652,8 +652,21 @@
    {
     "text": "אחסון או עיבוד",
     "box": 6
+   },
+   {
+    "text": "עיבוד מחדש",
+    "box": 7
+   },
+   {
+    "text": "הפרדת U וגם Pu",
+    "box": 7
    }
   ],
+  "allowContainment": false,
+  "allowOverlaps": []
+ },
+ "cs137-decay": {
+  "labels": [],
   "allowContainment": false,
   "allowOverlaps": []
  },

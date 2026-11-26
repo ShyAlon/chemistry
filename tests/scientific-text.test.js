@@ -26,7 +26,7 @@ test('nuclear course content is pinned to its reviewed snapshot',()=>{
  const nuclear=data.courses.find(c=>c.id==='nuclear');
  assert.ok(nuclear);assert.equal(nuclear.topics.length,10);
  const copy=structuredClone(nuclear.topics).map(beforePractice);
- assert.equal(createHash('sha256').update(JSON.stringify(copy)).digest('hex'),'6ed4f07c150c15cc2a754094f40e6631e27d8350f1f6d7e8ea486024228b3b45');
+ assert.equal(createHash('sha256').update(JSON.stringify(copy)).digest('hex'),'a4860199aefdbba2556cc4480f4b03d99f6747a1ed3f8f9f2e03f54acb664569');
 });
 
 test('course content and answer data stay identical except the explicit V+ worked-answer correction',()=>{

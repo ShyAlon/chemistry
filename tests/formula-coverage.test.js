@@ -13,7 +13,7 @@ const rows=collectFormulaRecords(),by=new Map(rows.map(r=>[r.key,r]));
 const effusion=rows.find(r=>r.expression==='r_mol ∝ P/√M');
 
 test('reviewed coverage is distinct from the explicitly unreviewed, change-locked legacy inventory',()=>{
- assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:167,legacy:513,total:680});
+ assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:168,legacy:512,total:680});
  assert.ok(review.scope.includes('do not certify'));
  assert.ok(!Object.keys(review.reviewed).some(k=>Object.hasOwn(review.legacyUnreviewed,k)));
 });
@@ -75,7 +75,7 @@ test('reviewed definition meanings are locked as well as the IDs, while the corr
 test('all 17 repaired theory records replay from the stored notation source with the same complete bindings',()=>{
  const entries=JSON.parse(fs.readFileSync(new URL('../src/notation-blocks.json',import.meta.url)));
  let checked=0;
- for(const row of rows.filter(r=>review.reviewed[r.key]&&r.key.includes('/theory/')&&!r.key.startsWith('nuclear/E5/'))){
+ for(const row of rows.filter(r=>review.reviewed[r.key]&&r.key.includes('/theory/')&&!r.key.startsWith('nuclear/E5/')&&!r.key.startsWith('nuclear/E6/'))){
   const topic=row.key.split('/')[1],entry=entries.find(e=>e.topic===topic&&e.blocks.some(b=>b.text===row.expression&&JSON.stringify(b.symbols)===JSON.stringify(row.metadata.symbols)));assert.ok(entry,row.key);
   const fixture={courses:[{id:'84101',topics:[{id:topic,content:{theory:[{text:entry.before}]}}]}]};assert.equal(applyNotation(fixture,[entry]),1);
   const block=fixture.courses[0].topics[0].content.theory.find(b=>b.text===row.expression&&JSON.stringify(b.symbols)===JSON.stringify(row.metadata.symbols));
@@ -85,11 +85,11 @@ test('all 17 repaired theory records replay from the stored notation source with
  assert.equal(checked,17);
 });
 test('nuclear/E5 reviewed theory records replay from the live block with the same complete bindings (equivalent of the notation replay)',()=>{
- const keys=rows.filter(r=>review.reviewed[r.key]&&r.key.startsWith('nuclear/E5/theory/'));
- assert.equal(keys.length,6);
+ const keys=rows.filter(r=>review.reviewed[r.key]&&r.key.startsWith('nuclear/E5/theory/')||review.reviewed[r.key]&&r.key.startsWith('nuclear/E6/theory/'));
+ assert.equal(keys.length,7);
  for(const row of keys){
-  const idx=Number(row.key.split('/').pop()),block=catalogue.courses.find(c=>c.id==='nuclear').topics.find(t=>t.id==='E5').content.theory[idx];
-  assert.equal(block.text,row.expression,row.key);assert.ok(block.symbols?.length||row.metadata.kind==='nuclear-reaction',row.key);
+  const idx=Number(row.key.split('/').pop()),block=catalogue.courses.find(c=>c.id==='nuclear').topics.find(t=>t.id===row.key.split('/')[1]).content.theory[idx];
+  assert.equal(block.text,row.expression,row.key);assert.ok(block.symbols?.length||row.metadata.kind==='nuclear-reaction'||row.metadata.kind==='reaction',row.key);
   const metadata=formulaMetadata(block.text,{symbols:block.symbols});assert.deepEqual(metadata,row.metadata,row.key);
   assert.doesNotThrow(()=>validateCoverage({...row,metadata},review.reviewed[row.key]),row.key);
   const mutated={...review.reviewed[row.key],bindings:{...review.reviewed[row.key].bindings,__x:'X'}};

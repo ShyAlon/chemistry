@@ -26,19 +26,72 @@ export function RadiationPenetration({accent}){
 }
 
 // E6: front end of the fuel cycle, then the reactor and spent fuel.
+// E6: full nuclear fuel cycle. Top row is the enrichment route for light-water
+// reactors; the dashed route skips conversion/enrichment (natural-uranium fuel,
+// e.g. CANDU); the dashed accent branch is reprocessing of spent fuel with U/Pu
+// recycle: Pu returns to fuel fabrication (MOX), recovered uranium (RepU) to re-enrichment -
 export function FuelCycle({accent}){
   const W=118,H=64,xs=[430,296,162,28];
-  const top=[['כרייה','עפרת אורניום'],['טחינה','U₃O₈'],['המרה','UF₆'],['העשרה','UF₆ מועשר']];
+  const top=[['כרייה','עפרת אורניום'],['טחינה','U₃O₈'],['המרה','UF₆ או UO₂'],['העשרה','UF₆ מועשר']];
   const bot=[['ייצור דלק','UO₂ בכדורים'],['כור','הפקת חשמל'],['דלק משומש','אחסון או עיבוד']];
   const Cell=({x,y,a,b,hi})=><g>
     <Box x={x} y={y} w={W} h={H} fill={C.faint} stroke={hi?accent:C.line}/>
     <T x={x+W/2} y={y+26} size={14} fill={C.ink} weight="bold">{a}</T>
     <T x={x+W/2} y={y+48} size={11}>{b}</T>
   </g>;
-  return <Fig label="שלבי מעגל הדלק של כור מים קלים: כרייה, טחינה, המרה, העשרה, ייצור דלק, כור ודלק משומש" viewBox="0 -36 580 286">
+  return <Fig label="מעגל הדלק המלא: מסלול ההעשרה לכור מים קלים - כרייה, טחינה, המרה, העשרה, ייצור דלק, כור ודלק משומש; מסלול מקווקו של אורניום טבעי דרך המרה ל-UO2 ישירות לייצור דלק ללא העשרה כמו CANDU; וענף עיבוד מחדש של דלק משומש: הפלוטוניום חוזר לייצור דלק MOX והאורניום הממוחזר RepU להעשרה חוזרת" viewBox="0 -36 580 296">
     {top.map(([a,b],i)=><g key={a}><Cell x={xs[i]} y={30} a={a} b={b}/>{i<3&&<Arrow x1={xs[i]-2} y1={62} x2={xs[i+1]+W+4} y2={62} stroke={C.dim} id={'ft'+i}/>}</g>)}
-    <Arrow x1={xs[3]+W/2} y1={96} x2={xs[3]+W/2} y2={150} stroke={C.dim} id="ftturn"/>
-    {bot.map(([a,b],i)=>{const x=[28,162,296][i];return <g key={a}><Cell x={x} y={160} a={a} b={b} hi={a==='כור'}/>{i<2&&<Arrow x1={x+W+2} y1={192} x2={[162,296][i]-4} y2={192} stroke={C.dim} id={'fb'+i}/>}</g>;})}
+    <Arrow x1={xs[3]+W/2} y1={96} x2={xs[3]+W/2} y2={166} stroke={C.dim} id="ftturn"/>
+    {bot.map(([a,b],i)=>{const x=[28,162,296][i];return <g key={a}><Cell x={x} y={170} a={a} b={b} hi={a==='כור'}/>{i<2&&<Arrow x1={x+W+2} y1={202} x2={[162,296][i]-4} y2={202} stroke={C.dim} id={'fb'+i}/>}</g>;})}
+    <Arrow x1={416} y1={202} x2={426} y2={202} stroke={C.dim} id="fbrep"/>
+    <Box x={430} y={170} w={W} h={H} fill={C.faint} stroke={C.line}/>
+    <T x={489} y={196} size={14} fill={C.ink} weight="bold">עיבוד מחדש</T>
+    <T x={489} y={218} size={11}>הפרדת U וגם Pu</T>
+    <L x1={489} y1={168} x2={489} y2={112} stroke={accent}/>
+    <L x1={489} y1={112} x2={221} y2={112} stroke={accent} dash="5 4"/>
+    <Arrow x1={221} y1={112} x2={221} y2={96} stroke={accent} id="frecyc"/>
+    <T x={346} y={105} size={11} fill={accent}>מחזור U להעשרה חוזרת (RepU)</T>
+    <L x1={489} y1={236} x2={489} y2={252} stroke={accent}/>
+    <L x1={489} y1={252} x2={87} y2={252} stroke={accent} dash="5 4"/>
+    <Arrow x1={87} y1={252} x2={87} y2={236} stroke={accent} id="frecycpu"/>
+    <T x={290} y={246} size={11} fill={accent}>מחזור Pu לדלק MOX</T>
+    <L x1={355} y1={28} x2={355} y2={12} stroke={C.dim}/>
+    <L x1={355} y1={12} x2={221} y2={12} stroke={C.dim} dash="5 4"/>
+    <Arrow x1={221} y1={12} x2={221} y2={28} stroke={C.dim} id="fcandu"/>
+    <T x={288} y={6} size={11} fill={C.mut}>מסלול CANDU - אורניום טבעי, ללא העשרה</T>
+    <L x1={200} y1={96} x2={200} y2={150} stroke={C.dim} dash="5 4"/>
+    <L x1={200} y1={150} x2={60} y2={150} stroke={C.dim} dash="5 4"/>
+    <Arrow x1={60} y1={150} x2={60} y2={166} stroke={C.dim} id="fcandu2"/>
+  </Fig>;
+}
+
+// E6: Cs-137 activity remaining over time. Computed curve, not traced artwork:
+// A(t) = 100 * (1/2)^(t / 30.08 y) (NNDC NuDat T1/2 = 30.08(9) y); after 40 years 2^(-40/30.08) ~= 0.398 ~= 40%.
+export function Cs137Decay({accent}){
+  const x0=70,y0=26,x1=540,y1=240,X=t=>x0+t/100*(x1-x0),Y=a=>y1-a/100*(y1-y0);
+  const HL=30.08,A=t=>100*Math.pow(2,-t/HL);
+  const pts=[];for(let t=0;t<=100;t+=2)pts.push(X(t).toFixed(1)+','+Y(A(t)).toFixed(1));
+  const a40=A(40);
+  return <Fig label="גרף מחושב של פעילות צזיום 137 באחוזים מול זמן בשנים: דעיכה מעריכית עם מחצית חיים 30.08 שנה; אחרי 40 שנה נותרת כארבעים אחוז פעילות" viewBox="0 -10 580 300">
+    <L x1={x0} y1={y0} x2={x0} y2={y1}/>
+    <L x1={x0} y1={y1} x2={x1} y2={y1}/>
+    <Arrow x1={x1-1} y1={y1} x2={x1+8} y2={y1} stroke={C.line}/>
+    <Arrow x1={x0} y1={y0+1} x2={x0} y2={y0-8} stroke={C.line}/>
+    {[0,20,40,60,80,100].map(t=><g key={t}><L x1={X(t)} y1={y1} x2={X(t)} y2={y1+5}/><T x={X(t)} y={y1+20} size={11} ltr>{t}</T></g>)}
+    {[0,25,50,75,100].map(a=><g key={a}><L x1={x0-5} y1={Y(a)} x2={x0} y2={Y(a)}/><T x={x0-10} y={Y(a)+4} size={11} anchor="end" ltr>{a}%</T></g>)}
+    <T x={(x0+x1)/2} y={y1+38} size={12} fill={C.mut}>שנים</T>
+    <T x={14} y={8} size={12} anchor="start" fill={C.mut}>פעילות (%)</T>
+    <path d={'M'+pts.join(' L')} fill="none" stroke={accent} strokeWidth={2.4}/>
+    <L x1={X(HL)} y1={Y(50)} x2={X(HL)} y2={y1} stroke={C.mut} dash="4 4"/>
+    <L x1={x0} y1={Y(50)} x2={X(HL)} y2={Y(50)} stroke={C.mut} dash="4 4"/>
+    <Dot cx={X(HL)} cy={Y(50)} fill={C.mut}/>
+    <T x={X(HL)+8} y={Y(50)-8} size={12} anchor="start" fill={C.mut}>מחצית חיים 30.08 שנה 50%</T>
+    <L x1={X(40)} y1={Y(a40)} x2={X(40)} y2={y1} stroke={accent} dash="4 4"/>
+    <Dot cx={X(40)} cy={Y(a40)} fill={accent}/>
+    <T x={X(40)+8} y={Y(a40)-10} size={12} anchor="start" fill={accent}>אחרי 40 שנה ~40%</T>
+    <T x={X(66)} y={Y(72)} size={11} fill={C.mut} anchor="end" ltr>A = A₀·(½)</T>
+    <T x={X(66)+3} y={Y(72)-7} size={8} fill={C.mut} anchor="start" ltr>t/T½</T>
+    <T x={X(66)+38} y={Y(72)} size={11} fill={C.mut} anchor="start" ltr>, T½ = 30.08 y</T>
   </Fig>;
 }
 

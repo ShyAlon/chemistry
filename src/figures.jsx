@@ -3,7 +3,7 @@ import {ElectronAffinitySigns,ExamMethodMap} from './figures-recap.jsx';
 import {MaxwellSpeedBand,EffusionQuantities,HydrationOrientation} from './figures-practice.jsx';
 import {LiquidVapor,RaoultLines,OsmosisFlow,DecayMap,HalfLifeCurve} from './figures-supplement.jsx';
 import {SurfaceAreaCut,LaMerBurst} from './figures-nano.jsx';
-import {RadiationPenetration,FuelCycle,PwrLoops,PhotonInteractions,NeutronFamilies,BindingCurve,FissionEnergySplit,ChainReaction,UraniumIsotopes,EnrichmentCascade,BwrLoop,ReactorTypes,ReactorGenerations,IonizingScale,DiscoveryTimeline,TechniqueChooser,TypicalDoses,DoseEffects,StabilityValley,PosterWireframe,BetaSpectrum,PhotonSpectrum,EmBands,XraySpectrum,DecayDirections} from './figures-nuclear.jsx';
+import {RadiationPenetration,FuelCycle,Cs137Decay,PwrLoops,PhotonInteractions,NeutronFamilies,BindingCurve,FissionEnergySplit,ChainReaction,UraniumIsotopes,EnrichmentCascade,BwrLoop,ReactorTypes,ReactorGenerations,IonizingScale,DiscoveryTimeline,TechniqueChooser,TypicalDoses,DoseEffects,StabilityValley,PosterWireframe,BetaSpectrum,PhotonSpectrum,EmBands,XraySpectrum,DecayDirections} from './figures-nuclear.jsx';
 import {AnimatedFigure} from './anim-core.jsx';
 import {animations} from './anim-figures.jsx';
 import {BornHaberNaCl,RadiusRatioLadder,NetDipole,SolidForms,BondingFamilies,IonicTransfer,IonicMelting,CoordinationSketches,ForceRanges,BondTypeScale,MoBonding,BandClasses,PhotonEnergyRuler,ExciteRelaxEmit,CarrierCreation,ConductivityVsT,DopantLevels,DopedConductivity} from './figures-solid-state.jsx';
@@ -43,6 +43,7 @@ export const figures={
   'decay-directions':DecayDirections,
   'photon-spectrum':PhotonSpectrum,
   'fuel-cycle':FuelCycle,
+  'cs137-decay':Cs137Decay,
   'pwr-loops':PwrLoops,
   'photon-interactions':PhotonInteractions,
   'neutron-energy-families':NeutronFamilies,
@@ -108,7 +109,7 @@ export const figures={
 };
 
 // Plots whose shapes are didactic sketches rather than measured/to-scale data.
-export const schematicFigures=new Set(['surface-area-cut','lamer-burst','eq-conc-time','eq-flask-pressure','eq-k-approach','eq-q-strip','mo-bonding','band-classes','excite-relax-emit','carrier-creation','conductivity-vs-t','dopant-levels','doped-conductivity','net-dipole','solid-forms','bonding-families','ionic-transfer','coordination-sketches','radiation-penetration','beta-spectrum','em-bands','xray-spectrum','decay-directions','photon-spectrum','fuel-cycle','pwr-loops','photon-interactions','neutron-energy-families','binding-energy-curve','fission-energy-split','chain-reaction','uranium-isotopes','enrichment-cascade','bwr-loop','reactor-types','reactor-generations','ionizing-scale','discovery-timeline','technique-chooser','typical-doses','dose-effects','stability-valley','poster-wireframe','rpd-curves','ie-trend','ie-successive','xps-spectrum','titration-curve','gas-laws','maxwell-boltzmann','phase-diagram','bohr-levels','photoelectric','em-spectrum','shielding','uncertainty']);
+export const schematicFigures=new Set(['surface-area-cut','lamer-burst','eq-conc-time','eq-flask-pressure','eq-k-approach','eq-q-strip','mo-bonding','band-classes','excite-relax-emit','carrier-creation','conductivity-vs-t','dopant-levels','doped-conductivity','net-dipole','solid-forms','bonding-families','ionic-transfer','coordination-sketches','radiation-penetration','beta-spectrum','em-bands','xray-spectrum','decay-directions','photon-spectrum','fuel-cycle','cs137-decay','pwr-loops','photon-interactions','neutron-energy-families','binding-energy-curve','fission-energy-split','chain-reaction','uranium-isotopes','enrichment-cascade','bwr-loop','reactor-types','reactor-generations','ionizing-scale','discovery-timeline','technique-chooser','typical-doses','dose-effects','stability-valley','poster-wireframe','rpd-curves','ie-trend','ie-successive','xps-spectrum','titration-curve','gas-laws','maxwell-boltzmann','phase-diagram','bohr-levels','photoelectric','em-spectrum','shielding','uncertainty']);
 
 export function Figure({id,accent}){
   const F=figures[id];

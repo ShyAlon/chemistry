@@ -91,6 +91,6 @@ test('long equations render as inline-block equation runs; text, words and short
  assert.equal(bidiElement('option',{value:'a = b + c = d'},'a = b + c = d').props.value,'a = b + c = d');
  // the rule wraps inside the block (no nowrap, no horizontal overflow) and keeps the baseline
  const css=readFileSync(new URL('../src/style.css',import.meta.url),'utf8');
- const rule=css.match(/\.bidi-run\.bidi-eq\{[^}]*\}/)[0];
+ const rule=css.match(/(?:^|[}\n])\.bidi-run\.bidi-eq\{[^}]*\}/)[0];assert.match(css,/@media\(max-width:800px\)\{[^@]*\.solution \.bidi-run\.bidi-eq\{display:block\}/);
  assert.match(rule,/display:inline-block/);assert.match(rule,/max-width:100%/);assert.match(rule,/text-align:left/);assert.match(rule,/vertical-align:baseline/);assert.ok(!/nowrap/.test(rule));assert.match(css,/\.bidi-eq \.math-root\{white-space:normal\}/);
 });

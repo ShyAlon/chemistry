@@ -3,28 +3,28 @@
   "course": "solid-state",
   "topic": "SS3",
   "source": {
-    "sha256": "66e0cc752fd3450e05050a92519ff400d53d36dae20da0f086d8da04a87c12a6",
+    "sha256": "f4bedaaf0681e2d453b2afa22725da09c091cb1f063d7e0c092bbe436b404d71",
     "kind": "multi-file-deck",
-    "pageCount": 7,
+    "pageCount": 8,
     "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png). source.sha256 = sha256(JSON.stringify(source.files)).",
     "files": [
       {
         "file": "MMM_TA_1.pdf",
         "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e",
-        "pages": "14-16",
+        "pages": "14-16,18",
         "firstPage": 1
       },
       {
         "file": "TA1 assignment 2026.pdf",
         "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25",
         "pages": "1",
-        "firstPage": 4
+        "firstPage": 5
       },
       {
         "file": "Solid State TA_2 21.10.26.pdf",
         "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2",
         "pages": "9-11",
-        "firstPage": 5
+        "firstPage": 6
       }
     ]
   },
@@ -109,10 +109,23 @@
     },
     {
       "page": 4,
-      "imageSha256": "e4156e0b5bbf94355d79d7ebbbafa3f969356ba24dcd0e18e8eddc3ce208ea2b",
+      "imageSha256": "fc947a1456baa7f091071bd955e7b44647dc9cef6cfe350b9b44b873aa6fa809",
       "units": [
         {
           "id": "p04.u1",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "שקף תודה סיום תרגול 1",
+          "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "e4156e0b5bbf94355d79d7ebbbafa3f969356ba24dcd0e18e8eddc3ce208ea2b",
+      "units": [
+        {
+          "id": "p05.u1",
           "kind": "exercise",
           "disposition": "covered",
           "label": "שאלה 2 במשימה: חיזוי מבנה גביש ל-CsI, NiO, KI, NiS",
@@ -123,7 +136,7 @@
           ]
         },
         {
-          "id": "p04.u2",
+          "id": "p05.u2",
           "kind": "marker",
           "disposition": "admin",
           "label": "שאלה 1 בדף (בורן-האבר) שייכת ל-SS2",
@@ -132,11 +145,11 @@
       ]
     },
     {
-      "page": 5,
+      "page": 6,
       "imageSha256": "ae6594929f65ea3d35c9883302017afc8eb5fc640e37eef76aca44ceac868096",
       "units": [
         {
-          "id": "p05.u1",
+          "id": "p06.u1",
           "kind": "concept",
           "disposition": "covered",
           "label": "רדיוס יוני, מספר קואורדינציה, כלל יחס הרדיוסים (כפל שקף מתרגול 1)",
@@ -146,7 +159,7 @@
           ]
         },
         {
-          "id": "p05.u2",
+          "id": "p06.u2",
           "kind": "table",
           "disposition": "covered",
           "label": "טבלת יחס הרדיוסים (כפל שקף מתרגול 1)",
@@ -160,11 +173,11 @@
       ]
     },
     {
-      "page": 6,
+      "page": 7,
       "imageSha256": "5081b9986c9b83119260da28a584f0b442a1f210595fb0524620c6398f634320",
       "units": [
         {
-          "id": "p06.u1",
+          "id": "p07.u1",
           "kind": "exercise",
           "disposition": "covered",
           "label": "אותו תרגיל חיזוי מבנה: CsI, NiO, KI, NiS",
@@ -178,11 +191,11 @@
       ]
     },
     {
-      "page": 7,
+      "page": 8,
       "imageSha256": "df6889a53e9f6a99897aae2d2f5e8a973625975595baabe0c30816c39532bb86",
       "units": [
         {
-          "id": "p07.u1",
+          "id": "p08.u1",
           "kind": "exercise",
           "disposition": "covered",
           "label": "אותו פתרון: CsI קובייתי, NiO אוקטהדרלי, עם הטבלה",

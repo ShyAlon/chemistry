@@ -79,17 +79,25 @@ export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
 }
 // lessonAdditions enter the hash only when present, so every map without them keeps its recorded review binding.
 export const unitMapHash=cov=>sha(JSON.stringify(cov.lessonAdditions===undefined?{source:cov.source,pages:cov.pages}:{source:cov.source,pages:cov.pages,lessonAdditions:cov.lessonAdditions}));
-export function blockExists(topic,ref){
- const m=/^(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
- const arr=topic.content[m[1]];
- if(m[1]==='theory')return arr.some(b=>b.id===m[2]);
- if(m[1]==='worked')return /^\d+$/.test(m[2])&&arr[Number(m[2])-1]!==undefined;
- return arr.some(q=>String(q.id)===m[2]);
+// Targets are same-topic by default. A cross-topic target takes an explicit
+// "<TOPIC>/" prefix (e.g. "SS2/theory:SS2-t14") and resolves only when loadTopic
+// returns that topic's content; without a loader the ref fails closed.
+export function blockExists(topic,ref,loadTopic){
+ const m=/^(?:([A-Za-z0-9_-]+)\/)?(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
+ if(m[1]!==undefined){
+  const other=loadTopic?loadTopic(m[1]):null;
+  if(!other||!other.content)return false;
+  return blockExists(other,m[2]+':'+m[3]);
+ }
+ const arr=topic.content[m[2]];
+ if(m[2]==='theory')return arr.some(b=>b.id===m[3]);
+ if(m[2]==='worked')return /^\d+$/.test(m[3])&&arr[Number(m[3])-1]!==undefined;
+ return arr.some(q=>String(q.id)===m[3]);
 }
 // Structure and traceability only. Returns {errors, pendingApprovals, unmapped}.
 // Pages whose units are all admin: the reviewer must attest each one was viewed.
 export const adminPages=cov=>(cov.pages||[]).filter(p=>p.units?.length&&p.units.every(u=>u.disposition==='admin')).map(p=>p.page);
-export function checkTopic(topic,cov){
+export function checkTopic(topic,cov,{loadTopic}={}){
  const errors=[],pending=[];const e=m=>errors.push(m);
  for(const k of Object.keys(cov))if(!TOP_KEYS.has(k))e('unexpected field '+k);
  if(cov.schema!==2)e('schema must be 2');
@@ -145,7 +153,7 @@ export function checkTopic(topic,cov){
    else if(d==='excluded'){if(u.targets?.length)e(w+'excluded units have no targets')}
    else{
     if(!u.targets?.length)e(w+d+' needs targets');
-    for(const t of u.targets||[]){if(!blockExists(topic,t))e(w+'target not found '+t);used.add(t)}
+    for(const t of u.targets||[]){if(!blockExists(topic,t,loadTopic))e(w+'target not found '+t);used.add(t)}
    }
    if(['adapted','corrected','excluded'].includes(d)&&!(u.rationale||'').trim())e(w+d+' needs rationale');
    if(d==='excluded'){
@@ -224,7 +232,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   if(!fs.existsSync(f)){rows.push(listed?{course:c.id,topic:t.id,status:'unaudited',errors:[]}:{course:c.id,topic:t.id,status:'fail',errors:['no coverage map and not on the legacy-unaudited allowlist (ingest/coverage-policy.json)']});continue}
   if(listed){rows.push({course:c.id,topic:t.id,status:'fail',errors:['has a coverage map but is still on the legacy-unaudited allowlist; remove it']});continue}
   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
-  const r=checkTopic(t,cov),errors=[...r.errors];
+  const r=checkTopic(t,cov,{loadTopic:tid=>((cat.courses.find(x=>x.id===c.id)||{}).topics||[]).find(x=>x.id===tid)}),errors=[...r.errors];
   {const fb=figuresHashFor(c.id,policy);for(const m of fb.errors)errors.push(m)}
   if(cov.course!==c.id||cov.topic!==t.id)errors.push('course/topic mismatch');
   const rv=cov.semanticReview||{};

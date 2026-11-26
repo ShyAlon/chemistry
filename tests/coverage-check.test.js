@@ -119,6 +119,15 @@ test('review must be independent and bound to exact source, content and unit-map
  assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.note='ok';return c})()).errors.join('|'),/unexpected review field/);
  assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.status='approved';return c})()).errors.join('|'),/pending or done/);
 });
+test('cross-topic targets need an explicit topic prefix and resolve through the loader, failing closed without one',()=>{
+ const other={content:{theory:[{id:'SS2-t14'}],worked:[],quiz:[]}};
+ const load=tid=>tid==='SS2'?other:null;
+ assert.ok(blockExists(topic,'SS2/theory:SS2-t14',load));
+ assert.ok(!blockExists(topic,'SS2/theory:SS2-t999',load));
+ assert.ok(!blockExists(topic,'ZZ/theory:SS2-t14',load));
+ assert.ok(!blockExists(topic,'SS2/theory:SS2-t14'));
+ assert.match(errs(c=>{c.pages[2].units[0].targets=['ZZ/theory:SS2-t14']}),/target not found/);
+});
 test('release mode refuses unreviewed maps and untraced blocks; blocks resolve by id',()=>{
  const r=run((()=>{const c=cov();c.semanticReview={status:'pending'};return c})(),{requireReview:true});assert.equal(r.status,'fail');assert.match(r.errors.join('|'),/review not recorded/);
  const t=structuredClone(topic);t.content.theory.splice(t.content.theory.findIndex(b=>b.id==='E5-t13'),1);

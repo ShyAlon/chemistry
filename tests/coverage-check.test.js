@@ -128,6 +128,14 @@ test('cross-topic targets need an explicit topic prefix and resolve through the 
  assert.ok(!blockExists(topic,'SS2/theory:SS2-t14'));
  assert.match(errs(c=>{c.pages[2].units[0].targets=['ZZ/theory:SS2-t14']}),/target not found/);
 });
+test('audited topics refuse id-less non-heading blocks; structural headings may stay id-less',()=>{
+ const t=structuredClone(topic);t.content.theory.push({text:'presentation split row',style:'Normal'});
+ assert.match(checkTopic(t,cov()).errors.join('|'),/theory blocks lack ids/);
+ const t2=structuredClone(topic);t2.content.theory.push({text:'structural heading',style:'Heading 2'});
+ assert.ok(!/lack ids/.test(checkTopic(t2,cov()).errors.join('|')),'id-less Heading stays structural');
+ const t3=structuredClone(topic);t3.content.theory.push({text:'untraced with id',style:'Normal',id:'E5-t998'});
+ assert.deepEqual(checkTopic(t3,cov()).unmapped,['E5-t998']);
+});
 test('release mode refuses unreviewed maps and untraced blocks; blocks resolve by id',()=>{
  const r=run((()=>{const c=cov();c.semanticReview={status:'pending'};return c})(),{requireReview:true});assert.equal(r.status,'fail');assert.match(r.errors.join('|'),/review not recorded/);
  const t=structuredClone(topic);t.content.theory.splice(t.content.theory.findIndex(b=>b.id==='E5-t13'),1);

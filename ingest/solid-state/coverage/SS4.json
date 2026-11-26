@@ -245,7 +245,21 @@
           "disposition": "adapted",
           "label": "חוזק קשר מול התכה; הסולם התרמי kBT = 26 meV בטמפרטורת החדר",
           "targets": [
-            "theory:SS4-t14"
+            "theory:SS4-t14",
+            "theory:SS4-t21",
+            "theory:SS4-t22",
+            "theory:SS4-t23",
+            "theory:SS4-t24",
+            "theory:SS4-t25",
+            "theory:SS4-t26",
+            "theory:SS4-t27",
+            "theory:SS4-t28",
+            "theory:SS4-t29",
+            "theory:SS4-t30",
+            "theory:SS4-t31",
+            "theory:SS4-t32",
+            "theory:SS4-t33",
+            "theory:SS4-t34"
           ],
           "rationale": "טבלת 2.3 שוחזרה ב-t14 כתמליל מסומן: בסיס האנרגיה אינו מוגדר בשקף ואינו אנרגיית סריג; כלל חוזק-קשר מול התכה ו-kBT = 26 meV נכללו"
         }
@@ -819,7 +833,8 @@
           "rationale": "הדירוג מכוסה ב-t14 ככלל אצבע עם הסתייגות מפורשת: הטווחים בטבלה חופפים ואין דירוג אוניברסלי",
           "targets": [
             "theory:SS4-t14",
-            "theory:SS4-t15"
+            "theory:SS4-t15",
+            "theory:SS4-t34"
           ]
         }
       ]

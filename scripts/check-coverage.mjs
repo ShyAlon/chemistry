@@ -181,7 +181,7 @@ export function checkTopic(topic,cov,{loadTopic}={}){
    }
   }
  }
- const missingIds=topic.content.theory.filter(b=>b.id===undefined).length;
+ const missingIds=topic.content.theory.filter(b=>b.id===undefined&&!(b.style||'').startsWith('Heading')).length;
  if(missingIds)e(missingIds+' theory blocks lack ids');
  const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
  return {errors,pending,unmapped,additions:added.size};

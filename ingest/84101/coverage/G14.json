@@ -130,7 +130,8 @@
      "label": "אדהזיה מול קוהזיה וסימן ΔH_soln",
      "targets": [
       "theory:G14-t02",
-      "theory:G14-t21"
+      "theory:G14-t21",
+      "theory:G14-t28"
      ]
     }
    ]
@@ -145,7 +146,8 @@
      "disposition": "covered",
      "label": "דוגמה: IMF בתערובת CS₂ ואצטון",
      "targets": [
-      "theory:G14-t21"
+      "theory:G14-t21",
+      "theory:G14-t28"
      ]
     }
    ]

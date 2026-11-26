@@ -55,7 +55,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  for(const [id,add] of Object.entries(layer)){
   for(const k of ['theory','worked','quiz'])assert.deepEqual(topic(id).content[k].filter(x=>x.finalPrep),add[k]);
   const ids=topic(id).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);
-  const origIds=topic(id).content.quiz.filter(q=>!q.finalPrep).map(q=>q.id);
+  const origIds=topic(id).content.quiz.filter(q=>!q.finalPrep&&!q.batch5).map(q=>q.id);
   assert.equal(add.quiz[0].id,Math.max(...origIds)+1);
  }
  assert.equal(Object.values(layer).flatMap(x=>x.worked).length,14);

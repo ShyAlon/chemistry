@@ -51,3 +51,13 @@ test('new figures are registered, labels meet 18px and formula sheet covers addi
  assert.ok([...jsx.matchAll(/size=\{(\d+)\}/g)].every(m=>+m[1]>=18));
  for(const t of added)assert.ok(sheet.find(c=>c.id==='84101').topics.some(x=>x.id===t.id));
 });
+test('batch-5 practice answers are recomputed independently from the stated data',()=>{
+ const R=8.314,b5=id=>added.find(t=>t.id===id).content.quiz.filter(x=>x.batch5&&x.type==='numeric').map(x=>x.fields[0].value);
+ const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-3*Math.max(1,Math.abs(b)),a+' vs '+b);
+ const g13=b5('G13');close(g13[0],R*Math.log(760/200)/(1/320-1/350)/1000);close(g13[1],1/(1/340-R*Math.log(.5)/30000));close(g13[2],R*Math.log(60)/(1/300-1/450)/1000);
+ const g14=b5('G14');close(g14[0],.25);close(g14[1],.25*3+.75*1);assert.equal(g14[2],600);
+ assert.ok(Math.abs((3*.25)/(.25*3+.75)-.5)<1e-12);assert.equal(2*600+3*200,1800);assert.equal(3*600+3*200,2400);
+ const g15=b5("G15"),nw=60/18.015,ng=40/180.16;close(g15[0],100*nw/(nw+ng));
+ const nb=96/78.11,xb=700/760;close(g15[1],4/(nb*(1-xb)/xb));
+ const np=3.35/1.86*.05,x=g15[2];assert.ok(Math.abs((1+x)*3/(26.98+35.45*x)-np)<1.5e-3);
+});

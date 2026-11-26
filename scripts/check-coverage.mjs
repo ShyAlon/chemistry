@@ -79,17 +79,25 @@ export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
 }
 // lessonAdditions enter the hash only when present, so every map without them keeps its recorded review binding.
 export const unitMapHash=cov=>sha(JSON.stringify(cov.lessonAdditions===undefined?{source:cov.source,pages:cov.pages}:{source:cov.source,pages:cov.pages,lessonAdditions:cov.lessonAdditions}));
-export function blockExists(topic,ref){
- const m=/^(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
- const arr=topic.content[m[1]];
- if(m[1]==='theory')return arr.some(b=>b.id===m[2]);
- if(m[1]==='worked')return /^\d+$/.test(m[2])&&arr[Number(m[2])-1]!==undefined;
- return arr.some(q=>String(q.id)===m[2]);
+// Targets are same-topic by default. A cross-topic target takes an explicit
+// "<TOPIC>/" prefix (e.g. "SS2/theory:SS2-t14") and resolves only when loadTopic
+// returns that topic's content; without a loader the ref fails closed.
+export function blockExists(topic,ref,loadTopic){
+ const m=/^(?:([A-Za-z0-9_-]+)\/)?(theory|worked|quiz):(.+)$/.exec(ref);if(!m)return false;
+ if(m[1]!==undefined){
+  const other=loadTopic?loadTopic(m[1]):null;
+  if(!other||!other.content)return false;
+  return blockExists(other,m[2]+':'+m[3]);
+ }
+ const arr=topic.content[m[2]];
+ if(m[2]==='theory')return arr.some(b=>b.id===m[3]);
+ if(m[2]==='worked')return /^\d+$/.test(m[3])&&arr[Number(m[3])-1]!==undefined;
+ return arr.some(q=>String(q.id)===m[3]);
 }
 // Structure and traceability only. Returns {errors, pendingApprovals, unmapped}.
 // Pages whose units are all admin: the reviewer must attest each one was viewed.
 export const adminPages=cov=>(cov.pages||[]).filter(p=>p.units?.length&&p.units.every(u=>u.disposition==='admin')).map(p=>p.page);
-export function checkTopic(topic,cov){
+export function checkTopic(topic,cov,{loadTopic}={}){
  const errors=[],pending=[];const e=m=>errors.push(m);
  for(const k of Object.keys(cov))if(!TOP_KEYS.has(k))e('unexpected field '+k);
  if(cov.schema!==2)e('schema must be 2');
@@ -97,6 +105,31 @@ export function checkTopic(topic,cov){
  for(const k of Object.keys(cov.semanticReview||{}))if(!REVIEW_KEYS.has(k))e('unexpected review field '+k);
  if(!/^[0-9a-f]{64}$/.test(cov.source?.sha256||''))e('source.sha256 must be a 64-hex hash');
  const n=cov.source?.pageCount;if(!Number.isInteger(n)||n<1)e('source.pageCount invalid');
+ // Multi-file decks: the descriptor is the deck. Spans, ordering and the digest are all enforced,
+ // so a wrong span, a reordered file or a stale digest fails closed instead of passing as 64-hex.
+ if(cov.source?.files!==undefined){
+  const files=cov.source.files;
+  if(!Array.isArray(files)||!files.length)e('source.files must be a non-empty list when present');
+  const hex64=/^[0-9a-f]{64}$/;let expect=1,total=0;
+  for(const f of Array.isArray(files)?files:[]){
+   const w='source.files '+(f&&f.file||'?')+': ';
+   if(!f||typeof f.file!=='string'||!f.file.trim())e(w+'needs a file name');
+   if(!hex64.test(f&&f.sha256||''))e(w+'sha256 must be a 64-hex hash');
+   let span=0,ok=true;
+   for(const part of String(f&&f.pages||'').split(',')){
+    const m=/^(\d+)(?:-(\d+))?$/.exec(part.trim());
+    if(!m){ok=false;break}
+    const a=+m[1],b=m[2]===undefined?a:+m[2];
+    if(a<1||b<a){ok=false;break}
+    span+=b-a+1;
+   }
+   if(!ok||!span)e(w+'pages must be a span like "3-6,9"');
+   if(f&&f.firstPage!==expect)e(w+'firstPage must be '+expect+' (spans concatenate in file order)');
+   expect+=span;total+=span;
+  }
+  if(Number.isInteger(n)&&total&&total!==n)e('source.pageCount must equal the total of the source.files spans ('+total+')');
+  if(hex64.test(cov.source?.sha256||'')&&Array.isArray(files)&&files.length&&cov.source.sha256!==sha(JSON.stringify(files)))e('source.sha256 must equal sha256(JSON.stringify(source.files))');
+ }
  const seen=new Set(),ids=new Set(),used=new Set();
  for(const p of cov.pages||[]){
   for(const k of Object.keys(p))if(!PAGE_KEYS.has(k))e('page '+p.page+': unexpected field '+k);
@@ -120,7 +153,7 @@ export function checkTopic(topic,cov){
    else if(d==='excluded'){if(u.targets?.length)e(w+'excluded units have no targets')}
    else{
     if(!u.targets?.length)e(w+d+' needs targets');
-    for(const t of u.targets||[]){if(!blockExists(topic,t))e(w+'target not found '+t);used.add(t)}
+    for(const t of u.targets||[]){if(!blockExists(topic,t,loadTopic))e(w+'target not found '+t);used.add(t)}
    }
    if(['adapted','corrected','excluded'].includes(d)&&!(u.rationale||'').trim())e(w+d+' needs rationale');
    if(d==='excluded'){
@@ -148,10 +181,46 @@ export function checkTopic(topic,cov){
    }
   }
  }
- const missingIds=topic.content.theory.filter(b=>b.id===undefined).length;
+ const missingIds=topic.content.theory.filter(b=>b.id===undefined&&!(b.style||'').startsWith('Heading')).length;
  if(missingIds)e(missingIds+' theory blocks lack ids');
  const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
  return {errors,pending,unmapped,additions:added.size};
+}
+export const parseSpan=s=>{const out=[];for(const part of String(s||'').split(',')){const m=/^(\d+)(?:-(\d+))?$/.exec(part.trim());if(!m)return null;const a=+m[1],b=m[2]===undefined?a:+m[2];if(a<1||b<a)return null;for(let i=a;i<=b;i++)out.push(i)}return out};
+// Deck-to-source binding and cross-topic partition, pure core. decks: [{topic,file,sha256,pages:[int]}].
+// Every deck file must be pinned by sources.manifest.json; spans may not pass the file's real page count;
+// every real page must sit in at least one deck, and a page in more than one deck needs an explicit shared declaration.
+export function sourceBindingErrors({decks,manifest,partition}){
+ const e=[];
+ const mset=manifest?new Map(manifest.map(s=>[s.file,s.sha256])):null;
+ const counts=new Map((partition?.files||[]).map(f=>[f.file,f.pageCount]));
+ for(const d of decks){
+  const w='deck '+(d.topic||'?')+' '+(d.file||'?')+': ';
+  if(mset){
+   if(!mset.has(d.file))e.push(w+'file is not in sources.manifest.json');
+   else if(mset.get(d.file)!==d.sha256)e.push(w+'sha256 differs from sources.manifest.json');
+  }else e.push(w+'multi-file deck but no sources.manifest.json');
+  const pc=counts.get(d.file);
+  if(pc!==undefined){const over=(d.pages||[]).filter(p=>p>pc);if(over.length)e.push(w+'span page '+over[0]+' exceeds the real page count '+pc)}
+ }
+ for(const pf of partition?.files||[]){
+  const cover=new Map();
+  for(const d of decks.filter(x=>x.file===pf.file))for(const pg of d.pages||[]){
+   if(!cover.has(pg))cover.set(pg,new Set());cover.get(pg).add(d.topic)
+  }
+  for(let pg=1;pg<=pf.pageCount;pg++)if(!cover.has(pg))e.push(pf.file+' page '+pg+' is not in any topic deck');
+  const declared=new Map((partition.shared||[]).filter(s=>s.file===pf.file).map(s=>[s.page,[...s.topics].sort()]));
+  for(const [pg,topics] of [...cover.entries()].sort((a,b)=>a[0]-b[0])){
+   const ts=[...topics].sort();
+   if(ts.length>1){
+    const decl=declared.get(pg);
+    if(!decl||JSON.stringify(decl)!==JSON.stringify(ts))e.push(pf.file+' page '+pg+' is in '+ts.join('+')+' without a matching shared declaration');
+    declared.delete(pg);
+   }
+  }
+  for(const [pg] of declared)e.push(pf.file+' shared declaration for page '+pg+' has no multi-topic coverage');
+ }
+ return e;
 }
 export function loadPolicy(dir=path.join(root,'ingest')){return JSON.parse(fs.readFileSync(path.join(dir,'coverage-policy.json'),'utf8'))}
 export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireReview=false,policy=loadPolicy(dir)}={}){
@@ -163,7 +232,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   if(!fs.existsSync(f)){rows.push(listed?{course:c.id,topic:t.id,status:'unaudited',errors:[]}:{course:c.id,topic:t.id,status:'fail',errors:['no coverage map and not on the legacy-unaudited allowlist (ingest/coverage-policy.json)']});continue}
   if(listed){rows.push({course:c.id,topic:t.id,status:'fail',errors:['has a coverage map but is still on the legacy-unaudited allowlist; remove it']});continue}
   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
-  const r=checkTopic(t,cov),errors=[...r.errors];
+  const r=checkTopic(t,cov,{loadTopic:tid=>((cat.courses.find(x=>x.id===c.id)||{}).topics||[]).find(x=>x.id===tid)}),errors=[...r.errors];
   {const fb=figuresHashFor(c.id,policy);for(const m of fb.errors)errors.push(m)}
   if(cov.course!==c.id||cov.topic!==t.id)errors.push('course/topic mismatch');
   const rv=cov.semanticReview||{};
@@ -186,6 +255,22 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(r.unmapped.length)errors.push('theory blocks not traced to any source unit: '+r.unmapped.join(', '));
   }
   rows.push({course:c.id,topic:t.id,status:errors.length?'fail':reviewed?'audited-reviewed':'audited-review-pending',errors,pending:r.pending,unmapped:r.unmapped});
+ }
+ for(const c of cat.courses){
+  const part=(policy.sourcePartition||{})[c.id];
+  const mp=path.join(dir,c.id,'sources.manifest.json');
+  const manifest=fs.existsSync(mp)?(JSON.parse(fs.readFileSync(mp,'utf8')).sources||[]):null;
+  const decks=[];
+  for(const t of c.topics){
+   const f=path.join(dir,c.id,'coverage',t.id+'.json');
+   if(!fs.existsSync(f))continue;
+   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
+   for(const sf of cov.source?.files||[])decks.push({topic:t.id,file:sf.file,sha256:sf.sha256,pages:parseSpan(sf.pages)||[]});
+  }
+  if(decks.length||part){
+   const errs=sourceBindingErrors({decks,manifest,partition:part});
+   if(errs.length)rows.push({course:c.id,topic:'*',status:'fail',errors:errs});
+  }
  }
  for(const k of Object.keys(policy.figureBinding||{}))if(!cat.courses.some(c=>c.id===k))rows.push({course:k,topic:'*',status:'fail',errors:['figureBinding names a course that does not exist']});
  for(const k of allow)if(!cat.courses.some(c=>c.topics.some(t=>c.id+'/'+t.id===k)))rows.push({course:k.split('/')[0],topic:k.split('/')[1],status:'fail',errors:['allowlist entry names a topic that does not exist']});

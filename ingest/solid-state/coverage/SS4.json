@@ -1,0 +1,905 @@
+{
+  "schema": 2,
+  "course": "solid-state",
+  "topic": "SS4",
+  "source": {
+    "sha256": "1162057157d371aa51d52df6d169e6775fbd95bf1dac1b25fc06eb255f1fc130",
+    "kind": "multi-file-deck",
+    "pageCount": 53,
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png). source.sha256 = sha256(JSON.stringify(source.files)). Intermolecular forces.pptx pages are rendered from its PDF conversion (soffice).",
+    "files": [
+      {
+        "file": "Intermolecular forces.pptx",
+        "sha256": "c60fbdef9ac72d4a3cbb9cd276f800f4209c9b4a36aaba1c03b0186c3f34e11a",
+        "pages": "1-15",
+        "firstPage": 1
+      },
+      {
+        "file": "Solid State TA_2 21.10.26.pdf",
+        "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2",
+        "pages": "12-29",
+        "firstPage": 16
+      },
+      {
+        "file": "Solid State TA_3 28.10.26.pdf",
+        "sha256": "7f46defc1b90bdb375f46a9994e86d5bdd946ff09484fd1516f05377f6a89557",
+        "pages": "1-20",
+        "firstPage": 34
+      }
+    ]
+  },
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+    "agent-01M89RY0MXDEQWC4Q42F62CKET"
+  ],
+  "semanticReview": {
+    "status": "done",
+    "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+    "sourceSha256": "1162057157d371aa51d52df6d169e6775fbd95bf1dac1b25fc06eb255f1fc130",
+    "contentSha256": "33f1a1dd1b87ce615f2b49ec2b7112ee7131373bebef1752adbe73de4e9fc0c0",
+    "unitMapSha256": "c4f87e2992e0cdd30805dee29dd4f2229424650208f4c2c7d0815e1b2cc7c4b1",
+    "figuresSha256": "813ca9417e09d15306f30a52d66bf50682bb4b707939203edcc792836fa06a93",
+    "adminPagesAttested": [
+      1,
+      6,
+      15,
+      31,
+      34
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "5575bef58718acc4338542064db2a2d0ac3291f54dd930f24cdeaeda2634f8d0",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "title",
+          "disposition": "admin",
+          "label": "שקף כותרת: כוחות בין־מולקולריים",
+          "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "e05d262c771e6ddc2e551c39ee20c675a073748b1c9473950dbb6be5d8a0361e",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מגמות גודל אטומי בטבלה המחזורית (רקע)",
+          "targets": [
+            "theory:SS4-t04",
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "19a613a66d4262f345ff53e74a65804e79ce2a0daa78ec701364d1e1af8a895f",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מגמות מחזוריות: גודל ואלקטרו־שליליות (רקע)",
+          "targets": [
+            "theory:SS4-t04",
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "521f681d492e56f5c92ec40ac74efa1b4d9d7c992a9f9bb4749a89ef5878238a",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול-דיפול: הסבר וקישורי אנימציה",
+          "targets": [
+            "theory:SS4-t11"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "dd0f9f6e2e2a25bb65429dcea657ae5f83d457af729804e05de51163be6be3e9",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "concept",
+          "disposition": "adapted",
+          "label": "אגמי מתאן בטיטאן: כוחות בין־מולקולריים קובעים מצב צבירה",
+          "targets": [
+            "theory:SS4-t02"
+          ],
+          "rationale": "שקף הקשרה; ערכי ההתכה והרתיחה של מתאן לא הועברו"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "90fdd23c5f094ad3bc2b13a8a1fb500f47f0703e18279a2521f43fd9554226be",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "ביוגרפיה של פריץ לונדון",
+          "rationale": "רקע ביוגרפי בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "0b96628ebdae2a82ad4ff463ee59a26ce7ece2b1f7c693281a5b1efd88f61142",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול מושרה-דיפול מושרה: פולריזביליות מחזקת ומעלה התכה",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "1b608ad4767092b4f2debc37955b55957956af9e6b0dabb8ccec3a2a026b93dc",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלה 10.5: השוואת כוחות בין־מולקולריים עם טווחי חוזק",
+          "targets": [
+            "theory:SS4-t14"
+          ],
+          "rationale": "טווחי טבלה זו (לונדון 1-10, דיפול-דיפול 3-4) שונים מטבלת התרגול שאומצה בשיעור; לא שוחזרה"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "463804d4196112b3660f6629256590759df90196aee602c956a3eefc22513c2f",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "סדרת אלקאנים (פרופאן, אוקטאן, איקוזאן): נפח מול התכה ורתיחה",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "f6d9e774b9f597b584835dbade91587dd86668001a2f1efcb32edc5aed0946bb",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "עקומת רתיחת אלקאנים מול מסה מולרית ופולריזביליות",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "c86f629353657a64e60722121f2b24384b06e99b989b18fffdfaab30d3268655",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת אלקטרו־שליליות פאולינג ורדיוסים; מגמת הטבלה",
+          "targets": [
+            "theory:SS4-t04"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "02dc7631ebd47b9418f74c0484101e9e77f84eac8f729ce25b55ef0fa4c57763",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "קשר מימן בין מולקולות מים: אורכים ומבנה",
+          "targets": [
+            "theory:SS4-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "cec065ea82108971566ed3436b2ad98584e7d3d4e30df9bfdaa809cb0121a700",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלות השוואה בין מחזורים וקבוצות; יוצא הדופן CH4",
+          "targets": [
+            "theory:SS4-t18",
+            "quiz:7"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "aad687160581affa13601f9a6abab307264e8ea2903c77bb36858819b5ce8363",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "concept",
+          "disposition": "adapted",
+          "label": "חוזק קשר מול התכה; הסולם התרמי kBT = 26 meV בטמפרטורת החדר",
+          "targets": [
+            "theory:SS4-t14",
+            "theory:SS4-t21",
+            "theory:SS4-t22",
+            "theory:SS4-t23",
+            "theory:SS4-t24",
+            "theory:SS4-t25",
+            "theory:SS4-t26",
+            "theory:SS4-t27",
+            "theory:SS4-t28",
+            "theory:SS4-t29",
+            "theory:SS4-t30",
+            "theory:SS4-t31",
+            "theory:SS4-t32",
+            "theory:SS4-t33",
+            "theory:SS4-t34"
+          ],
+          "rationale": "טבלת 2.3 שוחזרה ב-t14 כתמליל מסומן: בסיס האנרגיה אינו מוגדר בשקף ואינו אנרגיית סריג; כלל חוזק-קשר מול התכה ו-kBT = 26 meV נכללו"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "ddda5c1ce9c73704675a711a4e7a274ef5823aa0d63d950e1eab701d945c077a",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "תמונת מפעל Solvay",
+          "rationale": "תמונת קרדיט בלבד, ללא תוכן"
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "5acd3d2854b3665e83bae8009153939a9dc823af957a8becee2b9005c0f6e237",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תוך־מולקולרי מול בין־מולקולרי",
+          "targets": [
+            "theory:SS4-t01",
+            "theory:SS4-t02",
+            "quiz:4"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "cf8c70621a13f274c28354abfdbc9c7d6ce99cbf47072cf8840ab5775dcbebf5",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשר קוטבי לא גורר מולקולה קוטבית: HCl מול SiCl4",
+          "targets": [
+            "theory:SS4-t07",
+            "theory:SS4-t08",
+            "worked:3",
+            "quiz:2"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "cb408f1c5481257809e0d668526392018462d570775af70d7fe0dbc48d9e3979",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "זיהוי קשר ראשי לפי Δχ: טבלת סיווג",
+          "targets": [
+            "theory:SS4-t04",
+            "theory:SS4-t05"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "7e9d0e14903b3a622d14b0573b7328ba507afa66bd1258ba9a85239a1286b078",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת כוחות משניים: סוג, מנגנון, דוגמה",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t11",
+            "theory:SS4-t12",
+            "theory:SS4-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "imageSha256": "c6aacc3119d7dc17cd38c54d7195425cf7fd995bf4dc6bc6b27a93da7ad45de2",
+      "units": [
+        {
+          "id": "p20.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול-דיפול וקשר מימן: מנגנונים ודוגמאות",
+          "targets": [
+            "theory:SS4-t11",
+            "theory:SS4-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "imageSha256": "da8eb96831e30dd4dd094d4acc09e65281eac2a8fe99ba9b9080f84d7ac0ba43",
+      "units": [
+        {
+          "id": "p21.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "סולם חוזק קשרים: ואן דר ואלס עד יוני",
+          "targets": [
+            "theory:SS4-t14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "imageSha256": "f887a7c1c25ce6a458a92594d0213c7f2ea03388ce297da1333654b82f8a32e4",
+      "units": [
+        {
+          "id": "p22.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: פערי רתיחה H2O/H2S ו-HCl/HF",
+          "targets": [
+            "worked:1",
+            "theory:SS4-t17",
+            "quiz:5"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "imageSha256": "81a9d2b9e99eab2016b92050b370657af8438ccb83c83a59d4c46836812a4dfb",
+      "units": [
+        {
+          "id": "p23.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: חיזוי קישור ופאזה ב-25 מעלות",
+          "targets": [
+            "worked:2"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "imageSha256": "5694f3f701f773ef4c4b36580d17a99a1087725f3e4f0c9fd635c3c291d66cdf",
+      "units": [
+        {
+          "id": "p24.u1",
+          "kind": "table",
+          "disposition": "corrected",
+          "label": "פתרון חיזוי קישור ופאזה; בשקף רשום SiO4 במקום SiO2",
+          "targets": [
+            "worked:2",
+            "quiz:6"
+          ],
+          "rationale": "בשקף מסומן SiO4; לפי TA3 p12 וההקשר: SiO2 - תוקן"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "imageSha256": "c37e6a13ca7a366accfaca895f3aefe62bd682339d7d771f435a84195520d593",
+      "units": [
+        {
+          "id": "p25.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: מגמות התכה בהידרידי עמודות 14 ו-16",
+          "targets": [
+            "theory:SS4-t18",
+            "quiz:7"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "imageSha256": "b7d29777760b544b10b27768ca2af0b705155119bec89c3a0994d762b82c888d",
+      "units": [
+        {
+          "id": "p26.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פתרון: גודל, קוטביות וקשרי מימן",
+          "targets": [
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "imageSha256": "975922ed622e07424420a1b319dbd5fd91c7f1b9d9733b714f82fc105874a37b",
+      "units": [
+        {
+          "id": "p27.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שיטת עבודה לשאלת התכה/רתיחה, 4 שלבים",
+          "targets": [
+            "theory:SS4-t19",
+            "theory:SS4-t20"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "imageSha256": "64c543d645f2a3f0d448e942d11e06dc35eb0658e3dcc671d60801a18489c650",
+      "units": [
+        {
+          "id": "p28.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "הגדרות מפתח: אטומים וקישור",
+          "targets": [
+            "theory:SS4-t02",
+            "theory:SS4-t04"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "imageSha256": "def7ab3d800e7475fe79e2a2cf10b210c4ac669f30f33726ea50bd90d2ced817",
+      "units": [
+        {
+          "id": "p29.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "הגדרות מפתח: אינטראקציות מולקולריות ופאזות",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "imageSha256": "fba9185d021c1274a56fdd3ad6bb177949ef7765a2a59313c5716893a3b1904f",
+      "units": [
+        {
+          "id": "p30.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "עקרונות וכללי אצבע מסכמים",
+          "targets": [
+            "theory:SS4-t18",
+            "theory:SS4-t20"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "imageSha256": "fc947a1456baa7f091071bd955e7b44647dc9cef6cfe350b9b44b873aa6fa809",
+      "units": [
+        {
+          "id": "p31.u1",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "שקף תודה סיום תרגול 2",
+          "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "imageSha256": "410727d53a0a3d2665c91736b8cdcc3490bc2fb4c0155e136057a37fce206ce4",
+      "units": [
+        {
+          "id": "p32.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת 6.3 - אנרגיות סריג של גבישים יוניים (kJ/mol), עם קישור מקור בתחתית",
+          "rationale": "אותה טבלת 6.3 מכוסה ב-SS2 t14 (כיסוי חוצה-נושאים); זהה תמונה-לתמונה לעמוד 51 בחבילה זו (TA3 עמ' 18). הקישור בתחתית אינו תוכן נבחן",
+          "targets": [
+            "SS2/theory:SS2-t14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "imageSha256": "a60f62226266d6f8f5814cd84e1b749429ccbec858fc0bae2b3ee9e9eff3ef6b",
+      "units": [
+        {
+          "id": "p33.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "עקומת אחוז אופי יוני מול Δχ (כפילות מהרצאה)",
+          "targets": [
+            "theory:SS4-t04"
+          ],
+          "rationale": "העקומה מולמדת ב-SS1 (t26); כאן ההקשר של סיווג לפי Δχ בלבד"
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "imageSha256": "6cd9640354d2b5034a50a487e1c3958c2a4db114aced2e5dd98767d28071737b",
+      "units": [
+        {
+          "id": "p34.u1",
+          "kind": "title",
+          "disposition": "admin",
+          "label": "שקף כותרת תרגול 3",
+          "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 35,
+      "imageSha256": "901fdf43a82913e51e12849d95e90e3341415a2b69ee22b9daabd5b47520566f",
+      "units": [
+        {
+          "id": "p35.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "טקסונומיה: תוך־מולקולרי מול בין־מולקולרי ומצב צבירה",
+          "targets": [
+            "theory:SS4-t01",
+            "theory:SS4-t02"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "imageSha256": "6bd27555fa0ab786c742c1486544471638aae957e1d37503cbb9f9792a3697dc",
+      "units": [
+        {
+          "id": "p36.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "אלקטרו־שליליות ומשולש קטלאר",
+          "targets": [
+            "theory:SS4-t04"
+          ],
+          "rationale": "סיווג לפי Δχ ורעיון משולש קטלאר (ממוצע χ מול Δχ מפריד יוני/קוולנטי/מתכתי) שוחזרו ב-t04; שרטוט המשולש עצמו לא שוחזר"
+        }
+      ]
+    },
+    {
+      "page": 37,
+      "imageSha256": "52d93ca8aa635dd3a54cb722f196b81d30c2aaaaa947a1508dad9aa4fbaf8775",
+      "units": [
+        {
+          "id": "p37.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת זיהוי קשרים ראשיים",
+          "targets": [
+            "theory:SS4-t04",
+            "theory:SS4-t05"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 38,
+      "imageSha256": "9c89e94f933481066fbedd68e6ade10e3c4cad909a39169e4fb18c2f8fc1571e",
+      "units": [
+        {
+          "id": "p38.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת כוחות משניים: סוג, מנגנון, דוגמה",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t11",
+            "theory:SS4-t12",
+            "theory:SS4-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 39,
+      "imageSha256": "712b8c32b1cf12204b8c5206f89da67081c7a3b7210b2bdff5f286a03e729c33",
+      "units": [
+        {
+          "id": "p39.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פיזור לונדון: מנגנון, פולריזביליות, גורמי חיזוק",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t18",
+            "worked:4",
+            "quiz:1"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "imageSha256": "992e0a7dd20e8e5546f83adf870b6d735ccaee2295ba6275c3dbc5eccdf5a445",
+      "units": [
+        {
+          "id": "p40.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשר מימן: תנאי H-N/O/F וזוג בודד",
+          "targets": [
+            "theory:SS4-t12",
+            "quiz:3"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 41,
+      "imageSha256": "c2517709f53b1d1ac02490093159d77d704130013cd8c04e3242208370130299",
+      "units": [
+        {
+          "id": "p41.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת סוגי כוחות בין־מולקולריים וטווחי חוזק",
+          "targets": [
+            "theory:SS4-t14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "imageSha256": "3807669ed3079a8da38455c954e76618303352249125f88a4de9406e6d31c7cc",
+      "units": [
+        {
+          "id": "p42.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "ספקטרום חוזק: בין־מולקולרי מול תוך־מולקולרי",
+          "targets": [
+            "theory:SS4-t14",
+            "theory:SS4-t15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "imageSha256": "c75f3ecf5ca888cec8dfdc60bf240d04a1ce5eff7e249c119f91b490f5a5d9b3",
+      "units": [
+        {
+          "id": "p43.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: פערי רתיחה H2O/H2S ו-HCl/HF",
+          "targets": [
+            "worked:1",
+            "theory:SS4-t17"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 44,
+      "imageSha256": "67ef0f70a99a2d61a70c16ae111602f9262891fc879f996ea324f96f74b8f90d",
+      "units": [
+        {
+          "id": "p44.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: חיזוי קישור ופאזה ב-25 מעלות",
+          "targets": [
+            "worked:2"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "imageSha256": "dabcbdbad99c056f24df68f0c177dfa59a5384b9848bc4002e48c6933790b705",
+      "units": [
+        {
+          "id": "p45.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "פתרון חיזוי קישור ופאזה (SiO2 נכון)",
+          "targets": [
+            "worked:2",
+            "quiz:6"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "imageSha256": "86ccf69191eee7d4f6358a49883034648d32333a7804ffafeb79fc2eef149fd3",
+      "units": [
+        {
+          "id": "p46.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה: מגמות התכה בהידרידים",
+          "targets": [
+            "theory:SS4-t18",
+            "quiz:7"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 47,
+      "imageSha256": "0bfe13dcbfef3a5da5415d5ae0f47e15e95f75326403ab89220e152fa0d5a1cc",
+      "units": [
+        {
+          "id": "p47.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פתרון: גודל, קוטביות וקשרי מימן",
+          "targets": [
+            "theory:SS4-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "imageSha256": "def7ab3d800e7475fe79e2a2cf10b210c4ac669f30f33726ea50bd90d2ced817",
+      "units": [
+        {
+          "id": "p48.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "הגדרות מפתח: אינטראקציות מולקולריות ופאזות",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 49,
+      "imageSha256": "fba9185d021c1274a56fdd3ad6bb177949ef7765a2a59313c5716893a3b1904f",
+      "units": [
+        {
+          "id": "p49.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "עקרונות וכללי אצבע מסכמים",
+          "targets": [
+            "theory:SS4-t18",
+            "theory:SS4-t20"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 50,
+      "imageSha256": "d574e1c02282d2eaa0ad8f8838e5dfd8c232b7c4d7225101d50a28fbffcebda3",
+      "units": [
+        {
+          "id": "p50.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מם דירוג כוחות: לונדון < דיפול-דיפול < קשר מימן, לצד כיתוב Thank You",
+          "rationale": "הדירוג מכוסה ב-t14 ככלל אצבע עם הסתייגות מפורשת: הטווחים בטבלה חופפים ואין דירוג אוניברסלי",
+          "targets": [
+            "theory:SS4-t14",
+            "theory:SS4-t15",
+            "theory:SS4-t34"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 51,
+      "imageSha256": "410727d53a0a3d2665c91736b8cdcc3490bc2fb4c0155e136057a37fce206ce4",
+      "units": [
+        {
+          "id": "p51.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת 6.3 - אנרגיות סריג של גבישים יוניים (kJ/mol), עם קישור מקור בתחתית",
+          "rationale": "אותה טבלת 6.3 מכוסה ב-SS2 t14 (כיסוי חוצה-נושאים); שקופית כפולה של TA2 עמ' 28 (עמוד 32 בחבילה, אותו imageSha256). הקישור בתחתית אינו תוכן נבחן",
+          "targets": [
+            "SS2/theory:SS2-t14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 52,
+      "imageSha256": "a60f62226266d6f8f5814cd84e1b749429ccbec858fc0bae2b3ee9e9eff3ef6b",
+      "units": [
+        {
+          "id": "p52.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "עקומת אחוז אופי יוני מול Δχ (כפילות)",
+          "targets": [
+            "theory:SS4-t04"
+          ],
+          "rationale": "העקומה מולמדת ב-SS1 (t26); כאן ההקשר של סיווג לפי Δχ בלבד"
+        }
+      ]
+    },
+    {
+      "page": 53,
+      "imageSha256": "e5bc37e1c18c4fd1e06fc0f31d28b5a93b50e796f34ad0c2cc63683584fc5eb1",
+      "units": [
+        {
+          "id": "p53.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "סכימת לוח: כוחות קוהזיה מול אנרגיה תרמית; פולריזביליות לפי גודל ומספר אלקטרונים",
+          "targets": [
+            "theory:SS4-t10",
+            "theory:SS4-t14",
+            "theory:SS4-t18"
+          ],
+          "rationale": "סכימה איכותנית ללא מספרים: הקוהזיה מול התרמי מכוסה ב-t10/t14 (kBT), הפולריזביליות ב-t10/t18"
+        }
+      ]
+    }
+  ]
+}

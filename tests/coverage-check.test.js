@@ -4,7 +4,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import catalogue from '#catalogue';
-import {checkTopic,checkAll,contentHash,unitMapHash,figuresHash,adminPages,blockExists,genuineApproval,genuineReviewer,loadPolicy} from '../scripts/check-coverage.mjs';
+import {createHash} from 'node:crypto';
+import {checkTopic,checkAll,contentHash,unitMapHash,figuresHash,adminPages,blockExists,genuineApproval,genuineReviewer,loadPolicy,sourceBindingErrors,parseSpan} from '../scripts/check-coverage.mjs';
 const topic=catalogue.courses.find(c=>c.id==='nuclear').topics.find(t=>t.id==='E5');
 const cov=()=>JSON.parse(fs.readFileSync(new URL('../ingest/nuclear/coverage/E5.json',import.meta.url)));
 const errs=(f,t=topic)=>{const c=cov();f(c);return checkTopic(t,c).errors.join('|')};
@@ -19,14 +20,43 @@ test('E5 map is valid, traced, and has no pending exclusions',()=>{
  const r=checkTopic(topic,cov());assert.deepEqual(r.errors,[]);assert.deepEqual(r.unmapped,[]);assert.deepEqual(r.pending,[]);
 });
 test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,56);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
  const pol={...loadPolicy(),legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
  const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
 });
 test('legacy topics are unaudited, not failed',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,56);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
+});
+test('deck files are pinned to the manifest, spans respect real page counts, and the cross-topic partition is accountable',()=>{
+ const manifest=[{file:'a.pdf',sha256:'a'.repeat(64)},{file:'b.pdf',sha256:'b'.repeat(64)}];
+ const partition={files:[{file:'a.pdf',pageCount:4},{file:'b.pdf',pageCount:2}],shared:[{file:'a.pdf',page:2,topics:['T1','T2']}]};
+ const deck=(topic,file,pages,sha)=>({topic,file,pages,sha256:sha||(manifest.find(s=>s.file===file)||{sha256:'c'.repeat(64)}).sha256});
+ // complete partition + one declared shared page: clean
+ assert.deepEqual(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}),[]);
+ // file/sha must match the manifest
+ assert.match(sourceBindingErrors({decks:[deck('T1','c.pdf',[1])],manifest,partition:null}).join('|'),/not in sources\.manifest\.json/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1],'0'.repeat(64))],manifest,partition:null}).join('|'),/differs from sources\.manifest\.json/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1])],manifest:null,partition:null}).join('|'),/no sources\.manifest\.json/);
+ // a span past the real page count fails
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3,4,5])],manifest,partition}).join('|'),/exceeds the real page count 4/);
+ // a page missing from every deck fails; an undeclared overlap fails; a stale declaration fails
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}).join('|'),/a\.pdf page 3 is not in any topic deck/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,2,3,4]),deck('T2','a.pdf',[2]),deck('T2','b.pdf',[1,2])],manifest,partition:{...partition,shared:[]}}).join('|'),/page 2 is in T1\+T2 without a matching shared declaration/);
+ assert.match(sourceBindingErrors({decks:[deck('T1','a.pdf',[1,3]),deck('T2','a.pdf',[2,4]),deck('T2','b.pdf',[1,2])],manifest,partition}).join('|'),/shared declaration for page 2 has no multi-topic coverage/);
+ assert.deepEqual(parseSpan('1-3,5'),[1,2,3,5]);
+});
+test('multi-file deck descriptor: spans, firstPage order, pageCount and digest are enforced',()=>{
+ const files=[{file:'a.pdf',sha256:'a'.repeat(64),pages:'1-20',firstPage:1},{file:'b.pdf',sha256:'b'.repeat(64),pages:'21-40',firstPage:21}];
+ const digest=createHash('sha256').update(JSON.stringify(files)).digest('hex');
+ const good=c=>{c.source={...c.source,files,sha256:digest};};
+ assert.deepEqual(errs(c=>good(c)),'');
+ assert.match(errs(c=>{good(c);c.source.sha256='0'.repeat(64)}),/sha256\(JSON\.stringify\(source\.files\)\)/);
+ assert.match(errs(c=>{c.source={...c.source,files:[files[0],{...files[1],firstPage:22}],sha256:digest}}),/firstPage must be 21/);
+ assert.match(errs(c=>{good(c);c.source.pageCount=41}),/total of the source\.files spans \(40\)/);
+ assert.match(errs(c=>{c.source={...c.source,files:[{...files[0],pages:'x'},files[1]],sha256:digest}}),/pages must be a span/);
+ assert.match(errs(c=>{c.source={...c.source,files:[{...files[0],sha256:'zz'}],sha256:digest}}),/sha256 must be a 64-hex hash/);
 });
 test('missing and duplicate page, unit and target fail closed',()=>{
  assert.match(errs(c=>c.pages.pop()),/page 40 has no units/);
@@ -88,6 +118,23 @@ test('review must be independent and bound to exact source, content and unit-map
  // unknown review fields and bad status fail closed
  assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.note='ok';return c})()).errors.join('|'),/unexpected review field/);
  assert.match(run((()=>{const c=reviewed(cov());c.semanticReview.status='approved';return c})()).errors.join('|'),/pending or done/);
+});
+test('cross-topic targets need an explicit topic prefix and resolve through the loader, failing closed without one',()=>{
+ const other={content:{theory:[{id:'SS2-t14'}],worked:[],quiz:[]}};
+ const load=tid=>tid==='SS2'?other:null;
+ assert.ok(blockExists(topic,'SS2/theory:SS2-t14',load));
+ assert.ok(!blockExists(topic,'SS2/theory:SS2-t999',load));
+ assert.ok(!blockExists(topic,'ZZ/theory:SS2-t14',load));
+ assert.ok(!blockExists(topic,'SS2/theory:SS2-t14'));
+ assert.match(errs(c=>{c.pages[2].units[0].targets=['ZZ/theory:SS2-t14']}),/target not found/);
+});
+test('audited topics refuse id-less non-heading blocks; structural headings may stay id-less',()=>{
+ const t=structuredClone(topic);t.content.theory.push({text:'presentation split row',style:'Normal'});
+ assert.match(checkTopic(t,cov()).errors.join('|'),/theory blocks lack ids/);
+ const t2=structuredClone(topic);t2.content.theory.push({text:'structural heading',style:'Heading 2'});
+ assert.ok(!/lack ids/.test(checkTopic(t2,cov()).errors.join('|')),'id-less Heading stays structural');
+ const t3=structuredClone(topic);t3.content.theory.push({text:'untraced with id',style:'Normal',id:'E5-t998'});
+ assert.deepEqual(checkTopic(t3,cov()).unmapped,['E5-t998']);
 });
 test('release mode refuses unreviewed maps and untraced blocks; blocks resolve by id',()=>{
  const r=run((()=>{const c=cov();c.semanticReview={status:'pending'};return c})(),{requireReview:true});assert.equal(r.status,'fail');assert.match(r.errors.join('|'),/review not recorded/);

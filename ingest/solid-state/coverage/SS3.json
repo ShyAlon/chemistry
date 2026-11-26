@@ -1,0 +1,227 @@
+{
+  "schema": 2,
+  "course": "solid-state",
+  "topic": "SS3",
+  "source": {
+    "sha256": "f4bedaaf0681e2d453b2afa22725da09c091cb1f063d7e0c092bbe436b404d71",
+    "kind": "multi-file-deck",
+    "pageCount": 8,
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png). source.sha256 = sha256(JSON.stringify(source.files)).",
+    "files": [
+      {
+        "file": "MMM_TA_1.pdf",
+        "sha256": "169805859a22dd6d1739ff5ccc7327f8844e861a602329b483722a272ec1d36e",
+        "pages": "14-16,18",
+        "firstPage": 1
+      },
+      {
+        "file": "TA1 assignment 2026.pdf",
+        "sha256": "b058124c8081149a7e7adbc4eeb546051383e73100e74d2867fc531b33e45b25",
+        "pages": "1",
+        "firstPage": 5
+      },
+      {
+        "file": "Solid State TA_2 21.10.26.pdf",
+        "sha256": "9848d182560309768ba33c6dd6f198760b537cd88f24abb9293f3967692de4d2",
+        "pages": "9-11",
+        "firstPage": 6
+      }
+    ]
+  },
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+    "agent-01M89RY0MXDEQWC4Q42F62CKET"
+  ],
+  "semanticReview": {
+    "status": "done",
+    "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+    "sourceSha256": "f4bedaaf0681e2d453b2afa22725da09c091cb1f063d7e0c092bbe436b404d71",
+    "contentSha256": "bb3e39d6c7a287968466c1a25f8e56e71af1d76437e97dfede08db68fd242952",
+    "unitMapSha256": "97ab994aef6045f294d6f7aae8a20660ad5a504caa325b0d623bab9e6749a859",
+    "figuresSha256": "813ca9417e09d15306f30a52d66bf50682bb4b707939203edcc792836fa06a93",
+    "adminPagesAttested": [
+      4
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "f8e10076803fa5f7a59debe217e1d052d412ad8807a49556eea9431b3c7f80fd",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "רדיוס יוני, מספר קואורדינציה, כלל יחס הרדיוסים כקירוב גיאומטרי",
+          "targets": [
+            "theory:SS3-t02",
+            "theory:SS3-t03",
+            "theory:SS3-t13",
+            "quiz:1",
+            "quiz:7"
+          ]
+        },
+        {
+          "id": "p01.u2",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת יחס הרדיוסים: ארבעה טווחים, CN, גיאומטריה, דוגמאות",
+          "targets": [
+            "theory:SS3-t05",
+            "theory:SS3-t06",
+            "theory:SS3-t07",
+            "theory:SS3-t08",
+            "theory:SS3-t09",
+            "quiz:3"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "04ba624628d2b5734d9eb5171d6a5e6d851ea86196b358630bbd7f28a0316748",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "תרגיל חיזוי מבנה: CsI, NiO, KI, NiS לפי רדיוסים ומטענים",
+          "targets": [
+            "worked:1",
+            "worked:2",
+            "worked:3",
+            "theory:SS3-t12",
+            "quiz:2",
+            "quiz:4"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "43e8cc026f4da775a1ec024361550c51ce5c0fffa564e3287f6d2a4765cf85d2",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "פתרון: CsI ρ=0.759 קובייתי CN=8, NiO ρ=0.493 אוקטהדרלי CN=6",
+          "targets": [
+            "worked:1",
+            "worked:2",
+            "quiz:5",
+            "quiz:6"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "fc947a1456baa7f091071bd955e7b44647dc9cef6cfe350b9b44b873aa6fa809",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "שקף תודה סיום תרגול 1",
+          "rationale": "שקופית ניהולית בלבד, ללא תוכן לקצר"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "e4156e0b5bbf94355d79d7ebbbafa3f969356ba24dcd0e18e8eddc3ce208ea2b",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "שאלה 2 במשימה: חיזוי מבנה גביש ל-CsI, NiO, KI, NiS",
+          "targets": [
+            "worked:1",
+            "worked:2",
+            "worked:3"
+          ]
+        },
+        {
+          "id": "p05.u2",
+          "kind": "marker",
+          "disposition": "admin",
+          "label": "שאלה 1 בדף (בורן-האבר) שייכת ל-SS2",
+          "rationale": "דף משימה משותף; שאלת בורן-האבר מכוסה במפת SS2"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "ae6594929f65ea3d35c9883302017afc8eb5fc640e37eef76aca44ceac868096",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "רדיוס יוני, מספר קואורדינציה, כלל יחס הרדיוסים (כפל שקף מתרגול 1)",
+          "targets": [
+            "theory:SS3-t02",
+            "theory:SS3-t03"
+          ]
+        },
+        {
+          "id": "p06.u2",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת יחס הרדיוסים (כפל שקף מתרגול 1)",
+          "targets": [
+            "theory:SS3-t05",
+            "theory:SS3-t06",
+            "theory:SS3-t07",
+            "theory:SS3-t08"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "5081b9986c9b83119260da28a584f0b442a1f210595fb0524620c6398f634320",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "אותו תרגיל חיזוי מבנה: CsI, NiO, KI, NiS",
+          "targets": [
+            "worked:1",
+            "worked:2",
+            "worked:3",
+            "theory:SS3-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "df6889a53e9f6a99897aae2d2f5e8a973625975595baabe0c30816c39532bb86",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "אותו פתרון: CsI קובייתי, NiO אוקטהדרלי, עם הטבלה",
+          "targets": [
+            "worked:1",
+            "worked:2"
+          ]
+        }
+      ]
+    }
+  ],
+  "lessonAdditions": [
+    {
+      "id": "a1",
+      "rationale": "איור גיאומטריות הקואורדינציה (NaCl/CsCl/ZnS) נגזר מהטבלה; אין איור מקביל בשקפים",
+      "targets": [
+        "theory:SS3-t10"
+      ]
+    }
+  ]
+}

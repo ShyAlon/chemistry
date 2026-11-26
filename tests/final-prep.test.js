@@ -32,6 +32,8 @@ test('final preparation is append-only on exact reviewed main; every other byte 
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
   for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.finalPrep&&!b.batch4);
  }
+ // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as E5/E6/SS1-SS4 above.
+ original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'0be1ffb658af1ba6f3b88d2bdd971b99b76cc3623c14bb20d9e38052c5e585d5');
  assert.equal(course.topics.length,16);
  for(const [id,add] of Object.entries(layer)){

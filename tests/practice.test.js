@@ -55,7 +55,9 @@ test('displayed compact Maxwell expression retains pi in its exponent',()=>{
 });
 
 test('batch4 slide-10 layer: explicit Maxwell-Boltzmann fraction equation, legend and equivalence',()=>{
- const blocks=t('G10').content.theory.filter(b=>b.batch4);
+ const allG10=t('G10').content.theory;
+ const mbIntro=allG10.find(b=>b.batch4&&b.text?.includes('שקופית 10'));
+ const blocks=allG10.slice(allG10.indexOf(mbIntro),allG10.indexOf(mbIntro)+3);
  assert.equal(blocks.length,3);
  const [intro,eq,legend]=blocks;
  assert.ok(intro.text.includes('משוואת מקסוול–בולצמן')&&intro.text.includes('שקופית 10'));

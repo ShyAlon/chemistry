@@ -18,9 +18,11 @@ test('practice enriches four existing topics without duplicate topics; 15 exampl
  assert.deepEqual(general.topics.filter(t=>t.content.quiz.some(q=>q.batch2)).map(t=>t.id),['G1','G9','G10','G11']);
  for(const t of general.topics){assert.equal(new Set(t.content.quiz.map(q=>q.id)).size,t.content.quiz.length);for(const q of t.content.quiz){assert.ok(q.answer);if(q.type==='numeric')assert.ok(numericCorrect([String(q.fields[0].value)],[q.fields[0].unit],q.fields));if(q.type==='mcq'){assert.equal(q.options.length,4);assert.ok(q.options[q.correct])}}}
 });
+// G3 quiz 4 gained the additive answerLines display field; the baseline keeps the pre-field digest.
+const withoutG3AnswerLines=(courseId,topic)=>{if(courseId!=='84101'||topic.id!=='G3')return topic;const copy=structuredClone(topic);delete copy.content.quiz.find(q=>q.id===4).answerLines;return copy};
 test('every prior topic, question id and answer matches fixed reviewed baseline after explicit exemptions',()=>{
  const baseline=JSON.parse(readFileSync(new URL('./fixtures/practice-baseline.json',import.meta.url)));
- for(const c of data.courses.filter(c=>c.id!=='general-chemistry-2'))for(const topic of c.topics.filter(t=>!t.provenance?.edition?.startsWith('inorganic-recap-'))){const key=c.id+'/'+topic.id;assert.equal(createHash('sha256').update(JSON.stringify(beforeVanadium(beforePractice(topic)))).digest('hex'),baseline[key],key)}
+ for(const c of data.courses.filter(c=>c.id!=='general-chemistry-2'))for(const topic of c.topics.filter(t=>!t.provenance?.edition?.startsWith('inorganic-recap-'))){const key=c.id+'/'+topic.id;assert.equal(createHash('sha256').update(JSON.stringify(beforeVanadium(beforePractice(withoutG3AnswerLines(c.id,topic))))).digest('hex'),baseline[key],key)}
  assert.equal(corrections.length,4);assert.deepEqual(corrections.map(c=>c.topic),['G10','G10','G10','G11']);
 });
 test('all eleven new numeric question answers independently recompute',()=>{

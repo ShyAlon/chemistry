@@ -10,7 +10,7 @@ export function MoleculeViews({accent}){
  <T x={100} y={28} size={24} fill={accent}>מבנית</T><T x={290} y={28} size={24} fill={accent}>כדורים ומקלות</T><T x={470} y={28} size={24} fill={accent}>מילוי חלל</T>
  {rows.map((r,ri)=><g key={ri}>
   <T x={280} y={r.y-(ri?84:66)} size={28}>{r.name}</T>
-  {[110,290,470].map((ox,vi)=>{const k2=vi===0?1.5:1;const P=r.pts.map(([x,y])=>[ox-63*k2+x*k2,r.y+y*(vi===0?1.5:1)]);return <g key={vi}>
+  {[110,290,470].map((ox,vi)=>{const k2=vi===0?1.5:1;const P=r.pts.map(([x,y])=>[ox+(vi===0?-2:0)-63*k2+x*k2+(vi===0?16:0),r.y+y*(vi===0?1.5:1)]);return <g key={vi}>
    {vi<2&&r.ed.map(([a,b],k)=><L key={k} x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} stroke={vi?C.ink:C.mut} w={vi?5:2}/>)}
    {P.map(([x,y],k)=>vi===0?<T key={k} x={x} y={y+8} size={26} ltr fill={C.ink}>{'C'+(r.hs[k]?'H'+(r.hs[k]>1?r.hs[k]:''):'')}</T>:<Dot key={k} cx={x} cy={y} r={vi===1?13:24} fill={vi===1?C.soft:C.line} stroke={vi===1?C.ink:accent} opacity={vi===1?1:.8}/>)}
    {vi===1&&P.map(([x,y],k)=>hpos.slice(0,r.hs[k]).map(([dx,dy],j)=><Dot key={k+'h'+j} cx={x+dx*1.3} cy={y+dy*1.3} r={5} fill={C.mut}/>))}

@@ -6,7 +6,13 @@
     "chat-01M89RY0MBEE8YJNW0XSDTVYDY"
   ],
   "semanticReview": {
-    "status": "pending"
+    "status": "done",
+    "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
+    "sourceSha256": "243bc47af85b88b3f7f58b4feaee1090f7364d779acb77cad18a948811b322d0",
+    "contentSha256": "862784ba2b93df507dc6e19b2e1dafb89d5144aaac5b3d087b11765ee5bc0fe1",
+    "unitMapSha256": "0bcdbce16901b9db570cbc784c2e20c90f26e0c2e51f1d95317d6580393d2d90",
+    "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+    "adminPagesAttested": []
   },
   "source": {
     "sha256": "243bc47af85b88b3f7f58b4feaee1090f7364d779acb77cad18a948811b322d0",

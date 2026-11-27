@@ -29,7 +29,7 @@ import {wavelengthColor,numericCorrect,parseNumber,configuration,parseRoute} fro
 import './style.css';
 import './equation-wrap.css';
 import {orbitalFor} from './orbitals.js';
-import {Figure,schematicFigures} from './figures.jsx';
+import {Figure,schematicFigures} from './figures-gc1.jsx';
 import {References,parseReferenceRoute} from './references.jsx';
 import {Glossary} from './Glossary.jsx';
 import {glossary,parseGlossaryRoute} from './glossary-data.js';

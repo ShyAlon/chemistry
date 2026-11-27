@@ -8,10 +8,10 @@
  ],
  "semanticReview": {
   "status": "done",
-  "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+  "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
   "sourceSha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
-  "contentSha256": "b0091d6cf963bed007d446e7112efa6cd45a227d3aabca9865b1a07125d55160",
-  "unitMapSha256": "bab93157cbb2c10e7a1df69f62661396ce9989f43875fc96c558facf1733d473",
+  "contentSha256": "f131642d878bcd610de3c8af94d49bc52cc38cc3a90eae781e2bf5151a318417",
+  "unitMapSha256": "4988ef917643c2565e2756ae87e70f5f909b06b4f5c8d0168273f12d154e2e88",
   "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
   "adminPagesAttested": []
  },
@@ -143,8 +143,12 @@
     },
     {
      "ref": "Q10",
-     "use": "not-covered",
-     "reason": "שיטה חסרה בפועל: מעבר מנוסחה אמפירית (HgCl) לנוסחה מולקולרית דרך המסה המולרית, כשהממס הוא HgCl₂. אין פריט או דוגמה ייעודיים ולא נטען כיסוי."
+     "use": "data-and-method",
+     "targets": [
+      "worked:14",
+      "quiz:16",
+      "quiz:17"
+     ]
     },
     {
      "ref": "Q12",
@@ -204,20 +208,22 @@
      "ref": "Q11ג",
      "use": "method-only",
      "targets": [
-      "quiz:9"
+      "quiz:9",
+      "worked:12"
      ]
     },
     {
      "ref": "Q13ג",
      "use": "method-only",
      "targets": [
+      "worked:4",
       "quiz:9"
      ]
     },
     {
      "ref": "Q3ג",
      "use": "not-covered",
-     "reason": "נתוני התרגיל לא בשימוש. נקודת רתיחה של NaCl ב-50% משקלי: לא נבנה פריט, כי תמיסה כה מרוכזת רחוקה ממודל התמיסה המדוללת של התכונות הקוליגטיביות."
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. נקודת רתיחה של NaCl ב-50% משקלי: הנוסחה ΔT_b = i·K_b·m עם i=2 נלמדת בבלוק G15-t13, בחידון 2 ובדוגמה 9 (סוכר ב-50% משקלי, עם הסתייגות). לא נבנה פריט מהנתונים האלה: תמיסה כה מרוכזת רחוקה ממודל התמיסה המדוללת, וגם חורגת ממסיסות NaCl במים."
     },
     {
      "ref": "Q11ב",
@@ -383,7 +389,7 @@
       "theory:G15-t40",
       "worked:4"
      ],
-     "rationale": "בדוגמת המקור חסרים נתונים על נפח התמיסה; הסייג והתיקון הוסברו בבלוק 40."
+     "rationale": "בדוגמת המקור נפח התמיסה (277 mL) נגזר מהנחת צפיפות 1.00 g/mL לתמיסה, ללא ציון מפורש. בבלוק 40 ההנחה מוצהרת; בדוגמה שלנו הנפח נתון."
     }
    ]
   },

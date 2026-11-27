@@ -1,0 +1,866 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G3",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
+  "sourceSha256": "7f050fe663a80d48955188ae7d8755dea944c31dd2b20cdf27b3011f8f88acd6",
+  "contentSha256": "ca7244b545c0e73b925e1d9cf01a00468f3742f776a6d5ae4d36a3513e2e9eef",
+  "unitMapSha256": "27fe3e7408f2c4d98c922687905624605cc7041613ad9411a5b75ba01bfa7904",
+  "figuresSha256": "780710155c0456704f8cb7f19c358d900b054129b9949fdca8373536a1f5c205",
+  "adminPagesAttested": []
+ },
+ "source": {
+  "sha256": "7f050fe663a80d48955188ae7d8755dea944c31dd2b20cdf27b3011f8f88acd6",
+  "kind": "multi-file-deck",
+  "pageCount": 36,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 2.pdf",
+    "sha256": "5f9d11108c34824df77c657469b833e3f1f2c155343cee811a376f6b47af7f39",
+    "pages": "1-36",
+    "firstPage": 1
+   }
+  ]
+ },
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G3-t12",
+    "theory:G3-t13",
+    "theory:G3-t14",
+    "worked:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9"
+   ],
+   "rationale": "ניתוח שריפה משני מדגמים, שקיעת BaSO₄ וצפיפות גז ב-STP. מבוסס על דוגמאות בחינה (1577f770) שאלות 1 ו-10; אין שקף מקור לשרשרת."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G3-t30",
+    "theory:G3-t31",
+    "worked:8",
+    "quiz:14",
+    "quiz:15"
+   ],
+   "rationale": "מסה אטומית ממוצעת ושכיחות איזוטופית. מבוסס על תרגיל 2 (04d64393) שאלות 1 ו-2; אין שקף איזוטופים ב-GC2."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "worked:9",
+    "worked:10",
+    "worked:11",
+    "worked:12",
+    "worked:13",
+    "quiz:16",
+    "quiz:17",
+    "quiz:18"
+   ],
+   "rationale": "שלושה איזוטופים, הפרש מסות, השוואת כלים, תערובת ותרכובת עם סוגריים. מבוסס על תרגיל 2 (04d64393) שאלות 3, 4, 7, 14, 15; אין שקף מקור."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "תרגיל 2.docx",
+   "sha256": "04d643931a0218743ab48fc1e5648cad818d104923f8ab3c41761eff2444e73f",
+   "items": [
+    {
+     "ref": "Q1",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:14",
+      "theory:G3-t30"
+     ]
+    },
+    {
+     "ref": "Q2",
+     "use": "data-and-method",
+     "targets": [
+      "worked:8",
+      "quiz:15"
+     ]
+    },
+    {
+     "ref": "Q2",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t31"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9",
+      "quiz:16"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t31"
+     ]
+    },
+    {
+     "ref": "Q4",
+     "use": "data-and-method",
+     "targets": [
+      "worked:10"
+     ]
+    },
+    {
+     "ref": "Q7",
+     "use": "data-and-method",
+     "targets": [
+      "worked:11",
+      "quiz:17"
+     ]
+    },
+    {
+     "ref": "Q14",
+     "use": "data-and-method",
+     "targets": [
+      "worked:13",
+      "quiz:18"
+     ]
+    },
+    {
+     "ref": "Q15",
+     "use": "data-and-method",
+     "targets": [
+      "worked:12"
+     ]
+    },
+    {
+     "ref": "Q5",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t16",
+      "theory:G3-t18",
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q10",
+     "use": "data-and-method",
+     "targets": [
+      "worked:2",
+      "quiz:1",
+      "quiz:2"
+     ]
+    },
+    {
+     "ref": "Q11",
+     "use": "method-only",
+     "targets": [
+      "worked:4"
+     ]
+    },
+    {
+     "ref": "Q12",
+     "use": "method-only",
+     "targets": [
+      "quiz:4"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t23",
+      "worked:6",
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q8",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t23",
+      "worked:6",
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q9",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t23",
+      "worked:6",
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q13",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t23",
+      "worked:6",
+      "quiz:10"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q1א",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q1ב",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q10א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:5",
+      "quiz:6",
+      "theory:G3-t12"
+     ]
+    },
+    {
+     "ref": "Q10ב",
+     "use": "method-only",
+     "targets": [
+      "theory:G3-t13"
+     ]
+    },
+    {
+     "ref": "Q10ג",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:7",
+      "theory:G3-t14"
+     ]
+    },
+    {
+     "ref": "Q4ג",
+     "use": "method-only",
+     "targets": [
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "שאלות לדוגמא כימיה כללית תשפז.pdf",
+   "sha256": "d1fb53fa1569f32d12dfce8da10641929ac7bd4929e185631d277e628fe9d357",
+   "items": [
+    {
+     "ref": "Q5",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:5"
+     ]
+    }
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "d51e5c60dcd1dc8c46db754c48cf0d2e0f8f13025fe938e7e087396c9990b302",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרכובות כימיות: קשר קוולנטי (שיתוף אלקטרונים) וקשר יוני (העברת אלקטרונים)",
+     "targets": [
+      "theory:G3-t01",
+      "theory:G3-t34",
+      "theory:G3-t07",
+      "theory:G3-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "8ae51c1d249946408ecc1f333af1143747168c09935f273388e7f1e9307ce0a2",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרכובות מולקולריות",
+     "targets": [
+      "theory:G3-t07",
+      "theory:G3-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "228147885eaebeff0b95d81f45188d393a01ff695d0eb8cacbee42e9e36a4e17",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "ייצוגי מולקולה: מבנה, כדור-מקל, ממלא מרחב",
+     "targets": [
+      "theory:G3-t20",
+      "theory:G3-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "8e68116aaeff7f2e491d01cca3b316f830404ecde83704e579179fc3fb1aa3c5",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "דוגמאות למולקולות: H₂O₂, CH₃CH₂Cl, P₄O₁₀ ועוד",
+     "targets": [
+      "theory:G3-t21",
+      "theory:G3-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "1291797de09966488fbf98a4f2596c74fe6a11a30c16200d493fb2de896744cc",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרכובות יוניות ויונים",
+     "targets": [
+      "theory:G3-t01",
+      "theory:G3-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "6a943f7210cbf400b3c291a382f3d008181c1744a03bb2d17d620ee589084545",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "NaCl ויחידת נוסחה",
+     "targets": [
+      "theory:G3-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "9c28b5fca1e2990a2bcd2ee8bb9d703da0af190f8f7a07bb28be865c4a6ccf84",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "Mg(NO₃)₂ ויון רב-אטומי",
+     "targets": [
+      "theory:G3-t01",
+      "theory:G3-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "0614d84b781e4b6de513d68221c563d06960c3d98e3e7651d39877c9e6676ad5",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מסת נוסחה ויחידת מסה אטומית",
+     "targets": [
+      "theory:G3-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "652e7a77d4492e23fd977dc7e0c9fb83beed945c5cc69bb4be531a824bd4917f",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מסה מולקולרית של גלוקוז ומסת איזוטופים",
+     "targets": [
+      "theory:G3-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "3961835e4e7543284ed36a5af5775002a89b0614cf7809a3860f4f29d410b8c9",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מסה מולרית ומספר אבוגדרו",
+     "targets": [
+      "theory:G3-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "dc3963bdd490a63450753cac0c361e9582cc8337799da3bedb09da2a802da764",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "S₈ ו-P₄: מסה מולרית של מולקולה",
+     "targets": [
+      "theory:G3-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "dc9962a21fb080f205ddd127440a8cac174366e3d594b16bcd104b891321e4be",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "המרות בין גרם, מולים ואטומים",
+     "targets": [
+      "theory:G3-t18",
+      "worked:6",
+      "quiz:10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "66a249ee72db8a8d71c10a1485843d671b21faec498f833bf1bc0a17bf7a2c42",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הרכב כימי של הלותן",
+     "targets": [
+      "theory:G3-t02",
+      "theory:G3-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "3e44817e18ebe05a2e9db6d72556af5c2899e86970214aa79ff551749246414d",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: אחוז מסה של יסוד בתרכובת",
+     "targets": [
+      "theory:G3-t02",
+      "theory:G3-t10",
+      "worked:2",
+      "worked:4",
+      "quiz:1",
+      "quiz:2",
+      "quiz:4"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "6f80159333180d9863edd06dd273628fb11055260533345e1dfadc89cc7ce0c3",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: נוסחה אמפירית ומולקולרית מאחוזי מסה",
+     "targets": [
+      "theory:G3-t03",
+      "theory:G3-t04",
+      "theory:G3-t08",
+      "worked:1"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "f56cf2cbe4f21b0536a6bc0fff12354bc00aee2cab98b21977a79d4055c94c96",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "שלבים 2 עד 4: מולים ויחס מולים",
+     "targets": [
+      "theory:G3-t03",
+      "theory:G3-t11",
+      "worked:1"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "7dd2d50fbc651efc3535bd1d4a2b955c6263334a57b49d41d908be3c8451e8bb",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "שלבים 5 ו-6: יחס שלם ונוסחה מולקולרית",
+     "targets": [
+      "theory:G3-t04",
+      "worked:1",
+      "worked:3",
+      "quiz:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "6ad3c303f859f3bb522d6cda16902f44c6975c8d6a8bbf64d9a894ebd6b8e738",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "קביעת נוסחאות מנתוני ניסוי",
+     "targets": [
+      "theory:G3-t03",
+      "theory:G3-t04",
+      "theory:G3-t08",
+      "theory:G3-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "5258078e3fce52f1d3ccbc848d0af97077286c896f090c5b1732b1635e4ee2d4",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "ניתוח שריפה: איור המערכת",
+     "targets": [
+      "theory:G3-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "f2b93c088694e94f336d11e9512b70a9bb32f8a1d437ce5e347251447d4273e3",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "ניתוח שריפה: איור שני",
+     "targets": [
+      "theory:G3-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "bef36251eb3a65972d41050a624e690a77094250d4b973eb3eba98d46558a2ea",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "בעיית ניתוח שריפה: נתונים",
+     "targets": [
+      "theory:G3-t05",
+      "quiz:5"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "222e06ee7306aa4d0d905b6a6cfb35e4933ab7c7a45bacb6c4b608a587664ca7",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "ניתוח שריפה: מסת חמצן ומולי C ו-H",
+     "targets": [
+      "theory:G3-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "eebe64d5ff6d3628e3e33e9fb945e5eb71f8a4ca9d18a270982e9f90426c1352",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "ניתוח שריפה: יחס מולים ונוסחה",
+     "targets": [
+      "theory:G3-t03",
+      "theory:G3-t04",
+      "theory:G3-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "cead3fb0d59e5c157dc1a47c62c5b6e7db70648c3eefcbf64d5d1fcab3cf548d",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דרגות חמצון: מתכות ואל-מתכות",
+     "targets": [
+      "theory:G3-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "0bfcfbe9b19b54207311baf4a582c53e0d6980445798a98a53056feadca96920",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "כללים לדרגות חמצון",
+     "targets": [
+      "theory:G3-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "ea304db2c28060f7e0c21708e5cb74d05fbb0ad3c90d25ea97aea17bbfeff2a7",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: קביעת דרגת חמצון",
+     "targets": [
+      "theory:G3-t27",
+      "G8/worked:1"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "6d47c986abf1f384182252e81d1dc1fb8321e1e0ed8d57d41a95552e7f90b4f4",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: דרגות חמצון לכל היסודות",
+     "targets": [
+      "theory:G3-t27",
+      "G8/worked:3",
+      "quiz:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "f234b495addefb43c5407d259f51a87a8825c8ec6df62dc2a967f6954ff3157e",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מינוח: שמות טריוויאליים ושיטתיים",
+     "targets": [
+      "theory:G3-t06",
+      "theory:G3-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "a1eec68c14326a4951f70901cefbbb5ae8e8db201f6709d9820801978b09eab3",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "שמות תרכובות בינאריות יוניות",
+     "targets": [
+      "theory:G3-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "2c53b4d3a678f9652c14230c0cef02a7230b81299237511c4881f43676cce080",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלת קטיונים ואניונים נפוצים",
+     "targets": [
+      "theory:G3-t22",
+      "theory:G3-t23",
+      "worked:7",
+      "quiz:11"
+     ],
+     "rationale": "הטבלה צומצמה: נבחרו קטיונים ואניונים מייצגים בטקסט מקורי ובדוגמאות; לא כל שורה הועתקה. הבודק מחליט אם חסרות שורות."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "2ee6414b0ab9733722c985799c3f5f4e29841280282e26f5edcf88f8838d6c01",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרכובות בינאריות של שתי אל-מתכות וקידומות",
+     "targets": [
+      "theory:G3-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "631af98dd26c034c35346eac72656b25643711f53280adf789d5b1bb7dc1e06f",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלת קידומות ותרכובות מולקולריות",
+     "targets": [
+      "theory:G3-t24"
+     ],
+     "rationale": "הטבלה צומצמה לקידומות ולדוגמאות מייצגות; לא כל שורה הועתקה. הבודק מחליט אם חסרות שורות."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "2c872703901885e58b01dc3d17bce49e415611aee93a43d3d562e9b7c30b3b43",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חומצות בינאריות במים",
+     "targets": [
+      "theory:G3-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "43ba5e0cec32b92e2764d8830f075ded7d7e201f2114e7a0f2f5cc85ef7737ba",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "יונים רב-אטומיים נפוצים",
+     "targets": [
+      "theory:G3-t26"
+     ],
+     "rationale": "הטבלה צומצמה ליונים מייצגים; לא כל שורה הועתקה. הבודק מחליט אם חסרות שורות."
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "bc58e3c417e07c77b7ab301d6df608e826fe907f1cda06ae1c957a3879481a90",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מינוח תרכובות אורגניות",
+     "targets": [
+      "theory:G3-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 36,
+   "imageSha256": "ecf8abfecfad968d577c18dd1118de73e664a5808c140e4a3fe40be83057e0a6",
+   "units": [
+    {
+     "id": "p36.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "פחמימנים, איזומרים וקבוצות פונקציונליות",
+     "targets": [
+      "theory:G3-t28",
+      "theory:G3-t29",
+      "quiz:13"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -3,7 +3,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 const catalogue=structuredClone(catalogueSource);
-const registry=fs.readFileSync(new URL('../src/figures.jsx',import.meta.url),'utf8');
+const registry=fs.readFileSync(new URL('../src/figures.jsx',import.meta.url),'utf8')+fs.readFileSync(new URL('../src/figures-gc1-extra.jsx',import.meta.url),'utf8');
 
 test('every topic in both enriched courses carries enrichment theory and at least one figure',()=>{
   for(const course of catalogue.courses.filter(c=>c.id==='84101'||c.id==='84102')){

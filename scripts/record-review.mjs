@@ -40,7 +40,7 @@ const need=adminPages(cov);
 if(JSON.stringify([...viewed].sort((a,b)=>a-b))!==JSON.stringify(need))fail('admin pages viewed ['+viewed+'] must equal the map\'s all-admin pages ['+need+']; the reviewer must view each one, the tool will not attest pages');
 const c=catalogue.courses.find(x=>x.id===course),t=c&&c.topics.find(x=>x.id===topicId);
 if(!t)fail('topic not in the catalogue');
-const fh=figuresHashFor(course,policy);
+const fh=figuresHashFor(course,policy,undefined,topicId);
 if(fh.errors.length)fail('figure binding: '+fh.errors.join('; '));
 const review={status:'done',reviewer,sourceSha256:cov.source.sha256,contentSha256:contentHash(t),unitMapSha256:unitMapHash(cov),figuresSha256:fh.hash,adminPagesAttested:need};
 const next={...cov,semanticReview:review};

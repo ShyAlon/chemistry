@@ -40,7 +40,7 @@ export function MoleculeViewsNarrow({accent}){
  {rows.map((r,ri)=>{const y0=ri*390+44;return <g key={ri}>
   <T x={180} y={y0+30} size={26} fill={accent}>{r.name}</T>
   {r.pts.length&&(()=>{const k=1.6;const P=r.pts.map(([x,y])=>[180-63*k+x*k,y0+(ri?150:112)+y*1.5*(ri?1.1:1)]);return <g>{r.ed.map(([a,b],j)=>{const e=trimEdge(P[a],P[b],25);return <L key={j} x1={e[0]} y1={e[1]} x2={e[2]} y2={e[3]} stroke={C.mut} w={2}/>})}{P.map(([x,y],j)=><T key={j} x={x} y={y+8} size={22} ltr fill={C.ink}>{'C'+(r.hs[j]?'H'+(r.hs[j]>1?r.hs[j]:''):'')}</T>)}</g>})()}
-  {[95,265].map((ox,vi)=>{const P=r.pts.map(([x,y])=>[ox-63+x,y0+262+y]);return <g key={vi}>
+  {[95,265].map((ox,vi)=>{const sc=vi===0?1.3:1;const P=r.pts.map(([x,y])=>[ox-63*sc+x*sc,y0+262+y*sc]);return <g key={vi}>
    {vi===0&&r.ed.map(([a,b],j)=><L key={j} x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} stroke={C.ink} w={5}/>)}
    {P.map(([x,y],j)=><Dot key={j} cx={x} cy={y} r={vi===0?13:24} fill={vi===0?C.soft:C.line} stroke={vi===0?C.ink:accent} opacity={vi===0?1:.8}/>)}
    {vi===0&&P.map(([x,y],j)=>hpos.slice(0,r.hs[j]).map(([dx,dy],h)=><Dot key={j+'h'+h} cx={x+dx*1.3} cy={y+dy*1.3} r={5} fill={C.mut}/>))}

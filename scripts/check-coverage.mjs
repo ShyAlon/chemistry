@@ -209,7 +209,7 @@ export function checkTopic(topic,cov,{loadTopic}={}){
      if(it?.reason!==undefined)e(wi+'reason is only for not-covered items');
      if(!it?.targets?.length)e(wi+'needs targets');
     }
-    for(const t of it?.targets||[])if(!blockExists(topic,t))e(wi+'target not found '+t);
+    for(const t of it?.targets||[])if(!blockExists(topic,t,loadTopic))e(wi+'target not found '+t);
    }
   }
  }

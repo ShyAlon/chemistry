@@ -38,8 +38,8 @@ test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
 });
 test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
  for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
- assert.equal(added('G3','quiz').length,10);assert.equal(added('G9','quiz').length,8);
- assert.equal(added('G3','theory').length,27);assert.equal(added('G3','worked').length,4);
+ assert.equal(added('G3','quiz').length,13);assert.equal(added('G9','quiz').length,10);
+ assert.equal(added('G3','theory').length,27);assert.equal(added('G3','worked').length,9);
 });
 test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
  const PB=95.1,PT=28.4,nB=.848/78.11,nT=1/92.14,xB=nB/(nB+nT);
@@ -100,4 +100,23 @@ test('G9 HW4 Q3 staged-cooling item recomputes from the sheet data and the offic
  const mol=185.7/760*3/(R*298);assert.ok(Math.abs(4.14/mol-138)<.1);assert.ok(Math.abs(.225*32-7.2)<1e-9);
  const w=topic('G9').content.worked[10];assert.ok(w.batch5&&w.content[1].includes('CH₂S')&&w.content[1].includes('C₃H₆S₃')&&w.content[1].includes('7.2 g'));
  assert.ok(topic('G9').content.theory.some(b=>b.id==='G9-t50'&&b.batch5));
+});
+// Reviewer-found practice gaps (G3 exercise 2 Q3/Q4/Q7/Q14/Q15, G9 sample Q1, sample-final Q9): independent recomputation.
+test('G3 exercise-2 gap items recompute and map to real targets',()=>{
+ const x=(0.7*19.992+0.3*21.991-20.3914)/(21.991-20.994);near(x,0.2009,5e-5);near(0.3-x,0.0991,5e-5);
+ const a=0.8*10.0129+0.2*11.0093,b=0.35*10.0129+0.65*11.0093;near(b-a,0.4484,5e-5);
+ near((12/16)/(12/44),2.75,1e-9);near(5*(12/16)/(3*(12/44)),4.583,1e-3);
+ const nCO=8/28,nCO2=12/44;near(100*16*(nCO+2*nCO2)/20,66.5,0.05);near((nCO+2*nCO2)/(nCO+nCO2),1.488,1e-3);
+ const M=24.305+2*14.007+6*15.999;near(M,148.313,1e-3);near(1.8066e24/6.022e23/6*M,74.16,0.01);near(24.305/M*100,16.39,0.01);
+ const c=topic('G3').content;
+ assert.match(c.worked[8].content.join(' '),/20\.1%/);assert.match(c.worked[9].content.join(' '),/0\.4484/);assert.match(c.worked[10].content.join(' '),/2\.75/);assert.match(c.worked[11].content.join(' '),/66\.5%/);assert.match(c.worked[12].content.join(' '),/74\.16/);
+ assert.deepEqual([16,17,18].map(i=>c.quiz.find(q=>q.id===i).fields[0].value),[20.1,2.75,74.16]);
+});
+test('G9 NCl3 pressure-rise and nitroglycerin cooling items recompute',()=>{
+ const nGas=1.2*4/(0.08206*301.15);near(nGas,0.1942,5e-5);near(nGas/2*(14.007+3*35.45),11.69,0.01);
+ near(14.5*0.08206*773.15/10,92.0,0.05);
+ const p=9.5*0.08206*298.15/10;near(p,23.24,0.01);near(p+23.76/760,23.27,0.01);
+ const c=topic('G9').content;
+ assert.deepEqual([19,20].map(i=>c.quiz.find(q=>q.id===i).fields[0].value),[11.69,23.27]);
+ assert.match(c.worked[11].content.join(' '),/11\.69 g/);assert.match(c.worked[12].content.join(' '),/23\.27 atm/);
 });

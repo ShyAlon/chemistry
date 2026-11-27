@@ -37,3 +37,6 @@ test('G3 and G9 figure binding includes the GC1 figure module; other GC1 topics 
  for(const t of['G3','G9']){const r=figuresHashFor('84101',p,undefined,t);assert.deepEqual(r.errors,[]);for(const f of['src/figures-gc1.jsx','src/figures-gc1-extra.jsx','src/figures.jsx','src/figures-core.jsx','src/style.css'])assert.ok(r.files.includes(f),f)}
  const g10=figuresHashFor('84101',p,undefined,'G10');assert.equal(g10.files,null);assert.equal(g10.hash,figuresHash());
 });
+test('GC1 figure modules import the JSX factory the build configures (a missing import blanks the whole app)',()=>{
+ for(const f of['src/figures-gc1.jsx','src/figures-gc1-extra.jsx'])assert.match(fs.readFileSync(new URL('../'+f,import.meta.url),'utf8'),/import \{bidiElement\} from '\.\/bidi-react\.js'/,f);
+});

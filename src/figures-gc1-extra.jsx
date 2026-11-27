@@ -1,3 +1,4 @@
+import {bidiElement} from './bidi-react.js';
 import React from 'react';
 import {C,T,L,Dot,Fig} from './figures-core.jsx';
 // GC1 additions kept outside figures.jsx so general-chemistry-2 figure-bound reviews are unaffected.

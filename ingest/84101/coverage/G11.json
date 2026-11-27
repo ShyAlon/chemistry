@@ -10,7 +10,7 @@
     "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
     "sourceSha256": "a65ffae2eedc2cc002a86eeb36c207185ef56e7c873561b0526136ddc07a1ce7",
     "contentSha256": "f7d24ee51bd2e81c3f8e520177a4fbcb02bfdefb011b0f8b3bd00137e7a04d52",
-    "unitMapSha256": "05cf15acedeb00ec47e2c382d9e8ff55387e6452c9ffdd5dc483c74589d6c033",
+    "unitMapSha256": "75b475ca228fe3108bc872dada3cf27dbc9805293f5002c13956141472d0f67f",
     "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
     "adminPagesAttested": []
   },
@@ -668,8 +668,7 @@
           "label": "טבלת אנרגיות GC5 שוב",
           "targets": [
             "theory:G11-t24",
-            "theory:G11-t25",
-            "theory:G11-t11"
+            "theory:G11-t25"
           ],
           "rationale": "כפילות של GC5 עמ׳ 3."
         }

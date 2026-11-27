@@ -3,24 +3,16 @@
  "name": "פאזות, גבישים ועקיפת קרני X",
  "title": "פאזות, גבישים ועקיפת קרני X",
  "source": "מקורות: General Chemistry 5.pdf, עמ׳ 31-69 | סיכום ושאלות לימוד נגזרו מהחומר; הפתרונות חושבו מחדש, לא מפתח רשמי. תוספת הכנה למבחן: תרגול 6ב (גבישים, עמ׳ 25-51), תרגיל בית 6א+ב, שאלות 7–9. חישובי צפיפות ורדיוס נבדקו בנפרד.",
- "spectrum": {
-  "symbol": "He",
-  "name": "הליום",
-  "lines": [
-   400.927,
-   438.7929,
-   471.3146,
-   492.1931,
-   587.5615,
-   667.8152
-  ],
-  "source": "https://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable2_a.htm",
-  "accentWave": 587.5615
- },
  "provenance": {
   "type": "derived-study-content",
   "sourceReferences": "General Chemistry 5.pdf, עמ׳ 31-69; תרגול 6ב (גבישים), עמ׳ 25-51; תרגיל בית 6",
-  "answerAuthority": "independently-computed-not-official"
+  "answerAuthority": "independently-computed-not-official",
+  "externalReferences": [
+   {
+    "claim": "רוטיל TiO₂: שתי יחידות נוסחה בתא היחידה (Z=2), מידע חיצוני לשקופית",
+    "url": "https://som.web.cmu.edu/structures/S062-TiO2.html"
+   }
+  ]
  },
  "content": {
   "theory": [
@@ -792,7 +784,7 @@
       "unit": "pm"
      }
     ],
-    "answer": "מוצאים a מצפיפות תא עם z = 2, ואז r = √3a / 4 = 130.9795 pm.",
+    "answer": "מוצאים a מצפיפות התא ואז הרדיוס שווה ל r = √3a / 4 = 130.9795 pm בקירוב.",
     "finalPrep": true,
     "id": 6
    },
@@ -899,7 +891,7 @@
       "unit": "g/cm³"
      }
     ],
-    "answer": "הצלע שווה לשניים כפול שורש שתיים כפול הרדיוס, יש ארבעה אטומים בתא, והצפיפות היא 8.90 g/cm³, ואילו בשקופית מצוין הערך 8.89 בקירוב.",
+    "answer": "הצלע שווה לשניים כפול שורש שתיים כפול הרדיוס, יש ארבעה אטומים בתא, והצפיפות היא 8.90 g/cm³ ואילו בשקופית מצוין הערך 8.89 בקירוב.",
     "batch5": true,
     "id": 14
    },

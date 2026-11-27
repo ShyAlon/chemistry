@@ -992,7 +992,7 @@ export const finalPrep84101={
       "unit": "pm"
      }
     ],
-    "answer": "מוצאים a מצפיפות תא עם z = 2, ואז r = √3a / 4 = 130.9795 pm.",
+    "answer": "מוצאים a מצפיפות התא ואז הרדיוס שווה ל r = √3a / 4 = 130.9795 pm בקירוב.",
     "finalPrep": true,
     "id": 6
    },

@@ -9,7 +9,7 @@ export function revertG11(t){
   for(const p of fxd.theory){const b=t.content.theory.find(b=>b.text===p.new);if(b)b.text=p.old}
   for(const p of fxd.worked){if(JSON.stringify(t.content.worked[p.i]?.content)===JSON.stringify(p.new))t.content.worked[p.i].content=structuredClone(p.old)}
   for(const p of fxd.quiz){const q=t.content.quiz.find(q=>q.id===p.id);if(q&&q.prompt===p.new.prompt&&q.answer===p.new.answer){q.prompt=p.old.prompt;q.answer=p.old.answer}}
-  if(t.provenance&&t.provenance.sourceReferences===fxd.meta.newRefs){t.provenance.sourceReferences=fxd.meta.oldRefs}
+  if(t.provenance&&t.provenance.sourceReferences===fxd.meta.newRefs){t.provenance.sourceReferences=fxd.meta.oldRefs;delete t.provenance.externalReferences}
   if(!t.spectrum){const rest=Object.entries(t);for(const [k] of rest)delete t[k];for(const [k,v] of rest){t[k]=v;if(k==='source')t.spectrum=structuredClone(fxd.meta.spectrum)}}
   for(const {new:n,old} of fx12){const b=t.content.theory.find(b=>b.text===n);if(b)b.text=old;}return t;}
  if(t.id!=='G11')return t;

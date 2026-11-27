@@ -105,7 +105,7 @@
  {
   "number": 9,
   "category": "Incomplete legend",
-  "key": "84101/G14/theory/12",
+  "key": "84101/G14/theory/13",
   "expression": "x_A = n_A/(n_A + n_B)",
   "metadata": {
    "kind": "equation",
@@ -117,7 +117,7 @@
  {
   "number": 10,
   "category": "Incomplete legend",
-  "key": "84101/G14/theory/16",
+  "key": "84101/G14/theory/17",
   "expression": "P_total = P_A + P_B",
   "metadata": {
    "kind": "equation",
@@ -129,7 +129,7 @@
  {
   "number": 11,
   "category": "Incomplete legend",
-  "key": "84101/G14/theory/20",
+  "key": "84101/G14/theory/21",
   "expression": "y_A = P_A/P_total",
   "metadata": {
    "kind": "equation",
@@ -182,7 +182,7 @@
  {
   "number": 15,
   "category": "Incomplete legend",
-  "key": "84101/G15/theory/26",
+  "key": "84101/G15/theory/28",
   "expression": "Π = i·M·R·T",
   "metadata": {
    "kind": "equation",

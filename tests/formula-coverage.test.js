@@ -101,3 +101,15 @@ test('retired one-shot attachment script refuses safely without writing referenc
  const result=spawnSync(process.execPath,[new URL('../scripts/attach-symbols.mjs',import.meta.url).pathname],{encoding:'utf8'});
  assert.equal(result.status,1);assert.match(result.stderr,/Retired one-shot: no files changed/);assert.equal(fs.readFileSync(file,'utf8'),before);
 });
+test('moved legacy records stay hash-locked to their original key and content',()=>{
+ const moves=Object.entries(review.legacyRekeys);
+ assert.equal(moves.length,21);
+ for(const [key,{origin,hash}] of moves){
+  assert.ok(by.has(key),key);assert.ok(!Object.hasOwn(review.legacyUnreviewed,origin),'origin must not stay in the unmoved list');
+  const [,topic,,oi]=origin.split('/'),[,topic2,,ni]=key.split('/');
+  assert.equal(topic,topic2);assert.ok(Number(ni)>Number(oi),'blocks only moved later because supplements were inserted before them');
+  assert.match(hash,/^[0-9a-f]{64}$/);
+ }
+ const copy=structuredClone(rows),row=copy.find(r=>r.key===moves[0][0]);row.expression+=' ';
+ assert.throws(()=>validateCoverageManifest(copy,review),/moved legacy record changed/);
+});

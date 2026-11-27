@@ -27,6 +27,7 @@ import catalogue from '#catalogue';
 import {resolveConstants} from './constants.js';
 import {wavelengthColor,numericCorrect,parseNumber,configuration,parseRoute} from './logic.js';
 import './style.css';
+import './equation-wrap.css';
 import {orbitalFor} from './orbitals.js';
 import {Figure,schematicFigures} from './figures.jsx';
 import {References,parseReferenceRoute} from './references.jsx';

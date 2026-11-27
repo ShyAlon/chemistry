@@ -46,5 +46,6 @@ test('course content and answer data stay identical except the explicit V+ worke
  {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
  for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  }
+ for(const id of ['G13','G14','G15'])for(const b of copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id)?.content.theory||[])delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  assert.equal(createHash('sha256').update(JSON.stringify(copy.courses.map(c=>c.topics))).digest('hex'),'ecac22810423c5707fd80ee9c63b4fa229d3df6c9bb6abba8e0205d69c5ea3e4');
 });

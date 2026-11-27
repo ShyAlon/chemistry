@@ -20,14 +20,14 @@ test('E5 map is valid, traced, and has no pending exclusions',()=>{
  const r=checkTopic(topic,cov());assert.deepEqual(r.errors,[]);assert.deepEqual(r.unmapped,[]);assert.deepEqual(r.pending,[]);
 });
 test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,49);
  const pol={...loadPolicy(),legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
  const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
 });
 test('legacy topics are unaudited, not failed',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,52);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,49);
 });
 test('deck files are pinned to the manifest, spans respect real page counts, and the cross-topic partition is accountable',()=>{
  const manifest=[{file:'a.pdf',sha256:'a'.repeat(64)},{file:'b.pdf',sha256:'b'.repeat(64)}];
@@ -180,4 +180,23 @@ test('lessonAdditions: authored material outside source coverage, hash-bound, st
  assert.match(errs(c=>{add(c);c.lessonAdditions.push({id:'a01',targets:[pick],rationale:'dup'})}),/unique aNN|listed twice/);
  assert.match(errs(c=>{c.lessonAdditions=[{id:'a01',targets:[pick],rationale:'credited elsewhere'}]}),/already credited as source coverage/);
  assert.match(errs(c=>{c.lessonAdditions=[]}),/non-empty list/);
+});
+test('supporting sources are validated structurally, hash-pinned against the manifest and bound into the map hash',()=>{
+ const tgt=cov().pages.flatMap(p=>p.units).find(u=>u.targets?.length).targets[0];
+ const good=()=>[{file:'x.pdf',sha256:'a'.repeat(64),items:[{ref:'Q6',use:'method-only',targets:[tgt]}]}];
+ assert.equal(errs(c=>{c.supportingSources=good()}),'');
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].sha256='zz'}),/sha256 must be a 64-hex hash/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].targets=['theory:E5-t998']}),/target not found theory:E5-t998/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].use='same'}),/use must be/);
+ assert.equal(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question'})}),'');
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered'})}),/needs a reason/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question',targets:[tgt]})}),/must not list targets/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].reason='x'}),/reason is only for not-covered/);
+ assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref='page 6'}),/ref must be a question label/);
+ assert.match(errs(c=>{c.supportingSources=[]}),/non-empty list/);
+ const a=cov(),b=cov();b.supportingSources=good();assert.notEqual(unitMapHash(a),unitMapHash(b));
+ // manifest pin: G13 declares the HW6 and sample exam; a wrong hash must fail checkAll.
+ const real=JSON.parse(fs.readFileSync(new URL('../ingest/84101/coverage/G13.json',import.meta.url)));
+ const pins=JSON.parse(fs.readFileSync(new URL('../ingest/84101/sources.manifest.json',import.meta.url))).sources;
+ for(const s of real.supportingSources)assert.equal(pins.find(p=>p.file===s.file)?.sha256,s.sha256,s.file);
 });

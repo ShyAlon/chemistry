@@ -1,0 +1,488 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G13",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+  "sourceSha256": "ad37228b88e075f2422303c051057b3cbd9adf1004d311f258d4d4f8b9e2c04b",
+  "contentSha256": "2b52d866ce323c6ebcfd694d2ffb1a74be1767d9bc4d94436fc52738fad6e259",
+  "unitMapSha256": "088ba78b0a6d1ad177cd98922168869c9de8446f96056d7bc95f7348f1a6da80",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": [
+   1
+  ]
+ },
+ "source": {
+  "sha256": "ad37228b88e075f2422303c051057b3cbd9adf1004d311f258d4d4f8b9e2c04b",
+  "kind": "multi-file-deck",
+  "pageCount": 22,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 6.pdf",
+    "sha256": "52272f4ae6961a6ca528cf6bbea4b492b9be3032c674fa95bbbbcd9c52ef949e",
+    "pages": "1-16",
+    "firstPage": 1
+   },
+   {
+    "file": "תרגול 6 א׳ כוחות בין מולקולרים ותכונות קוליגטיביו.pdf",
+    "sha256": "d4d1bc2b81e7846f80dd10091c71a1072357e0ac4fe64dd4ab7ce50e23780ef5",
+    "pages": "10-15",
+    "firstPage": 17
+   }
+  ]
+ },
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G13-t23"
+   ],
+   "rationale": "רשימת בדיקה לפני שימוש בקלאוזיוס-קלפירון: סינתזה של טעויות נפוצות בתרגול 6א; אין שקף מקור יחיד."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q5",
+     "use": "method-only",
+     "targets": [
+      "worked:9",
+      "quiz:13",
+      "quiz:14",
+      "quiz:15"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "method-only",
+     "targets": [
+      "worked:5",
+      "worked:8",
+      "quiz:7",
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q4",
+     "use": "not-covered",
+     "reason": "נתוני התרגיל לא בשימוש. נתוני השאלה אינם עקביים (גוררים נקודת רתיחה נורמלית של כ-29.7- מעלות), לכן לא נבנה פריט ממנה."
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q11א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7"
+     ]
+    },
+    {
+     "ref": "Q11א",
+     "use": "method-only",
+     "targets": [
+      "quiz:10"
+     ]
+    }
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "b0a9586a0d6bc823a9aeb9920670035fde650687f7718785f7ca66b66f7ed967",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת ההרצאה",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "b21680510cc7ae7f94e7c8c29ef72cd46867a255fa0af3259b5fba9d404304e2",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "קוהזיה ואדהזיה",
+     "targets": [
+      "theory:G13-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "81933dec3f1bafc6ceaca5d0bbfa0ce86f62cc84358db87ed0efc8e96f1ee2e7",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מתח פנים ואנרגיית פני שטח",
+     "targets": [
+      "theory:G13-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "dea841a9eb3e4d20567bc7d3bcca885d99e257eb6b56c6a45f2685324e82bea5",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "איורי הרטבה, מניסקוס ובנימיות",
+     "targets": [
+      "theory:G13-t01",
+      "theory:G13-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "4ed8ed65f9df1d60b58129f34caa51a26d84fe826503b043df656c588a0feaac",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "צמיגות והקשר ל-IMF",
+     "targets": [
+      "theory:G13-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "1704a7d010ec340d2e2ba113c13b544056d9ed9184606b8dca4a936bb22f4727",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אנתלפיית אידוי וקשר לטמפרטורה",
+     "targets": [
+      "theory:G13-t04",
+      "theory:G13-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "f94030e7c160a3773462c25252560f2e854b68e8a9e933646b9e689c87347435",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלה: IMF מול ΔH_vap ונקודת רתיחה",
+     "targets": [
+      "theory:G13-t27"
+     ],
+     "rationale": "ערכים נבחרים נקראו בהגדלה והוזכרו בטקסט מקורי, עם סייג תלות טמפרטורה; הטבלה עצמה לא הועתקה."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "1bc58eafaf7c0a946aa74dc8eee40f89805822710e2073466183b18044a7c442",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אידוי, עיבוי ושיווי משקל נוזל-אדים",
+     "targets": [
+      "theory:G13-t04",
+      "theory:G13-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "fac5aad64918efdd1032d1788af49eecf286f66e828486f71fa3b97e5260447a",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "מדידת לחץ אדים בברומטר כספית",
+     "targets": [
+      "theory:G13-t24"
+     ],
+     "rationale": "השקף מציג רק איור; ההסבר והיחידות נכתבו מחדש בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "30e9a3051d421b95ce9bed272f317fb3a971982bb8fe5d7531ea258c56237ef0",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "עקומות לחץ אדים של כמה נוזלים",
+     "targets": [
+      "theory:G13-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "b9fc9c55392d26151ac80298c8914431ab4c35be8eeedaae55c6bb9d5a16acbc",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלת לחץ אדים של מים לפי טמפרטורה",
+     "targets": [
+      "theory:G13-t25"
+     ],
+     "rationale": "נבחרו נקודות עוגן מייצגות לבדיקת סבירות; לא הועתקה כל הטבלה."
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "df9f2a0cd30055f419b926b874b1e0ae167c46e074444fcde7ea65523fdf235d",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת ln P מול 1/T",
+     "targets": [
+      "theory:G13-t09",
+      "theory:G13-t12",
+      "theory:G13-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "4cbd7472b295fceb367601f116f85da2155cf20dddcf7ff8476dbe61b78d670c",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "יחס לחצים בשתי טמפרטורות (קלאוזיוס-קלפירון)",
+     "targets": [
+      "theory:G13-t08",
+      "theory:G13-t10",
+      "theory:G13-t11",
+      "theory:G13-t16"
+     ],
+     "rationale": "בשקף 13 מופיע מינוס מיותר לפני (1/T₁−1/T₂); תוקן, ובדיקת הסימן מופיעה בבלוק 16."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "6a6f3840b24b3557c3d8190f9ce827ab7b5a7161b934e6d14029e92828f816cc",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "הגדרת ΔH ושימוש בקלאוזיוס-קלפירון",
+     "targets": [
+      "theory:G13-t14",
+      "theory:G13-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "81f08d050875d94ed59d8e7c9dd1d74961d3fb6382d89ea057ccae6237f06ddd",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "רתיחה בלחץ נמוך, פסגת האוורסט",
+     "targets": [
+      "theory:G13-t06",
+      "theory:G13-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "732b328994d3b0afda753782a34612515fcaf33affcbb0184c90b63bfc6cca92",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחות יחסית ולחץ אדי מים",
+     "targets": [
+      "theory:G13-t17",
+      "theory:G13-t18",
+      "theory:G13-t19",
+      "theory:G13-t20",
+      "theory:G13-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "1e8a67a6190fb0707592989af6872126d419e156d5b7c9b4f5cf945d53874e00",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת דיאגרמת פאזות, נקודה משולשת וקריטית",
+     "targets": [
+      "theory:G13-t22"
+     ],
+     "rationale": "תלות חוצת-נושא: נקודה משולשת וקריטית נלמדות גם בנושא G12 (בלוקים 1 ו-16 לפי אינדקס, נושא ישן ללא ביקורת מקור); אין כאן טענת כיסוי עבור G12."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "1dd016efa910cd0ef1af3b586db83471fd7050a95187855221d7fa307223316f",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "דיאגרמות פאזות של מים ו-CO₂",
+     "targets": [
+      "theory:G13-t22"
+     ],
+     "rationale": "תלות חוצת-נושא: שיפוע שלילי של עקומת ההיתוך במים והמראה של CO₂ בלחץ אטמוספרי נלמדים ב-G12 (בלוקים 2 ו-16 לפי אינדקס, נושא ללא ביקורת מקור); אין טענת כיסוי עבור G12."
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "64f59f46044e9847e1d37fa8f7df2edad8da8dbdd807da7712d4ea6149515109",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "אותן דיאגרמות עם סימון אזורים ונקודות",
+     "targets": [
+      "theory:G13-t22"
+     ],
+     "rationale": "תלות חוצת-נושא: סימון אזורים ונקודות; הלימוד העצמאי נמצא ב-G12 (נושא ללא ביקורת מקור) ואין טענת כיסוי עבורו."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "9aed5644b0c743b053c6b24afeda4b21606a5ec48c94371b8e1f12dd662341a4",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "תרגיל: SO₂, נקודה קריטית ומצב הצבירה",
+     "targets": [
+      "theory:G13-t22",
+      "quiz:8",
+      "worked:9",
+      "quiz:13",
+      "quiz:14",
+      "quiz:15"
+     ],
+     "rationale": "worked:9 עוקב אחרי הסיווג בשקף ובתרגיל בית 6 שאלה 5 (22b296e8); נתוני שאלה 5 לקוחים מתרגיל הכיתה. תרגול 13-15 מסווג מצבים חדשים של SO₂."
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "9e3532e5cae764e284762fa4e22149080e5426650f2a7528224f11fe980e0430",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת קלאוזיוס-קלפירון, צורה כללית ושתי נקודות",
+     "targets": [
+      "theory:G13-t08",
+      "theory:G13-t09",
+      "theory:G13-t10",
+      "theory:G13-t12",
+      "theory:G13-t13",
+      "worked:8",
+      "quiz:11"
+     ],
+     "rationale": "worked:8 עוקב אחרי תרגיל בית 6 שאלה 6 (22b296e8): לחץ או טמפרטורת רתיחה משתי נקודות. נתוני שאלה 4 (כלורופורם) אינם בשימוש: אינם עקביים (נקודת רתיחה נורמלית מחושבת כ-30°C-)."
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "2eeac4d2417c119e9879b0f3e0dda8e953ae37ebd1642827fe8e0e8ffd21dae0",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: ΔH_vap של SO₂ משתי נקודות",
+     "targets": [
+      "theory:G13-t14",
+      "theory:G13-t15",
+      "worked:1",
+      "worked:2",
+      "worked:7",
+      "worked:10",
+      "quiz:10",
+      "quiz:12"
+     ],
+     "rationale": "worked:7 עוקב אחרי דוגמאות בחינה (1577f770) שאלה 11א (ΔH_vap של מים משתי נקודות עם נקודת רתיחה נורמלית); worked:10 משתמש בנקודת רתיחה נורמלית ובנקודה הקריטית של SO₂ מתרגיל 15 בתרגול."
+    }
+   ]
+  }
+ ]
+}

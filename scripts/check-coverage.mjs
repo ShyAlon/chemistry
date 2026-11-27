@@ -8,7 +8,7 @@ import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import catalogue from '#catalogue';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages','lessonAdditions']);
+const TOP_KEYS=new Set(['schema','course','topic','source','authoredBy','semanticReview','pages','lessonAdditions','supportingSources']);
 const ADDITION_KEYS=new Set(['id','targets','rationale']);
 const REVIEW_KEYS=new Set(['status','reviewer','sourceSha256','contentSha256','unitMapSha256','figuresSha256','adminPagesAttested']);
 const ADMIN_KINDS=new Set(['title','outline','divider','marker']);
@@ -78,7 +78,7 @@ export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
  return {hash:sha(parts.join('\n--file--\n')),files:[...c.files.map(f=>'src/'+f),...[...c.extras.keys()].sort()],errors:[]};
 }
 // lessonAdditions enter the hash only when present, so every map without them keeps its recorded review binding.
-export const unitMapHash=cov=>sha(JSON.stringify(cov.lessonAdditions===undefined?{source:cov.source,pages:cov.pages}:{source:cov.source,pages:cov.pages,lessonAdditions:cov.lessonAdditions}));
+export const unitMapHash=cov=>sha(JSON.stringify({source:cov.source,pages:cov.pages,...(cov.lessonAdditions===undefined?{}:{lessonAdditions:cov.lessonAdditions}),...(cov.supportingSources===undefined?{}:{supportingSources:cov.supportingSources})}));
 // Targets are same-topic by default. A cross-topic target takes an explicit
 // "<TOPIC>/" prefix (e.g. "SS2/theory:SS2-t14") and resolves only when loadTopic
 // returns that topic's content; without a loader the ref fails closed.
@@ -181,6 +181,36 @@ export function checkTopic(topic,cov,{loadTopic}={}){
    }
   }
  }
+ // Supporting sources: extra exercise files (homework, sample exams) that justify authored methods. This block is provenance, not
+ // source coverage. The checker verifies shape, that every declared hash is pinned in sources.manifest.json (checkAll) and that every
+ // target exists. not-covered items record a source question that no item uses, with the reason. It does NOT read the files: that each ref is the right question is asserted by the author and checked by the reviewer.
+ if(cov.supportingSources!==undefined){
+  const list=cov.supportingSources;
+  if(!Array.isArray(list)||!list.length)e('supportingSources must be a non-empty list when present');
+  const seenRef=new Set();
+  for(const s of Array.isArray(list)?list:[]){
+   const w='supportingSource '+(s&&s.file||'?')+': ';
+   for(const k of Object.keys(s||{}))if(!['file','sha256','items'].includes(k))e(w+'unexpected field '+k);
+   if(!s||typeof s.file!=='string'||!s.file.trim())e(w+'needs a file name');
+   if(!/^[0-9a-f]{64}$/.test(s?.sha256||''))e(w+'sha256 must be a 64-hex hash');
+   if(!Array.isArray(s?.items)||!s.items.length)e(w+'needs items');
+   for(const it of Array.isArray(s?.items)?s.items:[]){
+    const wi=w+'item '+(it&&it.ref)+': ';
+    for(const k of Object.keys(it||{}))if(!['ref','use','targets','reason'].includes(k))e(wi+'unexpected field '+k);
+    if(!/^Q\d{1,2}[א-ת]?(?:-[א-ת])?$/u.test(it?.ref||''))e(wi+'ref must be a question label such as Q6 or Q3א');
+    if(!['data-and-method','method-only','not-covered'].includes(it?.use))e(wi+'use must be data-and-method, method-only or not-covered');
+    const key=(s&&s.file)+'|'+(it&&it.ref)+'|'+(it&&it.use);if(seenRef.has(key))e(wi+'listed twice');seenRef.add(key);
+    if(it?.use==='not-covered'){
+     if(typeof it.reason!=='string'||it.reason.trim().length<10)e(wi+'not-covered needs a reason');
+     if(it.targets?.length)e(wi+'not-covered must not list targets');
+    }else{
+     if(it?.reason!==undefined)e(wi+'reason is only for not-covered items');
+     if(!it?.targets?.length)e(wi+'needs targets');
+    }
+    for(const t of it?.targets||[])if(!blockExists(topic,t))e(wi+'target not found '+t);
+   }
+  }
+ }
  const missingIds=topic.content.theory.filter(b=>b.id===undefined&&!(b.style||'').startsWith('Heading')).length;
  if(missingIds)e(missingIds+' theory blocks lack ids');
  const unmapped=topic.content.theory.filter(b=>b.id&&b.style!=='Heading'&&!used.has('theory:'+b.id)&&!added.has('theory:'+b.id)).map(b=>b.id);
@@ -266,6 +296,11 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(!fs.existsSync(f))continue;
    const cov=JSON.parse(fs.readFileSync(f,'utf8'));
    for(const sf of cov.source?.files||[])decks.push({topic:t.id,file:sf.file,sha256:sf.sha256,pages:parseSpan(sf.pages)||[]});
+   for(const ss of cov.supportingSources||[]){
+    const pin=manifest&&manifest.find(m=>m.file===ss.file);
+    if(!pin)rows.push({course:c.id,topic:t.id,status:'fail',errors:['supportingSource '+ss.file+': file is not in sources.manifest.json'],pending:[],unmapped:[]});
+    else if(pin.sha256!==ss.sha256)rows.push({course:c.id,topic:t.id,status:'fail',errors:['supportingSource '+ss.file+': sha256 differs from sources.manifest.json'],pending:[],unmapped:[]});
+   }
   }
   if(decks.length||part){
    const errs=sourceBindingErrors({decks,manifest,partition:part});

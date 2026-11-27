@@ -7,7 +7,7 @@ export const corrections=JSON.parse(readFileSync(new URL('../src/practice-correc
 export function beforePractice(topic){
  const t=beforeRecap(topic);
  t.source=t.source.split(' תוספת הכנה למבחן:')[0];
- for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.batch2&&!b.batch3&&!b.batch4&&!b.finalPrep);
+ for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.batch2&&!b.batch3&&!b.batch4&&!b.batch5&&!b.finalPrep);
  for(const c of corrections.filter(c=>c.topic===t.id)){
   const b=t.content.theory.find(b=>b.text===c.after);
   assert.ok(b,'reviewed correction missing: '+t.id);b.text=c.before;

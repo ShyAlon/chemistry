@@ -8,7 +8,7 @@ const data=structuredClone(catalogueSource);
 const course=data.courses.find(c=>c.id==='84101');const added=course.topics.slice(12);
 const q=(t,id)=>added.find(t0=>t0.id===t).content.quiz.find(q=>q.id===id);
 test('supplement appends four sourced topics, 16 examples and 26 complete questions',()=>{
- assert.deepEqual(added.map(t=>t.id),['G13','G14','G15','G16']);assert.equal(added.flatMap(t=>t.content.quiz.filter(q=>!q.batch3&&!q.finalPrep)).length,26);assert.equal(added.flatMap(t=>t.content.worked.filter(w=>!w.batch3&&!w.finalPrep)).length,16);
+ assert.deepEqual(added.map(t=>t.id),['G13','G14','G15','G16']);assert.equal(added.flatMap(t=>t.content.quiz.filter(q=>!q.batch3&&!q.batch5&&!q.finalPrep)).length,26);assert.equal(added.flatMap(t=>t.content.worked.filter(w=>!w.batch3&&!w.batch5&&!w.finalPrep)).length,16);
  for(const t of added){assert.ok(t.provenance.sourceReferences.includes('.pdf'));assert.ok(t.provenance.verificationSources.every(x=>x.startsWith('https://')));assert.ok(t.content.theory.length>=14);assert.equal(new Set(t.content.quiz.map(q=>q.id)).size,t.content.quiz.length);for(const q of t.content.quiz){assert.ok(q.answer);if(q.type==='mcq'){assert.ok(q.options[q.correct]);assert.equal(q.options.length,4)}if(q.type==='numeric')for(const f of q.fields)assert.ok(numericCorrect([String(f.value)],[f.unit],[f]))}}
 });
 test('independent arithmetic checks all new numeric answers',()=>{
@@ -34,6 +34,7 @@ test('original topics and questions are unchanged except the explicit V+ correct
  {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
  for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  }
+ for(const id of ['G13','G14','G15'])for(const b of original[1].find(t=>t.id===id)?.content.theory||[])delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  // Restore only the approved correction; retain the original baseline digest.
  const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
@@ -49,4 +50,14 @@ test('new figures are registered, labels meet 18px and formula sheet covers addi
  const jsx=readFileSync(new URL('../src/figures-supplement.jsx',import.meta.url),'utf8');
  assert.ok([...jsx.matchAll(/size=\{(\d+)\}/g)].every(m=>+m[1]>=18));
  for(const t of added)assert.ok(sheet.find(c=>c.id==='84101').topics.some(x=>x.id===t.id));
+});
+test('batch-5 practice answers are recomputed independently from the stated data',()=>{
+ const R=8.314,b5=id=>added.find(t=>t.id===id).content.quiz.filter(x=>x.batch5&&x.type==='numeric').map(x=>x.fields[0].value);
+ const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-3*Math.max(1,Math.abs(b)),a+' vs '+b);
+ const g13=b5('G13');close(g13[0],R*Math.log(760/200)/(1/320-1/350)/1000);close(g13[1],1/(1/340-R*Math.log(.5)/30000));close(g13[2],R*Math.log(60)/(1/300-1/450)/1000);
+ const g14=b5('G14');close(g14[0],.25);close(g14[1],.25*3+.75*1);assert.equal(g14[2],600);
+ assert.ok(Math.abs((3*.25)/(.25*3+.75)-.5)<1e-12);assert.equal(2*600+3*200,1800);assert.equal(3*600+3*200,2400);
+ const g15=b5("G15"),nw=60/18.015,ng=40/180.16;close(g15[0],100*nw/(nw+ng));
+ const nb=96/78.11,xb=700/760;close(g15[1],4/(nb*(1-xb)/xb));
+ const np=3.35/1.86*.05,x=g15[2];assert.ok(Math.abs((1+x)*3/(26.98+35.45*x)-np)<1.5e-3);
 });

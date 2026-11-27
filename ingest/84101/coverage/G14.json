@@ -1,0 +1,705 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G14",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+  "sourceSha256": "51bb6143126c49e25d7f7c3df2ca4f319326615a59016e16f25e3113c9f944fa",
+  "contentSha256": "4e682c37851111458f84805b7ab39a6a6521562c0036d708328274c4844702af",
+  "unitMapSha256": "6ab0ff323a55e1a7c5c12275eb6ab42c1e52a526d5fc2c74a59a9b524d24c32a",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": [
+   1
+  ]
+ },
+ "source": {
+  "sha256": "51bb6143126c49e25d7f7c3df2ca4f319326615a59016e16f25e3113c9f944fa",
+  "kind": "multi-file-deck",
+  "pageCount": 34,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 6.pdf",
+    "sha256": "52272f4ae6961a6ca528cf6bbea4b492b9be3032c674fa95bbbbcd9c52ef949e",
+    "pages": "17-46",
+    "firstPage": 1
+   },
+   {
+    "file": "תרגול 6 א׳ כוחות בין מולקולרים ותכונות קוליגטיביו.pdf",
+    "sha256": "d4d1bc2b81e7846f80dd10091c71a1072357e0ac4fe64dd4ab7ce50e23780ef5",
+    "pages": "20-23",
+    "firstPage": 31
+   }
+  ]
+ },
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q16",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q17",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q16",
+     "use": "method-only",
+     "targets": [
+      "quiz:8",
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q19",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7"
+     ]
+    },
+    {
+     "ref": "Q20",
+     "use": "data-and-method",
+     "targets": [
+      "worked:8"
+     ]
+    },
+    {
+     "ref": "Q20",
+     "use": "method-only",
+     "targets": [
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q22",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. תערובת אתאנול-מתנאול אידיאלית (שברים, לחצים חלקיים, הרכב אדים): אין פריט ייעודי. השיטה זהה לדוגמה 1 ולשאלות 1-2, אך נתוני התרגיל לא שולבו."
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q13ד",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q3ד",
+     "use": "method-only",
+     "targets": [
+      "worked:5"
+     ]
+    },
+    {
+     "ref": "Q8א",
+     "use": "method-only",
+     "targets": [
+      "worked:5"
+     ]
+    },
+    {
+     "ref": "Q8ב",
+     "use": "method-only",
+     "targets": [
+      "worked:5",
+      "worked:6"
+     ]
+    },
+    {
+     "ref": "Q8ג",
+     "use": "not-covered",
+     "reason": "שיטה חסרה בפועל: שרשרת עיבוי בלחץ נתון (הרכב אדים בשיווי משקל עם התמיסה החדשה בלחץ 70 mmHg). אין פריט או דוגמה ייעודיים ולא נטען כיסוי."
+    },
+    {
+     "ref": "Q11ד",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. בוטאנון-פרופאנון (מסת רכיב מלחץ כולל, ואז הרכב ועיבוי): אין פריט ייעודי."
+    },
+    {
+     "ref": "Q13ה",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. הקסאן-ציקלוהקסאן (לחץ כולל והרכב אדים): אין פריט ייעודי."
+    }
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "fde80fc751f5545d737c1518ffc21009edd0d667651b6b55bc8c58b0883a5d3f",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת פרק התמיסות",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "8b74de8c21578924312aa4fa804ad600b6c648af2bfd94f0b6c41d6e83bab131",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סוגי תמיסות ומונחים",
+     "targets": [
+      "theory:G14-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "32583ba56ccdf04a2b45c3ca77e651f9b50b6719461e1a90137c14b2696974ae",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "דיאגרמת אנתלפיית ההמסה",
+     "targets": [
+      "theory:G14-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "33a8a3d305d0e377fd44318109943f33d20fa6ce4b8e890cdcd3c6fda7ba6664",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "IMF בתערובות ו-ΔHa,b,c",
+     "targets": [
+      "theory:G14-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "2e7605c465884fc3d4a25253c341b74783be4a95babfd76b7386169f859ff5c7",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "תמיסה כמעט אידיאלית",
+     "targets": [
+      "theory:G14-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "e844cc72fcdc6ef043cc76c534d251e7550e99e912f44180667b3acf46a41512",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "IMF בין שונים ותמיסה לא אידיאלית",
+     "targets": [
+      "theory:G14-t02",
+      "theory:G14-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "76d81f67ac5294b07ad1aa1048afc66fb0f452d2b669f1d77287f9f9acefd00c",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אדהזיה מול קוהזיה וסימן ΔH_soln",
+     "targets": [
+      "theory:G14-t02",
+      "theory:G14-t21",
+      "theory:G14-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "04198b228ee512d3749e0542ea43c2ad0263699789f1d70aab71c7bad23627dc",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: IMF בתערובת CS₂ ואצטון",
+     "targets": [
+      "theory:G14-t21",
+      "theory:G14-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "553d41ab229f0e07af216020b19a5f63871fbdda194ea4693f23c0a0a2dc5b4e",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תמיסה רוויה ושיווי משקל המסה",
+     "targets": [
+      "theory:G14-t03"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "77d655df72f22807563d2ecf8ad76f18dbdfbbe585feca4eba37b6e4dd8d19d6",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "עקומות מסיסות, על־רוויה וגבישון מחדש",
+     "targets": [
+      "theory:G14-t04",
+      "theory:G14-t26"
+     ],
+     "rationale": "העקומות נקראו כמגמות; ההסבר על על־רוויה וגבישון נכתב בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "357299d6dde9c2918ed57dfa90f060dfd0be59d158f930283e1eafdcc9065204",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חוק הנרי: מסיסות גז ולחץ",
+     "targets": [
+      "theory:G14-t05",
+      "theory:G14-t06",
+      "theory:G14-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "423e4b5ca3c03f31ec2c4ccb980a5d7a121a4a73bc72c5fcf9d9242ca22a343e",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "איור: השפעת הלחץ על מסיסות גז",
+     "targets": [
+      "theory:G14-t05",
+      "theory:G14-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "15118c45b85af1b8407d17dc6147dc3df1738d5b98ab4b0b6110b0c9b1cb81af",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "בקבוק סודה: פתיחה והפחתת לחץ CO₂",
+     "targets": [
+      "theory:G14-t04"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "473e8e9b992518ee6e725c0721c21748f14a7d118aaa80d015ffbef4865e5c1e",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ אדים של תמיסות וחוק ראול",
+     "targets": [
+      "theory:G14-t07",
+      "theory:G14-t08",
+      "theory:G14-t12",
+      "theory:G14-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "2518fdfbc19a4a6dbfee7fe43e6cb13cf4930d75b43585c78bc910f700596860",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "לחץ כולל כסכום לחצים חלקיים",
+     "targets": [
+      "theory:G14-t13",
+      "theory:G14-t14",
+      "theory:G14-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "47f9c5907e040a7f7fca29e9d974f7f4c4f16e27049a61bf6c00eb3f34628290",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: לחץ אדים של תמיסה אידיאלית",
+     "targets": [
+      "theory:G14-t09",
+      "theory:G14-t10",
+      "theory:G14-t11",
+      "theory:G14-t12",
+      "worked:1",
+      "worked:2"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "4f2a7a7872f2cb958a8a3dedccb9bdaabb20ff98b45190f2ca2f11fb4bcd077a",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: הרכב האדים מול נוזל",
+     "targets": [
+      "theory:G14-t17",
+      "theory:G14-t18",
+      "worked:4"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "e773ed7a30e6a147d6dd2743438a001524ace525cef9237768d072f442a8cfe2",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "P = X₁P₁° + X₂P₂°",
+     "targets": [
+      "theory:G14-t14",
+      "theory:G14-t15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "772516dd82f8aa1238d578ac2254263b75f45b4f4a6825fbbcc9965f6732e744",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מערכות עם יותר ממרכיב נדיף אחד",
+     "targets": [
+      "theory:G14-t16",
+      "theory:G14-t19"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "7c4eea006abc32e325e218387eccb300637e872446a86b7bec0190a486101d69",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "שיווי משקל נוזל-אדים בתמיסה אידיאלית",
+     "targets": [
+      "theory:G14-t19",
+      "theory:G14-t20"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "0a2f2c6aec0c85264b86be202773f02751b67acfed6c946113159a98fde110b2",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "דיאגרמת בנזן-טולואן וזיקוק",
+     "targets": [
+      "theory:G14-t20",
+      "theory:G14-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "df06338cc822192b8cf60bc3f61a497f7549c65e92f573ddfe5087dafcc4fb63",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "עמודת זיקוק למקוטעין",
+     "targets": [
+      "theory:G14-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "6f0e79b72f740cab9f5705f95a0832ec4c189a4ff3cecde27fea611702b3a070",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "תמיסות לא אידיאליות: אזאוטרופ מינימום רתיחה",
+     "targets": [
+      "theory:G14-t21",
+      "theory:G14-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "d97e8df68b86adf5846f20b57cd413c761cac3c8a250a38b35a513419f8339e6",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים סוג 2: מקסימום בלחץ כולל",
+     "targets": [
+      "theory:G14-t27"
+     ],
+     "rationale": "סיווג הסוגים נכתב בטקסט מקורי בלי להעתיק את התרשים."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "3f472325d90c7b8728f699c71e3eb06abdd325e430dd422adc54b2c470694204",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "תערובות אזאוטרופיות סוג 2",
+     "targets": [
+      "theory:G14-t22",
+      "theory:G14-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "ca632e37c6574075a66197ec1768a6d38e1d107dcef78e8fd0ab3842ea7f79f3",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סוג 2: זיקוק מים-אתנול והרכב שארית",
+     "targets": [
+      "theory:G14-t23",
+      "theory:G14-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "66303f28401b913fed479df7fdd186c805ca3f0774bcf7001877355e632429ec",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "תערובות אזאוטרופיות סוג 3",
+     "targets": [
+      "theory:G14-t22",
+      "theory:G14-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "f691d2d679931a24989e7c285cd048e746563d44b698b2583510790dcb6d1b84",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סוג 3: HCl-מים והרכב שארית",
+     "targets": [
+      "theory:G14-t23",
+      "theory:G14-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "6808c7d8ce15311af8f5d95623bda9034cd94d32973e39d32bbd73ac2c685e28",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תערובות ממשיות וסטייה מחוק ראול",
+     "targets": [
+      "theory:G14-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "84e959b0df9f3d9f374b3bf3a3895267cbe9434d30d351ec52fd858451a10494",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סיווג סטיות סוג 1, 2, 3",
+     "targets": [
+      "theory:G14-t21",
+      "theory:G14-t27",
+      "worked:8",
+      "quiz:11",
+      "theory:G14-t29"
+     ],
+     "rationale": "worked:8 עוקב אחרי תרגיל בית 6 שאלה 20 (22b296e8): בדיקת אידיאליות מנתוני מסות ולחצים. הטבלה באיור 46 משייכת סוג 1 ו-2 לאנדותרמי וסוג 3 (אצטון-כלורופורם) לאקסותרמי; t29 מלמד את הקשר."
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "3c8f41ebca76899706a7bcef81b03d83969e0c7bc05c1270d8a861628373ed1d",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תמיסה אידיאלית של שני מרכיבים נדיפים",
+     "targets": [
+      "theory:G14-t12",
+      "theory:G14-t13",
+      "theory:G14-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "ead9fa399415e59946149462a95956d7d3e3d0e8b6394fa6fdf546d8b0944c13",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "לחץ כולל מול הרכב נוזל",
+     "targets": [
+      "theory:G14-t14",
+      "theory:G14-t15",
+      "theory:G14-t16",
+      "worked:7",
+      "quiz:10"
+     ],
+     "rationale": "worked:7 עוקב אחרי תרגיל בית 6 שאלה 19 (22b296e8) ודוגמאות בחינה (1577f770) שאלה 13ד (שני לחצים כוללים נותנים P° של כל רכיב)."
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "16c6bf3bf2ed9d73d8262c7a4cfd4b617917aa715e55e6515d183cfdf33c17c5",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "הרכב נוזל מול אדים בדיאגרמת לחץ",
+     "targets": [
+      "theory:G14-t17",
+      "theory:G14-t18",
+      "theory:G14-t19",
+      "worked:6",
+      "quiz:8",
+      "quiz:9"
+     ],
+     "rationale": "worked:6 עוקב אחרי תרגיל בית 6 שאלות 16-17 (22b296e8): הרכב הנוזל הראשון והלחץ בנקודת טל."
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "fb4afa23dc6d8714dac4b2c843058703f9b3f3ec9dabffa4492e5db936947947",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "דיאגרמת T-הרכב, קו בועה וקו טל",
+     "targets": [
+      "theory:G14-t20"
+     ]
+    }
+   ]
+  }
+ ]
+}

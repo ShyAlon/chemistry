@@ -1,0 +1,790 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G15",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
+  "sourceSha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
+  "contentSha256": "b0091d6cf963bed007d446e7112efa6cd45a227d3aabca9865b1a07125d55160",
+  "unitMapSha256": "bab93157cbb2c10e7a1df69f62661396ce9989f43875fc96c558facf1733d473",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": []
+ },
+ "source": {
+  "sha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
+  "kind": "multi-file-deck",
+  "pageCount": 33,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 6.pdf",
+    "sha256": "52272f4ae6961a6ca528cf6bbea4b492b9be3032c674fa95bbbbcd9c52ef949e",
+    "pages": "47-75",
+    "firstPage": 1
+   },
+   {
+    "file": "תרגול 6 א׳ כוחות בין מולקולרים ותכונות קוליגטיביו.pdf",
+    "sha256": "d4d1bc2b81e7846f80dd10091c71a1072357e0ac4fe64dd4ab7ce50e23780ef5",
+    "pages": "16-19",
+    "firstPage": 30
+   }
+  ]
+ },
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G15-t41",
+    "theory:G15-t42",
+    "theory:G15-t43",
+    "theory:G15-t44"
+   ],
+   "rationale": "תערובת מומסים: מחברים iⱼnⱼ לכל המומסים. מבוסס על תרגיל בית 6 שאלה 13ג-ד (CaCl₂ וגלוקוז יחד); אין שקף מקור (sha256 22b296e8d0902491)."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G15-t47",
+    "theory:G15-t48",
+    "theory:G15-t49",
+    "theory:G15-t50",
+    "worked:12"
+   ],
+   "rationale": "מומס שכבר התפרק ליון לפני פירוק חלקי: i=2+α. מבוסס על תרגיל בית 6 שאלה 21 (NaHA, צפיפות, Π ולחץ אדים); אין שקף מקור."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "theory:G15-t51",
+    "worked:13",
+    "quiz:15"
+   ],
+   "rationale": "לחץ אדים שווה בשני כלים ומסות ממס שונות. מבוסס על תרגיל בית 6 שאלה 18 (סוכר ו-NaCl); אין שקף מקור."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "תרגיל בית 6 א+ב.pdf",
+   "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+   "items": [
+    {
+     "ref": "Q13ג",
+     "use": "method-only",
+     "targets": [
+      "theory:G15-t41",
+      "theory:G15-t42",
+      "theory:G15-t43",
+      "theory:G15-t44",
+      "quiz:7"
+     ]
+    },
+    {
+     "ref": "Q11",
+     "use": "method-only",
+     "targets": [
+      "worked:8",
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q14",
+     "use": "method-only",
+     "targets": [
+      "worked:11",
+      "quiz:14"
+     ]
+    },
+    {
+     "ref": "Q15",
+     "use": "method-only",
+     "targets": [
+      "worked:10",
+      "quiz:13"
+     ]
+    },
+    {
+     "ref": "Q18",
+     "use": "data-and-method",
+     "targets": [
+      "worked:13"
+     ]
+    },
+    {
+     "ref": "Q18",
+     "use": "method-only",
+     "targets": [
+      "quiz:10",
+      "quiz:15",
+      "theory:G15-t51"
+     ]
+    },
+    {
+     "ref": "Q21",
+     "use": "data-and-method",
+     "targets": [
+      "worked:12"
+     ]
+    },
+    {
+     "ref": "Q21",
+     "use": "method-only",
+     "targets": [
+      "quiz:8",
+      "theory:G15-t47",
+      "theory:G15-t48",
+      "theory:G15-t49",
+      "theory:G15-t50"
+     ]
+    },
+    {
+     "ref": "Q10",
+     "use": "not-covered",
+     "reason": "שיטה חסרה בפועל: מעבר מנוסחה אמפירית (HgCl) לנוסחה מולקולרית דרך המסה המולרית, כשהממס הוא HgCl₂. אין פריט או דוגמה ייעודיים ולא נטען כיסוי."
+    },
+    {
+     "ref": "Q12",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. נקודות רתיחה של תמיסות שאלה 11: אין פריט ייעודי."
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q3א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9"
+     ]
+    },
+    {
+     "ref": "Q3ב",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9"
+     ]
+    },
+    {
+     "ref": "Q3א",
+     "use": "method-only",
+     "targets": [
+      "quiz:12"
+     ]
+    },
+    {
+     "ref": "Q6א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:11"
+     ]
+    },
+    {
+     "ref": "Q8ד",
+     "use": "data-and-method",
+     "targets": [
+      "worked:10"
+     ]
+    },
+    {
+     "ref": "Q13ב",
+     "use": "method-only",
+     "targets": [
+      "worked:8",
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q11ג",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q13ג",
+     "use": "method-only",
+     "targets": [
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q3ג",
+     "use": "not-covered",
+     "reason": "נתוני התרגיל לא בשימוש. נקודת רתיחה של NaCl ב-50% משקלי: לא נבנה פריט, כי תמיסה כה מרוכזת רחוקה ממודל התמיסה המדוללת של התכונות הקוליגטיביות."
+    },
+    {
+     "ref": "Q11ב",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. השוואת נקודות רתיחה של NaCl וגלוקוז: אין פריט ייעודי."
+    }
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "0c2b46de23de806ab5dc2cec46fe04d5fcf9dfc8672babb3aa1cc3d0d82c5f41",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת תכונות קוליגטיביות",
+     "targets": [
+      "theory:G15-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "763c51cfcd091b1f3486554d9dd167305d912b341c1c53cf14ab8129fc356fa8",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "איור: כיוון זרימה באוסמוזה",
+     "targets": [
+      "theory:G15-t20",
+      "theory:G15-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "55fa8b3546b66c80914184ab768cb19638dd7dcf98aaa16169552ea314c8c5fd",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חוק ראול למומס לא נדיף וירידת לחץ אדים",
+     "targets": [
+      "theory:G15-t02",
+      "theory:G15-t03",
+      "theory:G15-t04",
+      "theory:G15-t05",
+      "theory:G15-t06"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "e90495f20dba86fd1843ddd916f9e7f51adede3bf19e8950bedf20a4f8f9306b",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אוסמוזה: סוכרוז וממס מול קרום",
+     "targets": [
+      "theory:G15-t20",
+      "theory:G15-t21"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "3ce83363899b72915ab79ff583ee0ea9bdc5f472b5b0f5b02980552e5d8e9630",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ אוסמוטי וקרום חדיר למחצה",
+     "targets": [
+      "theory:G15-t19",
+      "theory:G15-t20",
+      "theory:G15-t22",
+      "theory:G15-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "5f5c8dbba8de8681fbc3038328a6eb65b9b171f62f14f773b5cc13ab2f23c95e",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ אוסמוטי כלחץ שעוצר אוסמוזה",
+     "targets": [
+      "theory:G15-t19",
+      "theory:G15-t23",
+      "theory:G15-t24",
+      "theory:G15-t25",
+      "theory:G15-t26"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "def22c366e90fa28b0d74f85e37298a6457340be4d1168409f47cecf0619c3c0",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "קשר לחץ אוסמוטי ללחץ האדים",
+     "targets": [
+      "theory:G15-t28",
+      "theory:G15-t29",
+      "theory:G15-t30",
+      "theory:G15-t31",
+      "theory:G15-t32"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "34dd0e6ed6e06cfc6cfe6c7b3f7f1a9b3a14a9d372019d2690ba94006883172b",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Π בהשוואה ל-nRT ופקטור ון הוף",
+     "targets": [
+      "theory:G15-t19",
+      "theory:G15-t23",
+      "theory:G15-t24",
+      "theory:G15-t25"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "eb5b134365fc3a0dc11ee378bdf314b15fe0c74e6bd35678e7cc6a7073f9d8c9",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "דוגמה: מסה מולרית מלחץ אוסמוטי",
+     "targets": [
+      "theory:G15-t33",
+      "theory:G15-t34",
+      "theory:G15-t40",
+      "worked:4"
+     ],
+     "rationale": "בדוגמת המקור חסרים נתונים על נפח התמיסה; הסייג והתיקון הוסברו בבלוק 40."
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "495d65391b1136ef4c60e458d47e7605a13c92ee0e336879ff9964260523a0b6",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תמיסות היפרטוניות, איזוטוניות והיפוטוניות",
+     "targets": [
+      "theory:G15-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "af17d637654cebc17cbdda42e45a17acd5b97d7e01a74c3437afb9e48147855e",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "אוסמוזה הפוכה והתפלה",
+     "targets": [
+      "theory:G15-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "3efc3c02e84ff90e68056c3157f51414c9b7c3b19e691621c76cb173c7550338",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מבוא להורדת קיפאון והעלאת רתיחה",
+     "targets": [
+      "theory:G15-t11",
+      "theory:G15-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "d07de64efdee1804b09a2045b4906b98368acef6576594a9b0c2aa07b5ef17ce",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "העלאת נקודת רתיחה והגדרת רתיחה נורמלית",
+     "targets": [
+      "theory:G15-t13",
+      "theory:G15-t14",
+      "theory:G15-t15",
+      "worked:9"
+     ],
+     "rationale": "worked:9 עוקב אחרי דוגמאות בחינה (1577f770) שאלה 3א-ב: שבר מולי ממשקל אחוזים, לחץ אדים ונקודת רתיחה; כולל סייג לריכוז גבוה."
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "031f729208b52584d2ed405daa24e0946f68830953df777979bbcfa89afdefe8",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הקבוע האבוליוסקופי וההגדרה שלו",
+     "targets": [
+      "theory:G15-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "1624ac161e9ee43952c39ae04073ecc995efd01ad2dc2b2de1110846e102f222",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "נוסחת העלאת רתיחה",
+     "targets": [
+      "theory:G15-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "5320221c9d2a1d24d24aacd817bdce066dc6afcf7215ce909acb6f95e6a5ead8",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלת K_b לכמה ממסים",
+     "targets": [
+      "theory:G15-t53"
+     ],
+     "rationale": "נבחרו ערכי דוגמה בטקסט מקורי עם סייג; הטבלה לא הועתקה."
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "cb74572254bff5b4045ae2861816f8f18772ead5a9007ec91ee36c01feabf8bc",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "נוסחאות ΔT עם סימנים ואיור ירידת לחץ אדים",
+     "targets": [
+      "theory:G15-t13",
+      "theory:G15-t18"
+     ],
+     "rationale": "הסימנים השליליים בשקף אינם עקביים עם הגדרת גדלים חיוביים; תוקן כמוסבר בבלוק 18."
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "bc5f5fc8499df3908c20791bc7dc1f4d6b0a46a94bf052bb42d6c31ca565f8db",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הורדת נקודת קיפאון",
+     "targets": [
+      "theory:G15-t13",
+      "theory:G15-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "c541b520afb5545fd2902295d7dccdd45d752d978efe2a8f452e9b1e5e679ae8",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "table",
+     "disposition": "corrected",
+     "label": "טבלת K_f לכמה ממסים",
+     "targets": [
+      "theory:G15-t53"
+     ],
+     "rationale": "כותרת העמודה בשקף היא K_b אך הערכים הם K_f; תוקן בבלוק 53."
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "06b004e96cd71fc8b6bb2c442ac3099a6027d44905f33e5a4d84d74da1f7470f",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מדוע יורדת נקודת הקיפאון",
+     "targets": [
+      "theory:G15-t17"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "041988ca82120ec58641286eeb674c84b6ddd65d50cbe43dc5192dbbd9b91581",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "נוסחת הורדת קיפאון",
+     "targets": [
+      "theory:G15-t13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "ea4ba3b4a256b7939537e8bf699186d33b361d24502a59b8b4993c9f7d8079fb",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "ΔT_f ו-ΔT_b בסימן שלילי",
+     "targets": [
+      "theory:G15-t18"
+     ],
+     "rationale": "השקף כותב סימן מינוס בנוסחאות; אצלנו גדלי השינוי חיוביים."
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "57551adb3eeba113e91d0fc7ee428c7e108bbce068faf53c556c283c4aaaf6cc",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: נוסחה מולקולרית מהורדת קיפאון",
+     "targets": [
+      "theory:G15-t35",
+      "theory:G15-t36",
+      "theory:G15-t37",
+      "theory:G15-t38",
+      "theory:G15-t39",
+      "worked:11",
+      "quiz:14"
+     ],
+     "rationale": "worked:11 עוקב אחרי תרגיל בית 6 שאלה 14 (22b296e8) ודוגמאות בחינה (1577f770) שאלה 6א: זיהוי x במלח MFx מהורדת קיפאון או העלאת רתיחה."
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "8901234230da84842c3f91d4b234f45660625504a6bbd8bed6d1b188a9fc3b1f",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "concept",
+     "disposition": "adapted",
+     "label": "יישומים: הגנת פרי הדר ונוזל להפשרת מטוסים",
+     "targets": [
+      "theory:G15-t52"
+     ],
+     "rationale": "היישומים תוארו מחדש בלי לקבוע המלצה מעשית."
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "7bcea400cd427b2f414785d3dda202f9dd049ed4514760cd8cbe774de2b7e84d",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אלקטרוליטים: פירוק ליונים אצל ארניוס",
+     "targets": [
+      "theory:G15-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "4f521c30ab736c4569eb8b88f7a0790294f03b7826eb96d29ec1644cfce8a725",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "corrected",
+     "label": "פקטור ון הוף i",
+     "targets": [
+      "theory:G15-t10",
+      "theory:G15-t40",
+      "theory:G15-t45",
+      "theory:G15-t46"
+     ],
+     "rationale": "בשקף 72 מופיע i=1.94 ובשקף 73 הערך 1.98 לאותה השוואה; הנכון 1.941, ראו בלוק 40."
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "ccc6d7f047399e822748da4b092dd2ab0e3981002dd8661687786510cfde9b2e",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "exercise",
+     "disposition": "corrected",
+     "label": "השוואת אוריאה למלח: i חריג",
+     "targets": [
+      "theory:G15-t10",
+      "theory:G15-t16",
+      "theory:G15-t40",
+      "worked:2"
+     ],
+     "rationale": "בשקף 72 i=1.94 ובשקף 73 i=1.98 לאותו חישוב; הערך הנכון 0.0361/0.0186=1.941, תוקן בבלוק 40."
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "a72c454c57a34659fd7bcd5d0413d89b3628427c01bb6bb9bc2ac2086f2cdb9e",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "equation",
+     "disposition": "corrected",
+     "label": "נוסחאות Π, ΔT_f, ΔT_b עם i",
+     "targets": [
+      "theory:G15-t11",
+      "theory:G15-t18",
+      "theory:G15-t19"
+     ],
+     "rationale": "הסימנים השליליים בשקף אינם עקביים; הוצגו כגדלים חיוביים."
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "f7bbaa875cbad898eb458c05031de23b2a2c5e4e115201ce0a278bacc4e5e1b9",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אינטראקציות בין־יוניות וסטייה מהמודל",
+     "targets": [
+      "theory:G15-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "70cee14a4162dce1788054e463d3d4afeb5b2f083911299fcba048001144d1d5",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "ריענון ריכוז: מולריות, מולליות ושבר מולי",
+     "targets": [
+      "theory:G15-t07",
+      "theory:G15-t08",
+      "theory:G15-t09"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "6a6905d52e886db93c733ee5c375edd6e1b24987540341ad8097f33900dc1dac",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מבוא לתכונות קוליגטיביות",
+     "targets": [
+      "theory:G15-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "77603ae483afc7bc704899cbfb5d502a3f5f79369ec92206c3ef167a947ab5e1",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ אדים וחוק ראול למומס לא נדיף",
+     "targets": [
+      "theory:G15-t02",
+      "theory:G15-t03",
+      "quiz:12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "2d8b306eb280e09384dc8c97b8db37c0d2bafb9da7dd97d132d23dda4ef89e78",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "הפרש לחץ האדים ΔP",
+     "targets": [
+      "theory:G15-t04",
+      "theory:G15-t05",
+      "theory:G15-t06",
+      "worked:10",
+      "quiz:13"
+     ],
+     "rationale": "worked:10 עוקב אחרי תרגיל בית 6 שאלה 15 (22b296e8) ודוגמאות בחינה (1577f770) שאלה 8ד: מסה מולרית מירידת לחץ אדים בנקודת רתיחה נורמלית של הממס."
+    }
+   ]
+  }
+ ]
+}

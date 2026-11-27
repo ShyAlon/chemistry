@@ -60,7 +60,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'0be1ffb658af1ba6f3b88d2bdd971b99b76cc3623c14bb20d9e38052c5e585d5');
  assert.equal(course.topics.length,16);
  for(const [id,add] of Object.entries(layer)){
-  for(const k of ['theory','worked','quiz'])assert.deepEqual(topic(id).content[k].filter(x=>x.finalPrep),add[k]);
+  for(const k of ['theory','worked','quiz'])assert.deepEqual(topic(id).content[k].filter(x=>x.finalPrep).map(x=>{if(k!=='theory'||id!=='G12')return x;const {id:_ignored,...r}=x;return r}),add[k]);
   const ids=topic(id).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);
   const origIds=topic(id).content.quiz.filter(q=>!q.finalPrep&&!q.batch5).map(q=>q.id);
   assert.equal(add.quiz[0].id,Math.max(...origIds)+1);

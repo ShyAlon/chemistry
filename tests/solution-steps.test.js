@@ -99,3 +99,13 @@ _t('signed value inside a quantity list stays in the list; ratio becomes an LTR 
   _assert.deepEqual(_sqty('ה. −10°C, 2 atm', true).filter(p => p.quantity).map(p => p.text), ['−10°C,\u00a02\u00a0atm']);
   _assert.ok(_er('NaCl: 1/58.5 mol ליחידות').some(p => p.equation));
 });
+
+import {breakMath} from '../src/solution-steps.js';
+test('breakMath breaks only after top-level operators and never inside brackets, units or signs',()=>{
+ const out=breakMath('8.314×300.15 / (√2·π·(3.4×10⁻¹⁰)²·Nₐ·P)');
+ assert.equal(out.replace(/\u200b/g,''),'8.314×300.15 / (√2·π·(3.4×10⁻¹⁰)²·Nₐ·P)');
+ assert.ok(out.includes('×\u200b300.15'));
+ assert.ok(!/\([^)]*\u200b[^)]*\)/.test(out.replace(/\(√2.*$/,'')));
+ assert.equal(breakMath('J/(mol·K)').includes('\u200b'),false);
+ assert.equal(breakMath('Cd²⁺ + 2e⁻').replace(/\u200b/g,''),'Cd²⁺ + 2e⁻');
+});

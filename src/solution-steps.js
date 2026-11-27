@@ -59,3 +59,10 @@ const QTY_PREFIX=new RegExp('('+PREFIXED+'|'+LIST+')');
 const cut=(text,re)=>String(text).split(re).map((x,i)=>i%2?{text:x.replace(/\s/g,'\u00a0'),quantity:true}:{text:x}).filter(x=>x.text!=='');
 // Only a number with a unit, or a number right after a Hebrew prefix hyphen, is isolated. Bare numbers stay in the surrounding run.
 export const splitQuantities=(text,prefixOnly=false)=>cut(text,prefixOnly?QTY_PREFIX:QTY_ALL);
+
+// Break opportunities for a long inline expression: only after a top-level operator (never inside brackets, never in a signed number or unit).
+export const breakMath=s=>{let d=0,o='';const t=[...s];for(let i=0;i<t.length;i++){const c=t[i];o+=c;if('([{'.includes(c))d++;else if(')]}'.includes(c))d=Math.max(0,d-1);
+ else if(!d){const p=t[i-1]||'',n=t[i+1]||'';const sp=n===' '||n==='\u00a0';
+  if(c==='×'&&/[\d)\]]/.test(p)&&n!=='\u200b')o+='\u200b';
+  else if((c==='/'||c==='+'||c==='−'||c==='·')&&(sp&&(p===' '||p==='\u00a0'||c==='/'||/[\d)]/.test(p)))&&n!=='\u200b'){o+=sp?t[++i]+'\u200b':'\u200b'}
+  else if(c==='·'&&/\d/.test(p)&&/\d/.test(n))o+='\u200b'}}return o};

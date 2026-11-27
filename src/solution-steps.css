@@ -12,4 +12,5 @@
 .solution .inline-equation{unicode-bidi:isolate;direction:ltr;display:inline;font-variant-numeric:tabular-nums}
 .solution .inline-equation .eq-chunk{white-space:nowrap}
 .solution .inline-equation .eq-chunk+.eq-chunk{white-space:nowrap}
-.solution .solution-step.solution-calc .display-math{overflow-x:visible;width:auto}.solution .solution-step.solution-calc .display-math>div{min-width:0;max-width:100%}.solution .solution-step.solution-calc .display-math .math-fraction{white-space:nowrap}
+.solution .solution-step.solution-calc .display-math{overflow-x:auto;width:fit-content;max-width:100%;scrollbar-width:thin;scrollbar-color:#71e4f4 #152131;box-shadow:inset -10px 0 8px -8px #71e4f455}.solution .solution-step.solution-calc .display-math>div{min-width:0}.solution .solution-step.solution-calc .display-math .math-fraction{white-space:nowrap}
+.solution .inline-equation .eq-chunk{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom;scrollbar-width:thin;scrollbar-color:#71e4f4 #152131}

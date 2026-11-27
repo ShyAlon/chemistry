@@ -1,0 +1,16 @@
+/* Lesson display rule applied to solutions: one idea per block, lesson text size, calm spacing. */
+.solution .solution-steps{display:flex;flex-direction:column;gap:0;margin:0 0 16px}
+.solution .solution-steps:last-child{margin-bottom:0}
+.solution .solution-step{margin:0;padding:10px 0;font-size:18px;line-height:1.85;color:#c5d1df;border-top:1px solid rgba(113,228,244,.12)}
+.solution .solution-step:first-child{border-top:0;padding-top:0}
+.solution .solution-step:last-child{padding-bottom:0}
+.solution .solution-step.solution-calc{padding:4px 0;border:0}
+.solution .solution-step.solution-calc .display-math{margin:0;font-size:1.05em}
+.solution .solution-step.solution-calc+.solution-step{border-top:0}
+.solution .signed-quantity{white-space:nowrap;unicode-bidi:isolate}
+.solution .solution-step.solution-calc .display-math,.solution .solution-step.solution-calc .display-math *{white-space:normal;overflow-wrap:normal;word-break:normal}
+.solution .inline-equation{unicode-bidi:isolate;direction:ltr;display:inline;font-variant-numeric:tabular-nums}
+.solution .inline-equation .eq-chunk{white-space:nowrap}
+.solution .inline-equation .eq-chunk+.eq-chunk{white-space:nowrap}
+.solution .solution-step.solution-calc .display-math{overflow-x:auto;width:fit-content;max-width:100%;scrollbar-width:thin;scrollbar-color:#71e4f4 #152131;box-shadow:inset -10px 0 8px -8px #71e4f455}.solution .solution-step.solution-calc .display-math>div{min-width:0}.solution .solution-step.solution-calc .display-math .math-fraction{white-space:nowrap}
+.solution .inline-equation .eq-chunk{display:inline-block;max-width:100%;overflow-x:auto;vertical-align:bottom;scrollbar-width:thin;scrollbar-color:#71e4f4 #152131}

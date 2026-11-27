@@ -26,6 +26,7 @@ const steps=[
  {id:'served-dist',...sh('npm run test:served',{DIST_DIR:'dist'})},
  {id:'snapshot',...sh('python3 scripts/release-output.py check-snapshot'),hint:'stale snapshot: run `python3 scripts/release-output.py refresh-snapshot`, review and commit the two recovery files, then re-run the gate on that exact commit'},
  {id:'build-test',...sh('rm -rf dist-test && npm run build:test')},
+ {id:'solution-overflow',...sh('node scripts/check-solution-overflow.mjs'),hint:'a worked solution clips text at 320/390 px: fix the wrapping or keep a scroll fallback'},
  {id:'browser',...sh('npm run test:browser',{DIST_DIR:'dist-test'})},
  {id:'pwa',...sh('npm run test:pwa',{DIST_DIR:'dist-test'})},
  {id:'practice',...sh('npm run test:practice',{DIST_DIR:'dist-test'})},

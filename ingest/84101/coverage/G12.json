@@ -189,7 +189,7 @@
           "id": "p05.u1",
           "kind": "claim",
           "disposition": "covered",
-          "label": "CO₂ מתעבה מגז למוצק ונוזל רק בלחץ גבוה",
+          "label": "CO₂ נוזלי רק בלחץ מעל 5.1 אטמוספרות; בלחץ אטמוספרי המוצק עובר המראה",
           "targets": [
             "theory:G12-t31",
             "quiz:16"
@@ -330,7 +330,8 @@
           "label": "סדר ארוך טווח בגביש",
           "targets": [
             "theory:G12-t36",
-            "theory:G12-t16"
+            "theory:G12-t16",
+            "theory:G12-t52"
           ]
         }
       ]
@@ -342,12 +343,11 @@
         {
           "id": "p13.u1",
           "kind": "figure",
-          "disposition": "adapted",
+          "disposition": "covered",
           "label": "ריצוף כאנלוגיה לתא יחידה",
           "targets": [
-            "theory:G12-t36"
-          ],
-          "rationale": "האנלוגיה נכתבה בטקסט מקורי."
+            "theory:G12-t51"
+          ]
         }
       ]
     },
@@ -361,7 +361,8 @@
           "disposition": "covered",
           "label": "סריג ותא יחידה",
           "targets": [
-            "theory:G12-t36"
+            "theory:G12-t36",
+            "theory:G12-t53"
           ]
         }
       ]
@@ -595,7 +596,8 @@
           "label": "עקיפת קרני X ומידע על המבנה",
           "targets": [
             "theory:G12-t16",
-            "theory:G12-t12"
+            "theory:G12-t12",
+            "theory:G12-t54"
           ]
         }
       ]
@@ -755,13 +757,14 @@
         {
           "id": "p37.u1",
           "kind": "figure",
-          "disposition": "adapted",
+          "disposition": "covered",
           "label": "תאי ZnS, CaF₂ ו-TiO₂",
           "targets": [
             "theory:G12-t47",
-            "worked:17"
-          ],
-          "rationale": "נכתב בטקסט מקורי; TiO₂ כוסה כעיקרון בלבד."
+            "theory:G12-t55",
+            "worked:17",
+            "worked:22"
+          ]
         }
       ]
     },
@@ -824,9 +827,11 @@
           "id": "p41.u1",
           "kind": "concept",
           "disposition": "covered",
-          "label": "תא היחידה כאריח מרחבי",
+          "label": "תא היחידה כאריח מרחבי ותא סטנדרטי",
           "targets": [
-            "theory:G12-t36"
+            "theory:G12-t36",
+            "theory:G12-t51",
+            "theory:G12-t52"
           ]
         }
       ]

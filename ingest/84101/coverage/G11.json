@@ -68,7 +68,9 @@
           "label": "פנים־מולקולרי מול בין־מולקולרי",
           "targets": [
             "theory:G11-t01",
-            "theory:G11-t07"
+            "theory:G11-t07",
+            "theory:G11-t35",
+            "worked:14"
           ]
         }
       ]
@@ -211,7 +213,9 @@
           "label": "נקודות רתיחה של אלקנים ושרשרת מסועפת",
           "targets": [
             "theory:G11-t04",
-            "worked:1"
+            "theory:G11-t36",
+            "worked:1",
+            "worked:15"
           ]
         }
       ]
@@ -303,10 +307,12 @@
           "id": "p16.u1",
           "kind": "equation",
           "disposition": "covered",
-          "label": "Ep ∝ -μ1μ2/r³",
+          "label": "Ep ∝ -μ1μ2/r³ ודיכלורובנזן אורתו/פארא",
           "targets": [
             "theory:G11-t17",
-            "theory:G11-t18"
+            "theory:G11-t18",
+            "theory:G11-t34",
+            "worked:13"
           ]
         }
       ]
@@ -420,10 +426,14 @@
       "units": [
         {
           "id": "p23.u1",
-          "kind": "title",
-          "disposition": "admin",
-          "label": "שקף כותרת קשרי מימן",
-          "rationale": "שקופית כותרת ללא תוכן."
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "גרף נקודות רתיחה של הידרידים קבוצות 14-17 מול מסה מולקולרית",
+          "rationale": "נקראו המגמה והחריגות איכותית; לא נקראו ערכים מהגרף. ה-p23 הוא שקף כותרת רק בשם, ובפועל מכיל גרף (אומת על הרינדור).",
+          "targets": [
+            "theory:G11-t33",
+            "worked:12"
+          ]
         }
       ]
     },
@@ -497,10 +507,12 @@
           "id": "p28.u1",
           "kind": "concept",
           "disposition": "covered",
-          "label": "ארבעה קשרי מימן במים/קרח",
+          "label": "ארבעה קשרי מימן במים וגרף צפיפות מים/קרח",
           "targets": [
             "theory:G11-t06",
-            "theory:G11-t29"
+            "theory:G11-t29",
+            "theory:G11-t38",
+            "worked:16"
           ]
         }
       ]
@@ -578,9 +590,10 @@
           "label": "טבלת קשרים: יוני/קוולנטי/מתכתי",
           "targets": [
             "theory:G11-t24",
-            "theory:G11-t25"
+            "theory:G11-t25",
+            "theory:G11-t37"
           ],
-          "rationale": "טווחים שונים מהטבלאות האחרות; לא הועתקו כערכי ייחוס."
+          "rationale": "טווחי האנרגיה של קשר יוני/קוולנטי/מתכתי הוצגו כנתוני שקופית מסויגים (חופפים, לא ערכי ייחוס) ב-t37, לצד הטבלאות האחרות."
         }
       ]
     },
@@ -611,7 +624,9 @@
           "disposition": "covered",
           "label": "פנים/בין־מולקולרי",
           "targets": [
-            "theory:G11-t01"
+            "theory:G11-t01",
+            "theory:G11-t35",
+            "worked:14"
           ]
         }
       ]
@@ -845,7 +860,9 @@
           "label": "דיפול־דיפול",
           "targets": [
             "theory:G11-t17",
-            "theory:G11-t19"
+            "theory:G11-t19",
+            "theory:G11-t34",
+            "worked:13"
           ]
         }
       ]

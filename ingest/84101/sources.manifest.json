@@ -65,6 +65,14 @@
     {
       "file": "General Chemistry 3.pdf",
       "sha256": "9039d9f7d9be3943b335fe6d0d8747d40291e0ffd8d9677504bd23ede6c06c88"
+    },
+    {
+      "file": "General Chemistry 5.pdf",
+      "sha256": "131d01a024a3eb145aeffe93065c94382d2df2df4d283ec86d038ec9d027eee6"
+    },
+    {
+      "file": "lecture 8 Mastai.pdf",
+      "sha256": "d6687f2bccf87930a1743155380d152b9464e5232d61ca78356343960c001adb"
     }
   ]
 }

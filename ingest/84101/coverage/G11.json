@@ -1,0 +1,971 @@
+{
+  "schema": 2,
+  "course": "84101",
+  "topic": "G11",
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY"
+  ],
+  "semanticReview": {
+    "status": "done",
+    "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
+    "sourceSha256": "a65ffae2eedc2cc002a86eeb36c207185ef56e7c873561b0526136ddc07a1ce7",
+    "contentSha256": "f7d24ee51bd2e81c3f8e520177a4fbcb02bfdefb011b0f8b3bd00137e7a04d52",
+    "unitMapSha256": "75b475ca228fe3108bc872dada3cf27dbc9805293f5002c13956141472d0f67f",
+    "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+    "adminPagesAttested": []
+  },
+  "source": {
+    "sha256": "a65ffae2eedc2cc002a86eeb36c207185ef56e7c873561b0526136ddc07a1ce7",
+    "kind": "multi-file-deck",
+    "pageCount": 55,
+    "locatorScheme": "GC5 pp31-69 belong to other topics and lecture 8 p1 is a title slide (neither in this deck). deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
+    "files": [
+      {
+        "file": "General Chemistry 5.pdf",
+        "sha256": "131d01a024a3eb145aeffe93065c94382d2df2df4d283ec86d038ec9d027eee6",
+        "pages": "1-30",
+        "firstPage": 1
+      },
+      {
+        "file": "lecture 8 Mastai.pdf",
+        "sha256": "d6687f2bccf87930a1743155380d152b9464e5232d61ca78356343960c001adb",
+        "pages": "2-26",
+        "firstPage": 31
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "file": "תרגיל בית 6 א+ב.pdf",
+      "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+      "items": [
+        {
+          "ref": "Q2",
+          "use": "data-and-method",
+          "targets": [
+            "worked:11"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "תרגול 6 א׳ כוחות בין מולקולרים ותכונות קוליגטיביו.pdf",
+      "sha256": "d4d1bc2b81e7846f80dd10091c71a1072357e0ac4fe64dd4ab7ce50e23780ef5",
+      "items": [
+        {
+          "ref": "Q1",
+          "use": "data-and-method",
+          "targets": [
+            "worked:8"
+          ]
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "7e777d47d849e4bac90d066d102db503706c0197be73bdb1f35a388d48c18cc2",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פנים־מולקולרי מול בין־מולקולרי",
+          "targets": [
+            "theory:G11-t01",
+            "theory:G11-t07",
+            "theory:G11-t35",
+            "worked:14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "f935d0a36a0eda6cfbbf35fdc6c4b5aa1523f7071d1681eafd02e48ac80a6fb9",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "טבע אלקטרוסטטי של הכוחות",
+          "targets": [
+            "theory:G11-t07"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "fb429dd570572ce5ab2b880786e941697e6ed87c701c902cbbcc995e82ddf67b",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלת אנרגיות טיפוסיות",
+          "targets": [
+            "theory:G11-t24",
+            "theory:G11-t25",
+            "theory:G11-t08"
+          ],
+          "rationale": "הטבלה לא הועתקה כערכי ייחוס. שלוש טבלאות המקורות אינן עקביות, והטקסט מציג את חוסר ההתאמה וסדר גודל איכותי בלבד."
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "8d9e94f985bcf4f79f190d3b535fe57898988de345df50f6a2e1972322d961eb",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "יון־יון: סביבת NaCl",
+          "targets": [
+            "theory:G11-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "8f938fe93b23ac52452e457cb8e6d8dd016222b3a837e47099bdb0d7efc217c0",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "חוק קולון",
+          "targets": [
+            "theory:G11-t12",
+            "theory:G11-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "158a33de582e7b11d027acf021e03f121617c2c6b5ed24cb1e780cf0e2626c59",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "קשר קוטבי ומטענים חלקיים",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי, ללא העתקת האיור."
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "8736e04b359db0a37ed76c1d8eed5aa15c66318bc8f0e5058b1d2745c17db986",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "אלקטרושליליות",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "הטבלה המחזורית לא הועתקה; נכתב העיקרון."
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "54797df2f9691e312b255c8bec1e34337b74d4dbc7927b945bc90d9c3c38180e",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "אחוז אופי יוני מול הפרש אלקטרושליליות",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נקראה המגמה בלבד, ללא נקודות מספריות."
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "78621d4a15e573e6d5994a95a54290ef079eb3cc83c8176a3db32cead81804d4",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מומנט דיפול של HF ומולקולות סימטריות",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "e281e2a3f64d1203d64bc622ff113e0551ecaa3032ed0973821322ea3a7f9298",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "figure",
+          "disposition": "covered",
+          "label": "נקודות רתיחה של אלקנים ושרשרת מסועפת",
+          "targets": [
+            "theory:G11-t04",
+            "theory:G11-t36",
+            "worked:1",
+            "worked:15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "1c40b2dbae295e78915a2fda89673d0a32dec925b0ea067acc00da69b7ac5473",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מומנט דיפול של מים כווקטור",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "8bae4d40e137491456b7c7cf50488acdc99a145b9da0d965cab4af953a3c28f5",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול־יון",
+          "targets": [
+            "theory:G11-t02",
+            "theory:G11-t14",
+            "theory:G11-t16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "f39a8b275728b8f916a4455df3f69747a3db6af2da69efc9ce542ab77fbf2038",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מיום Na+",
+          "targets": [
+            "theory:G11-t23",
+            "theory:G11-t15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "36cf0ba22665eaa3e1d31168fc224dd2cdf9306a07ffbac10cdcc25bd78c3da1",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מי גביש ומגמת גודל/מטען",
+          "targets": [
+            "theory:G11-t23",
+            "worked:7"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "f59f7d4b58362effda1dde84824f40add351b9d9235ce45fdd27445574bfc285",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול־דיפול: סידור",
+          "targets": [
+            "theory:G11-t17",
+            "theory:G11-t19"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "cb575689b45671f54e437efb23476fe2c4f2b9bdc2e79c6ae45300ee5dca75d2",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "Ep ∝ -μ1μ2/r³ ודיכלורובנזן אורתו/פארא",
+          "targets": [
+            "theory:G11-t17",
+            "theory:G11-t18",
+            "theory:G11-t34",
+            "worked:13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "eb86d0b72e69d552a21b61205d6bf52acf4a9f1377698963e130f0d7ace0a104",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלת N2/NO/O2",
+          "targets": [
+            "theory:G11-t27"
+          ],
+          "rationale": "נבחרו ערכי הטבלה כנתוני שקופית עם הסתייגות."
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "aed8e9803fc8ca6a91757957686206117d1f6e6a74a1444ad3b2772c2c61f147",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול מושרה",
+          "targets": [
+            "theory:G11-t22"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "817c6ebcfd9d3274c127f71b2ab0a21c2d9e3cc8da7aa4f19b1d059fc61ff604",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "כושר קיטוב",
+          "targets": [
+            "theory:G11-t22"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "imageSha256": "e696ba3dd53b901789bbdf53e03d330328662850f07a23bb4f39c9cde0bbec9c",
+      "units": [
+        {
+          "id": "p20.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "מסיסות גזים אצילים ו-O2/CO2 (גלוי)",
+          "targets": [
+            "theory:G11-t26"
+          ]
+        },
+        {
+          "id": "p20.u2",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "עמודת נקודות רתיחה (רק בשכבת הטקסט)",
+          "targets": [
+            "worked:2",
+            "quiz:3"
+          ],
+          "rationale": "עמודות המסיסות והמסה נראות בתמונה ומוצגות. עמודת נקודות הרתיחה (K) קיימת רק בשכבת הטקסט ואינה נראית בתמונה; הבודק מחליט אם להסתמך עליה בתרגילים 2 ו-3."
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "imageSha256": "b25faab22b0d9f8c8032c4c5276e218084ae19b1dc5ca4d9b444a853fcda9aff",
+      "units": [
+        {
+          "id": "p21.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "כוחות לונדון",
+          "targets": [
+            "theory:G11-t03",
+            "theory:G11-t09"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "imageSha256": "54cb25d2ad51c55ddbf9b12a22b0d789fda5c46be6c9ec8ed3a886ccc1673055",
+      "units": [
+        {
+          "id": "p22.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אנרגיית לונדון",
+          "targets": [
+            "theory:G11-t09"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "imageSha256": "65051150ac66a00de69c589002e54689c9ed2576041a38b11a72c757438a9b32",
+      "units": [
+        {
+          "id": "p23.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "גרף נקודות רתיחה של הידרידים קבוצות 14-17 מול מסה מולקולרית",
+          "rationale": "נקראו המגמה והחריגות איכותית; לא נקראו ערכים מהגרף. ה-p23 הוא שקף כותרת רק בשם, ובפועל מכיל גרף (אומת על הרינדור).",
+          "targets": [
+            "theory:G11-t33",
+            "worked:12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "imageSha256": "b486e1d3880a4eb84cf18a50b3ef714b1555ada10fe027ad2c88973fe0f36b4f",
+      "units": [
+        {
+          "id": "p24.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשר מימן: תנאי ועוצמה",
+          "targets": [
+            "theory:G11-t05",
+            "theory:G11-t10",
+            "theory:G11-t11"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "imageSha256": "08dd72b94970870b81b9f1b2d2e03cd3195eceed01ecd8a91a2b435dec8d59ab",
+      "units": [
+        {
+          "id": "p25.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשר מימן במים",
+          "targets": [
+            "theory:G11-t06"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "imageSha256": "bd8bf8a307a084a801fa842769041fb5ecc09c1d23cc4900361baf5b27966009",
+      "units": [
+        {
+          "id": "p26.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "אתנול מול דימתיל אתר, דימרים",
+          "targets": [
+            "theory:G11-t28"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "imageSha256": "71ef354263bc5cd87e4e089952f8dfd1f3ce3ce2824cd605b63c31ce549da27d",
+      "units": [
+        {
+          "id": "p27.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשר מימן תוך־מולקולרי, ניטרופנולים",
+          "targets": [
+            "theory:G11-t29",
+            "worked:10"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "imageSha256": "efb7aca1768c247dbb84feebdfb5cd6fca795608391b484e40adfbd83115ea7c",
+      "units": [
+        {
+          "id": "p28.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "ארבעה קשרי מימן במים וגרף צפיפות מים/קרח",
+          "targets": [
+            "theory:G11-t06",
+            "theory:G11-t29",
+            "theory:G11-t38",
+            "worked:16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "imageSha256": "b8b77999f2307979f5fb9589b942267c2401762e642c92f1e4f1930246e20e97",
+      "units": [
+        {
+          "id": "p29.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשרי מימן בחלבונים",
+          "targets": [
+            "theory:G11-t29"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "imageSha256": "d6b144933e71e3090fca8eff4f6e4571baad8c8585b69390f36d318d23a27724",
+      "units": [
+        {
+          "id": "p30.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קשרי מימן בתאית",
+          "targets": [
+            "theory:G11-t29"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "imageSha256": "1a3b6d31bf6f06cac40375ca2633c88766883eb8321172fa8abc1b3e1ce7bcee",
+      "units": [
+        {
+          "id": "p31.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "intra מול inter",
+          "targets": [
+            "theory:G11-t01"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "imageSha256": "1113364a8addf3e7cd33f6bf68fb65a1057cf8c1c57adae0a961a6657dbf6ef2",
+      "units": [
+        {
+          "id": "p32.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "איורי כוחות פנים/בין־מולקולריים",
+          "targets": [
+            "theory:G11-t01",
+            "theory:G11-t07"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "imageSha256": "60f30bfb5f3eb92d0c2a570c82b46252310b8f71b9ec3073ab4d2f0280d037b1",
+      "units": [
+        {
+          "id": "p33.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלת קשרים: יוני/קוולנטי/מתכתי",
+          "targets": [
+            "theory:G11-t24",
+            "theory:G11-t25",
+            "theory:G11-t37"
+          ],
+          "rationale": "טווחי האנרגיה של קשר יוני/קוולנטי/מתכתי הוצגו כנתוני שקופית מסויגים (חופפים, לא ערכי ייחוס) ב-t37, לצד הטבלאות האחרות."
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "imageSha256": "8b55938becf6c7adf13a19dbb5f5060debdb19339b4accbd71bcc8f5ec618313",
+      "units": [
+        {
+          "id": "p34.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלת אנרגיות הרצאה",
+          "targets": [
+            "theory:G11-t24",
+            "theory:G11-t25",
+            "theory:G11-t08"
+          ],
+          "rationale": "הטווחים אינם מועתקים כערכי ייחוס (ראו עמ׳ 3 ב-GC5)."
+        }
+      ]
+    },
+    {
+      "page": 35,
+      "imageSha256": "3504f9372a09dca987ef5c7e23036b81e5f7770e75665f8c781942368de35ffe",
+      "units": [
+        {
+          "id": "p35.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "פנים/בין־מולקולרי",
+          "targets": [
+            "theory:G11-t01",
+            "theory:G11-t35",
+            "worked:14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "imageSha256": "9674e3f60ea650f52a692adf6d5fe03d715425748808589427215921f5b675f2",
+      "units": [
+        {
+          "id": "p36.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "טבע אלקטרוסטטי",
+          "targets": [
+            "theory:G11-t07"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 37,
+      "imageSha256": "e8ce97567d55eb594d429bcddace56c0fdac376b5f7db8068527f93d04accb98",
+      "units": [
+        {
+          "id": "p37.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "טבלת אנרגיות GC5 שוב",
+          "targets": [
+            "theory:G11-t24",
+            "theory:G11-t25"
+          ],
+          "rationale": "כפילות של GC5 עמ׳ 3."
+        }
+      ]
+    },
+    {
+      "page": 38,
+      "imageSha256": "e012617745bd385b64bae9748b70ebfcd40a27ff48c7324c5b9dd39b5b6e49bf",
+      "units": [
+        {
+          "id": "p38.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "יון־יון NaCl",
+          "targets": [
+            "theory:G11-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 39,
+      "imageSha256": "16d50eb5bc816bbb8da512f24c97149d479c05d7789cf7639bc85fe022d7f121",
+      "units": [
+        {
+          "id": "p39.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "חוק קולון",
+          "targets": [
+            "theory:G11-t12",
+            "theory:G11-t13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "imageSha256": "a5996999a98f5bdd7bffc025e6475f464f99dd9a57ae681abfbefadf2c876921",
+      "units": [
+        {
+          "id": "p40.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "מי נקודת התכה גבוהה יותר: KI/LiF, NaCl/MgO",
+          "targets": [
+            "worked:9"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 41,
+      "imageSha256": "e020077a8be2d4d7e965e6258d9d4b68bfc3daf7082720cd606075c9b7546e75",
+      "units": [
+        {
+          "id": "p41.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "רדיוסים יוניים",
+          "targets": [
+            "worked:9"
+          ],
+          "rationale": "הועברו רדיוסי הדוגמה בלבד, לא כל הטבלה."
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "imageSha256": "927341dbb51bccb3cc85b18c1ea4701d4dd9be6c6a1a9b1661027c7ee9103bdd",
+      "units": [
+        {
+          "id": "p42.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "פתרון: מרחק וגודל מטען",
+          "targets": [
+            "worked:9"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "imageSha256": "ae8ae702a9cd42d2cb301aadda47e4cc785a0da92ae21873ccf350eb4c1db5a3",
+      "units": [
+        {
+          "id": "p43.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיפול קבוע",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 44,
+      "imageSha256": "4b5ea4a9c4262d5ce7ca8ceda9c57355b64bf244aa07dc56ebd8fb1045714a0a",
+      "units": [
+        {
+          "id": "p44.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיפול של מים",
+          "targets": [
+            "theory:G11-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "imageSha256": "1e6972a8d710db34b2dd8f2089970af9ff960ba03f336df18a07819a63e206be",
+      "units": [
+        {
+          "id": "p45.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול־יון",
+          "targets": [
+            "theory:G11-t02",
+            "theory:G11-t14",
+            "theory:G11-t16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "imageSha256": "92bab41f9dccd095d3714409408a7cf88fbf2cdd9ea54c4c8e4c22a2212b40f9",
+      "units": [
+        {
+          "id": "p46.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מיום",
+          "targets": [
+            "theory:G11-t23",
+            "theory:G11-t15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 47,
+      "imageSha256": "94bbb70b3d6250d9b9e27ed8addea3072e4157d4167931e7546a66918bf75739",
+      "units": [
+        {
+          "id": "p47.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מי גביש",
+          "targets": [
+            "theory:G11-t23",
+            "worked:7"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "imageSha256": "b4dbbbecaa4e777fcaa5e201076484c68355a6883e6c7be20b3c0da6d3ae09c4",
+      "units": [
+        {
+          "id": "p48.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תנועה בנוזל",
+          "targets": [
+            "theory:G11-t32"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 49,
+      "imageSha256": "f7ab4a82107a161ddd6e4bcae67626d53c9dd5e9ea364f260f62f70947f04afc",
+      "units": [
+        {
+          "id": "p49.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "פוטנציאל דיפול",
+          "targets": [
+            "theory:G11-t31"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 50,
+      "imageSha256": "f3e4d8b47d2db3c5489f3bf897c8979e8208c93beec95bd5d0d1dd4be4b7140c",
+      "units": [
+        {
+          "id": "p50.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול־דיפול",
+          "targets": [
+            "theory:G11-t17",
+            "theory:G11-t19",
+            "theory:G11-t34",
+            "worked:13"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 51,
+      "imageSha256": "0cd2336bb70453b5fd2dd23c42a649afaaa0fbd337a623039ca99cd3ff3f6183",
+      "units": [
+        {
+          "id": "p51.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "Ep ∝ r^-3",
+          "targets": [
+            "theory:G11-t18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 52,
+      "imageSha256": "6973ec918a57c48c1ea3829b24a7e142fc11e32d48a01a6634bf8dcc16235f10",
+      "units": [
+        {
+          "id": "p52.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "גז מול נוזל: r^-6 מול r^-3",
+          "targets": [
+            "theory:G11-t20",
+            "theory:G11-t21"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 53,
+      "imageSha256": "bca61dafbc13b0198534fdc5d5ee60f8790dc894776d4981f8ac58fd3780dfb7",
+      "units": [
+        {
+          "id": "p53.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "דיפול מושרה",
+          "targets": [
+            "theory:G11-t22"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 54,
+      "imageSha256": "ba6ceab6f4224fdebf00f7e22aff29ae22b9846dd126db42297d6d27d37da0b9",
+      "units": [
+        {
+          "id": "p54.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "כושר קיטוב",
+          "targets": [
+            "theory:G11-t22"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 55,
+      "imageSha256": "3fd87b011510a0ed48773fec437b82eeea51adc9f76e390005a0595426915b14",
+      "units": [
+        {
+          "id": "p55.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "מסיסות גזים אצילים (גלוי)",
+          "targets": [
+            "theory:G11-t26"
+          ]
+        },
+        {
+          "id": "p55.u2",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "עמודת נקודות רתיחה (רק בשכבת הטקסט)",
+          "targets": [
+            "worked:2",
+            "quiz:3"
+          ],
+          "rationale": "כמו GC5 עמ׳ 20: העמודה אינה נראית בתמונה; בתרגילים הוסרו הערכים ונשארה מגמה עם ציון שהמקור אינו גלוי."
+        }
+      ]
+    }
+  ]
+}

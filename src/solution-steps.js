@@ -29,3 +29,17 @@ export function splitSignedQuantities(text){return String(text).split(SIGNED).fi
 // Display glue for a calculation line: a number never separates from its unit, and the line may only break after "=".
 const UNIT='(?:mol\\/kg|mol\\/L|g\\/mol|L·atm\\/\\(mol·K\\)|mmHg|atm|kPa|Pa|kg|mol|mL|cm³|dm³|g|L|K|J|kJ|°C|nm|pm|u|M|m)';
 export const glueCalculation=s=>s.replace(new RegExp('(\\d)\\s+(?='+UNIT+'(?![\\w.]))','g'),'$1\u00a0').replace(/=(?!\u200b)/g,'=\u200b');
+// Inside a mixed Hebrew step, an inline equation (a non-Hebrew run holding "=" and a digit) is one left-to-right unit.
+export function splitEquationRuns(text){
+  const out=[];let last=0;const re=/[^\u0590-\u05FF\n]+/g;let m;
+  while((m=re.exec(text))){
+    const run=m[0];if(!/=/.test(run)||!/\d/.test(run))continue;
+    const lead=run.match(/^[\s,;:.]*/)[0].length;const trail=run.match(/[\s,;:.]*$/)[0].length;
+    const core=run.slice(lead,run.length-trail);if(!core)continue;
+    const start=m.index+lead;
+    if(start>last)out.push({text:text.slice(last,start)});
+    out.push({text:glueCalculation(core),equation:true});last=start+core.length;
+  }
+  if(last<text.length)out.push({text:text.slice(last)});
+  return out;
+}

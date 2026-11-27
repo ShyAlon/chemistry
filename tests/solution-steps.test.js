@@ -46,3 +46,11 @@ _t('Hebrew abbreviations and conclusion text unchanged by display text', () => {
   const s = 'ולכן ΔT = 2 K, כלומר מ"ל ו-ג׳ ממס.';
   _assert.equal(_disp(s).replace(/\s+/g, ' ').trim(), s);
 });
+
+import {splitEquationRuns as _er} from '../src/solution-steps.js';
+_t('inline equation inside Hebrew step becomes one LTR run, text preserved', () => {
+  const s = 'בדיקת עיבוי: n=0.200×0.08206×298.15/8.00 = 0.612 atm = 465 mmHg — גבוה מ-23.76 mmHg.';
+  const parts = _er(s);
+  _assert.ok(parts.some(p => p.equation && p.text.includes('0.612\u00a0atm')));
+  _assert.equal(parts.map(p => p.text).join('').replace(/[\u200b]/g, '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' '), s.replace(/\s+/g, ' '));
+});

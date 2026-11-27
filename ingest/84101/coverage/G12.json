@@ -1,0 +1,1235 @@
+{
+  "schema": 2,
+  "course": "84101",
+  "topic": "G12",
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY"
+  ],
+  "semanticReview": {
+    "status": "pending"
+  },
+  "source": {
+    "sha256": "243bc47af85b88b3f7f58b4feaee1090f7364d779acb77cad18a948811b322d0",
+    "kind": "multi-file-deck",
+    "pageCount": 66,
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. GC5 pp1-30 belong to G11 and recitation 6b pp1-24 belong to other topics (neither in this deck). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
+    "files": [
+      {
+        "file": "General Chemistry 5.pdf",
+        "sha256": "131d01a024a3eb145aeffe93065c94382d2df2df4d283ec86d038ec9d027eee6",
+        "pages": "31-69",
+        "firstPage": 1
+      },
+      {
+        "file": "תרגול 6ב-גבישים.pdf",
+        "sha256": "00eaf45a23fb8a08f3baa157d1021f5296a28afbc227d0f95bd28839aa71da19",
+        "pages": "25-51",
+        "firstPage": 40
+      }
+    ]
+  },
+  "supportingSources": [
+    {
+      "file": "תרגיל בית 6 א+ב.pdf",
+      "sha256": "22b296e8d0902491ec262d324070dc6440efd7904d4ba0b31dada637e7a6afd4",
+      "items": [
+        {
+          "ref": "Q7",
+          "use": "data-and-method",
+          "targets": [
+            "worked:13"
+          ]
+        },
+        {
+          "ref": "Q8",
+          "use": "method-only",
+          "targets": [
+            "worked:21"
+          ]
+        },
+        {
+          "ref": "Q9",
+          "use": "method-only",
+          "targets": [
+            "worked:22"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "שאלות נוספות תרגול לבחינה כימהי כללית א תשפז.pdf",
+      "sha256": "d7f1b7df22389e295547d58aab02837f54c6c1eec2a403602c781e077dfeda15",
+      "items": [
+        {
+          "ref": "Q1ג-ה",
+          "use": "data-and-method",
+          "targets": [
+            "worked:19"
+          ]
+        },
+        {
+          "ref": "Q1ד",
+          "use": "method-only",
+          "targets": [
+            "worked:1"
+          ]
+        },
+        {
+          "ref": "Q2ד",
+          "use": "data-and-method",
+          "targets": [
+            "worked:20"
+          ]
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "336c8dcf0672fec4b4fe86360ad018125cf467526bd44288a3fdfad77306dbea",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "נקודת התכה, קיפאון ואנתלפיית היתוך",
+          "targets": [
+            "theory:G12-t27",
+            "theory:G12-t01"
+          ]
+        },
+        {
+          "id": "p01.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "גרפי קירור והתחממות וקירור־יתר",
+          "targets": [
+            "theory:G12-t27"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "4b070aae207edb704eeea5efeb5e80abc35fa6d356e2642eb3d52593b7c544df",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "המראה ושקיעה, הקשר בין האנתלפיות",
+          "targets": [
+            "theory:G12-t28",
+            "worked:7",
+            "quiz:15"
+          ]
+        },
+        {
+          "id": "p02.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תרשים מוצק־אדים ולחץ המראה",
+          "targets": [
+            "theory:G12-t28"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "593b711d3d4ebc109086a2253e2c4dc4dd49ce55d0e5c425a2ef80eed2e4a9a6",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הנקודה הקריטית ותכונות הנוזל והאדים",
+          "targets": [
+            "theory:G12-t29",
+            "theory:G12-t15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "a2ffb3b5e3682d41891095d80e81d69eb71cede96df642763265e7c27b70afe2",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הגדרת דיאגרמת פאזות ואזוריה",
+          "targets": [
+            "theory:G12-t01",
+            "theory:G12-t13",
+            "theory:G12-t14"
+          ]
+        },
+        {
+          "id": "p04.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיאגרמת היוד ועקומותיה",
+          "targets": [
+            "theory:G12-t31"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "c20f1bb4b91583c2a0b3260bc887a2c444aa848bf8e3f3deca9dcd0865e78064",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "CO₂ מתעבה מגז למוצק ונוזל רק בלחץ גבוה",
+          "targets": [
+            "theory:G12-t31",
+            "quiz:16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "ed489c1e95bfa1fe9b896f08102a19eb50c88b43f68b9f6eece31157aa4d0061",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מעבר מגז לנוזל מעל הנקודה הקריטית",
+          "targets": [
+            "theory:G12-t29",
+            "theory:G12-t15"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "cafe6a55e6fba378114e74a95950afed1711273e586388204f1feb76d311d915",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיאגרמת המים ונקודותיה המסומנות",
+          "targets": [
+            "theory:G12-t30",
+            "theory:G12-t13",
+            "theory:G12-t14",
+            "worked:8"
+          ],
+          "rationale": "ערכי הצירים נאמרו כערכים מעוגלים של התרשים."
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "f6d4485d18bac06c4f12c588bbcee2c11ba0b5f65b8ff4b65b828930bee55675",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שיפוע שלילי של עקומת ההיתוך של מים",
+          "targets": [
+            "theory:G12-t32",
+            "theory:G12-t02",
+            "theory:G12-t14"
+          ]
+        },
+        {
+          "id": "p08.u2",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "פולימורפיזם: צורות קרח שונות",
+          "targets": [
+            "theory:G12-t32"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "1b41774142fbdfa749ebf591f856d61d95b8b379a432cb90d7ac29d89b06502c",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שש ההמרות, איזובר ואיזותרמה",
+          "targets": [
+            "theory:G12-t33",
+            "theory:G12-t02",
+            "worked:8"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "91226b34fc4afe39ee4cc6e20bdec84087452e701a6c2106d6bcb906c5fd220a",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מוצק קוולנטי רשתי: יהלום וגרפיט",
+          "targets": [
+            "theory:G12-t34",
+            "worked:9",
+            "quiz:17"
+          ]
+        },
+        {
+          "id": "p10.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מבני יהלום וגרפיט",
+          "targets": [
+            "theory:G12-t34"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "ea71e202f2c0f1769fa313563c42cf4ed40a443065506db1cd1f8c7189a60a79",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "כדורית פחמן וצינורית פחמן",
+          "targets": [
+            "theory:G12-t35"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "cc5d3efa2f52f999ee0dbb8a014a54c93c14751bb11e18fb46d0838bd79a405c",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "סדר ארוך טווח בגביש",
+          "targets": [
+            "theory:G12-t36",
+            "theory:G12-t16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "6e40ae2e905d87c863de0a90320c37a28434420a6dcfb8ec5f8a2aa512c12206",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "ריצוף כאנלוגיה לתא יחידה",
+          "targets": [
+            "theory:G12-t36"
+          ],
+          "rationale": "האנלוגיה נכתבה בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "f4c158b3c41607fecb2fad01a2c69f32cb14ad55c2faa23dab3f7247e8b30939",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "סריג ותא יחידה",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "4e781af7aef5279087151f2be770c2e7c8e2cd63ee2ec866b29beca43c1b9e74",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "חלקיקים בנקודות הסריג של תא קובי",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "348086424b4811770d110681d91db00718cb68348127f6a5123da1960bd87ba0",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "SC: אטום בתא ומספר קואורדינציה",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t04",
+            "theory:G12-t05",
+            "worked:1",
+            "worked:4",
+            "quiz:1",
+            "quiz:3"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "94ab85bfb2bb26203f0d286e7aedf6481661e47835d422109b3cf425b02c8c6b",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "BCC: אטומים בתא ומספר קואורדינציה",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t05",
+            "theory:G12-t20",
+            "worked:4"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "050fe0e144b2c0c7db9548060d7a0513567ddd61879d353aee356269a6bb2dd5",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "FCC: אטומים בתא ומספר קואורדינציה",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t05",
+            "theory:G12-t21",
+            "theory:G12-t22",
+            "worked:1",
+            "worked:4",
+            "quiz:1",
+            "quiz:3"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "c299b3b0cc5dc73661c35ae150207f73c59a3909c309a537b0de7e2efac8e2e0",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שיתוף אטומים בין תאים: פינה, מקצוע, פאה",
+          "targets": [
+            "theory:G12-t37",
+            "theory:G12-t03"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "imageSha256": "0a3feace59aa92e885165d4a5cb231d5a3463d8624eb0c9097c35384c6a7eeb2",
+      "units": [
+        {
+          "id": "p20.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "נצילות אריזה של SC",
+          "targets": [
+            "theory:G12-t06",
+            "theory:G12-t07",
+            "theory:G12-t38"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "imageSha256": "d59db244375e6a33e440e4af97aec6af1ec605ee33f9d5258eb260746b5f6c8d",
+      "units": [
+        {
+          "id": "p21.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "נצילות אריזה של BCC",
+          "targets": [
+            "theory:G12-t07",
+            "theory:G12-t38"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "imageSha256": "033500ebfde594cb44ca65241d21bc9104de3cda250e248062778726e43f5a7d",
+      "units": [
+        {
+          "id": "p22.u1",
+          "kind": "equation",
+          "disposition": "corrected",
+          "label": "נצילות אריזה של FCC",
+          "targets": [
+            "theory:G12-t07",
+            "theory:G12-t08",
+            "theory:G12-t38",
+            "worked:10"
+          ],
+          "rationale": "כותרת השקופית נושאת שם BCC, והתא וההסבר הם של FCC."
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "imageSha256": "320471e68ad71306b1d53b8688092c1bab3d30828fe6c19ed9b9e4dfe6fb0de9",
+      "units": [
+        {
+          "id": "p23.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "צפיפות תיאורטית: נחושת FCC",
+          "targets": [
+            "theory:G12-t42",
+            "theory:G12-t09",
+            "theory:G12-t10",
+            "theory:G12-t11",
+            "theory:G12-t19",
+            "theory:G12-t23",
+            "theory:G12-t24",
+            "theory:G12-t25",
+            "theory:G12-t26",
+            "worked:13",
+            "quiz:14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "imageSha256": "b55f13162e1742e76a2c5e0fed547c3eb13d97fe4fba9effaf89544f15e411b7",
+      "units": [
+        {
+          "id": "p24.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "חורים בשכבות צפופות, hcp ו-ccp",
+          "targets": [
+            "theory:G12-t40"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "imageSha256": "bbf1a7c6919f008a5d4d26aaa732ea01e88fb6fab229aee30f3b6cc74dd3d57d",
+      "units": [
+        {
+          "id": "p25.u1",
+          "kind": "claim",
+          "disposition": "adapted",
+          "label": "חלל ריק של ccp ושל hcp",
+          "targets": [
+            "theory:G12-t41",
+            "worked:10",
+            "quiz:9"
+          ],
+          "rationale": "הערך נוסח כקירוב כ-26 אחוז, והעיגול מוסבר בטקסט."
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "imageSha256": "53f7eaa97d3c65ddf2c04b6c8f8ac014ba26e14ef5163d44c8e587538332439c",
+      "units": [
+        {
+          "id": "p26.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מספר קואורדינציה של BCC, FCC ו-hcp",
+          "targets": [
+            "theory:G12-t41",
+            "theory:G12-t03"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "imageSha256": "dd8a1eca5354639bc65264352becb969db140ddbd955c90c8d370d385decb375",
+      "units": [
+        {
+          "id": "p27.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "עקיפת קרני X ומידע על המבנה",
+          "targets": [
+            "theory:G12-t16",
+            "theory:G12-t12"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "imageSha256": "ec5dc7e72629ee5f6117903758d3344e0e94b355be1bc6129648974f52ab47cf",
+      "units": [
+        {
+          "id": "p28.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "חוק בראג והפרש הדרך",
+          "targets": [
+            "theory:G12-t12",
+            "theory:G12-t16",
+            "theory:G12-t17",
+            "theory:G12-t18",
+            "worked:3",
+            "quiz:4"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 29,
+      "imageSha256": "bea9fc69bd355eb470ea05f9afa0b52c3ecd7867b71eaacf99bc48cd39c8f9d1",
+      "units": [
+        {
+          "id": "p29.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "רדיוס ברזל BCC מאורך המקצוע",
+          "targets": [
+            "worked:2",
+            "quiz:2",
+            "theory:G12-t05"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "imageSha256": "1c451309aaf2d0870c0f230bd881a9611d04edf5f8850599e6c0bd7ae4981cfa",
+      "units": [
+        {
+          "id": "p30.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "אניונים ב-FCC וגדלי החורים",
+          "targets": [
+            "theory:G12-t43"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "imageSha256": "24abfde06722fa830efccd98ca209d1077cae613a7a1704886e0ece27d254d48",
+      "units": [
+        {
+          "id": "p31.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "החור הקובי ב-SC",
+          "targets": [
+            "theory:G12-t43"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 32,
+      "imageSha256": "073d8aee85edcce69bca424cbc91b593aa64580194a47c096ad8f097e99da9de",
+      "units": [
+        {
+          "id": "p32.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "קטיון בחור מעט קטן ממנו",
+          "targets": [
+            "theory:G12-t43"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "imageSha256": "398584a2c5873dd5c14df5be374d31493e0b8c9ff1a8d6f2d4e343070fc3428a",
+      "units": [
+        {
+          "id": "p33.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "טבלת יחס הרדיוסים והחור",
+          "targets": [
+            "theory:G12-t44",
+            "worked:16",
+            "quiz:10"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "imageSha256": "5f26c26175e91b44052f3b033648ee0c20152c12bfc30c7c8b5374a51abc20c8",
+      "units": [
+        {
+          "id": "p34.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "NaCl: חור אוקטאדרי, ספירה וקואורדינציה",
+          "targets": [
+            "theory:G12-t45",
+            "worked:14"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 35,
+      "imageSha256": "40fdc676a74450d7470d0a465fc9004424a3c915b0dce3cf515fb09b489389c1",
+      "units": [
+        {
+          "id": "p35.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "CsCl: חור קובי וספירה",
+          "targets": [
+            "theory:G12-t46",
+            "worked:15"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "imageSha256": "daed7390623a35e7371bb9f3d400717f30297be9ba386e895fd64b9232e3f748",
+      "units": [
+        {
+          "id": "p36.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "מקצוע תא NaCl מרדיוסי היונים",
+          "targets": [
+            "theory:G12-t45",
+            "worked:14",
+            "quiz:11"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 37,
+      "imageSha256": "1fce22b97e76a91ca2e0313bc563baf4c3fe53b90d601e9e26eb9cb14759934b",
+      "units": [
+        {
+          "id": "p37.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תאי ZnS, CaF₂ ו-TiO₂",
+          "targets": [
+            "theory:G12-t47",
+            "worked:17"
+          ],
+          "rationale": "נכתב בטקסט מקורי; TiO₂ כוסה כעיקרון בלבד."
+        }
+      ]
+    },
+    {
+      "page": 38,
+      "imageSha256": "b24c7caa621b836092b23f324a23f8cb85dfa6f8d5c8ac13c7e9e7feba5ecdb4",
+      "units": [
+        {
+          "id": "p38.u1",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "סוגי מוצקים גבישיים: חלקיקים, כוחות ותכונות",
+          "targets": [
+            "theory:G12-t48",
+            "theory:G12-t49",
+            "worked:9",
+            "quiz:17"
+          ],
+          "rationale": "הטבלה נוסחה מחדש בטקסט, ללא ערכים מספריים."
+        }
+      ]
+    },
+    {
+      "page": 39,
+      "imageSha256": "e0a5473507c9e4512123995b5756e08fbeb41a386f82fc4ad0690af97e943136",
+      "units": [
+        {
+          "id": "p39.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "אנרגיית שריג ומשיכה בין יונים",
+          "targets": [
+            "theory:G12-t50",
+            "worked:18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "imageSha256": "44512cd93bc892519112738ba4c77b22097fa1fafa261420d9a2bade8c2288fc",
+      "units": [
+        {
+          "id": "p40.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "גביש כמבנה בעל סדר פנימי",
+          "targets": [
+            "theory:G12-t36",
+            "theory:G12-t16"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 41,
+      "imageSha256": "c484b909a54b9bf8c3088618818c3567856c576f4b5a00a624c5ac44350c3e85",
+      "units": [
+        {
+          "id": "p41.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תא היחידה כאריח מרחבי",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "imageSha256": "2ac68e8eb19b24e14a7a825220766d8de04d55916cc4648781d40cc7f7da158b",
+      "units": [
+        {
+          "id": "p42.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "אורך צלע התא a",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "imageSha256": "689c4e8b8ea223574c90aa57868684fc873420d0197642c63d02162721ecddf1",
+      "units": [
+        {
+          "id": "p43.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תא קובי: צלעות שוות וזוויות ישרות",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 44,
+      "imageSha256": "3004dfb16bd34914eb37246a64140af9b6110233a2512a5325a8e97e55941589",
+      "units": [
+        {
+          "id": "p44.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אלכסון הפאה לפי פיתגורס",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "imageSha256": "6db6c5ed9dee90bc550dd30d8a5363bbd15d04282ffc86beb14fa549e4cf4edc",
+      "units": [
+        {
+          "id": "p45.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אלכסון הפאה, שלב בבנייה",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "imageSha256": "f2c64343c5dfa6d12c1d90d6620430c44eec1f4061a145f3f01878e4e2ab22e9",
+      "units": [
+        {
+          "id": "p46.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אלכסון הפאה, שלב בבנייה",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 47,
+      "imageSha256": "497561a9c1a85d73b28a06dd6076c49efb95b372d0edb6939200630e531b028a",
+      "units": [
+        {
+          "id": "p47.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אלכסון הקובייה",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "imageSha256": "46ac7954680ccba060d6072cf6ca2dae15672ca5c336f69413d5aff717acdece",
+      "units": [
+        {
+          "id": "p48.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "אלכסון הקובייה, שלב בבנייה",
+          "targets": [
+            "theory:G12-t36"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 49,
+      "imageSha256": "5fccbd1d9cdd316391bbe7430cea2e56bd02a4fb425d31c705a82892e1fdd836",
+      "units": [
+        {
+          "id": "p49.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "SC: אטומים בפינות ו-a=2r",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t05"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 50,
+      "imageSha256": "ebd3dd42bbc90a90f8333c4143e150cd3b0805ffe9c5045f2f524a78bc2d21e0",
+      "units": [
+        {
+          "id": "p50.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "נפח תא SC",
+          "targets": [
+            "theory:G12-t38"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 51,
+      "imageSha256": "66fd85392cd0aaaa18e77988173181831c4283dce4fefca2fb72029fd1846d01",
+      "units": [
+        {
+          "id": "p51.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "ניצול נפח של SC",
+          "targets": [
+            "theory:G12-t38",
+            "theory:G12-t07"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 52,
+      "imageSha256": "1cf4df29faae4793b66e8d6ef490c6acd9b966adb86fd7e0924290df559710a8",
+      "units": [
+        {
+          "id": "p52.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "BCC: אטומים בתא ואלכסון הקובייה",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t05",
+            "theory:G12-t38"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 53,
+      "imageSha256": "e244b3af4a2915ac5ed944c78275f747874f4d63ed334c5b27ea1d9a6ec96183",
+      "units": [
+        {
+          "id": "p53.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "נפחי תא ואטומים ב-BCC",
+          "targets": [
+            "theory:G12-t38",
+            "theory:G12-t07"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 54,
+      "imageSha256": "6e1b01247793b5d267a55dbd6af25b6533d0a576e89b4df31cc3aef73d4516bb",
+      "units": [
+        {
+          "id": "p54.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "FCC: אטומים בתא ואלכסון הפאה",
+          "targets": [
+            "theory:G12-t03",
+            "theory:G12-t05",
+            "theory:G12-t38"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 55,
+      "imageSha256": "2eb2825a7dd8a57c7cfd779e939f3ffb53300c7dec26f0214ea143bcd56e7123",
+      "units": [
+        {
+          "id": "p55.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "נפחי תא ואטומים ב-FCC",
+          "targets": [
+            "theory:G12-t38",
+            "theory:G12-t07",
+            "worked:10"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 56,
+      "imageSha256": "728dc690c06338aa0725564133a62c14df1712537f31953db1b90ede8d90efbd",
+      "units": [
+        {
+          "id": "p56.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "FCC כאריזה צפופה ומבנה היהלום",
+          "targets": [
+            "theory:G12-t39",
+            "worked:11"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 57,
+      "imageSha256": "f926299c74a26593b5c1daa3f54492c195f6519d9739cf44e6bf254c3c908d98",
+      "units": [
+        {
+          "id": "p57.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "סיכום מבנים וצפיפות הגביש",
+          "targets": [
+            "theory:G12-t38",
+            "theory:G12-t07",
+            "theory:G12-t09",
+            "theory:G12-t10"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 58,
+      "imageSha256": "784257d89adb364a318f436b4dffcda3164b62b4e4c6b9d018b436b1119d5dee",
+      "units": [
+        {
+          "id": "p58.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "גרמניום: נתונים ושיטה לפי מסת תא",
+          "targets": [
+            "worked:11",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 59,
+      "imageSha256": "14e44e4c1f15f70ffa9c0d1f7827ee7493da012b718c4f6ad95c522109a42113",
+      "units": [
+        {
+          "id": "p59.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "גרמניום: מסת התא מול מסת אטום",
+          "targets": [
+            "worked:11",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 60,
+      "imageSha256": "5d4eaff6e0fed81da371dab36f587c8f909687241e2a36a837f114888ce416c2",
+      "units": [
+        {
+          "id": "p60.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "גרמניום: נפח התא",
+          "targets": [
+            "worked:11",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 61,
+      "imageSha256": "2fa8c80574afc119112028765c0e8897e3b5db4396036b2b39bac3489933ff8c",
+      "units": [
+        {
+          "id": "p61.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "גרמניום: מספר האטומים והמבנה",
+          "targets": [
+            "worked:11",
+            "quiz:13",
+            "theory:G12-t42",
+            "theory:G12-t39"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 62,
+      "imageSha256": "fb88b360c0e9a212c77c42962d31f937926f626f982e9cd9859a6ea285008f9b",
+      "units": [
+        {
+          "id": "p62.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "פלטינה FCC: נתונים והמבוקש",
+          "targets": [
+            "worked:12",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 63,
+      "imageSha256": "99fa2606f7dc1249eea18807fbfeaab628dc6c0e6a1470671d64c95fb452f952",
+      "units": [
+        {
+          "id": "p63.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "פלטינה FCC: נפח התא ומסת אטום",
+          "targets": [
+            "worked:12",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 64,
+      "imageSha256": "ac62f1c7ff635b1f77636ba61a03dcc8eb61989803a3eaf6daa6b0d24f0ad3f4",
+      "units": [
+        {
+          "id": "p64.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "פלטינה FCC: חישוב הרדיוס",
+          "targets": [
+            "worked:12",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 65,
+      "imageSha256": "807730f768456b3e971aac9d2b27b4aa5f27573c82721630b151881a8d5c1569",
+      "units": [
+        {
+          "id": "p65.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "נחושת: השוואת BCC ו-FCC, הנוסחאות",
+          "targets": [
+            "worked:13",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 66,
+      "imageSha256": "306c3fbb3ab26699466e7dd837d5f88e7b548be5f4aad0f40b1781b4ae58fbaf",
+      "units": [
+        {
+          "id": "p66.u1",
+          "kind": "exercise",
+          "disposition": "covered",
+          "label": "נחושת: צפיפות לכל מועמד והכרעה",
+          "targets": [
+            "worked:13",
+            "quiz:14",
+            "theory:G12-t42"
+          ]
+        }
+      ]
+    }
+  ]
+}

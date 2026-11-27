@@ -3,6 +3,8 @@ import React from 'react';
 import {C,T,L,Dot,Fig} from './figures-core.jsx';
 // GC1 additions kept outside figures.jsx so general-chemistry-2 figure-bound reviews are unaffected.
 // Schematic drawings, not to scale.
+// Shorten a bond so the line stops before the atom labels at both ends.
+const trimEdge=(p,q,d)=>{const dx=q[0]-p[0],dy=q[1]-p[1],l=Math.hypot(dx,dy)||1,f=Math.min(d,l*.4)/l;return [p[0]+dx*f,p[1]+dy*f,q[0]-dx*f,q[1]-dy*f]};
 export function MoleculeViews({accent}){
  const rows=[{y:136,pts:[[0,12],[42,-12],[84,12],[126,-12]],ed:[[0,1],[1,2],[2,3]],hs:[3,2,2,3],name:'בוטאן: שרשרת'},{y:300,pts:[[0,24],[42,0],[84,24],[42,-40]],ed:[[0,1],[1,2],[1,3]],hs:[3,1,3,3],name:'מתילפרופאן: מסועף'}];
  const hpos=[[-12,-18],[12,-18],[0,20]];
@@ -11,7 +13,7 @@ export function MoleculeViews({accent}){
  {rows.map((r,ri)=><g key={ri}>
   <T x={280} y={r.y-(ri?84:66)} size={28}>{r.name}</T>
   {[110,290,470].map((ox,vi)=>{const k2=vi===0?1.5:1;const P=r.pts.map(([x,y])=>[ox+(vi===0?-2:0)-63*k2+x*k2+(vi===0?16:0),r.y+y*(vi===0?1.5:1)]);return <g key={vi}>
-   {vi<2&&r.ed.map(([a,b],k)=><L key={k} x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} stroke={vi?C.ink:C.mut} w={vi?5:2}/>)}
+   {vi<2&&r.ed.map(([a,b],k)=>{const e=vi?[P[a][0],P[a][1],P[b][0],P[b][1]]:trimEdge(P[a],P[b],25);return <L key={k} x1={e[0]} y1={e[1]} x2={e[2]} y2={e[3]} stroke={vi?C.ink:C.mut} w={vi?5:2}/>})}
    {P.map(([x,y],k)=>vi===0?<T key={k} x={x} y={y+8} size={26} ltr fill={C.ink}>{'C'+(r.hs[k]?'H'+(r.hs[k]>1?r.hs[k]:''):'')}</T>:<Dot key={k} cx={x} cy={y} r={vi===1?13:24} fill={vi===1?C.soft:C.line} stroke={vi===1?C.ink:accent} opacity={vi===1?1:.8}/>)}
    {vi===1&&P.map(([x,y],k)=>hpos.slice(0,r.hs[k]).map(([dx,dy],j)=><Dot key={k+'h'+j} cx={x+dx*1.3} cy={y+dy*1.3} r={5} fill={C.mut}/>))}
   </g>})}
@@ -37,7 +39,7 @@ export function MoleculeViewsNarrow({accent}){
  return <Fig viewBox="0 0 360 830" label="Two isomers with formula C4H10, butane as a chain and methylpropane as a branch, each drawn as a structural formula, a ball-and-stick model and a space-filling model.">
  {rows.map((r,ri)=>{const y0=ri*390+44;return <g key={ri}>
   <T x={180} y={y0+30} size={26} fill={accent}>{r.name}</T>
-  {r.pts.length&&(()=>{const k=1.6;const P=r.pts.map(([x,y])=>[180-63*k+x*k,y0+(ri?150:112)+y*1.5*(ri?1.1:1)]);return <g>{r.ed.map(([a,b],j)=><L key={j} x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} stroke={C.mut} w={2}/>)}{P.map(([x,y],j)=><T key={j} x={x} y={y+8} size={22} ltr fill={C.ink}>{'C'+(r.hs[j]?'H'+(r.hs[j]>1?r.hs[j]:''):'')}</T>)}</g>})()}
+  {r.pts.length&&(()=>{const k=1.6;const P=r.pts.map(([x,y])=>[180-63*k+x*k,y0+(ri?150:112)+y*1.5*(ri?1.1:1)]);return <g>{r.ed.map(([a,b],j)=>{const e=trimEdge(P[a],P[b],25);return <L key={j} x1={e[0]} y1={e[1]} x2={e[2]} y2={e[3]} stroke={C.mut} w={2}/>})}{P.map(([x,y],j)=><T key={j} x={x} y={y+8} size={22} ltr fill={C.ink}>{'C'+(r.hs[j]?'H'+(r.hs[j]>1?r.hs[j]:''):'')}</T>)}</g>})()}
   {[95,265].map((ox,vi)=>{const P=r.pts.map(([x,y])=>[ox-63+x,y0+262+y]);return <g key={vi}>
    {vi===0&&r.ed.map(([a,b],j)=><L key={j} x1={P[a][0]} y1={P[a][1]} x2={P[b][0]} y2={P[b][1]} stroke={C.ink} w={5}/>)}
    {P.map(([x,y],j)=><Dot key={j} cx={x} cy={y} r={vi===0?13:24} fill={vi===0?C.soft:C.line} stroke={vi===0?C.ink:accent} opacity={vi===0?1:.8}/>)}

@@ -38,7 +38,7 @@ test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
 });
 test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
  for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
- assert.equal(added('G3','quiz').length,4);assert.equal(added('G9','quiz').length,2);
+ assert.equal(added('G3','quiz').length,4);assert.equal(added('G9','quiz').length,6);
  assert.equal(added('G3','theory').length,4);assert.equal(added('G3','worked').length,1);
 });
 test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
@@ -62,3 +62,12 @@ for(const [t,label,expect] of [['G14','Q8ג',['worked:9','quiz:12','quiz:13']],[
   assert.deepEqual(unitTargets(t,label),expect);
   for(const r of expect){const b=resolve(t,r);assert.ok(b&&b.batch5,`${t} ${r} is not a new batch5 item`)}
  });
+
+test('G9 pressure/density/volume-ratio/airbag additions recompute',()=>{
+ const q=id=>topic('G9').content.quiz.find(x=>x.id===id);
+ const R=.08206;
+ near(1.25*101.325,q(13).fields[0].value,.05);assert.equal(750+85,q(14).fields[0].value);
+ near(4/(R*298.15),q(15).fields[0].value,.0001);near(1.5*2/3,q(16).fields[0].value,1e-9);
+ const n=70/(22.99+3*14.007),V=1.5*n*R*299.15/(735/760);near(V,41.0,.05);
+ const w=topic('G9').content.worked[7];assert.ok(w.batch5&&w.content[1].includes('41.0 L'));
+});

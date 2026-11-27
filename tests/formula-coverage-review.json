@@ -4646,7 +4646,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "נוסחה אמפירית ← מולקולרית דרך הורדת נקודת קיפאון, כשהממס הוא HgCl₂ (תרגיל בית 6 שאלה 10)/3": {
-   "expression": "n = 1.808 × 10⁻³ mol",
+   "expression": "n = 1.808×10⁻³ mol",
    "contextDigest": "f6b61755ed24a12381344cabe5d99574123da721821fb11365ce9f3125306a1a",
    "bindings": {
     "n": "n@g15"

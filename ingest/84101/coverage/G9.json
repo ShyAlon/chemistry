@@ -217,13 +217,19 @@
     },
     {
      "ref": "Q8ג",
-     "use": "not-covered",
-     "reason": "תאוריה קינטית (מהירות ממוצעת): מטופלת בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/theory:G10-t35",
+      "G10/worked:11"
+     ]
     },
     {
      "ref": "Q8ד",
-     "use": "not-covered",
-     "reason": "תאוריה קינטית (אנרגיה קינטית כוללת): מטופלת בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/theory:G10-t46",
+      "G10/quiz:10"
+     ]
     }
    ]
   },
@@ -275,13 +281,19 @@
     },
     {
      "ref": "Q3",
-     "use": "not-covered",
-     "reason": "אפוזיה: שייכת לתאוריה הקינטית ומטופלת בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/worked:24",
+      "G10/theory:G10-t11"
+     ]
     },
     {
      "ref": "Q10ד",
-     "use": "not-covered",
-     "reason": "יחס vrms: שייך לתאוריה הקינטית ומטופל בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/theory:G10-t38",
+      "G10/quiz:6"
+     ]
     }
    ]
   },
@@ -329,13 +341,20 @@
     },
     {
      "ref": "Q9ג",
-     "use": "not-covered",
-     "reason": "חלק קינטי: מטופל בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/theory:G10-t35",
+      "G10/worked:11"
+     ]
     },
     {
      "ref": "Q9ד",
-     "use": "not-covered",
-     "reason": "חלק קינטי: מטופל בנושא G10, לא בנושא זה."
+     "use": "method-only",
+     "targets": [
+      "G10/theory:G10-t57",
+      "G10/theory:G10-t58",
+      "G10/worked:11"
+     ]
     }
    ]
   },

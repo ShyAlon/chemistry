@@ -12,7 +12,7 @@
     "sha256": "a65ffae2eedc2cc002a86eeb36c207185ef56e7c873561b0526136ddc07a1ce7",
     "kind": "multi-file-deck",
     "pageCount": 55,
-    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
+    "locatorScheme": "GC5 pp31-69 belong to other topics and lecture 8 p1 is a title slide (neither in this deck). deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
     "files": [
       {
         "file": "General Chemistry 5.pdf",
@@ -364,11 +364,20 @@
         {
           "id": "p20.u1",
           "kind": "table",
-          "disposition": "adapted",
-          "label": "מסיסות גזים אצילים ו-O2/CO2",
+          "disposition": "covered",
+          "label": "מסיסות גזים אצילים ו-O2/CO2 (גלוי)",
           "targets": [
-            "theory:G11-t26",
-            "worked:2"
+            "theory:G11-t26"
+          ]
+        },
+        {
+          "id": "p20.u2",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "עמודת נקודות רתיחה (רק בשכבת הטקסט)",
+          "targets": [
+            "worked:2",
+            "quiz:3"
           ],
           "rationale": "עמודות המסיסות והמסה נראות בתמונה ומוצגות. עמודת נקודות הרתיחה (K) קיימת רק בשכבת הטקסט ואינה נראית בתמונה; הבודק מחליט אם להסתמך עליה בתרגילים 2 ו-3."
         }
@@ -909,13 +918,22 @@
         {
           "id": "p55.u1",
           "kind": "table",
-          "disposition": "adapted",
-          "label": "מסיסות/רתיחה גזים אצילים",
+          "disposition": "covered",
+          "label": "מסיסות גזים אצילים (גלוי)",
           "targets": [
-            "theory:G11-t26",
-            "worked:2"
+            "theory:G11-t26"
+          ]
+        },
+        {
+          "id": "p55.u2",
+          "kind": "table",
+          "disposition": "adapted",
+          "label": "עמודת נקודות רתיחה (רק בשכבת הטקסט)",
+          "targets": [
+            "worked:2",
+            "quiz:3"
           ],
-          "rationale": "כמו GC5 עמ׳ 20: עמודת הרתיחה רק בשכבת הטקסט; הבודק מחליט."
+          "rationale": "כמו GC5 עמ׳ 20: העמודה אינה נראית בתמונה; בתרגילים הוסרו הערכים ונשארה מגמה עם ציון שהמקור אינו גלוי."
         }
       ]
     }

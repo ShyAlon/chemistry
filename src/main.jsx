@@ -29,10 +29,7 @@ import {wavelengthColor,numericCorrect,parseNumber,configuration,parseRoute} fro
 import './style.css';
 import './equation-wrap.css';
 import {orbitalFor} from './orbitals.js';
-import {Figure as BaseFigure,schematicFigures as baseSchematic} from './figures.jsx';
-import {FigureX,extraSchematic} from './figures-gc1-extra.jsx';
-const schematicFigures={has:id=>baseSchematic.has(id)||extraSchematic.has(id)};
-const Figure=props=><FigureX {...props} Base={BaseFigure}/>;
+import {Figure,schematicFigures} from './figures-gc1.jsx';
 import {References,parseReferenceRoute} from './references.jsx';
 import {Glossary} from './Glossary.jsx';
 import {glossary,parseGlossaryRoute} from './glossary-data.js';

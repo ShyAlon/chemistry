@@ -1,0 +1,880 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G9",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY",
+  "agent-01M89RY0MXDEQWC4Q42F62CKET"
+ ],
+ "semanticReview": {
+  "status": "pending"
+ },
+ "source": {
+  "sha256": "348ec88824c8b18ce28f00ffa4f7c8f3b3d8ebfda6c141f9859708b6526306a2",
+  "kind": "multi-file-deck",
+  "pageCount": 35,
+  "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Ex 7.docx is image-based; its four pages are the soffice PDF conversion attached to the review package.",
+  "files": [
+   {
+    "file": "General Chemistry 3.pdf",
+    "sha256": "9039d9f7d9be3943b335fe6d0d8747d40291e0ffd8d9677504bd23ede6c06c88",
+    "pages": "1-35",
+    "firstPage": 1
+   }
+  ]
+ },
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G9-t37"
+   ],
+   "rationale": "מלכודת: בבעיות \"מיכל נפתח או מתחמם\" קודם קובעים מה קבוע ומה משתנה. סינתזה של טעויות נפוצות; אין שקף מקור."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G9-t38",
+    "theory:G9-t39",
+    "theory:G9-t40",
+    "theory:G9-t41",
+    "theory:G9-t42",
+    "worked:5",
+    "quiz:6",
+    "quiz:7",
+    "quiz:8",
+    "quiz:9",
+    "worked:7",
+    "quiz:10"
+   ],
+   "rationale": "התקדמות תגובה דרך לחץ מבוססת על תרגיל בית 5 א שאלה 8 (c851f0dd). בדיקת עיבוי עם 23.76 mmHg מבוססת על דוגמאות בחינה (1577f770) שאלה 12ג. אין שקף."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "theory:G9-t50",
+    "worked:11"
+   ],
+   "rationale": "קירור בשלבים וחיסור לחצי אדים. מבוסס על תרגיל בית 4 שאלה 3 (f2dcc949) ופתרון רשמי (6f881d13) עמ׳ 3 עד 4; אין שקף מקור."
+  },
+  {
+   "id": "a5",
+   "targets": [
+    "quiz:11"
+   ],
+   "rationale": "ניתוח תערובת CS₂ ופחמימן אחרי שריפה דרך לחצים חלקיים. מבוסס על דוגמאות בחינה (1577f770) שאלה 4; אין שקף מקור."
+  },
+  {
+   "id": "a4",
+   "targets": [
+    "quiz:12"
+   ],
+   "rationale": "מסת He מנפח שמוכפל אחרי הוספת H₂ ב-STP (אבוגדרו). מבוסס על דוגמאות בחינה (1577f770) שאלה 12ד; אין שקף מקור."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "תרגיל_בית_4.pdf",
+   "sha256": "f2dcc949bc2a1f7d6ea0ea31756d8c36f0980fb84a49d450e7d40b9d6b27123d",
+   "items": [
+    {
+     "ref": "Q1",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:4"
+     ]
+    },
+    {
+     "ref": "Q2",
+     "use": "data-and-method",
+     "targets": [
+      "worked:1"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:11"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "method-only",
+     "targets": [
+      "theory:G9-t50"
+     ]
+    },
+    {
+     "ref": "Q4",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:17"
+     ]
+    },
+    {
+     "ref": "Q5",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:3"
+     ]
+    },
+    {
+     "ref": "Q5",
+     "use": "method-only",
+     "targets": [
+      "theory:G9-t49"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "method-only",
+     "targets": [
+      "theory:G9-t17",
+      "theory:G9-t18"
+     ]
+    },
+    {
+     "ref": "Q7",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:5"
+     ]
+    },
+    {
+     "ref": "Q8",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9"
+     ]
+    },
+    {
+     "ref": "Q9",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:18"
+     ]
+    },
+    {
+     "ref": "Q10",
+     "use": "data-and-method",
+     "targets": [
+      "worked:10"
+     ]
+    },
+    {
+     "ref": "Q11",
+     "use": "data-and-method",
+     "targets": [
+      "worked:6"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "פתרונות_תרגיל_בית_4_מאוחד_מתוקן.pdf",
+   "sha256": "6f881d13948d5d02354202cfc98dec4c3677a46556f0a1e7a12671155a3b9de0",
+   "items": [
+    {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:11"
+     ]
+    }
+   ]
+  },
+  {
+   "file": "תרגיל בית 5 א.pdf",
+   "sha256": "c851f0dd3999cb33058e281738ca5028f57e90696282c929b7f4305fc47f05c0",
+   "items": [
+    {
+     "ref": "Q8א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:5",
+      "quiz:6",
+      "quiz:8"
+     ]
+    },
+    {
+     "ref": "Q8ב",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:7",
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q8ג",
+     "use": "not-covered",
+     "reason": "שייך לתאוריה הקינטית (מהירות ממוצעת); לא נלמד בנושא זה."
+    },
+    {
+     "ref": "Q8ד",
+     "use": "not-covered",
+     "reason": "שייך לתאוריה הקינטית (אנרגיה קינטית כוללת); לא נלמד בנושא זה."
+    }
+   ]
+  },
+  {
+   "file": "שאלות לדוגמא כימיה כללית תשפז.pdf",
+   "sha256": "d1fb53fa1569f32d12dfce8da10641929ac7bd4929e185631d277e628fe9d357",
+   "items": [
+    {
+     "ref": "Q2",
+     "use": "data-and-method",
+     "targets": [
+      "worked:2",
+      "quiz:2"
+     ]
+    },
+    {
+     "ref": "Q10א",
+     "use": "method-only",
+     "targets": [
+      "theory:G9-t17",
+      "theory:G9-t18",
+      "theory:G9-t13"
+     ]
+    },
+    {
+     "ref": "Q1",
+     "use": "not-covered",
+     "reason": "שיטה חסרה בפועל: פירוק NCl₃ נוזלי בכלי עם הליום וחישוב הכמות מהלחץ הכולל. אין פריט ייעודי ולא נטען כיסוי."
+    },
+    {
+     "ref": "Q11",
+     "use": "not-covered",
+     "reason": "שיטה נלמדת, נתוני התרגיל לא בשימוש. רתיחת נוזל בכלי ידוע להסקת מסה מולרית וניסוח נוסחה מנתוני שריפה: אין פריט ייעודי."
+    },
+    {
+     "ref": "Q3",
+     "use": "not-covered",
+     "reason": "אפוזיה: שייכת לתאוריה הקינטית, לא לנושא זה."
+    },
+    {
+     "ref": "Q10ד",
+     "use": "not-covered",
+     "reason": "יחס vrms: שייך לתאוריה הקינטית, לא לנושא זה."
+    }
+   ]
+  },
+  {
+   "file": "שאלות דוגמאות בחינה סופית  כימהי כללית תשפז.pdf",
+   "sha256": "1577f770caea4095e6f9d79494f884430b170e711cca7f53c5fa315bdcd63e03",
+   "items": [
+    {
+     "ref": "Q12ג",
+     "use": "method-only",
+     "targets": [
+      "worked:7",
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q12ד",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:12"
+     ]
+    },
+    {
+     "ref": "Q4",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q9",
+     "use": "not-covered",
+     "reason": "שיטה חסרה בפועל: לחץ ומספר מולים של תוצרי פירוק בטמפרטורה גבוהה וקירור (ניטרוגליצרין). אין פריט ייעודי ולא נטען כיסוי; חלקי המהירות שייכים לתאוריה הקינטית."
+    }
+   ]
+  },
+  {
+   "file": "שאלות נוספות תרגול לבחינה כימהי כללית א תשפז.pdf",
+   "sha256": "d7f1b7df22389e295547d58aab02837f54c6c1eec2a403602c781e077dfeda15",
+   "items": [
+    {
+     "ref": "Q2",
+     "use": "method-only",
+     "targets": [
+      "worked:7"
+     ]
+    }
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "cd1afd0b4847d42a4286e9814a6898556685b3ce8aca4d15d37ab06891eb9745",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת: גזים",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "767f3c4f8101525e437ff7962c168d284c85e6e5f2797484442caf4fee917aed",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תכונות של גזים",
+     "targets": [
+      "theory:G9-t46"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "78c0205106a9d1fc9070e1e527708dd05ea8842e1b53bd53b9c32ecc6e4eec5b",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ גז כהתנגשויות בדופן",
+     "targets": [
+      "theory:G9-t43"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "0c076dc6d44383533ce1bb29ef5e6509300d8c8fff21aad702183e744ff67a95",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "לחץ ככוח ליחידת שטח ולחץ נוזל",
+     "targets": [
+      "theory:G9-t43",
+      "theory:G9-t44"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "95e663f1e67547de5627c6406f541747950b7bd2f44fc8f3bdf78a4e7b24f78a",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "לחץ ברומטרי ויחידות לחץ",
+     "targets": [
+      "theory:G9-t44",
+      "quiz:13"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "c042def5e9684f0ba1b6dbe8cd893197400f073db60e67a0c439680462907037",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "מנומטר: השוואת לחץ הגז ללחץ האטמוספרי",
+     "targets": [
+      "theory:G9-t45",
+      "quiz:14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "abbf3187470abf8e90c2e4deca017f6e6cb1fbd5d066d5b8b5534a45dba9b042",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חוק בויל",
+     "targets": [
+      "theory:G9-t09",
+      "theory:G9-t10",
+      "theory:G9-t26",
+      "theory:G9-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "8214c7e647e72be9255597f580b52317151ff19373facc5f12bb0a276cd20dea",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "גרפים של חוק בויל",
+     "targets": [
+      "theory:G9-t09",
+      "theory:G9-t10",
+      "theory:G9-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "f4d4638b09f368b4bb8a87eae2e84ea93c0c95b0274e52aec7b88a11aa347679",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: חוק בויל, נפח ולחץ",
+     "targets": [
+      "theory:G9-t09",
+      "theory:G9-t10"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "64fb355419d08d693576673bb266ddcde6fd77e1fd9f1c58357be6229c85f876",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חוק שארל וגיי-לוסאק",
+     "targets": [
+      "theory:G9-t11",
+      "theory:G9-t27"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "39c5aff942b3c0efeb73c1f480e83b71434e19144395eb8b27a6231e787d7280",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "חוק שארל: V/T קבוע",
+     "targets": [
+      "theory:G9-t11",
+      "theory:G9-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "0d32b409c8b22c9036afc7ce10c7e4854c20047b5b5406895dc5a761337c88a4",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תנאי STP",
+     "targets": [
+      "theory:G9-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "35c2defc39935a2354312f09c5f8d22575e9c4a87bf9d0b5fbc5fc199325b771",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "חוק אבוגדרו ויחסי נפחים",
+     "targets": [
+      "theory:G9-t26",
+      "theory:G9-t48"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "d1917d6ec9c626880dfef904ade9981bb8137fb8f5d309f4db2452e02cd032be",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "נפחים שווים ומולים שווים",
+     "targets": [
+      "theory:G9-t12",
+      "theory:G9-t48"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "f9efde2bf59a527d46a221fa5347ab6305a0d57fb0a8919bd7b388702a3dc0b0",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת הגז האידיאלי כצירוף החוקים",
+     "targets": [
+      "theory:G9-t01",
+      "theory:G9-t02",
+      "theory:G9-t26",
+      "theory:G9-t28"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "dbdd0b7d38b7ee5693cc328cfe509050598bf1d0f9e39f2927ebe8f7d0fd2b00",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "קבוע הגזים R וערכיו ביחידות שונות",
+     "targets": [
+      "theory:G9-t03",
+      "theory:G9-t04",
+      "theory:G9-t05",
+      "theory:G9-t06",
+      "theory:G9-t30",
+      "theory:G9-t31",
+      "theory:G9-t32",
+      "theory:G9-t33",
+      "theory:G9-t34",
+      "theory:G9-t35"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 17,
+   "imageSha256": "39db8e985398a8e278325b51cb2878c40f628434ed76d269b213667de65bdacd",
+   "units": [
+    {
+     "id": "p17.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת: חוק הגז האידיאלי",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 18,
+   "imageSha256": "a418516cf65c8c03060476d55baac460c727245fca0604be7dfef82ee77c58b1",
+   "units": [
+    {
+     "id": "p18.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: לחץ ממשוואת הגז האידיאלי",
+     "targets": [
+      "theory:G9-t02",
+      "theory:G9-t34",
+      "theory:G9-t35",
+      "worked:3"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 19,
+   "imageSha256": "ae8b060ccc6d2d313f878f089d2ecebfb166ef6879b79f57c506a9f922bd9ebb",
+   "units": [
+    {
+     "id": "p19.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "משוואת הגז הכללית לשני מצבים",
+     "targets": [
+      "theory:G9-t07",
+      "theory:G9-t08",
+      "worked:4"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 20,
+   "imageSha256": "0f31b10ece05b70f1b82a22638309907628043cf74b8990c2651942f3e586fb7",
+   "units": [
+    {
+     "id": "p20.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת: יישומי משוואת הגז האידיאלי",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 21,
+   "imageSha256": "75137b83f5da7caec5ee71495213486b76fa66d301495598f06676ea67b152fb",
+   "units": [
+    {
+     "id": "p21.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "קביעת מסה מולרית מ-PV=nRT",
+     "targets": [
+      "theory:G9-t21",
+      "theory:G9-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 22,
+   "imageSha256": "d7bb08df2d38c2175a45aa80b36b739e5125a9712119c6b55ede4059bd2772e4",
+   "units": [
+    {
+     "id": "p22.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: מסה מולרית של פוליפרופילן",
+     "targets": [
+      "theory:G9-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 23,
+   "imageSha256": "602e1ba5efdc564fa7f0f44d37528bc87ea2b6e268f066473ca6f0a357f45f87",
+   "units": [
+    {
+     "id": "p23.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: חישוב נפח הכלי ומסת הגז",
+     "targets": [
+      "theory:G9-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 24,
+   "imageSha256": "b651001f65975edd044b04dec96e3119171646c58dad0f549829c3e5f2d9e6e6",
+   "units": [
+    {
+     "id": "p24.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "צפיפות גז",
+     "targets": [
+      "theory:G9-t23",
+      "theory:G9-t24"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 25,
+   "imageSha256": "02c0a7f1d4bca6da2206efbdf99fa0f4fb3f0154a86ee8574be527e1c209a762",
+   "units": [
+    {
+     "id": "p25.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "צפיפות ב-STP ותלות בטמפרטורה ובלחץ",
+     "targets": [
+      "theory:G9-t12",
+      "theory:G9-t24",
+      "theory:G9-t47"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 26,
+   "imageSha256": "7d038fae85085d940cb5506ab1bb52a476af1d5848e23fcea70b32f89ab029f8",
+   "units": [
+    {
+     "id": "p26.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "בלוני אוויר וצפיפות",
+     "targets": [
+      "theory:G9-t47",
+      "quiz:15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 27,
+   "imageSha256": "e17dc7adbbbac67f4197fd6cd6b08f695e49aecaa5464dfb0b9a4a3dcfc23587",
+   "units": [
+    {
+     "id": "p27.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "גזים בתגובות כימיות",
+     "targets": [
+      "theory:G9-t25",
+      "theory:G9-t48",
+      "worked:6"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 28,
+   "imageSha256": "88a708c0768f63767bd2207277bd4bc45d053ded42f2cb3fd2f81b873e775fb2",
+   "units": [
+    {
+     "id": "p28.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: פירוק NaN₃ ונפח N₂",
+     "targets": [
+      "theory:G9-t25",
+      "worked:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 29,
+   "imageSha256": "678953c98982e91fe89d2eb7e44259ce832362a2333caef1586decd6ae67ad18",
+   "units": [
+    {
+     "id": "p29.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה: ZnS ויחס נפחים",
+     "targets": [
+      "theory:G9-t25",
+      "theory:G9-t48",
+      "quiz:16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 30,
+   "imageSha256": "76c0ceaccc5b056c87682c516717bdb6b0ccac82b1ffa8cf4c52d324d3692477",
+   "units": [
+    {
+     "id": "p30.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תערובות גזים ולחץ חלקי",
+     "targets": [
+      "theory:G9-t13",
+      "theory:G9-t14"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 31,
+   "imageSha256": "b02830351eb808151f034e0e20696b48b961fe44c53195f32457f3e0fbe1ffc4",
+   "units": [
+    {
+     "id": "p31.u1",
+     "kind": "title",
+     "disposition": "admin",
+     "label": "שקף כותרת: חוק דלטון",
+     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+    }
+   ]
+  },
+  {
+   "page": 32,
+   "imageSha256": "86151dd963435b933f18c3995eb052e0fe6c6941cae2aef5ee5109b2db136924",
+   "units": [
+    {
+     "id": "p32.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "לחץ חלקי וחוק דלטון",
+     "targets": [
+      "theory:G9-t13",
+      "theory:G9-t14",
+      "theory:G9-t36"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 33,
+   "imageSha256": "3effa89e22fe01f78a34d3423be0eb4de08e195372b7a8ba34c5c3cbf2e043f2",
+   "units": [
+    {
+     "id": "p33.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "שבר מולי",
+     "targets": [
+      "theory:G9-t15",
+      "theory:G9-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 34,
+   "imageSha256": "6dfb399d28f036a23517ecd26f690dd0eb35e5339d9c6d03f50dbc0d3e879863",
+   "units": [
+    {
+     "id": "p34.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סיכום בעברית: לחץ כולל, חלקי ושבר מולי",
+     "targets": [
+      "theory:G9-t13",
+      "theory:G9-t14",
+      "theory:G9-t16",
+      "theory:G9-t17",
+      "theory:G9-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 35,
+   "imageSha256": "275e5feb26b65a1a5da6c1f55ec8ec1a8a3d33e815eeef5cfb7c58daa5f87036",
+   "units": [
+    {
+     "id": "p35.u1",
+     "kind": "table",
+     "disposition": "adapted",
+     "label": "טבלת לחץ אדי מים לפי טמפרטורה",
+     "targets": [
+      "theory:G9-t19",
+      "theory:G9-t20",
+      "theory:G9-t49"
+     ],
+     "rationale": "נבחרו נקודות עוגן מייצגות (273, 299, 373 K) בטקסט מקורי, עם הערה שהערכים נלקחים מטבלת השאלה; לא הועתקה כל הטבלה."
+    }
+   ]
+  }
+ ]
+}

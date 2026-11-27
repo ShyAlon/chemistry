@@ -30,7 +30,10 @@ for(const c of catalogue.courses){
  for(const t of c.topics){
   if(!reviewed(c.id,t.id))continue;
   const k=c.id+'/'+t.id;
-  if(hit.length)note(k,'figure implementation: '+hit.join(', '));
+  const tb=(policy.topicFigureBinding||{})[k];
+  let hit2=hit;
+  if(tb){const cl=figureClosure(tb.roots,path.join(root,'src'),tb.extraFiles||[]);const tbound=new Set([...cl.files.map(f=>'src/'+f),...(tb.extraFiles||[])]);hit2=[...changed].filter(f=>tbound.has(f))}
+  if(hit2.length)note(k,'figure implementation: '+hit2.join(', '));
   if(changed.has(`src/content/${c.id}/topics/${t.id}.json`))note(k,'lesson content changed');
   if(changed.has(`ingest/${c.id}/coverage/${t.id}.json`))note(k,'unit map file changed (only a semanticReview-only edit keeps the bindings)');
  }

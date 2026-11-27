@@ -68,8 +68,10 @@ export function figureClosure(roots,srcDir=path.join(root,'src'),extra=[],baseDi
  for(const x of extra){const full=path.join(baseDir,x);if(!fs.existsSync(full))errs.push('figure dependency missing: '+x);else extras.set(x,fs.readFileSync(full,'utf8'))}
  return {files:[...seen.keys()].sort(),texts:seen,extras,errors:errs};
 }
-export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src')){
- const b=(policy.figureBinding||{})[courseId];
+export function figuresHashFor(courseId,policy,srcDir=path.join(root,'src'),topicId){
+ // Per-topic binding (policy.topicFigureBinding['<course>/<topic>']): same closure rule, for topics whose figures
+ // render through a module outside the course-wide binding. Other topics keep their recorded hashes.
+ const b=((policy.topicFigureBinding||{})[courseId+'/'+topicId])||(policy.figureBinding||{})[courseId];
  if(!b)return {hash:figuresHash(),files:null,errors:[]};
  if(!Array.isArray(b.roots)||!b.roots.length)return {hash:null,files:[],errors:['figureBinding for '+courseId+' needs roots']};
  const c=figureClosure(b.roots,srcDir,b.extraFiles||[]);
@@ -263,7 +265,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
   if(listed){rows.push({course:c.id,topic:t.id,status:'fail',errors:['has a coverage map but is still on the legacy-unaudited allowlist; remove it']});continue}
   const cov=JSON.parse(fs.readFileSync(f,'utf8'));
   const r=checkTopic(t,cov,{loadTopic:tid=>((cat.courses.find(x=>x.id===c.id)||{}).topics||[]).find(x=>x.id===tid)}),errors=[...r.errors];
-  {const fb=figuresHashFor(c.id,policy);for(const m of fb.errors)errors.push(m)}
+  {const fb=figuresHashFor(c.id,policy,undefined,t.id);for(const m of fb.errors)errors.push(m)}
   if(cov.course!==c.id||cov.topic!==t.id)errors.push('course/topic mismatch');
   const rv=cov.semanticReview||{};
   const reviewed=rv.status==='done';
@@ -275,7 +277,7 @@ export function checkAll({cat=catalogue,dir=path.join(root,'ingest'),requireRevi
    if(rv.sourceSha256!==cov.source?.sha256)errors.push('review is not bound to this source hash');
    if(rv.contentSha256!==contentHash(t))errors.push('lesson content changed since the review; re-review required');
    if(JSON.stringify([...(rv.adminPagesAttested||[])].sort((a,b)=>a-b))!==JSON.stringify(adminPages(cov)))errors.push('adminPagesAttested must list exactly the all-admin pages the reviewer viewed');
-   const fh=figuresHashFor(c.id,policy);
+   const fh=figuresHashFor(c.id,policy,undefined,t.id);
    if(!fh.errors.length&&rv.figuresSha256!==fh.hash)errors.push('figure implementation changed since the review; re-review required');
    if(rv.unitMapSha256!==unitMapHash(cov))errors.push('unit map changed since the review; re-review required');
   }else if(rv.status!=='pending')errors.push('semanticReview.status must be pending or done');

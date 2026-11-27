@@ -94,3 +94,10 @@ test('G9 HW4 Q4/Q8/Q9/Q10 items recompute',()=>{
  assert.equal(3*2+3*2+6,18);near(2*6/3,4,0);
  const w=topic('G9').content.worked;assert.ok(w[8].batch5&&w[9].batch5&&w[8].content[1].includes('0.501')&&w[9].content[1].includes('CH₄S'));
 });
+test('G9 HW4 Q3 staged-cooling item recomputes from the sheet data and the official solution',()=>{
+ const R=.082,nco2=(436-40-.008)/760*3/(R*212.15),nboth=(1005-3)/760*3/(R*268.15),ntot=2373/760*3/(R*423.15);
+ assert.ok(Math.abs(nco2-.09)<.001&&Math.abs(nboth-.18)<.001&&Math.abs(ntot-.27)<.001);
+ const mol=185.7/760*3/(R*298);assert.ok(Math.abs(4.14/mol-138)<.1);assert.ok(Math.abs(.225*32-7.2)<1e-9);
+ const w=topic('G9').content.worked[10];assert.ok(w.batch5&&w.content[1].includes('CH₂S')&&w.content[1].includes('C₃H₆S₃')&&w.content[1].includes('7.2 g'));
+ assert.ok(topic('G9').content.theory.some(b=>b.id==='G9-t50'&&b.batch5));
+});

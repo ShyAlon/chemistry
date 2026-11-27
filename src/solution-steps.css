@@ -12,3 +12,4 @@
 .solution .inline-equation{unicode-bidi:isolate;direction:ltr;display:inline;font-variant-numeric:tabular-nums}
 .solution .inline-equation .eq-chunk{white-space:nowrap}
 .solution .inline-equation .eq-chunk+.eq-chunk{white-space:nowrap}
+.solution .solution-step.solution-calc .display-math{overflow-x:visible;width:auto}.solution .solution-step.solution-calc .display-math>div{min-width:0;max-width:100%}.solution .solution-step.solution-calc .display-math .math-fraction{white-space:nowrap}

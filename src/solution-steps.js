@@ -31,7 +31,7 @@ export const solutionDisplayText=s=>typeof s==='string'?s.replace(/([א-ת])-([�
 const SIGNED=/([−+]\d+(?:[.,]\d+)?(?:\s?°C|\s?K\b)?)/;
 export function splitSignedQuantities(text){return String(text).split(SIGNED).filter(x=>x!=='').map(x=>SIGNED.test(x)&&/^[−+]/.test(x)?{text:x.replace(/\s/g,'\u00a0'),quantity:true}:{text:x})}
 // Display glue for a calculation line: a number never separates from its unit, and the line may only break after "=".
-const UNIT='(?:mol\\/kg|mol\\/L|g\\/mol|L·atm\\/\\(mol·K\\)|mmHg|atm|kPa|Pa|kg|mol|mL|cm³|dm³|g|L|K|J|kJ|°C|nm|pm|u|M|m)';
+const UNIT='(?:mol\\/kg|mol\\/L|g\\/mol|L·atm\\/\\(mol·K\\)|J\\/\\(mol·K\\)|mmHg|atm|kPa|Pa|kg|mol|mL|cm³|dm³|g|L|K|J|kJ|°C|nm|pm|u|M|m)';
 export const glueCalculation=s=>s.replace(new RegExp('(\\d)\\s+(?='+UNIT+'(?![\\w.]))','g'),'$1\u00a0').replace(/\s+(?=[=≈→+−×·])/g,'\u00a0').replace(/=(?!\u200b)/g,'=\u200b');
 // Inside a mixed Hebrew step, an inline equation (a non-Hebrew run holding "=" and a digit) is one left-to-right unit.
 export function splitEquationRuns(text){

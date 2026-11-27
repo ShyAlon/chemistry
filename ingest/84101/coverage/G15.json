@@ -7,13 +7,7 @@
   "agent-01M89RY0MXDEQWC4Q42F62CKET"
  ],
  "semanticReview": {
-  "status": "done",
-  "reviewer": "chat-01M8B9ZAAD3HVWPYYYXSQY9MR5",
-  "sourceSha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
-  "contentSha256": "b0091d6cf963bed007d446e7112efa6cd45a227d3aabca9865b1a07125d55160",
-  "unitMapSha256": "bab93157cbb2c10e7a1df69f62661396ce9989f43875fc96c558facf1733d473",
-  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
-  "adminPagesAttested": []
+  "status": "pending"
  },
  "source": {
   "sha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
@@ -143,8 +137,12 @@
     },
     {
      "ref": "Q10",
-     "use": "not-covered",
-     "reason": "שיטה חסרה בפועל: מעבר מנוסחה אמפירית (HgCl) לנוסחה מולקולרית דרך המסה המולרית, כשהממס הוא HgCl₂. אין פריט או דוגמה ייעודיים ולא נטען כיסוי."
+     "use": "data-and-method",
+     "targets": [
+      "worked:13",
+      "quiz:15",
+      "quiz:16"
+     ]
     },
     {
      "ref": "Q12",

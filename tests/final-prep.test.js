@@ -51,7 +51,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
  {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
  for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
- revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11'));
+ revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11'));revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G12'));
  {const g=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11').content.theory.find(b=>b.text.includes("ללא קשרי מימן היינו "));g.text=g.text.replace("ללא קשרי מימן היינו מצפים לנקודת רתיחה נמוכה בהרבה מ-100 °C, בדומה ל-H₂S.","בלי קשרי מימן, מים היו גז בטמפרטורת החדר ולא היו חיים כפי שאנחנו מכירים.")} // G11 life-claim overclaim repaired in the source audit; baseline keeps the pre-repair sentence.
  for(const id of ['G3','G9','G11','G12','G13','G14','G15'])for(const b of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
   th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';

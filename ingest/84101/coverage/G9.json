@@ -642,10 +642,16 @@
    "units": [
     {
      "id": "p17.u1",
-     "kind": "title",
-     "disposition": "admin",
-     "label": "שקף כותרת: חוק הגז האידיאלי",
-     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "עץ החוק האידיאלי: PV=nRT והמקרים הפרטיים בויל, שארל, אבוגדרו",
+     "targets": [
+      "theory:G9-t02",
+      "theory:G9-t09",
+      "theory:G9-t26",
+      "theory:G9-t27",
+      "theory:G9-t13"
+     ]
     }
    ]
   },
@@ -690,10 +696,15 @@
    "units": [
     {
      "id": "p20.u1",
-     "kind": "title",
-     "disposition": "admin",
-     "label": "שקף כותרת: יישומי משוואת הגז האידיאלי",
-     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "תרשים זרימה לבחירת משוואה: מולים או מסה, מסה קבועה או משתנה",
+     "targets": [
+      "theory:G9-t07",
+      "theory:G9-t08",
+      "theory:G9-t51",
+      "worked:4"
+     ]
     }
    ]
   },
@@ -864,10 +875,15 @@
    "units": [
     {
      "id": "p31.u1",
-     "kind": "title",
-     "disposition": "admin",
-     "label": "שקף כותרת: חוק דלטון",
-     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+     "kind": "figure",
+     "disposition": "covered",
+     "label": "איור דלטון: שלושה כלי 5.0 L ב-20°C, H₂ 2.4 atm, He 6.0 atm, תערובת 8.4 atm",
+     "targets": [
+      "theory:G9-t13",
+      "theory:G9-t14",
+      "theory:G9-t52",
+      "theory:G9-t36"
+     ]
     }
    ]
   },

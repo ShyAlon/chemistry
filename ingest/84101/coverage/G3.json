@@ -279,10 +279,15 @@
    "units": [
     {
      "id": "p01.u1",
-     "kind": "title",
-     "disposition": "admin",
-     "label": "שקף כותרת: תרכובות כימיות",
-     "rationale": "שקופית ניהולית או כותרת מקטע, ללא תוכן לקצר"
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "תרכובות כימיות: קשר קוולנטי (שיתוף אלקטרונים) וקשר יוני (העברת אלקטרונים)",
+     "targets": [
+      "theory:G3-t01",
+      "theory:G3-t34",
+      "theory:G3-t07",
+      "theory:G3-t20"
+     ]
     }
    ]
   },

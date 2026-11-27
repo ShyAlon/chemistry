@@ -100,7 +100,7 @@ try{
    if(route==='course/84102/P7'){
     await js(`document.querySelectorAll('.tabs button')[1].click()`);await ready('.worked');
     await js(`document.querySelectorAll('.worked')[3].querySelector('button').click()`);await ready('.worked:nth-of-type(4) .solution');
-    const answer=await js(`document.querySelectorAll('.worked')[3].querySelector('.solution').textContent`);
+    const answer=(await js(`document.querySelectorAll('.worked')[3].querySelector('.solution').textContent`)).replace(/[\u200b\u2060]/g,'').replace(/\u00a0/g,' ');// display-only glue characters (no-break space, zero-width break) are not part of the text
     assert.ok(answer.includes('V⁺ = [Ar]4s¹3d³'));assert.ok(answer.includes('NIST'));assert.ok(answer.includes('[Ar]3d⁴'));assert.ok(!answer.includes('תמיד'));
     assert.ok(await js(`document.documentElement.scrollWidth<=innerWidth+1`));
     if([390,667,1280].includes(width)){

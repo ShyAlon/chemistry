@@ -107,7 +107,8 @@
           "label": "טבלת אנרגיות טיפוסיות",
           "targets": [
             "theory:G11-t24",
-            "theory:G11-t25"
+            "theory:G11-t25",
+            "theory:G11-t08"
           ],
           "rationale": "הטבלה לא הועתקה כערכי ייחוס. שלוש טבלאות המקורות אינן עקביות, והטקסט מציג את חוסר ההתאמה וסדר גודל איכותי בלבד."
         }
@@ -253,7 +254,8 @@
           "label": "דיפול־יון",
           "targets": [
             "theory:G11-t02",
-            "theory:G11-t14"
+            "theory:G11-t14",
+            "theory:G11-t16"
           ]
         }
       ]
@@ -268,7 +270,8 @@
           "disposition": "covered",
           "label": "מיום Na+",
           "targets": [
-            "theory:G11-t23"
+            "theory:G11-t23",
+            "theory:G11-t15"
           ]
         }
       ]
@@ -454,7 +457,8 @@
           "label": "קשר מימן: תנאי ועוצמה",
           "targets": [
             "theory:G11-t05",
-            "theory:G11-t10"
+            "theory:G11-t10",
+            "theory:G11-t11"
           ]
         }
       ]
@@ -614,7 +618,8 @@
           "label": "טבלת אנרגיות הרצאה",
           "targets": [
             "theory:G11-t24",
-            "theory:G11-t25"
+            "theory:G11-t25",
+            "theory:G11-t08"
           ],
           "rationale": "הטווחים אינם מועתקים כערכי ייחוס (ראו עמ׳ 3 ב-GC5)."
         }
@@ -663,7 +668,8 @@
           "label": "טבלת אנרגיות GC5 שוב",
           "targets": [
             "theory:G11-t24",
-            "theory:G11-t25"
+            "theory:G11-t25",
+            "theory:G11-t11"
           ],
           "rationale": "כפילות של GC5 עמ׳ 3."
         }
@@ -789,7 +795,8 @@
           "label": "דיפול־יון",
           "targets": [
             "theory:G11-t02",
-            "theory:G11-t14"
+            "theory:G11-t14",
+            "theory:G11-t16"
           ]
         }
       ]
@@ -804,7 +811,8 @@
           "disposition": "covered",
           "label": "מיום",
           "targets": [
-            "theory:G11-t23"
+            "theory:G11-t23",
+            "theory:G11-t15"
           ]
         }
       ]

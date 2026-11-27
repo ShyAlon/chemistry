@@ -6,7 +6,8 @@ import {splitSolutionSteps,isCalculationStep,solutionDisplayText,splitSignedQuan
 // Same display rule as lessons: one idea per block. Calculations use the lesson equation block (Formula),
 // so a quantity and its unit never break apart; conclusions stay Hebrew text with the sign inside the number.
 // A signed quantity in Hebrew prose is one left-to-right unit, so the minus cannot drift to the other side of the number.
-const Plain=({text,Rich,prefixOnly})=><>{splitSignedQuantities(text).map((part,i)=>part.quantity?<bdi key={i} dir="ltr" className="signed-quantity">{part.text}</bdi>:splitQuantities(part.text,prefixOnly).map((q,j)=>q.quantity?<bdi key={i+'-'+j} dir="ltr" className="signed-quantity">{q.text}</bdi>:<Rich key={i+'-'+j} text={q.text}/>))}</>;
+const Quantity=({q,k})=><bdi key={k} dir="ltr" className="signed-quantity">{q.text}</bdi>;
+const Plain=({text,Rich,prefixOnly})=><>{splitQuantities(text,prefixOnly).map((q,j)=>q.quantity?<Quantity key={j} q={q}/>:splitSignedQuantities(q.text).map((part,i)=>part.quantity?<Quantity key={j+'-'+i} q={part}/>:<Rich key={j+'-'+i} text={part.text}/>))}</>;
 const Prose=({text,Rich,prefixOnly})=><>{splitEquationRuns(solutionDisplayText(text)).map((part,i)=>part.equation?<bdi key={i} dir="ltr" className="inline-equation">{part.text.split(/(?<=\u200b)/).map((c,k)=><span key={k} className="eq-chunk">{c}</span>)}</bdi>:<Plain key={i} text={part.text} Rich={Rich} prefixOnly={prefixOnly}/>)}</>;
 export const ProblemText=({text,Rich})=><Prose text={text} Rich={Rich} prefixOnly/>;
 export function SolutionText({text,Rich}){

@@ -37,12 +37,12 @@ export const glueCalculation=s=>s.replace(new RegExp('(\\d)\\s+(?='+UNIT+'(?![\\
 export function splitEquationRuns(text){
   const out=[];let last=0;const re=/[^\u0590-\u05FF\n]+/g;let m;
   while((m=re.exec(text))){
-    const run=m[0];if(!/=/.test(run)||!/\d/.test(run))continue;
+    const run=m[0];if(!(/=/.test(run)||/\d\/\d/.test(run))||!/\d/.test(run))continue;
     const lead=run.match(/^[\s,;:.\-–]*/)[0].length;const trail=run.match(/[\s,;:.\-–]*$/)[0].length;
     const core=run.slice(lead,run.length-trail);if(!core)continue;
     const start=m.index+lead;
     if(start>last)out.push({text:text.slice(last,start)});
-    out.push({text:glueCalculation(core),equation:true});last=start+core.length;
+    out.push({text:core.length<=28?glueCalculation(core).replace(/\u200b/g,''):glueCalculation(core),equation:true});last=start+core.length;
   }
   if(last<text.length)out.push({text:text.slice(last)});
   return out;
@@ -51,7 +51,7 @@ export function splitEquationRuns(text){
 // A plain quantity (number with optional unit) inside Hebrew prose is one left-to-right run. A Hebrew prefix hyphen stays outside it.
 const NUM='\\d+(?:[.,]\\d+)?';
 const PREFIXED='(?<=[א-ת]-)'+NUM+'(?:[\\s\\u00a0]?'+UNIT+'(?!\\w))?';
-const WITH_UNIT=NUM+'[\\s\\u00a0]?'+UNIT+'(?!\\w)';
+const WITH_UNIT='[−+]?'+NUM+'[\\s\\u00a0]?'+UNIT+'(?!\\w)';
 const QTY_ALL=new RegExp('('+PREFIXED+'|'+WITH_UNIT+')');
 // A comma list of two or more quantities ("200°C, 1000 atm") is one left-to-right run.
 const LIST=WITH_UNIT+'(?:,[\\s\\u00a0]?'+WITH_UNIT+')+';

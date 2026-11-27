@@ -90,3 +90,12 @@ _t('comma list of quantities in a problem statement is one LTR run', () => {
   const q = _sqty('א. 200°C, 1000 atm. ב. 157°C', true).filter(p => p.quantity).map(p => p.text);
   _assert.deepEqual(q, ['200°C,\u00a01000\u00a0atm']);
 });
+
+_t('short inline equations never break; long ones may break after =', () => {
+  _assert.ok(!_er('מה? M(N₂)=28, M(Br₂)=160').some(p => p.equation && /\u200b/.test(p.text)));
+  _assert.ok(_er('חישוב: 0.200×0.08206×298.15/8.00 = 0.612 atm = 465 mmHg').some(p => p.equation && /\u200b/.test(p.text)));
+});
+_t('signed value inside a quantity list stays in the list; ratio becomes an LTR run', () => {
+  _assert.deepEqual(_sqty('ה. −10°C, 2 atm', true).filter(p => p.quantity).map(p => p.text), ['−10°C,\u00a02\u00a0atm']);
+  _assert.ok(_er('NaCl: 1/58.5 mol ליחידות').some(p => p.equation));
+});

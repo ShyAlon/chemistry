@@ -51,3 +51,14 @@ test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items re
  const M=.849/(1.24/34.3*.05);near(M,469.7,0.05);near(M/(200.59+35.45),2,0.02);
  const g15=topic('G15').content.quiz.filter(q=>q.batch5).slice(-2);near(g15[0].fields[0].value,M,0.01);assert.equal(g15[1].fields[0].value,2);
 });
+
+// Map-target contract (scripts/check-coverage.mjs blockExists): worked = ONE-based position, quiz = stable quiz id,
+// theory = stable block id. Existence alone lets a wrong-but-existing item pass, so pin each changed unit to its new item.
+const mapOf=t=>JSON.parse(fs.readFileSync(new URL(`../ingest/84101/coverage/${t}.json`,import.meta.url),'utf8'));
+const resolve=(t,ref)=>{const [k,v]=ref.split(':');const c=topic(t).content;return k==='worked'?c.worked[Number(v)-1]:k==='quiz'?c.quiz.find(q=>String(q.id)===v):c.theory.find(b=>b.id===v)};
+const unitTargets=(t,label)=>{const out=[];const walk=o=>{if(Array.isArray(o))o.forEach(walk);else if(o&&typeof o==='object'){if((o.id===label||o.ref===label)&&Array.isArray(o.targets)&&o.use==='data-and-method')out.push(...o.targets);Object.values(o).forEach(walk)}};walk(mapOf(t));return out};
+for(const [t,label,expect] of [['G14','Q8ג',['worked:9','quiz:12','quiz:13']],['G15','Q10',['worked:14','quiz:16','quiz:17']]])
+ test(`${t} map ${label} targets resolve to the new batch5 method items`,()=>{
+  assert.deepEqual(unitTargets(t,label),expect);
+  for(const r of expect){const b=resolve(t,r);assert.ok(b&&b.batch5,`${t} ${r} is not a new batch5 item`)}
+ });

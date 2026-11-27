@@ -39,7 +39,7 @@ test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
 test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
  for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
  assert.equal(added('G3','quiz').length,10);assert.equal(added('G9','quiz').length,8);
- assert.equal(added('G3','theory').length,25);assert.equal(added('G3','worked').length,4);
+ assert.equal(added('G3','theory').length,27);assert.equal(added('G3','worked').length,4);
 });
 test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
  const PB=95.1,PT=28.4,nB=.848/78.11,nT=1/92.14,xB=nB/(nB+nT);

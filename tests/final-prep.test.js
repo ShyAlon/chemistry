@@ -1,3 +1,4 @@
+import {fixT40} from './g15-t40.js';
 import catalogueSource from '#catalogue';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -31,6 +32,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // Nano N13 is a new topic authored after the reviewed-main snapshot this hash protects; drop it so the hash still proves every pre-existing byte is retained.
  {const n=original.courses.find(c=>c.id==='nano');n.topics=n.topics.filter(t=>t.id!=='N13');}
  for(const c of original.courses)for(const t of c.topics){
+  if(c.id==='84101'&&t.id==='G15')for(const b of t.content.theory)fixT40(b);
   if(c.id==='84101')t.content.theory=undoNotation(t).content.theory;
   else undoFormulaReview(t);
   t.source=t.source.split(' תוספת הכנה למבחן:')[0];
@@ -48,7 +50,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
  {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
  for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
- for(const id of ['G3','G9','G13','G14','G15'])for(const b of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.theory)delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
+ for(const id of ['G3','G9','G13','G14','G15'])for(const b of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
   th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';
   const cvb=th.find(b=>(b.text||'').includes('אלו ערכי מינימום'));
   cvb.text=cvb.text.replace('מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן','מתעוררת ו-Cv גדל מעבר להם. לכן');}

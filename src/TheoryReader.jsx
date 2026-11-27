@@ -25,10 +25,6 @@ export function TheoryReader({topic,renderBlock}){
  const index=state?.index||0,select=i=>player.current?.jump(i);
  return <section className="theory-reader" ref={root} aria-label="הקראת התיאוריה בעברית">
   {state&&!state.available&&<div className="reader-notice" role="status"><p>לא נמצא כרגע קול עברי מקומי בדפדפן. אפשר להמשיך לקרוא כרגיל. לא נעבור לאנגלית או לשירות הקראה מרוחק.</p><button className="secondary" type="button" onClick={()=>player.current.refreshVoices()}>בדיקת קולות מחדש</button></div>}
-  <details className="reader-jump"><summary>בחירת פסקה ונוסח ההקראה</summary>
-   <label className="reader-paragraph-field">פסקה לקריאה<select aria-label="פסקה לקריאה" value={index} onChange={e=>select(Number(e.target.value))}>{chunks.map((c,i)=><option key={c.id} value={i}>{i+1}. {c.display.slice(0,70)}</option>)}</select></label>
-   <div className="reader-paragraph-field"><strong>נוסח ההקראה של הקטע הנבחר</strong><p className="reader-spoken">{chunks[index].spoken}</p></div>
-   <p>בהמשך אחרי השהיה הפסקה מתחילה מחדש. ההקראה נעצרת ביציאה מהנושא, ממסך התיאוריה או מהחלון. איכות הקול תלויה במכשיר ובדפדפן.</p></details>
   <article className="theory panel reader-content">{topic.theory.map((block,i)=><div key={chunks[i].id} data-reading-id={chunks[i].id} data-reading-style={block.style} className={'theory-reading-block'+(state?.active===i?' reading-active':'')+(index===i?' reading-selected':'')} aria-current={state?.active===i?'true':undefined} onClick={e=>{if(!e.target.closest('button,a,input,select,summary')&&!window.getSelection()?.toString())select(i);}}>{renderBlock(block,i)}</div>)}</article>
  </section>;
 }

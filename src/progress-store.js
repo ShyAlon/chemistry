@@ -4,7 +4,9 @@ export const progressPrefix=uid=>'spectra-account-progress-v1:'+encodeURICompone
 // Errors about this one entry (rules or data): isolate it. Everything else (network, auth, quota, unknown) is not entry-specific.
 const ITEM_CODES=new Set(['permission-denied','invalid-argument','failed-precondition','not-found','already-exists','out-of-range']);
 export const isItemError=e=>ITEM_CODES.has(String(e?.code||'').replace(/^firestore\//,''));
-export function createProgressStore({uid,storage,gateway,manifest,changed=()=>{},id=()=>crypto.randomUUID(),online=()=>true}){
+// A refused entry is tried again at most once per cooldown, and only when something already triggers a sync (focus, online, a new answer); there is no polling.
+export const BLOCK_COOLDOWN_MS=10*60*1000;
+export function createProgressStore({uid,storage,gateway,manifest,changed=()=>{},id=()=>crypto.randomUUID(),online=()=>true,now=()=>Date.now()}){
  const key=progressPrefix(uid)+'cache';let closed=false,busy=false,resetting=false,again=false,records={},pending={},state={phase:'loading',storageFailed:false,error:''};
  try{const c=JSON.parse(storage.getItem(key));if(c?.schema===SCHEMA&&c.uid===uid){records=c.records||{};for(const [k,o] of Object.entries(c.pending||{}))if(validValue(manifest[o.record],o.item,o.value))pending[k]={id:o.id,record:o.record,item:o.item,value:o.value};}}catch{state.storageFailed=true;}
  function persist(){try{storage.setItem(key,JSON.stringify({schema:SCHEMA,uid,records,pending}));state.storageFailed=false;}catch{state.storageFailed=true;}}
@@ -12,8 +14,8 @@ export function createProgressStore({uid,storage,gateway,manifest,changed=()=>{}
  const emit=()=>{if(!closed)changed(snapshot());};
  async function sync(refresh=true){if(closed)return;if(!online()){state.phase=state.storageFailed?'attention':'device';emit();return;}if(busy||resetting){again=true;return;}busy=true;state.phase='syncing';emit();
   try{if(refresh){const r=await gateway.load();if(closed)return;records=r;}
-   for(const [k,o] of Object.entries(pending)){if(o.blocked)continue;
-    try{await gateway.commit(o,manifest[o.record]);}catch(e){if(closed)return;if(!isItemError(e))throw e;if(pending[k]?.id===o.id)pending[k].blocked={code:String(e.code).replace(/^firestore\//,'')};persist();continue;}
+   for(const [k,o] of Object.entries(pending)){if(o.blocked&&now()-o.blocked.at<BLOCK_COOLDOWN_MS)continue;delete o.blocked;
+    try{await gateway.commit(o,manifest[o.record]);}catch(e){if(closed)return;if(!isItemError(e))throw e;if(pending[k]?.id===o.id)pending[k].blocked={code:String(e.code).replace(/^firestore\//,''),at:now()};persist();continue;}
     if(closed)return;records[o.record]=apply(records[o.record],o,manifest[o.record]);if(pending[k]?.id===o.id)delete pending[k];persist();}
    persist();const bl=Object.values(pending).filter(o=>o.blocked);state.error=bl.length?'progress/'+bl[0].blocked.code:'';state.phase=state.storageFailed||bl.length?'attention':Object.keys(pending).length?'device':'saved';
   }catch(e){if(closed)return;state.error=e.code||'progress/unavailable';state.phase=state.storageFailed||state.error.includes('permission')?'attention':'device';}

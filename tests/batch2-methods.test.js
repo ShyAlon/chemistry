@@ -38,8 +38,8 @@ test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
 });
 test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
  for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
- assert.equal(added('G3','quiz').length,4);assert.equal(added('G9','quiz').length,6);
- assert.equal(added('G3','theory').length,4);assert.equal(added('G3','worked').length,1);
+ assert.equal(added('G3','quiz').length,8);assert.equal(added('G9','quiz').length,6);
+ assert.equal(added('G3','theory').length,22);assert.equal(added('G3','worked').length,3);
 });
 test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
  const PB=95.1,PT=28.4,nB=.848/78.11,nT=1/92.14,xB=nB/(nB+nT);
@@ -70,4 +70,13 @@ test('G9 pressure/density/volume-ratio/airbag additions recompute',()=>{
  near(4/(R*298.15),q(15).fields[0].value,.0001);near(1.5*2/3,q(16).fields[0].value,1e-9);
  const n=70/(22.99+3*14.007),V=1.5*n*R*299.15/(735/760);near(V,41.0,.05);
  const w=topic('G9').content.worked[7];assert.ok(w.batch5&&w.content[1].includes('41.0 L'));
+});
+
+test('G3 mole/molar-mass, nomenclature and oxidation-state additions recompute',()=>{
+ const q=id=>topic('G3').content.quiz.find(x=>x.id===id);
+ const M=8*32.066,atoms=5/M*6.022e23*8;near(atoms/1e22,q(10).fields[0].value,.01);
+ assert.equal(q(11).correct,2);assert.equal(q(11).options[2],'Fe₂(SO₄)₃');
+ assert.equal(2*q(12).fields[0].value-14,-2);
+ assert.equal(q(13).options[q(13).correct],'C₇H₁₆');
+ near(36.03/18.015*6.022e23*3/1e24,3.613,.002);near(4*30.974,123.90,.01);near(2*1.008+15.999,18.015,1e-9);near(24.305+2*(14.007+3*15.999),148.313,1e-9);
 });

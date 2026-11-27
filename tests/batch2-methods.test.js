@@ -38,8 +38,8 @@ test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
 });
 test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
  for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
- assert.equal(added('G3','quiz').length,8);assert.equal(added('G9','quiz').length,6);
- assert.equal(added('G3','theory').length,22);assert.equal(added('G3','worked').length,3);
+ assert.equal(added('G3','quiz').length,10);assert.equal(added('G9','quiz').length,6);
+ assert.equal(added('G3','theory').length,25);assert.equal(added('G3','worked').length,4);
 });
 test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
  const PB=95.1,PT=28.4,nB=.848/78.11,nT=1/92.14,xB=nB/(nB+nT);
@@ -79,4 +79,10 @@ test('G3 mole/molar-mass, nomenclature and oxidation-state additions recompute',
  assert.equal(2*q(12).fields[0].value-14,-2);
  assert.equal(q(13).options[q(13).correct],'C₇H₁₆');
  near(36.03/18.015*6.022e23*3/1e24,3.613,.002);near(4*30.974,123.90,.01);near(2*1.008+15.999,18.015,1e-9);near(24.305+2*(14.007+3*15.999),148.313,1e-9);
+});
+
+test('G3 isotope-average additions recompute',()=>{
+ const q=id=>topic('G3').content.quiz.find(x=>x.id===id);
+ near((23.9850*78.99+24.9858*10+25.9826*11.01)/100,q(14).fields[0].value,.006);
+ const x=(64.9278-63.546)/(64.9278-62.9296);near((1-x)*100,q(15).fields[0].value,.05);near((1-x)*3.011e23/1e22,9.29,.01);
 });

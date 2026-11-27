@@ -44,7 +44,7 @@ test('entire General Chemistry course is unchanged outside the flagged batch3 ex
  {const th=c.topics.find(t=>t.id==='G10').content.theory;
  for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  }
- for(const id of ['G13','G14','G15'])for(const b of c.topics.find(t=>t.id===id).content.theory)delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
+ for(const id of ['G3','G9','G13','G14','G15'])for(const b of c.topics.find(t=>t.id===id).content.theory)delete b.id; // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });
 test('reviewed earlier inorganic data reconstructs with only documented additions and corrections',()=>{

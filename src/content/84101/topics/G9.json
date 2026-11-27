@@ -34,7 +34,8 @@
    {
     "text": "במודל הגז האידיאלי:",
     "style": "Normal",
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t01"
    },
    {
     "text": "PV = nRT",
@@ -47,12 +48,14 @@
      "R:gas",
      "T"
     ],
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t02"
    },
    {
     "text": "ערך R תלוי ביחידות. ב-L ו-atm נשתמש בערך שבדף הבוחן:",
     "style": "Normal",
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t03"
    },
    {
     "text": "R = {R@sheet}",
@@ -61,12 +64,14 @@
     "symbols": [
      "R:sheet"
     ],
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t04"
    },
    {
     "text": "וב-SI:",
     "style": "Normal",
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t05"
    },
    {
     "text": "R ≈ {R}",
@@ -75,12 +80,14 @@
     "symbols": [
      "R"
     ],
-    "notationOf": 1
+    "notationOf": 1,
+    "id": "G9-t06"
    },
    {
     "text": "לכמות קבועה של גז:",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G9-t07"
    },
    {
     "text": "P₁V₁/T₁ = P₂V₂/T₂",
@@ -90,12 +97,14 @@
      "P₁, V₁, T₁",
      "P₂, V₂, T₂"
     ],
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G9-t08"
    },
    {
     "text": "בטמפרטורה קבועה מתקבל חוק בויל:",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G9-t09"
    },
    {
     "text": "P₁V₁ = P₂V₂",
@@ -105,16 +114,19 @@
      "P₁, V₁",
      "P₂, V₂"
     ],
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G9-t10"
    },
    {
     "text": "ובלחץ קבוע V/T קבוע. בנפח קבוע P/T קבוע. אם n משתנה עקב תגובה, יש להביא זאת בחשבון.",
     "style": "Normal",
-    "notationOf": 2
+    "notationOf": 2,
+    "id": "G9-t11"
    },
    {
     "text": "בתנאי STP שהוגדרו בקורס: 0°C ו-1 atm, נפח מולרי כ-22.4 L/mol. זה אינו נפח של מול גז בכל טמפרטורה ולחץ. אין להחליף חישוב משוואת הגזים ב-22.4 אלא בתנאים המתאימים.",
-    "style": "Normal"
+    "style": "Normal",
+    "id": "G9-t12"
    },
    {
     "text": "לחץ חלקי",
@@ -123,7 +135,8 @@
    {
     "text": "חוק דלטון:",
     "style": "Normal",
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t13"
    },
    {
     "text": "Pₜ = ΣPᵢ",
@@ -133,12 +146,14 @@
      "Pₜ",
      "Pᵢ"
     ],
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t14"
    },
    {
     "text": "והשבר המולי:",
     "style": "Normal",
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t15"
    },
    {
     "text": "xᵢ = nᵢ/nₜ = Pᵢ/Pₜ",
@@ -150,12 +165,14 @@
      "xᵢ#2",
      "nᵢ, nₜ"
     ],
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t16"
    },
    {
     "text": "אחרי פתיחת ברז בין כלים קשיחים בטמפרטורה קבועה כל גז ממלא את הנפח הכולל, כל עוד אין תגובה:",
     "style": "Normal",
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t17"
    },
    {
     "text": "Pᵢ,f = Pᵢ,i Vᵢ/Vₜ",
@@ -165,12 +182,14 @@
      "Pᵢ,i, Pᵢ,f",
      "Vᵢ, Vₜ"
     ],
-    "notationOf": 5
+    "notationOf": 5,
+    "id": "G9-t18"
    },
    {
     "text": "גז שנאסף מעל מים מכיל גם אדי מים. הלחץ של הגז היבש:",
     "style": "Normal",
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t19"
    },
    {
     "text": "P_gas = P_total − P_water",
@@ -181,12 +200,14 @@
      "P_total#2",
      "P_water#2"
     ],
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t20"
    },
    {
     "text": "מסה מולרית של גז:",
     "style": "Normal",
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t21"
    },
    {
     "text": "M = mRT/(PV)",
@@ -199,12 +220,14 @@
      "P",
      "V#2"
     ],
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t22"
    },
    {
     "text": "וצפיפות:",
     "style": "Normal",
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t23"
    },
    {
     "text": "ρ = PM/(RT)",
@@ -217,7 +240,8 @@
      "R:gas",
      "T"
     ],
-    "notationOf": 6
+    "notationOf": 6,
+    "id": "G9-t24"
    },
    {
     "text": "כימיה לפני מצב סופי",
@@ -225,7 +249,8 @@
    },
    {
     "text": "אם גזים מגיבים, קודם מאזנים ומחשבים את המגיב המגביל ואת מולי הגזים שנותרו; רק אחר כך לחץ חלקי. נוזל שמתפרק לגזים משנה את מספר מולי הגז, ולחץ ההליום האינרטי נשאר כפי שהיה רק אם נפח וטמפרטורה קבועים.",
-    "style": "Normal"
+    "style": "Normal",
+    "id": "G9-t25"
    },
    {
     "style": "Heading",
@@ -236,7 +261,8 @@
     "text": "המשוואה PV = nRT אומרת שארבעת המשתנים קשורים בקשר אחד. החוקים ה\"נפרדים\" הם רק מקרים פרטיים כשמשהו קבוע: בויל (n ו-T קבועים), שארל (n ו-P קבועים), גיי-לוסאק (n ו-V קבועים), אבוגדרו (P ו-T קבועים):",
     "style": "Normal",
     "enrich": true,
-    "notationOf": 10
+    "notationOf": 10,
+    "id": "G9-t26"
    },
    {
     "text": "P·V = const        V/T = const        P/T = const        V/n = const",
@@ -247,25 +273,29 @@
      "const"
     ],
     "notationOf": 10,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t27"
    },
    {
     "text": "מי שמבין את המשוואה לא צריך לזכור ארבעה חוקים.",
     "style": "Normal",
     "notationOf": 10,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t28"
    },
    {
     "style": "Figure",
     "figure": "gas-laws",
     "text": "שלושת החוקים הקלאסיים כגרפים. הקו הישר עובר דרך הראשית רק כשהטמפרטורה בקלווין — בצלזיוס היא לא עוברת דרך 0.",
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t29"
    },
    {
     "text": "היחידות קובעות את הערך של R. עם אטמוספירות וליטר:",
     "style": "Normal",
     "enrich": true,
-    "notationOf": 12
+    "notationOf": 12,
+    "id": "G9-t30"
    },
    {
     "text": "R = {R@latm}",
@@ -275,13 +305,15 @@
      "R:latm"
     ],
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t31"
    },
    {
     "text": "עם פסקל ומ\"ק:",
     "style": "Normal",
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t32"
    },
    {
     "text": "R = {R}",
@@ -291,13 +323,15 @@
      "R"
     ],
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t33"
    },
    {
     "text": "בחירה לא עקבית היא שגיאת היחידות הנפוצה בקורס. והטמפרטורה — תמיד בקלווין, בלי יוצא מן הכלל:",
     "style": "Normal",
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t34"
    },
    {
     "text": "K = °C + 273.15",
@@ -308,17 +342,20 @@
      "°C"
     ],
     "notationOf": 12,
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t35"
    },
    {
     "style": "Normal",
     "text": "תערובות גזים: דלטון — הלחץ הכולל הוא סכום הלחצים החלקיים, וכל רכיב מתנהג כאילו הוא לבד בכלי: Pᵢ = xᵢ·P_total. מכאן שאלת הדגימה הקלאסית (אוספים גז מעל מים): מחסירים את לחץ אדי המים מהלחץ הכולל לפני שמפעילים PV=nRT על הגז היבש.",
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t36"
    },
    {
     "style": "Callout",
     "text": "מלכודת: בבעיות \"מיכל נפתח/מתחמם\" קודם כותבים מה קבוע ומה משתנה. אם המיכל פתוח — הלחץ קבוע ו-n משתנה, לא להפך.",
-    "enrich": true
+    "enrich": true,
+    "id": "G9-t37"
    },
    {
     "style": "Heading",
@@ -328,7 +365,8 @@
    {
     "style": "Normal",
     "text": "בכלי קשיח בטמפרטורה קבועה, הלחץ פרופורציוני למספר מולי הגז. מאזנים קודם את התגובה. אם סכום המקדמים הגזיים משתנה, אפשר לחשב את התקדמות התגובה מירידת הלחץ או מעלייתו. אין להפעיל את החוק המשולב כאילו n קבוע.",
-    "batch2": true
+    "batch2": true,
+    "id": "G9-t38"
    },
    {
     "text": "CO(g) + 2H₂(g) → CH₃OH(g)",
@@ -338,23 +376,27 @@
      "(g)"
     ],
     "batch2": true,
-    "notationOf": 17
+    "notationOf": 17,
+    "id": "G9-t39"
    },
    {
     "style": "Normal",
     "text": "נסמן התקדמות ביחידות לחץ ב-δ. בתערובת CO/H₂, הלחצים משתנים ב-−δ, −2δ, +δ ולכן הלחץ הכולל משתנה ב-−2δ. זו דרך חשבונית נוחה רק כאשר V ו-T קבועים והמודל האידיאלי תקף.",
-    "batch2": true
+    "batch2": true,
+    "id": "G9-t40"
    },
    {
     "style": "Callout",
     "text": "תרגיל המקור משתמש ב-250 atm. זהו לחץ גבוה, ולכן פתרון אידיאלי הוא תרגיל מודל ולא תחזית כמותית אמינה לגז אמיתי. המשוואה במקור חסרה מקדם 2 לפני H₂; כאן משתמשים בתגובה המאוזנת.",
-    "batch2": true
+    "batch2": true,
+    "id": "G9-t41"
    },
    {
     "style": "Normal",
     "text": "בדיקת עיבוי בתערובת: מחשבים לכל רכיב את הלחץ החלקי שהיה לו כגז בכלי, ומשווים ללחץ האדים הרווי שלו באותה טמפרטורה. אם המחושב גבוה מהרווי — הרכיב מתעבה, הלחץ החלקי שלו ננעל על ערך הרוויה, והשאר נוזל. מה שקובע הוא לחץ הרוויה, לא נקודת הרתיחה הנורמלית: מים ב-25°C (רחוק מנקודת הרתיחה) עדיין תורמים 23.76 mmHg של אדים, וגז בלחץ חלקי נמוך לא יתעבה גם מתחת לנקודת הרתיחה של החומר הטהור.",
     "enrich": true,
-    "batch3": true
+    "batch3": true,
+    "id": "G9-t42"
    }
   ],
   "worked": [

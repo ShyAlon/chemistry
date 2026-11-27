@@ -30,11 +30,11 @@ import _assert from 'node:assert/strict';
 _t('glue keeps number with unit and only breaks after =', () => {
   const g = _glue('m=0.100/0.500=0.200 mol/kg');
   _assert.ok(g.includes('0.200\u00a0mol/kg'));
-  _assert.equal(g.replace(/[\u200b\u00a0]/g, ' ').replace(/ /g, '').replace('mol/kg', ' mol/kg').replace(' ', ''), 'm=0.100/0.500=0.200mol/kg');
+  _assert.equal(g.replace(/[\u200b\u2060]/g, '').replace(/\u00a0/g, ' '), 'm=0.100/0.500=0.200 mol/kg');
 });
 _t('long equation and decimal punctuation survive glue', () => {
   const s = 'P=0.0821·298·0.0100=0.245 atm, 1,86 K/m';
-  _assert.equal(_glue(s).replace(/\u200b/g, '').replace(/\u00a0/g, ' '), s);
+  _assert.equal(_glue(s).replace(/[\u200b\u2060]/g, '').replace(/\u00a0/g, ' '), s);
 });
 _t('signed quantity is one LTR unit with sign preserved', () => {
   const parts = _sq('ולכן הקיפאון ב −0.372 °C.');
@@ -52,5 +52,41 @@ _t('inline equation inside Hebrew step becomes one LTR run, text preserved', () 
   const s = 'בדיקת עיבוי: n=0.200×0.08206×298.15/8.00 = 0.612 atm = 465 mmHg — גבוה מ-23.76 mmHg.';
   const parts = _er(s);
   _assert.ok(parts.some(p => p.equation && p.text.includes('0.612\u00a0atm')));
-  _assert.equal(parts.map(p => p.text).join('').replace(/[\u200b]/g, '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' '), s.replace(/\s+/g, ' '));
+  _assert.equal(parts.map(p => p.text).join('').replace(/[\u200b\u2060]/g, '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' '), s.replace(/\s+/g, ' '));
+});
+
+import {splitQuantities as _sqty} from '../src/solution-steps.js';
+_t('Hebrew prefix hyphen stays outside the LTR quantity; slash never breaks', () => {
+  const parts = _sqty('גבוה מ-23.76 mmHg ו-0.200 mol');
+  _assert.deepEqual(parts.filter(p => p.quantity).map(p => p.text), ['23.76\u00a0mmHg', '0.200\u00a0mol']);
+  _assert.equal(parts.map(p => p.text).join('').replace(/\u00a0/g, ' '), 'גבוה מ-23.76 mmHg ו-0.200 mol');
+  _assert.ok(!_glue('a/b=1').includes('\u2060'));
+});
+
+_t('ellipsis does not split a step; labels with closing paren and period stay attached', () => {
+  _assert.equal(splitSolutionSteps('הערכים 1.5, 2.0, ... 3.5 קבועים. סוף.').length, 2);
+  const st = splitSolutionSteps('א). חישוב n=2. ב). תוצאה.');
+  _assert.ok(st.every(x => x.length > 4), JSON.stringify(st));
+  _assert.equal(splitSolutionSteps('1. חישוב n=2.').length, 1);
+});
+_t('short Hebrew lead plus equation becomes lead and equation; text kept', () => {
+  const s = 'המרת לחץ: P = 735 mmHg × 101.325/760 = 98.0 kPa.';
+  const st = splitSolutionSteps(s);
+  _assert.equal(st.length, 2);
+  _assert.equal(st.join(' '), s);
+});
+_t('no break before equals or operators in glued equations', () => {
+  const g = _glue('a + b = c');
+  _assert.ok(g.includes('a\u00a0+ b\u00a0=\u200b c'), JSON.stringify(g));
+});
+
+_t('bare digits are never isolated; prefixed numbers are', () => {
+  _assert.deepEqual(_sqty('2NaN₃ → 3N₂ ו-5').filter(p => p.quantity).map(p => p.text), ['5']);
+  _assert.deepEqual(_sqty('0.050 mol O₂, ב-300 K').filter(p => p.quantity).map(p => p.text), ['0.050\u00a0mol', '300\u00a0K']);
+  _assert.deepEqual(_sqty('0.050 mol, ב-300 K', true).filter(p => p.quantity).map(p => p.text), ['300\u00a0K']);
+});
+
+_t('comma list of quantities in a problem statement is one LTR run', () => {
+  const q = _sqty('א. 200°C, 1000 atm. ב. 157°C', true).filter(p => p.quantity).map(p => p.text);
+  _assert.deepEqual(q, ['200°C,\u00a01000\u00a0atm']);
 });

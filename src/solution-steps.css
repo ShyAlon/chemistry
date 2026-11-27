@@ -10,3 +10,5 @@
 .solution .signed-quantity{white-space:nowrap;unicode-bidi:isolate}
 .solution .solution-step.solution-calc .display-math,.solution .solution-step.solution-calc .display-math *{white-space:normal;overflow-wrap:normal;word-break:normal}
 .solution .inline-equation{unicode-bidi:isolate;direction:ltr;display:inline;font-variant-numeric:tabular-nums}
+.solution .inline-equation .eq-chunk{white-space:nowrap}
+.solution .inline-equation .eq-chunk+.eq-chunk{white-space:nowrap}

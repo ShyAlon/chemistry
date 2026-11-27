@@ -3,11 +3,11 @@ import React,{useState} from 'react';
 import {bidiElement} from './bidi-react.js';
 import {PageTitle} from './PageTitle.jsx';
 import {ScientificText} from './scientific-text.js';
-import {SolutionText} from './SolutionText.jsx';
+import {SolutionText,ProblemText} from './SolutionText.jsx';
 const RichRun=({text})=><ScientificText runs={[text]}/>;
 import {exam84101,examNote} from './exam-84101.js';
 function ExamPart({part,index,contextId}){const [show,setShow]=useState(false);
- return <section className="panel exam-part"><div className="exercise-index">סעיף {part.label}</div><h3><ScientificText runs={[part.question]}/></h3><button className="secondary" onClick={()=>setShow(!show)} aria-expanded={show}>{show?'הסתרת הפתרון':'נסיתי. מציגים פתרון'}<span>{show?'−':'+'}</span></button>{show&&<div className="solution">{part.solutionBlocks?<FinalPrepSolution blocks={part.solutionBlocks} contextId={contextId}/>:part.solution.map((p,i)=><SolutionText key={i} text={p} Rich={RichRun}/>)}</div>}</section>}
+ return <section className="panel exam-part"><div className="exercise-index">סעיף {part.label}</div><h3><ProblemText text={part.question} Rich={RichRun}/></h3><button className="secondary" onClick={()=>setShow(!show)} aria-expanded={show}>{show?'הסתרת הפתרון':'נסיתי. מציגים פתרון'}<span>{show?'−':'+'}</span></button>{show&&<div className="solution">{part.solutionBlocks?<FinalPrepSolution blocks={part.solutionBlocks} contextId={contextId}/>:part.solution.map((p,i)=><SolutionText key={i} text={p} Rich={RichRun}/>)}</div>}</section>}
 export function ExamPractice(){
  const [active,setActive]=useState(null);
  const problem=exam84101.find(p=>p.id===active);

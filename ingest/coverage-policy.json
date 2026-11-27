@@ -22,6 +22,11 @@
       ]
     }
   },
+  "topicFigureNote": "Per-topic figure binding for GC1 topics whose figures render through figures-gc1.jsx (a wrapper over figures.jsx plus figures-gc1-extra.jsx). Closure rules as figureBinding. Other 84101 topics keep the legacy two-file hash.",
+  "topicFigureBinding": {
+    "84101/G3": {"roots": ["figures-gc1.jsx", "style.css"], "extraFiles": ["package.json", "package-lock.json"]},
+    "84101/G9": {"roots": ["figures-gc1.jsx", "style.css"], "extraFiles": ["package.json", "package-lock.json"]}
+  },
   "legacyUnaudited": [
     "84102/P7",
     "84102/P9",
@@ -37,13 +42,11 @@
     "84102/P12",
     "84101/G1",
     "84101/G2",
-    "84101/G3",
     "84101/G4",
     "84101/G5",
     "84101/G6",
     "84101/G7",
     "84101/G8",
-    "84101/G9",
     "84101/G11",
     "84101/G12",
     "84101/G16",

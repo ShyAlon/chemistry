@@ -1,0 +1,122 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const topic=id=>JSON.parse(fs.readFileSync(new URL(`../src/content/84101/topics/${id}.json`,import.meta.url),'utf8'));
+const added=(t,k)=>topic(t).content[k].filter(b=>b.batch5);
+const near=(a,b,tol)=>assert.ok(Math.abs(a-b)<=tol,`${a} vs ${b}`);
+// Independent recomputation of the GC1 batch-2 additions (sample-final Q1, Q4, Q10, Q12d types).
+// Assumptions stated in the items: ideal gas, course STP molar volume 22.4 L/mol. Author-computed, not an official key.
+test('G3 sulfur combustion analysis: Q10-type chain recomputes',()=>{
+ const g3=topic('G3').content;
+ const hMass=10.8*2/18, mBaSO4=137.3+32+64, nS=35/mBaSO4, fracS=nS*32/9.3;
+ near(hMass,1.2,1e-9);near(fracS,0.516,0.001);
+ const s=12.4*fracS, c=12.4-hMass-s;
+ near(s/32,0.2,0.002);near(c/12,0.4,0.002);near(hMass,1.2,1e-9);
+ const q=id=>g3.quiz.find(x=>x.id===id);
+ near(q(6).fields[0].value,fracS*100,0.01);
+ near(q(7).fields[0].value,2.77*22.4,0.001);
+ assert.equal(q(8).fields[0].value,0.2*9/2*32);
+ // empirical C2H6S, M=62; O2 balance 2C2H6S+9O2->4CO2+6H2O+2SO2
+ assert.equal(2*12+6+32,62);assert.equal(4*2+6+2*2,9*2);
+ const w=g3.worked.find(x=>x.batch5);assert.match(w.content.join(' '),/C₂H₆S/);assert.match(w.content.join(' '),/28\.8/);
+});
+test('G3 two-sample SO2/SO3 analysis (Q1 type) recomputes to C3H8S2',()=>{
+ const hFrac=5.993*2/18/8.900, h=5.680*hFrac, s=4.207/80+3.366/64, sm=s*32, c=5.680-h-sm;
+ const r=[c/12,h,s].map(x=>x/s);
+ near(r[0]*2,3,0.02);near(r[1]*2,8.08,0.02);near(r[2]*2,2,1e-9);
+ near(3*12+8+2*32,4.818*22.4,0.2);
+ const q=topic('G3').content.quiz.find(x=>x.id===9);assert.match(q.answer,/C₃H₈S₂/);
+});
+test('G9 Q4-type partial pressures and Q12d Avogadro item recompute',()=>{
+ const co2=175,so2=200,h2o=150,cs2=so2/2,hcC=co2-cs2,hcH=2*h2o;
+ assert.equal(hcC*4,hcH);near(hcC/(hcC+cs2),0.4285,0.001);
+ const oAtoms=2*co2+2*so2+h2o, n=(oAtoms/2/760)*10/(0.08206*723.15);
+ near(n*32,3.19,0.005);near(76/22.4,3.39,0.005);
+ const g9=topic('G9').content.quiz;
+ assert.match(g9.find(x=>x.id===11).answer,/3\.19/);
+ const x=3;assert.equal(2+x+5,2*(2+x));assert.equal(g9.find(x2=>x2.id===12).fields[0].value,x*4);
+});
+test('batch5 additions to G3 and G9 are append-only and carry unique ids',()=>{
+ for(const t of['G3','G9']){const ids=topic(t).content.quiz.map(q=>q.id);assert.equal(new Set(ids).size,ids.length);}
+ assert.equal(added('G3','quiz').length,13);assert.equal(added('G9','quiz').length,10);
+ assert.equal(added('G3','theory').length,29);assert.equal(added('G3','worked').length,9);
+});
+test('G14 condensation-at-given-pressure and G15 HgCl molecular-formula items recompute',()=>{
+ const PB=95.1,PT=28.4,nB=.848/78.11,nT=1/92.14,xB=nB/(nB+nT);
+ const P1=xB*PB+(1-xB)*PT,y1=xB*PB/P1,x2=(70-PT)/(PB-PT),y2=x2*PB/70;
+ near(xB,0.5,0.001);near(P1,61.75,0.01);near(y1,0.770,0.001);near(y1*PB+(1-y1)*PT,79.8,0.05);
+ near(x2,0.6237,0.0001);near(y2,0.8473,0.0001);assert.ok(x2<y1&&y1<y2);near((y2-y1)/(y2-x2),0.345,0.001);
+ const g14=topic('G14').content.quiz.filter(q=>q.batch5);
+ const v=g14.slice(-2).map(q=>q.fields[0].value);near(v[0],x2,0.0001);near(v[1],y2,0.0001);
+ const M=.849/(1.24/34.3*.05);near(M,469.7,0.05);near(M/(200.59+35.45),2,0.02);
+ const g15=topic('G15').content.quiz.filter(q=>q.batch5).slice(-2);near(g15[0].fields[0].value,M,0.01);assert.equal(g15[1].fields[0].value,2);
+});
+
+// Map-target contract (scripts/check-coverage.mjs blockExists): worked = ONE-based position, quiz = stable quiz id,
+// theory = stable block id. Existence alone lets a wrong-but-existing item pass, so pin each changed unit to its new item.
+const mapOf=t=>JSON.parse(fs.readFileSync(new URL(`../ingest/84101/coverage/${t}.json`,import.meta.url),'utf8'));
+const resolve=(t,ref)=>{const [k,v]=ref.split(':');const c=topic(t).content;return k==='worked'?c.worked[Number(v)-1]:k==='quiz'?c.quiz.find(q=>String(q.id)===v):c.theory.find(b=>b.id===v)};
+const unitTargets=(t,label)=>{const out=[];const walk=o=>{if(Array.isArray(o))o.forEach(walk);else if(o&&typeof o==='object'){if((o.id===label||o.ref===label)&&Array.isArray(o.targets)&&o.use==='data-and-method')out.push(...o.targets);Object.values(o).forEach(walk)}};walk(mapOf(t));return out};
+for(const [t,label,expect] of [['G14','Q8ג',['worked:9','quiz:12','quiz:13']],['G15','Q10',['worked:14','quiz:16','quiz:17']]])
+ test(`${t} map ${label} targets resolve to the new batch5 method items`,()=>{
+  assert.deepEqual(unitTargets(t,label),expect);
+  for(const r of expect){const b=resolve(t,r);assert.ok(b&&b.batch5,`${t} ${r} is not a new batch5 item`)}
+ });
+
+test('G9 pressure/density/volume-ratio/airbag additions recompute',()=>{
+ const q=id=>topic('G9').content.quiz.find(x=>x.id===id);
+ const R=.08206;
+ near(1.25*101.325,q(13).fields[0].value,.05);assert.equal(750+85,q(14).fields[0].value);
+ near(4/(R*298.15),q(15).fields[0].value,.0001);near(1.5*2/3,q(16).fields[0].value,1e-9);
+ const n=70/(22.99+3*14.007),V=1.5*n*R*299.15/(735/760);near(V,41.0,.05);
+ const w=topic('G9').content.worked[7];assert.ok(w.batch5&&w.content[1].includes('41.0 L'));
+});
+
+test('G3 mole/molar-mass, nomenclature and oxidation-state additions recompute',()=>{
+ const q=id=>topic('G3').content.quiz.find(x=>x.id===id);
+ const M=8*32.066,atoms=5/M*6.022e23*8;near(atoms/1e22,q(10).fields[0].value,.01);
+ assert.equal(q(11).correct,2);assert.equal(q(11).options[2],'Fe₂(SO₄)₃');
+ assert.equal(2*q(12).fields[0].value-14,-2);
+ assert.equal(q(13).options[q(13).correct],'C₇H₁₆');
+ near(36.03/18.015*6.022e23*3/1e24,3.613,.002);near(4*30.974,123.90,.01);near(2*1.008+15.999,18.015,1e-9);near(24.305+2*(14.007+3*15.999),148.313,1e-9);
+});
+
+test('G3 isotope-average additions recompute',()=>{
+ const q=id=>topic('G3').content.quiz.find(x=>x.id===id);
+ near((23.9850*78.99+24.9858*10+25.9826*11.01)/100,q(14).fields[0].value,.006);
+ const x=(64.9278-63.546)/(64.9278-62.9296);near((1-x)*100,q(15).fields[0].value,.05);near((1-x)*3.011e23/1e22,9.29,.01);
+});
+
+test('G9 HW4 Q4/Q8/Q9/Q10 items recompute',()=>{
+ const q=id=>topic('G9').content.quiz.find(x=>x.id===id);
+ near(1.52*760/50,q(17).fields[0].value,.05);near(.99-.965*10/30,q(18).fields[0].value,.0005);
+ const a=9*1273.15/573.15,alpha=(25/a-1)*2;near(alpha,.501,.001);
+ assert.equal(3*2+3*2+6,18);near(2*6/3,4,0);
+ const w=topic('G9').content.worked;assert.ok(w[8].batch5&&w[9].batch5&&w[8].content[1].includes('0.501')&&w[9].content[1].includes('CH₄S'));
+});
+test('G9 HW4 Q3 staged-cooling item recomputes from the sheet data and the official solution',()=>{
+ const R=.082,nco2=(436-40-.008)/760*3/(R*212.15),nboth=(1005-3)/760*3/(R*268.15),ntot=2373/760*3/(R*423.15);
+ assert.ok(Math.abs(nco2-.09)<.001&&Math.abs(nboth-.18)<.001&&Math.abs(ntot-.27)<.001);
+ const mol=185.7/760*3/(R*298);assert.ok(Math.abs(4.14/mol-138)<.1);assert.ok(Math.abs(.225*32-7.2)<1e-9);
+ const w=topic('G9').content.worked[10];assert.ok(w.batch5&&w.content[1].includes('CH₂S')&&w.content[1].includes('C₃H₆S₃')&&w.content[1].includes('7.2 g'));
+ assert.ok(topic('G9').content.theory.some(b=>b.id==='G9-t50'&&b.batch5));
+});
+// Reviewer-found practice gaps (G3 exercise 2 Q3/Q4/Q7/Q14/Q15, G9 sample Q1, sample-final Q9): independent recomputation.
+test('G3 exercise-2 gap items recompute and map to real targets',()=>{
+ const x=(0.7*19.992+0.3*21.991-20.3914)/(21.991-20.994);near(x,0.2009,5e-5);near(0.3-x,0.0991,5e-5);
+ const a=0.8*10.0129+0.2*11.0093,b=0.35*10.0129+0.65*11.0093;near(b-a,0.4484,5e-5);
+ near((12/16)/(12/44),2.75,1e-9);near(5*(12/16)/(3*(12/44)),4.583,1e-3);
+ const nCO=8/28,nCO2=12/44;near(100*16*(nCO+2*nCO2)/20,66.5,0.05);near((nCO+2*nCO2)/(nCO+nCO2),1.488,1e-3);
+ const M=24.305+2*14.007+6*15.999;near(M,148.313,1e-3);near(1.8066e24/6.022e23/6*M,74.16,0.01);near(24.305/M*100,16.39,0.01);
+ const c=topic('G3').content;
+ assert.match(c.worked[8].content.join(' '),/20\.1%/);assert.match(c.worked[9].content.join(' '),/0\.4484/);assert.match(c.worked[10].content.join(' '),/2\.75/);assert.match(c.worked[11].content.join(' '),/66\.5%/);assert.match(c.worked[12].content.join(' '),/74\.16/);
+ assert.deepEqual([16,17,18].map(i=>c.quiz.find(q=>q.id===i).fields[0].value),[20.1,2.75,74.16]);
+});
+test('G9 NCl3 pressure-rise and nitroglycerin cooling items recompute',()=>{
+ const nGas=1.2*4/(0.08206*301.15);near(nGas,0.1942,5e-5);near(nGas/2*(14.007+3*35.45),11.69,0.01);
+ near(14.5*0.08206*773.15/10,92.0,0.05);
+ const p=9.5*0.08206*298.15/10;near(p,23.24,0.01);near(p+23.76/760,23.27,0.01);
+ const c=topic('G9').content;
+ assert.deepEqual([19,20].map(i=>c.quiz.find(q=>q.id===i).fields[0].value),[11.69,23.27]);
+ assert.match(c.worked[11].content.join(' '),/11\.69 g/);assert.match(c.worked[12].content.join(' '),/23\.27 atm/);
+});

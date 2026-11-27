@@ -13,7 +13,7 @@ const rows=collectFormulaRecords(),by=new Map(rows.map(r=>[r.key,r]));
 const effusion=rows.find(r=>r.expression==='r_mol ∝ P/√M');
 
 test('reviewed coverage is distinct from the explicitly unreviewed, change-locked legacy inventory',()=>{
- assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:234, legacy:511, total:745});
+ assert.deepEqual(validateCoverageManifest(rows,review),{reviewed:247, legacy:511, total:758});
  assert.ok(review.scope.includes('do not certify'));
  assert.ok(!Object.keys(review.reviewed).some(k=>Object.hasOwn(review.legacyUnreviewed,k)));
 });

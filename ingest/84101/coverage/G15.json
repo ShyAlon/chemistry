@@ -210,6 +210,7 @@
      "ref": "Q13ג",
      "use": "method-only",
      "targets": [
+      "worked:4",
       "quiz:9"
      ]
     },

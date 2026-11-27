@@ -5030,6 +5030,226 @@
     "PV@g9"
    ],
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/0": {
+   "expression": "135 = 100 × x_A + 222 × x_B",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b",
+    "x_B": "x_A,x_B@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/1": {
+   "expression": "x_B = 1 − x_A",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b",
+    "x_B": "x_A,x_B@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/2": {
+   "expression": "135 = 100 × x_A + 222 − 222 × x_A",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/3": {
+   "expression": "135 = 222 − 122 × x_A",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/4": {
+   "expression": "x_A = 87/122 = 0.7131",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/5": {
+   "expression": "n_A = 350/72 = 4.861 mol",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "n_A": "n_A,n_B,n_total@g14b"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/6": {
+   "expression": "n_total = n_A/x_A",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "x_A": "x_A,x_B@g14b",
+    "n_A": "n_A,n_B,n_total@g14b",
+    "n_total": "n_A,n_B,n_total@g14b"
+   },
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/7": {
+   "expression": "n_total = 4.861/0.7131 = 6.817 mol",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "n_total": "n_A,n_B,n_total@g14b"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/8": {
+   "expression": "n_B = 6.817 − 4.861 = 1.956 mol",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "n_B": "n_A,n_B,n_total@g14b"
+   },
+   "literals": [
+    {
+     "text": "mol",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/9": {
+   "expression": "m_B = 1.956 × 58 = 113 g",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "m_B": "m_B@g14b"
+   },
+   "literals": [
+    {
+     "text": "g",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/10": {
+   "expression": "0.7131 × 100 = 71.31",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/11": {
+   "expression": "0.2869 × 222 = 63.69",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {},
+   "literals": [],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
+  },
+  "מסה לא ידועה מלחץ האדים הכולל (שאלות לדוגמא 11ד)/12": {
+   "expression": "P = 71.31 + 63.69 = 135.0 mmHg",
+   "contextDigest": "b42c6cb5930a58aa5d2e4943e01b4bd5598aacf713dd46eab2b07eb76a7262cc",
+   "bindings": {
+    "P": "P"
+   },
+   "literals": [
+    {
+     "text": "mmHg",
+     "kind": "unit"
+    }
+   ],
+   "allowedSymbols": [
+    "x_A,x_B@g14b",
+    "n_A,n_B,n_total@g14b",
+    "m_B@g14b",
+    "P"
+   ],
+   "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   }
  },
  "legacyUnreviewed": {
@@ -5829,7 +6049,10 @@
   "n@g9": "a5179d4ef4ec91f8add92c6537380cd61142a84c376056b336ead8bfb01552fc",
   "m(O₂)@g9": "9e9084ecc3efdaa537921ffb82cf7aff81c4c49055c6d9708c4fe40c2deb8aa9",
   "k@g15": "be6c7c81ee99caa6def44cb7fdf9949f4b3bbcf4c693e378f2800d4b80166df0",
-  "PV@g9": "4d871a6f9f0daceec5a139f3f20f04bdc4ee793ccd2ad243826fd4a4a06288ce"
+  "PV@g9": "4d871a6f9f0daceec5a139f3f20f04bdc4ee793ccd2ad243826fd4a4a06288ce",
+  "x_A,x_B@g14b": "8051ba9d53fd7f4886855e9d3a6b1298c8ab3339a99ec52b6a48636f066df396",
+  "n_A,n_B,n_total@g14b": "b9970f6c89a32543d76dd774231422cf8a2dc42f16cd2deb0f5deaa5826ffec0",
+  "m_B@g14b": "2db25851b8f57f3135b91d7d6ae3fc39eb09df253c9a1a1eba947c13fb5a95bb"
  },
  "legacyRekeys": {
   "84101/G13/theory/14": {

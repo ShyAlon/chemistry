@@ -25,7 +25,7 @@ test('every worked display step inherits an explicit reviewed exercise context a
  const check=(title,blocks)=>{const m=exerciseFormulaContext(title);exercised.add(title);validate(m,title);const expressions=blocks.filter(b=>b.math).map(b=>b.math);assert.deepEqual(expressions,m.expressions,title+': steps changed, review context coverage');lines+=expressions.length;for(const b of blocks)if(b.math)validate(b.formulaContext||m,title+'/'+b.math)};
  for(const c of catalogue.courses)for(const t of c.topics)for(const w of t.content.worked)if(w.solutionBlocks)check(w.title,w.solutionBlocks);
  for(const e of exam84101)if(e.parts.some(p=>p.solutionBlocks))check(e.title,e.parts.flatMap(p=>p.solutionBlocks||[]));
- assert.equal(lines,282);assert.deepEqual([...exercised].sort(),Object.keys(exerciseFormulaContexts).sort(),'No dangling exercise contexts');
+ assert.equal(lines,295);assert.deepEqual([...exercised].sort(),Object.keys(exerciseFormulaContexts).sort(),'No dangling exercise contexts');
 });
 test('unknown metadata never receives a guessed global symbol definition',()=>{
  assert.equal(formulaMetadata('R = newly-authored-and-unreviewed'),null);

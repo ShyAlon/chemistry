@@ -686,5 +686,33 @@ try{
  assert.equal(await js(`document.querySelectorAll('article.theory .formula-tip')[4].classList.contains('open')`),false);
  console.log('Long legend placement passed: keyboard-focus scrolling, later page scroll, five rows, viewport/header bounds and Escape.');
  }
+ // G3 quiz 4: each compound, fraction and percent is one complete LTR line (it once scattered semicolons and the CaCO3 label).
+  await call('Emulation.setDeviceMetricsOverride',{width:390,height:1000,deviceScaleFactor:1,mobile:false});
+  await call('Page.navigate',{url:origin+'/chemistry/index.html#/course/84101/G3'});await ready('.tabs');
+  await js(`(()=>{[...document.querySelectorAll('.tabs button')].find(x=>x.textContent.includes('בודקים')).click()})()`);await ready('article.question');
+  const press=`(()=>{const q=document.querySelector('article.question');const b=[...q.querySelectorAll('button.primary')].pop();b&&b.click()})()`;
+  for(let n=1;n<4;n++){
+   await js(`(()=>{const q=document.querySelector('article.question');q.querySelectorAll('input').forEach(i=>{Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'1');i.dispatchEvent(new Event('input',{bubbles:true}))});const c=q.querySelector('.choices button');c&&c.click()})()`);
+   await js(press);
+   await js(`new Promise(res=>{const t=setInterval(()=>{const b=[...document.querySelectorAll('button')].find(x=>/לשאלה הבאה/.test(x.textContent));if(b){b.click();clearInterval(t);res()}},100)})`);
+   await js(`new Promise(res=>{const t=setInterval(()=>{if(document.querySelector('article.question .exercise-index')?.textContent.includes('שאלה ${n+1} ')){clearInterval(t);res()}},100)})`);
+  }
+  assert.ok((await js(`document.querySelector('article.question .exercise-index').textContent`)).includes('4'),'reached G3 question 4');
+  await js(press);await ready('.answer-lines');
+  for(const width of [320,390]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});await js('new Promise(r=>setTimeout(r,300))');
+  const g3=await js(`(()=>{const ls=[...document.querySelectorAll('.answer-lines .answer-line')];return {texts:ls.map(l=>l.textContent),dir:ls.map(l=>getComputedStyle(l).direction),oneLine:ls.map(l=>Math.round(l.getBoundingClientRect().height/parseFloat(getComputedStyle(l).lineHeight))),over:ls.map(l=>l.scrollWidth>l.clientWidth+1),page:document.documentElement.scrollWidth<=innerWidth+1,rect:ls.map(l=>{const r=l.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth})}})()`);
+  assert.deepEqual(g3.texts,['CO₂: 32/44 = 72.73%','CO: 16/28 = 57.14%','CaCO₃: 48/100 = 48.00%'],JSON.stringify(g3));
+  assert.ok(g3.dir.every(d=>d==='ltr')&&g3.oneLine.every(n=>n===1)&&g3.over.every(o=>!o)&&g3.rect.every(Boolean)&&g3.page,'G3 answer lines are single full LTR lines at '+width+': '+JSON.stringify(g3));
+  await shot('g3-quiz4-answer-'+width);
+ }
+  for(const width of [320,390]){
+  await call('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:false});await js('new Promise(r=>setTimeout(r,300))');
+  const g3=await js(`(()=>{const ls=[...document.querySelectorAll('.answer-lines .answer-line')];return {texts:ls.map(l=>l.textContent),dir:ls.map(l=>getComputedStyle(l).direction),oneLine:ls.map(l=>Math.round(l.getBoundingClientRect().height/parseFloat(getComputedStyle(l).lineHeight))),over:ls.map(l=>l.scrollWidth>l.clientWidth+1),page:document.documentElement.scrollWidth<=innerWidth+1,rect:ls.map(l=>{const r=l.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth})}})()`);
+  assert.deepEqual(g3.texts,['CO₂: 32/44 = 72.73%','CO: 16/28 = 57.14%','CaCO₃: 48/100 = 48.00%'],JSON.stringify(g3));
+  assert.ok(g3.dir.every(d=>d==='ltr')&&g3.oneLine.every(n=>n===1)&&g3.over.every(o=>!o)&&g3.rect.every(Boolean)&&g3.page,'G3 answer lines are single full LTR lines at '+width+': '+JSON.stringify(g3));
+  await shot('g3-quiz4-answer-'+width);
+ }
+ console.log('G3 quiz 4 answer lines passed at 320 and 390: three complete LTR lines, no wrap, no overflow.');
  console.log(`Browser regression matrix passed: ${routeViewports.length*8} route/viewports plus ${routeViewports.length} notation fixtures, full desktop table bounds and electron controls.`);
 }finally{ws?.close();chrome.kill();server.close();await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:200})}

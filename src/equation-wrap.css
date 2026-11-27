@@ -3,3 +3,6 @@
 .display-math .math-token{white-space:nowrap}
 @media(max-width:600px){.formula-pop-eq:not(:has(.math-fraction)){white-space:normal;overflow-wrap:anywhere}}
 .formula-pop-eq .math-token{white-space:nowrap}
+.answer-lines{display:grid;gap:.45rem;margin:.6rem 0}.answer-line{direction:ltr;unicode-bidi:isolate;text-align:left;overflow-wrap:break-word;line-height:1.5}
+.answer-line{white-space:normal}
+@media(max-width:360px){.answer-line{font-size:.88rem}}

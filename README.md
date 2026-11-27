@@ -126,3 +126,7 @@ Course and topic order is now explicit in the split catalogues. Add course metad
 כפתור האטום בסרגל העליון פותח תפריט אישי ללא התחברות, עם התקדמות כוללת בכל הקורסים. האווטאר הוא SVG מוטמע ושני אלקטרונים באנימציית CSS. זו המחשה קלאסית דקורטיבית, לא מודל קוונטי או מסלול פיזיקלי. מצב reduced motion עוצר את האנימציה. אין תמונות, ספריות או בקשות רשת חדשות.
 
 "איפוס כל ההתקדמות" מחייב שלב אישור נוסף, עם מיקוד ברירת מחדל בביטול. האיפוס מוחק את מפתחות ההתקדמות של SPECTRA בלבד בכל הקורסים, כולל מפתח v1 הישן כדי שלא תתחדש התקדמות בהגירה. הוא לא מוחק חומר לימוד או נתונים של אתרים אחרים באותו origin. Escape או לחיצה מחוץ לתפריט סוגרים בלי לאפס. אם האחסון חסום מוצגת שגיאה והמסך אינו מסומן כמאופס. איפוס הבוחן/הקורס הקיים נשאר נפרד.
+
+## Checking a change locally
+
+Run `node scripts/gate.mjs` (full gate; `--fast` for unit, rules and coverage only) on the exact commit you want to publish, and `node scripts/review-impact.mjs` before committing to see which recorded reviews a change invalidates. `node scripts/record-review.mjs` records a finished independent review. See `docs/review-and-gate-tooling.md`.

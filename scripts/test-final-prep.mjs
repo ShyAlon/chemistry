@@ -12,6 +12,7 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import {bidiElement} from '../src/bidi-react.js';
 import {DisplayMath} from '../src/scientific-text.js';
 import {resolveConstants} from '../src/constants.js';
+import {loadStyles} from './lib/load-styles.mjs';
 
 // Real Chromium, local build only: no external network, models, databases or accounts.
 const root=path.resolve(new URL('..',import.meta.url).pathname);
@@ -20,7 +21,7 @@ if(screenshots)await mkdir(screenshots,{recursive:true});
 const data=structuredClone(catalogueSource);
 const exact=data.courses[0].topics[0].content.theory.find(p=>p.text?.startsWith('החריגים Cr')).text;
 const fixture=renderToStaticMarkup(React.createElement('html',{dir:'rtl',lang:'he'},
- React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await readFile(path.join(root,'src/style.css'),'utf8')+await readFile(path.join(root,'src/equation-wrap.css'),'utf8'))),
+ React.createElement('head',null,React.createElement('meta',{charSet:'utf-8'}),React.createElement('style',null,await loadStyles(root))),
  React.createElement('body',null,React.createElement('article',{className:'theory panel',style:{margin:24}},
  bidiElement('p',{id:'exact'},exact),
  bidiElement('p',null,'נתון: ΔH_vap = 40.7 kJ/mol; T_1 = 300 K; x_A = 0.25; P°_A = 80 kPa'),

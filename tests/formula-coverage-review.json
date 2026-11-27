@@ -3675,7 +3675,7 @@
    "note": "Round-3 repair: duplicated z = v_avg/λ tail dropped (stated in its own block right below); explicit quantity coverage added per manifest policy."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/0": {
-   "expression": "n_B = 0.848 / 78.11 = 0.01086 mol",
+   "expression": "n_B = 0.848/78.11 = 0.01086 mol",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {
     "n_B": "n_B,n_T@g14"
@@ -3696,7 +3696,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/1": {
-   "expression": "n_T = 1 / 92.14 = 0.01085 mol",
+   "expression": "n_T = 1/92.14 = 0.01085 mol",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {
     "n_T": "n_B,n_T@g14"
@@ -3770,7 +3770,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/5": {
-   "expression": "y_B = 0.500 × 95.1 / 61.75",
+   "expression": "y_B = 0.500 × 95.1/61.75",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {
     "y_B": "y_B@g14"
@@ -3889,7 +3889,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/12": {
-   "expression": "x_B = 41.6 / 66.7",
+   "expression": "x_B = 41.6/66.7",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {
     "x_B": "x_B@g14"
@@ -3921,7 +3921,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/14": {
-   "expression": "y_B = 0.624 × 95.1 / 70",
+   "expression": "y_B = 0.624 × 95.1/70",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {
     "y_B": "y_B@g14"
@@ -4011,7 +4011,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "עיבוי בלחץ נתון: הרכב האדים בשיווי משקל עם התמיסה החדשה (שאלות לדוגמא 8ג)/20": {
-   "expression": "0.077 / 0.223 ≈ 0.35",
+   "expression": "0.077/0.223 ≈ 0.35",
    "contextDigest": "41c2c22e8c8adadddd20e6aadf9116f9a5f5fc572019563038a746efd1ddbef5",
    "bindings": {},
    "literals": [],
@@ -4092,7 +4092,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/3": {
-   "expression": "n(CO₂) = 0.5210 × 3 / 17.396",
+   "expression": "n(CO₂) = 0.5210 × 3/17.396",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "n(CO₂)": "n(X)@g9"
@@ -4183,7 +4183,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/7": {
-   "expression": "n = 1.3184 × 3 / 21.988 = 0.180 mol",
+   "expression": "n = 1.3184 × 3/21.988 = 0.180 mol",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "n": "n@g9"
@@ -4231,7 +4231,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/9": {
-   "expression": "P = 2373 / 760 = 3.122 atm",
+   "expression": "P = 2373/760 = 3.122 atm",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "P": "P"
@@ -4275,7 +4275,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/11": {
-   "expression": "n = 3.122 × 3 / 34.698 = 0.270 mol",
+   "expression": "n = 3.122 × 3/34.698 = 0.270 mol",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "n": "n@g9"
@@ -4353,7 +4353,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/14": {
-   "expression": "P = 185.7 / 760 = 0.2443 atm",
+   "expression": "P = 185.7/760 = 0.2443 atm",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "P": "P"
@@ -4397,7 +4397,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/16": {
-   "expression": "n = 0.2443 × 3 / 24.436 = 0.030 mol",
+   "expression": "n = 0.2443 × 3/24.436 = 0.030 mol",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "n": "n@g9"
@@ -4421,7 +4421,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/17": {
-   "expression": "M = 4.14 / 0.030 = 138 g/mol",
+   "expression": "M = 4.14/0.030 = 138 g/mol",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {
     "M": "M@g9"
@@ -4467,7 +4467,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "תרגיל בית 4 שאלה 3: קירור בשלבים ונוסחה של תרכובת C, H, S/19": {
-   "expression": "138 / 46 = 3",
+   "expression": "138/46 = 3",
    "contextDigest": "b79324c520fdf624ce294df17bf6c0de777e7575bb9aedf26f391a3585ae48f4",
    "bindings": {},
    "literals": [],
@@ -4593,7 +4593,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "נוסחה אמפירית ← מולקולרית דרך הורדת נקודת קיפאון, כשהממס הוא HgCl₂ (תרגיל בית 6 שאלה 10)/1": {
-   "expression": "m = 1.24 / 34.3 = 0.03615 mol/kg",
+   "expression": "m = 1.24/34.3 = 0.03615 mol/kg",
    "contextDigest": "f6b61755ed24a12381344cabe5d99574123da721821fb11365ce9f3125306a1a",
    "bindings": {
     "m": "m@molality"
@@ -4654,7 +4654,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "נוסחה אמפירית ← מולקולרית דרך הורדת נקודת קיפאון, כשהממס הוא HgCl₂ (תרגיל בית 6 שאלה 10)/4": {
-   "expression": "M = 0.849 / 0.001808",
+   "expression": "M = 0.849/0.001808",
    "contextDigest": "f6b61755ed24a12381344cabe5d99574123da721821fb11365ce9f3125306a1a",
    "bindings": {
     "M": "M@g15"
@@ -4713,7 +4713,7 @@
    "note": "New structured worked-solution line (batch5). Author-proposed binding, needs independent review."
   },
   "נוסחה אמפירית ← מולקולרית דרך הורדת נקודת קיפאון, כשהממס הוא HgCl₂ (תרגיל בית 6 שאלה 10)/7": {
-   "expression": "k = 470 / 236.04 = 1.99 ≈ 2",
+   "expression": "k = 470/236.04 = 1.99 ≈ 2",
    "contextDigest": "f6b61755ed24a12381344cabe5d99574123da721821fb11365ce9f3125306a1a",
    "bindings": {
     "k": "k@g15"

@@ -7,7 +7,13 @@
   "agent-01M89RY0MXDEQWC4Q42F62CKET"
  ],
  "semanticReview": {
-  "status": "pending"
+  "status": "done",
+  "reviewer": "chat-01M8DZ3FFYTYYQATFMVNY389KH",
+  "sourceSha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",
+  "contentSha256": "f131642d878bcd610de3c8af94d49bc52cc38cc3a90eae781e2bf5151a318417",
+  "unitMapSha256": "4988ef917643c2565e2756ae87e70f5f909b06b4f5c8d0168273f12d154e2e88",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": []
  },
  "source": {
   "sha256": "a867dcbcc8881e1498bf99309470d402dc8774b5b222f26ebdb693e8e84ca1d2",

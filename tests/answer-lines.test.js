@@ -26,3 +26,10 @@ test('renderer shows answerLines as LTR lines and keeps the plain-answer fallbac
  assert.ok(!m.includes('<p><Rich text={q.answer}/></p><p>')&&!/<p><Rich text=\{q\.answer\}\/><\/p>(?!:)/.test(m.replace(/:<p><Rich text=\{q\.answer\}\/><\/p>\}/,'')),'every answer site goes through AnswerBody');
  assert.match(m,/className="answer-line" dir="ltr"/);
 });
+
+test('answerNote is a Hebrew explanation with no math, shown after the LTR lines',()=>{
+ let seen=0;
+ for(const [name,t] of topics)for(const q of quizzes(t))if(q.answerNote){seen++;assert.ok(Array.isArray(q.answerLines)&&q.answerLines.length>=2,name+' q'+q.id+': answerNote needs answerLines');assert.ok(/[\u0590-\u05FF]/.test(q.answerNote)&&!/[0-9=×]/.test(q.answerNote)&&!/[A-Za-z]/.test(q.answerNote),name+' q'+q.id+': note must be Hebrew prose without math')}
+ assert.ok(seen>=1);
+ const m=fs.readFileSync(path.join(root,'src/main.jsx'),'utf8');assert.match(m,/className="answer-note"/);
+});

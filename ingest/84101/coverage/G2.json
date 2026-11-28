@@ -109,8 +109,7 @@
      "disposition": "covered",
      "label": "ממוצע משוקלל של מסה אטומית",
      "targets": [
-      "theory:G2-t02",
-      "theory:G2-t12"
+      "theory:G2-t02"
      ]
     }
    ]
@@ -408,6 +407,13 @@
     "theory:G2-t34"
    ],
    "rationale": "טעות עיגול מוקדם, העמקה על המול ובדיקות שפיות; הוסף מעבר לשקופיות."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "theory:G2-t12"
+   ],
+   "rationale": "שכיחויות הכלור 75.78% ו-24.22% מגיעות מתרגול 2 ולא מהשקופית; נוסף להוראה."
   }
  ],
  "supportingSources": [
@@ -553,19 +559,34 @@
      "ref": "p5",
      "use": "data-and-method",
      "targets": [
-      "theory:G2-t12",
-      "worked:1"
+      "theory:G2-t21",
+      "theory:G2-t02"
      ]
     },
     {
      "ref": "p6",
      "use": "data-and-method",
      "targets": [
+      "theory:G2-t12",
       "worked:3"
      ]
     },
     {
-     "ref": "p7-9",
+     "ref": "p7",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t29"
+     ]
+    },
+    {
+     "ref": "p8",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t30"
+     ]
+    },
+    {
+     "ref": "p9",
      "use": "data-and-method",
      "targets": [
       "theory:G2-t16",
@@ -573,23 +594,24 @@
      ]
     },
     {
-     "ref": "p10-11",
+     "ref": "p10",
      "use": "data-and-method",
      "targets": [
       "theory:G2-t29",
-      "quiz:2",
-      "quiz:3"
+      "theory:G2-t16"
      ]
     },
     {
-     "ref": "p12",
+     "ref": "p11",
      "use": "data-and-method",
      "targets": [
-      "theory:G2-t04"
+      "quiz:21",
+      "quiz:22",
+      "theory:G2-t29"
      ]
     },
     {
-     "ref": "p13-14",
+     "ref": "p12-14",
      "use": "not-covered",
      "reason": "Mass ratios in a compound and the solved practice: G3 topic, audited there."
     }

@@ -12,7 +12,7 @@
     "sha256": "210ead5375761a0aab71b3a56a8f31c0fe0dcb530f940e8e749beb64674b04c3",
     "kind": "multi-file-deck",
     "pageCount": 19,
-    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Deck page k is General Chemistry 1.pdf page k+3 (pp4-22 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). The midterm formula sheet named in the lesson provenance is not among the supplied files and is not mapped.",
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Deck page k is General Chemistry 1.pdf page k+3 (pp4-22 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). The formula sheet named in the lesson provenance is supplied (Exercises/דף נוסחאות כימיה כללית תשפז.pdf, sha256 d87438563f54be889502b4d42c3d7dbf944ed5e3e43ae0c961ac30861a2e2526, one page). It is not a deck and has no question refs, so it is not a mapped source. Its G1-relevant lines (length ladder to angstrom and picometer, 1 atm = 760 mmHg = 760 torr = 101.33 kPa, T(K) = t + 273.15, R in cal and J) are reflected in t03, t07, t08, t35 and t36.",
     "files": [
       {
         "file": "General Chemistry 1.pdf",

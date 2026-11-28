@@ -119,3 +119,8 @@ test('number and unit stay together for seconds, length, and compound units; no 
  assert.equal(_glueG1('ρ = 1.2 g/mL').replace(/[\u200b\u2060]/g,'').replace(/\u00a0/g,' '),'ρ = 1.2 g/mL');
  assert.equal(_erG1('אם ρ = 1.2 g/mL אז').some(p=>p.equation),true);
 });
+
+test('scientific-notation quantity with a length unit is one run (no orphan unit)',()=>{
+ const p=_sqty('ממירים לפי היחס: 3.2 × 10⁻⁸ cm. אנגסטרם');
+ assert.deepEqual(p.filter(x=>x.quantity).map(x=>x.text),['3.2\u00a0×\u00a010⁻⁸\u00a0cm']);
+});

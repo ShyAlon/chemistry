@@ -31,7 +31,7 @@ export const solutionDisplayText=s=>typeof s==='string'?s.replace(/([א-ת])-([�
 const SIGNED=/([−+]\d+(?:[.,]\d+)?(?:\s?°C|\s?K\b)?)/;
 export function splitSignedQuantities(text){return String(text).split(SIGNED).filter(x=>x!=='').map(x=>SIGNED.test(x)&&/^[−+]/.test(x)?{text:x.replace(/\s/g,'\u00a0'),quantity:true}:{text:x})}
 // Display glue for a calculation line: a number never separates from its unit, and the line may only break after "=".
-const UNIT='(?:g\\/mL|g\\/L|kg\\/L|km\\/h|m\\/s|mol\\/kg|mol\\/L|g\\/mol|L·atm\\/\\(mol·K\\)|J\\/\\(mol·K\\)|mmHg|atm|kPa|Pa|kg|mol|mL|cm³|dm³|g|L|K|J|kJ|°C|nm|pm|u|M|m)';
+const UNIT='(?:g\\/mL|g\\/L|kg\\/L|km\\/h|m\\/s|mol\\/kg|mol\\/L|g\\/mol|L·atm\\/\\(mol·K\\)|J\\/\\(mol·K\\)|mmHg|atm|kPa|Pa|kg|mol|mL|cm³|dm³|cm|mm|km|Å|μm|g|L|K|J|kJ|°C|nm|pm|u|M|m)';
 // Glue-only units (never used to isolate quantities in prose, so labels like 2s or 3N stay untouched).
 const GLUE_UNIT='(?:mol\\/kg|mol\\/L|g\\/mol|g\\/mL|g\\/L|kg\\/L|kg\\/m³|km\\/h|cm\\/s|m\\/s²|m\\/s|L·atm\\/\\(mol·K\\)|J\\/\\(mol·K\\)|mmHg|atm|kPa|kJ|Pa|kg|mol|mL|cm³|dm³|m³|cm|mm|km|nm|pm|μm|µm|Å|cal|°C|°F|min|g|L|K|J|N|s|u|M|m)';
 export const glueCalculation=s=>s.replace(new RegExp('(\\d)\\s+(?='+GLUE_UNIT+'(?![\\w.]))','g'),'$1\u00a0').replace(/\s+(?=[=≈→+−×·])/g,'\u00a0').replace(/\b(g|kg|mol|cm|km|m)\/(mL|L|s²|s|h|kg|mol|m³)(?![\w])/g,'$1/\u2060$2').replace(/=(?!\u200b)/g,'=\u200b');
@@ -53,7 +53,7 @@ export function splitEquationRuns(text){
 // A plain quantity (number with optional unit) inside Hebrew prose is one left-to-right run. A Hebrew prefix hyphen stays outside it.
 const NUM='\\d+(?:[.,]\\d+)?';
 const PREFIXED='(?<=[א-ת]-)'+NUM+'(?:[\\s\\u00a0]?'+UNIT+'(?!\\w))?';
-const WITH_UNIT='[−+]?'+NUM+'[\\s\\u00a0]?'+UNIT+'(?!\\w)';
+const WITH_UNIT='[−+]?'+NUM+'(?:[\\s\\u00a0]?×[\\s\\u00a0]?10[⁻⁺⁰¹²³⁴⁵⁶⁷⁸⁹]+)?[\\s\\u00a0]?'+UNIT+'(?!\\w)';
 const QTY_ALL=new RegExp('('+PREFIXED+'|'+WITH_UNIT+')');
 // A comma list of two or more quantities ("200°C, 1000 atm") is one left-to-right run.
 const LIST=WITH_UNIT+'(?:,[\\s\\u00a0]?'+WITH_UNIT+')+';

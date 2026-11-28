@@ -1,4 +1,5 @@
 import React,{useEffect,useRef,useState} from 'react';
+import {createPortal} from 'react-dom';
 const store={ready:false,error:false,online:navigator.onLine},subs=new Set();
 function publish(next){Object.assign(store,next);subs.forEach(f=>f({...store}))}
 function usePwaStatus(){const [v,setV]=useState({...store});useEffect(()=>{subs.add(setV);setV({...store});return()=>subs.delete(setV)},[]);return v}
@@ -34,17 +35,18 @@ export function PwaControls(){
 
 // Offline and iPhone instructions, opened from the avatar menu.
 export function PwaDialog({onClose}){
- const {ready,error,online}=usePwaStatus();
+ const {ready,error,online}=usePwaStatus(),box=useRef(null);
+ useEffect(()=>{box.current?.focus({preventScroll:true})},[]);
  useEffect(()=>{const esc=e=>{if(e.key==='Escape'){e.preventDefault();onClose()}};document.addEventListener('keydown',esc);return()=>document.removeEventListener('keydown',esc)},[onClose]);
- return <div className="ra-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)onClose()}}>
-  <section className="ra-dialog panel pwa-dialog" role="dialog" aria-modal="true" aria-labelledby="pwa-title">
+ return createPortal(<div className="ra-overlay" onPointerDown={e=>{if(e.target===e.currentTarget)onClose()}}>
+  <section ref={box} tabIndex={-1} className="ra-dialog panel pwa-dialog" role="dialog" aria-modal="true" aria-labelledby="pwa-title">
    <h2 id="pwa-title">שמירה באייפון ושימוש ללא רשת</h2>
    <p role="status" className="pwa-status">{error?'השמירה לשימוש ללא רשת לא הושלמה. אפשר להמשיך ללמוד עם חיבור ולנסות שוב בפתיחה הבאה.':ready?(online?'מוכן ללמידה ללא רשת במכשיר הזה.':'אין חיבור לרשת. לומדים מהגרסה השמורה במכשיר.'):(online?'מכין את חומר הלימוד לשימוש ללא רשת…':'אין חיבור. השמירה לשימוש ללא רשת עדיין לא אושרה.')}</p>
    <p>באייפון: פתחו ב־Safari, לחצו שיתוף, ואז ״הוסף למסך הבית״. אם מופיעה האפשרות ״פתיחה כיישום אינטרנט״, הפעילו אותה. פתחו פעם אחת מהאייקון עם חיבור וחכו לאישור שהחומר מוכן ללא רשת.</p>
    <p>ההתקדמות משויכת לחשבון המחובר ומסתנכרנת כשיש חיבור. עותק מקומי ושינויים ממתינים נשמרים לפי חשבון בדפדפן הזה. דפדפן או התקנה נפרדים עשויים להשתמש בעותק מקומי אחר. אל תמחקו את נתוני הדפדפן או האפליקציה. האחסון המקומי אינו מוצפן. שמירה מקומית אינה גיבוי מובטח; המערכת עשויה לפנות אחסון.</p>
    <p>ההתקדמות שייכת לחשבון. עותק מקומי ושינויים ממתינים נשמרים במכשיר; הם אינם מוצפנים. אין איסוף ביקורים או זמן צפייה.</p>
    <p>עדכונים נבדקים בפתיחה ובחזרה לאפליקציה עם חיבור. גרסה חדשה מוצעת לעדכון, בלי טעינה מחדש באמצע תרגול. קישורים למקורות חיצוניים דורשים רשת.</p>
-   <button autoFocus className="secondary ra-close" onClick={onClose}>סגירה</button>
+   <button className="secondary ra-close" onClick={onClose}>סגירה</button>
   </section>
- </div>;
+ </div>,document.body);
 }

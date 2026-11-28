@@ -28,3 +28,7 @@
 /* The sticky header and its fixed menu sit below the notice while it shows. */
 .app:has(.pwa-controls) .header{top:var(--notice-h,0px)}
 .app:has(.pwa-controls) .header .avatar-menu{margin-top:var(--notice-h,0px)}
+/* Dialogs render on body so they sit above the footer and chat button. */
+.ra-overlay{z-index:300}
+.ra-dialog{max-height:calc(100dvh - 32px);overflow-y:auto;outline:0}
+@media(max-width:800px){.header .avatar-wrap .avatar-menu{max-height:calc(100dvh - 210px - var(--notice-h,0px));overflow-y:auto}}

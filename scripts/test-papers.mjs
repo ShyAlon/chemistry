@@ -67,7 +67,7 @@ try{
   }
  }
  // A genuine service worker precache and network-offline reload, not structural inference.
- await wait(`!!navigator.serviceWorker.controller`);await wait(`document.querySelector('.pwa-status')?.textContent.includes('מוכן')`);
+ await wait(`!!navigator.serviceWorker.controller`);await wait(`!!document.querySelector('.avatar-trigger')`);await js(`document.querySelector('.avatar-trigger').click();true`);await wait(`!!document.querySelector('.avatar-offline')`);await js(`document.querySelector('.avatar-offline').click();true`);await wait(`document.querySelector('.pwa-status')?.textContent.includes('מוכן')`);await js(`document.querySelector('.ra-close').click();true`);
  offline=true;await call('Network.emulateNetworkConditions',{offline:true,latency:0,downloadThroughput:0,uploadThroughput:0});
  for(const id of ['shape-2026','pbse-2017']){
   await navigate('#course/nano/papers/'+id);await wait(`!!document.querySelector('.paper-reading')`);await clickTab(1);await wait(`document.querySelectorAll('.paper-evidence').length===4`);await clickTab(2);await js(`document.querySelector('.paper-reveal').click();true`);await wait(`!!document.querySelector('[aria-label="נקודות בדיקה"]')`);

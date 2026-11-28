@@ -11,3 +11,7 @@ test('G4 map targets point at the intended worked items (index-to-title)',()=>{
  const add=map.lessonAdditions.flatMap(a=>a.targets);assert.ok(add.includes('worked:3')&&add.includes('worked:4'));
  assert.ok(!JSON.stringify(topic).includes('הממולא'),'student text must not point at the filled homework file');
 });
+test('G4 student text has no arrow chains inside Hebrew prose and no em dashes',()=>{
+ const s=JSON.stringify(topic);assert.ok(!s.includes('←'));assert.ok(!s.includes('—'));
+ assert.match(JSON.stringify(topic.content.worked[4]),/המסלול: מנפח הסגסוגת/);
+});

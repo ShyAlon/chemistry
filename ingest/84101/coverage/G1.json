@@ -12,7 +12,7 @@
     "sha256": "210ead5375761a0aab71b3a56a8f31c0fe0dcb530f940e8e749beb64674b04c3",
     "kind": "multi-file-deck",
     "pageCount": 19,
-    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Deck page k is General Chemistry 1.pdf page k+3 (pp4-22 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). The formula sheet named in the lesson provenance is supplied (Exercises/דף נוסחאות כימיה כללית תשפז.pdf, sha256 d87438563f54be889502b4d42c3d7dbf944ed5e3e43ae0c961ac30861a2e2526, one page). It is not a deck and has no question refs, so it is not a mapped source. Its G1-relevant lines (length ladder to angstrom and picometer, 1 atm = 760 mmHg = 760 torr = 101.33 kPa, T(K) = t + 273.15, R in cal and J) are reflected in t03, t07, t08, t35 and t36.",
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Deck page k is General Chemistry 1.pdf page k+3 (pp4-22 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Two supplied sheets carry the formula-sheet lines this lesson uses: (1) Exercises/דף נוסחאות כימיה כללית תשפז.pdf, titled דף נוסחאות כימיה כללית לכימאים סמסטר א, sha256 d87438563f54be889502b4d42c3d7dbf944ed5e3e43ae0c961ac30861a2e2526; (2) the attached sheet on page 4 of Exercises/בוחן אמצע כימיה כללית תשפז.pdf, sha256 f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b, which is the sheet the lesson provenance calls the formula sheet of the midterm. Neither is a deck, so neither is a mapped source. Lines used: length ladder to angstrom and picometer (t41), 1 atm = 760 mmHg = 760 torr = 101.33 kPa (t08, t35, t36), T(K) = t + 273.15 (t07), density d = m/V and 1 L = 1000 mL = 1000 cc (t04, t37, t43), water heat capacity 4.184 J/g per degree (cal value in t35). Gas, kinetic theory and solution lines on the sheets belong to other topics.",
     "files": [
       {
         "file": "General Chemistry 1.pdf",
@@ -239,6 +239,16 @@
             "worked:12"
           ],
           "rationale": "הערך התקני 101.325 קילופסקל; השקופית שגויה."
+        },
+        {
+          "id": "p11.u3",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "הערות שוליים לטבלת יחידות הבסיס: איות, מול, זרם והארה",
+          "targets": [
+            "theory:G1-t31",
+            "theory:G1-t45"
+          ]
         }
       ]
     },
@@ -273,6 +283,16 @@
             "theory:G1-t33",
             "quiz:19"
           ]
+        },
+        {
+          "id": "p13.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תמונת מאזניים וגוף הייחוס של הקילוגרם",
+          "targets": [
+            "theory:G1-t33"
+          ],
+          "rationale": "התמונות אינן משוכפלות; הקריאה בתצוגת המאזניים ללא יחידה גלויה ולכן אין טענה לגביה."
         }
       ]
     },
@@ -288,6 +308,16 @@
           "targets": [
             "theory:G1-t35"
           ]
+        },
+        {
+          "id": "p14.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תרשים שעון הייחוס ואטום צסיום 133",
+          "targets": [
+            "theory:G1-t35"
+          ],
+          "rationale": "התרשים מתואר במילים בלבד; ההגדרה המילולית של השנייה מוצגת."
         }
       ]
     },
@@ -303,7 +333,10 @@
           "targets": [
             "theory:G1-t03",
             "theory:G1-t34",
-            "quiz:20"
+            "quiz:20",
+            "theory:G1-t41",
+            "theory:G1-t42",
+            "worked:20"
           ]
         }
       ]
@@ -320,8 +353,21 @@
           "targets": [
             "theory:G1-t03",
             "theory:G1-t37",
-            "worked:2"
+            "worked:2",
+            "theory:G1-t43",
+            "worked:21"
           ]
+        },
+        {
+          "id": "p16.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "קובייה של מטר מעוקב וליטר, סמ״ק וקוב",
+          "targets": [
+            "theory:G1-t37",
+            "theory:G1-t43"
+          ],
+          "rationale": "התרשים מתואר במילים."
         }
       ]
     },
@@ -339,7 +385,8 @@
             "theory:G1-t40",
             "worked:9",
             "worked:10",
-            "quiz:15"
+            "quiz:15",
+            "theory:G1-t44"
           ],
           "rationale": "נכתב בטקסט מקורי."
         }
@@ -359,6 +406,17 @@
             "quiz:3",
             "quiz:8"
           ]
+        },
+        {
+          "id": "p18.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיוקן קלווין ותרשים סקאלת הטמפרטורה",
+          "targets": [
+            "theory:G1-t39",
+            "theory:G1-t44"
+          ],
+          "rationale": "הדיוקן אינו משוכפל; ערכי הייחוס מופיעים בטקסט."
         }
       ]
     },
@@ -420,6 +478,133 @@
         "theory:G1-t23"
       ],
       "rationale": "תערובת נוזלים וצפיפות כוללת; תוספת תרגול מעבר לשקופיות."
+    }
+  ],
+  "supportingSources": [
+    {
+      "file": "תרגיל חזרה- חומר תחילת הקורס.doc",
+      "sha256": "963ef8af7d02a639d8df1efb73aa08c81ae3590f3bfd572301bd3e7b503d8db4",
+      "items": [
+        {
+          "ref": "Q1א-ה",
+          "use": "data-and-method",
+          "targets": [
+            "worked:20",
+            "theory:G1-t41"
+          ]
+        },
+        {
+          "ref": "Q1ו-ז",
+          "use": "data-and-method",
+          "targets": [
+            "worked:5"
+          ]
+        },
+        {
+          "ref": "Q1ח-ט",
+          "use": "data-and-method",
+          "targets": [
+            "worked:21",
+            "theory:G1-t37"
+          ]
+        },
+        {
+          "ref": "Q1י",
+          "use": "method-only",
+          "targets": [
+            "worked:6"
+          ]
+        },
+        {
+          "ref": "Q1יא-יב",
+          "use": "data-and-method",
+          "targets": [
+            "worked:21",
+            "theory:G1-t06"
+          ]
+        },
+        {
+          "ref": "Q1יג-יד",
+          "use": "method-only",
+          "targets": [
+            "worked:9",
+            "theory:G1-t07"
+          ]
+        },
+        {
+          "ref": "Q2א",
+          "use": "data-and-method",
+          "targets": [
+            "worked:16"
+          ]
+        },
+        {
+          "ref": "Q2ב",
+          "use": "data-and-method",
+          "targets": [
+            "worked:6"
+          ]
+        },
+        {
+          "ref": "Q2ג",
+          "use": "data-and-method",
+          "targets": [
+            "worked:17"
+          ]
+        },
+        {
+          "ref": "Q2ד",
+          "use": "data-and-method",
+          "targets": [
+            "worked:7"
+          ]
+        },
+        {
+          "ref": "Q2ה",
+          "use": "data-and-method",
+          "targets": [
+            "worked:18"
+          ]
+        },
+        {
+          "ref": "Q2ו",
+          "use": "data-and-method",
+          "targets": [
+            "worked:8"
+          ]
+        },
+        {
+          "ref": "Q2ז",
+          "use": "data-and-method",
+          "targets": [
+            "worked:19"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "בוחן אמצע כימיה כללית תשפז.pdf",
+      "sha256": "f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b",
+      "items": [
+        {
+          "ref": "Q2",
+          "use": "not-covered",
+          "reason": "Multi-topic stoichiometry and gas question. Only the unit steps (37 °C to kelvin, atm to other units) overlap G1, and those are taught in t07 and t35."
+        }
+      ]
+    },
+    {
+      "file": "כימיה כללית תרגול 2 -בת-אל .pdf",
+      "sha256": "117f82058caeeef385f51681265aab5aef34b71ac49a5e8a917689c5f2f02af7",
+      "items": [
+        {
+          "ref": "Q1",
+          "use": "data-and-method",
+          "targets": [
+            "worked:22"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -81,6 +81,18 @@
     {
       "file": "General Chemistry 1.pdf",
       "sha256": "50afd177b94538af9e61ae2320d517e8fd91f55ea9b4217e5934f3e11e2f1d12"
+    },
+    {
+      "file": "תרגיל חזרה- חומר תחילת הקורס.doc",
+      "sha256": "963ef8af7d02a639d8df1efb73aa08c81ae3590f3bfd572301bd3e7b503d8db4"
+    },
+    {
+      "file": "בוחן אמצע כימיה כללית תשפז.pdf",
+      "sha256": "f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b"
+    },
+    {
+      "file": "כימיה כללית תרגול 2 -בת-אל .pdf",
+      "sha256": "117f82058caeeef385f51681265aab5aef34b71ac49a5e8a917689c5f2f02af7"
     }
   ]
 }

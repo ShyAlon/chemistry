@@ -14,6 +14,8 @@ export function beforePractice(topic){
  if(['G1','G3','G9','G11','G12'].includes(t.id))for(const b of t.content.theory)delete b.id; // stable theory ids added for coverage mapping
  revertG11(t);
  for(const c of corrections.filter(c=>c.topic===t.id)){
+  if(c.layer==='batch2')continue; // this block is a flagged batch2 addition, already removed above
+  if(c.worked){const w=t.content.worked.find(w=>w.title===c.worked&&w.content[1]===c.after);assert.ok(w,'reviewed worked correction missing: '+t.id);w.content[1]=c.before;continue}
   const b=t.content.theory.find(b=>b.text===c.after);
   assert.ok(b,'reviewed correction missing: '+t.id);b.text=c.before;
  }

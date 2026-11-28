@@ -21,6 +21,6 @@ import {readFileSync as _rf} from 'node:fs';
 export function revertG1(t){
  if(t?.id!=='G1')return t;
  const list=JSON.parse(_rf(new URL('../src/practice-corrections.json',import.meta.url))).filter(c=>c.topic==='G1');
- for(const c of list){const b=t.content.theory.find(b=>b.text===c.after);if(!b)throw new Error('G1 correction missing');b.text=c.before}
+ for(const c of list){if(c.worked){const w=t.content.worked.find(w=>w.title===c.worked&&w.content[1]===c.after);if(!w)throw new Error('G1 worked correction missing');w.content[1]=c.before;continue}const b=t.content.theory.find(b=>b.text===c.after);if(!b)throw new Error('G1 correction missing');b.text=c.before}
  return t;
 }

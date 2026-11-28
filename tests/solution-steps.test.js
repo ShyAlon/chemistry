@@ -124,3 +124,13 @@ test('scientific-notation quantity with a length unit is one run (no orphan unit
  const p=_sqty('ממירים לפי היחס: 3.2 × 10⁻⁸ cm. אנגסטרם');
  assert.deepEqual(p.filter(x=>x.quantity).map(x=>x.text),['3.2\u00a0×\u00a010⁻⁸\u00a0cm']);
 });
+
+test('unit after a superscript exponent is glued in calculation chips',()=>{
+ assert.ok(_glueG1('x = 2.35 × 10⁶ m').includes('10⁶\u00a0m'));
+});
+
+test('a short compact result is not split from its equals sign; product with exponent keeps its unit',()=>{
+ assert.ok(!_glueG1('t=77−273.15=−196.15°C').slice(0,-12).endsWith('=\u200b'));
+ assert.ok(!/\u200b/.test(_glueG1('t=77−273.15=−196.15°C').split('=').pop()));
+ const g=_glueG1('7 × 10⁻¹⁰ × 10⁶ = 7 × 10⁻⁴ μm');assert.ok(g.includes('×\u00a010⁻⁴\u00a0μm'));
+});

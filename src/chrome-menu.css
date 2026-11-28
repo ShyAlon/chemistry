@@ -1,7 +1,7 @@
 /* Update notice sits above the header; offline instructions live in a dialog.
    Selectors are prefixed so they win over the base sheet whatever the load order. */
-.app .pwa-controls{width:100%;margin:0;font-size:16px;position:sticky;top:0;z-index:39}
-.app .pwa-controls .pwa-update{border:0;border-bottom:1px solid #a4e7ed;border-radius:0;margin:0;padding:4px 20px;gap:2px 14px;justify-content:space-between;flex-wrap:nowrap;background:#0f2230;line-height:1.4}
+.app .pwa-controls{width:100%;margin:0;font-size:15px;position:sticky;top:0;z-index:39}
+.app .pwa-controls .pwa-update{border:0;border-bottom:1px solid #a4e7ed;border-radius:0;margin:0;padding:4px 20px;gap:2px 14px;justify-content:space-between;flex-wrap:wrap;background:#0f2230;line-height:1.4}
 .app .pwa-controls .pwa-update button{min-height:44px;padding:4px 10px;white-space:nowrap;font-size:16px}
 .pwa-dialog{max-height:calc(100dvh - 32px);overflow-y:auto}
 .pwa-dialog p{margin:0;font-size:17px;line-height:1.6;color:var(--muted)}

@@ -28,7 +28,7 @@ export function PwaControls(){
  useEffect(()=>{const el=bar.current;if(!waiting||!el)return;const set=()=>document.documentElement.style.setProperty('--notice-h',el.offsetHeight+'px');set();const ro=typeof ResizeObserver==='function'?new ResizeObserver(set):null;ro?.observe(el);addEventListener('resize',set);return()=>{ro?.disconnect();removeEventListener('resize',set);document.documentElement.style.removeProperty('--notice-h')}},[waiting]);
  if(!waiting)return null;
  return <section ref={bar} className="pwa-controls" aria-label="עדכון גרסה">
-  <div className="pwa-update" role="status"><span>גרסה חדשה מוכנה.</span><button disabled={applying} onClick={()=>{if(confirm('לעדכן ולטעון מחדש עכשיו? ההתקדמות שנשמרה תישאר, אך טיוטת תשובה שלא נשלחה עלולה להיעלם.'))dispatchEvent(new CustomEvent('spectra-update',{detail:'apply'}))}}>{applying?'מעדכן…':'עדכון וטעינה מחדש'}</button></div>
+  <div className="pwa-update" role="status"><span>גרסה חדשה מוכנה. השאלות שנשמרו יישארו; טקסט שעדיין לא נשלח עלול להיעלם.</span><button disabled={applying} onClick={()=>{if(confirm('לעדכן ולטעון מחדש עכשיו? ההתקדמות שנשמרה תישאר, אך טיוטת תשובה שלא נשלחה עלולה להיעלם.'))dispatchEvent(new CustomEvent('spectra-update',{detail:'apply'}))}}>{applying?'מעדכן…':'עדכון וטעינה מחדש'}</button></div>
  </section>;
 }
 

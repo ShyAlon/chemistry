@@ -11,7 +11,7 @@ export function beforePractice(topic){
  t.source=t.source.split(' תוספת הכנה למבחן:')[0];
  for(const key of ['theory','worked','quiz'])t.content[key]=t.content[key].filter(b=>!b.batch2&&!b.batch3&&!b.batch4&&!b.batch5&&!b.finalPrep);
  if(t.id==='G15')for(const b of t.content.theory)fixT40(b);
- if(['G1','G3','G9','G11','G12'].includes(t.id))for(const b of t.content.theory)delete b.id; // stable theory ids added for coverage mapping
+ if(['G1','G2','G3','G9','G11','G12'].includes(t.id))for(const b of t.content.theory)delete b.id; // stable theory ids added for coverage mapping
  revertG11(t);
  for(const c of corrections.filter(c=>c.topic===t.id)){
   if(c.layer==='batch2')continue; // this block is a flagged batch2 addition, already removed above

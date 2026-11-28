@@ -13,7 +13,7 @@ test('answerLines are one complete calculation per line and carry exactly the nu
  for(const [name,t] of topics)for(const q of quizzes(t))if(q.answerLines){
   seen++;
   assert.ok(Array.isArray(q.answerLines)&&q.answerLines.length>=2,name+' q'+q.id+': answerLines needs 2+ lines');
-  for(const l of q.answerLines){assert.equal(typeof l,'string');assert.ok(l.trim()&&!/[;]/.test(l),name+' q'+q.id+': one calculation per line, no semicolon: '+l)}
+  for(const l of q.answerLines){assert.equal(typeof l,'string');assert.ok(l.trim()&&!/[;]/.test(l)&&(!/[\u0590-\u05FF]/.test(l)||!/[=×/A-Za-z]/.test(l.replace(/ב-[A-Za-z]/g,''))),name+' q'+q.id+': a Hebrew line carries no math or English: '+l);assert.ok(l.trim()&&!/[;]/.test(l),name+' q'+q.id+': one calculation per line, no semicolon: '+l)}
   assert.deepEqual(numbers(q.answerLines.join(' ')),numbers(q.answer),name+' q'+q.id+': lines must carry the same numbers as the plain answer, in order');
  }
  assert.ok(seen>=1,'G3 quiz 4 uses answerLines');
@@ -25,4 +25,11 @@ test('renderer shows answerLines as LTR lines and keeps the plain-answer fallbac
  assert.match(m,/function AnswerBody\(\{q\}\)\{return Array\.isArray\(q\.answerLines\)/);
  assert.ok(!m.includes('<p><Rich text={q.answer}/></p><p>')&&!/<p><Rich text=\{q\.answer\}\/><\/p>(?!:)/.test(m.replace(/:<p><Rich text=\{q\.answer\}\/><\/p>\}/,'')),'every answer site goes through AnswerBody');
  assert.match(m,/className="answer-line" dir="ltr"/);
+});
+
+test('answerNote is a Hebrew explanation with no math, shown after the LTR lines',()=>{
+ let seen=0;
+ for(const [name,t] of topics)for(const q of quizzes(t))if(q.answerNote){seen++;assert.ok(Array.isArray(q.answerLines)&&q.answerLines.length>=2,name+' q'+q.id+': answerNote needs answerLines');assert.ok(/[\u0590-\u05FF]/.test(q.answerNote)&&!/[0-9=×]/.test(q.answerNote)&&!/[A-Za-z]/.test(q.answerNote),name+' q'+q.id+': note must be Hebrew prose without math')}
+ assert.ok(seen>=1);
+ const m=fs.readFileSync(path.join(root,'src/main.jsx'),'utf8');assert.match(m,/className="answer-note"/);
 });

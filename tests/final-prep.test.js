@@ -29,7 +29,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  for(const id of ['SS1','SS2','SS3','SS4']){const n=original.courses.find(c=>c.id==='solid-state'),i=n.topics.findIndex(t=>t.id===id);n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/solid-state-'+id+'-before-repair.json',import.meta.url)))}
  original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
  // G3 quiz 4 gained the additive answerLines display field (one LTR line per compound); the baseline keeps the pre-field digest.
- delete original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;
+ delete original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const q of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G2').content.quiz){delete q.answerLines;delete q.answerNote}
  // Nano N13 is a new topic authored after the reviewed-main snapshot this hash protects; drop it so the hash still proves every pre-existing byte is retained.
  {const n=original.courses.find(c=>c.id==='nano');n.topics=n.topics.filter(t=>t.id!=='N13');}
  for(const c of original.courses)for(const t of c.topics){
@@ -51,9 +51,9 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  // G10 theory 36/39 (post-undoNotation) gained source-audit applicability caveats (hard-sphere dilute-gas model; real-gas Cv slightly above classical values); same fixture pattern.
  {const th=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.theory;
  for(const b of th)delete b.id; // G10 gained stable theory-block ids for source-coverage mapping; same fixture pattern as SS1-SS4.
- revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11'));revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G12'));revertG1(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G1'));
+ revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11'));revertG11(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G12'));revertG1(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G1'));revertG1(original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G2'));
  {const g=original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G11').content.theory.find(b=>b.text.includes("ללא קשרי מימן היינו "));g.text=g.text.replace("ללא קשרי מימן היינו מצפים לנקודת רתיחה נמוכה בהרבה מ-100 °C, בדומה ל-H₂S.","בלי קשרי מימן, מים היו גז בטמפרטורת החדר ולא היו חיים כפי שאנחנו מכירים.")} // G11 life-claim overclaim repaired in the source audit; baseline keeps the pre-repair sentence.
- for(const id of ['G1','G3','G9','G11','G12','G13','G14','G15'])for(const b of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
+ for(const id of ['G1','G2','G3','G9','G11','G12','G13','G14','G15'])for(const b of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
   th.find(b=>(b.text||'').includes('המהלך החופשי הממוצע λ')).text='המהלך החופשי הממוצע λ הוא המרחק שמולקולה עוברת בין התנגשות להתנגשות. הוא מתקצר כשהלחץ עולה (יותר מולקולות בדרך) וכשהמולקולות גדולות (קוטר ρ גדול — שטח חתך גדול יותר).';
   const cvb=th.find(b=>(b.text||'').includes('אלו ערכי מינימום'));
   cvb.text=cvb.text.replace('מתעוררת ו-Cv גדל מעבר להם, וגם סביב טמפרטורת החדר הערכים הנמדדים בגזים ממשיים מעט גבוהים מהמודל הקלאסי. לכן','מתעוררת ו-Cv גדל מעבר להם. לכן');}

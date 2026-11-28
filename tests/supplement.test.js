@@ -35,10 +35,10 @@ test('original topics and questions are unchanged except the explicit V+ correct
  {const b59=th.find(b=>(b.text||'').includes('ביחידות SI מציבים P בפסקל'));if(b59)b59.text='זהו המרחק שהיא עוברת בשנייה, חלקי המרחק בין שתי התנגשויות. ביחידות SI מציבים P בפסקל, R = {R} ו-ρ במטר, ומקבלים λ במטר ו-z ביחידות 1/s.';} /* pre-repair SI sentence restored in-memory */
  for(const b of th)delete b.id; // stable ids added for source-coverage mapping; baseline keeps the pre-id digest.
  }
- for(const id of ['G1','G3','G9','G11','G12','G13','G14','G15'])for(const b of original[1].find(t=>t.id===id)?.content.theory||[]){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
+ for(const id of ['G1','G2','G3','G9','G11','G12','G13','G14','G15'])for(const b of original[1].find(t=>t.id===id)?.content.theory||[]){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  // Restore only the approved correction; retain the original baseline digest.
  // G3 quiz 4 gained the additive answerLines display field (one LTR line per compound); the baseline keeps the pre-field digest.
- delete original[1].find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;
+ delete original[1].find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const q of original[1].find(t=>t.id==='G2').content.quiz){delete q.answerLines;delete q.answerNote}
  const vanadium=original[0].find(t=>t.id==='P7').content.worked.find(w=>w.title.startsWith('סוג 4:'));
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
  assert.equal(createHash('sha256').update(JSON.stringify(original)).digest('hex'),'5f07203833c2d48632c533dd0ab982bdfdf86102e6060d7aed67f5a8487bd7c0');

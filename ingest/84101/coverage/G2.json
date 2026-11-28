@@ -1,0 +1,627 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G2",
+ "authoredBy": [
+  "chat-01M89RY0MBEE8YJNW0XSDTVYDY"
+ ],
+ "source": {
+  "sha256": "516cd98b5326281d0dcf8de2c8e5c37b453ca25d8aa3e49dbf7b4977e064e5e0",
+  "kind": "multi-file-deck",
+  "pageCount": 16,
+  "locatorScheme": "deck-page: global page k is General Chemistry 1.pdf page k+41 (pp42-57 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
+  "files": [
+   {
+    "file": "General Chemistry 1.pdf",
+    "sha256": "50afd177b94538af9e61ae2320d517e8fd91f55ea9b4217e5934f3e11e2f1d12",
+    "pages": "42-57",
+    "firstPage": 1
+   }
+  ]
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "6716654967ef3cf7a0b3c9832b0ba804f0b6d2e57f2995b0496de53ccd1203af",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "טבלת מטען ומסה של פרוטון, נייטרון ואלקטרון",
+     "targets": [
+      "theory:G2-t14",
+      "theory:G2-t15"
+     ]
+    },
+    {
+     "id": "p01.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת u, מספר אטומי, מספר מסה ומספר נייטרונים",
+     "targets": [
+      "theory:G2-t16",
+      "theory:G2-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "91c6a7bc1c2d87853ef6900c2428f6c25d964ca92606766aaa252cdbb263d636",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "יחידות u, pm ו-Å וההמרות ביניהן",
+     "targets": [
+      "theory:G2-t16",
+      "theory:G2-t17"
+     ]
+    },
+    {
+     "id": "p02.u2",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "עובדות על מספר סוגי האטומים והאטום הכבד",
+     "targets": [
+      "theory:G2-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "55d03e772853e5209e1705aeab2dda1b091bee23ea0d761fe285d98087b768ec",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "סימון אטום עם Z ו-A ודוגמת כלור 35",
+     "targets": [
+      "theory:G2-t01",
+      "theory:G2-t11"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    },
+    {
+     "id": "p03.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "סימון יון ודוגמת O²⁻ עם ספירת חלקיקים",
+     "targets": [
+      "theory:G2-t19",
+      "worked:5"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "b222771df80f6e9a0c90846129736709a130698f03d3dbd80bac67c0d658717c",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "ממוצע משוקלל של מסה אטומית",
+     "targets": [
+      "theory:G2-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "9069b5235d43406dc9a88de7244a79b6d7b95c228612db970a3b5f090b276192",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "שלושת איזוטופי המימן",
+     "targets": [
+      "theory:G2-t20"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    },
+    {
+     "id": "p05.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "איזוטופי הפחמן ושכיחויותיהם",
+     "targets": [
+      "theory:G2-t21"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    },
+    {
+     "id": "p05.u3",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "איזוטופי ניאון ומספר החלקיקים בכל אחד",
+     "targets": [
+      "theory:G2-t22",
+      "theory:G2-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "7a5fcfacc0a9c8ed673526c365828c456a772989ed4954bf644f9ea424c58cdf",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "table",
+     "disposition": "covered",
+     "label": "טבלת איזוטופי מגנזיום וחישוב המסה הממוצעת",
+     "targets": [
+      "worked:1",
+      "theory:G2-t02"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "83f7a4936e7ce382d9b60038d04fdcfc8ec8188ae56a8565b65e644317d4927b",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים ספקטרומטר המסות",
+     "targets": [
+      "theory:G2-t24"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    },
+    {
+     "id": "p07.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "ספקטרום המסות של כלור",
+     "targets": [
+      "theory:G2-t25"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "20fcd8be540d2bf036caf2030902a89d779b1ca892bbb448ce4c9fde35042fca",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "הטבלה המחזורית וקבוצותיה",
+     "targets": [
+      "theory:G2-t27"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "9e9777c8a8e453893d27df07b46ae7e478575b2ac6376c34252e11e962bf9441",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "קריאת משבצת בטבלה המחזורית",
+     "targets": [
+      "theory:G2-t26"
+     ]
+    },
+    {
+     "id": "p09.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "דרכי השימוש בטבלה המחזורית",
+     "targets": [
+      "theory:G2-t28"
+     ]
+    },
+    {
+     "id": "p09.u3",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "חישוב u בקילוגרמים מהמסה של 12 גרם",
+     "targets": [
+      "theory:G2-t16"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "1fb30ae03e1de6a4120680684cd80f74d547e788c2d92c74f15ccc2fab4b65c0",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "הגדרת המול וקבוע אבוגדרו",
+     "targets": [
+      "theory:G2-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "955ab00381a6166a045be7aba2c9929fb9725bb8903a5289aecc5df82352b7bd",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "ערך קבוע אבוגדרו והקשר בין מול לחלקיקים",
+     "targets": [
+      "theory:G2-t29"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "90f21d4332146618863888e5f14944d68cb3441ada20bf6312292004af93c7b5",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "הקשר בין מסה מולרית למסה של אטום בודד",
+     "targets": [
+      "theory:G2-t30"
+     ]
+    },
+    {
+     "id": "p12.u2",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "שלושה חומרים שמסתם מול אחד",
+     "targets": [
+      "theory:G2-t30"
+     ],
+     "rationale": "נכתב בטקסט מקורי."
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "4aaaa536d82766b8346ee59a1dc79c9d483f0fc66d54f5d1837d0a9396fa948f",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "המסה המולרית שווה מספרית למסה האטומית",
+     "targets": [
+      "theory:G2-t30"
+     ]
+    },
+    {
+     "id": "p13.u2",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "מסה מולרית של Mg(NO₃)₂",
+     "targets": [
+      "theory:G2-t31",
+      "theory:G2-t07"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "a6e22d3b959b350829dda2878c98f7cca5dbe839b7bf6245f4584d9ba9bc98bb",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "שאלת אטומי K-40 בכוס חלב",
+     "targets": [
+      "theory:G2-t33",
+      "worked:12",
+      "quiz:15"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "66c39278cc25e4326d1da9a48158d38d3406b8a7eea54dc2f12786bc9ccb16ef",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "פתרון שאלת K-40 בשרשרת המרות",
+     "targets": [
+      "theory:G2-t33"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "1b14364d91af95c800c6559fd5ccac9053853dcf599314d4ceee8da34788d971",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "חישוב מסות מולריות של שלוש תרכובות",
+     "targets": [
+      "quiz:10",
+      "quiz:16",
+      "quiz:17",
+      "theory:G2-t07"
+     ]
+    },
+    {
+     "id": "p16.u2",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "שברי מסה של יסודות בתרכובת",
+     "targets": [
+      "theory:G2-t32",
+      "worked:11",
+      "quiz:11"
+     ]
+    }
+   ]
+  }
+ ],
+ "semanticReview": {
+  "status": "done",
+  "reviewer": "chat-01M8GEVBD0NR4269JYKVJK42BA",
+  "sourceSha256": "516cd98b5326281d0dcf8de2c8e5c37b453ca25d8aa3e49dbf7b4977e064e5e0",
+  "contentSha256": "8c5ff217dd44457fbde11b4939fa3caed37ba43b9f684f6c95346901888d1ee1",
+  "unitMapSha256": "7d6e536e367cf0683affe6dfbf5f566bd989af469177b9a12eceb9680d6cdb93",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": []
+ },
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G2-t03",
+    "theory:G2-t04",
+    "theory:G2-t05",
+    "theory:G2-t06"
+   ],
+   "rationale": "מעבר מסה למולים למספר חלקיקים וספירת אטומים לפי נוסחה; הוסף להוראה ואינו שקופית."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G2-t08",
+    "theory:G2-t09",
+    "theory:G2-t10",
+    "theory:G2-t13",
+    "theory:G2-t34"
+   ],
+   "rationale": "טעות עיגול מוקדם, העמקה על המול ובדיקות שפיות; הוסף מעבר לשקופיות."
+  },
+  {
+   "id": "a3",
+   "targets": [
+    "theory:G2-t12"
+   ],
+   "rationale": "שכיחויות הכלור 75.78% ו-24.22% מגיעות מתרגול 2 ולא מהשקופית; נוסף להוראה."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "תרגיל 2.docx",
+   "sha256": "04d643931a0218743ab48fc1e5648cad818d104923f8ab3c41761eff2444e73f",
+   "items": [
+    {
+     "ref": "Q1",
+     "use": "data-and-method",
+     "targets": [
+      "worked:1",
+      "theory:G2-t02",
+      "quiz:20"
+     ]
+    },
+    {
+     "ref": "Q2",
+     "use": "data-and-method",
+     "targets": [
+      "worked:2",
+      "quiz:4",
+      "worked:15",
+      "quiz:19"
+     ]
+    },
+    {
+     "ref": "Q3",
+     "use": "data-and-method",
+     "targets": [
+      "worked:18",
+      "worked:6",
+      "quiz:8",
+      "quiz:9"
+     ]
+    },
+    {
+     "ref": "Q4",
+     "use": "data-and-method",
+     "targets": [
+      "worked:17",
+      "worked:7"
+     ]
+    },
+    {
+     "ref": "Q5",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:2",
+      "quiz:3",
+      "worked:14",
+      "quiz:18"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "data-and-method",
+     "targets": [
+      "worked:16",
+      "worked:8",
+      "quiz:13"
+     ]
+    },
+    {
+     "ref": "Q7",
+     "use": "data-and-method",
+     "targets": [
+      "worked:19",
+      "worked:9",
+      "quiz:14"
+     ]
+    },
+    {
+     "ref": "Q8",
+     "use": "data-and-method",
+     "targets": [
+      "worked:13",
+      "quiz:5",
+      "theory:G2-t06"
+     ]
+    },
+    {
+     "ref": "Q9",
+     "use": "data-and-method",
+     "targets": [
+      "worked:20",
+      "worked:10",
+      "quiz:12"
+     ]
+    },
+    {
+     "ref": "Q10",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    },
+    {
+     "ref": "Q11",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    },
+    {
+     "ref": "Q12",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    },
+    {
+     "ref": "Q13",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    },
+    {
+     "ref": "Q14",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    },
+    {
+     "ref": "Q15",
+     "use": "not-covered",
+     "reason": "Mass ratios and stoichiometry: audited in G3."
+    }
+   ]
+  },
+  {
+   "file": "כימיה כללית תרגול 2 -בת-אל .pdf",
+   "sha256": "117f82058caeeef385f51681265aab5aef34b71ac49a5e8a917689c5f2f02af7",
+   "items": [
+    {
+     "ref": "p3",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t27"
+     ]
+    },
+    {
+     "ref": "p4",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t02",
+      "theory:G2-t11"
+     ]
+    },
+    {
+     "ref": "p5",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t21",
+      "theory:G2-t02"
+     ]
+    },
+    {
+     "ref": "p6",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t12",
+      "worked:3"
+     ]
+    },
+    {
+     "ref": "p7",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t29"
+     ]
+    },
+    {
+     "ref": "p8",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t30"
+     ]
+    },
+    {
+     "ref": "p9",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t16",
+      "theory:G2-t30"
+     ]
+    },
+    {
+     "ref": "p10",
+     "use": "data-and-method",
+     "targets": [
+      "theory:G2-t29",
+      "theory:G2-t16"
+     ]
+    },
+    {
+     "ref": "p11",
+     "use": "data-and-method",
+     "targets": [
+      "quiz:21",
+      "quiz:22",
+      "theory:G2-t29"
+     ]
+    },
+    {
+     "ref": "p12-14",
+     "use": "not-covered",
+     "reason": "Mass ratios in a compound and the solved practice: G3 topic, audited there."
+    }
+   ]
+  }
+ ]
+}

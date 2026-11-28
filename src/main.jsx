@@ -40,7 +40,7 @@ const courses=catalogue.courses.filter(c=>c.topics?.length).map(c=>({...c,topics
 const readRoute=()=>decodeURIComponent(location.hash.slice(1));
 // Worked answers with several calculations (a compound, its fraction and its percent) set each calculation on its
 // own full LTR line via optional answerLines; the plain answer string stays as the fallback and for search.
-function AnswerBody({q}){return Array.isArray(q.answerLines)&&q.answerLines.length?<><div className="answer-lines">{q.answerLines.map((l,i)=><div key={i} className="answer-line" dir="ltr">{l}</div>)}</div>{q.answerNote?<p className="answer-note">{q.answerNote}</p>:null}</>:<SolutionText text={q.answer} Rich={Rich}/>}
+function AnswerBody({q}){return Array.isArray(q.answerLines)&&q.answerLines.length?<><div className="answer-lines">{q.answerLines.map((l,i)=>/[\u0590-\u05FF]/.test(l)?<p key={i} className="answer-text" dir="rtl">{l}</p>:<div key={i} className="answer-line" dir="ltr">{l}</div>)}</div>{q.answerNote?<p className="answer-note">{q.answerNote}</p>:null}</>:<SolutionText text={q.answer} Rich={Rich}/>}
 function Rich({text,runs}){return runs?<ScientificText runs={runs}/>:<>{resolveConstants(text)}</>}
 
 function Spectrum({topic,large=false}){return <div className={'spectrum '+(large?'large':'')} aria-label={'קווי פליטה של '+topic.spectrum.name}><span className="spectrum-baseline"/>{topic.spectrum.lines.map((w,i)=><i key={w} title={w+' nm'} style={{left:`${6+(w-400)/300*88}%`,background:wavelengthColor(w),color:wavelengthColor(w),height:large?`${35+(i%3)*23}%`:undefined}}/>)}</div>}

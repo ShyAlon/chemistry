@@ -13,7 +13,7 @@ test('answerLines are one complete calculation per line and carry exactly the nu
  for(const [name,t] of topics)for(const q of quizzes(t))if(q.answerLines){
   seen++;
   assert.ok(Array.isArray(q.answerLines)&&q.answerLines.length>=2,name+' q'+q.id+': answerLines needs 2+ lines');
-  for(const l of q.answerLines){assert.equal(typeof l,'string');assert.ok(l.trim()&&!/[;]/.test(l),name+' q'+q.id+': one calculation per line, no semicolon: '+l)}
+  for(const l of q.answerLines){assert.equal(typeof l,'string');assert.ok(l.trim()&&!/[;]/.test(l)&&(!/[\u0590-\u05FF]/.test(l)||!/[=×/A-Za-z]/.test(l.replace(/ב-[A-Za-z]/g,''))),name+' q'+q.id+': a Hebrew line carries no math or English: '+l);assert.ok(l.trim()&&!/[;]/.test(l),name+' q'+q.id+': one calculation per line, no semicolon: '+l)}
   assert.deepEqual(numbers(q.answerLines.join(' ')),numbers(q.answer),name+' q'+q.id+': lines must carry the same numbers as the plain answer, in order');
  }
  assert.ok(seen>=1,'G3 quiz 4 uses answerLines');

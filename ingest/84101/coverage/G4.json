@@ -180,7 +180,6 @@
       "theory:G4-t25",
       "theory:G4-t26",
       "theory:G4-t27",
-      "worked:3",
       "quiz:4"
      ]
     }
@@ -359,7 +358,7 @@
      "disposition": "covered",
      "label": "5.00 g MnO₂ ו-4HCl נותנים 8.40 g HCl",
      "targets": [
-      "worked:4",
+      "worked:2",
       "quiz:3"
      ]
     }
@@ -386,6 +385,8 @@
     "theory:G4-t38",
     "theory:G4-t39",
     "theory:G4-t40",
+    "worked:3",
+    "worked:4",
     "quiz:1",
     "quiz:5",
     "quiz:6",

@@ -4,6 +4,11 @@ const fxd=JSON.parse(readFileSync(new URL('./fixtures/G12-display-pairs.json',im
 const fx=JSON.parse(readFileSync(new URL('./fixtures/G11-pre-audit-p20.json',import.meta.url)));
 // G11 worked 2 / quiz 3 cited GC5 p20 for noble-gas boiling points that the visible slide does not show; repaired in the source audit. Baselines keep the pre-repair text.
 export function revertG11(t){
+ if(t.id==='G4'){ // G4 audit: source line and provenance now name the exercises and recitation used; baselines keep the original labels.
+  if(t.source.includes('תרגול 3, עמ׳ 15-21'))t.source='מקורות: General Chemistry 2.pdf, עמ׳ 37-52; בוחן אמצע שאלה 2 | סיכום ושאלות לימוד נגזרו מהחומר; הפתרונות חושבו מחדש, לא מפתח רשמי.';
+  if(t.provenance?.sourceReferences?.includes('תרגול 3, עמ׳ 15-21'))t.provenance.sourceReferences='General Chemistry 2.pdf, עמ׳ 37-52; בוחן אמצע שאלה 2';
+  return t;
+ }
  if(t.id==='G12'){ // G12 theory t03/t12/t16 inline math scrambled under RTL; display repaired in the G12 audit (reviewed). Baselines keep the pre-repair text, matched by text.
   // Round-3 display repairs (inline Latin/number runs rewritten as words or formula sentences; spectrum template card removed as irrelevant to crystals). Baselines keep the previous text.
   for(const p of fxd.theory){const b=t.content.theory.find(b=>b.text===p.new);if(b)b.text=p.old}
@@ -19,7 +24,7 @@ export function revertG11(t){
 // G1 audit: two reviewed prose corrections (practice-corrections.json) restore their pre-audit text for the layer baselines that do not apply practice-baseline.
 import {readFileSync as _rf} from 'node:fs';
 export function revertG1(t){
- if(t?.id!=='G1'&&t?.id!=='G2')return t;
+ if(t?.id!=='G1'&&t?.id!=='G2'&&t?.id!=='G4')return t;
  const list=JSON.parse(_rf(new URL('../src/practice-corrections.json',import.meta.url))).filter(c=>c.topic===t.id);
  for(const c of list){if(c.worked){const w=t.content.worked.find(w=>w.title===c.worked&&w.content[1]===c.after);if(!w)throw new Error('G1 worked correction missing');w.content[1]=c.before;continue}const b=t.content.theory.find(b=>b.text===c.after);if(!b)throw new Error('G1 correction missing');b.text=c.before}
  return t;

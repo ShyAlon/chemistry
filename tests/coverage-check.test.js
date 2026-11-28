@@ -193,8 +193,8 @@ test('supporting sources are validated structurally, hash-pinned against the man
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question',targets:[tgt]})}),/must not list targets/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].reason='x'}),/reason is only for not-covered/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref='page 6'}),/ref must be a question label/);
- for(const ref of ['Q1יא','Q1יג-יד','Q1ח-ט','Q1י'])assert.equal(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),'',ref);
- for(const ref of ['Q1יי','Q1כב','Q1אב','Q1יא-','Q1ת-יא-ב'])assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),/ref must be a question label/,ref);
+ for(const ref of ['Q1יא','Q1יג-יד','Q1ח-ט','Q1י','Q1כא','Q3','p2','p4-14'])assert.equal(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),'',ref);
+ for(const ref of ['Q1abc','Q1אבג','Q1יא-','Q1ת-יא-ב','p','p2-','P2','Q123'])assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),/ref must be a question label/,ref);
  assert.match(errs(c=>{c.supportingSources=[]}),/non-empty list/);
  const a=cov(),b=cov();b.supportingSources=good();assert.notEqual(unitMapHash(a),unitMapHash(b));
  // manifest pin: G13 declares the HW6 and sample exam; a wrong hash must fail checkAll.

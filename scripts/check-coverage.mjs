@@ -199,7 +199,7 @@ export function checkTopic(topic,cov,{loadTopic}={}){
    for(const it of Array.isArray(s?.items)?s.items:[]){
     const wi=w+'item '+(it&&it.ref)+': ';
     for(const k of Object.keys(it||{}))if(!['ref','use','targets','reason'].includes(k))e(wi+'unexpected field '+k);
-    if(!/^Q\d{1,2}(?:(?:[א-ת]|י[א-ט])(?:-(?:[א-ת]|י[א-ט]))?)?$/u.test(it?.ref||''))e(wi+'ref must be a question label such as Q6 or Q3א');
+    if(!/^(?:Q\d{1,2}(?:[א-ת]{1,2}(?:-[א-ת]{1,2})?)?|p\d{1,3}(?:-\d{1,3})?)$/u.test(it?.ref||''))e(wi+'ref must be a question label such as Q6, Q3א or Q1יא, or a page locator such as p2 or p4-6');
     if(!['data-and-method','method-only','not-covered'].includes(it?.use))e(wi+'use must be data-and-method, method-only or not-covered');
     const key=(s&&s.file)+'|'+(it&&it.ref)+'|'+(it&&it.use);if(seenRef.has(key))e(wi+'listed twice');seenRef.add(key);
     if(it?.use==='not-covered'){

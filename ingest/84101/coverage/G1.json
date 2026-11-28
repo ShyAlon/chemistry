@@ -510,9 +510,9 @@
         },
         {
           "ref": "Q1י",
-          "use": "method-only",
+          "use": "data-and-method",
           "targets": [
-            "worked:6"
+            "quiz:6"
           ]
         },
         {
@@ -525,9 +525,10 @@
         },
         {
           "ref": "Q1יג-יד",
-          "use": "method-only",
+          "use": "data-and-method",
           "targets": [
-            "worked:9",
+            "quiz:3",
+            "quiz:8",
             "theory:G1-t07"
           ]
         },
@@ -598,11 +599,27 @@
       "sha256": "117f82058caeeef385f51681265aab5aef34b71ac49a5e8a917689c5f2f02af7",
       "items": [
         {
-          "ref": "Q1",
-          "use": "data-and-method",
+          "ref": "p2",
+          "use": "method-only",
           "targets": [
-            "worked:22"
+            "worked:22",
+            "theory:G1-t25"
           ]
+        },
+        {
+          "ref": "p3",
+          "use": "not-covered",
+          "reason": "Periodic table group names slide: taught in G2 (periodic table slides), not G1."
+        },
+        {
+          "ref": "p4",
+          "use": "not-covered",
+          "reason": "Isotopes and weighted atomic mass: G2 topic, mapped in the G2 audit."
+        },
+        {
+          "ref": "p5-14",
+          "use": "not-covered",
+          "reason": "Avogadro, molar mass, stoichiometry and exercises: G2 and G3 topics, audited there."
         }
       ]
     }

@@ -54,3 +54,11 @@ Source identity (hashes match ingest/84101/sources.manifest.json): "General Chem
 
 ## Scope decision for G4 (proposal for the candidate)
 Slides 37-52 all units become covered. Supporting exercises assigned to G4: midterm Q2 (all three parts), Recitation 3 slides 15-21 (NaBr chain, corrected), final-exam-example Q7 (MCl2/AgCl, corrected), extra-practice Q3 part d (P4 -> P2O3 -> P2O5 -> H3PO4 balanced chain). Left to G5 (note for later): extra-practice Q3 part e (limiting reagent over a chain; "each step separately" gives 14.1 mol H3PO4 whereas a single combined P4+5O2 view gives 25.0 mol, so the wording is ambiguous), Q6 limiting-reagent part. Recitation 3 slides 1-14 (empirical formula, combustion analysis, oxidation states) are in no topic's map: flagged to main.
+
+## Candidate status and deferred portions (implementation)
+
+- G4 now has 47 reading blocks (ids G4-t01..t47), 10 worked examples and 17 quiz items. New blocks carry `batch5: true`.
+- Map: ingest/84101/coverage/G4.json, 16 pages (slides 37-52), semantic review pending (independent reviewer must record it).
+- Source errors corrected in text and map labels: K+CrO4 (slide 39), C6H12O4 (slide 44), inverted NaBr ratio (recitation 3 last slide), unbalanced example-set Q7 equation, unbalanced midterm Q1/Q3.
+- Deferred, recorded as not-covered supporting items: extra-practice Q3(e) and example-set Q6 limiting reagent (owner G5); recitation 3 pp.1-14 (owner G3 reconciliation, G3 supportingSources does not list recitation 3); midterm Q1 and Q3 (owning topics).
+- Pre-existing G4 theory blocks t38 and t39 mix Hebrew and chained math inline and render scrambled at 320 px; not changed here.

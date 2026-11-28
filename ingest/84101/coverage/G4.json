@@ -20,7 +20,13 @@
   ]
  },
  "semanticReview": {
-  "status": "pending"
+  "status": "done",
+  "reviewer": "chat-01M8GEVBD0NR4269JYKVJK42BA",
+  "sourceSha256": "76effbe73fa25a3ef950d4ad21bcfc523009214ff39f5f2166e8d1423178d7b0",
+  "contentSha256": "cfbd4bcdf4c337b776444bf1d79c1f4c2b9bec493cc10969c80c5e2c8f61f7a4",
+  "unitMapSha256": "fd30b22ec1c6a1e8c2f4780d829d74692a684ea56a51dd4b9acccf0550c50bf8",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": []
  },
  "pages": [
   {

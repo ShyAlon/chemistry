@@ -1,0 +1,498 @@
+{
+ "schema": 2,
+ "course": "84101",
+ "topic": "G4",
+ "authoredBy": [
+  "chat-01M8GZZB2M8XNNHRHCWAGZB0AC"
+ ],
+ "source": {
+  "sha256": "76effbe73fa25a3ef950d4ad21bcfc523009214ff39f5f2166e8d1423178d7b0",
+  "kind": "multi-file-deck",
+  "pageCount": 16,
+  "locatorScheme": "deck-page: global page k is General Chemistry 2.pdf page k+36 (pp37-52 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)).",
+  "files": [
+   {
+    "file": "General Chemistry 2.pdf",
+    "sha256": "5f9d11108c34824df77c657469b833e3f1f2c155343cee811a376f6b47af7f39",
+    "pages": "37-52",
+    "firstPage": 1
+   }
+  ]
+ },
+ "semanticReview": {
+  "status": "pending"
+ },
+ "pages": [
+  {
+   "page": 1,
+   "imageSha256": "01e5bfa9e589ae50875abff506709f5dfaae7e7ce20bb93b5cecb437e3a29162",
+   "units": [
+    {
+     "id": "p01.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "סימני תגובה: שינוי צבע ומשקע (תמונת Ag₂CrO₄)",
+     "targets": [
+      "theory:G4-t12",
+      "theory:G4-t13"
+     ],
+     "rationale": "התמונה תוארה במילים; המשקע נבנה מהמשוואה."
+    },
+    {
+     "id": "p01.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "ארבע עדויות לתגובה כימית",
+     "targets": [
+      "theory:G4-t12"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 2,
+   "imageSha256": "87c5115041d58fac998ce0525269db36e4fed4b2dedb49125affba50fa83ab54",
+   "units": [
+    {
+     "id": "p02.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "תגובת התרמיט Fe₂O₃ + 2Al",
+     "targets": [
+      "theory:G4-t18",
+      "theory:G4-t19"
+     ]
+    },
+    {
+     "id": "p02.u2",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "פרץ טמפרטורה קצר, ריתוך פסי רכבת",
+     "targets": [
+      "theory:G4-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 3,
+   "imageSha256": "566e002058e14a8976294c16872aeebb8f467bbbf29beade417c169286808b24",
+   "units": [
+    {
+     "id": "p03.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "K₂CrO₄ + 2AgNO₃ → Ag₂CrO₄ + 2KNO₃ (שגיאת K⁺CrO₄ תוקנה)",
+     "targets": [
+      "theory:G4-t14",
+      "theory:G4-t15"
+     ]
+    },
+    {
+     "id": "p03.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "Cu + 4H⁺ + 2NO₃⁻ → Cu²⁺ + 2NO₂ + 2H₂O",
+     "targets": [
+      "theory:G4-t16",
+      "theory:G4-t17"
+     ]
+    },
+    {
+     "id": "p03.u3",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "סבכת ברזל בוערת וגז NO₂",
+     "targets": [
+      "theory:G4-t16",
+      "theory:G4-t18"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 4,
+   "imageSha256": "c6b8f70c097c1637b16a4a309ac29d37fd98b80636e94f47f463ba50abdfec9b",
+   "units": [
+    {
+     "id": "p04.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "כתיבת NO + O₂ → NO₂ במעבר מסמלים לאיזון",
+     "targets": [
+      "theory:G4-t20",
+      "theory:G4-t21"
+     ]
+    },
+    {
+     "id": "p04.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מקדמים סטויכיומטריים ותמונה מולקולרית",
+     "targets": [
+      "theory:G4-t22"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 5,
+   "imageSha256": "e7ef5c7834637e0bedbcc3962e24cbe88e4268b46278e4b79783322ddf6e6fe2",
+   "units": [
+    {
+     "id": "p05.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "אסור להוסיף אטומים או לשנות נוסחה, רק מקדמים",
+     "targets": [
+      "theory:G4-t23"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 6,
+   "imageSha256": "63a5c8902c8e021ce35630ad73775b3afa876ba5bf6540b987da7fa3d1d45e7b",
+   "units": [
+    {
+     "id": "p06.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "אסטרטגיית איזון: יסודות בתרכובת אחת, חופשיים אחרונים",
+     "targets": [
+      "theory:G4-t24",
+      "theory:G4-t02",
+      "theory:G4-t01"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 7,
+   "imageSha256": "2adfe94f6c850f126b90d326848c82335a960768c79072ee9a213d001d932508",
+   "units": [
+    {
+     "id": "p07.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "שריפת טריאתילן גליקול C₆H₁₄O₄ והמשוואה המאוזנת",
+     "targets": [
+      "theory:G4-t25",
+      "theory:G4-t26",
+      "theory:G4-t27",
+      "worked:3",
+      "quiz:4"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 8,
+   "imageSha256": "07607a95820253c5c59c741afcd84e010fc26812157b6dc13ca1e7ae20ee55dc",
+   "units": [
+    {
+     "id": "p08.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מצבי צבירה אחרי הנוסחה: s, l, g, aq",
+     "targets": [
+      "theory:G4-t28",
+      "theory:G4-t29"
+     ]
+    },
+    {
+     "id": "p08.u2",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "סינתזת מתנול: CO + 2H₂ → CH₃OH, תנאים מעל ומתחת לחץ",
+     "targets": [
+      "theory:G4-t30",
+      "theory:G4-t31"
+     ]
+    },
+    {
+     "id": "p08.u3",
+     "kind": "equation",
+     "disposition": "adapted",
+     "label": "טעות C₆H₁₂O₄ בשקופית; הנוסחה הנכונה C₆H₁₄O₄",
+     "targets": [
+      "theory:G4-t32"
+     ],
+     "rationale": "הנוסחה תוקנה לפי החומר והמאזן שבשקופית הקודמת."
+    }
+   ]
+  },
+  {
+   "page": 9,
+   "imageSha256": "59b170ef422be8c231912c5155bd42099c40a3926deab0aed388b9413d65298c",
+   "units": [
+    {
+     "id": "p09.u1",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "סטויכיומטריה: 2H₂ + O₂ → 2H₂O ויחס מולים",
+     "targets": [
+      "theory:G4-t03",
+      "theory:G4-t04",
+      "theory:G4-t05"
+     ]
+    },
+    {
+     "id": "p09.u2",
+     "kind": "concept",
+     "disposition": "covered",
+     "label": "מקדמים כיחס מולים וגורם סטויכיומטרי",
+     "targets": [
+      "theory:G4-t03",
+      "theory:G4-t05"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 10,
+   "imageSha256": "9e536550af3734c059d7603b014d9046820302004f39d4097fe275a31e0a87c0",
+   "units": [
+    {
+     "id": "p10.u1",
+     "kind": "figure",
+     "disposition": "adapted",
+     "label": "תרשים כללי של המרה דרך מולי A ומולי B",
+     "targets": [
+      "theory:G4-t33",
+      "theory:G4-t11"
+     ],
+     "rationale": "התרשים נכתב כטקסט."
+    }
+   ]
+  },
+  {
+   "page": 11,
+   "imageSha256": "67afbe61176991b9d50fd510a89a31d4bb2f960e42b9fb9a5336244443f23a00",
+   "units": [
+    {
+     "id": "p11.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "דוגמה 2.72 mol H₂ נותנים 2.72 mol H₂O",
+     "targets": [
+      "worked:1",
+      "quiz:2"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 12,
+   "imageSha256": "b1fd63442d8576b213942a3560cf111ab802fb839671f1dac65d586abd20b483",
+   "units": [
+    {
+     "id": "p12.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "סגסוגת 93.7% Al: חמש חוליות המרה (עמוד ראשון)",
+     "targets": [
+      "theory:G4-t34",
+      "theory:G4-t10",
+      "worked:5",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 13,
+   "imageSha256": "ba26830f225ba542c513f8bd5b9a421d1982c46e5ad462b8000d998d0e5be5b9",
+   "units": [
+    {
+     "id": "p13.u1",
+     "kind": "equation",
+     "disposition": "covered",
+     "label": "2Al + 6HCl → 2AlCl₃ + 3H₂ ופתרון חוליה אחר חוליה",
+     "targets": [
+      "theory:G4-t34",
+      "worked:5",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 14,
+   "imageSha256": "e05b8d2141d48217a6da74806a18a698c23aafad06587eb684e9f33624aef372",
+   "units": [
+    {
+     "id": "p14.u1",
+     "kind": "claim",
+     "disposition": "covered",
+     "label": "התשובה 0.207 g H₂ וחישוב מחדש 0.2068 g",
+     "targets": [
+      "worked:5",
+      "quiz:8"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 15,
+   "imageSha256": "fdfd5a66d34357beedb48952f556989a7eb9805947e7b3cc815944de358dd916",
+   "units": [
+    {
+     "id": "p15.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "Fe₂O₃ + 3CO → 2Fe + 3CO₂, מ-1.00 kg ל-698 g Fe",
+     "targets": [
+      "worked:6",
+      "quiz:9"
+     ]
+    }
+   ]
+  },
+  {
+   "page": 16,
+   "imageSha256": "e83a2d61921976001af3b2a28f6a08b595496c33f18dfb8d36527633cde63679",
+   "units": [
+    {
+     "id": "p16.u1",
+     "kind": "exercise",
+     "disposition": "covered",
+     "label": "5.00 g MnO₂ ו-4HCl נותנים 8.40 g HCl",
+     "targets": [
+      "worked:4",
+      "quiz:3"
+     ]
+    }
+   ]
+  }
+ ],
+ "lessonAdditions": [
+  {
+   "id": "a1",
+   "targets": [
+    "theory:G4-t06",
+    "theory:G4-t07",
+    "theory:G4-t08",
+    "theory:G4-t09"
+   ],
+   "rationale": "המרות תמיסה וגז לפני יחס המקדמים; נוספו להוראה ואינן בשקופית."
+  },
+  {
+   "id": "a2",
+   "targets": [
+    "theory:G4-t35",
+    "theory:G4-t36",
+    "theory:G4-t37",
+    "theory:G4-t38",
+    "theory:G4-t39",
+    "theory:G4-t40",
+    "quiz:1",
+    "quiz:5",
+    "quiz:6",
+    "quiz:7"
+   ],
+   "rationale": "העמקה, בדיקות ושאלות תרגול מעבר לשקופיות."
+  }
+ ],
+ "supportingSources": [
+  {
+   "file": "בוחן אמצע כימיה כללית תשפז.pdf",
+   "sha256": "f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b",
+   "items": [
+    {
+     "ref": "Q2א",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7",
+      "quiz:10"
+     ]
+    },
+    {
+     "ref": "Q2ב",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7",
+      "quiz:11"
+     ]
+    },
+    {
+     "ref": "Q2ג",
+     "use": "data-and-method",
+     "targets": [
+      "worked:7",
+      "quiz:12",
+      "quiz:13"
+     ]
+    },
+    {
+     "ref": "Q1",
+     "use": "not-covered",
+     "reason": "הסעיף עוסק בנושא אחר; המשוואה בו אינה מאוזנת ומטופלת בנושא שלה."
+    },
+    {
+     "ref": "Q3",
+     "use": "not-covered",
+     "reason": "הסעיף עוסק בנושא אחר; המשוואה בו אינה מאוזנת ומטופלת בנושא שלה."
+    }
+   ]
+  },
+  {
+   "file": "תרגול 3 - אטומים,מולקולות וסטויכומטריה בת-אל-b.pdf",
+   "sha256": "e7042d64efed3689137dd59df52dd108c5f08599366fa779e496cd8d59261cd4",
+   "items": [
+    {
+     "ref": "p15-21",
+     "use": "data-and-method",
+     "targets": [
+      "worked:8",
+      "quiz:14"
+     ]
+    },
+    {
+     "ref": "p1-14",
+     "use": "not-covered",
+     "reason": "עמודים 1-14 עוסקים באטומים ובמולקולות, שייכים לנושאים קודמים ולא נבדקו כאן."
+    }
+   ]
+  },
+  {
+   "file": "שאלות לדוגמא כימיה כללית תשפז.pdf",
+   "sha256": "d1fb53fa1569f32d12dfce8da10641929ac7bd4929e185631d277e628fe9d357",
+   "items": [
+    {
+     "ref": "Q7",
+     "use": "data-and-method",
+     "targets": [
+      "worked:9",
+      "quiz:15",
+      "quiz:16"
+     ]
+    },
+    {
+     "ref": "Q6",
+     "use": "not-covered",
+     "reason": "חלק המגיב המגביל שייך לנושא גורם מגביל, G5, ונבדק שם."
+    }
+   ]
+  },
+  {
+   "file": "שאלות נוספות תרגול לבחינה כימהי כללית א תשפז.pdf",
+   "sha256": "d7f1b7df22389e295547d58aab02837f54c6c1eec2a403602c781e077dfeda15",
+   "items": [
+    {
+     "ref": "Q3ד",
+     "use": "data-and-method",
+     "targets": [
+      "worked:10",
+      "quiz:17"
+     ]
+    },
+    {
+     "ref": "Q3ה",
+     "use": "not-covered",
+     "reason": "הסעיף עמום בין שני חישובים ונשאר לנושא G5 עד הכרעה."
+    }
+   ]
+  }
+ ]
+}

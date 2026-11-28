@@ -37,7 +37,7 @@ test('all 57 previous inorganic questions and IDs stay byte-for-byte identical',
 test('entire General Chemistry course is unchanged outside the flagged batch3 exam-gap additions',()=>{
  const c=JSON.parse(JSON.stringify(data.courses[1]));
  // G3 quiz 4 gained the additive answerLines display field (one LTR line per compound); the baseline keeps the pre-field digest.
- delete c.topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const q of c.topics.find(t=>t.id==='G2').content.quiz){delete q.answerLines;delete q.answerNote}
+ delete c.topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const g of ['G2','G4'])for(const q of c.topics.find(t=>t.id===g).content.quiz){delete q.answerLines;delete q.answerNote}
  for(const t of c.topics){if(t.id==='G15')for(const b of t.content.theory)fixT40(b);t.content.theory=undoNotation(t).content.theory;t.source=t.source.split(' תוספת הכנה למבחן:')[0];for(const k of ['theory','worked','quiz'])t.content[k]=t.content[k].filter(b=>!b.batch3&&!b.batch4&&!b.batch5&&!b.finalPrep);}
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45 = 3/2*8.3145*298.15); keep the pre-repair text so the baseline digest still proves every other byte.
  c.topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';
@@ -48,7 +48,7 @@ test('entire General Chemistry course is unchanged outside the flagged batch3 ex
  }
  revertG11(c.topics.find(t=>t.id==='G11'));revertG11(c.topics.find(t=>t.id==='G12'));revertG1(c.topics.find(t=>t.id==='G1'));revertG1(c.topics.find(t=>t.id==='G2'));
  {const g=c.topics.find(t=>t.id==='G11').content.theory.find(b=>b.text.includes("ללא קשרי מימן היינו "));g.text=g.text.replace("ללא קשרי מימן היינו מצפים לנקודת רתיחה נמוכה בהרבה מ-100 °C, בדומה ל-H₂S.","בלי קשרי מימן, מים היו גז בטמפרטורת החדר ולא היו חיים כפי שאנחנו מכירים.")} // G11 life-claim overclaim repaired in the source audit; baseline keeps the pre-repair sentence.
- for(const id of ['G1','G2','G3','G9','G11','G12','G13','G14','G15'])for(const b of c.topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
+ for(const id of ['G1','G2','G3','G4','G9','G11','G12','G13','G14','G15'])for(const b of c.topics.find(t=>t.id===id).content.theory){delete b.id;fixT40(b)} // G13/G14/G15 gained stable theory-block ids for source-coverage mapping (batch 1); same fixture pattern as G10.
  assert.equal(digest(c),'d0929b3c50f11fd0e378302cf578afd9983ba6cb1110881864eb9dac452d0cf3');
 });
 test('reviewed earlier inorganic data reconstructs with only documented additions and corrections',()=>{

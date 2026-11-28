@@ -14,7 +14,24 @@ const EqChunk=({children})=>{const ref=React.useRef(null);const [wide,setWide]=R
  React.useLayoutEffect(()=>{const el=ref.current;if(!el)return;const f=()=>setWide(el.scrollWidth>el.clientWidth+1);f();if(typeof ResizeObserver==='undefined')return;const ro=new ResizeObserver(f);ro.observe(el);return()=>ro.disconnect()},[children]);
  return <span ref={ref} className="eq-chunk" {...(wide?{tabIndex:0,role:'group','aria-label':'נוסחה, אפשר לגלול הצידה'}:{})}>{children}</span>};
 const Prose=({text,Rich,prefixOnly})=><>{gluePunct(splitEquationRuns(solutionDisplayText(text))).map((part,i)=>part.equation?<bdi key={i} dir="ltr" className="inline-equation">{part.text.split(/(?<=\u200b)/).flatMap(c=>c.length>24?breakMath(c).split(/(?<=\u200b)/):[c]).map((c,k)=><EqChunk key={k}>{c}</EqChunk>)}</bdi>:<Plain key={i} text={part.text} Rich={Rich} prefixOnly={prefixOnly}/>)}</>;
-export const ProblemText=({text,Rich})=><Prose text={text} Rich={Rich} prefixOnly/>;
+// A reaction written inside a Hebrew sentence is shown as its own left-to-right block, so its terms keep their order and never
+// split from their subscripts. Text without a reaction arrow is rendered exactly as before.
+export function splitReactionRuns(text){
+  const out=[];let last=0;const re=/[^\u0590-\u05FF\n]+/g;let m;
+  while((m=re.exec(text))){
+    const run=m[0];if(!/→/.test(run))continue;
+    const lead=run.match(/^[\s,;:.\-–]*/)[0].length;const core=run.slice(lead).replace(/\s+$/,'');if(!core)continue;
+    const start=m.index+lead;if(start>last)out.push({text:text.slice(last,start)});
+    const spaced=core.replace(/\s*→\s*/g,' → ').replace(/(?<=[A-Za-z0-9₀-₉)\]])\+(?=[A-Za-z0-9(])/g,' + ');
+    out.push({text:spaced,reaction:true});last=start+core.length;
+  }
+  if(last<text.length)out.push({text:text.slice(last)});
+  return out;
+}
+export const ReactionText=({text,Rich,Plainer})=>{const parts=splitReactionRuns(text);if(!parts.some(p=>p.reaction))return Plainer?<Plainer text={text}/>:<Rich text={text}/>;
+ return <>{parts.map((p,i)=>p.reaction?<bdi key={i} dir="ltr" className="problem-reaction">{p.text}</bdi>:(p.text.trim()?(Plainer?<Plainer key={i} text={p.text}/>:<Rich key={i} text={p.text}/>):null))}</>};
+export const ProblemText=({text,Rich})=><ReactionText text={text} Rich={Rich} Plainer={({text:t})=><Prose text={t} Rich={Rich} prefixOnly/>}/>;
+export const PromptText=({text,Rich})=><ReactionText text={text} Rich={Rich}/>;
 export function SolutionText({text,Rich}){
  const steps=splitSolutionSteps(text);
  if(steps.length<2)return <p><Prose text={text} Rich={Rich}/></p>;

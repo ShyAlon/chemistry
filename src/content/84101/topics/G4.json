@@ -374,7 +374,7 @@
     "title": "סוג 8: שרשרת NaBr (תרגול 3)",
     "content": [
      "כמה גרם Fe דרושים ל-100 g NaBr? התגובות: Fe + Br₂ → FeBr₂ ואז FeBr₂ + Br₂ → Fe₃Br₈ ואז Fe₃Br₈ + Na₂CO₃ → NaBr + CO₂ + Fe₃O₄",
-     "מאזנים ומתאימים בין השלבים: 3Fe + 3Br₂ → 3FeBr₂; 3FeBr₂ + Br₂ → Fe₃Br₈; Fe₃Br₈ + 4Na₂CO₃ → 8NaBr + 4CO₂ + Fe₃O₄. הסיכום: 3 mol Fe נותנים 8 mol NaBr.",
+     "מאזנים ומתאימים בין השלבים: 3Fe + 3Br₂ → 3FeBr₂. 3FeBr₂ + Br₂ → Fe₃Br₈. Fe₃Br₈ + 4Na₂CO₃ → 8NaBr + 4CO₂ + Fe₃O₄. הסיכום: 3 mol Fe נותנים 8 mol NaBr.",
      "M(NaBr) = 23 + 80 = 103 g/mol, n(NaBr) = 100/103 = 0.971 mol. n(Fe) = 3/8 × 0.971 = 0.364 mol. m(Fe) = 0.364×55.85 = 20.3 g.",
      "בשקופית האחרונה של התרגיל היחס הפוך (8/3), ויוצא 2.59 mol ו-144.46 g. זו טעות: Fe הוא הרכיב הקטן יותר ביחס, ולכן n(Fe) קטן מ-n(NaBr)."
     ],
@@ -436,7 +436,12 @@
      }
     ],
     "answer": "n(MnO₂)=5/86.9 mol; מכפילים ב-4 ואז ב-36.5 g/mol: 8.40 g.",
-    "id": 3
+    "id": 3,
+    "answerLines": [
+     "n(MnO₂) = 5/86.9 mol",
+     "n(HCl) = n(MnO₂)×4",
+     "m(HCl) = n(HCl)×36.5 = 8.40 g"
+    ]
    },
    {
     "type": "numeric",
@@ -454,7 +459,15 @@
     "type": "written",
     "prompt": "בוחן אמצע שאלה 2: מאזנים Na+H₂O→NaOH+H₂, אחר כך NaOH+CO₂→Na₂CO₃+H₂O, ולבסוף Na₂CO₃+HCl→NaCl+H₂O+CO₂. כמה מולי NaCl מתקבלים מ-46 g Na? השתמשו ב-23 g/mol, יתר המגיבים בעודף וללא אובדן.",
     "answer": "האיזונים: 2Na+2H₂O→2NaOH+H₂; 2NaOH+CO₂→Na₂CO₃+H₂O; Na₂CO₃+2HCl→2NaCl+H₂O+CO₂. היחס הכולל Na:NaCl הוא 1:1. מ-46/23=2.00 mol Na מתקבלים 2.00 mol NaCl.",
-    "id": 5
+    "id": 5,
+    "answerLines": [
+     "2Na + 2H₂O → 2NaOH + H₂",
+     "2NaOH + CO₂ → Na₂CO₃ + H₂O",
+     "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂",
+     "Na:NaCl = 1:1",
+     "n(Na) = 46/23 = 2.00 mol",
+     "n(NaCl) = 2.00 mol"
+    ]
    },
    {
     "type": "mcq",

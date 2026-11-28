@@ -373,7 +373,7 @@
    {
     "title": "סוג 8: שרשרת NaBr (תרגול 3)",
     "content": [
-     "כמה גרם Fe דרושים ל-100 g NaBr? התגובות: Fe + Br₂ → FeBr₂; FeBr₂ + Br₂ → Fe₃Br₈; Fe₃Br₈ + Na₂CO₃ → NaBr + CO₂ + Fe₃O₄",
+     "כמה גרם Fe דרושים ל-100 g NaBr? התגובות: Fe + Br₂ → FeBr₂ ואז FeBr₂ + Br₂ → Fe₃Br₈ ואז Fe₃Br₈ + Na₂CO₃ → NaBr + CO₂ + Fe₃O₄",
      "מאזנים ומתאימים בין השלבים: 3Fe + 3Br₂ → 3FeBr₂; 3FeBr₂ + Br₂ → Fe₃Br₈; Fe₃Br₈ + 4Na₂CO₃ → 8NaBr + 4CO₂ + Fe₃O₄. הסיכום: 3 mol Fe נותנים 8 mol NaBr.",
      "M(NaBr) = 23 + 80 = 103 g/mol, n(NaBr) = 100/103 = 0.971 mol. n(Fe) = 3/8 × 0.971 = 0.364 mol. m(Fe) = 0.364×55.85 = 20.3 g.",
      "בשקופית האחרונה של התרגיל היחס הפוך (8/3), ויוצא 2.59 mol ו-144.46 g. זו טעות: Fe הוא הרכיב הקטן יותר ביחס, ולכן n(Fe) קטן מ-n(NaBr)."
@@ -526,7 +526,7 @@
    },
    {
     "type": "numeric",
-    "prompt": "בוחן אמצע שאלה 2, סעיף 1: 46 g Na עוברים שלוש תגובות ב-0.705 atm ו-37°C. מה נפח הגזים שנוצרו בשלב הראשון ובשלב השלישי? R=0.08206 L·atm/(mol·K), T=310.15 K. התגובות: I: Na + H₂O → NaOH + H₂; II: NaOH + CO₂ → Na₂CO₃ + H₂O; III: Na₂CO₃ + HCl → NaCl + H₂O + CO₂",
+    "prompt": "בוחן אמצע שאלה 2, סעיף 1: 46 g Na עוברים שלוש תגובות ב-0.705 atm ובטמפרטורה 310.15 K. מה נפח הגזים שנוצרו בשלב הראשון ובשלב השלישי? השתמשו בקבוע הגזים 0.08206 L·atm/(mol·K). התגובות בסדר הזה: Na + H₂O → NaOH + H₂ ואז NaOH + CO₂ → Na₂CO₃ + H₂O ואז Na₂CO₃ + HCl → NaCl + H₂O + CO₂",
     "fields": [
      {
       "value": 72.2,
@@ -600,7 +600,7 @@
    },
    {
     "type": "numeric",
-    "prompt": "תרגול 3: כמה גרם Fe דרושים להכנת 100 g NaBr? M(NaBr)=103, M(Fe)=55.85 g/mol. התגובות: Fe + Br₂ → FeBr₂; FeBr₂ + Br₂ → Fe₃Br₈; Fe₃Br₈ + Na₂CO₃ → NaBr + CO₂ + Fe₃O₄",
+    "prompt": "תרגול 3: כמה גרם Fe דרושים להכנת 100 g NaBr? M(NaBr)=103, M(Fe)=55.85 g/mol. התגובות: Fe + Br₂ → FeBr₂ ואז FeBr₂ + Br₂ → Fe₃Br₈ ואז Fe₃Br₈ + Na₂CO₃ → NaBr + CO₂ + Fe₃O₄",
     "fields": [
      {
       "value": 20.3,

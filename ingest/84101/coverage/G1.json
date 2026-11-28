@@ -1,0 +1,633 @@
+{
+  "schema": 2,
+  "course": "84101",
+  "topic": "G1",
+  "authoredBy": [
+    "chat-01M89RY0MBEE8YJNW0XSDTVYDY"
+  ],
+  "semanticReview": {
+    "status": "done",
+    "reviewer": "chat-01M8GEVBD0NR4269JYKVJK42BA",
+    "sourceSha256": "210ead5375761a0aab71b3a56a8f31c0fe0dcb530f940e8e749beb64674b04c3",
+    "contentSha256": "d85834e624f6471d85ea9b4e758eab8fff5c6a01a2fb63eef77929118efd41ea",
+    "unitMapSha256": "3b6ac47db88f6c9a8aabdb4768c778eac79811b058be58b903a3b5570cd786d4",
+    "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+    "adminPagesAttested": []
+  },
+  "source": {
+    "sha256": "210ead5375761a0aab71b3a56a8f31c0fe0dcb530f940e8e749beb64674b04c3",
+    "kind": "multi-file-deck",
+    "pageCount": 19,
+    "locatorScheme": "deck-page: global pages concatenate the listed source spans in file order. Deck page k is General Chemistry 1.pdf page k+3 (pp4-22 are this topic). Per-page imageSha256 = sha256 of the 100-dpi PNG render (pdftoppm -r 100 -png) of the file's local page. source.sha256 = sha256(JSON.stringify(source.files)). Two supplied sheets carry the formula-sheet lines this lesson uses: (1) Exercises/דף נוסחאות כימיה כללית תשפז.pdf, titled דף נוסחאות כימיה כללית לכימאים סמסטר א, sha256 d87438563f54be889502b4d42c3d7dbf944ed5e3e43ae0c961ac30861a2e2526; (2) the attached sheet on page 4 of Exercises/בוחן אמצע כימיה כללית תשפז.pdf, sha256 f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b, which is the sheet the lesson provenance calls the formula sheet of the midterm. Neither is a deck, so neither is a mapped source. Lines used: length ladder to angstrom and picometer (t41), 1 atm = 760 mmHg = 760 torr = 101.33 kPa (t08, t35, t36), T(K) = t + 273.15 (t07), density d = m/V and 1 L = 1000 mL = 1000 cc (t04, t37, t43), water heat capacity 4.184 J/g per degree (cal value in t35). Gas, kinetic theory and solution lines on the sheets belong to other topics.",
+    "files": [
+      {
+        "file": "General Chemistry 1.pdf",
+        "sha256": "50afd177b94538af9e61ae2320d517e8fd91f55ea9b4217e5934f3e11e2f1d12",
+        "pages": "4-22",
+        "firstPage": 1
+      }
+    ]
+  },
+  "pages": [
+    {
+      "page": 1,
+      "imageSha256": "20beeec869d23c99620480d3966d208529cea6012b15a0438f9e7ac4183b0886",
+      "units": [
+        {
+          "id": "p01.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הגדרת כימיה כמחקר תכונות והתנהגות של חומר ויישומיה",
+          "targets": [
+            "theory:G1-t24"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "imageSha256": "d33b74ce86f116f5e572e413a10c46dcb3fb7dc051ccb8548940ee1a25de1966",
+      "units": [
+        {
+          "id": "p02.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "חומר, אטומים, יסוד (118) ותרכובת",
+          "targets": [
+            "theory:G1-t01",
+            "theory:G1-t24"
+          ]
+        },
+        {
+          "id": "p02.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דגמי מולקולות: חמצן, מים, אתנול, פחמן דו-חמצני, אתילן גליקול, אספירין",
+          "targets": [
+            "theory:G1-t25"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "imageSha256": "e3359e625e3ae83138f033685d82c43906c102611cbe6c05310c473a6ba66513",
+      "units": [
+        {
+          "id": "p03.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שלושת מצבי הצבירה ותכונותיהם",
+          "targets": [
+            "theory:G1-t26"
+          ]
+        },
+        {
+          "id": "p03.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "מעברי מצב צבירה בקירור, חימום ודחיסה",
+          "targets": [
+            "theory:G1-t26"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "imageSha256": "519fb683b9e11c1a287e136873c97314d828be48e71fa4fd267761639642437d",
+      "units": [
+        {
+          "id": "p04.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "יסוד אטומי, יסוד מולקולרי, תרכובת ותערובת בתמונת חלקיקים",
+          "targets": [
+            "theory:G1-t01",
+            "theory:G1-t25"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "imageSha256": "189240dd0e94192dcfc0d5dcba00f7b3442038ab5f92b126cffcccb11fc68353",
+      "units": [
+        {
+          "id": "p05.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "עץ סיווג החומר",
+          "targets": [
+            "theory:G1-t09",
+            "theory:G1-t27"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        },
+        {
+          "id": "p05.u2",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "תכונה פיזיקלית מול כימית",
+          "targets": [
+            "theory:G1-t28"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "imageSha256": "557efb24ecc44576e10c3d4568946cf65e29b37d684d8ec493e64a83e10adec8",
+      "units": [
+        {
+          "id": "p06.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שינוי פיזיקלי ורתיחת מים",
+          "targets": [
+            "theory:G1-t02",
+            "theory:G1-t28"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "imageSha256": "67ae4201c43839fa6051aba66f9acd7483762246d6c6aa6c86e2092e75211219",
+      "units": [
+        {
+          "id": "p07.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שינוי כימי וחלדת ברזל",
+          "targets": [
+            "theory:G1-t10",
+            "theory:G1-t28"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "imageSha256": "31c3895663aa09d67251470f18824d5aac7262d68b99b4a6c2ccc542469f6559",
+      "units": [
+        {
+          "id": "p08.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "סינון, זיקוק וכרומטוגרפיה: הגדרות",
+          "targets": [
+            "theory:G1-t29",
+            "theory:G1-t30"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "imageSha256": "71fb96e42768cf7bd1d58bcf3b0e09196b91ee6b194f73a63bddc16f896f0dbb",
+      "units": [
+        {
+          "id": "p09.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "כרומטוגרפיה על נייר",
+          "targets": [
+            "theory:G1-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "imageSha256": "3c1165165f7157188b285db4850d9079d6a14d78665b7631963c46c5c3d700b2",
+      "units": [
+        {
+          "id": "p10.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "כרומטוגרפיה בעמודה",
+          "targets": [
+            "theory:G1-t30"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "imageSha256": "7e5269436d7615920ef877315d43e04cadacfc3aee63fa72c2c0e1f1bec910b8",
+      "units": [
+        {
+          "id": "p11.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "כמויות SI בסיסיות, יחידות נגזרות ויחידות נפוצות נוספות",
+          "targets": [
+            "theory:G1-t03",
+            "theory:G1-t31",
+            "theory:G1-t32",
+            "theory:G1-t35"
+          ]
+        },
+        {
+          "id": "p11.u2",
+          "kind": "claim",
+          "disposition": "corrected",
+          "label": "ערך הלחץ המודפס 1.064×10² kPa לאטמוספרה אינו תקני",
+          "targets": [
+            "theory:G1-t36",
+            "theory:G1-t08",
+            "worked:12"
+          ],
+          "rationale": "הערך התקני 101.325 קילופסקל; השקופית שגויה."
+        },
+        {
+          "id": "p11.u3",
+          "kind": "claim",
+          "disposition": "covered",
+          "label": "הערות שוליים לטבלת יחידות הבסיס: איות, מול, זרם והארה",
+          "targets": [
+            "theory:G1-t31",
+            "theory:G1-t45"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "imageSha256": "6ace4b9b59244c36c42db406f83fa35ebc79a1dad5d22e437d62a05dc9b93051",
+      "units": [
+        {
+          "id": "p12.u1",
+          "kind": "table",
+          "disposition": "covered",
+          "label": "יחידות נגזרות: שטח, נפח, צפיפות, מהירות, תאוצה, כוח, לחץ, אנרגיה",
+          "targets": [
+            "theory:G1-t32",
+            "worked:13",
+            "quiz:18"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "imageSha256": "3492146866230f8e473441dd901717517850fe397d889efb55e061d7c456eee6",
+      "units": [
+        {
+          "id": "p13.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מסה מול משקל, קילוגרם, גרם ומיליגרם",
+          "targets": [
+            "theory:G1-t03",
+            "theory:G1-t33",
+            "quiz:19"
+          ]
+        },
+        {
+          "id": "p13.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תמונת מאזניים וגוף הייחוס של הקילוגרם",
+          "targets": [
+            "theory:G1-t33"
+          ],
+          "rationale": "התמונות אינן משוכפלות; הקריאה בתצוגת המאזניים ללא יחידה גלויה ולכן אין טענה לגביה."
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "imageSha256": "33569dbc7d910de8a658da6d1c154cf1f491e37873f9ae27f448649cc919c4b6",
+      "units": [
+        {
+          "id": "p14.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "שנייה והגדרתה לפי צסיום 133",
+          "targets": [
+            "theory:G1-t35"
+          ]
+        },
+        {
+          "id": "p14.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "תרשים שעון הייחוס ואטום צסיום 133",
+          "targets": [
+            "theory:G1-t35"
+          ],
+          "rationale": "התרשים מתואר במילים בלבד; ההגדרה המילולית של השנייה מוצגת."
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "imageSha256": "d9abe71a8189c89d1db4dac423972b503224ea01db5a74e4266fe8c24b461e29",
+      "units": [
+        {
+          "id": "p15.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "מטר ויחידות אורך נגזרות ואנגסטרם",
+          "targets": [
+            "theory:G1-t03",
+            "theory:G1-t34",
+            "quiz:20",
+            "theory:G1-t41",
+            "theory:G1-t42",
+            "worked:20"
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "imageSha256": "72d83ff881b11ba9c9755d27ab4cd08b82240627b42c5b5f40f3f28348f0a4b1",
+      "units": [
+        {
+          "id": "p16.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "יחידות נפח, ליטר, מיליליטר וכלי מדידה",
+          "targets": [
+            "theory:G1-t03",
+            "theory:G1-t37",
+            "worked:2",
+            "theory:G1-t43",
+            "worked:21"
+          ]
+        },
+        {
+          "id": "p16.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "קובייה של מטר מעוקב וליטר, סמ״ק וקוב",
+          "targets": [
+            "theory:G1-t37",
+            "theory:G1-t43"
+          ],
+          "rationale": "התרשים מתואר במילים."
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "imageSha256": "69e7d765adf85ed3cb7098e05606b7e67712db47fe6c41f34ee96c6b76be00db",
+      "units": [
+        {
+          "id": "p17.u1",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "סקאלות טמפרטורה וערכי ייחוס בצלזיוס, פרנהייט וקלווין",
+          "targets": [
+            "theory:G1-t39",
+            "theory:G1-t40",
+            "worked:9",
+            "worked:10",
+            "quiz:15",
+            "theory:G1-t44"
+          ],
+          "rationale": "נכתב בטקסט מקורי."
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "imageSha256": "24b61538cada4c96349a3d923cc508166cca32446fb9e072e4f507c7283d1edc",
+      "units": [
+        {
+          "id": "p18.u1",
+          "kind": "equation",
+          "disposition": "covered",
+          "label": "האפס המוחלט, T(K)=t(°C)+273.15 והמרה מפרנהייט",
+          "targets": [
+            "theory:G1-t07",
+            "quiz:3",
+            "quiz:8"
+          ]
+        },
+        {
+          "id": "p18.u2",
+          "kind": "figure",
+          "disposition": "adapted",
+          "label": "דיוקן קלווין ותרשים סקאלת הטמפרטורה",
+          "targets": [
+            "theory:G1-t39",
+            "theory:G1-t44"
+          ],
+          "rationale": "הדיוקן אינו משוכפל; ערכי הייחוס מופיעים בטקסט."
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "imageSha256": "769e7a7e6ab08fa03676d17ab0a5f4ebc54af30cee29e1971438bd13c56c2668",
+      "units": [
+        {
+          "id": "p19.u1",
+          "kind": "concept",
+          "disposition": "covered",
+          "label": "הגדרת צפיפות ודוגמת איזופרופנול",
+          "targets": [
+            "theory:G1-t04",
+            "theory:G1-t05",
+            "theory:G1-t38",
+            "worked:1",
+            "quiz:2"
+          ]
+        }
+      ]
+    }
+  ],
+  "lessonAdditions": [
+    {
+      "id": "a1",
+      "targets": [
+        "theory:G1-t06"
+      ],
+      "rationale": "כלל התאמת יחידות בצפיפות; הוסף להוראה ואינו שקופית."
+    },
+    {
+      "id": "a2",
+      "targets": [
+        "theory:G1-t11",
+        "theory:G1-t12",
+        "theory:G1-t13",
+        "theory:G1-t14"
+      ],
+      "rationale": "העמקה: צפיפות כתכונה אינטנסיבית ומלכודת מסת הכלי; התוכן הוסף מעבר לשקופיות."
+    },
+    {
+      "id": "a3",
+      "targets": [
+        "theory:G1-t15",
+        "theory:G1-t16",
+        "theory:G1-t17",
+        "theory:G1-t18",
+        "theory:G1-t19"
+      ],
+      "rationale": "תרגול המרות יחידות, כולל שטח ואנרגיה קינטית; הוסף מעבר לשקופיות."
+    },
+    {
+      "id": "a4",
+      "targets": [
+        "theory:G1-t20",
+        "theory:G1-t21",
+        "theory:G1-t22",
+        "theory:G1-t23"
+      ],
+      "rationale": "תערובת נוזלים וצפיפות כוללת; תוספת תרגול מעבר לשקופיות."
+    }
+  ],
+  "supportingSources": [
+    {
+      "file": "תרגיל חזרה- חומר תחילת הקורס.doc",
+      "sha256": "963ef8af7d02a639d8df1efb73aa08c81ae3590f3bfd572301bd3e7b503d8db4",
+      "items": [
+        {
+          "ref": "Q1א-ה",
+          "use": "data-and-method",
+          "targets": [
+            "worked:20",
+            "theory:G1-t41"
+          ]
+        },
+        {
+          "ref": "Q1ו-ז",
+          "use": "data-and-method",
+          "targets": [
+            "worked:5"
+          ]
+        },
+        {
+          "ref": "Q1ח-ט",
+          "use": "data-and-method",
+          "targets": [
+            "worked:21",
+            "theory:G1-t37"
+          ]
+        },
+        {
+          "ref": "Q1י",
+          "use": "data-and-method",
+          "targets": [
+            "quiz:6"
+          ]
+        },
+        {
+          "ref": "Q1יא-יב",
+          "use": "data-and-method",
+          "targets": [
+            "worked:21",
+            "theory:G1-t06"
+          ]
+        },
+        {
+          "ref": "Q1יג-יד",
+          "use": "data-and-method",
+          "targets": [
+            "quiz:3",
+            "quiz:8",
+            "theory:G1-t07"
+          ]
+        },
+        {
+          "ref": "Q2א",
+          "use": "data-and-method",
+          "targets": [
+            "worked:16"
+          ]
+        },
+        {
+          "ref": "Q2ב",
+          "use": "data-and-method",
+          "targets": [
+            "worked:6"
+          ]
+        },
+        {
+          "ref": "Q2ג",
+          "use": "data-and-method",
+          "targets": [
+            "worked:17"
+          ]
+        },
+        {
+          "ref": "Q2ד",
+          "use": "data-and-method",
+          "targets": [
+            "worked:7"
+          ]
+        },
+        {
+          "ref": "Q2ה",
+          "use": "data-and-method",
+          "targets": [
+            "worked:18"
+          ]
+        },
+        {
+          "ref": "Q2ו",
+          "use": "data-and-method",
+          "targets": [
+            "worked:8"
+          ]
+        },
+        {
+          "ref": "Q2ז",
+          "use": "data-and-method",
+          "targets": [
+            "worked:19"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "בוחן אמצע כימיה כללית תשפז.pdf",
+      "sha256": "f807caa1a2f6bc950bcf1afa74cfa35479e906679ef445778bb5d8714884ec1b",
+      "items": [
+        {
+          "ref": "Q2",
+          "use": "not-covered",
+          "reason": "Multi-topic stoichiometry and gas question. Only the unit steps (37 °C to kelvin, atm to other units) overlap G1, and those are taught in t07 and t35."
+        }
+      ]
+    },
+    {
+      "file": "כימיה כללית תרגול 2 -בת-אל .pdf",
+      "sha256": "117f82058caeeef385f51681265aab5aef34b71ac49a5e8a917689c5f2f02af7",
+      "items": [
+        {
+          "ref": "p2",
+          "use": "method-only",
+          "targets": [
+            "worked:22",
+            "theory:G1-t25"
+          ]
+        },
+        {
+          "ref": "p3",
+          "use": "not-covered",
+          "reason": "Periodic table group names slide: taught in G2 (periodic table slides), not G1."
+        },
+        {
+          "ref": "p4",
+          "use": "not-covered",
+          "reason": "Isotopes and weighted atomic mass: G2 topic, mapped in the G2 audit."
+        },
+        {
+          "ref": "p5-14",
+          "use": "not-covered",
+          "reason": "Avogadro, molar mass, stoichiometry and exercises: G2 and G3 topics, audited there."
+        }
+      ]
+    }
+  ]
+}

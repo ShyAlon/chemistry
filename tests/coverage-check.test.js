@@ -20,14 +20,14 @@ test('E5 map is valid, traced, and has no pending exclusions',()=>{
  const r=checkTopic(topic,cov());assert.deepEqual(r.errors,[]);assert.deepEqual(r.unmapped,[]);assert.deepEqual(r.pending,[]);
 });
 test('legacy topics are unaudited only via the explicit allowlist; new topics without maps fail',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,45);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,44);
  const pol={...loadPolicy(),legacyUnaudited:loadPolicy().legacyUnaudited.slice(1)};
  const miss=checkAll({policy:pol}).filter(r=>r.status==='fail');assert.equal(miss.length,1);assert.match(miss[0].errors[0],/no coverage map and not on the legacy-unaudited allowlist/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/E5']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/remove it/);
  assert.match(checkAll({policy:{...loadPolicy(),legacyUnaudited:[...loadPolicy().legacyUnaudited,'nuclear/Z9']}}).filter(r=>r.status==='fail').map(r=>r.errors[0]).join('|'),/does not exist/);
 });
 test('legacy topics are unaudited, not failed',()=>{
- const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,45);
+ const rows=checkAll();assert.equal(rows.filter(r=>r.status==='fail').length,0);assert.equal(rows.filter(r=>r.status==='unaudited').length,44);
 });
 test('deck files are pinned to the manifest, spans respect real page counts, and the cross-topic partition is accountable',()=>{
  const manifest=[{file:'a.pdf',sha256:'a'.repeat(64)},{file:'b.pdf',sha256:'b'.repeat(64)}];
@@ -193,6 +193,8 @@ test('supporting sources are validated structurally, hash-pinned against the man
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items.push({ref:'Q9',use:'not-covered',reason:'no item uses this question',targets:[tgt]})}),/must not list targets/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].reason='x'}),/reason is only for not-covered/);
  assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref='page 6'}),/ref must be a question label/);
+ for(const ref of ['Q1יא','Q1יג-יד','Q1ח-ט','Q1י','Q1כא','Q3','p2','p4-14'])assert.equal(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),'',ref);
+ for(const ref of ['Q1abc','Q1אבג','Q1יא-','Q1ת-יא-ב','p','p2-','P2','Q123'])assert.match(errs(c=>{c.supportingSources=good();c.supportingSources[0].items[0].ref=ref}),/ref must be a question label/,ref);
  assert.match(errs(c=>{c.supportingSources=[]}),/non-empty list/);
  const a=cov(),b=cov();b.supportingSources=good();assert.notEqual(unitMapHash(a),unitMapHash(b));
  // manifest pin: G13 declares the HW6 and sample exam; a wrong hash must fail checkAll.

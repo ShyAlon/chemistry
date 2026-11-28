@@ -29,7 +29,7 @@ import {test as _t} from 'node:test';
 import _assert from 'node:assert/strict';
 _t('glue keeps number with unit and only breaks after =', () => {
   const g = _glue('m=0.100/0.500=0.200 mol/kg');
-  _assert.ok(g.includes('0.200\u00a0mol/kg'));
+  _assert.ok(g.includes('0.200\u00a0mol/\u2060kg')); // word joiner after the slash keeps a compound unit on one line
   _assert.equal(g.replace(/[\u200b\u2060]/g, '').replace(/\u00a0/g, ' '), 'm=0.100/0.500=0.200 mol/kg');
 });
 _t('long equation and decimal punctuation survive glue', () => {
@@ -108,4 +108,29 @@ test('breakMath breaks only after top-level operators and never inside brackets,
  assert.ok(!/\([^)]*\u200b[^)]*\)/.test(out.replace(/\(√2.*$/,'')));
  assert.equal(breakMath('J/(mol·K)').includes('\u200b'),false);
  assert.equal(breakMath('Cd²⁺ + 2e⁻').replace(/\u200b/g,''),'Cd²⁺ + 2e⁻');
+});
+
+// GC1 G1 audit: units that wrapped away from their number (seconds, micrometre, angstrom, cm, compound density units).
+import {glueCalculation as _glueG1,splitEquationRuns as _erG1} from '../src/solution-steps.js';
+test('number and unit stay together for seconds, length, and compound units; no break inside g/mL',()=>{
+ const g=_glueG1('t = 240 s');assert.ok(g.includes('240\u00a0s'));
+ assert.ok(_glueG1('x = 7 Å').includes('7\u00a0Å'));assert.ok(_glueG1('x = 1.76 cm').includes('1.76\u00a0cm'));assert.ok(_glueG1('x = 4 μm').includes('4\u00a0μm'));
+ const d=_glueG1('ρ = 1.2 g/mL');assert.ok(d.includes('1.2\u00a0g/\u2060mL'));
+ assert.equal(_glueG1('ρ = 1.2 g/mL').replace(/[\u200b\u2060]/g,'').replace(/\u00a0/g,' '),'ρ = 1.2 g/mL');
+ assert.equal(_erG1('אם ρ = 1.2 g/mL אז').some(p=>p.equation),true);
+});
+
+test('scientific-notation quantity with a length unit is one run (no orphan unit)',()=>{
+ const p=_sqty('ממירים לפי היחס: 3.2 × 10⁻⁸ cm. אנגסטרם');
+ assert.deepEqual(p.filter(x=>x.quantity).map(x=>x.text),['3.2\u00a0×\u00a010⁻⁸\u00a0cm']);
+});
+
+test('unit after a superscript exponent is glued in calculation chips',()=>{
+ assert.ok(_glueG1('x = 2.35 × 10⁶ m').includes('10⁶\u00a0m'));
+});
+
+test('a short compact result is not split from its equals sign; product with exponent keeps its unit',()=>{
+ assert.ok(!_glueG1('t=77−273.15=−196.15°C').slice(0,-12).endsWith('=\u200b'));
+ assert.ok(!/\u200b/.test(_glueG1('t=77−273.15=−196.15°C').split('=').pop()));
+ const g=_glueG1('7 × 10⁻¹⁰ × 10⁶ = 7 × 10⁻⁴ μm');assert.ok(g.includes('×\u00a010⁻⁴\u00a0μm'));
 });

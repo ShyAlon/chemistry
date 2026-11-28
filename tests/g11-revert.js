@@ -16,3 +16,11 @@ export function revertG11(t){
  t.content.worked[1].content=structuredClone(fx.worked2);
  const q=t.content.quiz.find(q=>q.id===3);q.answer=fx.quiz3answer;q.prompt=fx.quiz3prompt;return t;
 }
+// G1 audit: two reviewed prose corrections (practice-corrections.json) restore their pre-audit text for the layer baselines that do not apply practice-baseline.
+import {readFileSync as _rf} from 'node:fs';
+export function revertG1(t){
+ if(t?.id!=='G1')return t;
+ const list=JSON.parse(_rf(new URL('../src/practice-corrections.json',import.meta.url))).filter(c=>c.topic==='G1');
+ for(const c of list){if(c.worked){const w=t.content.worked.find(w=>w.title===c.worked&&w.content[1]===c.after);if(!w)throw new Error('G1 worked correction missing');w.content[1]=c.before;continue}const b=t.content.theory.find(b=>b.text===c.after);if(!b)throw new Error('G1 correction missing');b.text=c.before}
+ return t;
+}

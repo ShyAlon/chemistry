@@ -384,7 +384,13 @@
   }
  ],
  "semanticReview": {
-  "status": "pending"
+  "status": "done",
+  "reviewer": "chat-01M8GEVBD0NR4269JYKVJK42BA",
+  "sourceSha256": "516cd98b5326281d0dcf8de2c8e5c37b453ca25d8aa3e49dbf7b4977e064e5e0",
+  "contentSha256": "8c5ff217dd44457fbde11b4939fa3caed37ba43b9f684f6c95346901888d1ee1",
+  "unitMapSha256": "7d6e536e367cf0683affe6dfbf5f566bd989af469177b9a12eceb9680d6cdb93",
+  "figuresSha256": "012965fb81436540d45cce932f2b7a1e020cfd1ea35d80c3e5a6179c9d3d7835",
+  "adminPagesAttested": []
  },
  "lessonAdditions": [
   {

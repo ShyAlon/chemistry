@@ -40,7 +40,7 @@ test('course content and answer data stay identical except the explicit V+ worke
  assert.match(vanadium.content[3],/\[Ar\]3d⁴/);
  // Restore only this known correction before checking the unchanged content baseline.
  // G3 quiz 4 gained the additive answerLines display field (one LTR line per compound); the baseline keeps the pre-field digest.
- delete copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;
+ delete copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const q of copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G2').content.quiz)delete q.answerLines;
  vanadium.content.splice(2,2,'V: [Ar]4s²3d³. V⁺ = [Ar]3d⁴ (לא [Ar]4s¹3d³ - המוצא הוא תמיד מ-s קודם).');
  // G10 quiz 1 answer was intentionally repaired in the source audit (3718.55 -> 3718.45); same fixture pattern as the V+ correction above.
  copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.quiz.find(x=>x.id===1).answer='Ēₖ=3RT/2=3718.55 J/mol.';copy.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G10').content.worked[0].content=['GC4 עמ׳ 7: מה האנרגיה הקינטית התרגומית הממוצעת למול ב-25°C? R=8.3145.','E=1.5×8.3145×298.15=3718.55 J/mol. למולקולה מחלקים ב-6.022×10²³ ומקבלים כ-6.175×10⁻²¹ J.']; /* same repaired worked-1 line, reverted in-memory */

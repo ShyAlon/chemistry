@@ -29,7 +29,7 @@ test('final preparation is append-only on exact reviewed main; every other byte 
  for(const id of ['SS1','SS2','SS3','SS4']){const n=original.courses.find(c=>c.id==='solid-state'),i=n.topics.findIndex(t=>t.id===id);n.topics[i]=JSON.parse(readFileSync(new URL('./fixtures/solid-state-'+id+'-before-repair.json',import.meta.url)))}
  original.courses=original.courses.filter(c=>c.id!=='general-chemistry-2');
  // G3 quiz 4 gained the additive answerLines display field (one LTR line per compound); the baseline keeps the pre-field digest.
- delete original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;
+ delete original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G3').content.quiz.find(q=>q.id===4).answerLines;for(const q of original.courses.find(c=>c.id==='84101').topics.find(t=>t.id==='G2').content.quiz)delete q.answerLines;
  // Nano N13 is a new topic authored after the reviewed-main snapshot this hash protects; drop it so the hash still proves every pre-existing byte is retained.
  {const n=original.courses.find(c=>c.id==='nano');n.topics=n.topics.filter(t=>t.id!=='N13');}
  for(const c of original.courses)for(const t of c.topics){

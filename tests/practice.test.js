@@ -19,11 +19,11 @@ test('practice enriches four existing topics without duplicate topics; 15 exampl
  for(const t of general.topics){assert.equal(new Set(t.content.quiz.map(q=>q.id)).size,t.content.quiz.length);for(const q of t.content.quiz){assert.ok(q.answer);if(q.type==='numeric')assert.ok(numericCorrect([String(q.fields[0].value)],[q.fields[0].unit],q.fields));if(q.type==='mcq'){assert.equal(q.options.length,4);assert.ok(q.options[q.correct])}}}
 });
 // G3 quiz 4 gained the additive answerLines display field; the baseline keeps the pre-field digest.
-const withoutG3AnswerLines=(courseId,topic)=>{if(courseId!=='84101'||topic.id!=='G3')return topic;const copy=structuredClone(topic);delete copy.content.quiz.find(q=>q.id===4).answerLines;return copy};
+const withoutG3AnswerLines=(courseId,topic)=>{if(courseId!=='84101'||(topic.id!=='G3'&&topic.id!=='G2'))return topic;const copy=structuredClone(topic);if(topic.id==='G3')delete copy.content.quiz.find(q=>q.id===4).answerLines;else for(const q of copy.content.quiz)delete q.answerLines;return copy};
 test('every prior topic, question id and answer matches fixed reviewed baseline after explicit exemptions',()=>{
  const baseline=JSON.parse(readFileSync(new URL('./fixtures/practice-baseline.json',import.meta.url)));
  for(const c of data.courses.filter(c=>c.id!=='general-chemistry-2'))for(const topic of c.topics.filter(t=>!t.provenance?.edition?.startsWith('inorganic-recap-'))){const key=c.id+'/'+topic.id;assert.equal(createHash('sha256').update(JSON.stringify(beforeVanadium(beforePractice(withoutG3AnswerLines(c.id,topic))))).digest('hex'),baseline[key],key)}
- assert.equal(corrections.length,14);assert.deepEqual(corrections.map(c=>c.topic),['G10','G10','G10','G11','G11','G1','G1','G1','G1','G1','G1','G1','G1','G2']);
+ assert.equal(corrections.length,19);assert.deepEqual(corrections.map(c=>c.topic),['G10','G10','G10','G11','G11','G1','G1','G1','G1','G1','G1','G1','G1','G2','G2','G2','G2','G2','G2']);
 });
 test('all eleven new numeric question answers independently recompute',()=>{
  const expected={G1:[90/3.6,7*.1,77-273.15,(3400-1000)/2000],G9:[(250-205)/2,22.5/205],G10:[Math.sqrt(1200/300),Math.sqrt(2*R*300/.028),1.5*120,Math.sqrt(2/44)],G11:[1/4]};

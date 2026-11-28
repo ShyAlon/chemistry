@@ -365,6 +365,8 @@
      "label": "חישוב מסות מולריות של שלוש תרכובות",
      "targets": [
       "quiz:10",
+      "quiz:16",
+      "quiz:17",
       "theory:G2-t07"
      ]
     },
@@ -418,7 +420,8 @@
      "use": "data-and-method",
      "targets": [
       "worked:1",
-      "theory:G2-t02"
+      "theory:G2-t02",
+      "quiz:20"
      ]
     },
     {
@@ -426,13 +429,16 @@
      "use": "data-and-method",
      "targets": [
       "worked:2",
-      "quiz:4"
+      "quiz:4",
+      "worked:15",
+      "quiz:19"
      ]
     },
     {
      "ref": "Q3",
-     "use": "method-only",
+     "use": "data-and-method",
      "targets": [
+      "worked:18",
       "worked:6",
       "quiz:8",
       "quiz:9"
@@ -440,8 +446,9 @@
     },
     {
      "ref": "Q4",
-     "use": "method-only",
+     "use": "data-and-method",
      "targets": [
+      "worked:17",
       "worked:7"
      ]
     },
@@ -450,21 +457,25 @@
      "use": "data-and-method",
      "targets": [
       "quiz:2",
-      "quiz:3"
+      "quiz:3",
+      "worked:14",
+      "quiz:18"
      ]
     },
     {
      "ref": "Q6",
-     "use": "method-only",
+     "use": "data-and-method",
      "targets": [
+      "worked:16",
       "worked:8",
       "quiz:13"
      ]
     },
     {
      "ref": "Q7",
-     "use": "method-only",
+     "use": "data-and-method",
      "targets": [
+      "worked:19",
       "worked:9",
       "quiz:14"
      ]
@@ -473,14 +484,16 @@
      "ref": "Q8",
      "use": "data-and-method",
      "targets": [
+      "worked:13",
       "quiz:5",
       "theory:G2-t06"
      ]
     },
     {
      "ref": "Q9",
-     "use": "method-only",
+     "use": "data-and-method",
      "targets": [
+      "worked:20",
       "worked:10",
       "quiz:12"
      ]
